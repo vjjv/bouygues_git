@@ -1,2 +1,1 @@
-# bouygues_git
- bouygues_git
+# camera_kit_demo
