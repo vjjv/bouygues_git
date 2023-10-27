@@ -1,5 +1,5 @@
 {
-  "name": "camera_kit_demo",
+  "name": "camera-kit-bouygues",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,7 +9,7 @@
     "serve": "webpack-dashboard -- webpack-dev-server --https --port 9000"
   },
   "keywords": [],
-  "author": "",
+  "author": "Filtre Experience",
   "license": "ISC",
   "devDependencies": {
     "webpack": "^5.84.0",
@@ -20,5 +20,16 @@
     "jquery": "^3.7.0",
     "webpack-dashboard": "^3.3.8",
     "webpack-dev-server": "^4.15.1"
-  }
+  },
+  "directories": {
+    "doc": "docs"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vjjv/bouygues_git.git"
+  },
+  "bugs": {
+    "url": "https://github.com/vjjv/bouygues_git/issues"
+  },
+  "homepage": "https://github.com/vjjv/bouygues_git#readme"
 }
