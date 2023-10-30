@@ -26031,8 +26031,8 @@ console.info(`SDK: ${environment_namespaceObject.l} \
     document.getElementById('canvas').replaceWith(session.output.live);
 
     // const { lenses } = await cameraKit.lensRepository.loadLensGroups(['1c840cc0-bead-4a6d-8328-1fbe4a5ba67a']);
-    // const { lenses } = await cameraKit.lensRepository.loadLensGroups(['43fb2e8d-fe39-44fb-a043-11b46802c1a0']);
-    const { lenses } = await cameraKit.lensRepository.loadLensGroups(['3251ca8b-db9b-4e2c-80a2-85dd1b7e4a56']);
+    const { lenses } = await cameraKit.lensRepository.loadLensGroups(['43fb2e8d-fe39-44fb-a043-11b46802c1a0']);
+    // const { lenses } = await cameraKit.lensRepository.loadLensGroups(['3251ca8b-db9b-4e2c-80a2-85dd1b7e4a56']);
 
     session.applyLens(lenses[0]); 
 
