@@ -26032,7 +26032,6 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
     // const { lenses } = await cameraKit.lensRepository.loadLensGroups(['1c840cc0-bead-4a6d-8328-1fbe4a5ba67a']);
     const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);
-    // const { lenses } = await cameraKit.lensRepository.loadLensGroups(['3251ca8b-db9b-4e2c-80a2-85dd1b7e4a56']);
 
     session.applyLens(lenses[0]); 
 
@@ -26044,9 +26043,9 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
     const source = createMediaStreamSource(mediaStream, {
         // transform: Transform2D.MirrorX,
-        cameraType: 'back'
+        fpsLimit: 30,
+        cameraType: 'back',
     });
-
 
 
     await session.setSource(source)
