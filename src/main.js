@@ -50,7 +50,7 @@ import {
             //remoteApiServicesFactory.token,
             //[remoteApiServicesFactory.token] as const,
             'MyService',
-            ['DependencyA'],
+            ['MyService'],
             (existing) => [...existing, damsService]
         )
     )
