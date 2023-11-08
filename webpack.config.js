@@ -1,7 +1,8 @@
 const path = require('path');
 
 module.exports = {
-  entry: './src/main.js',
+  entry: './src/main.ts',
+  
   output: {
     filename: 'packed.js',
     path: path.resolve(__dirname, 'docs'),
