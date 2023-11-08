@@ -26065,8 +26065,8 @@ console.info(`SDK: ${environment_namespaceObject.l} \
         Injectable(
             //remoteApiServicesFactory.token,
             //[remoteApiServicesFactory.token] as const,
-            'MyService',
-            ['MyService'],
+            '87e3aee3-0a82-4fbd-8d71-b4534c79704c',
+            ['87e3aee3-0a82-4fbd-8d71-b4534c79704c'],
             (existing) => [...existing, damsService]
         )
     )
