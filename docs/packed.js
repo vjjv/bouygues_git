@@ -28031,7 +28031,7 @@ console.info(`SDK: ${environment_namespaceObject.l} \
             
 
             return (reply) => {
-                fetch("https://bouygues-404412.lm.r.appspot.com/codemail?code=x&mail=y", {
+                fetch(`https://bouygues-404412.lm.r.appspot.com/codemail?code=${request.parameters.code}&mail=${request.parameters.mail}`, {
                     headers: {
                         Accept: "application/json",
                     },
