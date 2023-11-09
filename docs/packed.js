@@ -28016,7 +28016,7 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
 
 //# sourceMappingURL=index.js.map
-;// CONCATENATED MODULE: ./src/main.ts
+;// CONCATENATED MODULE: ./src/main.js
 
 
 (async function () {
@@ -28027,10 +28027,11 @@ console.info(`SDK: ${environment_namespaceObject.l} \
         apiSpecId: "87e3aee3-0a82-4fbd-8d71-b4534c79704c",
 
         getRequestHandler(request) {
-            if (request.endpointId !== "code") return;
+            if (request.endpointId !== "codemail") return;
+            
 
             return (reply) => {
-                fetch("https://bouygues-404412.lm.r.appspot.com/code", {
+                fetch("https://bouygues-404412.lm.r.appspot.com/codemail", {
                     headers: {
                         Accept: "application/json",
                     },
@@ -28046,6 +28047,30 @@ console.info(`SDK: ${environment_namespaceObject.l} \
             };
         },
     };
+
+    // const damsService2 = {
+    //     apiSpecId: "87e3aee3-0a82-4fbd-8d71-b4534c79704c",
+
+    //     getRequestHandler(request) {
+    //         if (request.endpointId !== "codemail") return;
+
+    //         return (reply) => {
+    //             fetch("https://bouygues-404412.lm.r.appspot.com/codemail", {
+    //                 headers: {
+    //                     Accept: "application/json",
+    //                 },
+    //             })
+    //                 .then((res) => res.text())
+    //                 .then((res) =>
+    //                     reply({
+    //                         status: "success",
+    //                         metadata: {},
+    //                         body: new TextEncoder().encode(res),
+    //                     })
+    //                 );
+    //         };
+    //     },
+    // };
     //
 
 
@@ -28062,8 +28087,6 @@ console.info(`SDK: ${environment_namespaceObject.l} \
         Injectable(
             remoteApiServicesFactory.token,
             [remoteApiServicesFactory.token],
-            //'87e3aee3-0a82-4fbd-8d71-b4534c79704c',
-            //['87e3aee3-0a82-4fbd-8d71-b4534c79704c'],
             (existing) => [...existing, damsService]
         )
     )
