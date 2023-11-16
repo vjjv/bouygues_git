@@ -5701,11 +5701,30 @@ var Reflect;
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/make namespace object */
+/******/ 	(() => {
+/******/ 		// define __esModule on exports
+/******/ 		__webpack_require__.r = (exports) => {
+/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
+/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
+/******/ 			}
+/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
+/******/ 		};
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
+
+// NAMESPACE OBJECT: ./node_modules/@snap/camera-kit/lib/index.js
+var lib_namespaceObject = {};
+__webpack_require__.r(lib_namespaceObject);
+__webpack_require__.d(lib_namespaceObject, {
+  FY: () => (bootstrapCameraKit),
+  $A: () => (createMediaStreamSource)
+});
 
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/environment.json
 const environment_namespaceObject = JSON.parse('{"l":"0.13.1-alpha.1"}');
@@ -28022,13 +28041,15 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 (async function () {
 
 
+
+
     //DAMS
     const damsService = {
         apiSpecId: "87e3aee3-0a82-4fbd-8d71-b4534c79704c",
 
         getRequestHandler(request) {
             if (request.endpointId !== "codemail") return;
-            
+
 
             return (reply) => {
                 fetch(`https://bouygues-404412.lm.r.appspot.com/codemail?code=${request.parameters.code}&mail=${request.parameters.mail}`, {
@@ -28048,49 +28069,35 @@ console.info(`SDK: ${environment_namespaceObject.l} \
         },
     };
 
-    // const damsService2 = {
-    //     apiSpecId: "87e3aee3-0a82-4fbd-8d71-b4534c79704c",
-
-    //     getRequestHandler(request) {
-    //         if (request.endpointId !== "codemail") return;
-
-    //         return (reply) => {
-    //             fetch("https://bouygues-404412.lm.r.appspot.com/codemail", {
-    //                 headers: {
-    //                     Accept: "application/json",
-    //                 },
-    //             })
-    //                 .then((res) => res.text())
-    //                 .then((res) =>
-    //                     reply({
-    //                         status: "success",
-    //                         metadata: {},
-    //                         body: new TextEncoder().encode(res),
-    //                     })
-    //                 );
-    //         };
-    //     },
-    // };
-    //
-
-
-    //var expressService = await RemoteApiService({ apiSpecId: '87e3aee3-0a82-4fbd-8d71-b4534c79704c' });
-
-
+   
 
 
     //var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' })
-  
 
-    var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' }, (container) =>
-    container.provides(
-        Injectable(
-            remoteApiServicesFactory.token,
-            [remoteApiServicesFactory.token],
-            (existing) => [...existing, damsService]
-        )
-    )
-);
+//V2 working here
+    // var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' }, (container) =>
+    //     container.provides(
+    //         Injectable(
+    //             remoteApiServicesFactory.token,
+    //             [remoteApiServicesFactory.token],
+    //             (existing) => [...existing, damsService]
+    //         )
+    //     )
+    // );
+
+    //PUSH2WEB
+    const push2Web = new lib_namespaceObject.Push2Web();
+    push2Web.events.addEventListener("lensReceived", console.info);
+    push2Web.events.addEventListener("error", console.error);
+    push2Web.events.addEventListener("subscriptionChanged", console.info);
+
+    const extensions = (container) => container.provides(push2Web.extension, damsService);
+
+    const cameraKit = await bootstrapCameraKit({ apiToken: "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4" }, extensions);
+    //const cameraKitSession = await cameraKit.createSession();
+
+    push2Web.subscribe("login kit access token", cameraKitSession, cameraKit.lensRepository);
+    //end PUSH2WEB
 
     const session = await cameraKit.createSession();
 
