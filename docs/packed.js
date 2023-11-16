@@ -5701,30 +5701,11 @@ var Reflect;
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
-/******/ 	/* webpack/runtime/make namespace object */
-/******/ 	(() => {
-/******/ 		// define __esModule on exports
-/******/ 		__webpack_require__.r = (exports) => {
-/******/ 			if(typeof Symbol !== 'undefined' && Symbol.toStringTag) {
-/******/ 				Object.defineProperty(exports, Symbol.toStringTag, { value: 'Module' });
-/******/ 			}
-/******/ 			Object.defineProperty(exports, '__esModule', { value: true });
-/******/ 		};
-/******/ 	})();
-/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be in strict mode.
 (() => {
 "use strict";
-
-// NAMESPACE OBJECT: ./node_modules/@snap/camera-kit/lib/index.js
-var lib_namespaceObject = {};
-__webpack_require__.r(lib_namespaceObject);
-__webpack_require__.d(lib_namespaceObject, {
-  FY: () => (bootstrapCameraKit),
-  $A: () => (createMediaStreamSource)
-});
 
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/environment.json
 const environment_namespaceObject = JSON.parse('{"l":"0.13.1-alpha.1"}');
@@ -18170,7 +18151,7 @@ function memoize(delegate) {
  * ```
  */
 /** @internal */
-class PartialContainer_PartialContainer {
+class PartialContainer {
     constructor(injectables) {
         this.injectables = injectables;
     }
@@ -18187,7 +18168,7 @@ class PartialContainer_PartialContainer {
      * @param fn A InjectableFunction, taking dependencies as arguments, which returns the Service.
      */
     provides(fn) {
-        return new PartialContainer_PartialContainer(Object.assign(Object.assign({}, this.injectables), { [fn.token]: fn }));
+        return new PartialContainer(Object.assign(Object.assign({}, this.injectables), { [fn.token]: fn }));
     }
     /**
      * In order to create a [Container], the InjectableFunctions maintained by the PartialContainer must be memoized
@@ -18283,7 +18264,7 @@ class Container {
         // Although the `provides` method has overloads that match both members of the union type separately, it does
         // not match the union type itself, so the compiler forces us to branch and handle each type within the union
         // separately. (Maybe in the future the compiler will decide to infer this, but for now this is necessary.)
-        if (fnOrContainer instanceof PartialContainer_PartialContainer)
+        if (fnOrContainer instanceof PartialContainer)
             return new Container({}).provides(fnOrContainer);
         if (fnOrContainer instanceof Container)
             return new Container({}).provides(fnOrContainer);
@@ -18340,7 +18321,7 @@ class Container {
         return factory(this);
     }
     run(fnOrContainer) {
-        if (fnOrContainer instanceof PartialContainer_PartialContainer) {
+        if (fnOrContainer instanceof PartialContainer) {
             const runnableContainer = this.provides(fnOrContainer);
             for (const token of fnOrContainer.getTokens()) {
                 runnableContainer.get(token);
@@ -18352,8 +18333,8 @@ class Container {
         return this;
     }
     provides(fnOrContainer) {
-        if (fnOrContainer instanceof PartialContainer_PartialContainer || fnOrContainer instanceof Container) {
-            const factories = fnOrContainer instanceof PartialContainer_PartialContainer ? fnOrContainer.getFactories(this) : fnOrContainer.factories;
+        if (fnOrContainer instanceof PartialContainer || fnOrContainer instanceof Container) {
+            const factories = fnOrContainer instanceof PartialContainer ? fnOrContainer.getFactories(this) : fnOrContainer.factories;
             // Safety: `this.factories` and `factories` are both properly type checked, so merging them produces
             // a Factories object with keys from both Services and AdditionalServices. The compiler is unable to
             // infer that Factories<A> & Factories<B> == Factories<A & B>, so the cast is required.
@@ -26797,7 +26778,7 @@ const reportUserSession = Injectable("reportUserSession", [metricsEventTargetFac
  * The businessEventsReporter is special, it doesn't create any of its own metrics, it simply listens to the global
  * metricsEventTarget and reports metrics emitted there to our backend.
  */
-const reportGloballyScopedMetrics = new PartialContainer_PartialContainer({})
+const reportGloballyScopedMetrics = new PartialContainer({})
     .provides(reportHttpMetrics)
     .provides(reportBenchmarks)
     .provides(reportLensAndAssetDownload)
@@ -26806,7 +26787,7 @@ const reportGloballyScopedMetrics = new PartialContainer_PartialContainer({})
  * These metrics reporters must be run once for each CameraKitSession DI container created. They may depend on services
  * which are only available at the session scope (e.g. the CameraKitSession itself).
  */
-const reportSessionScopedMetrics = new PartialContainer_PartialContainer({})
+const reportSessionScopedMetrics = new PartialContainer({})
     .provides(reportUserSession)
     .provides(reportLensView)
     .provides(reportLensWait)
@@ -28035,7 +28016,2705 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
 
 //# sourceMappingURL=index.js.map
+;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/generated-api-client/google/protobuf/any.js
+
+
+const any_protobufPackage = "google.protobuf";
+function any_createBaseAny() {
+    return { typeUrl: "", value: new Uint8Array() };
+}
+const any_Any = {
+    encode(message, writer = minimal_default().Writer.create()) {
+        if (message.typeUrl !== "") {
+            writer.uint32(10).string(message.typeUrl);
+        }
+        if (message.value.length !== 0) {
+            writer.uint32(18).bytes(message.value);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = any_createBaseAny();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.typeUrl = reader.string();
+                    break;
+                case 2:
+                    message.value = reader.bytes();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            typeUrl: any_isSet(object.typeUrl) ? String(object.typeUrl) : "",
+            value: any_isSet(object.value) ? any_bytesFromBase64(object.value) : new Uint8Array(),
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.typeUrl !== undefined && (obj.typeUrl = message.typeUrl);
+        message.value !== undefined &&
+            (obj.value = any_base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
+        return obj;
+    },
+    fromPartial(object) {
+        const message = any_createBaseAny();
+        message.typeUrl = object.typeUrl ?? "";
+        message.value = object.value ?? new Uint8Array();
+        return message;
+    },
+};
+var protobuf_any_globalThis = (() => {
+    if (typeof protobuf_any_globalThis !== "undefined")
+        return protobuf_any_globalThis;
+    if (typeof self !== "undefined")
+        return self;
+    if (typeof window !== "undefined")
+        return window;
+    if (typeof __webpack_require__.g !== "undefined")
+        return __webpack_require__.g;
+    throw "Unable to locate global object";
+})();
+const any_atob = protobuf_any_globalThis.atob || ((b64) => protobuf_any_globalThis.Buffer.from(b64, "base64").toString("binary"));
+function any_bytesFromBase64(b64) {
+    const bin = any_atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; ++i) {
+        arr[i] = bin.charCodeAt(i);
+    }
+    return arr;
+}
+const any_btoa = protobuf_any_globalThis.btoa || ((bin) => protobuf_any_globalThis.Buffer.from(bin, "binary").toString("base64"));
+function any_base64FromBytes(arr) {
+    const bin = [];
+    for (const byte of arr) {
+        bin.push(String.fromCharCode(byte));
+    }
+    return any_btoa(bin.join(""));
+}
+if ((minimal_default()).util.Long !== (long_default())) {
+    (minimal_default()).util.Long = (long_default());
+    minimal_default().configure();
+}
+function any_isSet(value) {
+    return value !== null && value !== undefined;
+}
+
+;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/generated-api-client/camera_kit/v3/lens.js
+
+
+
+const v3_lens_protobufPackage = "com.snap.camerakit.v3";
+var lens_Lens_CameraFacing;
+(function (Lens_CameraFacing) {
+    Lens_CameraFacing["CAMERA_FACING_UNSET"] = "CAMERA_FACING_UNSET";
+    Lens_CameraFacing["CAMERA_FACING_FRONT"] = "CAMERA_FACING_FRONT";
+    Lens_CameraFacing["CAMERA_FACING_BACK"] = "CAMERA_FACING_BACK";
+    Lens_CameraFacing["UNRECOGNIZED"] = "UNRECOGNIZED";
+})(lens_Lens_CameraFacing || (lens_Lens_CameraFacing = {}));
+function lens_lens_CameraFacingFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "CAMERA_FACING_UNSET":
+            return lens_Lens_CameraFacing.CAMERA_FACING_UNSET;
+        case 1:
+        case "CAMERA_FACING_FRONT":
+            return lens_Lens_CameraFacing.CAMERA_FACING_FRONT;
+        case 2:
+        case "CAMERA_FACING_BACK":
+            return lens_Lens_CameraFacing.CAMERA_FACING_BACK;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return lens_Lens_CameraFacing.UNRECOGNIZED;
+    }
+}
+function lens_lens_CameraFacingToJSON(object) {
+    switch (object) {
+        case lens_Lens_CameraFacing.CAMERA_FACING_UNSET:
+            return "CAMERA_FACING_UNSET";
+        case lens_Lens_CameraFacing.CAMERA_FACING_FRONT:
+            return "CAMERA_FACING_FRONT";
+        case lens_Lens_CameraFacing.CAMERA_FACING_BACK:
+            return "CAMERA_FACING_BACK";
+        default:
+            return "UNKNOWN";
+    }
+}
+function lens_lens_CameraFacingToNumber(object) {
+    switch (object) {
+        case lens_Lens_CameraFacing.CAMERA_FACING_UNSET:
+            return 0;
+        case lens_Lens_CameraFacing.CAMERA_FACING_FRONT:
+            return 1;
+        case lens_Lens_CameraFacing.CAMERA_FACING_BACK:
+            return 2;
+        default:
+            return 0;
+    }
+}
+var lens_LensAssetManifestItem_Type;
+(function (LensAssetManifestItem_Type) {
+    LensAssetManifestItem_Type["DEVICE_DEPENDENT_ASSET_UNSET"] = "DEVICE_DEPENDENT_ASSET_UNSET";
+    LensAssetManifestItem_Type["ASSET"] = "ASSET";
+    LensAssetManifestItem_Type["UNRECOGNIZED"] = "UNRECOGNIZED";
+})(lens_LensAssetManifestItem_Type || (lens_LensAssetManifestItem_Type = {}));
+function lens_lensAssetManifestItem_TypeFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "DEVICE_DEPENDENT_ASSET_UNSET":
+            return lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET;
+        case 1:
+        case "ASSET":
+            return lens_LensAssetManifestItem_Type.ASSET;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return lens_LensAssetManifestItem_Type.UNRECOGNIZED;
+    }
+}
+function lens_lensAssetManifestItem_TypeToJSON(object) {
+    switch (object) {
+        case lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET:
+            return "DEVICE_DEPENDENT_ASSET_UNSET";
+        case lens_LensAssetManifestItem_Type.ASSET:
+            return "ASSET";
+        default:
+            return "UNKNOWN";
+    }
+}
+function lens_lensAssetManifestItem_TypeToNumber(object) {
+    switch (object) {
+        case lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET:
+            return 0;
+        case lens_LensAssetManifestItem_Type.ASSET:
+            return 1;
+        default:
+            return 0;
+    }
+}
+var lens_LensAssetManifestItem_RequestTiming;
+(function (LensAssetManifestItem_RequestTiming) {
+    LensAssetManifestItem_RequestTiming["PRELOAD_UNSET"] = "PRELOAD_UNSET";
+    LensAssetManifestItem_RequestTiming["ON_DEMAND"] = "ON_DEMAND";
+    LensAssetManifestItem_RequestTiming["REQUIRED"] = "REQUIRED";
+    LensAssetManifestItem_RequestTiming["UNRECOGNIZED"] = "UNRECOGNIZED";
+})(lens_LensAssetManifestItem_RequestTiming || (lens_LensAssetManifestItem_RequestTiming = {}));
+function lens_lensAssetManifestItem_RequestTimingFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "PRELOAD_UNSET":
+            return lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET;
+        case 1:
+        case "ON_DEMAND":
+            return lens_LensAssetManifestItem_RequestTiming.ON_DEMAND;
+        case 2:
+        case "REQUIRED":
+            return lens_LensAssetManifestItem_RequestTiming.REQUIRED;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return lens_LensAssetManifestItem_RequestTiming.UNRECOGNIZED;
+    }
+}
+function lens_lensAssetManifestItem_RequestTimingToJSON(object) {
+    switch (object) {
+        case lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET:
+            return "PRELOAD_UNSET";
+        case lens_LensAssetManifestItem_RequestTiming.ON_DEMAND:
+            return "ON_DEMAND";
+        case lens_LensAssetManifestItem_RequestTiming.REQUIRED:
+            return "REQUIRED";
+        default:
+            return "UNKNOWN";
+    }
+}
+function lens_lensAssetManifestItem_RequestTimingToNumber(object) {
+    switch (object) {
+        case lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET:
+            return 0;
+        case lens_LensAssetManifestItem_RequestTiming.ON_DEMAND:
+            return 1;
+        case lens_LensAssetManifestItem_RequestTiming.REQUIRED:
+            return 2;
+        default:
+            return 0;
+    }
+}
+function lens_createBaseLens() {
+    return {
+        id: "",
+        name: "",
+        vendorData: {},
+        content: undefined,
+        isThirdParty: false,
+        cameraFacingPreference: lens_Lens_CameraFacing.CAMERA_FACING_UNSET,
+        featureMetadata: [],
+        lensCreator: undefined,
+        scannable: undefined,
+    };
+}
+const lens_Lens = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = lens_createBaseLens();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.id = reader.string();
+                    break;
+                case 2:
+                    message.name = reader.string();
+                    break;
+                case 3:
+                    const entry3 = lens_Lens_VendorDataEntry.decode(reader, reader.uint32());
+                    if (entry3.value !== undefined) {
+                        message.vendorData[entry3.key] = entry3.value;
+                    }
+                    break;
+                case 4:
+                    message.content = lens_Content.decode(reader, reader.uint32());
+                    break;
+                case 5:
+                    message.isThirdParty = reader.bool();
+                    break;
+                case 6:
+                    message.cameraFacingPreference = lens_lens_CameraFacingFromJSON(reader.int32());
+                    break;
+                case 7:
+                    message.featureMetadata.push(any_Any.decode(reader, reader.uint32()));
+                    break;
+                case 8:
+                    message.lensCreator = lens_LensCreator.decode(reader, reader.uint32());
+                    break;
+                case 9:
+                    message.scannable = lens_Scannable.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            id: v3_lens_isSet(object.id) ? String(object.id) : "",
+            name: v3_lens_isSet(object.name) ? String(object.name) : "",
+            vendorData: lens_isObject(object.vendorData)
+                ? Object.entries(object.vendorData).reduce((acc, [key, value]) => {
+                    acc[key] = String(value);
+                    return acc;
+                }, {})
+                : {},
+            content: v3_lens_isSet(object.content) ? lens_Content.fromJSON(object.content) : undefined,
+            isThirdParty: v3_lens_isSet(object.isThirdParty) ? Boolean(object.isThirdParty) : false,
+            cameraFacingPreference: v3_lens_isSet(object.cameraFacingPreference)
+                ? lens_lens_CameraFacingFromJSON(object.cameraFacingPreference)
+                : lens_Lens_CameraFacing.CAMERA_FACING_UNSET,
+            featureMetadata: Array.isArray(object?.featureMetadata)
+                ? object.featureMetadata.map((e) => any_Any.fromJSON(e))
+                : [],
+            lensCreator: v3_lens_isSet(object.lensCreator) ? lens_LensCreator.fromJSON(object.lensCreator) : undefined,
+            scannable: v3_lens_isSet(object.scannable) ? lens_Scannable.fromJSON(object.scannable) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.id !== undefined && (obj.id = message.id);
+        message.name !== undefined && (obj.name = message.name);
+        obj.vendorData = {};
+        if (message.vendorData) {
+            Object.entries(message.vendorData).forEach(([k, v]) => {
+                obj.vendorData[k] = v;
+            });
+        }
+        message.content !== undefined && (obj.content = message.content ? lens_Content.toJSON(message.content) : undefined);
+        message.isThirdParty !== undefined && (obj.isThirdParty = message.isThirdParty);
+        message.cameraFacingPreference !== undefined &&
+            (obj.cameraFacingPreference = lens_lens_CameraFacingToJSON(message.cameraFacingPreference));
+        if (message.featureMetadata) {
+            obj.featureMetadata = message.featureMetadata.map((e) => (e ? any_Any.toJSON(e) : undefined));
+        }
+        else {
+            obj.featureMetadata = [];
+        }
+        message.lensCreator !== undefined &&
+            (obj.lensCreator = message.lensCreator ? lens_LensCreator.toJSON(message.lensCreator) : undefined);
+        message.scannable !== undefined &&
+            (obj.scannable = message.scannable ? lens_Scannable.toJSON(message.scannable) : undefined);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = lens_createBaseLens();
+        message.id = object.id ?? "";
+        message.name = object.name ?? "";
+        message.vendorData = Object.entries(object.vendorData ?? {}).reduce((acc, [key, value]) => {
+            if (value !== undefined) {
+                acc[key] = String(value);
+            }
+            return acc;
+        }, {});
+        message.content =
+            object.content !== undefined && object.content !== null ? lens_Content.fromPartial(object.content) : undefined;
+        message.isThirdParty = object.isThirdParty ?? false;
+        message.cameraFacingPreference = object.cameraFacingPreference ?? lens_Lens_CameraFacing.CAMERA_FACING_UNSET;
+        message.featureMetadata = object.featureMetadata?.map((e) => any_Any.fromPartial(e)) || [];
+        message.lensCreator =
+            object.lensCreator !== undefined && object.lensCreator !== null
+                ? lens_LensCreator.fromPartial(object.lensCreator)
+                : undefined;
+        message.scannable =
+            object.scannable !== undefined && object.scannable !== null ? lens_Scannable.fromPartial(object.scannable) : undefined;
+        return message;
+    },
+};
+function lens_createBaseLens_VendorDataEntry() {
+    return { key: "", value: "" };
+}
+const lens_Lens_VendorDataEntry = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = lens_createBaseLens_VendorDataEntry();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.key = reader.string();
+                    break;
+                case 2:
+                    message.value = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            key: v3_lens_isSet(object.key) ? String(object.key) : "",
+            value: v3_lens_isSet(object.value) ? String(object.value) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.key !== undefined && (obj.key = message.key);
+        message.value !== undefined && (obj.value = message.value);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = lens_createBaseLens_VendorDataEntry();
+        message.key = object.key ?? "";
+        message.value = object.value ?? "";
+        return message;
+    },
+};
+function lens_createBaseContent() {
+    return {
+        lnsUrl: "",
+        lnsSha256: "",
+        iconUrl: "",
+        preview: undefined,
+        assetManifest: [],
+        defaultHintId: "",
+        hintTranslations: {},
+        lnsUrlBolt: "",
+        iconUrlBolt: "",
+    };
+}
+const lens_Content = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = lens_createBaseContent();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.lnsUrl = reader.string();
+                    break;
+                case 2:
+                    message.lnsSha256 = reader.string();
+                    break;
+                case 3:
+                    message.iconUrl = reader.string();
+                    break;
+                case 4:
+                    message.preview = lens_Preview.decode(reader, reader.uint32());
+                    break;
+                case 5:
+                    message.assetManifest.push(lens_LensAssetManifestItem.decode(reader, reader.uint32()));
+                    break;
+                case 6:
+                    message.defaultHintId = reader.string();
+                    break;
+                case 7:
+                    const entry7 = lens_Content_HintTranslationsEntry.decode(reader, reader.uint32());
+                    if (entry7.value !== undefined) {
+                        message.hintTranslations[entry7.key] = entry7.value;
+                    }
+                    break;
+                case 8:
+                    message.lnsUrlBolt = reader.string();
+                    break;
+                case 9:
+                    message.iconUrlBolt = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            lnsUrl: v3_lens_isSet(object.lnsUrl) ? String(object.lnsUrl) : "",
+            lnsSha256: v3_lens_isSet(object.lnsSha256) ? String(object.lnsSha256) : "",
+            iconUrl: v3_lens_isSet(object.iconUrl) ? String(object.iconUrl) : "",
+            preview: v3_lens_isSet(object.preview) ? lens_Preview.fromJSON(object.preview) : undefined,
+            assetManifest: Array.isArray(object?.assetManifest)
+                ? object.assetManifest.map((e) => lens_LensAssetManifestItem.fromJSON(e))
+                : [],
+            defaultHintId: v3_lens_isSet(object.defaultHintId) ? String(object.defaultHintId) : "",
+            hintTranslations: lens_isObject(object.hintTranslations)
+                ? Object.entries(object.hintTranslations).reduce((acc, [key, value]) => {
+                    acc[key] = String(value);
+                    return acc;
+                }, {})
+                : {},
+            lnsUrlBolt: v3_lens_isSet(object.lnsUrlBolt) ? String(object.lnsUrlBolt) : "",
+            iconUrlBolt: v3_lens_isSet(object.iconUrlBolt) ? String(object.iconUrlBolt) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.lnsUrl !== undefined && (obj.lnsUrl = message.lnsUrl);
+        message.lnsSha256 !== undefined && (obj.lnsSha256 = message.lnsSha256);
+        message.iconUrl !== undefined && (obj.iconUrl = message.iconUrl);
+        message.preview !== undefined && (obj.preview = message.preview ? lens_Preview.toJSON(message.preview) : undefined);
+        if (message.assetManifest) {
+            obj.assetManifest = message.assetManifest.map((e) => (e ? lens_LensAssetManifestItem.toJSON(e) : undefined));
+        }
+        else {
+            obj.assetManifest = [];
+        }
+        message.defaultHintId !== undefined && (obj.defaultHintId = message.defaultHintId);
+        obj.hintTranslations = {};
+        if (message.hintTranslations) {
+            Object.entries(message.hintTranslations).forEach(([k, v]) => {
+                obj.hintTranslations[k] = v;
+            });
+        }
+        message.lnsUrlBolt !== undefined && (obj.lnsUrlBolt = message.lnsUrlBolt);
+        message.iconUrlBolt !== undefined && (obj.iconUrlBolt = message.iconUrlBolt);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = lens_createBaseContent();
+        message.lnsUrl = object.lnsUrl ?? "";
+        message.lnsSha256 = object.lnsSha256 ?? "";
+        message.iconUrl = object.iconUrl ?? "";
+        message.preview =
+            object.preview !== undefined && object.preview !== null ? lens_Preview.fromPartial(object.preview) : undefined;
+        message.assetManifest = object.assetManifest?.map((e) => lens_LensAssetManifestItem.fromPartial(e)) || [];
+        message.defaultHintId = object.defaultHintId ?? "";
+        message.hintTranslations = Object.entries(object.hintTranslations ?? {}).reduce((acc, [key, value]) => {
+            if (value !== undefined) {
+                acc[key] = String(value);
+            }
+            return acc;
+        }, {});
+        message.lnsUrlBolt = object.lnsUrlBolt ?? "";
+        message.iconUrlBolt = object.iconUrlBolt ?? "";
+        return message;
+    },
+};
+function lens_createBaseContent_HintTranslationsEntry() {
+    return { key: "", value: "" };
+}
+const lens_Content_HintTranslationsEntry = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = lens_createBaseContent_HintTranslationsEntry();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.key = reader.string();
+                    break;
+                case 2:
+                    message.value = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            key: v3_lens_isSet(object.key) ? String(object.key) : "",
+            value: v3_lens_isSet(object.value) ? String(object.value) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.key !== undefined && (obj.key = message.key);
+        message.value !== undefined && (obj.value = message.value);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = lens_createBaseContent_HintTranslationsEntry();
+        message.key = object.key ?? "";
+        message.value = object.value ?? "";
+        return message;
+    },
+};
+function lens_createBaseLensAssetManifestItem() {
+    return {
+        type: lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET,
+        id: "",
+        requestTiming: lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET,
+        assetUrl: "",
+        assetChecksum: "",
+    };
+}
+const lens_LensAssetManifestItem = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = lens_createBaseLensAssetManifestItem();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.type = lens_lensAssetManifestItem_TypeFromJSON(reader.int32());
+                    break;
+                case 2:
+                    message.id = reader.string();
+                    break;
+                case 3:
+                    message.requestTiming = lens_lensAssetManifestItem_RequestTimingFromJSON(reader.int32());
+                    break;
+                case 4:
+                    message.assetUrl = reader.string();
+                    break;
+                case 5:
+                    message.assetChecksum = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            type: v3_lens_isSet(object.type)
+                ? lens_lensAssetManifestItem_TypeFromJSON(object.type)
+                : lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET,
+            id: v3_lens_isSet(object.id) ? String(object.id) : "",
+            requestTiming: v3_lens_isSet(object.requestTiming)
+                ? lens_lensAssetManifestItem_RequestTimingFromJSON(object.requestTiming)
+                : lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET,
+            assetUrl: v3_lens_isSet(object.assetUrl) ? String(object.assetUrl) : "",
+            assetChecksum: v3_lens_isSet(object.assetChecksum) ? String(object.assetChecksum) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.type !== undefined && (obj.type = lens_lensAssetManifestItem_TypeToJSON(message.type));
+        message.id !== undefined && (obj.id = message.id);
+        message.requestTiming !== undefined &&
+            (obj.requestTiming = lens_lensAssetManifestItem_RequestTimingToJSON(message.requestTiming));
+        message.assetUrl !== undefined && (obj.assetUrl = message.assetUrl);
+        message.assetChecksum !== undefined && (obj.assetChecksum = message.assetChecksum);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = lens_createBaseLensAssetManifestItem();
+        message.type = object.type ?? lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET;
+        message.id = object.id ?? "";
+        message.requestTiming = object.requestTiming ?? lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET;
+        message.assetUrl = object.assetUrl ?? "";
+        message.assetChecksum = object.assetChecksum ?? "";
+        return message;
+    },
+};
+function lens_createBasePreview() {
+    return { imageUrl: "", imageSequenceSize: 0, imageSequenceWebpUrlPattern: "" };
+}
+const lens_Preview = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = lens_createBasePreview();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.imageUrl = reader.string();
+                    break;
+                case 2:
+                    message.imageSequenceSize = reader.int32();
+                    break;
+                case 3:
+                    message.imageSequenceWebpUrlPattern = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            imageUrl: v3_lens_isSet(object.imageUrl) ? String(object.imageUrl) : "",
+            imageSequenceSize: v3_lens_isSet(object.imageSequenceSize) ? Number(object.imageSequenceSize) : 0,
+            imageSequenceWebpUrlPattern: v3_lens_isSet(object.imageSequenceWebpUrlPattern)
+                ? String(object.imageSequenceWebpUrlPattern)
+                : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.imageUrl !== undefined && (obj.imageUrl = message.imageUrl);
+        message.imageSequenceSize !== undefined && (obj.imageSequenceSize = Math.round(message.imageSequenceSize));
+        message.imageSequenceWebpUrlPattern !== undefined &&
+            (obj.imageSequenceWebpUrlPattern = message.imageSequenceWebpUrlPattern);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = lens_createBasePreview();
+        message.imageUrl = object.imageUrl ?? "";
+        message.imageSequenceSize = object.imageSequenceSize ?? 0;
+        message.imageSequenceWebpUrlPattern = object.imageSequenceWebpUrlPattern ?? "";
+        return message;
+    },
+};
+function lens_createBaseLensCreator() {
+    return { displayName: "" };
+}
+const lens_LensCreator = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = lens_createBaseLensCreator();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.displayName = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            displayName: v3_lens_isSet(object.displayName) ? String(object.displayName) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.displayName !== undefined && (obj.displayName = message.displayName);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = lens_createBaseLensCreator();
+        message.displayName = object.displayName ?? "";
+        return message;
+    },
+};
+function lens_createBaseScannable() {
+    return { snapcodeImageUrl: "", snapcodeDeeplink: "" };
+}
+const lens_Scannable = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = lens_createBaseScannable();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.snapcodeImageUrl = reader.string();
+                    break;
+                case 2:
+                    message.snapcodeDeeplink = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            snapcodeImageUrl: v3_lens_isSet(object.snapcodeImageUrl) ? String(object.snapcodeImageUrl) : "",
+            snapcodeDeeplink: v3_lens_isSet(object.snapcodeDeeplink) ? String(object.snapcodeDeeplink) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.snapcodeImageUrl !== undefined && (obj.snapcodeImageUrl = message.snapcodeImageUrl);
+        message.snapcodeDeeplink !== undefined && (obj.snapcodeDeeplink = message.snapcodeDeeplink);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = lens_createBaseScannable();
+        message.snapcodeImageUrl = object.snapcodeImageUrl ?? "";
+        message.snapcodeDeeplink = object.snapcodeDeeplink ?? "";
+        return message;
+    },
+};
+if ((minimal_default()).util.Long !== (long_default())) {
+    (minimal_default()).util.Long = (long_default());
+    minimal_default().configure();
+}
+function lens_isObject(value) {
+    return typeof value === "object" && value !== null;
+}
+function v3_lens_isSet(value) {
+    return value !== null && value !== undefined;
+}
+
+;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/generated-api-client/camera_kit/v3/push_to_device.js
+
+
+
+
+
+
+
+const push_to_device_protobufPackage = 'com.snap.camerakit.v3';
+var PushLensSubscriptionResponse_ExcludedLens_Code;
+(function (PushLensSubscriptionResponse_ExcludedLens_Code) {
+    PushLensSubscriptionResponse_ExcludedLens_Code["UNSET"] = "UNSET";
+    PushLensSubscriptionResponse_ExcludedLens_Code["UNKNOWN"] = "UNKNOWN";
+    PushLensSubscriptionResponse_ExcludedLens_Code["NOT_FOUND"] = "NOT_FOUND";
+    PushLensSubscriptionResponse_ExcludedLens_Code["INCOMPATIBLE_LENS_CORE_VERSION"] = "INCOMPATIBLE_LENS_CORE_VERSION";
+    PushLensSubscriptionResponse_ExcludedLens_Code["ARCHIVED_OR_INVISIBLE"] = "ARCHIVED_OR_INVISIBLE";
+    PushLensSubscriptionResponse_ExcludedLens_Code["CONTAINS_MUSIC"] = "CONTAINS_MUSIC";
+    PushLensSubscriptionResponse_ExcludedLens_Code["UNRECOGNIZED"] = "UNRECOGNIZED";
+})(PushLensSubscriptionResponse_ExcludedLens_Code || (PushLensSubscriptionResponse_ExcludedLens_Code = {}));
+function pushLensSubscriptionResponse_ExcludedLens_CodeFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "UNSET":
+            return PushLensSubscriptionResponse_ExcludedLens_Code.UNSET;
+        case 1:
+        case "UNKNOWN":
+            return PushLensSubscriptionResponse_ExcludedLens_Code.UNKNOWN;
+        case 2:
+        case "NOT_FOUND":
+            return PushLensSubscriptionResponse_ExcludedLens_Code.NOT_FOUND;
+        case 3:
+        case "INCOMPATIBLE_LENS_CORE_VERSION":
+            return PushLensSubscriptionResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION;
+        case 4:
+        case "ARCHIVED_OR_INVISIBLE":
+            return PushLensSubscriptionResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE;
+        case 5:
+        case "CONTAINS_MUSIC":
+            return PushLensSubscriptionResponse_ExcludedLens_Code.CONTAINS_MUSIC;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return PushLensSubscriptionResponse_ExcludedLens_Code.UNRECOGNIZED;
+    }
+}
+function pushLensSubscriptionResponse_ExcludedLens_CodeToJSON(object) {
+    switch (object) {
+        case PushLensSubscriptionResponse_ExcludedLens_Code.UNSET: return "UNSET";
+        case PushLensSubscriptionResponse_ExcludedLens_Code.UNKNOWN: return "UNKNOWN";
+        case PushLensSubscriptionResponse_ExcludedLens_Code.NOT_FOUND: return "NOT_FOUND";
+        case PushLensSubscriptionResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION: return "INCOMPATIBLE_LENS_CORE_VERSION";
+        case PushLensSubscriptionResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE: return "ARCHIVED_OR_INVISIBLE";
+        case PushLensSubscriptionResponse_ExcludedLens_Code.CONTAINS_MUSIC: return "CONTAINS_MUSIC";
+        default: return "UNKNOWN";
+    }
+}
+function pushLensSubscriptionResponse_ExcludedLens_CodeToNumber(object) {
+    switch (object) {
+        case PushLensSubscriptionResponse_ExcludedLens_Code.UNSET: return 0;
+        case PushLensSubscriptionResponse_ExcludedLens_Code.UNKNOWN: return 1;
+        case PushLensSubscriptionResponse_ExcludedLens_Code.NOT_FOUND: return 2;
+        case PushLensSubscriptionResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION: return 3;
+        case PushLensSubscriptionResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE: return 4;
+        case PushLensSubscriptionResponse_ExcludedLens_Code.CONTAINS_MUSIC: return 5;
+        default: return 0;
+    }
+}
+var ListenLensPushResponse_ExcludedLens_Code;
+(function (ListenLensPushResponse_ExcludedLens_Code) {
+    ListenLensPushResponse_ExcludedLens_Code["UNSET"] = "UNSET";
+    ListenLensPushResponse_ExcludedLens_Code["UNKNOWN"] = "UNKNOWN";
+    ListenLensPushResponse_ExcludedLens_Code["NOT_FOUND"] = "NOT_FOUND";
+    ListenLensPushResponse_ExcludedLens_Code["INCOMPATIBLE_LENS_CORE_VERSION"] = "INCOMPATIBLE_LENS_CORE_VERSION";
+    ListenLensPushResponse_ExcludedLens_Code["ARCHIVED_OR_INVISIBLE"] = "ARCHIVED_OR_INVISIBLE";
+    ListenLensPushResponse_ExcludedLens_Code["CONTAINS_MUSIC"] = "CONTAINS_MUSIC";
+    ListenLensPushResponse_ExcludedLens_Code["UNRECOGNIZED"] = "UNRECOGNIZED";
+})(ListenLensPushResponse_ExcludedLens_Code || (ListenLensPushResponse_ExcludedLens_Code = {}));
+function listenLensPushResponse_ExcludedLens_CodeFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "UNSET":
+            return ListenLensPushResponse_ExcludedLens_Code.UNSET;
+        case 1:
+        case "UNKNOWN":
+            return ListenLensPushResponse_ExcludedLens_Code.UNKNOWN;
+        case 2:
+        case "NOT_FOUND":
+            return ListenLensPushResponse_ExcludedLens_Code.NOT_FOUND;
+        case 3:
+        case "INCOMPATIBLE_LENS_CORE_VERSION":
+            return ListenLensPushResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION;
+        case 4:
+        case "ARCHIVED_OR_INVISIBLE":
+            return ListenLensPushResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE;
+        case 5:
+        case "CONTAINS_MUSIC":
+            return ListenLensPushResponse_ExcludedLens_Code.CONTAINS_MUSIC;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return ListenLensPushResponse_ExcludedLens_Code.UNRECOGNIZED;
+    }
+}
+function listenLensPushResponse_ExcludedLens_CodeToJSON(object) {
+    switch (object) {
+        case ListenLensPushResponse_ExcludedLens_Code.UNSET: return "UNSET";
+        case ListenLensPushResponse_ExcludedLens_Code.UNKNOWN: return "UNKNOWN";
+        case ListenLensPushResponse_ExcludedLens_Code.NOT_FOUND: return "NOT_FOUND";
+        case ListenLensPushResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION: return "INCOMPATIBLE_LENS_CORE_VERSION";
+        case ListenLensPushResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE: return "ARCHIVED_OR_INVISIBLE";
+        case ListenLensPushResponse_ExcludedLens_Code.CONTAINS_MUSIC: return "CONTAINS_MUSIC";
+        default: return "UNKNOWN";
+    }
+}
+function listenLensPushResponse_ExcludedLens_CodeToNumber(object) {
+    switch (object) {
+        case ListenLensPushResponse_ExcludedLens_Code.UNSET: return 0;
+        case ListenLensPushResponse_ExcludedLens_Code.UNKNOWN: return 1;
+        case ListenLensPushResponse_ExcludedLens_Code.NOT_FOUND: return 2;
+        case ListenLensPushResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION: return 3;
+        case ListenLensPushResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE: return 4;
+        case ListenLensPushResponse_ExcludedLens_Code.CONTAINS_MUSIC: return 5;
+        default: return 0;
+    }
+}
+function createBasePushLensSubscriptionRequest() {
+    return { accountId: "", extensionRequestContext: new Uint8Array(), heartbeat: 0 };
+}
+const PushLensSubscriptionRequest = {
+    encode(message, writer = minimal_default().Writer.create()) {
+        if (message.accountId !== "") {
+            writer.uint32(10).string(message.accountId);
+        }
+        if (message.extensionRequestContext.length !== 0) {
+            writer.uint32(18).bytes(message.extensionRequestContext);
+        }
+        if (message.heartbeat !== 0) {
+            writer.uint32(24).int32(message.heartbeat);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePushLensSubscriptionRequest();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.accountId = reader.string();
+                    break;
+                case 2:
+                    message.extensionRequestContext = reader.bytes();
+                    break;
+                case 3:
+                    message.heartbeat = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            accountId: push_to_device_isSet(object.accountId)
+                ? String(object.accountId)
+                : "",
+            extensionRequestContext: push_to_device_isSet(object.extensionRequestContext)
+                ? push_to_device_bytesFromBase64(object.extensionRequestContext)
+                : new Uint8Array(),
+            heartbeat: push_to_device_isSet(object.heartbeat)
+                ? Number(object.heartbeat)
+                : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.accountId !== undefined && (obj.accountId = message.accountId);
+        message.extensionRequestContext !== undefined && (obj.extensionRequestContext = push_to_device_base64FromBytes(message.extensionRequestContext !== undefined ? message.extensionRequestContext : new Uint8Array()));
+        message.heartbeat !== undefined && (obj.heartbeat = Math.round(message.heartbeat));
+        return obj;
+    },
+    fromPartial(object) {
+        const message = createBasePushLensSubscriptionRequest();
+        message.accountId = object.accountId ?? "";
+        message.extensionRequestContext = object.extensionRequestContext ?? new Uint8Array();
+        message.heartbeat = object.heartbeat ?? 0;
+        return message;
+    }
+};
+function createBasePushLensSubscriptionResponse() {
+    return { lens: undefined, excludedLens: undefined, heartbeat: 0, lenses: {} };
+}
+const PushLensSubscriptionResponse = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePushLensSubscriptionResponse();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.lens = lens_Lens.decode(reader, reader.uint32());
+                    break;
+                case 2:
+                    message.excludedLens = PushLensSubscriptionResponse_ExcludedLens.decode(reader, reader.uint32());
+                    break;
+                case 3:
+                    message.heartbeat = reader.int32();
+                    break;
+                case 4:
+                    const entry4 = PushLensSubscriptionResponse_LensesEntry.decode(reader, reader.uint32());
+                    if (entry4.value !== undefined) {
+                        message.lenses[entry4.key] = entry4.value;
+                    }
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            lens: push_to_device_isSet(object.lens)
+                ? lens_Lens.fromJSON(object.lens)
+                : undefined,
+            excludedLens: push_to_device_isSet(object.excludedLens)
+                ? PushLensSubscriptionResponse_ExcludedLens.fromJSON(object.excludedLens)
+                : undefined,
+            heartbeat: push_to_device_isSet(object.heartbeat)
+                ? Number(object.heartbeat)
+                : 0,
+            lenses: push_to_device_isObject(object.lenses)
+                ? Object.entries(object.lenses).reduce((acc, [key, value]) => {
+                    acc[key] = push_to_device_bytesFromBase64(value);
+                    return acc;
+                }, {})
+                : {},
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.lens !== undefined && (obj.lens = message.lens ? lens_Lens.toJSON(message.lens) : undefined);
+        message.excludedLens !== undefined && (obj.excludedLens = message.excludedLens ? PushLensSubscriptionResponse_ExcludedLens.toJSON(message.excludedLens) : undefined);
+        message.heartbeat !== undefined && (obj.heartbeat = Math.round(message.heartbeat));
+        obj.lenses = {};
+        if (message.lenses) {
+            Object.entries(message.lenses).forEach(([k, v]) => {
+                obj.lenses[k] = push_to_device_base64FromBytes(v);
+            });
+        }
+        return obj;
+    },
+    fromPartial(object) {
+        const message = createBasePushLensSubscriptionResponse();
+        message.lens = (object.lens !== undefined && object.lens !== null)
+            ? lens_Lens.fromPartial(object.lens)
+            : undefined;
+        message.excludedLens = (object.excludedLens !== undefined && object.excludedLens !== null)
+            ? PushLensSubscriptionResponse_ExcludedLens.fromPartial(object.excludedLens)
+            : undefined;
+        message.heartbeat = object.heartbeat ?? 0;
+        message.lenses = Object.entries(object.lenses ?? {}).reduce((acc, [key, value]) => {
+            if (value !== undefined) {
+                acc[key] = value;
+            }
+            return acc;
+        }, {});
+        return message;
+    }
+};
+function createBasePushLensSubscriptionResponse_LensesEntry() {
+    return { key: "", value: new Uint8Array() };
+}
+const PushLensSubscriptionResponse_LensesEntry = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePushLensSubscriptionResponse_LensesEntry();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.key = reader.string();
+                    break;
+                case 2:
+                    message.value = reader.bytes();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            key: push_to_device_isSet(object.key)
+                ? String(object.key)
+                : "",
+            value: push_to_device_isSet(object.value)
+                ? push_to_device_bytesFromBase64(object.value)
+                : new Uint8Array(),
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.key !== undefined && (obj.key = message.key);
+        message.value !== undefined && (obj.value = push_to_device_base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
+        return obj;
+    },
+    fromPartial(object) {
+        const message = createBasePushLensSubscriptionResponse_LensesEntry();
+        message.key = object.key ?? "";
+        message.value = object.value ?? new Uint8Array();
+        return message;
+    }
+};
+function createBasePushLensSubscriptionResponse_ExcludedLens() {
+    return { lensId: 0, code: PushLensSubscriptionResponse_ExcludedLens_Code.UNSET };
+}
+const PushLensSubscriptionResponse_ExcludedLens = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBasePushLensSubscriptionResponse_ExcludedLens();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.lensId = push_to_device_longToNumber(reader.int64());
+                    break;
+                case 2:
+                    message.code = pushLensSubscriptionResponse_ExcludedLens_CodeFromJSON(reader.int32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            lensId: push_to_device_isSet(object.lensId)
+                ? Number(object.lensId)
+                : 0,
+            code: push_to_device_isSet(object.code)
+                ? pushLensSubscriptionResponse_ExcludedLens_CodeFromJSON(object.code)
+                : PushLensSubscriptionResponse_ExcludedLens_Code.UNSET,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.lensId !== undefined && (obj.lensId = Math.round(message.lensId));
+        message.code !== undefined && (obj.code = pushLensSubscriptionResponse_ExcludedLens_CodeToJSON(message.code));
+        return obj;
+    },
+    fromPartial(object) {
+        const message = createBasePushLensSubscriptionResponse_ExcludedLens();
+        message.lensId = object.lensId ?? 0;
+        message.code = object.code ?? PushLensSubscriptionResponse_ExcludedLens_Code.UNSET;
+        return message;
+    }
+};
+function createBaseListenLensPushRequest() {
+    return { extensionRequestContext: new Uint8Array(), heartbeat: 0 };
+}
+const ListenLensPushRequest = {
+    encode(message, writer = minimal_default().Writer.create()) {
+        if (message.extensionRequestContext.length !== 0) {
+            writer.uint32(18).bytes(message.extensionRequestContext);
+        }
+        if (message.heartbeat !== 0) {
+            writer.uint32(24).int32(message.heartbeat);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseListenLensPushRequest();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 2:
+                    message.extensionRequestContext = reader.bytes();
+                    break;
+                case 3:
+                    message.heartbeat = reader.int32();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            extensionRequestContext: push_to_device_isSet(object.extensionRequestContext)
+                ? push_to_device_bytesFromBase64(object.extensionRequestContext)
+                : new Uint8Array(),
+            heartbeat: push_to_device_isSet(object.heartbeat)
+                ? Number(object.heartbeat)
+                : 0,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.extensionRequestContext !== undefined && (obj.extensionRequestContext = push_to_device_base64FromBytes(message.extensionRequestContext !== undefined ? message.extensionRequestContext : new Uint8Array()));
+        message.heartbeat !== undefined && (obj.heartbeat = Math.round(message.heartbeat));
+        return obj;
+    },
+    fromPartial(object) {
+        const message = createBaseListenLensPushRequest();
+        message.extensionRequestContext = object.extensionRequestContext ?? new Uint8Array();
+        message.heartbeat = object.heartbeat ?? 0;
+        return message;
+    }
+};
+function createBaseListenLensPushResponse() {
+    return { excludedLens: undefined, heartbeat: 0, lenses: {} };
+}
+const ListenLensPushResponse = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseListenLensPushResponse();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 2:
+                    message.excludedLens = ListenLensPushResponse_ExcludedLens.decode(reader, reader.uint32());
+                    break;
+                case 3:
+                    message.heartbeat = reader.int32();
+                    break;
+                case 4:
+                    const entry4 = ListenLensPushResponse_LensesEntry.decode(reader, reader.uint32());
+                    if (entry4.value !== undefined) {
+                        message.lenses[entry4.key] = entry4.value;
+                    }
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            excludedLens: push_to_device_isSet(object.excludedLens)
+                ? ListenLensPushResponse_ExcludedLens.fromJSON(object.excludedLens)
+                : undefined,
+            heartbeat: push_to_device_isSet(object.heartbeat)
+                ? Number(object.heartbeat)
+                : 0,
+            lenses: push_to_device_isObject(object.lenses)
+                ? Object.entries(object.lenses).reduce((acc, [key, value]) => {
+                    acc[key] = push_to_device_bytesFromBase64(value);
+                    return acc;
+                }, {})
+                : {},
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.excludedLens !== undefined && (obj.excludedLens = message.excludedLens ? ListenLensPushResponse_ExcludedLens.toJSON(message.excludedLens) : undefined);
+        message.heartbeat !== undefined && (obj.heartbeat = Math.round(message.heartbeat));
+        obj.lenses = {};
+        if (message.lenses) {
+            Object.entries(message.lenses).forEach(([k, v]) => {
+                obj.lenses[k] = push_to_device_base64FromBytes(v);
+            });
+        }
+        return obj;
+    },
+    fromPartial(object) {
+        const message = createBaseListenLensPushResponse();
+        message.excludedLens = (object.excludedLens !== undefined && object.excludedLens !== null)
+            ? ListenLensPushResponse_ExcludedLens.fromPartial(object.excludedLens)
+            : undefined;
+        message.heartbeat = object.heartbeat ?? 0;
+        message.lenses = Object.entries(object.lenses ?? {}).reduce((acc, [key, value]) => {
+            if (value !== undefined) {
+                acc[key] = value;
+            }
+            return acc;
+        }, {});
+        return message;
+    }
+};
+function createBaseListenLensPushResponse_LensesEntry() {
+    return { key: "", value: new Uint8Array() };
+}
+const ListenLensPushResponse_LensesEntry = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseListenLensPushResponse_LensesEntry();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.key = reader.string();
+                    break;
+                case 2:
+                    message.value = reader.bytes();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            key: push_to_device_isSet(object.key)
+                ? String(object.key)
+                : "",
+            value: push_to_device_isSet(object.value)
+                ? push_to_device_bytesFromBase64(object.value)
+                : new Uint8Array(),
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.key !== undefined && (obj.key = message.key);
+        message.value !== undefined && (obj.value = push_to_device_base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
+        return obj;
+    },
+    fromPartial(object) {
+        const message = createBaseListenLensPushResponse_LensesEntry();
+        message.key = object.key ?? "";
+        message.value = object.value ?? new Uint8Array();
+        return message;
+    }
+};
+function createBaseListenLensPushResponse_ExcludedLens() {
+    return { lensId: 0, code: ListenLensPushResponse_ExcludedLens_Code.UNSET };
+}
+const ListenLensPushResponse_ExcludedLens = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseListenLensPushResponse_ExcludedLens();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.lensId = push_to_device_longToNumber(reader.int64());
+                    break;
+                case 2:
+                    message.code = listenLensPushResponse_ExcludedLens_CodeFromJSON(reader.int32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            lensId: push_to_device_isSet(object.lensId)
+                ? Number(object.lensId)
+                : 0,
+            code: push_to_device_isSet(object.code)
+                ? listenLensPushResponse_ExcludedLens_CodeFromJSON(object.code)
+                : ListenLensPushResponse_ExcludedLens_Code.UNSET,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.lensId !== undefined && (obj.lensId = Math.round(message.lensId));
+        message.code !== undefined && (obj.code = listenLensPushResponse_ExcludedLens_CodeToJSON(message.code));
+        return obj;
+    },
+    fromPartial(object) {
+        const message = createBaseListenLensPushResponse_ExcludedLens();
+        message.lensId = object.lensId ?? 0;
+        message.code = object.code ?? ListenLensPushResponse_ExcludedLens_Code.UNSET;
+        return message;
+    }
+};
+class PushToDeviceClientImpl {
+    rpc;
+    constructor(rpc) {
+        this.rpc = rpc;
+        this.PushLensSubscription = this.PushLensSubscription.bind(this);
+        this.ListenLensPush = this.ListenLensPush.bind(this);
+    }
+    PushLensSubscription(request, metadata) {
+        return this.rpc.invoke(PushToDevicePushLensSubscriptionDesc, request, metadata);
+    }
+    ListenLensPush(request, metadata) {
+        return this.rpc.invoke(PushToDeviceListenLensPushDesc, ListenLensPushRequest.fromPartial(request), metadata);
+    }
+}
+const PushToDeviceDesc = {
+    serviceName: "com.snap.camerakit.v3.PushToDevice",
+};
+const PushToDevicePushLensSubscriptionDesc = {
+    methodName: "PushLensSubscription",
+    service: PushToDeviceDesc,
+    requestStream: false,
+    responseStream: true,
+    requestType: {
+        serializeBinary() {
+            return PushLensSubscriptionRequest.encode(this).finish();
+        },
+    },
+    responseType: {
+        deserializeBinary(data) {
+            return { ...PushLensSubscriptionResponse.decode(data), toObject() { return this; } };
+        }
+    },
+};
+const PushToDeviceListenLensPushDesc = {
+    methodName: "ListenLensPush",
+    service: PushToDeviceDesc,
+    requestStream: false,
+    responseStream: true,
+    requestType: {
+        serializeBinary() {
+            return ListenLensPushRequest.encode(this).finish();
+        },
+    },
+    responseType: {
+        deserializeBinary(data) {
+            return { ...ListenLensPushResponse.decode(data), toObject() { return this; } };
+        }
+    },
+};
+class push_to_device_GrpcWebImpl {
+    host;
+    options;
+    constructor(host, options) {
+        this.host = host;
+        this.options = options;
+    }
+    unary(methodDesc, _request, metadata) {
+        const request = { ..._request, ...methodDesc.requestType };
+        const maybeCombinedMetadata = metadata && this.options.metadata
+            ? new browser_headers_umd.BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+            : metadata || this.options.metadata;
+        return new Promise((resolve, reject) => {
+            grpc_web_client_umd.grpc.unary(methodDesc, {
+                request,
+                host: this.host,
+                metadata: maybeCombinedMetadata,
+                transport: this.options.transport,
+                debug: this.options.debug,
+                onEnd: function (response) {
+                    if (response.status === grpc_web_client_umd.grpc.Code.OK) {
+                        resolve(response.message);
+                    }
+                    else {
+                        const err = new Error(response.statusMessage);
+                        err.code = response.status;
+                        err.metadata = response.trailers;
+                        reject(err);
+                    }
+                },
+            });
+        });
+    }
+    invoke(methodDesc, _request, metadata) {
+        const upStreamCodes = [2, 4, 8, 9, 10, 13, 14, 15];
+        const DEFAULT_TIMEOUT_TIME = 3000;
+        const request = { ..._request, ...methodDesc.requestType };
+        const maybeCombinedMetadata = metadata && this.options.metadata
+            ? new browser_headers_umd.BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+            : metadata || this.options.metadata;
+        return new Observable_Observable(observer => {
+            const upStream = (() => {
+                const client = grpc_web_client_umd.grpc.invoke(methodDesc, {
+                    host: this.host,
+                    request,
+                    transport: this.options.streamingTransport || this.options.transport,
+                    metadata: maybeCombinedMetadata,
+                    debug: this.options.debug,
+                    onMessage: (next) => observer.next(next),
+                    onEnd: (code, message) => {
+                        if (code === 0) {
+                            observer.complete();
+                        }
+                        else if (upStreamCodes.includes(code)) {
+                            setTimeout(upStream, DEFAULT_TIMEOUT_TIME);
+                        }
+                        else {
+                            observer.error(new Error(`Error ${code} ${message}`));
+                        }
+                    },
+                });
+                observer.add(() => client.close());
+            });
+            upStream();
+        }).pipe(share());
+    }
+}
+var push_to_device_globalThis = (() => {
+    if (typeof push_to_device_globalThis !== "undefined")
+        return push_to_device_globalThis;
+    if (typeof self !== "undefined")
+        return self;
+    if (typeof window !== "undefined")
+        return window;
+    if (typeof __webpack_require__.g !== "undefined")
+        return __webpack_require__.g;
+    throw "Unable to locate global object";
+})();
+const push_to_device_atob = push_to_device_globalThis.atob || ((b64) => push_to_device_globalThis.Buffer.from(b64, 'base64').toString('binary'));
+function push_to_device_bytesFromBase64(b64) {
+    const bin = push_to_device_atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; ++i) {
+        arr[i] = bin.charCodeAt(i);
+    }
+    return arr;
+}
+const push_to_device_btoa = push_to_device_globalThis.btoa || ((bin) => push_to_device_globalThis.Buffer.from(bin, 'binary').toString('base64'));
+function push_to_device_base64FromBytes(arr) {
+    const bin = [];
+    for (const byte of arr) {
+        bin.push(String.fromCharCode(byte));
+    }
+    return push_to_device_btoa(bin.join(''));
+}
+function push_to_device_longToNumber(long) {
+    if (long.gt(Number.MAX_SAFE_INTEGER)) {
+        throw new push_to_device_globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+    }
+    return long.toNumber();
+}
+if ((minimal_default()).util.Long !== (long_default())) {
+    (minimal_default()).util.Long = (long_default());
+    minimal_default().configure();
+}
+function push_to_device_isObject(value) {
+    return typeof value === 'object' && value !== null;
+}
+function push_to_device_isSet(value) {
+    return value !== null && value !== undefined;
+}
+
+;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/generated-api-client/camera_kit/v3/export.js
+
+
+
+const v3_export_protobufPackage = "com.snap.camerakit.v3";
+var export_ExportLensesByIdRequest_Context_Extension_Name;
+(function (ExportLensesByIdRequest_Context_Extension_Name) {
+    ExportLensesByIdRequest_Context_Extension_Name["UNSET"] = "UNSET";
+    ExportLensesByIdRequest_Context_Extension_Name["SHOP_KIT"] = "SHOP_KIT";
+    ExportLensesByIdRequest_Context_Extension_Name["UNRECOGNIZED"] = "UNRECOGNIZED";
+})(export_ExportLensesByIdRequest_Context_Extension_Name || (export_ExportLensesByIdRequest_Context_Extension_Name = {}));
+function export_exportLensesByIdRequest_Context_Extension_NameFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "UNSET":
+            return export_ExportLensesByIdRequest_Context_Extension_Name.UNSET;
+        case 1:
+        case "SHOP_KIT":
+            return export_ExportLensesByIdRequest_Context_Extension_Name.SHOP_KIT;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return export_ExportLensesByIdRequest_Context_Extension_Name.UNRECOGNIZED;
+    }
+}
+function exportLensesByIdRequest_Context_Extension_NameToJSON(object) {
+    switch (object) {
+        case export_ExportLensesByIdRequest_Context_Extension_Name.UNSET:
+            return "UNSET";
+        case export_ExportLensesByIdRequest_Context_Extension_Name.SHOP_KIT:
+            return "SHOP_KIT";
+        default:
+            return "UNKNOWN";
+    }
+}
+function export_exportLensesByIdRequest_Context_Extension_NameToNumber(object) {
+    switch (object) {
+        case export_ExportLensesByIdRequest_Context_Extension_Name.UNSET:
+            return 0;
+        case export_ExportLensesByIdRequest_Context_Extension_Name.SHOP_KIT:
+            return 1;
+        default:
+            return 0;
+    }
+}
+var export_ExportLensesByIdResponse_ExcludedLens_Code;
+(function (ExportLensesByIdResponse_ExcludedLens_Code) {
+    ExportLensesByIdResponse_ExcludedLens_Code["UNSET"] = "UNSET";
+    ExportLensesByIdResponse_ExcludedLens_Code["UNKNOWN"] = "UNKNOWN";
+    ExportLensesByIdResponse_ExcludedLens_Code["NOT_FOUND"] = "NOT_FOUND";
+    ExportLensesByIdResponse_ExcludedLens_Code["INCOMPATIBLE_LENS_CORE_VERSION"] = "INCOMPATIBLE_LENS_CORE_VERSION";
+    ExportLensesByIdResponse_ExcludedLens_Code["ARCHIVED_OR_INVISIBLE"] = "ARCHIVED_OR_INVISIBLE";
+    ExportLensesByIdResponse_ExcludedLens_Code["CONTAINS_MUSIC"] = "CONTAINS_MUSIC";
+    ExportLensesByIdResponse_ExcludedLens_Code["UNRECOGNIZED"] = "UNRECOGNIZED";
+})(export_ExportLensesByIdResponse_ExcludedLens_Code || (export_ExportLensesByIdResponse_ExcludedLens_Code = {}));
+function export_exportLensesByIdResponse_ExcludedLens_CodeFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "UNSET":
+            return export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET;
+        case 1:
+        case "UNKNOWN":
+            return export_ExportLensesByIdResponse_ExcludedLens_Code.UNKNOWN;
+        case 2:
+        case "NOT_FOUND":
+            return export_ExportLensesByIdResponse_ExcludedLens_Code.NOT_FOUND;
+        case 3:
+        case "INCOMPATIBLE_LENS_CORE_VERSION":
+            return export_ExportLensesByIdResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION;
+        case 4:
+        case "ARCHIVED_OR_INVISIBLE":
+            return export_ExportLensesByIdResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE;
+        case 5:
+        case "CONTAINS_MUSIC":
+            return export_ExportLensesByIdResponse_ExcludedLens_Code.CONTAINS_MUSIC;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return export_ExportLensesByIdResponse_ExcludedLens_Code.UNRECOGNIZED;
+    }
+}
+function exportLensesByIdResponse_ExcludedLens_CodeToJSON(object) {
+    switch (object) {
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET:
+            return "UNSET";
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.UNKNOWN:
+            return "UNKNOWN";
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.NOT_FOUND:
+            return "NOT_FOUND";
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION:
+            return "INCOMPATIBLE_LENS_CORE_VERSION";
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE:
+            return "ARCHIVED_OR_INVISIBLE";
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.CONTAINS_MUSIC:
+            return "CONTAINS_MUSIC";
+        default:
+            return "UNKNOWN";
+    }
+}
+function export_exportLensesByIdResponse_ExcludedLens_CodeToNumber(object) {
+    switch (object) {
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET:
+            return 0;
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.UNKNOWN:
+            return 1;
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.NOT_FOUND:
+            return 2;
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION:
+            return 3;
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE:
+            return 4;
+        case export_ExportLensesByIdResponse_ExcludedLens_Code.CONTAINS_MUSIC:
+            return 5;
+        default:
+            return 0;
+    }
+}
+function export_createBaseExportLensesByIdRequest() {
+    return { unlockableIds: [], context: undefined };
+}
+const export_ExportLensesByIdRequest = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = export_createBaseExportLensesByIdRequest();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    if ((tag & 7) === 2) {
+                        const end2 = reader.uint32() + reader.pos;
+                        while (reader.pos < end2) {
+                            message.unlockableIds.push(export_longToNumber(reader.int64()));
+                        }
+                    }
+                    else {
+                        message.unlockableIds.push(export_longToNumber(reader.int64()));
+                    }
+                    break;
+                case 2:
+                    message.context = export_ExportLensesByIdRequest_Context.decode(reader, reader.uint32());
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            unlockableIds: Array.isArray(object?.unlockableIds) ? object.unlockableIds.map((e) => Number(e)) : [],
+            context: export_isSet(object.context) ? export_ExportLensesByIdRequest_Context.fromJSON(object.context) : undefined,
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.unlockableIds) {
+            obj.unlockableIds = message.unlockableIds.map((e) => Math.round(e));
+        }
+        else {
+            obj.unlockableIds = [];
+        }
+        message.context !== undefined &&
+            (obj.context = message.context ? export_ExportLensesByIdRequest_Context.toJSON(message.context) : undefined);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = export_createBaseExportLensesByIdRequest();
+        message.unlockableIds = object.unlockableIds?.map((e) => e) || [];
+        message.context =
+            object.context !== undefined && object.context !== null
+                ? export_ExportLensesByIdRequest_Context.fromPartial(object.context)
+                : undefined;
+        return message;
+    },
+};
+function export_createBaseExportLensesByIdRequest_Context() {
+    return {
+        userAgent: "",
+        locale: "",
+        extention: undefined,
+        extension: undefined,
+        extensionRequestContext: new Uint8Array(),
+    };
+}
+const export_ExportLensesByIdRequest_Context = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = export_createBaseExportLensesByIdRequest_Context();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.userAgent = reader.string();
+                    break;
+                case 2:
+                    message.locale = reader.string();
+                    break;
+                case 3:
+                    message.extention = export_ExportLensesByIdRequest_Context_Extension.decode(reader, reader.uint32());
+                    break;
+                case 4:
+                    message.extension = export_ExportLensesByIdRequest_Context_Extension.decode(reader, reader.uint32());
+                    break;
+                case 5:
+                    message.extensionRequestContext = reader.bytes();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            userAgent: export_isSet(object.userAgent) ? String(object.userAgent) : "",
+            locale: export_isSet(object.locale) ? String(object.locale) : "",
+            extention: export_isSet(object.extention)
+                ? export_ExportLensesByIdRequest_Context_Extension.fromJSON(object.extention)
+                : undefined,
+            extension: export_isSet(object.extension)
+                ? export_ExportLensesByIdRequest_Context_Extension.fromJSON(object.extension)
+                : undefined,
+            extensionRequestContext: export_isSet(object.extensionRequestContext)
+                ? export_bytesFromBase64(object.extensionRequestContext)
+                : new Uint8Array(),
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.userAgent !== undefined && (obj.userAgent = message.userAgent);
+        message.locale !== undefined && (obj.locale = message.locale);
+        message.extention !== undefined &&
+            (obj.extention = message.extention
+                ? export_ExportLensesByIdRequest_Context_Extension.toJSON(message.extention)
+                : undefined);
+        message.extension !== undefined &&
+            (obj.extension = message.extension
+                ? export_ExportLensesByIdRequest_Context_Extension.toJSON(message.extension)
+                : undefined);
+        message.extensionRequestContext !== undefined &&
+            (obj.extensionRequestContext = export_base64FromBytes(message.extensionRequestContext !== undefined ? message.extensionRequestContext : new Uint8Array()));
+        return obj;
+    },
+    fromPartial(object) {
+        const message = export_createBaseExportLensesByIdRequest_Context();
+        message.userAgent = object.userAgent ?? "";
+        message.locale = object.locale ?? "";
+        message.extention =
+            object.extention !== undefined && object.extention !== null
+                ? export_ExportLensesByIdRequest_Context_Extension.fromPartial(object.extention)
+                : undefined;
+        message.extension =
+            object.extension !== undefined && object.extension !== null
+                ? export_ExportLensesByIdRequest_Context_Extension.fromPartial(object.extension)
+                : undefined;
+        message.extensionRequestContext = object.extensionRequestContext ?? new Uint8Array();
+        return message;
+    },
+};
+function export_createBaseExportLensesByIdRequest_Context_Extension() {
+    return { name: export_ExportLensesByIdRequest_Context_Extension_Name.UNSET, version: "" };
+}
+const export_ExportLensesByIdRequest_Context_Extension = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = export_createBaseExportLensesByIdRequest_Context_Extension();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.name = export_exportLensesByIdRequest_Context_Extension_NameFromJSON(reader.int32());
+                    break;
+                case 2:
+                    message.version = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            name: export_isSet(object.name)
+                ? export_exportLensesByIdRequest_Context_Extension_NameFromJSON(object.name)
+                : export_ExportLensesByIdRequest_Context_Extension_Name.UNSET,
+            version: export_isSet(object.version) ? String(object.version) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.name !== undefined && (obj.name = exportLensesByIdRequest_Context_Extension_NameToJSON(message.name));
+        message.version !== undefined && (obj.version = message.version);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = export_createBaseExportLensesByIdRequest_Context_Extension();
+        message.name = object.name ?? export_ExportLensesByIdRequest_Context_Extension_Name.UNSET;
+        message.version = object.version ?? "";
+        return message;
+    },
+};
+function export_createBaseExportLensesByIdResponse() {
+    return { lenses: {}, excludedLenses: [] };
+}
+const export_ExportLensesByIdResponse = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = export_createBaseExportLensesByIdResponse();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    const entry1 = export_ExportLensesByIdResponse_LensesEntry.decode(reader, reader.uint32());
+                    if (entry1.value !== undefined) {
+                        message.lenses[entry1.key] = entry1.value;
+                    }
+                    break;
+                case 2:
+                    message.excludedLenses.push(export_ExportLensesByIdResponse_ExcludedLens.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            lenses: export_isObject(object.lenses)
+                ? Object.entries(object.lenses).reduce((acc, [key, value]) => {
+                    acc[Number(key)] = export_bytesFromBase64(value);
+                    return acc;
+                }, {})
+                : {},
+            excludedLenses: Array.isArray(object?.excludedLenses)
+                ? object.excludedLenses.map((e) => export_ExportLensesByIdResponse_ExcludedLens.fromJSON(e))
+                : [],
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        obj.lenses = {};
+        if (message.lenses) {
+            Object.entries(message.lenses).forEach(([k, v]) => {
+                obj.lenses[k] = export_base64FromBytes(v);
+            });
+        }
+        if (message.excludedLenses) {
+            obj.excludedLenses = message.excludedLenses.map((e) => e ? export_ExportLensesByIdResponse_ExcludedLens.toJSON(e) : undefined);
+        }
+        else {
+            obj.excludedLenses = [];
+        }
+        return obj;
+    },
+    fromPartial(object) {
+        const message = export_createBaseExportLensesByIdResponse();
+        message.lenses = Object.entries(object.lenses ?? {}).reduce((acc, [key, value]) => {
+            if (value !== undefined) {
+                acc[Number(key)] = value;
+            }
+            return acc;
+        }, {});
+        message.excludedLenses =
+            object.excludedLenses?.map((e) => export_ExportLensesByIdResponse_ExcludedLens.fromPartial(e)) || [];
+        return message;
+    },
+};
+function export_createBaseExportLensesByIdResponse_LensesEntry() {
+    return { key: 0, value: new Uint8Array() };
+}
+const export_ExportLensesByIdResponse_LensesEntry = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = export_createBaseExportLensesByIdResponse_LensesEntry();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.key = export_longToNumber(reader.int64());
+                    break;
+                case 2:
+                    message.value = reader.bytes();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            key: export_isSet(object.key) ? Number(object.key) : 0,
+            value: export_isSet(object.value) ? export_bytesFromBase64(object.value) : new Uint8Array(),
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.key !== undefined && (obj.key = Math.round(message.key));
+        message.value !== undefined &&
+            (obj.value = export_base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
+        return obj;
+    },
+    fromPartial(object) {
+        const message = export_createBaseExportLensesByIdResponse_LensesEntry();
+        message.key = object.key ?? 0;
+        message.value = object.value ?? new Uint8Array();
+        return message;
+    },
+};
+function export_createBaseExportLensesByIdResponse_ExcludedLens() {
+    return { lensId: 0, code: export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET, reason: "" };
+}
+const export_ExportLensesByIdResponse_ExcludedLens = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = export_createBaseExportLensesByIdResponse_ExcludedLens();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.lensId = export_longToNumber(reader.int64());
+                    break;
+                case 2:
+                    message.code = export_exportLensesByIdResponse_ExcludedLens_CodeFromJSON(reader.int32());
+                    break;
+                case 3:
+                    message.reason = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            lensId: export_isSet(object.lensId) ? Number(object.lensId) : 0,
+            code: export_isSet(object.code)
+                ? export_exportLensesByIdResponse_ExcludedLens_CodeFromJSON(object.code)
+                : export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET,
+            reason: export_isSet(object.reason) ? String(object.reason) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.lensId !== undefined && (obj.lensId = Math.round(message.lensId));
+        message.code !== undefined && (obj.code = exportLensesByIdResponse_ExcludedLens_CodeToJSON(message.code));
+        message.reason !== undefined && (obj.reason = message.reason);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = export_createBaseExportLensesByIdResponse_ExcludedLens();
+        message.lensId = object.lensId ?? 0;
+        message.code = object.code ?? export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET;
+        message.reason = object.reason ?? "";
+        return message;
+    },
+};
+function export_createBaseExtensionRequestContext() {
+    return { userAgent: "", locale: "" };
+}
+const export_ExtensionRequestContext = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = export_createBaseExtensionRequestContext();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.userAgent = reader.string();
+                    break;
+                case 2:
+                    message.locale = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            userAgent: export_isSet(object.userAgent) ? String(object.userAgent) : "",
+            locale: export_isSet(object.locale) ? String(object.locale) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.userAgent !== undefined && (obj.userAgent = message.userAgent);
+        message.locale !== undefined && (obj.locale = message.locale);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = export_createBaseExtensionRequestContext();
+        message.userAgent = object.userAgent ?? "";
+        message.locale = object.locale ?? "";
+        return message;
+    },
+};
+function export_createBaseEnvelope() {
+    return { lenses: [] };
+}
+const export_Envelope = {
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = export_createBaseEnvelope();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.lenses.push(lens_Lens.decode(reader, reader.uint32()));
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            lenses: Array.isArray(object?.lenses) ? object.lenses.map((e) => lens_Lens.fromJSON(e)) : [],
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        if (message.lenses) {
+            obj.lenses = message.lenses.map((e) => (e ? lens_Lens.toJSON(e) : undefined));
+        }
+        else {
+            obj.lenses = [];
+        }
+        return obj;
+    },
+    fromPartial(object) {
+        const message = export_createBaseEnvelope();
+        message.lenses = object.lenses?.map((e) => lens_Lens.fromPartial(e)) || [];
+        return message;
+    },
+};
+var v3_export_globalThis = (() => {
+    if (typeof v3_export_globalThis !== "undefined")
+        return v3_export_globalThis;
+    if (typeof self !== "undefined")
+        return self;
+    if (typeof window !== "undefined")
+        return window;
+    if (typeof __webpack_require__.g !== "undefined")
+        return __webpack_require__.g;
+    throw "Unable to locate global object";
+})();
+const export_atob = v3_export_globalThis.atob || ((b64) => v3_export_globalThis.Buffer.from(b64, "base64").toString("binary"));
+function export_bytesFromBase64(b64) {
+    const bin = export_atob(b64);
+    const arr = new Uint8Array(bin.length);
+    for (let i = 0; i < bin.length; ++i) {
+        arr[i] = bin.charCodeAt(i);
+    }
+    return arr;
+}
+const export_btoa = v3_export_globalThis.btoa || ((bin) => v3_export_globalThis.Buffer.from(bin, "binary").toString("base64"));
+function export_base64FromBytes(arr) {
+    const bin = [];
+    for (const byte of arr) {
+        bin.push(String.fromCharCode(byte));
+    }
+    return export_btoa(bin.join(""));
+}
+function export_longToNumber(long) {
+    if (long.gt(Number.MAX_SAFE_INTEGER)) {
+        throw new v3_export_globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
+    }
+    return long.toNumber();
+}
+if ((minimal_default()).util.Long !== (long_default())) {
+    (minimal_default()).util.Long = (long_default());
+    minimal_default().configure();
+}
+function export_isObject(value) {
+    return typeof value === "object" && value !== null;
+}
+function export_isSet(value) {
+    return value !== null && value !== undefined;
+}
+
+;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/generated-api-client/core/snap_status_code.js
+
+
+const snap_status_code_protobufPackage = "snapchat.core";
+var Code;
+(function (Code) {
+    Code["OK"] = "OK";
+    Code["CANCELLED"] = "CANCELLED";
+    Code["UNKNOWN"] = "UNKNOWN";
+    Code["INVALID_ARGUMENT"] = "INVALID_ARGUMENT";
+    Code["DEADLINE_EXCEEDED"] = "DEADLINE_EXCEEDED";
+    Code["NOT_FOUND"] = "NOT_FOUND";
+    Code["ALREADY_EXISTS"] = "ALREADY_EXISTS";
+    Code["PERMISSION_DENIED"] = "PERMISSION_DENIED";
+    Code["UNAUTHENTICATED"] = "UNAUTHENTICATED";
+    Code["RESOURCE_EXHAUSTED"] = "RESOURCE_EXHAUSTED";
+    Code["FAILED_PRECONDITION"] = "FAILED_PRECONDITION";
+    Code["ABORTED"] = "ABORTED";
+    Code["OUT_OF_RANGE"] = "OUT_OF_RANGE";
+    Code["UNIMPLEMENTED"] = "UNIMPLEMENTED";
+    Code["INTERNAL"] = "INTERNAL";
+    Code["UNAVAILABLE"] = "UNAVAILABLE";
+    Code["DATA_LOSS"] = "DATA_LOSS";
+    Code["NOT_MODIFIED"] = "NOT_MODIFIED";
+    Code["DECRYPTION_FAILED"] = "DECRYPTION_FAILED";
+    Code["INVALID_MEDIA"] = "INVALID_MEDIA";
+    Code["IN_PROGRESS"] = "IN_PROGRESS";
+    Code["CONTENT_TOO_LARGE"] = "CONTENT_TOO_LARGE";
+    Code["URL_PROTOCOL_NOT_SUPPORTED"] = "URL_PROTOCOL_NOT_SUPPORTED";
+    Code["URL_CONTENT_TYPE_NOT_WHITELISTED"] = "URL_CONTENT_TYPE_NOT_WHITELISTED";
+    Code["URL_DOWNLOAD_FAILURE"] = "URL_DOWNLOAD_FAILURE";
+    Code["CLOUD_STORAGE_FAILURE"] = "CLOUD_STORAGE_FAILURE";
+    Code["UNRECOGNIZED"] = "UNRECOGNIZED";
+})(Code || (Code = {}));
+function codeFromJSON(object) {
+    switch (object) {
+        case 0:
+        case "OK":
+            return Code.OK;
+        case 1:
+        case "CANCELLED":
+            return Code.CANCELLED;
+        case 2:
+        case "UNKNOWN":
+            return Code.UNKNOWN;
+        case 3:
+        case "INVALID_ARGUMENT":
+            return Code.INVALID_ARGUMENT;
+        case 4:
+        case "DEADLINE_EXCEEDED":
+            return Code.DEADLINE_EXCEEDED;
+        case 5:
+        case "NOT_FOUND":
+            return Code.NOT_FOUND;
+        case 6:
+        case "ALREADY_EXISTS":
+            return Code.ALREADY_EXISTS;
+        case 7:
+        case "PERMISSION_DENIED":
+            return Code.PERMISSION_DENIED;
+        case 16:
+        case "UNAUTHENTICATED":
+            return Code.UNAUTHENTICATED;
+        case 8:
+        case "RESOURCE_EXHAUSTED":
+            return Code.RESOURCE_EXHAUSTED;
+        case 9:
+        case "FAILED_PRECONDITION":
+            return Code.FAILED_PRECONDITION;
+        case 10:
+        case "ABORTED":
+            return Code.ABORTED;
+        case 11:
+        case "OUT_OF_RANGE":
+            return Code.OUT_OF_RANGE;
+        case 12:
+        case "UNIMPLEMENTED":
+            return Code.UNIMPLEMENTED;
+        case 13:
+        case "INTERNAL":
+            return Code.INTERNAL;
+        case 14:
+        case "UNAVAILABLE":
+            return Code.UNAVAILABLE;
+        case 15:
+        case "DATA_LOSS":
+            return Code.DATA_LOSS;
+        case 100:
+        case "NOT_MODIFIED":
+            return Code.NOT_MODIFIED;
+        case 101:
+        case "DECRYPTION_FAILED":
+            return Code.DECRYPTION_FAILED;
+        case 102:
+        case "INVALID_MEDIA":
+            return Code.INVALID_MEDIA;
+        case 200:
+        case "IN_PROGRESS":
+            return Code.IN_PROGRESS;
+        case 201:
+        case "CONTENT_TOO_LARGE":
+            return Code.CONTENT_TOO_LARGE;
+        case 202:
+        case "URL_PROTOCOL_NOT_SUPPORTED":
+            return Code.URL_PROTOCOL_NOT_SUPPORTED;
+        case 203:
+        case "URL_CONTENT_TYPE_NOT_WHITELISTED":
+            return Code.URL_CONTENT_TYPE_NOT_WHITELISTED;
+        case 204:
+        case "URL_DOWNLOAD_FAILURE":
+            return Code.URL_DOWNLOAD_FAILURE;
+        case 205:
+        case "CLOUD_STORAGE_FAILURE":
+            return Code.CLOUD_STORAGE_FAILURE;
+        case -1:
+        case "UNRECOGNIZED":
+        default:
+            return Code.UNRECOGNIZED;
+    }
+}
+function codeToJSON(object) {
+    switch (object) {
+        case Code.OK:
+            return "OK";
+        case Code.CANCELLED:
+            return "CANCELLED";
+        case Code.UNKNOWN:
+            return "UNKNOWN";
+        case Code.INVALID_ARGUMENT:
+            return "INVALID_ARGUMENT";
+        case Code.DEADLINE_EXCEEDED:
+            return "DEADLINE_EXCEEDED";
+        case Code.NOT_FOUND:
+            return "NOT_FOUND";
+        case Code.ALREADY_EXISTS:
+            return "ALREADY_EXISTS";
+        case Code.PERMISSION_DENIED:
+            return "PERMISSION_DENIED";
+        case Code.UNAUTHENTICATED:
+            return "UNAUTHENTICATED";
+        case Code.RESOURCE_EXHAUSTED:
+            return "RESOURCE_EXHAUSTED";
+        case Code.FAILED_PRECONDITION:
+            return "FAILED_PRECONDITION";
+        case Code.ABORTED:
+            return "ABORTED";
+        case Code.OUT_OF_RANGE:
+            return "OUT_OF_RANGE";
+        case Code.UNIMPLEMENTED:
+            return "UNIMPLEMENTED";
+        case Code.INTERNAL:
+            return "INTERNAL";
+        case Code.UNAVAILABLE:
+            return "UNAVAILABLE";
+        case Code.DATA_LOSS:
+            return "DATA_LOSS";
+        case Code.NOT_MODIFIED:
+            return "NOT_MODIFIED";
+        case Code.DECRYPTION_FAILED:
+            return "DECRYPTION_FAILED";
+        case Code.INVALID_MEDIA:
+            return "INVALID_MEDIA";
+        case Code.IN_PROGRESS:
+            return "IN_PROGRESS";
+        case Code.CONTENT_TOO_LARGE:
+            return "CONTENT_TOO_LARGE";
+        case Code.URL_PROTOCOL_NOT_SUPPORTED:
+            return "URL_PROTOCOL_NOT_SUPPORTED";
+        case Code.URL_CONTENT_TYPE_NOT_WHITELISTED:
+            return "URL_CONTENT_TYPE_NOT_WHITELISTED";
+        case Code.URL_DOWNLOAD_FAILURE:
+            return "URL_DOWNLOAD_FAILURE";
+        case Code.CLOUD_STORAGE_FAILURE:
+            return "CLOUD_STORAGE_FAILURE";
+        default:
+            return "UNKNOWN";
+    }
+}
+function codeToNumber(object) {
+    switch (object) {
+        case Code.OK:
+            return 0;
+        case Code.CANCELLED:
+            return 1;
+        case Code.UNKNOWN:
+            return 2;
+        case Code.INVALID_ARGUMENT:
+            return 3;
+        case Code.DEADLINE_EXCEEDED:
+            return 4;
+        case Code.NOT_FOUND:
+            return 5;
+        case Code.ALREADY_EXISTS:
+            return 6;
+        case Code.PERMISSION_DENIED:
+            return 7;
+        case Code.UNAUTHENTICATED:
+            return 16;
+        case Code.RESOURCE_EXHAUSTED:
+            return 8;
+        case Code.FAILED_PRECONDITION:
+            return 9;
+        case Code.ABORTED:
+            return 10;
+        case Code.OUT_OF_RANGE:
+            return 11;
+        case Code.UNIMPLEMENTED:
+            return 12;
+        case Code.INTERNAL:
+            return 13;
+        case Code.UNAVAILABLE:
+            return 14;
+        case Code.DATA_LOSS:
+            return 15;
+        case Code.NOT_MODIFIED:
+            return 100;
+        case Code.DECRYPTION_FAILED:
+            return 101;
+        case Code.INVALID_MEDIA:
+            return 102;
+        case Code.IN_PROGRESS:
+            return 200;
+        case Code.CONTENT_TOO_LARGE:
+            return 201;
+        case Code.URL_PROTOCOL_NOT_SUPPORTED:
+            return 202;
+        case Code.URL_CONTENT_TYPE_NOT_WHITELISTED:
+            return 203;
+        case Code.URL_DOWNLOAD_FAILURE:
+            return 204;
+        case Code.CLOUD_STORAGE_FAILURE:
+            return 205;
+        default:
+            return 0;
+    }
+}
+function createBaseCodeProperties() {
+    return { errorCode: 0, errorDescription: "", isRetryable: false, source: "" };
+}
+const CodeProperties = {
+    encode(message, writer = minimal_default().Writer.create()) {
+        if (message.errorCode !== 0) {
+            writer.uint32(8).uint32(message.errorCode);
+        }
+        if (message.errorDescription !== "") {
+            writer.uint32(18).string(message.errorDescription);
+        }
+        if (message.isRetryable === true) {
+            writer.uint32(24).bool(message.isRetryable);
+        }
+        if (message.source !== "") {
+            writer.uint32(34).string(message.source);
+        }
+        return writer;
+    },
+    decode(input, length) {
+        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
+        let end = length === undefined ? reader.len : reader.pos + length;
+        const message = createBaseCodeProperties();
+        while (reader.pos < end) {
+            const tag = reader.uint32();
+            switch (tag >>> 3) {
+                case 1:
+                    message.errorCode = reader.uint32();
+                    break;
+                case 2:
+                    message.errorDescription = reader.string();
+                    break;
+                case 3:
+                    message.isRetryable = reader.bool();
+                    break;
+                case 4:
+                    message.source = reader.string();
+                    break;
+                default:
+                    reader.skipType(tag & 7);
+                    break;
+            }
+        }
+        return message;
+    },
+    fromJSON(object) {
+        return {
+            errorCode: snap_status_code_isSet(object.errorCode) ? Number(object.errorCode) : 0,
+            errorDescription: snap_status_code_isSet(object.errorDescription) ? String(object.errorDescription) : "",
+            isRetryable: snap_status_code_isSet(object.isRetryable) ? Boolean(object.isRetryable) : false,
+            source: snap_status_code_isSet(object.source) ? String(object.source) : "",
+        };
+    },
+    toJSON(message) {
+        const obj = {};
+        message.errorCode !== undefined && (obj.errorCode = Math.round(message.errorCode));
+        message.errorDescription !== undefined && (obj.errorDescription = message.errorDescription);
+        message.isRetryable !== undefined && (obj.isRetryable = message.isRetryable);
+        message.source !== undefined && (obj.source = message.source);
+        return obj;
+    },
+    fromPartial(object) {
+        const message = createBaseCodeProperties();
+        message.errorCode = object.errorCode ?? 0;
+        message.errorDescription = object.errorDescription ?? "";
+        message.isRetryable = object.isRetryable ?? false;
+        message.source = object.source ?? "";
+        return message;
+    },
+};
+if ((minimal_default()).util.Long !== (long_default())) {
+    (minimal_default()).util.Long = (long_default());
+    minimal_default().configure();
+}
+function snap_status_code_isSet(value) {
+    return value !== null && value !== undefined;
+}
+
+;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/reportEvent.js
+function reportEvent_assertUnreachable(_) {
+    throw new Error("Reached unreachable code at runtime.");
+}
+// Document wich describes the operational metrics we send:
+// https://docs.google.com/document/d/1wGadstNanzvB_7XYf7fMlQhsHi90p73CHtpD39r_d3g/edit?pli=1#
+function reportEvent(metricsReporter, event) {
+    const { type } = event;
+    switch (type) {
+        case "error": {
+            const dimensions = new Map();
+            if (event.detail.name === "CommunicationError") {
+                dimensions.set("type", "subscription").set("cause", event.detail.grpcStatus);
+            }
+            else if (event.detail.name === "LensExcludedError") {
+                dimensions.set("type", "lens_excluded").set("cause", event.detail.reason);
+            }
+            metricsReporter.count("push2web_error", 1, dimensions);
+            break;
+        }
+        case "lensReceived": {
+            metricsReporter.count("push2web_received", 1);
+            break;
+        }
+        case "subscriptionChanged": // do not report subscription changed events
+            break;
+        default: {
+            reportEvent_assertUnreachable(type);
+        }
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/Push2WebSDKExtension.js
+
+
+
+
+
+
+
+class Push2WebSDKExtension {
+    extension;
+    groupId = "PUSH_2_WEB_GROUP_ID";
+    lastPushedEnvelope = undefined;
+    metricsReporter = undefined;
+    metricRequestRateLimitMs = 1000;
+    constructor() {
+        const push2WebLensSource = {
+            isGroupOwner: (groupId) => groupId === this.groupId,
+            getLens: async () => {
+                if (this.lastPushedEnvelope != undefined) {
+                    return this.lastPushedEnvelope;
+                }
+                throw new Error("No pushed lens found.");
+            },
+            getLensGroup: async () => {
+                if (this.lastPushedEnvelope != undefined) {
+                    return [this.lastPushedEnvelope];
+                }
+                return [];
+            },
+        };
+        const lensSourceFactory = Injectable(lensSourcesFactory.token, [lensSourcesFactory.token, "configuration"], (lensSources, configuration) => {
+            const handler = cameraKitServiceFetchHandlerFactory(configuration, fetch);
+            const pageVisibility = new PageVisibility();
+            const metricsHandler = new HandlerChainBuilder(handler).map(createRateLimitingHandler(this.metricRequestRateLimitMs, pageVisibility)).handler;
+            this.metricsReporter = operationalMetricReporterFactory(metricsHandler, pageVisibility, configuration);
+            return new LensSources(lensSources, push2WebLensSource);
+        });
+        this.extension = createExtension().provides(lensSourceFactory);
+    }
+    updateEnvelope(newEnvelope) {
+        this.lastPushedEnvelope = newEnvelope;
+    }
+    reportEvent(events) {
+        if (this.metricsReporter) {
+            reportEvent(this.metricsReporter, events);
+        }
+    }
+}
+
+;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/Push2Web.js
+
+
+
+
+
+
+
+class Push2Web {
+    /**
+     * Use this property to subscribe for the different types of events that can occur during push 2 web execution.
+     *
+     * Subscribe to `error` event to be aware if something has happened during the lens push,
+     * with network communication or any other type of error,
+     * event object also contains detailed expalantion of the cause.
+     *
+     * Use `subscriptionChanged` event to be aware when subscription state is changed.
+     *
+     * Use `lensReceived` event to be aware when new lens is received from Lens Studio,
+     * also you can get the additional details about the pushed lens.
+     *
+     * @example
+     *```ts
+     *push2web.events.addEventListener('error', ({ detail }) => {
+     *   if (detail.name === 'LensExcludedError') {
+     *     console.log(`Lens is excluded from the push, by the following reason: ${detail.reason}.`)
+     *   }
+     *})
+     *```
+     */
+    events = new TypedEventTarget();
+    push2WebExtension = new Push2WebSDKExtension();
+    pushedLenses;
+    accesToken = new ReplaySubject(1);
+    subscription;
+    /**
+     * Create new instance of Push2Web object,
+     * it can be used to start listening for the events,
+     * subscribe or unsubscribe for notifications from Lens Studio.
+     * Also provides the extension object for the @snap/camera-kit package.
+     */
+    constructor() {
+        this.pushedLenses = this.accesToken.pipe(switchMap((accessToken) => {
+            const metadata = new grpc_web_client_umd.grpc.Metadata();
+            metadata.append("Authorization", `Bearer ${accessToken}`);
+            metadata.append("x-snap-client-user-agent", cameraKitUserAgent.userAgent);
+            const grpcWeb = new push_to_device_GrpcWebImpl("https://api-kit.snapchat.com", {
+                metadata,
+            });
+            const push2WebClient = new PushToDeviceClientImpl(grpcWeb);
+            return push2WebClient.ListenLensPush(ListenLensPushRequest.fromPartial({})).pipe(map(({ lenses, excludedLens }) => {
+                if (excludedLens) {
+                    return new TypedCustomEvent("error", {
+                        name: "LensExcludedError",
+                        cause: new Error("Lens excluded"),
+                        lensId: excludedLens.lensId,
+                        reason: listenLensPushResponse_ExcludedLens_CodeFromJSON(excludedLens.code),
+                    });
+                }
+                const envelope = Object.values(lenses)[0];
+                this.push2WebExtension.updateEnvelope(envelope);
+                const [lens] = export_Envelope.decode(envelope).lenses;
+                return new TypedCustomEvent("lensReceived", toPublicLens(lens));
+            }), catchError((error) => {
+                const grpcError = /Error ([\d]{1,3})/.exec(error.message);
+                if (grpcError) {
+                    this.events.dispatchEvent(new TypedCustomEvent("subscriptionChanged", State.Unsubscribed));
+                    const grpcCode = parseInt(grpcError[1]);
+                    return of(new TypedCustomEvent("error", {
+                        name: "CommunicationError",
+                        cause: error,
+                        grpcStatus: codeFromJSON(grpcCode),
+                        grpcCode,
+                    }));
+                }
+                return of(new TypedCustomEvent("error", { name: "GenericError", cause: error }));
+            }));
+        }));
+    }
+    /**
+     * The extension object must be passed to the Camera Kit object during its bootstrap process.
+     * This is a requirement for the proper functioning of push to web functionality.
+     *
+     * @example
+     * ```ts
+     *import { bootstrapCameraKit } from "@snap/camera-kit";
+     *
+     *const push2web = new Push2Web();
+     *const extensions = (container) => container.provides(push2Web.extension);
+     *
+     *const cameraKit = await bootstrapCameraKit({ apiToken: "token from developer portal" }, extensions);
+     *const cameraKitSession = await cameraKit.createSession();
+     * ```
+     */
+    get extension() {
+        return this.push2WebExtension.extension;
+    }
+    /**
+     * Initiate subscription for the events from Lens Studio.
+     *
+     * @param accessToken - After user will be logged in to the web page,
+     * using Snapchat account, you can get access token from Login Kit.
+     * @param cameraKitSession - Instance of CameraKitSesion object form @snap/camera-kit package.
+     * @param repository - Instance of LensRepository object from @snap/camera-kit package.
+     * @returns @SubscriptionInstance
+     */
+    subscribe(accessToken, cameraKitSession, repository) {
+        this.subscription?.unsubscribe();
+        this.accesToken.next(accessToken);
+        this.subscription = this.pushedLenses.subscribe({
+            next: async (event) => {
+                this.events.dispatchEvent(event);
+                if (event.type === "lensReceived") {
+                    try {
+                        const lens = await repository.loadLens(event.detail.id, this.push2WebExtension.groupId);
+                        await cameraKitSession.removeLens();
+                        await cameraKitSession.applyLens(lens);
+                    }
+                    catch (error) {
+                        this.events.dispatchEvent(new TypedCustomEvent("error", {
+                            name: "GenericError",
+                            cause: error,
+                        }));
+                    }
+                }
+                this.push2WebExtension.reportEvent(event);
+            },
+        });
+        this.events.dispatchEvent(new TypedCustomEvent("subscriptionChanged", State.Subscribed));
+        return {
+            unsubscribe: async () => {
+                if (this.subscription) {
+                    this.subscription.unsubscribe();
+                    this.subscription = undefined;
+                    this.events.dispatchEvent(new TypedCustomEvent("subscriptionChanged", State.Unsubscribed));
+                }
+            },
+            updateAccessToken: (accessToken) => {
+                this.accesToken.next(accessToken);
+            },
+        };
+    }
+}
+var State;
+(function (State) {
+    /**
+     * The extension is listening for the events about pushed Lens from Lens Studio.
+     */
+    State["Subscribed"] = "Subscribed";
+    /**
+     * The extension is not listening for any events about pushed Lens.
+     */
+    State["Unsubscribed"] = "Unsubscribed";
+})(State || (State = {}));
+const version = "0.0.0-placeholder";
+
+;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/public-api.js
+
+
+
+
 ;// CONCATENATED MODULE: ./src/main.js
+
 
 
 (async function () {
@@ -28086,58 +30765,46 @@ console.info(`SDK: ${environment_namespaceObject.l} \
     // );
 
     //PUSH2WEB
-    const push2Web = new lib_namespaceObject.Push2Web();
+    const push2Web = await new Push2Web();
     push2Web.events.addEventListener("lensReceived", console.info);
     push2Web.events.addEventListener("error", console.error);
     push2Web.events.addEventListener("subscriptionChanged", console.info);
 
-    const extensions = (container) => container.provides(push2Web.extension, damsService);
+    const extensions = (container) => container.provides(push2Web.extension);
 
     const cameraKit = await bootstrapCameraKit({ apiToken: "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4" }, extensions);
-    //const cameraKitSession = await cameraKit.createSession();
+    const cameraKitSession = await cameraKit.createSession();
 
-    push2Web.subscribe("login kit access token", cameraKitSession, cameraKit.lensRepository);
+        //push2web suite
+        push2Web.subscribe("49beb0c1-28e4-43a7-96f3-1c4bfc0dad08", cameraKitSession, cameraKit.lensRepository);
+
     //end PUSH2WEB
-
-    const session = await cameraKit.createSession();
-
-    document.getElementById('canvas').replaceWith(session.output.live);
-
-    // const { lenses } = await cameraKit.lensRepository.loadLensGroups(['1c840cc0-bead-4a6d-8328-1fbe4a5ba67a']);
-    const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);
-
-    session.applyLens(lenses[0]);
-
-
-    // let mediaStream = await navigator.mediaDevices(getUserMedia({ video: true }));
-    let mediaStream = await navigator.mediaDevices.getUserMedia({
-        video: {
-            facingMode: 'environment'
-        }
-    });
-
-    const source = createMediaStreamSource(mediaStream, {
-        // transform: Transform2D.MirrorX,
-        fpsLimit: 30,
-        cameraType: 'back',
-    });
-
+    
+    
+    
+    // const session = await cameraKit.createSession();
+    // document.getElementById('canvas').replaceWith(session.output.live);
+    // const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);
+    // session.applyLens(lenses[0]);
+    // // let mediaStream = await navigator.mediaDevices(getUserMedia({ video: true }));
+    // let mediaStream = await navigator.mediaDevices.getUserMedia({
+    //     video: {
+    //         facingMode: 'environment'
+    //     }
+    // });
+    // const source = createMediaStreamSource(mediaStream, {
+    //     // transform: Transform2D.MirrorX,
+    //     fpsLimit: 30,
+    //     cameraType: 'back',
+    // });
+    // await session.setSource(source)
+    // session.setSource(source)
+    // session.source.setRenderSize(window.innerWidth, window.innerHeight)
+    // session.play();
 
 
 
-
-
-    await session.setSource(source)
-
-    session.setSource(source)
-
-    session.source.setRenderSize(window.innerWidth, window.innerHeight)
-
-    session.play();
-
-
-
-})()
+})();
 })();
 
 /******/ })()
