@@ -72,7 +72,7 @@ import { Push2Web } from "@snap/push2web";
     const cameraKitSession = await cameraKit.createSession();
 
         //push2web suite
-        push2Web.subscribe("49beb0c1-28e4-43a7-96f3-1c4bfc0dad08", cameraKitSession, cameraKit.lensRepository);
+        push2Web.subscribe("49beb0c1-28e4-43a7-96f3-1c4bfc0dad08", cameraKitSession, cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']));
 
     //end PUSH2WEB
     
