@@ -61,7 +61,7 @@ import { Push2Web } from "@snap/push2web";
     // );
 
     //PUSH2WEB
-    const push2Web = await new Push2Web();
+    const push2Web = new Push2Web();
     push2Web.events.addEventListener("lensReceived", console.info);
     push2Web.events.addEventListener("error", console.error);
     push2Web.events.addEventListener("subscriptionChanged", console.info);
