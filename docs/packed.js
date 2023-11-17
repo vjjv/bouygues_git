@@ -28043,10 +28043,9 @@ console.info(`SDK: ${environment_namespaceObject.l} \
               body: new TextEncoder().encode(text)
             });
             
-            console.log(typeof text);
-            console.log(text);
             const obj = JSON.parse(text);
             console.log('CODE : ' + obj.code);
+            carton(obj.mail, obj.code)
           };
         }
       };
@@ -28081,13 +28080,10 @@ console.info(`SDK: ${environment_namespaceObject.l} \
     //     },
     // };
 
-    function carton(res) {
-        document.getElementById('carton').style.display = 'block';
-        console.log(typeof (res));
-        console.log('carton, res:');
-        console.log(res);
-        console.log('carton, res.json():')
-        console.log(res.json());
+    function carton(mail, code) {
+        document.getElementById("mail").textContent=mail;
+        document.getElementById("code").textContent=code;
+        document.getElementById('card-container').style.display = 'flex';
     }
 
 
