@@ -32,14 +32,14 @@ import {
                         Accept: "application/json",
                     },
                 })
-                    .then((res) => res.text())
+                    .then((res) => {res.text(); console.log('ha');res.text()})
                     .then((res) => {      
                         reply({
                             status: "success",
                             metadata: {},
                             body: new TextEncoder().encode(res),
                         })
-                        carton(new Uint8Array(new TextEncoder().encode(res)));
+                        carton(res.text());
                     })
             };
         },
@@ -47,6 +47,7 @@ import {
 
     function carton(res) {
         document.getElementById('carton').style.display = 'block';
+        console.log(typeof(res));
         console.log('carton, res:');
         console.log(res);
         console.log('carton, res.json():')
