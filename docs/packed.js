@@ -28039,7 +28039,7 @@ console.info(`SDK: ${environment_namespaceObject.l} \
                         Accept: "application/json",
                     },
                 })
-                    .then((res) => {res.text(); console.log('ha');res.text()})
+                    .then((res) => {let a = res.text(); console.log('a : ');console.log(a)})
                     .then((res) => {      
                         reply({
                             status: "success",
