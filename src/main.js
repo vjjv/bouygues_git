@@ -32,17 +32,15 @@ import {
                         Accept: "application/json",
                     },
                 })
-                    .then((res) => {
-                        res.text();  //return promise with status and query param
-                    })
+                    .then((res) => res.text())//return promise with status and query param
                     .then((res) => {
                         reply({
                             status: "success",
                             metadata: {},
                             body: new TextEncoder().encode(res),
                         })
-                        typeof(res);
-                        console.log(res);
+                        // typeof(res);
+                        // console.log(res);
                     })
             };
         },
