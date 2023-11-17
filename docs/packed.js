@@ -5771,7 +5771,7 @@ function getConfigurationOverrides() {
 }
 //# sourceMappingURL=configurationOverrides.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/dependency-injection/Injectable.js
-function Injectable_Injectable(token, dependenciesOrFn, maybeFn) {
+function Injectable(token, dependenciesOrFn, maybeFn) {
     const dependencies = Array.isArray(dependenciesOrFn) ? dependenciesOrFn : [];
     const fn = typeof dependenciesOrFn === "function" ? dependenciesOrFn : maybeFn;
     if (!fn) {
@@ -5816,7 +5816,7 @@ const createCameraKitConfigurationFactory = (configuration) => {
     if (overrides) {
         console.warn("Configuration overrides applied", overrides);
     }
-    return Injectable_Injectable(configurationToken, () => {
+    return Injectable(configurationToken, () => {
         // We'll ensure that we handle errors on any Promises passed as config values, otherwise we either must
         // handle them separately wherever they're used, or rejections would go unhandled.
         const safeConfig = Object.assign(Object.assign({}, configuration), { lensPerformance: configuration.lensPerformance instanceof Promise
@@ -6671,7 +6671,7 @@ var OperatorSubscriber = (function (_super) {
 ;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/operators/map.js
 
 
-function map_map(project, thisArg) {
+function map(project, thisArg) {
     return operate(function (source, subscriber) {
         var index = 0;
         source.subscribe(createOperatorSubscriber(subscriber, function (value) {
@@ -7129,7 +7129,7 @@ function mergeInternals(source, subscriber, project, concurrent, onBeforeNext, e
 function mergeMap(project, resultSelector, concurrent) {
     if (concurrent === void 0) { concurrent = Infinity; }
     if (isFunction(resultSelector)) {
-        return mergeMap(function (a, i) { return map_map(function (b, ii) { return resultSelector(a, b, i, ii); })(innerFrom_innerFrom(project(a, i))); }, concurrent);
+        return mergeMap(function (a, i) { return map(function (b, ii) { return resultSelector(a, b, i, ii); })(innerFrom_innerFrom(project(a, i))); }, concurrent);
     }
     else if (typeof resultSelector === 'number') {
         concurrent = resultSelector;
@@ -7373,7 +7373,7 @@ function callOrApply(fn, args) {
     return isArray(args) ? fn.apply(void 0, __spreadArray([], __read(args))) : fn(args);
 }
 function mapOneOrManyArgs_mapOneOrManyArgs(fn) {
-    return map_map(function (args) { return callOrApply(fn, args); });
+    return map(function (args) { return callOrApply(fn, args); });
 }
 //# sourceMappingURL=mapOneOrManyArgs.js.map
 ;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/observable/fromEvent.js
@@ -7723,7 +7723,7 @@ const createDebugHandler = () => {
  * HandlerChainBuilder makes this happen by observing when each handler completes, and sending an abort signal to all
  * the handlers "downstream" from the aborting handler.
  */
-class HandlerChainBuilder_HandlerChainBuilder {
+class HandlerChainBuilder {
     constructor(inner) {
         // The TS compiler has the following behavior:
         //
@@ -7834,7 +7834,7 @@ class HandlerChainBuilder_HandlerChainBuilder {
             outerResponse.catch(() => { }).then(maybeAbort);
             return outerResponse;
         };
-        return new HandlerChainBuilder_HandlerChainBuilder(outerHandler);
+        return new HandlerChainBuilder(outerHandler);
     }
 }
 //# sourceMappingURL=HandlerChainBuilder.js.map
@@ -8299,12 +8299,12 @@ const createTimeoutHandler = (options = {}) => {
  *
  * @internal
  */
-const defaultFetchHandlerFactory = Injectable_Injectable("defaultFetchHandler", () => {
+const defaultFetchHandlerFactory = Injectable("defaultFetchHandler", () => {
     return (
     // Safety: We're re-typing fetch's second argument from `init?: RequestInit | undefined` to
     // `init: RequestInit | void` – this is semantically equivalent, but the void makes for nicer ergonomics
     // elsewhere (e.g. so that callers can omit the second argument instead of being forced to pass undefined).
-    new HandlerChainBuilder_HandlerChainBuilder(fetch)
+    new HandlerChainBuilder(fetch)
         .map(createDebugHandler())
         // The 20-second per-request timeout is pretty arbitrary, it's just set to be longer than our API gateway
         // timeout (15s) and lower than the browsers own timeout (variable, Chrome's is 5m).
@@ -8571,7 +8571,7 @@ function getCameraKitUserAgent() {
     };
 }
 /** @internal */
-const cameraKitUserAgent_cameraKitUserAgent = getCameraKitUserAgent();
+const cameraKitUserAgent = getCameraKitUserAgent();
 //# sourceMappingURL=cameraKitUserAgent.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/lens-core-module/loader/lensCoreFactory.js
 
@@ -8618,7 +8618,7 @@ function getRequiredBootstrapURLs(endpointOverride) {
         ]);
         // Although Safari 16.4 reports SIMD support, LensCore encounters rendering bugs when using SIMD in Safari 16.4.
         // Therefore, we have made the decision to disable SIMD for now until Safari stabilizes the feature.
-        const { brand } = cameraKitUserAgent_cameraKitUserAgent.browser;
+        const { brand } = cameraKitUserAgent.browser;
         if (brand === "Safari")
             simdFeature = PlatformFeatures.Default;
         const flavor = platformFeaturesToFlavour[simdFeature | exceptionsFeature];
@@ -8642,7 +8642,7 @@ function getRequiredBootstrapURLs(endpointOverride) {
  *
  * @internal
  */
-const lensCoreFactory = Injectable_Injectable("lensCore", [defaultFetchHandlerFactory.token, configurationToken], (handler, { lensCoreOverrideUrls, wasmEndpointOverride }) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
+const lensCoreFactory = Injectable("lensCore", [defaultFetchHandlerFactory.token, configurationToken], (handler, { lensCoreOverrideUrls, wasmEndpointOverride }) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
     let lensCoreJS;
     let lensCoreWASM;
@@ -9166,9 +9166,9 @@ const createHeadersModifyingFetchHandler = (modifyHeaders) => (next) => (input, 
  *
  * @internal
  */
-const cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory = Injectable_Injectable("cameraKitServiceFetchHandler", [configurationToken, defaultFetchHandlerFactory.token], ({ apiToken }, defaultFetchHandler) => {
-    return new HandlerChainBuilder_HandlerChainBuilder(defaultFetchHandler).map(createHeadersModifyingFetchHandler((headers) => {
-        headers.append("x-snap-client-user-agent", cameraKitUserAgent_cameraKitUserAgent.userAgent);
+const cameraKitServiceFetchHandlerFactory = Injectable("cameraKitServiceFetchHandler", [configurationToken, defaultFetchHandlerFactory.token], ({ apiToken }, defaultFetchHandler) => {
+    return new HandlerChainBuilder(defaultFetchHandler).map(createHeadersModifyingFetchHandler((headers) => {
+        headers.append("x-snap-client-user-agent", cameraKitUserAgent.userAgent);
         headers.append("authorization", `Bearer ${apiToken}`);
         return headers;
     })).handler;
@@ -9184,7 +9184,7 @@ const cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory = 
  * And if a source claims the ownership, its {@link LensSource.getLens} or {@link LensSource.getLensGroup}
  * methods are called.
  */
-class LensSources_LensSources {
+class LensSources {
     /**
      * Returns empty LensSources instance.
      * @internal
@@ -9193,7 +9193,7 @@ class LensSources_LensSources {
         // NOTE: we want to keep LensSources constructor to require arguments
         // but internally we don't need them for the base case
         // @ts-expect-error
-        return new LensSources_LensSources();
+        return new LensSources();
     }
     /**
      * Creates an instance of Lens sources.
@@ -9227,7 +9227,7 @@ class LensSources_LensSources {
         });
     }
 }
-const LensSources_lensSourcesFactory = Injectable_Injectable("lensSources", () => LensSources_LensSources.empty());
+const lensSourcesFactory = Injectable("lensSources", () => LensSources.empty());
 //# sourceMappingURL=LensSources.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/errorHelpers.js
 /**
@@ -9264,7 +9264,7 @@ const convertDaysToSeconds = (days) => days * 24 * 60 * 60;
  * of the CustomEvent will be typed as a string literal – this allows [TypedEventTarget] to provide more useful type
  * checking of events.
  */
-class TypedCustomEvent_TypedCustomEvent extends CustomEvent {
+class TypedCustomEvent extends CustomEvent {
     constructor(type, detail, eventInitDict = {}) {
         super(type, Object.assign(Object.assign({}, eventInitDict), { detail }));
     }
@@ -9279,7 +9279,7 @@ class TypedCustomEvent_TypedCustomEvent extends CustomEvent {
  * For example, when calling TypedEventTarget::addEventListener, the event passed to the callback will have the correct
  * type corresponding to the type of event for which the listener has been added.
  */
-class TypedEventTarget_TypedEventTarget {
+class TypedEventTarget {
     constructor() {
         this.listeners = new Map();
         this.options = new Map();
@@ -9344,17 +9344,17 @@ const safeParseInt = (str) => {
 };
 const dispatchRequestStarted = (requestStateEventTarget, data) => {
     const started = Object.assign(Object.assign({}, data), { requestId: requestId++, timeMs: getTimeMs() });
-    requestStateEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("started", started));
+    requestStateEventTarget.dispatchEvent(new TypedCustomEvent("started", started));
     return started;
 };
 const dispatchRequestCompleted = (requestStateEventTarget, data) => {
     const completed = Object.assign(Object.assign({}, data), { timeMs: getTimeMs() });
-    requestStateEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("completed", completed));
+    requestStateEventTarget.dispatchEvent(new TypedCustomEvent("completed", completed));
     return completed;
 };
 const dispatchRequestErrored = (requestStateEventTarget, data) => {
     const errored = Object.assign(Object.assign({}, data), { timeMs: getTimeMs() });
-    requestStateEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("errored", errored));
+    requestStateEventTarget.dispatchEvent(new TypedCustomEvent("errored", errored));
     return errored;
 };
 const createRequestStateEmittingHandler = (requestStateEventTarget) => (next) => ([request, dimensions], metadata) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
@@ -9374,7 +9374,7 @@ const createRequestStateEmittingHandler = (requestStateEventTarget) => (next) =>
 /**
  * @internal
  */
-const requestStateEventTargetFactory = Injectable_Injectable("requestStateEventTarget", () => new TypedEventTarget_TypedEventTarget());
+const requestStateEventTargetFactory = Injectable("requestStateEventTarget", () => new TypedEventTarget());
 //# sourceMappingURL=requestStateEmittingHandler.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/handlers/arrayBufferParsingHandler.js
 
@@ -10322,7 +10322,7 @@ function isGetGroupResponse(value) {
  *
  * @internal
  */
-function Lens_toPublicLens({ id, name, content, vendorData, cameraFacingPreference, lensCreator, scannable, }) {
+function toPublicLens({ id, name, content, vendorData, cameraFacingPreference, lensCreator, scannable, }) {
     var _a;
     assert(isEmptyOrSafeUrl(content === null || content === void 0 ? void 0 : content.iconUrlBolt), "Unsafe icon URL");
     assert(isEmptyOrSafeUrl((_a = content === null || content === void 0 ? void 0 : content.preview) === null || _a === void 0 ? void 0 : _a.imageUrl), "Unsafe preview URL");
@@ -10847,7 +10847,7 @@ const ExtensionRequestContext = {
 function createBaseEnvelope() {
     return { lenses: [] };
 }
-const export_Envelope = {
+const Envelope = {
     decode(input, length) {
         const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
@@ -10901,7 +10901,7 @@ if ((minimal_default()).util.Long !== (long_default())) {
  */
 function decodeEnvelope(envelope) {
     try {
-        return export_Envelope.decode(new Uint8Array(envelope)).lenses;
+        return Envelope.decode(new Uint8Array(envelope)).lenses;
     }
     catch (_a) {
         throw new Error("Invalid lens envelope.");
@@ -10931,7 +10931,7 @@ function decodeEnvelopes(envelopes) {
  *
  * @internal
  */
-const metricsEventTargetFactory = Injectable_Injectable("metricsEventTarget", () => new TypedEventTarget_TypedEventTarget());
+const metricsEventTargetFactory = Injectable("metricsEventTarget", () => new TypedEventTarget());
 //# sourceMappingURL=metricsEventTarget.js.map
 ;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/util/EmptyError.js
 
@@ -10970,13 +10970,13 @@ function firstValueFrom(source, config) {
 
 
 
-function catchError_catchError(selector) {
+function catchError(selector) {
     return operate(function (source, subscriber) {
         var innerSub = null;
         var syncUnsub = false;
         var handledResult;
         innerSub = source.subscribe(createOperatorSubscriber(subscriber, undefined, undefined, function (err) {
-            handledResult = innerFrom_innerFrom(selector(err, catchError_catchError(selector)(source)));
+            handledResult = innerFrom_innerFrom(selector(err, catchError(selector)(source)));
             if (innerSub) {
                 innerSub.unsubscribe();
                 innerSub = null;
@@ -11006,7 +11006,7 @@ var dateTimestampProvider = {
 
 
 
-var ReplaySubject_ReplaySubject = (function (_super) {
+var ReplaySubject = (function (_super) {
     __extends(ReplaySubject, _super);
     function ReplaySubject(_bufferSize, _windowTime, _timestampProvider) {
         if (_bufferSize === void 0) { _bufferSize = Infinity; }
@@ -11067,7 +11067,7 @@ var ReplaySubject_ReplaySubject = (function (_super) {
 
 
 
-function share_share(options) {
+function share(options) {
     if (options === void 0) { options = {}; }
     var _a = options.connector, connector = _a === void 0 ? function () { return new Subject(); } : _a, _b = options.resetOnError, resetOnError = _b === void 0 ? true : _b, _c = options.resetOnComplete, resetOnComplete = _c === void 0 ? true : _c, _d = options.resetOnRefCountZero, resetOnRefCountZero = _d === void 0 ? true : _d;
     return function (wrapperSource) {
@@ -11160,8 +11160,8 @@ function shareReplay(configOrBufferSize, windowTime, scheduler) {
     else {
         bufferSize = (configOrBufferSize !== null && configOrBufferSize !== void 0 ? configOrBufferSize : Infinity);
     }
-    return share_share({
-        connector: function () { return new ReplaySubject_ReplaySubject(bufferSize, windowTime, scheduler); },
+    return share({
+        connector: function () { return new ReplaySubject(bufferSize, windowTime, scheduler); },
         resetOnError: true,
         resetOnComplete: false,
         resetOnRefCountZero: refCount,
@@ -14882,7 +14882,7 @@ const CircumstancesServiceaddRuidsForDebuggingDesc = {
         },
     },
 };
-class circumstance_service_GrpcWebImpl {
+class GrpcWebImpl {
     constructor(host, options) {
         this.host = host;
         this.options = options;
@@ -17110,7 +17110,7 @@ function service_isSet(value) {
 //# sourceMappingURL=service.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/pageVisibility.js
 
-class pageVisibility_PageVisibility {
+class PageVisibility {
     constructor() {
         this.onHiddenHandlers = new Set();
         this.onVisibleHandlers = new Set();
@@ -17178,7 +17178,7 @@ class pageVisibility_PageVisibility {
         this.visibilityTransition = false;
     }
 }
-const pageVisibilityFactory = Injectable_Injectable("pageVisibility", () => new pageVisibility_PageVisibility());
+const pageVisibilityFactory = Injectable("pageVisibility", () => new PageVisibility());
 //# sourceMappingURL=pageVisibility.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/handlers/rateLimitingHandler.js
 
@@ -17205,7 +17205,7 @@ const delay = (duration) => new Promise((resolve) => setTimeout(resolve, duratio
  * a {@link PageVisibility} instance is used to subscribe to page visibility change events.
  * @returns {@link ChainableHandler}, suitable for use in {@link HandlerChainBuilder.map}
  */
-const rateLimitingHandler_createRateLimitingHandler = (duration, pageVisibility) => {
+const createRateLimitingHandler = (duration, pageVisibility) => {
     let mostRecentSendTime = undefined;
     const mappingHandler = createMappingHandler((request) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
         if (mostRecentSendTime !== undefined) {
@@ -17236,8 +17236,8 @@ const METRIC_REQUEST_RATE_LIMIT_MS = 1000; // send at most one metric request pe
 /**
  * @internal
  */
-const metricsHandlerFactory = Injectable_Injectable("metricsHandler", [cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory.token, pageVisibilityFactory.token], (fetchHandler, pageVisibility) => {
-    return new HandlerChainBuilder_HandlerChainBuilder(fetchHandler).map(rateLimitingHandler_createRateLimitingHandler(METRIC_REQUEST_RATE_LIMIT_MS, pageVisibility)).handler;
+const metricsHandlerFactory = Injectable("metricsHandler", [cameraKitServiceFetchHandlerFactory.token, pageVisibilityFactory.token], (fetchHandler, pageVisibility) => {
+    return new HandlerChainBuilder(fetchHandler).map(createRateLimitingHandler(METRIC_REQUEST_RATE_LIMIT_MS, pageVisibility)).handler;
 });
 //# sourceMappingURL=metricsHandler.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/metrics/operational/operationalMetricsReporter.js
@@ -17335,8 +17335,8 @@ class OperationalMetricsReporter {
 /**
  * @internal
  */
-const operationalMetricsReporter_operationalMetricReporterFactory = Injectable_Injectable("operationalMetricsReporter", [metricsHandlerFactory.token, pageVisibilityFactory.token, configurationToken], (metricsHandler, pageVisibility, configuration) => {
-    const handler = new HandlerChainBuilder_HandlerChainBuilder(metricsHandler)
+const operationalMetricReporterFactory = Injectable("operationalMetricsReporter", [metricsHandlerFactory.token, pageVisibilityFactory.token, configurationToken], (metricsHandler, pageVisibility, configuration) => {
+    const handler = new HandlerChainBuilder(metricsHandler)
         .map(createMappingHandler((metrics) => {
         const request = { metrics };
         return new Request(
@@ -17411,20 +17411,20 @@ const COF_REQUEST_TYPE = "cof";
  * immediately and the cache is updated in the background. If no response is found, a COF request is made. This request
  * will retry (with exponential backoff + jitter) for 5 seconds before returning an error to the caller.
  */
-const cofHandlerFactory = Injectable_Injectable("cofHandler", [configurationToken, requestStateEventTargetFactory.token, operationalMetricsReporter_operationalMetricReporterFactory.token], (config, requestStateEventTarget, reporter) => {
+const cofHandlerFactory = Injectable("cofHandler", [configurationToken, requestStateEventTargetFactory.token, operationalMetricReporterFactory.token], (config, requestStateEventTarget, reporter) => {
     // We need to wrap `targetingQuery` to create a usable Handler – the main issue is that HandlerChainBuilder
     // always adds a `signal` property to the metadata argument (second argument of the Handler), but
     // `targetingQuery` expects the second argument to only contain headers.
-    return (new HandlerChainBuilder_HandlerChainBuilder((request, _a) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
+    return (new HandlerChainBuilder((request, _a) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
         var { signal, isSideEffect: _ } = _a, metadata = __rest(_a, ["signal", "isSideEffect"]);
-        const rpc = new circumstance_service_GrpcWebImpl(`https://${config.apiHostname}`, {});
+        const rpc = new GrpcWebImpl(`https://${config.apiHostname}`, {});
         const client = new CircumstancesServiceClientImpl(rpc);
         return new Promise((resolve, reject) => {
             if (signal) {
                 signal.addEventListener("abort", () => reject(new Error("COF request aborted by handler chain.")));
             }
             client
-                .targetingQuery(request, new browser_headers_umd.BrowserHeaders(Object.assign({ authorization: `Bearer ${config.apiToken}`, "x-snap-client-user-agent": cameraKitUserAgent_cameraKitUserAgent.userAgent }, metadata)))
+                .targetingQuery(request, new browser_headers_umd.BrowserHeaders(Object.assign({ authorization: `Bearer ${config.apiToken}`, "x-snap-client-user-agent": cameraKitUserAgent.userAgent }, metadata)))
                 .then((response) => {
                 // NOTE: in order for cache persistance to work, we need to make the object cloneable,
                 // i.e. with no methods (it appears targetingQuery() attaches toObject() to response
@@ -17510,7 +17510,7 @@ class RemoteConfiguration {
         // Subscribers, having more context about the config use-case, will know better how to handle an error than
         // we do here (e.g. their logging / reporting will have more context, and they can use the error they get
         // from this Observable as a cause).
-        mergeMap((lensClusterOrig4) => from_from(cofHandler(Object.assign(Object.assign({}, defaultTargetingRequest), { lensClusterOrig4 })))), map_map((result) => {
+        mergeMap((lensClusterOrig4) => from_from(cofHandler(Object.assign(Object.assign({}, defaultTargetingRequest), { lensClusterOrig4 })))), map((result) => {
             const configById = new Map();
             result.configResults.forEach((config) => {
                 var _a;
@@ -17534,7 +17534,7 @@ class RemoteConfiguration {
      * COF configuration.
      */
     get(configId) {
-        return this.configById.pipe(map_map((config) => { var _a; return (_a = config.get(configId)) !== null && _a !== void 0 ? _a : []; }));
+        return this.configById.pipe(map((config) => { var _a; return (_a = config.get(configId)) !== null && _a !== void 0 ? _a : []; }));
     }
     /**
      * Configuration that is provided by Camera Kit backend.
@@ -17543,7 +17543,7 @@ class RemoteConfiguration {
         return this.initializationConfig;
     }
     getNamespace(namespace) {
-        return this.configById.pipe(map_map((configs) => {
+        return this.configById.pipe(map((configs) => {
             const namespaceConfigs = Array.from(configs.values())
                 .filter((values) => values.some((c) => c.namespace === namespace))
                 .flatMap((results) => results);
@@ -17551,7 +17551,7 @@ class RemoteConfiguration {
         }));
     }
 }
-const remoteConfigurationFactory = Injectable_Injectable("remoteConfiguration", [configurationToken, cofHandlerFactory.token, cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory.token], (config, cofHandler, fetchHandler) => {
+const remoteConfigurationFactory = Injectable("remoteConfiguration", [configurationToken, cofHandlerFactory.token, cameraKitServiceFetchHandlerFactory.token], (config, cofHandler, fetchHandler) => {
     const remoteConfig = new RemoteConfiguration(config.lensPerformance, config.apiHostname, cofHandler, fetchHandler);
     // We'll kick off remote configuration loading by subscribing (and then unsubscribing) to a dummy config value.
     // Subsequent requests for config will use the shared Observable, benefitting from this eager loading.
@@ -17577,14 +17577,14 @@ const isAssetConfig = (value) => {
 /**
  * @internal
  */
-const deviceDependentAssetLoaderFactory = Injectable_Injectable("deviceDependentAssetLoader", [defaultFetchHandlerFactory.token, remoteConfigurationFactory.token], (fetchHandler, remoteConfiguration) => {
-    const assetHandler = new HandlerChainBuilder_HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
+const deviceDependentAssetLoaderFactory = Injectable("deviceDependentAssetLoader", [defaultFetchHandlerFactory.token, remoteConfigurationFactory.token], (fetchHandler, remoteConfiguration) => {
+    const assetHandler = new HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
     return function deviceDependentAssetLoader({ assetId }) {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             const loadingFailed = (reason, cause) => new Error(`Cannot load device-dependent asset ${assetId}. ${reason}`, { cause });
-            return firstValueFrom(remoteConfiguration.get(assetId).pipe(catchError_catchError((error) => {
+            return firstValueFrom(remoteConfiguration.get(assetId).pipe(catchError((error) => {
                 throw loadingFailed("COF config failed to load.", error);
-            }), map_map((configs) => {
+            }), map((configs) => {
                 if (configs.length === 0) {
                     throw loadingFailed(`No COF config found corresponding to that assetId.`);
                 }
@@ -17627,8 +17627,8 @@ const deviceDependentAssetLoaderFactory = Injectable_Injectable("deviceDependent
 /**
  * @internal
  */
-const remoteMediaAssetLoaderFactory = Injectable_Injectable("remoteMediaAssetLoader", [defaultFetchHandlerFactory.token], (fetchHandler) => {
-    const handler = new HandlerChainBuilder_HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
+const remoteMediaAssetLoaderFactory = Injectable("remoteMediaAssetLoader", [defaultFetchHandlerFactory.token], (fetchHandler) => {
+    const handler = new HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
     return function remoteMediaAssetLoader(asset) {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             // as a default option assuming that RemoteMedia asset type contains asset url in assetId
@@ -17654,8 +17654,8 @@ const remoteMediaAssetLoaderFactory = Injectable_Injectable("remoteMediaAssetLoa
 /**
  * @internal
  */
-const staticAssetLoaderFactory = Injectable_Injectable("staticAssetLoader", [defaultFetchHandlerFactory.token], (fetchHandler) => {
-    const handler = new HandlerChainBuilder_HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
+const staticAssetLoaderFactory = Injectable("staticAssetLoader", [defaultFetchHandlerFactory.token], (fetchHandler) => {
+    const handler = new HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
     return (asset, _lens, assetManifest) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
         var _a;
         const assetUrl = (_a = assetManifest === null || assetManifest === void 0 ? void 0 : assetManifest.find((manifest) => manifest.id === asset.assetId)) === null || _a === void 0 ? void 0 : _a.assetUrl;
@@ -17793,7 +17793,7 @@ class LensAssetRepository {
                     onFailure: (reason) => {
                         const lensCoreError = errorHelpers_ensureError(reason);
                         if (/validation failed/.test(lensCoreError.message)) {
-                            this.metrics.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("assetValidationFailed", {
+                            this.metrics.dispatchEvent(new TypedCustomEvent("assetValidationFailed", {
                                 name: "assetValidationFailed",
                                 assetId,
                             }));
@@ -17843,7 +17843,7 @@ class LensAssetRepository {
 /**
  * @internal
  */
-const lensAssetRepositoryFactory = Injectable_Injectable("lensAssetRepository", [
+const lensAssetRepositoryFactory = Injectable("lensAssetRepository", [
     lensCoreFactory.token,
     deviceDependentAssetLoaderFactory.token,
     remoteMediaAssetLoaderFactory.token,
@@ -17939,7 +17939,7 @@ class LensRepository {
                 lens = yield retrieveCameraKitLens(this.lensMetadataFetchHandler, lensId, groupId, this.apiHostname);
             }
             this.metadataCache.set(lens.id, lens);
-            return Lens_toPublicLens(lens);
+            return toPublicLens(lens);
         });
     }
     /**
@@ -17963,7 +17963,7 @@ class LensRepository {
                         ? decodeEnvelopes(envelopes)
                         : yield retrieveCameraKitLensGroup(this.lensMetadataFetchHandler, groupId, this.apiHostname);
                     lenses.forEach((lens) => this.metadataCache.set(lens.id, lens));
-                    return lenses.map(Lens_toPublicLens);
+                    return lenses.map(toPublicLens);
                 }
                 catch (error) {
                     LensRepository_logger.error(new Error(`Failed to load lens group ${groupId}.`, { cause: error }));
@@ -18089,15 +18089,15 @@ __decorate([
 /**
  * @internal
  */
-const lensRepositoryFactory = Injectable_Injectable("LensRepository", [
+const lensRepositoryFactory = Injectable("LensRepository", [
     requestStateEventTargetFactory.token,
-    cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory.token,
+    cameraKitServiceFetchHandlerFactory.token,
     defaultFetchHandlerFactory.token,
-    LensSources_lensSourcesFactory.token,
+    lensSourcesFactory.token,
     lensAssetRepositoryFactory.token,
     configurationToken,
 ], (requestStateEventTarget, lensMetadataFetchHandler, defaultFetchHandler, lensSources, lensAssetRepository, configuration) => {
-    const lensFetchHandler = new HandlerChainBuilder_HandlerChainBuilder(defaultFetchHandler)
+    const lensFetchHandler = new HandlerChainBuilder(defaultFetchHandler)
         .map(createRequestStateEmittingHandler(requestStateEventTarget))
         .map(createArrayBufferParsingHandler()).handler;
     return new LensRepository(lensMetadataFetchHandler, lensFetchHandler, lensSources, lensAssetRepository, configuration.apiHostname);
@@ -18379,7 +18379,7 @@ function filter(predicate, thisArg) {
 ;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/observable/of.js
 
 
-function of_of() {
+function of() {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         args[_i] = arguments[_i];
@@ -18797,10 +18797,10 @@ class StateMachine {
         // So instead we need an Observable that does not complete. We achieve this by using `NEVER` and
         // then starting it with `[a, s]`. Note that it's important to then use `take(1)` after `raceWith`
         // so that we don't leak Observables which never complete.
-        NEVER.pipe(startWith([a, s]), reducer, raceWith(of_of(s)), tap((newState) => {
+        NEVER.pipe(startWith([a, s]), reducer, raceWith(of(s)), tap((newState) => {
             if (newState !== s)
                 this.state.next(newState);
-        }), map_map((newState) => [a, newState]), take(1))))
+        }), map((newState) => [a, newState]), take(1))))
             .subscribe(this.eventsSubject);
     }
     dispatch(actionOrName, data) {
@@ -19242,7 +19242,7 @@ function createVideoSource(video, options = {}) {
  *
  * @internal
  */
-const logEntriesFactory = Injectable_Injectable("logEntries", () => resetLogger().asObservable());
+const logEntriesFactory = Injectable("logEntries", () => resetLogger().asObservable());
 //# sourceMappingURL=logEntries.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/session/LensPerformanceMeasurement.js
 const getDefaultFrameMetricsState = () => ({
@@ -19426,7 +19426,7 @@ __decorate([
 function exhaustMap(project, resultSelector) {
     if (resultSelector) {
         return function (source) {
-            return source.pipe(exhaustMap(function (a, i) { return innerFrom_innerFrom(project(a, i)).pipe(map_map(function (b, ii) { return resultSelector(a, b, i, ii); })); }));
+            return source.pipe(exhaustMap(function (a, i) { return innerFrom_innerFrom(project(a, i)).pipe(map(function (b, ii) { return resultSelector(a, b, i, ii); })); }));
         };
     }
     return operate(function (source, subscriber) {
@@ -19452,7 +19452,7 @@ function exhaustMap(project, resultSelector) {
 
 
 
-function switchMap_switchMap(project, resultSelector) {
+function switchMap(project, resultSelector) {
     return operate(function (source, subscriber) {
         var innerSubscriber = null;
         var index = 0;
@@ -19481,7 +19481,7 @@ function switchMap_switchMap(project, resultSelector) {
 
 
 const LensPersistenceStore_logger = getLogger("LensPersistenceStore");
-const lensPersistenceStoreFactory = Injectable_Injectable("lensPersistenceStore", [lensCoreFactory.token], (lensCore) => {
+const lensPersistenceStoreFactory = Injectable("lensPersistenceStore", [lensCoreFactory.token], (lensCore) => {
     const db = new IndexedDBPersistence({ databaseName: "lensPersistenceStore" });
     lensCore.registerSavePersistentStoreCallback((id, data) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
         try {
@@ -22236,7 +22236,7 @@ function showDialog(options) {
             ${getButtonsHtml((_c = options.buttons) !== null && _c !== void 0 ? _c : [])}
         `;
         const buttonsElements = Array.from(prompt.querySelectorAll("button"));
-        merge(...buttonsElements.map((b) => fromEvent(b, "click").pipe(map_map(() => b.dataset.key))), fromEvent(prompt, "cancel").pipe(map_map(() => "dismiss")))
+        merge(...buttonsElements.map((b) => fromEvent(b, "click").pipe(map(() => b.dataset.key))), fromEvent(prompt, "cancel").pipe(map(() => "dismiss")))
             .pipe(take(1))
             .subscribe({ next: res, complete: () => element.remove() });
         options.container.appendChild(element);
@@ -22350,7 +22350,7 @@ function showFindGuardianDialog() {
 /**
  * @internal
  */
-const legalPromptFactory = Injectable_Injectable("legalPrompt", () => {
+const legalPromptFactory = Injectable("legalPrompt", () => {
     return function legalPrompt(privacyPolicy, termsOfService, learnMore, childrenProtectionActRestricted) {
         const legalMessage = childrenProtectionActRestricted
             ? localizedString("legalPromptVariantGMessage")
@@ -22423,13 +22423,13 @@ const createLegalState = () => {
     const states = defineStates(defineState("unknown")(), defineState("accepted")(), defineState("rejected")());
     const actions = defineActions(defineAction("requestLegalPrompt")(), defineAction("accept")(), defineAction("reject")());
     return new StateMachine(actions, states, states.unknown(), (actions) => {
-        return merge(actions.pipe(inStates("unknown"), forActions("accept"), map_map(() => states.accepted())), actions.pipe(inStates("unknown"), forActions("reject"), map_map(() => states.rejected())), 
+        return merge(actions.pipe(inStates("unknown"), forActions("accept"), map(() => states.accepted())), actions.pipe(inStates("unknown"), forActions("reject"), map(() => states.rejected())), 
         // We don't treat "rejected" as a terminal state -- if we get another request to display the legal prompt,
         // even though we're in the rejected state, we'll transition back to unknown and the prompt will be shown.
         //
         // Conversely, we do treat "accepted" as a terminal state -- we will not transition back to unknown or
         // show the legal prompt if we're already in accepted state, even if we get a request to display the prompt.
-        actions.pipe(inStates("rejected"), forActions("requestLegalPrompt"), map_map(() => states.unknown())));
+        actions.pipe(inStates("rejected"), forActions("requestLegalPrompt"), map(() => states.unknown())));
     });
 };
 const defaultLegalDocumentDate = new Date("2021-09-30T00:00:00+00:00");
@@ -22508,27 +22508,27 @@ const getDocumentOrDefault = (documents) => (type) => {
  *
  * @internal
  */
-const legalStateFactory = Injectable_Injectable("legalState", [remoteConfigurationFactory.token, legalPromptFactory.token], (remoteConfig, legalPrompt) => {
+const legalStateFactory = Injectable("legalState", [remoteConfigurationFactory.token, legalPromptFactory.token], (remoteConfig, legalPrompt) => {
     const persistance = new ExpiringPersistence(() => tosContentHashExpiry, new IndexedDBPersistence({ databaseName: "Legal" }));
     const getLastAcceptedTosContentHash = () => from_from(persistance.retrieve(tosContentHashKey).catch((error) => legalState_logger.warn(error)));
     const setLastAcceptedTosContentHash = (hash) => persistance.store(tosContentHashKey, hash).catch((error) => legalState_logger.warn(error));
     const legalState = createLegalState();
     legalState.events
-        .pipe(inStates("unknown"), forActions("requestLegalPrompt"), switchMap_switchMap(() => forkJoin({
-        cofConfig: remoteConfig.get("CAMERA_KIT_LEGAL_PROMPT").pipe(map_map((configResults) => {
+        .pipe(inStates("unknown"), forActions("requestLegalPrompt"), switchMap(() => forkJoin({
+        cofConfig: remoteConfig.get("CAMERA_KIT_LEGAL_PROMPT").pipe(map((configResults) => {
             const config = configResults.find(hasAnyValue);
             if (!config)
                 return defaultLegalPrompt;
             return LegalPrompt.decode(config.value.anyValue.value);
-        }), catchError_catchError((error) => {
+        }), catchError((error) => {
             legalState_logger.error(error);
-            return of_of(defaultLegalPrompt);
+            return of(defaultLegalPrompt);
         })),
-        initConfig: remoteConfig.getInitializationConfig().pipe(catchError_catchError((error) => {
+        initConfig: remoteConfig.getInitializationConfig().pipe(catchError((error) => {
             legalState_logger.error(error);
-            return of_of(defaultInitConfig);
+            return of(defaultInitConfig);
         })),
-    })), switchMap_switchMap(({ cofConfig, initConfig }) => {
+    })), switchMap(({ cofConfig, initConfig }) => {
         // NOTE: Currently, we check two sources to determine whether ToS is disabled or not:
         // COF and initConfig. Legal document links are pulled only from COF (or defaults),
         // because initConfig has not been implemented yet. In the future, we may choose
@@ -22536,20 +22536,20 @@ const legalStateFactory = Injectable_Injectable("legalState", [remoteConfigurati
         // https://jira.sc-corp.net/browse/CAMKIT-4791
         var _a;
         if ((_a = initConfig.legalPrompt) === null || _a === void 0 ? void 0 : _a.disabled) {
-            return of_of(legalState.actions.accept("disabled"));
+            return of(legalState.actions.accept("disabled"));
         }
         if (cofConfig.disabled) {
-            return of_of(legalState.actions.accept("disabled"));
+            return of(legalState.actions.accept("disabled"));
         }
         const documentOfType = getDocumentOrDefault(cofConfig.documents);
         const prompt = legalPrompt(documentOfType(LegalDocument_Type.PRIVACY_POLICY), documentOfType(LegalDocument_Type.TERMS_OF_SERVICE), documentOfType(LegalDocument_Type.LEARN_MORE), initConfig.childrenProtectionActRestricted);
-        return getLastAcceptedTosContentHash().pipe(switchMap_switchMap((lastAcceptedTosContentHash) => {
+        return getLastAcceptedTosContentHash().pipe(switchMap((lastAcceptedTosContentHash) => {
             if (prompt.contentHash === lastAcceptedTosContentHash)
-                return of_of(true);
+                return of(true);
             // Delegate prompting the end-user to accept/reject the legal documents. This returns with
             // a Promise<boolean> indicating accept/reject.
             return prompt.show();
-        }), map_map((didAccept) => {
+        }), map((didAccept) => {
             if (!didAccept)
                 return legalState.actions.reject(prompt.contentHash);
             setLastAcceptedTosContentHash(prompt.contentHash);
@@ -22784,15 +22784,15 @@ const createLensState = () => {
     const states = defineStates(defineState("noLensApplied")(), defineState("applyingLens")(), defineState("lensApplied")());
     return new StateMachine(actions, states, states.noLensApplied(), (events) => merge(events.pipe(
     // We allow a new lens to be applied at any time, no matter the state.
-    inStates("noLensApplied", "applyingLens", "lensApplied"), forActions("applyLens"), map_map(([a]) => states.applyingLens(a.data.lens))), events.pipe(inStates("applyingLens"), forActions("applyLensComplete"), map_map(([a]) => states.lensApplied(a.data))), events.pipe(inStates("applyingLens"), forActions("applyLensFailed"), map_map(() => states.noLensApplied())), events.pipe(inStates("lensApplied"), forActions("removeLensComplete"), map_map(() => states.noLensApplied()))));
+    inStates("noLensApplied", "applyingLens", "lensApplied"), forActions("applyLens"), map(([a]) => states.applyingLens(a.data.lens))), events.pipe(inStates("applyingLens"), forActions("applyLensComplete"), map(([a]) => states.lensApplied(a.data))), events.pipe(inStates("applyingLens"), forActions("applyLensFailed"), map(() => states.noLensApplied())), events.pipe(inStates("lensApplied"), forActions("removeLensComplete"), map(() => states.noLensApplied()))));
 };
-const lensStateFactory = Injectable_Injectable("lensState", [
+const lensStateFactory = Injectable("lensState", [
     lensCoreFactory.token,
     lensRepositoryFactory.token,
     lensAssetRepositoryFactory.token,
     lensPersistenceStoreFactory.token,
     legalStateFactory.token,
-    operationalMetricsReporter_operationalMetricReporterFactory.token,
+    operationalMetricReporterFactory.token,
 ], (lensCore, lensRepository, lensAssetRepository, lensPersistence, legalState, operationalMetricsReporter) => {
     const lensState = createLensState();
     let firstLensApply = true;
@@ -22804,7 +22804,7 @@ const lensStateFactory = Injectable_Injectable("lensState", [
     // Determine the legal state (e.g. terms have been accepted). Using exhaustMap means while we are
     // ascertaining legal status (which may include prompting the end user to accept terms), we will ignore
     // any new applyLens actions.
-    exhaustMap(([a]) => of_of(legalState.actions.requestLegalPrompt()).pipe(dispatch(legalState), inStates("accepted", "rejected"), take(1), map_map(([, { name }]) => {
+    exhaustMap(([a]) => of(legalState.actions.requestLegalPrompt()).pipe(dispatch(legalState), inStates("accepted", "rejected"), take(1), map(([, { name }]) => {
         if (name === "accepted")
             return a;
         return lensState.actions.applyLensFailed({
@@ -22815,9 +22815,9 @@ const lensStateFactory = Injectable_Injectable("lensState", [
     // The use of switchMap is important so that if we get a new applyLens action while we're still
     // downloading lens content for a previously-requested lens, we can cancel those requests and ensure
     // that lenses are applied in the order they're requested.
-    switchMap_switchMap((a) => {
+    switchMap((a) => {
         if (a.name === "applyLensFailed")
-            return of_of(a);
+            return of(a);
         const { lens } = a.data;
         // Convenience method making dispatching an action with Lens data less verbose.
         const dispatch = (action) => {
@@ -22828,10 +22828,10 @@ const lensStateFactory = Injectable_Injectable("lensState", [
         // are not present for subsequent applies.
         const applyTimer = new Timer("lens").mark("apply", { first: `${firstLensApply}` });
         firstLensApply = false;
-        return of_of(a.data).pipe(mergeMap(({ lens, launchParams }) => 
+        return of(a.data).pipe(mergeMap(({ lens, launchParams }) => 
         // If retrieval throws an error, we still want to proceed with the lens
         // because persisted data is not a necessity.
-        from_from(lensPersistence.retrieve(lens.id).catch(() => undefined)).pipe(map_map((persistentStore) => ({ lens, launchParams, persistentStore })))), map_map(({ lens, launchParams, persistentStore }) => {
+        from_from(lensPersistence.retrieve(lens.id).catch(() => undefined)).pipe(map((persistentStore) => ({ lens, launchParams, persistentStore })))), map(({ lens, launchParams, persistentStore }) => {
             const launchData = createLaunchData({
                 launchParams,
                 persistentStore,
@@ -22863,7 +22863,7 @@ const lensStateFactory = Injectable_Injectable("lensState", [
             ])).pipe(tap(() => {
                 networkTimer.measure();
                 lensState.dispatch("downloadComplete", lens);
-            }), map_map(([{ lensBuffer, lensChecksum }]) => {
+            }), map(([{ lensBuffer, lensChecksum }]) => {
                 // NOTE: cached array buffer has to be copied each time in order to be reused,
                 // otherwise the original cached copy would be detached by LensCore
                 // One optimization can be done here: do not copy the array if getLensContent()
@@ -22926,10 +22926,10 @@ const lensStateFactory = Injectable_Injectable("lensState", [
                     subscriber.complete();
                 },
             });
-        })), catchError_catchError((error) => {
+        })), catchError((error) => {
             applyTimer.measure("failure");
             applyTimer.stopAndReport(operationalMetricsReporter);
-            return of_of(lensState.actions.applyLensFailed({ error, lens }));
+            return of(lensState.actions.applyLensFailed({ error, lens }));
         }), 
         // If a new applyLens is received, `switchMap` will unsubscribe from this inner observable,
         // which stops the current lens application. When this happens we can record a separate metric
@@ -22963,12 +22963,12 @@ const lensStateFactory = Injectable_Injectable("lensState", [
         error: lensState_logger.error,
     });
     lensState.events
-        .pipe(inStates("applyingLens"), forActions("removeLens"), switchMap_switchMap(([a]) => lensState.events.pipe(
+        .pipe(inStates("applyingLens"), forActions("removeLens"), switchMap(([a]) => lensState.events.pipe(
     // Wait to remove the lens until it has been applied.
     inStates("lensApplied"), 
     // But cancel the removal if a new applyLens supercedes the current lens. The goal here is to
     // make sure the latest apply/remove pre-empts any previous request to apply/remove.
-    takeUntil(lensState.events.pipe(forActions("applyLens"))), map_map(() => a))), dispatch(lensState))
+    takeUntil(lensState.events.pipe(forActions("applyLens"))), map(() => a))), dispatch(lensState))
         .subscribe({
         error: lensState_logger.error,
     });
@@ -22985,10 +22985,10 @@ const createSessionState = () => {
     const actions = defineActions(defineAction("suspend")(), defineAction("resume")(), defineAction("destroy")());
     const states = defineStates(defineState("inactive")(), defineState("active")(), defineState("destroyed")());
     return new StateMachine(actions, states, defineState("inactive")()(), (events) => {
-        return merge(events.pipe(forActions("resume"), map_map(([a]) => states.active(a.data))), events.pipe(forActions("suspend"), map_map(() => states.inactive())), events.pipe(forActions("destroy"), map_map(() => states.destroyed())));
+        return merge(events.pipe(forActions("resume"), map(([a]) => states.active(a.data))), events.pipe(forActions("suspend"), map(() => states.inactive())), events.pipe(forActions("destroy"), map(() => states.destroyed())));
     });
 };
-const sessionStateFactory = Injectable_Injectable("sessionState", () => createSessionState());
+const sessionStateFactory = Injectable("sessionState", () => createSessionState());
 //# sourceMappingURL=sessionState.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/session/LensKeyboard.js
 
@@ -23008,7 +23008,7 @@ class LensKeyboard {
                 this.handleReply(this.element.value);
             }
         });
-        this.events = new TypedEventTarget_TypedEventTarget();
+        this.events = new TypedEventTarget();
         this.handleReply = () => { };
         this.uriHandler = {
             uri: "app://textInput/requestKeyboard",
@@ -23073,7 +23073,7 @@ class LensKeyboard {
         // If lens keyboard status is changing, we know a lens must be applied.
         if (isState(state, "noLensApplied"))
             return;
-        this.events.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("active", {
+        this.events.dispatchEvent(new TypedCustomEvent("active", {
             element: this.element,
             active: this.active,
             // If the keyboard is up, it has been triggered by an active lens.
@@ -23084,7 +23084,7 @@ class LensKeyboard {
 /**
  * @internal
  */
-const lensKeyboardFactory = Injectable_Injectable("lensKeyboard", [lensStateFactory.token], (lensState) => new LensKeyboard(lensState));
+const lensKeyboardFactory = Injectable("lensKeyboard", [lensStateFactory.token], (lensState) => new LensKeyboard(lensState));
 //# sourceMappingURL=LensKeyboard.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/session/CameraKitSessionEvents.js
 /**
@@ -23183,7 +23183,7 @@ class CameraKitSession {
          * })
          * ```
          */
-        this.events = new TypedEventTarget_TypedEventTarget();
+        this.events = new TypedEventTarget();
         const outputs = this.lensCore.getOutputCanvases();
         this.output = {
             live: outputs[this.lensCore.CanvasType.Preview.value],
@@ -23197,7 +23197,7 @@ class CameraKitSession {
             removeOnHidden();
             removeOnVisible();
         };
-        const sessionErrors = logEntries.pipe(filter((entry) => entry.level === "error"), map_map((entry) => entry.messages.find((e) => e instanceof Error)), filter(isSessionError));
+        const sessionErrors = logEntries.pipe(filter((entry) => entry.level === "error"), map((entry) => entry.messages.find((e) => e instanceof Error)), filter(isSessionError));
         this.subscriptions = [
             // In case of LensCore lens execution error, we must remove the lens from rendering
             // NOTE: LensCore doesn't differentiate recoverable vs non-recoverable errors and
@@ -23211,7 +23211,7 @@ class CameraKitSession {
                     return;
                 const state = lensState.getState();
                 if (!isState(state, "noLensApplied")) {
-                    this.events.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("error", { error, lens: state.data }));
+                    this.events.dispatchEvent(new TypedCustomEvent("error", { error, lens: state.data }));
                 }
                 else {
                     // NOTE: at this point the error is already reported, so we can just log a warning
@@ -23261,7 +23261,7 @@ class CameraKitSession {
     applyLens(lens, launchParams) {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             const action = this.lensState.actions.applyLens({ lens, launchParams });
-            return firstValueFrom(of_of(action).pipe(dispatch(this.lensState), 
+            return firstValueFrom(of(action).pipe(dispatch(this.lensState), 
             // If another applyLens occurs while we're waiting, resolve this applyLens promise early – we're no
             // longer waiting for the requested lens to be applied.
             takeUntil(this.lensState.events.pipe(forActions("applyLens"), filter(([a]) => a !== action))), 
@@ -23269,7 +23269,7 @@ class CameraKitSession {
             tap(([a]) => {
                 if (isAction(a, "applyLensFailed") && a.data.lens.id === lens.id)
                     throw a.data.error;
-            }), inStates("lensApplied"), map_map(() => true)), 
+            }), inStates("lensApplied"), map(() => true)), 
             // The default value is used if `takeUntil` completes the Observable early – i.e. the lens was not
             // applied (application was interrupted by a new call to `applyLens`), so we'll resolve with `false`.
             { defaultValue: false });
@@ -23292,7 +23292,7 @@ class CameraKitSession {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             if (isState(this.lensState.getState(), "noLensApplied"))
                 return true;
-            return firstValueFrom(of_of(this.lensState.actions.removeLens()).pipe(dispatch(this.lensState), 
+            return firstValueFrom(of(this.lensState.actions.removeLens()).pipe(dispatch(this.lensState), 
             // If lens removal failed, convert this into a rejected promise by throwing the error.
             tap(([a]) => {
                 if (isAction(a, "removeLensFailed"))
@@ -23300,7 +23300,7 @@ class CameraKitSession {
             }), inStates("noLensApplied"), 
             // If applyLens is called while we're waiting for removal, complete immediately – applying the next lens
             // will replace the current one.
-            takeUntil(this.lensState.events.pipe(forActions("applyLens"))), map_map(() => true)), 
+            takeUntil(this.lensState.events.pipe(forActions("applyLens"))), map(() => true)), 
             // The default value is used if `takeUntil` completes the Observable early (otherwise firstValueFrom will
             // return a rejected Promise).
             { defaultValue: false });
@@ -23541,7 +23541,7 @@ __decorate([
 /**
  * @internal
  */
-const cameraKitSessionFactory = Injectable_Injectable("CameraKitSession", [
+const cameraKitSessionFactory = Injectable("CameraKitSession", [
     lensCoreFactory.token,
     logEntriesFactory.token,
     lensKeyboardFactory.token,
@@ -23569,7 +23569,7 @@ const maxConsecutiveErrors = 3;
  * initialized, the registry of the asset provider function will fail silently and no remote assets will be loaded.
  * @internal
  */
-const registerLensAssetsProvider = Injectable_Injectable("registerLensAssetsProvider", [lensCoreFactory.token, lensRepositoryFactory.token, lensAssetRepositoryFactory.token], (lensCore, lensRepository, lensAssetRepository) => {
+const registerLensAssetsProvider = Injectable("registerLensAssetsProvider", [lensCoreFactory.token, lensRepositoryFactory.token, lensAssetRepositoryFactory.token], (lensCore, lensRepository, lensAssetRepository) => {
     const consecutiveErrorsPerAsset = new Map();
     lensCore.setRemoteAssetsProvider((assetDescriptor) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
         var _a, _b, _c;
@@ -23582,7 +23582,7 @@ const registerLensAssetsProvider = Injectable_Injectable("registerLensAssetsProv
                 throw new Error(`Maximum consecutive asset load errors reached for asset ${assetId}`);
             }
             const lens = effectId ? lensRepository.getLensMetadata(effectId) : undefined;
-            yield lensAssetRepository.loadAsset(assetDescriptor, lens && Lens_toPublicLens(lens), (_b = lens === null || lens === void 0 ? void 0 : lens.content) === null || _b === void 0 ? void 0 : _b.assetManifest);
+            yield lensAssetRepository.loadAsset(assetDescriptor, lens && toPublicLens(lens), (_b = lens === null || lens === void 0 ? void 0 : lens.content) === null || _b === void 0 ? void 0 : _b.assetManifest);
             consecutiveErrorsPerAsset.set(assetId, 0);
         }
         catch (error) {
@@ -25117,7 +25117,7 @@ function isUriResponse(value) {
  * An extension point for client URI handlers.
  * @internal
  */
-const uriHandlersFactory = Injectable_Injectable("UriHandlers", () => {
+const uriHandlersFactory = Injectable("UriHandlers", () => {
     const uriHandlers = [];
     return uriHandlers;
 });
@@ -25184,7 +25184,7 @@ function handleLensApplicationEnd(lensRequestState, ...lensIds) {
         }
     }
 }
-const remoteApiServicesFactory = Injectable_Injectable("remoteApiServices", () => {
+const remoteApiServicesFactory = Injectable("remoteApiServices", () => {
     const remoteApiServices = [];
     return remoteApiServices;
 });
@@ -25203,7 +25203,7 @@ function getRemoteApiUriHandler(registeredServices, sessionState, lensState, len
     const uriCancelRequests = new Subject();
     const lensRequestState = new Map();
     const lensTurnOffEvents = lensState.events.pipe(forActions("turnedOff"), tap(([action]) => handleLensApplicationEnd(lensRequestState, action.data.id)));
-    const uriRequestEvents = uriRequests.pipe(map_map((uriRequest) => {
+    const uriRequestEvents = uriRequests.pipe(map((uriRequest) => {
         var _a, _b;
         const lensId = uriRequest.lens.id;
         if (!lensRequestState.has(lensId)) {
@@ -25232,7 +25232,7 @@ function getRemoteApiUriHandler(registeredServices, sessionState, lensState, len
     // only handle requests for API spec ID that current lens supports
     filter(({ specId, requestState }) => requestState.supportedSpecIds.has(specId)), 
     // only handle requests if we have a registered service for it
-    filter(({ specId }) => registeredServiceMap.has(specId)), map_map(({ uriRequest, specId, endpointId, requestState }) => {
+    filter(({ specId }) => registeredServiceMap.has(specId)), map(({ uriRequest, specId, endpointId, requestState }) => {
         var _a;
         const dimensions = new Map([["specId", specId]]);
         reporter.count("lens_remote-api_requests", 1, dimensions);
@@ -25295,7 +25295,7 @@ function getRemoteApiUriHandler(registeredServices, sessionState, lensState, len
         }
     }));
     merge(lensTurnOffEvents, uriRequestEvents, uriCancelRequestEvents)
-        .pipe(catchError_catchError((error, sourcePipe) => {
+        .pipe(catchError((error, sourcePipe) => {
         // The expectation is that if an error occurs, it happens in our own implementation,
         // because app callbacks are wrapped with try..catch blocks.
         // Therefore, we would like to report this error.
@@ -25338,7 +25338,7 @@ const uriHandlersRegister_logger = getLogger("uriHandlersRegister");
  * Registers URI handlers within LensCore.
  * @internal
  */
-const registerUriHandlers = Injectable_Injectable("registerUriHandlers", [
+const registerUriHandlers = Injectable("registerUriHandlers", [
     lensCoreFactory.token,
     lensStateFactory.token,
     uriHandlersFactory.token,
@@ -25346,7 +25346,7 @@ const registerUriHandlers = Injectable_Injectable("registerUriHandlers", [
     remoteApiServicesFactory.token,
     lensRepositoryFactory.token,
     sessionStateFactory.token,
-    operationalMetricsReporter_operationalMetricReporterFactory.token,
+    operationalMetricReporterFactory.token,
 ], (lensCore, lensState, userHandlers, lensKeyboard, remoteApiServices, lensRepository, sessionState, operationalMetricsReporter) => {
     if (!isUriHandlers(userHandlers)) {
         throw new Error("Expected an array of UriHandler objects");
@@ -25458,14 +25458,14 @@ function reportExceptionToBlizzard(logEntries, metricsEventTarget, reporter, len
         recent,
     }), 
     // Start with a dummy recent entry -- it gets overridden each time we handle a log entry.
-    { entries: [], recent: { time: new Date(), module: "any", level: "debug", messages: [] } }), filter(({ recent }) => recent.level === "error"), map_map(({ entries, recent }) => ({
+    { entries: [], recent: { time: new Date(), module: "any", level: "debug", messages: [] } }), filter(({ recent }) => recent.level === "error"), map(({ entries, recent }) => ({
         context: entries,
         error: recent.messages.find((e) => e instanceof Error),
     })), filter(({ error }) => !!error))
         .subscribe(({ error, context }) => {
         const currentLensState = lensState === null || lensState === void 0 ? void 0 : lensState.getState();
         const lensId = currentLensState && !isState(currentLensState, "noLensApplied") ? currentLensState.data.id : "none";
-        metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("exception", {
+        metricsEventTarget.dispatchEvent(new TypedCustomEvent("exception", {
             name: "exception",
             lensId,
             type: error.name,
@@ -25479,7 +25479,7 @@ function reportExceptionToBlizzard(logEntries, metricsEventTarget, reporter, len
  *
  * @internal
  */
-const reportGlobalException = Injectable_Injectable("reportGlobalException", [logEntriesFactory.token, metricsEventTargetFactory.token, operationalMetricsReporter_operationalMetricReporterFactory.token], (logEntries, metricsEventTarget, reporter) => {
+const reportGlobalException = Injectable("reportGlobalException", [logEntriesFactory.token, metricsEventTargetFactory.token, operationalMetricReporterFactory.token], (logEntries, metricsEventTarget, reporter) => {
     // Initially we log exceptions without any lens context
     const cancellationSubject = new Subject();
     reportExceptionToBlizzard(logEntries.pipe(takeUntil(cancellationSubject)), metricsEventTarget, reporter);
@@ -25502,7 +25502,7 @@ const reportGlobalException = Injectable_Injectable("reportGlobalException", [lo
  *
  * @internal
  */
-const reportSessionException = Injectable_Injectable("reportSessionException", [reportGlobalException.token, lensStateFactory.token], (globalExceptionReporter, lensState) => {
+const reportSessionException = Injectable("reportSessionException", [reportGlobalException.token, lensStateFactory.token], (globalExceptionReporter, lensState) => {
     globalExceptionReporter.attachLensContext(lensState);
 });
 //# sourceMappingURL=reportSessionException.js.map
@@ -25515,7 +25515,7 @@ const reportSessionException = Injectable_Injectable("reportSessionException", [
 
 // Allowlist the benchmarks we wish to report.
 const reportableBenchmarks = ["gflops"];
-const reportBenchmarks = Injectable_Injectable("reportBenchmarks", [metricsEventTargetFactory.token, operationalMetricsReporter_operationalMetricReporterFactory.token, configurationToken], (metricsEventTarget, reporter, config) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
+const reportBenchmarks = Injectable("reportBenchmarks", [metricsEventTargetFactory.token, operationalMetricReporterFactory.token, configurationToken], (metricsEventTarget, reporter, config) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
     if (config.lensPerformance === undefined)
         return;
     // Safety: config.lensPerformance cannot reject – all Promises contained in CameraKitConfiguration have
@@ -25531,7 +25531,7 @@ const reportBenchmarks = Injectable_Injectable("reportBenchmarks", [metricsEvent
         if (!reportableBenchmarks.includes(benchmark.name))
             continue;
         const benchmarkComplete = Object.assign(Object.assign({}, baseBenchmark), { benchmarkName: benchmark.name, benchmarkValue: benchmark.value });
-        metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("benchmarkComplete", benchmarkComplete));
+        metricsEventTarget.dispatchEvent(new TypedCustomEvent("benchmarkComplete", benchmarkComplete));
         reporter.histogram(`benchmark.${benchmark.name}`, benchmark.value, dimensions);
     }
 }));
@@ -25553,10 +25553,10 @@ const reportBenchmarks = Injectable_Injectable("reportBenchmarks", [metricsEvent
  */
 const scan_scan = (seedState) => (source, eventTypes, accumulator) => {
     let state = seedState;
-    const sink = new TypedEventTarget_TypedEventTarget();
+    const sink = new TypedEventTarget();
     const listener = (event) => {
         state = accumulator(state, event);
-        sink.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("state", state));
+        sink.dispatchEvent(new TypedCustomEvent("state", state));
     };
     // We'll use Proxies to make sure that event listeners are added/removed at the appropriate time.
     // Callers can then control when to clean up the listeners we add here in a transparent way –
@@ -25598,9 +25598,9 @@ const isLensOrAssetRequest = (value) => {
     // Safety: the cast makes the type less specific so we can check if any string is present in the tuple.
     return typeof requestType === "string" && relevantRequestTypes.includes(requestType);
 };
-const reportLensAndAssetDownload = Injectable_Injectable("reportLensAndAssetDownload", [
+const reportLensAndAssetDownload = Injectable("reportLensAndAssetDownload", [
     metricsEventTargetFactory.token,
-    operationalMetricsReporter_operationalMetricReporterFactory.token,
+    operationalMetricReporterFactory.token,
     requestStateEventTargetFactory.token,
 ], (metricsEventTarget, reporter, requestStateEventTarget) => {
     scan_scan({ name: "inProgress", inProgress: new Map() })(requestStateEventTarget, ["started", "completed", "errored"], (state, event) => {
@@ -25624,7 +25624,7 @@ const reportLensAndAssetDownload = Injectable_Injectable("reportLensAndAssetDown
                         return {
                             name: "completed",
                             inProgress,
-                            event: new TypedCustomEvent_TypedCustomEvent("lensDownload", {
+                            event: new TypedCustomEvent("lensDownload", {
                                 name: "lensDownload",
                                 lensId: dimensions.lensId,
                                 automaticDownload: false,
@@ -25636,7 +25636,7 @@ const reportLensAndAssetDownload = Injectable_Injectable("reportLensAndAssetDown
                         return {
                             name: "completed",
                             inProgress,
-                            event: new TypedCustomEvent_TypedCustomEvent("assetDownload", {
+                            event: new TypedCustomEvent("assetDownload", {
                                 name: "assetDownload",
                                 assetId: dimensions.assetId,
                                 automaticDownload: false,
@@ -25656,7 +25656,7 @@ const reportLensAndAssetDownload = Injectable_Injectable("reportLensAndAssetDown
                 return {
                     name: "completed",
                     inProgress,
-                    event: new TypedCustomEvent_TypedCustomEvent("exception", {
+                    event: new TypedCustomEvent("exception", {
                         name: "exception",
                         lensId: dimensions.lensId,
                         type: dimensions.requestType === "lens_content" ? "lens" : "asset",
@@ -25725,7 +25725,7 @@ const getStatus = (event) => {
 const isRelevantRequest = (value) => {
     return isLensOrAssetRequest(value) || value["requestType"] === COF_REQUEST_TYPE;
 };
-const reportHttpMetrics = Injectable_Injectable("reportHttpMetrics", [operationalMetricsReporter_operationalMetricReporterFactory.token, requestStateEventTargetFactory.token], (reporter, requestStateEventTarget) => {
+const reportHttpMetrics = Injectable("reportHttpMetrics", [operationalMetricReporterFactory.token, requestStateEventTargetFactory.token], (reporter, requestStateEventTarget) => {
     scan_scan({ name: "inProgress", inProgress: new Map() })(requestStateEventTarget, ["started", "completed", "errored"], (state, event) => {
         var _a;
         const { inProgress } = state;
@@ -25747,7 +25747,7 @@ const reportHttpMetrics = Injectable_Injectable("reportHttpMetrics", [operationa
                 const status = getStatus(event);
                 const operationalDimensions = new Map([
                     ["content_type", getContentType(dimensions)],
-                    ["network_type", (_a = cameraKitUserAgent_cameraKitUserAgent.connectionType) !== null && _a !== void 0 ? _a : "unknown"],
+                    ["network_type", (_a = cameraKitUserAgent.connectionType) !== null && _a !== void 0 ? _a : "unknown"],
                     ["status", status],
                 ]);
                 return {
@@ -26305,9 +26305,9 @@ var KitType;
 /**
  * @internal
  */
-const reportLegalState = Injectable_Injectable("reportLegalState", [legalStateFactory.token, metricsEventTargetFactory.token, operationalMetricsReporter_operationalMetricReporterFactory.token], (legalState, metricsEventTarget, operationalMetricsReporter) => {
+const reportLegalState = Injectable("reportLegalState", [legalStateFactory.token, metricsEventTargetFactory.token, operationalMetricReporterFactory.token], (legalState, metricsEventTarget, operationalMetricsReporter) => {
     legalState.events
-        .pipe(forActions("accept", "reject"), map_map(([{ data, name }]) => ({
+        .pipe(forActions("accept", "reject"), map(([{ data, name }]) => ({
         name: "legalPrompt",
         legalPromptId: data,
         legalPromptResult: name === "accept"
@@ -26316,7 +26316,7 @@ const reportLegalState = Injectable_Injectable("reportLegalState", [legalStateFa
     })))
         .subscribe({
         next: (legalPromptEvent) => {
-            metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("legalPrompt", legalPromptEvent));
+            metricsEventTarget.dispatchEvent(new TypedCustomEvent("legalPrompt", legalPromptEvent));
             operationalMetricsReporter.count("legal_prompt_interaction", 1, new Map([
                 [
                     "accepted",
@@ -26338,7 +26338,7 @@ const reportLegalState = Injectable_Injectable("reportLegalState", [legalStateFa
 /**
  * @internal
  */
-const reportLensValidationFailed = Injectable_Injectable("reportLensValidationFailed", [lensStateFactory.token, metricsEventTargetFactory.token], (lensState, metricsEventTarget) => {
+const reportLensValidationFailed = Injectable("reportLensValidationFailed", [lensStateFactory.token, metricsEventTargetFactory.token], (lensState, metricsEventTarget) => {
     lensState.events
         .pipe(forActions("applyLensFailed"), filter(([a]) => a.data.error.name === "LensContentValidationError"))
         .subscribe({
@@ -26348,7 +26348,7 @@ const reportLensValidationFailed = Injectable_Injectable("reportLensValidationFa
                 name: "lensContentValidationFailed",
                 lensId: lens.id,
             };
-            metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("lensContentValidationFailed", lensContentValidationFailed));
+            metricsEventTarget.dispatchEvent(new TypedCustomEvent("lensContentValidationFailed", lensContentValidationFailed));
         },
     });
 });
@@ -26550,12 +26550,12 @@ function isFirstTimeWithinPeriods(lensId, persistence) {
 /**
  * @internal
  */
-const reportLensView = Injectable_Injectable("reportLensView", [
+const reportLensView = Injectable("reportLensView", [
     cameraKitSessionFactory.token,
     lensStateFactory.token,
     sessionStateFactory.token,
     metricsEventTargetFactory.token,
-    operationalMetricsReporter_operationalMetricReporterFactory.token,
+    operationalMetricReporterFactory.token,
     configurationToken,
 ], (session, lensState, sessionState, metricsEventTarget, operationalMetricsReporter, configuration) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
     var _a;
@@ -26573,26 +26573,26 @@ const reportLensView = Injectable_Injectable("reportLensView", [
     merge(
     // Begin measuring LensCore apply time once the lens has finished downloading and we actually add the lens
     // to LensCore (LensWait measures the full download + LensCore apply time i.e. perceived UX latency).
-    lensState.events.pipe(forActions("downloadComplete"), map_map(([a]) => a.data)), 
+    lensState.events.pipe(forActions("downloadComplete"), map(([a]) => a.data)), 
     // If the session is resumed (e.g. user returns to this tab while a lens is on), we count this as a new
     // LensView (and applyDelaySec will be 0).
-    lensState.events.pipe(inStates("lensApplied"), switchMap_switchMap(([, s]) => sessionState.events.pipe(forActions("resume"), takeUntil(lensState.events.pipe(forActions("removeLens"))), map_map(() => s.data)))))
-        .pipe(map_map((lens) => [getTimeMs(), lens.id]), mergeMap(([applyLensStartTime, lensId]) => {
+    lensState.events.pipe(inStates("lensApplied"), switchMap(([, s]) => sessionState.events.pipe(forActions("resume"), takeUntil(lensState.events.pipe(forActions("removeLens"))), map(() => s.data)))))
+        .pipe(map((lens) => [getTimeMs(), lens.id]), mergeMap(([applyLensStartTime, lensId]) => {
         const alreadyOn = isState(lensState.getState(), "lensApplied");
         const applyDelay = alreadyOn
-            ? of_of(0)
+            ? of(0)
             : lensState.events.pipe(forActions("resourcesLoaded"), filter(([a]) => a.data.id === lensId), 
             // Applying a new lens may happen before removing the old one, so if we kept taking events
             // we would get the lensResourcesLoaded for the next lens, too.
-            take(1), map_map(() => (getTimeMs() - applyLensStartTime) / 1000));
+            take(1), map(() => (getTimeMs() - applyLensStartTime) / 1000));
         const viewMetrics = (alreadyOn
-            ? of_of([getTimeMs(), session.metrics.beginMeasurement()])
-            : lensState.events.pipe(forActions("turnedOn"), filter(([a]) => a.data.id === lensId), map_map(() => [getTimeMs(), session.metrics.beginMeasurement()]))).pipe(take(1), mergeMap(([lensTurnedOnTime, metricsMeasurement]) => lensState.events.pipe(forActions("turnedOff"), 
+            ? of([getTimeMs(), session.metrics.beginMeasurement()])
+            : lensState.events.pipe(forActions("turnedOn"), filter(([a]) => a.data.id === lensId), map(() => [getTimeMs(), session.metrics.beginMeasurement()]))).pipe(take(1), mergeMap(([lensTurnedOnTime, metricsMeasurement]) => lensState.events.pipe(forActions("turnedOff"), 
         // Applying a new lens may happen before removing the old one, so we'll get a
         // lensTurnedOff for the prior lens (if one was applied), which we must filter out.
         filter(([a]) => a.data.id === lensId), 
         // If the session is suspended, we'll count that as the lens turning off.
-        raceWith(sessionState.events.pipe(forActions("suspend"))), map_map(() => {
+        raceWith(sessionState.events.pipe(forActions("suspend"))), map(() => {
             metricsMeasurement.end();
             return Object.assign({ viewTimeSec: (getTimeMs() - lensTurnedOnTime) / 1000 }, metricsMeasurement.measure());
         }))));
@@ -26600,7 +26600,7 @@ const reportLensView = Injectable_Injectable("reportLensView", [
         // This lens should always receive the lensTurnedOff action *before* the next lens is
         // turned on. But just in case that assumption is violated, we'll clean up
         // (and not report) if another lens turns on before our lens is turned off.
-        takeUntil(lensState.events.pipe(forActions("turnedOn"), filter(([a]) => a.data.id !== lensId))), take(1), map_map(([applyDelaySec, viewMetrics, isFirstTimeResults]) => (Object.assign(Object.assign({ applyDelaySec,
+        takeUntil(lensState.events.pipe(forActions("turnedOn"), filter(([a]) => a.data.id !== lensId))), take(1), map(([applyDelaySec, viewMetrics, isFirstTimeResults]) => (Object.assign(Object.assign({ applyDelaySec,
             lensId }, viewMetrics), isFirstTimeResults))));
     }))
         .subscribe({
@@ -26622,7 +26622,7 @@ const reportLensView = Injectable_Injectable("reportLensView", [
                 performanceCluster,
                 webglRendererInfo,
             };
-            metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("lensView", lensView));
+            metricsEventTarget.dispatchEvent(new TypedCustomEvent("lensView", lensView));
             operationalMetricsReporter.report(Histogram.level("lens_view", viewTimeSec * 1000));
             // The first few frames will typically take much longer to process (as they might involve requesting
             // remote assets to be downloaded, or other high-latency initialization steps) -- so we'll skip
@@ -26660,7 +26660,7 @@ const reportLensWait_viewTimeThresholdSec = 0.1;
  *
  * @internal
  */
-const reportLensWait = Injectable_Injectable("reportLensWait", [lensStateFactory.token, metricsEventTargetFactory.token, operationalMetricsReporter_operationalMetricReporterFactory.token], (lensState, metricsEventTarget, reporter) => {
+const reportLensWait = Injectable("reportLensWait", [lensStateFactory.token, metricsEventTargetFactory.token, operationalMetricReporterFactory.token], (lensState, metricsEventTarget, reporter) => {
     lensState.events
         .pipe(forActions("applyLens"), mergeMap(([a]) => {
         const lensId = a.data.lens.id;
@@ -26676,7 +26676,7 @@ const reportLensWait = Injectable_Injectable("reportLensWait", [lensStateFactory
         //
         // (This effect can be mitigated by increasing the viewtimeThresholdSec to ignore low-duration
         // waits that are likely caused by user behavior).
-        forActions("firstFrameProcessed", "applyLens"), take(1), map_map(() => [(getTimeMs() - applyLensStartTime) / 1000, lensId]));
+        forActions("firstFrameProcessed", "applyLens"), take(1), map(() => [(getTimeMs() - applyLensStartTime) / 1000, lensId]));
     }))
         .subscribe({
         next: ([viewTimeSec, lensId]) => {
@@ -26687,7 +26687,7 @@ const reportLensWait = Injectable_Injectable("reportLensWait", [lensStateFactory
                 lensId,
                 viewTimeSec,
             };
-            metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("lensWait", lensWait));
+            metricsEventTarget.dispatchEvent(new TypedCustomEvent("lensWait", lensWait));
             reporter.timer("lens.apply_lens_latency", viewTimeSec * 1000);
         },
     });
@@ -26704,7 +26704,7 @@ const reportLensWait = Injectable_Injectable("reportLensWait", [lensStateFactory
 /**
  * @internal
  */
-const reportUserSession = Injectable_Injectable("reportUserSession", [metricsEventTargetFactory.token], (metricsEventTarget) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
+const reportUserSession = Injectable("reportUserSession", [metricsEventTargetFactory.token], (metricsEventTarget) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
     const userSessionKey = "userSessionInfo";
     const db = new IndexedDBPersistence({ databaseName: "SessionHistory" });
@@ -26757,7 +26757,7 @@ const reportUserSession = Injectable_Injectable("reportUserSession", [metricsEve
         day,
         year,
     };
-    metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("session", session));
+    metricsEventTarget.dispatchEvent(new TypedCustomEvent("session", session));
 }));
 //# sourceMappingURL=reportUserSession.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/metrics/reporters/reporters.js
@@ -27003,7 +27003,7 @@ const lensClientInterface_logger = getLogger("lensClientInterface");
  * @param lensCore LensCore instance to register in.
  * @param sessionErrors EventTarget to dispatch errors in.
  */
-const registerLensClientInterfaceHandler = Injectable_Injectable("registerLensClientInterfaceHandler", [lensCoreFactory.token], (lensCore) => {
+const registerLensClientInterfaceHandler = Injectable("registerLensClientInterfaceHandler", [lensCoreFactory.token], (lensCore) => {
     // Make sure we are compatible with previous LensCore versions
     if (!lensCore.setClientInterfaceRequestHandler) {
         lensClientInterface_logger.warn("Current LensCore version doesn't support lens client interface requests");
@@ -27025,7 +27025,7 @@ const registerLensClientInterfaceHandler = Injectable_Injectable("registerLensCl
 
 
 
-const setPreloadedConfiguration = Injectable_Injectable("setPreloadedConfiguration", [lensCoreFactory.token, remoteConfigurationFactory.token], (lensCore, remoteConfiguration) => {
+const setPreloadedConfiguration = Injectable("setPreloadedConfiguration", [lensCoreFactory.token, remoteConfigurationFactory.token], (lensCore, remoteConfiguration) => {
     remoteConfiguration
         .getNamespace(Namespace.LENS_CORE_CONFIG)
         .pipe(take(1))
@@ -27096,7 +27096,7 @@ class CameraKit {
         /**
          * Business metrics (e.g. each time a lens is viewed) are emitted here.
          */
-        this.metrics = new TypedEventTarget_TypedEventTarget();
+        this.metrics = new TypedEventTarget();
         this.sessions = [];
         this.lenses = { repository: this.lensRepository };
         // Proxy only a subset of all metrics events to the public-facing emitter -- applications don't need to
@@ -27204,7 +27204,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CameraKit.prototype, "destroy", null);
 /** @internal */
-const cameraKitFactory = Injectable_Injectable("CameraKit", [
+const cameraKitFactory = Injectable("CameraKit", [
     lensRepositoryFactory.token,
     metricsEventTargetFactory.token,
     lensCoreFactory.token,
@@ -27389,7 +27389,7 @@ function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eve
     businessEventsReporter_logger.log(`Session ID: ${sessionId}`);
     // Blizzard convention is to start the sequenceId at 1.
     let sequenceId = 1;
-    const handler = new HandlerChainBuilder_HandlerChainBuilder(metricsHandler)
+    const handler = new HandlerChainBuilder(metricsHandler)
         .map(createMappingHandler((events) => {
         const body = {
             batchEvents: {
@@ -27419,23 +27419,23 @@ function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eve
     })).handler;
     const makeBlizzardEvent = (event) => {
         var _a;
-        const deviceConnectivity = (_a = connectivityTypeMapping[cameraKitUserAgent_cameraKitUserAgent.connectionType]) !== null && _a !== void 0 ? _a : cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_UNKNOWN;
+        const deviceConnectivity = (_a = connectivityTypeMapping[cameraKitUserAgent.connectionType]) !== null && _a !== void 0 ? _a : cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_UNKNOWN;
         return Object.assign(Object.assign({}, event), { cameraKitEventBase: CameraKitEventBase.fromPartial({
                 kitEventBase: KitEventBase.fromPartial({
-                    locale: cameraKitUserAgent_cameraKitUserAgent.locale,
+                    locale: cameraKitUserAgent.locale,
                     kitVariant: KitType.CAMERA_KIT_WEB,
-                    kitVariantVersion: cameraKitUserAgent_cameraKitUserAgent.sdkShortVersion,
+                    kitVariantVersion: cameraKitUserAgent.sdkShortVersion,
                     kitClientTimestampMillis: Date.now(),
                 }),
                 deviceCluster: 0,
-                cameraKitVersion: cameraKitUserAgent_cameraKitUserAgent.sdkLongVersion,
-                lensCoreVersion: cameraKitUserAgent_cameraKitUserAgent.lensCoreVersion,
-                deviceModel: cameraKitUserAgent_cameraKitUserAgent.deviceModel,
+                cameraKitVersion: cameraKitUserAgent.sdkLongVersion,
+                lensCoreVersion: cameraKitUserAgent.lensCoreVersion,
+                deviceModel: cameraKitUserAgent.deviceModel,
                 cameraKitVariant: CameraKitVariant.CAMERA_KIT_VARIANT_PARTNER,
                 cameraKitFlavor: cameraKitEvents_CameraKitFlavor.CAMERA_KIT_FLAVOR_DEBUG,
                 // We overload appId, using the origin instead because it's nice and human-readable (our backed adds
                 // the true appId as oauth_client_id before forwarding events to Blizzard).
-                appId: cameraKitUserAgent_cameraKitUserAgent.origin,
+                appId: cameraKitUserAgent.origin,
                 deviceConnectivity,
                 sessionId: sessionId,
                 appVendorUuid,
@@ -27444,8 +27444,8 @@ function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eve
     const sendServerEvent = (eventName, eventData) => {
         return handler(ServerEvent.fromPartial({
             eventName,
-            osType: cameraKitUserAgent_cameraKitUserAgent.osType,
-            osVersion: cameraKitUserAgent_cameraKitUserAgent.osVersion,
+            osType: cameraKitUserAgent.osType,
+            osVersion: cameraKitUserAgent.osVersion,
             maxSequenceIdOnInstance: 0,
             sequenceId: sequenceId++,
             eventData,
@@ -27465,7 +27465,7 @@ function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eve
         });
     });
 }
-const businessEventsReporterFactory = Injectable_Injectable("businessEventsReporter", [
+const businessEventsReporterFactory = Injectable("businessEventsReporter", [
     metricsEventTargetFactory.token,
     metricsHandlerFactory.token,
     pageVisibilityFactory.token,
@@ -27475,14 +27475,14 @@ const businessEventsReporterFactory = Injectable_Injectable("businessEventsRepor
     const vendorAnalyticsPersistence = new ExpiringPersistence(() => vendorUuidExpiry, new IndexedDBPersistence({ databaseName: "SessionHistory" }));
     remoteConfiguration
         .getInitializationConfig()
-        .pipe(take(1), switchMap_switchMap(({ appVendorUuidOptIn }) => {
+        .pipe(take(1), switchMap(({ appVendorUuidOptIn }) => {
         if (appVendorUuidOptIn) {
             return from_from(getOrGenerateVendorUuid(vendorAnalyticsPersistence));
         }
-        return of_of(undefined);
-    }), catchError_catchError((error) => {
+        return of(undefined);
+    }), catchError((error) => {
         businessEventsReporter_logger.warn(`Failed to retrieve or generate vendor UUID.`, error);
-        return of_of(undefined);
+        return of(undefined);
     }))
         .subscribe({
         next: (appVendorUuid) => {
@@ -27570,7 +27570,7 @@ const businessEventsReporterFactory = Injectable_Injectable("businessEventsRepor
  *
  * @internal
  */
-const registerLogEntriesSubscriber = Injectable_Injectable("registerLogEntriesSubscriber", [configurationToken, logEntriesFactory.token], (configuration, logEntries) => {
+const registerLogEntriesSubscriber = Injectable("registerLogEntriesSubscriber", [configurationToken, logEntriesFactory.token], (configuration, logEntries) => {
     logEntries
         .pipe(filter((entry) => logLevelMap[entry.level] >= logLevelMap[configuration.logLevel]))
         .subscribe((logEntry) => {
@@ -27578,7 +27578,7 @@ const registerLogEntriesSubscriber = Injectable_Injectable("registerLogEntriesSu
             case "console":
                 // Chrome doesn't print the `cause` Error property, so we need to manually construct a complete
                 // stack trace using our `stringifyError` helper.
-                const messages = cameraKitUserAgent_cameraKitUserAgent.browser.brand === "Chrome"
+                const messages = cameraKitUserAgent.browser.brand === "Chrome"
                     ? logEntry.messages.map((message) => {
                         if (!(message instanceof Error))
                             return message;
@@ -27698,7 +27698,7 @@ function bootstrapCameraKit(configuration, provide) {
                 .provides(pageVisibilityFactory)
                 .provides(defaultFetchHandlerFactory)
                 .provides(remoteMediaAssetLoaderFactory)
-                .provides(LensSources_lensSourcesFactory)
+                .provides(lensSourcesFactory)
                 .provides(remoteApiServicesFactory)
                 .provides(uriHandlersFactory);
             const publicContainer = provide ? provide(defaultPublicContainer) : defaultPublicContainer;
@@ -27711,11 +27711,11 @@ function bootstrapCameraKit(configuration, provide) {
             const telemetryContainer = Container.provides(publicContainer)
                 .provides(logEntriesFactory)
                 .run(registerLogEntriesSubscriber)
-                .provides(cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory)
+                .provides(cameraKitServiceFetchHandlerFactory)
                 .provides(requestStateEventTargetFactory)
                 .provides(metricsEventTargetFactory)
                 .provides(metricsHandlerFactory)
-                .provides(operationalMetricsReporter_operationalMetricReporterFactory)
+                .provides(operationalMetricReporterFactory)
                 .provides(reportGlobalException)
                 .provides(cofHandlerFactory)
                 .provides(remoteConfigurationFactory)
@@ -27739,7 +27739,7 @@ function bootstrapCameraKit(configuration, provide) {
             // wait for that promise once here, then create a new DI container that just contains LensCore.
             const lensCore = yield telemetryContainer.provides(lensCoreFactory).get(lensCoreFactory.token);
             const container = telemetryContainer
-                .provides(Injectable_Injectable(lensCoreFactory.token, () => lensCore))
+                .provides(Injectable(lensCoreFactory.token, () => lensCore))
                 .provides(lensPersistenceStoreFactory)
                 .provides(deviceDependentAssetLoaderFactory)
                 .provides(staticAssetLoaderFactory)
@@ -27748,7 +27748,7 @@ function bootstrapCameraKit(configuration, provide) {
                 .provides(cameraKitFactory);
             const cameraKit = container.get(cameraKitFactory.token);
             const bootstrapTimeMs = performance.now() - startTimeMs;
-            const reporter = container.get(operationalMetricsReporter_operationalMetricReporterFactory.token);
+            const reporter = container.get(operationalMetricReporterFactory.token);
             reporter.timer("bootstrap_time", bootstrapTimeMs);
             return cameraKit;
         }
@@ -27801,7 +27801,7 @@ function bootstrapCameraKit(configuration, provide) {
  *
  * @category Bootstrapping and Configuration
  */
-function bootstrapCameraKit_createExtension() {
+function createExtension() {
     return new PartialContainer({});
 }
 //# sourceMappingURL=bootstrapCameraKit.js.map
@@ -27811,7 +27811,7 @@ function bootstrapCameraKit_createExtension() {
 
 function getExtensionRequestContext() {
     return ExtensionRequestContext.encode({
-        userAgent: cameraKitUserAgent_cameraKitUserAgent.userAgent,
+        userAgent: cameraKitUserAgent.userAgent,
         locale: fullLocale,
     }).finish();
 }
@@ -28016,2671 +28016,6 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
 
 //# sourceMappingURL=index.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/generated-api-client/google/protobuf/any.js
-
-
-const any_protobufPackage = "google.protobuf";
-function any_createBaseAny() {
-    return { typeUrl: "", value: new Uint8Array() };
-}
-const any_Any = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.typeUrl !== "") {
-            writer.uint32(10).string(message.typeUrl);
-        }
-        if (message.value.length !== 0) {
-            writer.uint32(18).bytes(message.value);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = any_createBaseAny();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.typeUrl = reader.string();
-                    break;
-                case 2:
-                    message.value = reader.bytes();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            typeUrl: any_isSet(object.typeUrl) ? String(object.typeUrl) : "",
-            value: any_isSet(object.value) ? any_bytesFromBase64(object.value) : new Uint8Array(),
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.typeUrl !== undefined && (obj.typeUrl = message.typeUrl);
-        message.value !== undefined &&
-            (obj.value = any_base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
-        return obj;
-    },
-    fromPartial(object) {
-        const message = any_createBaseAny();
-        message.typeUrl = object.typeUrl ?? "";
-        message.value = object.value ?? new Uint8Array();
-        return message;
-    },
-};
-var protobuf_any_globalThis = (() => {
-    if (typeof protobuf_any_globalThis !== "undefined")
-        return protobuf_any_globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof __webpack_require__.g !== "undefined")
-        return __webpack_require__.g;
-    throw "Unable to locate global object";
-})();
-const any_atob = protobuf_any_globalThis.atob || ((b64) => protobuf_any_globalThis.Buffer.from(b64, "base64").toString("binary"));
-function any_bytesFromBase64(b64) {
-    const bin = any_atob(b64);
-    const arr = new Uint8Array(bin.length);
-    for (let i = 0; i < bin.length; ++i) {
-        arr[i] = bin.charCodeAt(i);
-    }
-    return arr;
-}
-const any_btoa = protobuf_any_globalThis.btoa || ((bin) => protobuf_any_globalThis.Buffer.from(bin, "binary").toString("base64"));
-function any_base64FromBytes(arr) {
-    const bin = [];
-    for (const byte of arr) {
-        bin.push(String.fromCharCode(byte));
-    }
-    return any_btoa(bin.join(""));
-}
-if ((minimal_default()).util.Long !== (long_default())) {
-    (minimal_default()).util.Long = (long_default());
-    minimal_default().configure();
-}
-function any_isSet(value) {
-    return value !== null && value !== undefined;
-}
-
-;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/generated-api-client/camera_kit/v3/lens.js
-
-
-
-const v3_lens_protobufPackage = "com.snap.camerakit.v3";
-var lens_Lens_CameraFacing;
-(function (Lens_CameraFacing) {
-    Lens_CameraFacing["CAMERA_FACING_UNSET"] = "CAMERA_FACING_UNSET";
-    Lens_CameraFacing["CAMERA_FACING_FRONT"] = "CAMERA_FACING_FRONT";
-    Lens_CameraFacing["CAMERA_FACING_BACK"] = "CAMERA_FACING_BACK";
-    Lens_CameraFacing["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(lens_Lens_CameraFacing || (lens_Lens_CameraFacing = {}));
-function lens_lens_CameraFacingFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "CAMERA_FACING_UNSET":
-            return lens_Lens_CameraFacing.CAMERA_FACING_UNSET;
-        case 1:
-        case "CAMERA_FACING_FRONT":
-            return lens_Lens_CameraFacing.CAMERA_FACING_FRONT;
-        case 2:
-        case "CAMERA_FACING_BACK":
-            return lens_Lens_CameraFacing.CAMERA_FACING_BACK;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return lens_Lens_CameraFacing.UNRECOGNIZED;
-    }
-}
-function lens_lens_CameraFacingToJSON(object) {
-    switch (object) {
-        case lens_Lens_CameraFacing.CAMERA_FACING_UNSET:
-            return "CAMERA_FACING_UNSET";
-        case lens_Lens_CameraFacing.CAMERA_FACING_FRONT:
-            return "CAMERA_FACING_FRONT";
-        case lens_Lens_CameraFacing.CAMERA_FACING_BACK:
-            return "CAMERA_FACING_BACK";
-        default:
-            return "UNKNOWN";
-    }
-}
-function lens_lens_CameraFacingToNumber(object) {
-    switch (object) {
-        case lens_Lens_CameraFacing.CAMERA_FACING_UNSET:
-            return 0;
-        case lens_Lens_CameraFacing.CAMERA_FACING_FRONT:
-            return 1;
-        case lens_Lens_CameraFacing.CAMERA_FACING_BACK:
-            return 2;
-        default:
-            return 0;
-    }
-}
-var lens_LensAssetManifestItem_Type;
-(function (LensAssetManifestItem_Type) {
-    LensAssetManifestItem_Type["DEVICE_DEPENDENT_ASSET_UNSET"] = "DEVICE_DEPENDENT_ASSET_UNSET";
-    LensAssetManifestItem_Type["ASSET"] = "ASSET";
-    LensAssetManifestItem_Type["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(lens_LensAssetManifestItem_Type || (lens_LensAssetManifestItem_Type = {}));
-function lens_lensAssetManifestItem_TypeFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "DEVICE_DEPENDENT_ASSET_UNSET":
-            return lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET;
-        case 1:
-        case "ASSET":
-            return lens_LensAssetManifestItem_Type.ASSET;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return lens_LensAssetManifestItem_Type.UNRECOGNIZED;
-    }
-}
-function lens_lensAssetManifestItem_TypeToJSON(object) {
-    switch (object) {
-        case lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET:
-            return "DEVICE_DEPENDENT_ASSET_UNSET";
-        case lens_LensAssetManifestItem_Type.ASSET:
-            return "ASSET";
-        default:
-            return "UNKNOWN";
-    }
-}
-function lens_lensAssetManifestItem_TypeToNumber(object) {
-    switch (object) {
-        case lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET:
-            return 0;
-        case lens_LensAssetManifestItem_Type.ASSET:
-            return 1;
-        default:
-            return 0;
-    }
-}
-var lens_LensAssetManifestItem_RequestTiming;
-(function (LensAssetManifestItem_RequestTiming) {
-    LensAssetManifestItem_RequestTiming["PRELOAD_UNSET"] = "PRELOAD_UNSET";
-    LensAssetManifestItem_RequestTiming["ON_DEMAND"] = "ON_DEMAND";
-    LensAssetManifestItem_RequestTiming["REQUIRED"] = "REQUIRED";
-    LensAssetManifestItem_RequestTiming["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(lens_LensAssetManifestItem_RequestTiming || (lens_LensAssetManifestItem_RequestTiming = {}));
-function lens_lensAssetManifestItem_RequestTimingFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "PRELOAD_UNSET":
-            return lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET;
-        case 1:
-        case "ON_DEMAND":
-            return lens_LensAssetManifestItem_RequestTiming.ON_DEMAND;
-        case 2:
-        case "REQUIRED":
-            return lens_LensAssetManifestItem_RequestTiming.REQUIRED;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return lens_LensAssetManifestItem_RequestTiming.UNRECOGNIZED;
-    }
-}
-function lens_lensAssetManifestItem_RequestTimingToJSON(object) {
-    switch (object) {
-        case lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET:
-            return "PRELOAD_UNSET";
-        case lens_LensAssetManifestItem_RequestTiming.ON_DEMAND:
-            return "ON_DEMAND";
-        case lens_LensAssetManifestItem_RequestTiming.REQUIRED:
-            return "REQUIRED";
-        default:
-            return "UNKNOWN";
-    }
-}
-function lens_lensAssetManifestItem_RequestTimingToNumber(object) {
-    switch (object) {
-        case lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET:
-            return 0;
-        case lens_LensAssetManifestItem_RequestTiming.ON_DEMAND:
-            return 1;
-        case lens_LensAssetManifestItem_RequestTiming.REQUIRED:
-            return 2;
-        default:
-            return 0;
-    }
-}
-function lens_createBaseLens() {
-    return {
-        id: "",
-        name: "",
-        vendorData: {},
-        content: undefined,
-        isThirdParty: false,
-        cameraFacingPreference: lens_Lens_CameraFacing.CAMERA_FACING_UNSET,
-        featureMetadata: [],
-        lensCreator: undefined,
-        scannable: undefined,
-    };
-}
-const lens_Lens = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = lens_createBaseLens();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.id = reader.string();
-                    break;
-                case 2:
-                    message.name = reader.string();
-                    break;
-                case 3:
-                    const entry3 = lens_Lens_VendorDataEntry.decode(reader, reader.uint32());
-                    if (entry3.value !== undefined) {
-                        message.vendorData[entry3.key] = entry3.value;
-                    }
-                    break;
-                case 4:
-                    message.content = lens_Content.decode(reader, reader.uint32());
-                    break;
-                case 5:
-                    message.isThirdParty = reader.bool();
-                    break;
-                case 6:
-                    message.cameraFacingPreference = lens_lens_CameraFacingFromJSON(reader.int32());
-                    break;
-                case 7:
-                    message.featureMetadata.push(any_Any.decode(reader, reader.uint32()));
-                    break;
-                case 8:
-                    message.lensCreator = lens_LensCreator.decode(reader, reader.uint32());
-                    break;
-                case 9:
-                    message.scannable = lens_Scannable.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            id: v3_lens_isSet(object.id) ? String(object.id) : "",
-            name: v3_lens_isSet(object.name) ? String(object.name) : "",
-            vendorData: lens_isObject(object.vendorData)
-                ? Object.entries(object.vendorData).reduce((acc, [key, value]) => {
-                    acc[key] = String(value);
-                    return acc;
-                }, {})
-                : {},
-            content: v3_lens_isSet(object.content) ? lens_Content.fromJSON(object.content) : undefined,
-            isThirdParty: v3_lens_isSet(object.isThirdParty) ? Boolean(object.isThirdParty) : false,
-            cameraFacingPreference: v3_lens_isSet(object.cameraFacingPreference)
-                ? lens_lens_CameraFacingFromJSON(object.cameraFacingPreference)
-                : lens_Lens_CameraFacing.CAMERA_FACING_UNSET,
-            featureMetadata: Array.isArray(object?.featureMetadata)
-                ? object.featureMetadata.map((e) => any_Any.fromJSON(e))
-                : [],
-            lensCreator: v3_lens_isSet(object.lensCreator) ? lens_LensCreator.fromJSON(object.lensCreator) : undefined,
-            scannable: v3_lens_isSet(object.scannable) ? lens_Scannable.fromJSON(object.scannable) : undefined,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.id !== undefined && (obj.id = message.id);
-        message.name !== undefined && (obj.name = message.name);
-        obj.vendorData = {};
-        if (message.vendorData) {
-            Object.entries(message.vendorData).forEach(([k, v]) => {
-                obj.vendorData[k] = v;
-            });
-        }
-        message.content !== undefined && (obj.content = message.content ? lens_Content.toJSON(message.content) : undefined);
-        message.isThirdParty !== undefined && (obj.isThirdParty = message.isThirdParty);
-        message.cameraFacingPreference !== undefined &&
-            (obj.cameraFacingPreference = lens_lens_CameraFacingToJSON(message.cameraFacingPreference));
-        if (message.featureMetadata) {
-            obj.featureMetadata = message.featureMetadata.map((e) => (e ? any_Any.toJSON(e) : undefined));
-        }
-        else {
-            obj.featureMetadata = [];
-        }
-        message.lensCreator !== undefined &&
-            (obj.lensCreator = message.lensCreator ? lens_LensCreator.toJSON(message.lensCreator) : undefined);
-        message.scannable !== undefined &&
-            (obj.scannable = message.scannable ? lens_Scannable.toJSON(message.scannable) : undefined);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = lens_createBaseLens();
-        message.id = object.id ?? "";
-        message.name = object.name ?? "";
-        message.vendorData = Object.entries(object.vendorData ?? {}).reduce((acc, [key, value]) => {
-            if (value !== undefined) {
-                acc[key] = String(value);
-            }
-            return acc;
-        }, {});
-        message.content =
-            object.content !== undefined && object.content !== null ? lens_Content.fromPartial(object.content) : undefined;
-        message.isThirdParty = object.isThirdParty ?? false;
-        message.cameraFacingPreference = object.cameraFacingPreference ?? lens_Lens_CameraFacing.CAMERA_FACING_UNSET;
-        message.featureMetadata = object.featureMetadata?.map((e) => any_Any.fromPartial(e)) || [];
-        message.lensCreator =
-            object.lensCreator !== undefined && object.lensCreator !== null
-                ? lens_LensCreator.fromPartial(object.lensCreator)
-                : undefined;
-        message.scannable =
-            object.scannable !== undefined && object.scannable !== null ? lens_Scannable.fromPartial(object.scannable) : undefined;
-        return message;
-    },
-};
-function lens_createBaseLens_VendorDataEntry() {
-    return { key: "", value: "" };
-}
-const lens_Lens_VendorDataEntry = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = lens_createBaseLens_VendorDataEntry();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.key = reader.string();
-                    break;
-                case 2:
-                    message.value = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            key: v3_lens_isSet(object.key) ? String(object.key) : "",
-            value: v3_lens_isSet(object.value) ? String(object.value) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.key !== undefined && (obj.key = message.key);
-        message.value !== undefined && (obj.value = message.value);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = lens_createBaseLens_VendorDataEntry();
-        message.key = object.key ?? "";
-        message.value = object.value ?? "";
-        return message;
-    },
-};
-function lens_createBaseContent() {
-    return {
-        lnsUrl: "",
-        lnsSha256: "",
-        iconUrl: "",
-        preview: undefined,
-        assetManifest: [],
-        defaultHintId: "",
-        hintTranslations: {},
-        lnsUrlBolt: "",
-        iconUrlBolt: "",
-    };
-}
-const lens_Content = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = lens_createBaseContent();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.lnsUrl = reader.string();
-                    break;
-                case 2:
-                    message.lnsSha256 = reader.string();
-                    break;
-                case 3:
-                    message.iconUrl = reader.string();
-                    break;
-                case 4:
-                    message.preview = lens_Preview.decode(reader, reader.uint32());
-                    break;
-                case 5:
-                    message.assetManifest.push(lens_LensAssetManifestItem.decode(reader, reader.uint32()));
-                    break;
-                case 6:
-                    message.defaultHintId = reader.string();
-                    break;
-                case 7:
-                    const entry7 = lens_Content_HintTranslationsEntry.decode(reader, reader.uint32());
-                    if (entry7.value !== undefined) {
-                        message.hintTranslations[entry7.key] = entry7.value;
-                    }
-                    break;
-                case 8:
-                    message.lnsUrlBolt = reader.string();
-                    break;
-                case 9:
-                    message.iconUrlBolt = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            lnsUrl: v3_lens_isSet(object.lnsUrl) ? String(object.lnsUrl) : "",
-            lnsSha256: v3_lens_isSet(object.lnsSha256) ? String(object.lnsSha256) : "",
-            iconUrl: v3_lens_isSet(object.iconUrl) ? String(object.iconUrl) : "",
-            preview: v3_lens_isSet(object.preview) ? lens_Preview.fromJSON(object.preview) : undefined,
-            assetManifest: Array.isArray(object?.assetManifest)
-                ? object.assetManifest.map((e) => lens_LensAssetManifestItem.fromJSON(e))
-                : [],
-            defaultHintId: v3_lens_isSet(object.defaultHintId) ? String(object.defaultHintId) : "",
-            hintTranslations: lens_isObject(object.hintTranslations)
-                ? Object.entries(object.hintTranslations).reduce((acc, [key, value]) => {
-                    acc[key] = String(value);
-                    return acc;
-                }, {})
-                : {},
-            lnsUrlBolt: v3_lens_isSet(object.lnsUrlBolt) ? String(object.lnsUrlBolt) : "",
-            iconUrlBolt: v3_lens_isSet(object.iconUrlBolt) ? String(object.iconUrlBolt) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.lnsUrl !== undefined && (obj.lnsUrl = message.lnsUrl);
-        message.lnsSha256 !== undefined && (obj.lnsSha256 = message.lnsSha256);
-        message.iconUrl !== undefined && (obj.iconUrl = message.iconUrl);
-        message.preview !== undefined && (obj.preview = message.preview ? lens_Preview.toJSON(message.preview) : undefined);
-        if (message.assetManifest) {
-            obj.assetManifest = message.assetManifest.map((e) => (e ? lens_LensAssetManifestItem.toJSON(e) : undefined));
-        }
-        else {
-            obj.assetManifest = [];
-        }
-        message.defaultHintId !== undefined && (obj.defaultHintId = message.defaultHintId);
-        obj.hintTranslations = {};
-        if (message.hintTranslations) {
-            Object.entries(message.hintTranslations).forEach(([k, v]) => {
-                obj.hintTranslations[k] = v;
-            });
-        }
-        message.lnsUrlBolt !== undefined && (obj.lnsUrlBolt = message.lnsUrlBolt);
-        message.iconUrlBolt !== undefined && (obj.iconUrlBolt = message.iconUrlBolt);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = lens_createBaseContent();
-        message.lnsUrl = object.lnsUrl ?? "";
-        message.lnsSha256 = object.lnsSha256 ?? "";
-        message.iconUrl = object.iconUrl ?? "";
-        message.preview =
-            object.preview !== undefined && object.preview !== null ? lens_Preview.fromPartial(object.preview) : undefined;
-        message.assetManifest = object.assetManifest?.map((e) => lens_LensAssetManifestItem.fromPartial(e)) || [];
-        message.defaultHintId = object.defaultHintId ?? "";
-        message.hintTranslations = Object.entries(object.hintTranslations ?? {}).reduce((acc, [key, value]) => {
-            if (value !== undefined) {
-                acc[key] = String(value);
-            }
-            return acc;
-        }, {});
-        message.lnsUrlBolt = object.lnsUrlBolt ?? "";
-        message.iconUrlBolt = object.iconUrlBolt ?? "";
-        return message;
-    },
-};
-function lens_createBaseContent_HintTranslationsEntry() {
-    return { key: "", value: "" };
-}
-const lens_Content_HintTranslationsEntry = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = lens_createBaseContent_HintTranslationsEntry();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.key = reader.string();
-                    break;
-                case 2:
-                    message.value = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            key: v3_lens_isSet(object.key) ? String(object.key) : "",
-            value: v3_lens_isSet(object.value) ? String(object.value) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.key !== undefined && (obj.key = message.key);
-        message.value !== undefined && (obj.value = message.value);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = lens_createBaseContent_HintTranslationsEntry();
-        message.key = object.key ?? "";
-        message.value = object.value ?? "";
-        return message;
-    },
-};
-function lens_createBaseLensAssetManifestItem() {
-    return {
-        type: lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET,
-        id: "",
-        requestTiming: lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET,
-        assetUrl: "",
-        assetChecksum: "",
-    };
-}
-const lens_LensAssetManifestItem = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = lens_createBaseLensAssetManifestItem();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.type = lens_lensAssetManifestItem_TypeFromJSON(reader.int32());
-                    break;
-                case 2:
-                    message.id = reader.string();
-                    break;
-                case 3:
-                    message.requestTiming = lens_lensAssetManifestItem_RequestTimingFromJSON(reader.int32());
-                    break;
-                case 4:
-                    message.assetUrl = reader.string();
-                    break;
-                case 5:
-                    message.assetChecksum = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            type: v3_lens_isSet(object.type)
-                ? lens_lensAssetManifestItem_TypeFromJSON(object.type)
-                : lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET,
-            id: v3_lens_isSet(object.id) ? String(object.id) : "",
-            requestTiming: v3_lens_isSet(object.requestTiming)
-                ? lens_lensAssetManifestItem_RequestTimingFromJSON(object.requestTiming)
-                : lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET,
-            assetUrl: v3_lens_isSet(object.assetUrl) ? String(object.assetUrl) : "",
-            assetChecksum: v3_lens_isSet(object.assetChecksum) ? String(object.assetChecksum) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.type !== undefined && (obj.type = lens_lensAssetManifestItem_TypeToJSON(message.type));
-        message.id !== undefined && (obj.id = message.id);
-        message.requestTiming !== undefined &&
-            (obj.requestTiming = lens_lensAssetManifestItem_RequestTimingToJSON(message.requestTiming));
-        message.assetUrl !== undefined && (obj.assetUrl = message.assetUrl);
-        message.assetChecksum !== undefined && (obj.assetChecksum = message.assetChecksum);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = lens_createBaseLensAssetManifestItem();
-        message.type = object.type ?? lens_LensAssetManifestItem_Type.DEVICE_DEPENDENT_ASSET_UNSET;
-        message.id = object.id ?? "";
-        message.requestTiming = object.requestTiming ?? lens_LensAssetManifestItem_RequestTiming.PRELOAD_UNSET;
-        message.assetUrl = object.assetUrl ?? "";
-        message.assetChecksum = object.assetChecksum ?? "";
-        return message;
-    },
-};
-function lens_createBasePreview() {
-    return { imageUrl: "", imageSequenceSize: 0, imageSequenceWebpUrlPattern: "" };
-}
-const lens_Preview = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = lens_createBasePreview();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.imageUrl = reader.string();
-                    break;
-                case 2:
-                    message.imageSequenceSize = reader.int32();
-                    break;
-                case 3:
-                    message.imageSequenceWebpUrlPattern = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            imageUrl: v3_lens_isSet(object.imageUrl) ? String(object.imageUrl) : "",
-            imageSequenceSize: v3_lens_isSet(object.imageSequenceSize) ? Number(object.imageSequenceSize) : 0,
-            imageSequenceWebpUrlPattern: v3_lens_isSet(object.imageSequenceWebpUrlPattern)
-                ? String(object.imageSequenceWebpUrlPattern)
-                : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.imageUrl !== undefined && (obj.imageUrl = message.imageUrl);
-        message.imageSequenceSize !== undefined && (obj.imageSequenceSize = Math.round(message.imageSequenceSize));
-        message.imageSequenceWebpUrlPattern !== undefined &&
-            (obj.imageSequenceWebpUrlPattern = message.imageSequenceWebpUrlPattern);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = lens_createBasePreview();
-        message.imageUrl = object.imageUrl ?? "";
-        message.imageSequenceSize = object.imageSequenceSize ?? 0;
-        message.imageSequenceWebpUrlPattern = object.imageSequenceWebpUrlPattern ?? "";
-        return message;
-    },
-};
-function lens_createBaseLensCreator() {
-    return { displayName: "" };
-}
-const lens_LensCreator = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = lens_createBaseLensCreator();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.displayName = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            displayName: v3_lens_isSet(object.displayName) ? String(object.displayName) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.displayName !== undefined && (obj.displayName = message.displayName);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = lens_createBaseLensCreator();
-        message.displayName = object.displayName ?? "";
-        return message;
-    },
-};
-function lens_createBaseScannable() {
-    return { snapcodeImageUrl: "", snapcodeDeeplink: "" };
-}
-const lens_Scannable = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = lens_createBaseScannable();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.snapcodeImageUrl = reader.string();
-                    break;
-                case 2:
-                    message.snapcodeDeeplink = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            snapcodeImageUrl: v3_lens_isSet(object.snapcodeImageUrl) ? String(object.snapcodeImageUrl) : "",
-            snapcodeDeeplink: v3_lens_isSet(object.snapcodeDeeplink) ? String(object.snapcodeDeeplink) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.snapcodeImageUrl !== undefined && (obj.snapcodeImageUrl = message.snapcodeImageUrl);
-        message.snapcodeDeeplink !== undefined && (obj.snapcodeDeeplink = message.snapcodeDeeplink);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = lens_createBaseScannable();
-        message.snapcodeImageUrl = object.snapcodeImageUrl ?? "";
-        message.snapcodeDeeplink = object.snapcodeDeeplink ?? "";
-        return message;
-    },
-};
-if ((minimal_default()).util.Long !== (long_default())) {
-    (minimal_default()).util.Long = (long_default());
-    minimal_default().configure();
-}
-function lens_isObject(value) {
-    return typeof value === "object" && value !== null;
-}
-function v3_lens_isSet(value) {
-    return value !== null && value !== undefined;
-}
-
-;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/generated-api-client/camera_kit/v3/push_to_device.js
-
-
-
-
-
-
-
-const push_to_device_protobufPackage = 'com.snap.camerakit.v3';
-var PushLensSubscriptionResponse_ExcludedLens_Code;
-(function (PushLensSubscriptionResponse_ExcludedLens_Code) {
-    PushLensSubscriptionResponse_ExcludedLens_Code["UNSET"] = "UNSET";
-    PushLensSubscriptionResponse_ExcludedLens_Code["UNKNOWN"] = "UNKNOWN";
-    PushLensSubscriptionResponse_ExcludedLens_Code["NOT_FOUND"] = "NOT_FOUND";
-    PushLensSubscriptionResponse_ExcludedLens_Code["INCOMPATIBLE_LENS_CORE_VERSION"] = "INCOMPATIBLE_LENS_CORE_VERSION";
-    PushLensSubscriptionResponse_ExcludedLens_Code["ARCHIVED_OR_INVISIBLE"] = "ARCHIVED_OR_INVISIBLE";
-    PushLensSubscriptionResponse_ExcludedLens_Code["CONTAINS_MUSIC"] = "CONTAINS_MUSIC";
-    PushLensSubscriptionResponse_ExcludedLens_Code["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(PushLensSubscriptionResponse_ExcludedLens_Code || (PushLensSubscriptionResponse_ExcludedLens_Code = {}));
-function pushLensSubscriptionResponse_ExcludedLens_CodeFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "UNSET":
-            return PushLensSubscriptionResponse_ExcludedLens_Code.UNSET;
-        case 1:
-        case "UNKNOWN":
-            return PushLensSubscriptionResponse_ExcludedLens_Code.UNKNOWN;
-        case 2:
-        case "NOT_FOUND":
-            return PushLensSubscriptionResponse_ExcludedLens_Code.NOT_FOUND;
-        case 3:
-        case "INCOMPATIBLE_LENS_CORE_VERSION":
-            return PushLensSubscriptionResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION;
-        case 4:
-        case "ARCHIVED_OR_INVISIBLE":
-            return PushLensSubscriptionResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE;
-        case 5:
-        case "CONTAINS_MUSIC":
-            return PushLensSubscriptionResponse_ExcludedLens_Code.CONTAINS_MUSIC;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return PushLensSubscriptionResponse_ExcludedLens_Code.UNRECOGNIZED;
-    }
-}
-function pushLensSubscriptionResponse_ExcludedLens_CodeToJSON(object) {
-    switch (object) {
-        case PushLensSubscriptionResponse_ExcludedLens_Code.UNSET: return "UNSET";
-        case PushLensSubscriptionResponse_ExcludedLens_Code.UNKNOWN: return "UNKNOWN";
-        case PushLensSubscriptionResponse_ExcludedLens_Code.NOT_FOUND: return "NOT_FOUND";
-        case PushLensSubscriptionResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION: return "INCOMPATIBLE_LENS_CORE_VERSION";
-        case PushLensSubscriptionResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE: return "ARCHIVED_OR_INVISIBLE";
-        case PushLensSubscriptionResponse_ExcludedLens_Code.CONTAINS_MUSIC: return "CONTAINS_MUSIC";
-        default: return "UNKNOWN";
-    }
-}
-function pushLensSubscriptionResponse_ExcludedLens_CodeToNumber(object) {
-    switch (object) {
-        case PushLensSubscriptionResponse_ExcludedLens_Code.UNSET: return 0;
-        case PushLensSubscriptionResponse_ExcludedLens_Code.UNKNOWN: return 1;
-        case PushLensSubscriptionResponse_ExcludedLens_Code.NOT_FOUND: return 2;
-        case PushLensSubscriptionResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION: return 3;
-        case PushLensSubscriptionResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE: return 4;
-        case PushLensSubscriptionResponse_ExcludedLens_Code.CONTAINS_MUSIC: return 5;
-        default: return 0;
-    }
-}
-var ListenLensPushResponse_ExcludedLens_Code;
-(function (ListenLensPushResponse_ExcludedLens_Code) {
-    ListenLensPushResponse_ExcludedLens_Code["UNSET"] = "UNSET";
-    ListenLensPushResponse_ExcludedLens_Code["UNKNOWN"] = "UNKNOWN";
-    ListenLensPushResponse_ExcludedLens_Code["NOT_FOUND"] = "NOT_FOUND";
-    ListenLensPushResponse_ExcludedLens_Code["INCOMPATIBLE_LENS_CORE_VERSION"] = "INCOMPATIBLE_LENS_CORE_VERSION";
-    ListenLensPushResponse_ExcludedLens_Code["ARCHIVED_OR_INVISIBLE"] = "ARCHIVED_OR_INVISIBLE";
-    ListenLensPushResponse_ExcludedLens_Code["CONTAINS_MUSIC"] = "CONTAINS_MUSIC";
-    ListenLensPushResponse_ExcludedLens_Code["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(ListenLensPushResponse_ExcludedLens_Code || (ListenLensPushResponse_ExcludedLens_Code = {}));
-function push_to_device_listenLensPushResponse_ExcludedLens_CodeFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "UNSET":
-            return ListenLensPushResponse_ExcludedLens_Code.UNSET;
-        case 1:
-        case "UNKNOWN":
-            return ListenLensPushResponse_ExcludedLens_Code.UNKNOWN;
-        case 2:
-        case "NOT_FOUND":
-            return ListenLensPushResponse_ExcludedLens_Code.NOT_FOUND;
-        case 3:
-        case "INCOMPATIBLE_LENS_CORE_VERSION":
-            return ListenLensPushResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION;
-        case 4:
-        case "ARCHIVED_OR_INVISIBLE":
-            return ListenLensPushResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE;
-        case 5:
-        case "CONTAINS_MUSIC":
-            return ListenLensPushResponse_ExcludedLens_Code.CONTAINS_MUSIC;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return ListenLensPushResponse_ExcludedLens_Code.UNRECOGNIZED;
-    }
-}
-function listenLensPushResponse_ExcludedLens_CodeToJSON(object) {
-    switch (object) {
-        case ListenLensPushResponse_ExcludedLens_Code.UNSET: return "UNSET";
-        case ListenLensPushResponse_ExcludedLens_Code.UNKNOWN: return "UNKNOWN";
-        case ListenLensPushResponse_ExcludedLens_Code.NOT_FOUND: return "NOT_FOUND";
-        case ListenLensPushResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION: return "INCOMPATIBLE_LENS_CORE_VERSION";
-        case ListenLensPushResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE: return "ARCHIVED_OR_INVISIBLE";
-        case ListenLensPushResponse_ExcludedLens_Code.CONTAINS_MUSIC: return "CONTAINS_MUSIC";
-        default: return "UNKNOWN";
-    }
-}
-function listenLensPushResponse_ExcludedLens_CodeToNumber(object) {
-    switch (object) {
-        case ListenLensPushResponse_ExcludedLens_Code.UNSET: return 0;
-        case ListenLensPushResponse_ExcludedLens_Code.UNKNOWN: return 1;
-        case ListenLensPushResponse_ExcludedLens_Code.NOT_FOUND: return 2;
-        case ListenLensPushResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION: return 3;
-        case ListenLensPushResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE: return 4;
-        case ListenLensPushResponse_ExcludedLens_Code.CONTAINS_MUSIC: return 5;
-        default: return 0;
-    }
-}
-function createBasePushLensSubscriptionRequest() {
-    return { accountId: "", extensionRequestContext: new Uint8Array(), heartbeat: 0 };
-}
-const PushLensSubscriptionRequest = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.accountId !== "") {
-            writer.uint32(10).string(message.accountId);
-        }
-        if (message.extensionRequestContext.length !== 0) {
-            writer.uint32(18).bytes(message.extensionRequestContext);
-        }
-        if (message.heartbeat !== 0) {
-            writer.uint32(24).int32(message.heartbeat);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePushLensSubscriptionRequest();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.accountId = reader.string();
-                    break;
-                case 2:
-                    message.extensionRequestContext = reader.bytes();
-                    break;
-                case 3:
-                    message.heartbeat = reader.int32();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            accountId: push_to_device_isSet(object.accountId)
-                ? String(object.accountId)
-                : "",
-            extensionRequestContext: push_to_device_isSet(object.extensionRequestContext)
-                ? push_to_device_bytesFromBase64(object.extensionRequestContext)
-                : new Uint8Array(),
-            heartbeat: push_to_device_isSet(object.heartbeat)
-                ? Number(object.heartbeat)
-                : 0,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.accountId !== undefined && (obj.accountId = message.accountId);
-        message.extensionRequestContext !== undefined && (obj.extensionRequestContext = push_to_device_base64FromBytes(message.extensionRequestContext !== undefined ? message.extensionRequestContext : new Uint8Array()));
-        message.heartbeat !== undefined && (obj.heartbeat = Math.round(message.heartbeat));
-        return obj;
-    },
-    fromPartial(object) {
-        const message = createBasePushLensSubscriptionRequest();
-        message.accountId = object.accountId ?? "";
-        message.extensionRequestContext = object.extensionRequestContext ?? new Uint8Array();
-        message.heartbeat = object.heartbeat ?? 0;
-        return message;
-    }
-};
-function createBasePushLensSubscriptionResponse() {
-    return { lens: undefined, excludedLens: undefined, heartbeat: 0, lenses: {} };
-}
-const PushLensSubscriptionResponse = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePushLensSubscriptionResponse();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.lens = lens_Lens.decode(reader, reader.uint32());
-                    break;
-                case 2:
-                    message.excludedLens = PushLensSubscriptionResponse_ExcludedLens.decode(reader, reader.uint32());
-                    break;
-                case 3:
-                    message.heartbeat = reader.int32();
-                    break;
-                case 4:
-                    const entry4 = PushLensSubscriptionResponse_LensesEntry.decode(reader, reader.uint32());
-                    if (entry4.value !== undefined) {
-                        message.lenses[entry4.key] = entry4.value;
-                    }
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            lens: push_to_device_isSet(object.lens)
-                ? lens_Lens.fromJSON(object.lens)
-                : undefined,
-            excludedLens: push_to_device_isSet(object.excludedLens)
-                ? PushLensSubscriptionResponse_ExcludedLens.fromJSON(object.excludedLens)
-                : undefined,
-            heartbeat: push_to_device_isSet(object.heartbeat)
-                ? Number(object.heartbeat)
-                : 0,
-            lenses: push_to_device_isObject(object.lenses)
-                ? Object.entries(object.lenses).reduce((acc, [key, value]) => {
-                    acc[key] = push_to_device_bytesFromBase64(value);
-                    return acc;
-                }, {})
-                : {},
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.lens !== undefined && (obj.lens = message.lens ? lens_Lens.toJSON(message.lens) : undefined);
-        message.excludedLens !== undefined && (obj.excludedLens = message.excludedLens ? PushLensSubscriptionResponse_ExcludedLens.toJSON(message.excludedLens) : undefined);
-        message.heartbeat !== undefined && (obj.heartbeat = Math.round(message.heartbeat));
-        obj.lenses = {};
-        if (message.lenses) {
-            Object.entries(message.lenses).forEach(([k, v]) => {
-                obj.lenses[k] = push_to_device_base64FromBytes(v);
-            });
-        }
-        return obj;
-    },
-    fromPartial(object) {
-        const message = createBasePushLensSubscriptionResponse();
-        message.lens = (object.lens !== undefined && object.lens !== null)
-            ? lens_Lens.fromPartial(object.lens)
-            : undefined;
-        message.excludedLens = (object.excludedLens !== undefined && object.excludedLens !== null)
-            ? PushLensSubscriptionResponse_ExcludedLens.fromPartial(object.excludedLens)
-            : undefined;
-        message.heartbeat = object.heartbeat ?? 0;
-        message.lenses = Object.entries(object.lenses ?? {}).reduce((acc, [key, value]) => {
-            if (value !== undefined) {
-                acc[key] = value;
-            }
-            return acc;
-        }, {});
-        return message;
-    }
-};
-function createBasePushLensSubscriptionResponse_LensesEntry() {
-    return { key: "", value: new Uint8Array() };
-}
-const PushLensSubscriptionResponse_LensesEntry = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePushLensSubscriptionResponse_LensesEntry();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.key = reader.string();
-                    break;
-                case 2:
-                    message.value = reader.bytes();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            key: push_to_device_isSet(object.key)
-                ? String(object.key)
-                : "",
-            value: push_to_device_isSet(object.value)
-                ? push_to_device_bytesFromBase64(object.value)
-                : new Uint8Array(),
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.key !== undefined && (obj.key = message.key);
-        message.value !== undefined && (obj.value = push_to_device_base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
-        return obj;
-    },
-    fromPartial(object) {
-        const message = createBasePushLensSubscriptionResponse_LensesEntry();
-        message.key = object.key ?? "";
-        message.value = object.value ?? new Uint8Array();
-        return message;
-    }
-};
-function createBasePushLensSubscriptionResponse_ExcludedLens() {
-    return { lensId: 0, code: PushLensSubscriptionResponse_ExcludedLens_Code.UNSET };
-}
-const PushLensSubscriptionResponse_ExcludedLens = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePushLensSubscriptionResponse_ExcludedLens();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.lensId = push_to_device_longToNumber(reader.int64());
-                    break;
-                case 2:
-                    message.code = pushLensSubscriptionResponse_ExcludedLens_CodeFromJSON(reader.int32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            lensId: push_to_device_isSet(object.lensId)
-                ? Number(object.lensId)
-                : 0,
-            code: push_to_device_isSet(object.code)
-                ? pushLensSubscriptionResponse_ExcludedLens_CodeFromJSON(object.code)
-                : PushLensSubscriptionResponse_ExcludedLens_Code.UNSET,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.lensId !== undefined && (obj.lensId = Math.round(message.lensId));
-        message.code !== undefined && (obj.code = pushLensSubscriptionResponse_ExcludedLens_CodeToJSON(message.code));
-        return obj;
-    },
-    fromPartial(object) {
-        const message = createBasePushLensSubscriptionResponse_ExcludedLens();
-        message.lensId = object.lensId ?? 0;
-        message.code = object.code ?? PushLensSubscriptionResponse_ExcludedLens_Code.UNSET;
-        return message;
-    }
-};
-function createBaseListenLensPushRequest() {
-    return { extensionRequestContext: new Uint8Array(), heartbeat: 0 };
-}
-const push_to_device_ListenLensPushRequest = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.extensionRequestContext.length !== 0) {
-            writer.uint32(18).bytes(message.extensionRequestContext);
-        }
-        if (message.heartbeat !== 0) {
-            writer.uint32(24).int32(message.heartbeat);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseListenLensPushRequest();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 2:
-                    message.extensionRequestContext = reader.bytes();
-                    break;
-                case 3:
-                    message.heartbeat = reader.int32();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            extensionRequestContext: push_to_device_isSet(object.extensionRequestContext)
-                ? push_to_device_bytesFromBase64(object.extensionRequestContext)
-                : new Uint8Array(),
-            heartbeat: push_to_device_isSet(object.heartbeat)
-                ? Number(object.heartbeat)
-                : 0,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.extensionRequestContext !== undefined && (obj.extensionRequestContext = push_to_device_base64FromBytes(message.extensionRequestContext !== undefined ? message.extensionRequestContext : new Uint8Array()));
-        message.heartbeat !== undefined && (obj.heartbeat = Math.round(message.heartbeat));
-        return obj;
-    },
-    fromPartial(object) {
-        const message = createBaseListenLensPushRequest();
-        message.extensionRequestContext = object.extensionRequestContext ?? new Uint8Array();
-        message.heartbeat = object.heartbeat ?? 0;
-        return message;
-    }
-};
-function createBaseListenLensPushResponse() {
-    return { excludedLens: undefined, heartbeat: 0, lenses: {} };
-}
-const ListenLensPushResponse = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseListenLensPushResponse();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 2:
-                    message.excludedLens = ListenLensPushResponse_ExcludedLens.decode(reader, reader.uint32());
-                    break;
-                case 3:
-                    message.heartbeat = reader.int32();
-                    break;
-                case 4:
-                    const entry4 = ListenLensPushResponse_LensesEntry.decode(reader, reader.uint32());
-                    if (entry4.value !== undefined) {
-                        message.lenses[entry4.key] = entry4.value;
-                    }
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            excludedLens: push_to_device_isSet(object.excludedLens)
-                ? ListenLensPushResponse_ExcludedLens.fromJSON(object.excludedLens)
-                : undefined,
-            heartbeat: push_to_device_isSet(object.heartbeat)
-                ? Number(object.heartbeat)
-                : 0,
-            lenses: push_to_device_isObject(object.lenses)
-                ? Object.entries(object.lenses).reduce((acc, [key, value]) => {
-                    acc[key] = push_to_device_bytesFromBase64(value);
-                    return acc;
-                }, {})
-                : {},
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.excludedLens !== undefined && (obj.excludedLens = message.excludedLens ? ListenLensPushResponse_ExcludedLens.toJSON(message.excludedLens) : undefined);
-        message.heartbeat !== undefined && (obj.heartbeat = Math.round(message.heartbeat));
-        obj.lenses = {};
-        if (message.lenses) {
-            Object.entries(message.lenses).forEach(([k, v]) => {
-                obj.lenses[k] = push_to_device_base64FromBytes(v);
-            });
-        }
-        return obj;
-    },
-    fromPartial(object) {
-        const message = createBaseListenLensPushResponse();
-        message.excludedLens = (object.excludedLens !== undefined && object.excludedLens !== null)
-            ? ListenLensPushResponse_ExcludedLens.fromPartial(object.excludedLens)
-            : undefined;
-        message.heartbeat = object.heartbeat ?? 0;
-        message.lenses = Object.entries(object.lenses ?? {}).reduce((acc, [key, value]) => {
-            if (value !== undefined) {
-                acc[key] = value;
-            }
-            return acc;
-        }, {});
-        return message;
-    }
-};
-function createBaseListenLensPushResponse_LensesEntry() {
-    return { key: "", value: new Uint8Array() };
-}
-const ListenLensPushResponse_LensesEntry = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseListenLensPushResponse_LensesEntry();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.key = reader.string();
-                    break;
-                case 2:
-                    message.value = reader.bytes();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            key: push_to_device_isSet(object.key)
-                ? String(object.key)
-                : "",
-            value: push_to_device_isSet(object.value)
-                ? push_to_device_bytesFromBase64(object.value)
-                : new Uint8Array(),
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.key !== undefined && (obj.key = message.key);
-        message.value !== undefined && (obj.value = push_to_device_base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
-        return obj;
-    },
-    fromPartial(object) {
-        const message = createBaseListenLensPushResponse_LensesEntry();
-        message.key = object.key ?? "";
-        message.value = object.value ?? new Uint8Array();
-        return message;
-    }
-};
-function createBaseListenLensPushResponse_ExcludedLens() {
-    return { lensId: 0, code: ListenLensPushResponse_ExcludedLens_Code.UNSET };
-}
-const ListenLensPushResponse_ExcludedLens = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseListenLensPushResponse_ExcludedLens();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.lensId = push_to_device_longToNumber(reader.int64());
-                    break;
-                case 2:
-                    message.code = push_to_device_listenLensPushResponse_ExcludedLens_CodeFromJSON(reader.int32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            lensId: push_to_device_isSet(object.lensId)
-                ? Number(object.lensId)
-                : 0,
-            code: push_to_device_isSet(object.code)
-                ? push_to_device_listenLensPushResponse_ExcludedLens_CodeFromJSON(object.code)
-                : ListenLensPushResponse_ExcludedLens_Code.UNSET,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.lensId !== undefined && (obj.lensId = Math.round(message.lensId));
-        message.code !== undefined && (obj.code = listenLensPushResponse_ExcludedLens_CodeToJSON(message.code));
-        return obj;
-    },
-    fromPartial(object) {
-        const message = createBaseListenLensPushResponse_ExcludedLens();
-        message.lensId = object.lensId ?? 0;
-        message.code = object.code ?? ListenLensPushResponse_ExcludedLens_Code.UNSET;
-        return message;
-    }
-};
-class push_to_device_PushToDeviceClientImpl {
-    rpc;
-    constructor(rpc) {
-        this.rpc = rpc;
-        this.PushLensSubscription = this.PushLensSubscription.bind(this);
-        this.ListenLensPush = this.ListenLensPush.bind(this);
-    }
-    PushLensSubscription(request, metadata) {
-        return this.rpc.invoke(PushToDevicePushLensSubscriptionDesc, request, metadata);
-    }
-    ListenLensPush(request, metadata) {
-        return this.rpc.invoke(PushToDeviceListenLensPushDesc, push_to_device_ListenLensPushRequest.fromPartial(request), metadata);
-    }
-}
-const PushToDeviceDesc = {
-    serviceName: "com.snap.camerakit.v3.PushToDevice",
-};
-const PushToDevicePushLensSubscriptionDesc = {
-    methodName: "PushLensSubscription",
-    service: PushToDeviceDesc,
-    requestStream: false,
-    responseStream: true,
-    requestType: {
-        serializeBinary() {
-            return PushLensSubscriptionRequest.encode(this).finish();
-        },
-    },
-    responseType: {
-        deserializeBinary(data) {
-            return { ...PushLensSubscriptionResponse.decode(data), toObject() { return this; } };
-        }
-    },
-};
-const PushToDeviceListenLensPushDesc = {
-    methodName: "ListenLensPush",
-    service: PushToDeviceDesc,
-    requestStream: false,
-    responseStream: true,
-    requestType: {
-        serializeBinary() {
-            return push_to_device_ListenLensPushRequest.encode(this).finish();
-        },
-    },
-    responseType: {
-        deserializeBinary(data) {
-            return { ...ListenLensPushResponse.decode(data), toObject() { return this; } };
-        }
-    },
-};
-class push_to_device_GrpcWebImpl {
-    host;
-    options;
-    constructor(host, options) {
-        this.host = host;
-        this.options = options;
-    }
-    unary(methodDesc, _request, metadata) {
-        const request = { ..._request, ...methodDesc.requestType };
-        const maybeCombinedMetadata = metadata && this.options.metadata
-            ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-            : metadata || this.options.metadata;
-        return new Promise((resolve, reject) => {
-            grpc.unary(methodDesc, {
-                request,
-                host: this.host,
-                metadata: maybeCombinedMetadata,
-                transport: this.options.transport,
-                debug: this.options.debug,
-                onEnd: function (response) {
-                    if (response.status === grpc.Code.OK) {
-                        resolve(response.message);
-                    }
-                    else {
-                        const err = new Error(response.statusMessage);
-                        err.code = response.status;
-                        err.metadata = response.trailers;
-                        reject(err);
-                    }
-                },
-            });
-        });
-    }
-    invoke(methodDesc, _request, metadata) {
-        const upStreamCodes = [2, 4, 8, 9, 10, 13, 14, 15];
-        const DEFAULT_TIMEOUT_TIME = 3000;
-        const request = { ..._request, ...methodDesc.requestType };
-        const maybeCombinedMetadata = metadata && this.options.metadata
-            ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
-            : metadata || this.options.metadata;
-        return new Observable(observer => {
-            const upStream = (() => {
-                const client = grpc.invoke(methodDesc, {
-                    host: this.host,
-                    request,
-                    transport: this.options.streamingTransport || this.options.transport,
-                    metadata: maybeCombinedMetadata,
-                    debug: this.options.debug,
-                    onMessage: (next) => observer.next(next),
-                    onEnd: (code, message) => {
-                        if (code === 0) {
-                            observer.complete();
-                        }
-                        else if (upStreamCodes.includes(code)) {
-                            setTimeout(upStream, DEFAULT_TIMEOUT_TIME);
-                        }
-                        else {
-                            observer.error(new Error(`Error ${code} ${message}`));
-                        }
-                    },
-                });
-                observer.add(() => client.close());
-            });
-            upStream();
-        }).pipe(share());
-    }
-}
-var push_to_device_globalThis = (() => {
-    if (typeof push_to_device_globalThis !== "undefined")
-        return push_to_device_globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof __webpack_require__.g !== "undefined")
-        return __webpack_require__.g;
-    throw "Unable to locate global object";
-})();
-const push_to_device_atob = push_to_device_globalThis.atob || ((b64) => push_to_device_globalThis.Buffer.from(b64, 'base64').toString('binary'));
-function push_to_device_bytesFromBase64(b64) {
-    const bin = push_to_device_atob(b64);
-    const arr = new Uint8Array(bin.length);
-    for (let i = 0; i < bin.length; ++i) {
-        arr[i] = bin.charCodeAt(i);
-    }
-    return arr;
-}
-const push_to_device_btoa = push_to_device_globalThis.btoa || ((bin) => push_to_device_globalThis.Buffer.from(bin, 'binary').toString('base64'));
-function push_to_device_base64FromBytes(arr) {
-    const bin = [];
-    for (const byte of arr) {
-        bin.push(String.fromCharCode(byte));
-    }
-    return push_to_device_btoa(bin.join(''));
-}
-function push_to_device_longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new push_to_device_globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
-}
-if ((minimal_default()).util.Long !== (long_default())) {
-    (minimal_default()).util.Long = (long_default());
-    minimal_default().configure();
-}
-function push_to_device_isObject(value) {
-    return typeof value === 'object' && value !== null;
-}
-function push_to_device_isSet(value) {
-    return value !== null && value !== undefined;
-}
-
-;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/generated-api-client/camera_kit/v3/export.js
-
-
-
-const v3_export_protobufPackage = "com.snap.camerakit.v3";
-var export_ExportLensesByIdRequest_Context_Extension_Name;
-(function (ExportLensesByIdRequest_Context_Extension_Name) {
-    ExportLensesByIdRequest_Context_Extension_Name["UNSET"] = "UNSET";
-    ExportLensesByIdRequest_Context_Extension_Name["SHOP_KIT"] = "SHOP_KIT";
-    ExportLensesByIdRequest_Context_Extension_Name["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(export_ExportLensesByIdRequest_Context_Extension_Name || (export_ExportLensesByIdRequest_Context_Extension_Name = {}));
-function export_exportLensesByIdRequest_Context_Extension_NameFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "UNSET":
-            return export_ExportLensesByIdRequest_Context_Extension_Name.UNSET;
-        case 1:
-        case "SHOP_KIT":
-            return export_ExportLensesByIdRequest_Context_Extension_Name.SHOP_KIT;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return export_ExportLensesByIdRequest_Context_Extension_Name.UNRECOGNIZED;
-    }
-}
-function exportLensesByIdRequest_Context_Extension_NameToJSON(object) {
-    switch (object) {
-        case export_ExportLensesByIdRequest_Context_Extension_Name.UNSET:
-            return "UNSET";
-        case export_ExportLensesByIdRequest_Context_Extension_Name.SHOP_KIT:
-            return "SHOP_KIT";
-        default:
-            return "UNKNOWN";
-    }
-}
-function export_exportLensesByIdRequest_Context_Extension_NameToNumber(object) {
-    switch (object) {
-        case export_ExportLensesByIdRequest_Context_Extension_Name.UNSET:
-            return 0;
-        case export_ExportLensesByIdRequest_Context_Extension_Name.SHOP_KIT:
-            return 1;
-        default:
-            return 0;
-    }
-}
-var export_ExportLensesByIdResponse_ExcludedLens_Code;
-(function (ExportLensesByIdResponse_ExcludedLens_Code) {
-    ExportLensesByIdResponse_ExcludedLens_Code["UNSET"] = "UNSET";
-    ExportLensesByIdResponse_ExcludedLens_Code["UNKNOWN"] = "UNKNOWN";
-    ExportLensesByIdResponse_ExcludedLens_Code["NOT_FOUND"] = "NOT_FOUND";
-    ExportLensesByIdResponse_ExcludedLens_Code["INCOMPATIBLE_LENS_CORE_VERSION"] = "INCOMPATIBLE_LENS_CORE_VERSION";
-    ExportLensesByIdResponse_ExcludedLens_Code["ARCHIVED_OR_INVISIBLE"] = "ARCHIVED_OR_INVISIBLE";
-    ExportLensesByIdResponse_ExcludedLens_Code["CONTAINS_MUSIC"] = "CONTAINS_MUSIC";
-    ExportLensesByIdResponse_ExcludedLens_Code["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(export_ExportLensesByIdResponse_ExcludedLens_Code || (export_ExportLensesByIdResponse_ExcludedLens_Code = {}));
-function export_exportLensesByIdResponse_ExcludedLens_CodeFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "UNSET":
-            return export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET;
-        case 1:
-        case "UNKNOWN":
-            return export_ExportLensesByIdResponse_ExcludedLens_Code.UNKNOWN;
-        case 2:
-        case "NOT_FOUND":
-            return export_ExportLensesByIdResponse_ExcludedLens_Code.NOT_FOUND;
-        case 3:
-        case "INCOMPATIBLE_LENS_CORE_VERSION":
-            return export_ExportLensesByIdResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION;
-        case 4:
-        case "ARCHIVED_OR_INVISIBLE":
-            return export_ExportLensesByIdResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE;
-        case 5:
-        case "CONTAINS_MUSIC":
-            return export_ExportLensesByIdResponse_ExcludedLens_Code.CONTAINS_MUSIC;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return export_ExportLensesByIdResponse_ExcludedLens_Code.UNRECOGNIZED;
-    }
-}
-function exportLensesByIdResponse_ExcludedLens_CodeToJSON(object) {
-    switch (object) {
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET:
-            return "UNSET";
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.UNKNOWN:
-            return "UNKNOWN";
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.NOT_FOUND:
-            return "NOT_FOUND";
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION:
-            return "INCOMPATIBLE_LENS_CORE_VERSION";
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE:
-            return "ARCHIVED_OR_INVISIBLE";
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.CONTAINS_MUSIC:
-            return "CONTAINS_MUSIC";
-        default:
-            return "UNKNOWN";
-    }
-}
-function export_exportLensesByIdResponse_ExcludedLens_CodeToNumber(object) {
-    switch (object) {
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET:
-            return 0;
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.UNKNOWN:
-            return 1;
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.NOT_FOUND:
-            return 2;
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.INCOMPATIBLE_LENS_CORE_VERSION:
-            return 3;
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.ARCHIVED_OR_INVISIBLE:
-            return 4;
-        case export_ExportLensesByIdResponse_ExcludedLens_Code.CONTAINS_MUSIC:
-            return 5;
-        default:
-            return 0;
-    }
-}
-function export_createBaseExportLensesByIdRequest() {
-    return { unlockableIds: [], context: undefined };
-}
-const export_ExportLensesByIdRequest = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = export_createBaseExportLensesByIdRequest();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    if ((tag & 7) === 2) {
-                        const end2 = reader.uint32() + reader.pos;
-                        while (reader.pos < end2) {
-                            message.unlockableIds.push(export_longToNumber(reader.int64()));
-                        }
-                    }
-                    else {
-                        message.unlockableIds.push(export_longToNumber(reader.int64()));
-                    }
-                    break;
-                case 2:
-                    message.context = export_ExportLensesByIdRequest_Context.decode(reader, reader.uint32());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            unlockableIds: Array.isArray(object?.unlockableIds) ? object.unlockableIds.map((e) => Number(e)) : [],
-            context: export_isSet(object.context) ? export_ExportLensesByIdRequest_Context.fromJSON(object.context) : undefined,
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.unlockableIds) {
-            obj.unlockableIds = message.unlockableIds.map((e) => Math.round(e));
-        }
-        else {
-            obj.unlockableIds = [];
-        }
-        message.context !== undefined &&
-            (obj.context = message.context ? export_ExportLensesByIdRequest_Context.toJSON(message.context) : undefined);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = export_createBaseExportLensesByIdRequest();
-        message.unlockableIds = object.unlockableIds?.map((e) => e) || [];
-        message.context =
-            object.context !== undefined && object.context !== null
-                ? export_ExportLensesByIdRequest_Context.fromPartial(object.context)
-                : undefined;
-        return message;
-    },
-};
-function export_createBaseExportLensesByIdRequest_Context() {
-    return {
-        userAgent: "",
-        locale: "",
-        extention: undefined,
-        extension: undefined,
-        extensionRequestContext: new Uint8Array(),
-    };
-}
-const export_ExportLensesByIdRequest_Context = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = export_createBaseExportLensesByIdRequest_Context();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.userAgent = reader.string();
-                    break;
-                case 2:
-                    message.locale = reader.string();
-                    break;
-                case 3:
-                    message.extention = export_ExportLensesByIdRequest_Context_Extension.decode(reader, reader.uint32());
-                    break;
-                case 4:
-                    message.extension = export_ExportLensesByIdRequest_Context_Extension.decode(reader, reader.uint32());
-                    break;
-                case 5:
-                    message.extensionRequestContext = reader.bytes();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            userAgent: export_isSet(object.userAgent) ? String(object.userAgent) : "",
-            locale: export_isSet(object.locale) ? String(object.locale) : "",
-            extention: export_isSet(object.extention)
-                ? export_ExportLensesByIdRequest_Context_Extension.fromJSON(object.extention)
-                : undefined,
-            extension: export_isSet(object.extension)
-                ? export_ExportLensesByIdRequest_Context_Extension.fromJSON(object.extension)
-                : undefined,
-            extensionRequestContext: export_isSet(object.extensionRequestContext)
-                ? export_bytesFromBase64(object.extensionRequestContext)
-                : new Uint8Array(),
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.userAgent !== undefined && (obj.userAgent = message.userAgent);
-        message.locale !== undefined && (obj.locale = message.locale);
-        message.extention !== undefined &&
-            (obj.extention = message.extention
-                ? export_ExportLensesByIdRequest_Context_Extension.toJSON(message.extention)
-                : undefined);
-        message.extension !== undefined &&
-            (obj.extension = message.extension
-                ? export_ExportLensesByIdRequest_Context_Extension.toJSON(message.extension)
-                : undefined);
-        message.extensionRequestContext !== undefined &&
-            (obj.extensionRequestContext = export_base64FromBytes(message.extensionRequestContext !== undefined ? message.extensionRequestContext : new Uint8Array()));
-        return obj;
-    },
-    fromPartial(object) {
-        const message = export_createBaseExportLensesByIdRequest_Context();
-        message.userAgent = object.userAgent ?? "";
-        message.locale = object.locale ?? "";
-        message.extention =
-            object.extention !== undefined && object.extention !== null
-                ? export_ExportLensesByIdRequest_Context_Extension.fromPartial(object.extention)
-                : undefined;
-        message.extension =
-            object.extension !== undefined && object.extension !== null
-                ? export_ExportLensesByIdRequest_Context_Extension.fromPartial(object.extension)
-                : undefined;
-        message.extensionRequestContext = object.extensionRequestContext ?? new Uint8Array();
-        return message;
-    },
-};
-function export_createBaseExportLensesByIdRequest_Context_Extension() {
-    return { name: export_ExportLensesByIdRequest_Context_Extension_Name.UNSET, version: "" };
-}
-const export_ExportLensesByIdRequest_Context_Extension = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = export_createBaseExportLensesByIdRequest_Context_Extension();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.name = export_exportLensesByIdRequest_Context_Extension_NameFromJSON(reader.int32());
-                    break;
-                case 2:
-                    message.version = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            name: export_isSet(object.name)
-                ? export_exportLensesByIdRequest_Context_Extension_NameFromJSON(object.name)
-                : export_ExportLensesByIdRequest_Context_Extension_Name.UNSET,
-            version: export_isSet(object.version) ? String(object.version) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.name !== undefined && (obj.name = exportLensesByIdRequest_Context_Extension_NameToJSON(message.name));
-        message.version !== undefined && (obj.version = message.version);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = export_createBaseExportLensesByIdRequest_Context_Extension();
-        message.name = object.name ?? export_ExportLensesByIdRequest_Context_Extension_Name.UNSET;
-        message.version = object.version ?? "";
-        return message;
-    },
-};
-function export_createBaseExportLensesByIdResponse() {
-    return { lenses: {}, excludedLenses: [] };
-}
-const export_ExportLensesByIdResponse = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = export_createBaseExportLensesByIdResponse();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    const entry1 = export_ExportLensesByIdResponse_LensesEntry.decode(reader, reader.uint32());
-                    if (entry1.value !== undefined) {
-                        message.lenses[entry1.key] = entry1.value;
-                    }
-                    break;
-                case 2:
-                    message.excludedLenses.push(export_ExportLensesByIdResponse_ExcludedLens.decode(reader, reader.uint32()));
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            lenses: export_isObject(object.lenses)
-                ? Object.entries(object.lenses).reduce((acc, [key, value]) => {
-                    acc[Number(key)] = export_bytesFromBase64(value);
-                    return acc;
-                }, {})
-                : {},
-            excludedLenses: Array.isArray(object?.excludedLenses)
-                ? object.excludedLenses.map((e) => export_ExportLensesByIdResponse_ExcludedLens.fromJSON(e))
-                : [],
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        obj.lenses = {};
-        if (message.lenses) {
-            Object.entries(message.lenses).forEach(([k, v]) => {
-                obj.lenses[k] = export_base64FromBytes(v);
-            });
-        }
-        if (message.excludedLenses) {
-            obj.excludedLenses = message.excludedLenses.map((e) => e ? export_ExportLensesByIdResponse_ExcludedLens.toJSON(e) : undefined);
-        }
-        else {
-            obj.excludedLenses = [];
-        }
-        return obj;
-    },
-    fromPartial(object) {
-        const message = export_createBaseExportLensesByIdResponse();
-        message.lenses = Object.entries(object.lenses ?? {}).reduce((acc, [key, value]) => {
-            if (value !== undefined) {
-                acc[Number(key)] = value;
-            }
-            return acc;
-        }, {});
-        message.excludedLenses =
-            object.excludedLenses?.map((e) => export_ExportLensesByIdResponse_ExcludedLens.fromPartial(e)) || [];
-        return message;
-    },
-};
-function export_createBaseExportLensesByIdResponse_LensesEntry() {
-    return { key: 0, value: new Uint8Array() };
-}
-const export_ExportLensesByIdResponse_LensesEntry = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = export_createBaseExportLensesByIdResponse_LensesEntry();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.key = export_longToNumber(reader.int64());
-                    break;
-                case 2:
-                    message.value = reader.bytes();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            key: export_isSet(object.key) ? Number(object.key) : 0,
-            value: export_isSet(object.value) ? export_bytesFromBase64(object.value) : new Uint8Array(),
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.key !== undefined && (obj.key = Math.round(message.key));
-        message.value !== undefined &&
-            (obj.value = export_base64FromBytes(message.value !== undefined ? message.value : new Uint8Array()));
-        return obj;
-    },
-    fromPartial(object) {
-        const message = export_createBaseExportLensesByIdResponse_LensesEntry();
-        message.key = object.key ?? 0;
-        message.value = object.value ?? new Uint8Array();
-        return message;
-    },
-};
-function export_createBaseExportLensesByIdResponse_ExcludedLens() {
-    return { lensId: 0, code: export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET, reason: "" };
-}
-const export_ExportLensesByIdResponse_ExcludedLens = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = export_createBaseExportLensesByIdResponse_ExcludedLens();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.lensId = export_longToNumber(reader.int64());
-                    break;
-                case 2:
-                    message.code = export_exportLensesByIdResponse_ExcludedLens_CodeFromJSON(reader.int32());
-                    break;
-                case 3:
-                    message.reason = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            lensId: export_isSet(object.lensId) ? Number(object.lensId) : 0,
-            code: export_isSet(object.code)
-                ? export_exportLensesByIdResponse_ExcludedLens_CodeFromJSON(object.code)
-                : export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET,
-            reason: export_isSet(object.reason) ? String(object.reason) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.lensId !== undefined && (obj.lensId = Math.round(message.lensId));
-        message.code !== undefined && (obj.code = exportLensesByIdResponse_ExcludedLens_CodeToJSON(message.code));
-        message.reason !== undefined && (obj.reason = message.reason);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = export_createBaseExportLensesByIdResponse_ExcludedLens();
-        message.lensId = object.lensId ?? 0;
-        message.code = object.code ?? export_ExportLensesByIdResponse_ExcludedLens_Code.UNSET;
-        message.reason = object.reason ?? "";
-        return message;
-    },
-};
-function export_createBaseExtensionRequestContext() {
-    return { userAgent: "", locale: "" };
-}
-const export_ExtensionRequestContext = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = export_createBaseExtensionRequestContext();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.userAgent = reader.string();
-                    break;
-                case 2:
-                    message.locale = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            userAgent: export_isSet(object.userAgent) ? String(object.userAgent) : "",
-            locale: export_isSet(object.locale) ? String(object.locale) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.userAgent !== undefined && (obj.userAgent = message.userAgent);
-        message.locale !== undefined && (obj.locale = message.locale);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = export_createBaseExtensionRequestContext();
-        message.userAgent = object.userAgent ?? "";
-        message.locale = object.locale ?? "";
-        return message;
-    },
-};
-function export_createBaseEnvelope() {
-    return { lenses: [] };
-}
-const v3_export_Envelope = {
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = export_createBaseEnvelope();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.lenses.push(lens_Lens.decode(reader, reader.uint32()));
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            lenses: Array.isArray(object?.lenses) ? object.lenses.map((e) => lens_Lens.fromJSON(e)) : [],
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        if (message.lenses) {
-            obj.lenses = message.lenses.map((e) => (e ? lens_Lens.toJSON(e) : undefined));
-        }
-        else {
-            obj.lenses = [];
-        }
-        return obj;
-    },
-    fromPartial(object) {
-        const message = export_createBaseEnvelope();
-        message.lenses = object.lenses?.map((e) => lens_Lens.fromPartial(e)) || [];
-        return message;
-    },
-};
-var v3_export_globalThis = (() => {
-    if (typeof v3_export_globalThis !== "undefined")
-        return v3_export_globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof __webpack_require__.g !== "undefined")
-        return __webpack_require__.g;
-    throw "Unable to locate global object";
-})();
-const export_atob = v3_export_globalThis.atob || ((b64) => v3_export_globalThis.Buffer.from(b64, "base64").toString("binary"));
-function export_bytesFromBase64(b64) {
-    const bin = export_atob(b64);
-    const arr = new Uint8Array(bin.length);
-    for (let i = 0; i < bin.length; ++i) {
-        arr[i] = bin.charCodeAt(i);
-    }
-    return arr;
-}
-const export_btoa = v3_export_globalThis.btoa || ((bin) => v3_export_globalThis.Buffer.from(bin, "binary").toString("base64"));
-function export_base64FromBytes(arr) {
-    const bin = [];
-    for (const byte of arr) {
-        bin.push(String.fromCharCode(byte));
-    }
-    return export_btoa(bin.join(""));
-}
-function export_longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new v3_export_globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
-}
-if ((minimal_default()).util.Long !== (long_default())) {
-    (minimal_default()).util.Long = (long_default());
-    minimal_default().configure();
-}
-function export_isObject(value) {
-    return typeof value === "object" && value !== null;
-}
-function export_isSet(value) {
-    return value !== null && value !== undefined;
-}
-
-;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/generated-api-client/core/snap_status_code.js
-
-
-const snap_status_code_protobufPackage = "snapchat.core";
-var Code;
-(function (Code) {
-    Code["OK"] = "OK";
-    Code["CANCELLED"] = "CANCELLED";
-    Code["UNKNOWN"] = "UNKNOWN";
-    Code["INVALID_ARGUMENT"] = "INVALID_ARGUMENT";
-    Code["DEADLINE_EXCEEDED"] = "DEADLINE_EXCEEDED";
-    Code["NOT_FOUND"] = "NOT_FOUND";
-    Code["ALREADY_EXISTS"] = "ALREADY_EXISTS";
-    Code["PERMISSION_DENIED"] = "PERMISSION_DENIED";
-    Code["UNAUTHENTICATED"] = "UNAUTHENTICATED";
-    Code["RESOURCE_EXHAUSTED"] = "RESOURCE_EXHAUSTED";
-    Code["FAILED_PRECONDITION"] = "FAILED_PRECONDITION";
-    Code["ABORTED"] = "ABORTED";
-    Code["OUT_OF_RANGE"] = "OUT_OF_RANGE";
-    Code["UNIMPLEMENTED"] = "UNIMPLEMENTED";
-    Code["INTERNAL"] = "INTERNAL";
-    Code["UNAVAILABLE"] = "UNAVAILABLE";
-    Code["DATA_LOSS"] = "DATA_LOSS";
-    Code["NOT_MODIFIED"] = "NOT_MODIFIED";
-    Code["DECRYPTION_FAILED"] = "DECRYPTION_FAILED";
-    Code["INVALID_MEDIA"] = "INVALID_MEDIA";
-    Code["IN_PROGRESS"] = "IN_PROGRESS";
-    Code["CONTENT_TOO_LARGE"] = "CONTENT_TOO_LARGE";
-    Code["URL_PROTOCOL_NOT_SUPPORTED"] = "URL_PROTOCOL_NOT_SUPPORTED";
-    Code["URL_CONTENT_TYPE_NOT_WHITELISTED"] = "URL_CONTENT_TYPE_NOT_WHITELISTED";
-    Code["URL_DOWNLOAD_FAILURE"] = "URL_DOWNLOAD_FAILURE";
-    Code["CLOUD_STORAGE_FAILURE"] = "CLOUD_STORAGE_FAILURE";
-    Code["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(Code || (Code = {}));
-function snap_status_code_codeFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "OK":
-            return Code.OK;
-        case 1:
-        case "CANCELLED":
-            return Code.CANCELLED;
-        case 2:
-        case "UNKNOWN":
-            return Code.UNKNOWN;
-        case 3:
-        case "INVALID_ARGUMENT":
-            return Code.INVALID_ARGUMENT;
-        case 4:
-        case "DEADLINE_EXCEEDED":
-            return Code.DEADLINE_EXCEEDED;
-        case 5:
-        case "NOT_FOUND":
-            return Code.NOT_FOUND;
-        case 6:
-        case "ALREADY_EXISTS":
-            return Code.ALREADY_EXISTS;
-        case 7:
-        case "PERMISSION_DENIED":
-            return Code.PERMISSION_DENIED;
-        case 16:
-        case "UNAUTHENTICATED":
-            return Code.UNAUTHENTICATED;
-        case 8:
-        case "RESOURCE_EXHAUSTED":
-            return Code.RESOURCE_EXHAUSTED;
-        case 9:
-        case "FAILED_PRECONDITION":
-            return Code.FAILED_PRECONDITION;
-        case 10:
-        case "ABORTED":
-            return Code.ABORTED;
-        case 11:
-        case "OUT_OF_RANGE":
-            return Code.OUT_OF_RANGE;
-        case 12:
-        case "UNIMPLEMENTED":
-            return Code.UNIMPLEMENTED;
-        case 13:
-        case "INTERNAL":
-            return Code.INTERNAL;
-        case 14:
-        case "UNAVAILABLE":
-            return Code.UNAVAILABLE;
-        case 15:
-        case "DATA_LOSS":
-            return Code.DATA_LOSS;
-        case 100:
-        case "NOT_MODIFIED":
-            return Code.NOT_MODIFIED;
-        case 101:
-        case "DECRYPTION_FAILED":
-            return Code.DECRYPTION_FAILED;
-        case 102:
-        case "INVALID_MEDIA":
-            return Code.INVALID_MEDIA;
-        case 200:
-        case "IN_PROGRESS":
-            return Code.IN_PROGRESS;
-        case 201:
-        case "CONTENT_TOO_LARGE":
-            return Code.CONTENT_TOO_LARGE;
-        case 202:
-        case "URL_PROTOCOL_NOT_SUPPORTED":
-            return Code.URL_PROTOCOL_NOT_SUPPORTED;
-        case 203:
-        case "URL_CONTENT_TYPE_NOT_WHITELISTED":
-            return Code.URL_CONTENT_TYPE_NOT_WHITELISTED;
-        case 204:
-        case "URL_DOWNLOAD_FAILURE":
-            return Code.URL_DOWNLOAD_FAILURE;
-        case 205:
-        case "CLOUD_STORAGE_FAILURE":
-            return Code.CLOUD_STORAGE_FAILURE;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return Code.UNRECOGNIZED;
-    }
-}
-function codeToJSON(object) {
-    switch (object) {
-        case Code.OK:
-            return "OK";
-        case Code.CANCELLED:
-            return "CANCELLED";
-        case Code.UNKNOWN:
-            return "UNKNOWN";
-        case Code.INVALID_ARGUMENT:
-            return "INVALID_ARGUMENT";
-        case Code.DEADLINE_EXCEEDED:
-            return "DEADLINE_EXCEEDED";
-        case Code.NOT_FOUND:
-            return "NOT_FOUND";
-        case Code.ALREADY_EXISTS:
-            return "ALREADY_EXISTS";
-        case Code.PERMISSION_DENIED:
-            return "PERMISSION_DENIED";
-        case Code.UNAUTHENTICATED:
-            return "UNAUTHENTICATED";
-        case Code.RESOURCE_EXHAUSTED:
-            return "RESOURCE_EXHAUSTED";
-        case Code.FAILED_PRECONDITION:
-            return "FAILED_PRECONDITION";
-        case Code.ABORTED:
-            return "ABORTED";
-        case Code.OUT_OF_RANGE:
-            return "OUT_OF_RANGE";
-        case Code.UNIMPLEMENTED:
-            return "UNIMPLEMENTED";
-        case Code.INTERNAL:
-            return "INTERNAL";
-        case Code.UNAVAILABLE:
-            return "UNAVAILABLE";
-        case Code.DATA_LOSS:
-            return "DATA_LOSS";
-        case Code.NOT_MODIFIED:
-            return "NOT_MODIFIED";
-        case Code.DECRYPTION_FAILED:
-            return "DECRYPTION_FAILED";
-        case Code.INVALID_MEDIA:
-            return "INVALID_MEDIA";
-        case Code.IN_PROGRESS:
-            return "IN_PROGRESS";
-        case Code.CONTENT_TOO_LARGE:
-            return "CONTENT_TOO_LARGE";
-        case Code.URL_PROTOCOL_NOT_SUPPORTED:
-            return "URL_PROTOCOL_NOT_SUPPORTED";
-        case Code.URL_CONTENT_TYPE_NOT_WHITELISTED:
-            return "URL_CONTENT_TYPE_NOT_WHITELISTED";
-        case Code.URL_DOWNLOAD_FAILURE:
-            return "URL_DOWNLOAD_FAILURE";
-        case Code.CLOUD_STORAGE_FAILURE:
-            return "CLOUD_STORAGE_FAILURE";
-        default:
-            return "UNKNOWN";
-    }
-}
-function codeToNumber(object) {
-    switch (object) {
-        case Code.OK:
-            return 0;
-        case Code.CANCELLED:
-            return 1;
-        case Code.UNKNOWN:
-            return 2;
-        case Code.INVALID_ARGUMENT:
-            return 3;
-        case Code.DEADLINE_EXCEEDED:
-            return 4;
-        case Code.NOT_FOUND:
-            return 5;
-        case Code.ALREADY_EXISTS:
-            return 6;
-        case Code.PERMISSION_DENIED:
-            return 7;
-        case Code.UNAUTHENTICATED:
-            return 16;
-        case Code.RESOURCE_EXHAUSTED:
-            return 8;
-        case Code.FAILED_PRECONDITION:
-            return 9;
-        case Code.ABORTED:
-            return 10;
-        case Code.OUT_OF_RANGE:
-            return 11;
-        case Code.UNIMPLEMENTED:
-            return 12;
-        case Code.INTERNAL:
-            return 13;
-        case Code.UNAVAILABLE:
-            return 14;
-        case Code.DATA_LOSS:
-            return 15;
-        case Code.NOT_MODIFIED:
-            return 100;
-        case Code.DECRYPTION_FAILED:
-            return 101;
-        case Code.INVALID_MEDIA:
-            return 102;
-        case Code.IN_PROGRESS:
-            return 200;
-        case Code.CONTENT_TOO_LARGE:
-            return 201;
-        case Code.URL_PROTOCOL_NOT_SUPPORTED:
-            return 202;
-        case Code.URL_CONTENT_TYPE_NOT_WHITELISTED:
-            return 203;
-        case Code.URL_DOWNLOAD_FAILURE:
-            return 204;
-        case Code.CLOUD_STORAGE_FAILURE:
-            return 205;
-        default:
-            return 0;
-    }
-}
-function createBaseCodeProperties() {
-    return { errorCode: 0, errorDescription: "", isRetryable: false, source: "" };
-}
-const CodeProperties = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.errorCode !== 0) {
-            writer.uint32(8).uint32(message.errorCode);
-        }
-        if (message.errorDescription !== "") {
-            writer.uint32(18).string(message.errorDescription);
-        }
-        if (message.isRetryable === true) {
-            writer.uint32(24).bool(message.isRetryable);
-        }
-        if (message.source !== "") {
-            writer.uint32(34).string(message.source);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseCodeProperties();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.errorCode = reader.uint32();
-                    break;
-                case 2:
-                    message.errorDescription = reader.string();
-                    break;
-                case 3:
-                    message.isRetryable = reader.bool();
-                    break;
-                case 4:
-                    message.source = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromJSON(object) {
-        return {
-            errorCode: snap_status_code_isSet(object.errorCode) ? Number(object.errorCode) : 0,
-            errorDescription: snap_status_code_isSet(object.errorDescription) ? String(object.errorDescription) : "",
-            isRetryable: snap_status_code_isSet(object.isRetryable) ? Boolean(object.isRetryable) : false,
-            source: snap_status_code_isSet(object.source) ? String(object.source) : "",
-        };
-    },
-    toJSON(message) {
-        const obj = {};
-        message.errorCode !== undefined && (obj.errorCode = Math.round(message.errorCode));
-        message.errorDescription !== undefined && (obj.errorDescription = message.errorDescription);
-        message.isRetryable !== undefined && (obj.isRetryable = message.isRetryable);
-        message.source !== undefined && (obj.source = message.source);
-        return obj;
-    },
-    fromPartial(object) {
-        const message = createBaseCodeProperties();
-        message.errorCode = object.errorCode ?? 0;
-        message.errorDescription = object.errorDescription ?? "";
-        message.isRetryable = object.isRetryable ?? false;
-        message.source = object.source ?? "";
-        return message;
-    },
-};
-if ((minimal_default()).util.Long !== (long_default())) {
-    (minimal_default()).util.Long = (long_default());
-    minimal_default().configure();
-}
-function snap_status_code_isSet(value) {
-    return value !== null && value !== undefined;
-}
-
-;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/Push2WebSDKExtension.js
-
-
-
-
-
-
-
-class Push2WebSDKExtension_Push2WebSDKExtension {
-    extension;
-    groupId = "PUSH_2_WEB_GROUP_ID";
-    lastPushedEnvelope = undefined;
-    metricsReporter = undefined;
-    metricRequestRateLimitMs = 1000;
-    constructor() {
-        const push2WebLensSource = {
-            isGroupOwner: (groupId) => groupId === this.groupId,
-            getLens: async () => {
-                if (this.lastPushedEnvelope != undefined) {
-                    return this.lastPushedEnvelope;
-                }
-                throw new Error("No pushed lens found.");
-            },
-            getLensGroup: async () => {
-                if (this.lastPushedEnvelope != undefined) {
-                    return [this.lastPushedEnvelope];
-                }
-                return [];
-            },
-        };
-        const lensSourceFactory = Injectable(lensSourcesFactory.token, [lensSourcesFactory.token, "configuration"], (lensSources, configuration) => {
-            const handler = cameraKitServiceFetchHandlerFactory(configuration, fetch);
-            const pageVisibility = new PageVisibility();
-            const metricsHandler = new HandlerChainBuilder(handler).map(createRateLimitingHandler(this.metricRequestRateLimitMs, pageVisibility)).handler;
-            this.metricsReporter = operationalMetricReporterFactory(metricsHandler, pageVisibility, configuration);
-            return new LensSources(lensSources, push2WebLensSource);
-        });
-        this.extension = createExtension().provides(lensSourceFactory);
-    }
-    updateEnvelope(newEnvelope) {
-        this.lastPushedEnvelope = newEnvelope;
-    }
-    reportEvent(events) {
-        if (this.metricsReporter) {
-            reportEvent(this.metricsReporter, events);
-        }
-    }
-}
-
-;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/Push2Web.js
-
-
-
-
-
-
-
-class Push2Web {
-    /**
-     * Use this property to subscribe for the different types of events that can occur during push 2 web execution.
-     *
-     * Subscribe to `error` event to be aware if something has happened during the lens push,
-     * with network communication or any other type of error,
-     * event object also contains detailed expalantion of the cause.
-     *
-     * Use `subscriptionChanged` event to be aware when subscription state is changed.
-     *
-     * Use `lensReceived` event to be aware when new lens is received from Lens Studio,
-     * also you can get the additional details about the pushed lens.
-     *
-     * @example
-     *```ts
-     *push2web.events.addEventListener('error', ({ detail }) => {
-     *   if (detail.name === 'LensExcludedError') {
-     *     console.log(`Lens is excluded from the push, by the following reason: ${detail.reason}.`)
-     *   }
-     *})
-     *```
-     */
-    events = new TypedEventTarget();
-    push2WebExtension = new Push2WebSDKExtension();
-    pushedLenses;
-    accesToken = new ReplaySubject(1);
-    subscription;
-    /**
-     * Create new instance of Push2Web object,
-     * it can be used to start listening for the events,
-     * subscribe or unsubscribe for notifications from Lens Studio.
-     * Also provides the extension object for the @snap/camera-kit package.
-     */
-    constructor() {
-        this.pushedLenses = this.accesToken.pipe(switchMap((accessToken) => {
-            const metadata = new grpc.Metadata();
-            metadata.append("Authorization", `Bearer ${accessToken}`);
-            metadata.append("x-snap-client-user-agent", cameraKitUserAgent.userAgent);
-            const grpcWeb = new GrpcWebImpl("https://api-kit.snapchat.com", {
-                metadata,
-            });
-            const push2WebClient = new PushToDeviceClientImpl(grpcWeb);
-            return push2WebClient.ListenLensPush(ListenLensPushRequest.fromPartial({})).pipe(map(({ lenses, excludedLens }) => {
-                if (excludedLens) {
-                    return new TypedCustomEvent("error", {
-                        name: "LensExcludedError",
-                        cause: new Error("Lens excluded"),
-                        lensId: excludedLens.lensId,
-                        reason: listenLensPushResponse_ExcludedLens_CodeFromJSON(excludedLens.code),
-                    });
-                }
-                const envelope = Object.values(lenses)[0];
-                this.push2WebExtension.updateEnvelope(envelope);
-                const [lens] = Envelope.decode(envelope).lenses;
-                return new TypedCustomEvent("lensReceived", toPublicLens(lens));
-            }), catchError((error) => {
-                const grpcError = /Error ([\d]{1,3})/.exec(error.message);
-                if (grpcError) {
-                    this.events.dispatchEvent(new TypedCustomEvent("subscriptionChanged", State.Unsubscribed));
-                    const grpcCode = parseInt(grpcError[1]);
-                    return of(new TypedCustomEvent("error", {
-                        name: "CommunicationError",
-                        cause: error,
-                        grpcStatus: codeFromJSON(grpcCode),
-                        grpcCode,
-                    }));
-                }
-                return of(new TypedCustomEvent("error", { name: "GenericError", cause: error }));
-            }));
-        }));
-    }
-    /**
-     * The extension object must be passed to the Camera Kit object during its bootstrap process.
-     * This is a requirement for the proper functioning of push to web functionality.
-     *
-     * @example
-     * ```ts
-     *import { bootstrapCameraKit } from "@snap/camera-kit";
-     *
-     *const push2web = new Push2Web();
-     *const extensions = (container) => container.provides(push2Web.extension);
-     *
-     *const cameraKit = await bootstrapCameraKit({ apiToken: "token from developer portal" }, extensions);
-     *const cameraKitSession = await cameraKit.createSession();
-     * ```
-     */
-    get extension() {
-        return this.push2WebExtension.extension;
-    }
-    /**
-     * Initiate subscription for the events from Lens Studio.
-     *
-     * @param accessToken - After user will be logged in to the web page,
-     * using Snapchat account, you can get access token from Login Kit.
-     * @param cameraKitSession - Instance of CameraKitSesion object form @snap/camera-kit package.
-     * @param repository - Instance of LensRepository object from @snap/camera-kit package.
-     * @returns @SubscriptionInstance
-     */
-    subscribe(accessToken, cameraKitSession, repository) {
-        this.subscription?.unsubscribe();
-        this.accesToken.next(accessToken);
-        this.subscription = this.pushedLenses.subscribe({
-            next: async (event) => {
-                this.events.dispatchEvent(event);
-                if (event.type === "lensReceived") {
-                    try {
-                        const lens = await repository.loadLens(event.detail.id, this.push2WebExtension.groupId);
-                        await cameraKitSession.removeLens();
-                        await cameraKitSession.applyLens(lens);
-                    }
-                    catch (error) {
-                        this.events.dispatchEvent(new TypedCustomEvent("error", {
-                            name: "GenericError",
-                            cause: error,
-                        }));
-                    }
-                }
-                this.push2WebExtension.reportEvent(event);
-            },
-        });
-        this.events.dispatchEvent(new TypedCustomEvent("subscriptionChanged", State.Subscribed));
-        return {
-            unsubscribe: async () => {
-                if (this.subscription) {
-                    this.subscription.unsubscribe();
-                    this.subscription = undefined;
-                    this.events.dispatchEvent(new TypedCustomEvent("subscriptionChanged", State.Unsubscribed));
-                }
-            },
-            updateAccessToken: (accessToken) => {
-                this.accesToken.next(accessToken);
-            },
-        };
-    }
-}
-var State;
-(function (State) {
-    /**
-     * The extension is listening for the events about pushed Lens from Lens Studio.
-     */
-    State["Subscribed"] = "Subscribed";
-    /**
-     * The extension is not listening for any events about pushed Lens.
-     */
-    State["Unsubscribed"] = "Unsubscribed";
-})(State || (State = {}));
-const version = "0.0.0-placeholder";
-
-;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/public-api.js
-
-
-
-
 ;// CONCATENATED MODULE: ./src/main.js
 
 
@@ -30711,20 +28046,27 @@ const version = "0.0.0-placeholder";
                             metadata: {},
                             body: new TextEncoder().encode(res),
                         })
-                    );
+                    )
+                    .then((res) => { carton(res) });
             };
         },
     };
 
-   
+    function carton(res) {
+        document.getElementById('carton').style.display = 'block';
+        console.log('carton, res:');
+        console.log(res);
+        console.log('carton, res.json():')
+        console.log(res.json());
+    }
 
 
     //var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' })
 
-//V2 working here
+    //V2 working here
     var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' }, (container) =>
         container.provides(
-            Injectable_Injectable(
+            Injectable(
                 remoteApiServicesFactory.token,
                 [remoteApiServicesFactory.token],
                 (existing) => [...existing, damsService]
@@ -30732,9 +28074,9 @@ const version = "0.0.0-placeholder";
         )
     );
 
-    
-    
-    
+
+
+
     const session = await cameraKit.createSession();
     document.getElementById('canvas').replaceWith(session.output.live);
     const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);

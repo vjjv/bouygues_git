@@ -11,7 +11,7 @@ import {
     remoteApiServicesFactory,
 
 } from '@snap/camera-kit';
-import { Push2Web } from "@snap/push2web";
+
 
 (async function () {
 
@@ -39,17 +39,24 @@ import { Push2Web } from "@snap/push2web";
                             metadata: {},
                             body: new TextEncoder().encode(res),
                         })
-                    );
+                    )
+                    .then((res) => { carton(res) });
             };
         },
     };
 
-   
+    function carton(res) {
+        document.getElementById('carton').style.display = 'block';
+        console.log('carton, res:');
+        console.log(res);
+        console.log('carton, res.json():')
+        console.log(res.json());
+    }
 
 
     //var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' })
 
-//V2 working here
+    //V2 working here
     var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' }, (container) =>
         container.provides(
             Injectable(
@@ -60,9 +67,9 @@ import { Push2Web } from "@snap/push2web";
         )
     );
 
-    
-    
-    
+
+
+
     const session = await cameraKit.createSession();
     document.getElementById('canvas').replaceWith(session.output.live);
     const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);

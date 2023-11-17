@@ -67,3 +67,9 @@ body {
   .poweredbysnap-logo > img {
     width: 200px;
   }
+
+  #carton{
+    background-color: red; 
+    display: none; 
+    height: 100px;
+  }
