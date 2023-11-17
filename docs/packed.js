@@ -28048,6 +28048,8 @@ console.info(`SDK: ${environment_namespaceObject.l} \
                         })
                         console.log(typeof(res));
                         console.log(res);
+                        let obj = JSON.parse(res);
+                        console.log('CODE :o : '+ obj.code)
                     })
             };
         },
