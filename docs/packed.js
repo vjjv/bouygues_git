@@ -5771,7 +5771,7 @@ function getConfigurationOverrides() {
 }
 //# sourceMappingURL=configurationOverrides.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/dependency-injection/Injectable.js
-function Injectable(token, dependenciesOrFn, maybeFn) {
+function Injectable_Injectable(token, dependenciesOrFn, maybeFn) {
     const dependencies = Array.isArray(dependenciesOrFn) ? dependenciesOrFn : [];
     const fn = typeof dependenciesOrFn === "function" ? dependenciesOrFn : maybeFn;
     if (!fn) {
@@ -5816,7 +5816,7 @@ const createCameraKitConfigurationFactory = (configuration) => {
     if (overrides) {
         console.warn("Configuration overrides applied", overrides);
     }
-    return Injectable(configurationToken, () => {
+    return Injectable_Injectable(configurationToken, () => {
         // We'll ensure that we handle errors on any Promises passed as config values, otherwise we either must
         // handle them separately wherever they're used, or rejections would go unhandled.
         const safeConfig = Object.assign(Object.assign({}, configuration), { lensPerformance: configuration.lensPerformance instanceof Promise
@@ -6671,7 +6671,7 @@ var OperatorSubscriber = (function (_super) {
 ;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/operators/map.js
 
 
-function map(project, thisArg) {
+function map_map(project, thisArg) {
     return operate(function (source, subscriber) {
         var index = 0;
         source.subscribe(createOperatorSubscriber(subscriber, function (value) {
@@ -7129,7 +7129,7 @@ function mergeInternals(source, subscriber, project, concurrent, onBeforeNext, e
 function mergeMap(project, resultSelector, concurrent) {
     if (concurrent === void 0) { concurrent = Infinity; }
     if (isFunction(resultSelector)) {
-        return mergeMap(function (a, i) { return map(function (b, ii) { return resultSelector(a, b, i, ii); })(innerFrom_innerFrom(project(a, i))); }, concurrent);
+        return mergeMap(function (a, i) { return map_map(function (b, ii) { return resultSelector(a, b, i, ii); })(innerFrom_innerFrom(project(a, i))); }, concurrent);
     }
     else if (typeof resultSelector === 'number') {
         concurrent = resultSelector;
@@ -7373,7 +7373,7 @@ function callOrApply(fn, args) {
     return isArray(args) ? fn.apply(void 0, __spreadArray([], __read(args))) : fn(args);
 }
 function mapOneOrManyArgs_mapOneOrManyArgs(fn) {
-    return map(function (args) { return callOrApply(fn, args); });
+    return map_map(function (args) { return callOrApply(fn, args); });
 }
 //# sourceMappingURL=mapOneOrManyArgs.js.map
 ;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/observable/fromEvent.js
@@ -7723,7 +7723,7 @@ const createDebugHandler = () => {
  * HandlerChainBuilder makes this happen by observing when each handler completes, and sending an abort signal to all
  * the handlers "downstream" from the aborting handler.
  */
-class HandlerChainBuilder {
+class HandlerChainBuilder_HandlerChainBuilder {
     constructor(inner) {
         // The TS compiler has the following behavior:
         //
@@ -7834,7 +7834,7 @@ class HandlerChainBuilder {
             outerResponse.catch(() => { }).then(maybeAbort);
             return outerResponse;
         };
-        return new HandlerChainBuilder(outerHandler);
+        return new HandlerChainBuilder_HandlerChainBuilder(outerHandler);
     }
 }
 //# sourceMappingURL=HandlerChainBuilder.js.map
@@ -8299,12 +8299,12 @@ const createTimeoutHandler = (options = {}) => {
  *
  * @internal
  */
-const defaultFetchHandlerFactory = Injectable("defaultFetchHandler", () => {
+const defaultFetchHandlerFactory = Injectable_Injectable("defaultFetchHandler", () => {
     return (
     // Safety: We're re-typing fetch's second argument from `init?: RequestInit | undefined` to
     // `init: RequestInit | void` – this is semantically equivalent, but the void makes for nicer ergonomics
     // elsewhere (e.g. so that callers can omit the second argument instead of being forced to pass undefined).
-    new HandlerChainBuilder(fetch)
+    new HandlerChainBuilder_HandlerChainBuilder(fetch)
         .map(createDebugHandler())
         // The 20-second per-request timeout is pretty arbitrary, it's just set to be longer than our API gateway
         // timeout (15s) and lower than the browsers own timeout (variable, Chrome's is 5m).
@@ -8571,7 +8571,7 @@ function getCameraKitUserAgent() {
     };
 }
 /** @internal */
-const cameraKitUserAgent = getCameraKitUserAgent();
+const cameraKitUserAgent_cameraKitUserAgent = getCameraKitUserAgent();
 //# sourceMappingURL=cameraKitUserAgent.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/lens-core-module/loader/lensCoreFactory.js
 
@@ -8618,7 +8618,7 @@ function getRequiredBootstrapURLs(endpointOverride) {
         ]);
         // Although Safari 16.4 reports SIMD support, LensCore encounters rendering bugs when using SIMD in Safari 16.4.
         // Therefore, we have made the decision to disable SIMD for now until Safari stabilizes the feature.
-        const { brand } = cameraKitUserAgent.browser;
+        const { brand } = cameraKitUserAgent_cameraKitUserAgent.browser;
         if (brand === "Safari")
             simdFeature = PlatformFeatures.Default;
         const flavor = platformFeaturesToFlavour[simdFeature | exceptionsFeature];
@@ -8642,7 +8642,7 @@ function getRequiredBootstrapURLs(endpointOverride) {
  *
  * @internal
  */
-const lensCoreFactory = Injectable("lensCore", [defaultFetchHandlerFactory.token, configurationToken], (handler, { lensCoreOverrideUrls, wasmEndpointOverride }) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
+const lensCoreFactory = Injectable_Injectable("lensCore", [defaultFetchHandlerFactory.token, configurationToken], (handler, { lensCoreOverrideUrls, wasmEndpointOverride }) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
     let lensCoreJS;
     let lensCoreWASM;
@@ -9166,9 +9166,9 @@ const createHeadersModifyingFetchHandler = (modifyHeaders) => (next) => (input, 
  *
  * @internal
  */
-const cameraKitServiceFetchHandlerFactory = Injectable("cameraKitServiceFetchHandler", [configurationToken, defaultFetchHandlerFactory.token], ({ apiToken }, defaultFetchHandler) => {
-    return new HandlerChainBuilder(defaultFetchHandler).map(createHeadersModifyingFetchHandler((headers) => {
-        headers.append("x-snap-client-user-agent", cameraKitUserAgent.userAgent);
+const cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory = Injectable_Injectable("cameraKitServiceFetchHandler", [configurationToken, defaultFetchHandlerFactory.token], ({ apiToken }, defaultFetchHandler) => {
+    return new HandlerChainBuilder_HandlerChainBuilder(defaultFetchHandler).map(createHeadersModifyingFetchHandler((headers) => {
+        headers.append("x-snap-client-user-agent", cameraKitUserAgent_cameraKitUserAgent.userAgent);
         headers.append("authorization", `Bearer ${apiToken}`);
         return headers;
     })).handler;
@@ -9184,7 +9184,7 @@ const cameraKitServiceFetchHandlerFactory = Injectable("cameraKitServiceFetchHan
  * And if a source claims the ownership, its {@link LensSource.getLens} or {@link LensSource.getLensGroup}
  * methods are called.
  */
-class LensSources {
+class LensSources_LensSources {
     /**
      * Returns empty LensSources instance.
      * @internal
@@ -9193,7 +9193,7 @@ class LensSources {
         // NOTE: we want to keep LensSources constructor to require arguments
         // but internally we don't need them for the base case
         // @ts-expect-error
-        return new LensSources();
+        return new LensSources_LensSources();
     }
     /**
      * Creates an instance of Lens sources.
@@ -9227,7 +9227,7 @@ class LensSources {
         });
     }
 }
-const lensSourcesFactory = Injectable("lensSources", () => LensSources.empty());
+const LensSources_lensSourcesFactory = Injectable_Injectable("lensSources", () => LensSources_LensSources.empty());
 //# sourceMappingURL=LensSources.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/errorHelpers.js
 /**
@@ -9264,7 +9264,7 @@ const convertDaysToSeconds = (days) => days * 24 * 60 * 60;
  * of the CustomEvent will be typed as a string literal – this allows [TypedEventTarget] to provide more useful type
  * checking of events.
  */
-class TypedCustomEvent extends CustomEvent {
+class TypedCustomEvent_TypedCustomEvent extends CustomEvent {
     constructor(type, detail, eventInitDict = {}) {
         super(type, Object.assign(Object.assign({}, eventInitDict), { detail }));
     }
@@ -9279,7 +9279,7 @@ class TypedCustomEvent extends CustomEvent {
  * For example, when calling TypedEventTarget::addEventListener, the event passed to the callback will have the correct
  * type corresponding to the type of event for which the listener has been added.
  */
-class TypedEventTarget {
+class TypedEventTarget_TypedEventTarget {
     constructor() {
         this.listeners = new Map();
         this.options = new Map();
@@ -9344,17 +9344,17 @@ const safeParseInt = (str) => {
 };
 const dispatchRequestStarted = (requestStateEventTarget, data) => {
     const started = Object.assign(Object.assign({}, data), { requestId: requestId++, timeMs: getTimeMs() });
-    requestStateEventTarget.dispatchEvent(new TypedCustomEvent("started", started));
+    requestStateEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("started", started));
     return started;
 };
 const dispatchRequestCompleted = (requestStateEventTarget, data) => {
     const completed = Object.assign(Object.assign({}, data), { timeMs: getTimeMs() });
-    requestStateEventTarget.dispatchEvent(new TypedCustomEvent("completed", completed));
+    requestStateEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("completed", completed));
     return completed;
 };
 const dispatchRequestErrored = (requestStateEventTarget, data) => {
     const errored = Object.assign(Object.assign({}, data), { timeMs: getTimeMs() });
-    requestStateEventTarget.dispatchEvent(new TypedCustomEvent("errored", errored));
+    requestStateEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("errored", errored));
     return errored;
 };
 const createRequestStateEmittingHandler = (requestStateEventTarget) => (next) => ([request, dimensions], metadata) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
@@ -9374,7 +9374,7 @@ const createRequestStateEmittingHandler = (requestStateEventTarget) => (next) =>
 /**
  * @internal
  */
-const requestStateEventTargetFactory = Injectable("requestStateEventTarget", () => new TypedEventTarget());
+const requestStateEventTargetFactory = Injectable_Injectable("requestStateEventTarget", () => new TypedEventTarget_TypedEventTarget());
 //# sourceMappingURL=requestStateEmittingHandler.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/handlers/arrayBufferParsingHandler.js
 
@@ -10322,7 +10322,7 @@ function isGetGroupResponse(value) {
  *
  * @internal
  */
-function toPublicLens({ id, name, content, vendorData, cameraFacingPreference, lensCreator, scannable, }) {
+function Lens_toPublicLens({ id, name, content, vendorData, cameraFacingPreference, lensCreator, scannable, }) {
     var _a;
     assert(isEmptyOrSafeUrl(content === null || content === void 0 ? void 0 : content.iconUrlBolt), "Unsafe icon URL");
     assert(isEmptyOrSafeUrl((_a = content === null || content === void 0 ? void 0 : content.preview) === null || _a === void 0 ? void 0 : _a.imageUrl), "Unsafe preview URL");
@@ -10847,7 +10847,7 @@ const ExtensionRequestContext = {
 function createBaseEnvelope() {
     return { lenses: [] };
 }
-const Envelope = {
+const export_Envelope = {
     decode(input, length) {
         const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
@@ -10901,7 +10901,7 @@ if ((minimal_default()).util.Long !== (long_default())) {
  */
 function decodeEnvelope(envelope) {
     try {
-        return Envelope.decode(new Uint8Array(envelope)).lenses;
+        return export_Envelope.decode(new Uint8Array(envelope)).lenses;
     }
     catch (_a) {
         throw new Error("Invalid lens envelope.");
@@ -10931,7 +10931,7 @@ function decodeEnvelopes(envelopes) {
  *
  * @internal
  */
-const metricsEventTargetFactory = Injectable("metricsEventTarget", () => new TypedEventTarget());
+const metricsEventTargetFactory = Injectable_Injectable("metricsEventTarget", () => new TypedEventTarget_TypedEventTarget());
 //# sourceMappingURL=metricsEventTarget.js.map
 ;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/util/EmptyError.js
 
@@ -10970,13 +10970,13 @@ function firstValueFrom(source, config) {
 
 
 
-function catchError(selector) {
+function catchError_catchError(selector) {
     return operate(function (source, subscriber) {
         var innerSub = null;
         var syncUnsub = false;
         var handledResult;
         innerSub = source.subscribe(createOperatorSubscriber(subscriber, undefined, undefined, function (err) {
-            handledResult = innerFrom_innerFrom(selector(err, catchError(selector)(source)));
+            handledResult = innerFrom_innerFrom(selector(err, catchError_catchError(selector)(source)));
             if (innerSub) {
                 innerSub.unsubscribe();
                 innerSub = null;
@@ -11006,7 +11006,7 @@ var dateTimestampProvider = {
 
 
 
-var ReplaySubject = (function (_super) {
+var ReplaySubject_ReplaySubject = (function (_super) {
     __extends(ReplaySubject, _super);
     function ReplaySubject(_bufferSize, _windowTime, _timestampProvider) {
         if (_bufferSize === void 0) { _bufferSize = Infinity; }
@@ -11067,7 +11067,7 @@ var ReplaySubject = (function (_super) {
 
 
 
-function share(options) {
+function share_share(options) {
     if (options === void 0) { options = {}; }
     var _a = options.connector, connector = _a === void 0 ? function () { return new Subject(); } : _a, _b = options.resetOnError, resetOnError = _b === void 0 ? true : _b, _c = options.resetOnComplete, resetOnComplete = _c === void 0 ? true : _c, _d = options.resetOnRefCountZero, resetOnRefCountZero = _d === void 0 ? true : _d;
     return function (wrapperSource) {
@@ -11160,8 +11160,8 @@ function shareReplay(configOrBufferSize, windowTime, scheduler) {
     else {
         bufferSize = (configOrBufferSize !== null && configOrBufferSize !== void 0 ? configOrBufferSize : Infinity);
     }
-    return share({
-        connector: function () { return new ReplaySubject(bufferSize, windowTime, scheduler); },
+    return share_share({
+        connector: function () { return new ReplaySubject_ReplaySubject(bufferSize, windowTime, scheduler); },
         resetOnError: true,
         resetOnComplete: false,
         resetOnRefCountZero: refCount,
@@ -14882,7 +14882,7 @@ const CircumstancesServiceaddRuidsForDebuggingDesc = {
         },
     },
 };
-class GrpcWebImpl {
+class circumstance_service_GrpcWebImpl {
     constructor(host, options) {
         this.host = host;
         this.options = options;
@@ -17110,7 +17110,7 @@ function service_isSet(value) {
 //# sourceMappingURL=service.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/pageVisibility.js
 
-class PageVisibility {
+class pageVisibility_PageVisibility {
     constructor() {
         this.onHiddenHandlers = new Set();
         this.onVisibleHandlers = new Set();
@@ -17178,7 +17178,7 @@ class PageVisibility {
         this.visibilityTransition = false;
     }
 }
-const pageVisibilityFactory = Injectable("pageVisibility", () => new PageVisibility());
+const pageVisibilityFactory = Injectable_Injectable("pageVisibility", () => new pageVisibility_PageVisibility());
 //# sourceMappingURL=pageVisibility.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/handlers/rateLimitingHandler.js
 
@@ -17205,7 +17205,7 @@ const delay = (duration) => new Promise((resolve) => setTimeout(resolve, duratio
  * a {@link PageVisibility} instance is used to subscribe to page visibility change events.
  * @returns {@link ChainableHandler}, suitable for use in {@link HandlerChainBuilder.map}
  */
-const createRateLimitingHandler = (duration, pageVisibility) => {
+const rateLimitingHandler_createRateLimitingHandler = (duration, pageVisibility) => {
     let mostRecentSendTime = undefined;
     const mappingHandler = createMappingHandler((request) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
         if (mostRecentSendTime !== undefined) {
@@ -17236,8 +17236,8 @@ const METRIC_REQUEST_RATE_LIMIT_MS = 1000; // send at most one metric request pe
 /**
  * @internal
  */
-const metricsHandlerFactory = Injectable("metricsHandler", [cameraKitServiceFetchHandlerFactory.token, pageVisibilityFactory.token], (fetchHandler, pageVisibility) => {
-    return new HandlerChainBuilder(fetchHandler).map(createRateLimitingHandler(METRIC_REQUEST_RATE_LIMIT_MS, pageVisibility)).handler;
+const metricsHandlerFactory = Injectable_Injectable("metricsHandler", [cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory.token, pageVisibilityFactory.token], (fetchHandler, pageVisibility) => {
+    return new HandlerChainBuilder_HandlerChainBuilder(fetchHandler).map(rateLimitingHandler_createRateLimitingHandler(METRIC_REQUEST_RATE_LIMIT_MS, pageVisibility)).handler;
 });
 //# sourceMappingURL=metricsHandler.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/metrics/operational/operationalMetricsReporter.js
@@ -17335,8 +17335,8 @@ class OperationalMetricsReporter {
 /**
  * @internal
  */
-const operationalMetricReporterFactory = Injectable("operationalMetricsReporter", [metricsHandlerFactory.token, pageVisibilityFactory.token, configurationToken], (metricsHandler, pageVisibility, configuration) => {
-    const handler = new HandlerChainBuilder(metricsHandler)
+const operationalMetricsReporter_operationalMetricReporterFactory = Injectable_Injectable("operationalMetricsReporter", [metricsHandlerFactory.token, pageVisibilityFactory.token, configurationToken], (metricsHandler, pageVisibility, configuration) => {
+    const handler = new HandlerChainBuilder_HandlerChainBuilder(metricsHandler)
         .map(createMappingHandler((metrics) => {
         const request = { metrics };
         return new Request(
@@ -17411,20 +17411,20 @@ const COF_REQUEST_TYPE = "cof";
  * immediately and the cache is updated in the background. If no response is found, a COF request is made. This request
  * will retry (with exponential backoff + jitter) for 5 seconds before returning an error to the caller.
  */
-const cofHandlerFactory = Injectable("cofHandler", [configurationToken, requestStateEventTargetFactory.token, operationalMetricReporterFactory.token], (config, requestStateEventTarget, reporter) => {
+const cofHandlerFactory = Injectable_Injectable("cofHandler", [configurationToken, requestStateEventTargetFactory.token, operationalMetricsReporter_operationalMetricReporterFactory.token], (config, requestStateEventTarget, reporter) => {
     // We need to wrap `targetingQuery` to create a usable Handler – the main issue is that HandlerChainBuilder
     // always adds a `signal` property to the metadata argument (second argument of the Handler), but
     // `targetingQuery` expects the second argument to only contain headers.
-    return (new HandlerChainBuilder((request, _a) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
+    return (new HandlerChainBuilder_HandlerChainBuilder((request, _a) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
         var { signal, isSideEffect: _ } = _a, metadata = __rest(_a, ["signal", "isSideEffect"]);
-        const rpc = new GrpcWebImpl(`https://${config.apiHostname}`, {});
+        const rpc = new circumstance_service_GrpcWebImpl(`https://${config.apiHostname}`, {});
         const client = new CircumstancesServiceClientImpl(rpc);
         return new Promise((resolve, reject) => {
             if (signal) {
                 signal.addEventListener("abort", () => reject(new Error("COF request aborted by handler chain.")));
             }
             client
-                .targetingQuery(request, new browser_headers_umd.BrowserHeaders(Object.assign({ authorization: `Bearer ${config.apiToken}`, "x-snap-client-user-agent": cameraKitUserAgent.userAgent }, metadata)))
+                .targetingQuery(request, new browser_headers_umd.BrowserHeaders(Object.assign({ authorization: `Bearer ${config.apiToken}`, "x-snap-client-user-agent": cameraKitUserAgent_cameraKitUserAgent.userAgent }, metadata)))
                 .then((response) => {
                 // NOTE: in order for cache persistance to work, we need to make the object cloneable,
                 // i.e. with no methods (it appears targetingQuery() attaches toObject() to response
@@ -17510,7 +17510,7 @@ class RemoteConfiguration {
         // Subscribers, having more context about the config use-case, will know better how to handle an error than
         // we do here (e.g. their logging / reporting will have more context, and they can use the error they get
         // from this Observable as a cause).
-        mergeMap((lensClusterOrig4) => from_from(cofHandler(Object.assign(Object.assign({}, defaultTargetingRequest), { lensClusterOrig4 })))), map((result) => {
+        mergeMap((lensClusterOrig4) => from_from(cofHandler(Object.assign(Object.assign({}, defaultTargetingRequest), { lensClusterOrig4 })))), map_map((result) => {
             const configById = new Map();
             result.configResults.forEach((config) => {
                 var _a;
@@ -17534,7 +17534,7 @@ class RemoteConfiguration {
      * COF configuration.
      */
     get(configId) {
-        return this.configById.pipe(map((config) => { var _a; return (_a = config.get(configId)) !== null && _a !== void 0 ? _a : []; }));
+        return this.configById.pipe(map_map((config) => { var _a; return (_a = config.get(configId)) !== null && _a !== void 0 ? _a : []; }));
     }
     /**
      * Configuration that is provided by Camera Kit backend.
@@ -17543,7 +17543,7 @@ class RemoteConfiguration {
         return this.initializationConfig;
     }
     getNamespace(namespace) {
-        return this.configById.pipe(map((configs) => {
+        return this.configById.pipe(map_map((configs) => {
             const namespaceConfigs = Array.from(configs.values())
                 .filter((values) => values.some((c) => c.namespace === namespace))
                 .flatMap((results) => results);
@@ -17551,7 +17551,7 @@ class RemoteConfiguration {
         }));
     }
 }
-const remoteConfigurationFactory = Injectable("remoteConfiguration", [configurationToken, cofHandlerFactory.token, cameraKitServiceFetchHandlerFactory.token], (config, cofHandler, fetchHandler) => {
+const remoteConfigurationFactory = Injectable_Injectable("remoteConfiguration", [configurationToken, cofHandlerFactory.token, cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory.token], (config, cofHandler, fetchHandler) => {
     const remoteConfig = new RemoteConfiguration(config.lensPerformance, config.apiHostname, cofHandler, fetchHandler);
     // We'll kick off remote configuration loading by subscribing (and then unsubscribing) to a dummy config value.
     // Subsequent requests for config will use the shared Observable, benefitting from this eager loading.
@@ -17577,14 +17577,14 @@ const isAssetConfig = (value) => {
 /**
  * @internal
  */
-const deviceDependentAssetLoaderFactory = Injectable("deviceDependentAssetLoader", [defaultFetchHandlerFactory.token, remoteConfigurationFactory.token], (fetchHandler, remoteConfiguration) => {
-    const assetHandler = new HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
+const deviceDependentAssetLoaderFactory = Injectable_Injectable("deviceDependentAssetLoader", [defaultFetchHandlerFactory.token, remoteConfigurationFactory.token], (fetchHandler, remoteConfiguration) => {
+    const assetHandler = new HandlerChainBuilder_HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
     return function deviceDependentAssetLoader({ assetId }) {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             const loadingFailed = (reason, cause) => new Error(`Cannot load device-dependent asset ${assetId}. ${reason}`, { cause });
-            return firstValueFrom(remoteConfiguration.get(assetId).pipe(catchError((error) => {
+            return firstValueFrom(remoteConfiguration.get(assetId).pipe(catchError_catchError((error) => {
                 throw loadingFailed("COF config failed to load.", error);
-            }), map((configs) => {
+            }), map_map((configs) => {
                 if (configs.length === 0) {
                     throw loadingFailed(`No COF config found corresponding to that assetId.`);
                 }
@@ -17627,8 +17627,8 @@ const deviceDependentAssetLoaderFactory = Injectable("deviceDependentAssetLoader
 /**
  * @internal
  */
-const remoteMediaAssetLoaderFactory = Injectable("remoteMediaAssetLoader", [defaultFetchHandlerFactory.token], (fetchHandler) => {
-    const handler = new HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
+const remoteMediaAssetLoaderFactory = Injectable_Injectable("remoteMediaAssetLoader", [defaultFetchHandlerFactory.token], (fetchHandler) => {
+    const handler = new HandlerChainBuilder_HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
     return function remoteMediaAssetLoader(asset) {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             // as a default option assuming that RemoteMedia asset type contains asset url in assetId
@@ -17654,8 +17654,8 @@ const remoteMediaAssetLoaderFactory = Injectable("remoteMediaAssetLoader", [defa
 /**
  * @internal
  */
-const staticAssetLoaderFactory = Injectable("staticAssetLoader", [defaultFetchHandlerFactory.token], (fetchHandler) => {
-    const handler = new HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
+const staticAssetLoaderFactory = Injectable_Injectable("staticAssetLoader", [defaultFetchHandlerFactory.token], (fetchHandler) => {
+    const handler = new HandlerChainBuilder_HandlerChainBuilder(fetchHandler).map(createArrayBufferParsingHandler()).handler;
     return (asset, _lens, assetManifest) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
         var _a;
         const assetUrl = (_a = assetManifest === null || assetManifest === void 0 ? void 0 : assetManifest.find((manifest) => manifest.id === asset.assetId)) === null || _a === void 0 ? void 0 : _a.assetUrl;
@@ -17793,7 +17793,7 @@ class LensAssetRepository {
                     onFailure: (reason) => {
                         const lensCoreError = errorHelpers_ensureError(reason);
                         if (/validation failed/.test(lensCoreError.message)) {
-                            this.metrics.dispatchEvent(new TypedCustomEvent("assetValidationFailed", {
+                            this.metrics.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("assetValidationFailed", {
                                 name: "assetValidationFailed",
                                 assetId,
                             }));
@@ -17843,7 +17843,7 @@ class LensAssetRepository {
 /**
  * @internal
  */
-const lensAssetRepositoryFactory = Injectable("lensAssetRepository", [
+const lensAssetRepositoryFactory = Injectable_Injectable("lensAssetRepository", [
     lensCoreFactory.token,
     deviceDependentAssetLoaderFactory.token,
     remoteMediaAssetLoaderFactory.token,
@@ -17939,7 +17939,7 @@ class LensRepository {
                 lens = yield retrieveCameraKitLens(this.lensMetadataFetchHandler, lensId, groupId, this.apiHostname);
             }
             this.metadataCache.set(lens.id, lens);
-            return toPublicLens(lens);
+            return Lens_toPublicLens(lens);
         });
     }
     /**
@@ -17963,7 +17963,7 @@ class LensRepository {
                         ? decodeEnvelopes(envelopes)
                         : yield retrieveCameraKitLensGroup(this.lensMetadataFetchHandler, groupId, this.apiHostname);
                     lenses.forEach((lens) => this.metadataCache.set(lens.id, lens));
-                    return lenses.map(toPublicLens);
+                    return lenses.map(Lens_toPublicLens);
                 }
                 catch (error) {
                     LensRepository_logger.error(new Error(`Failed to load lens group ${groupId}.`, { cause: error }));
@@ -18089,15 +18089,15 @@ __decorate([
 /**
  * @internal
  */
-const lensRepositoryFactory = Injectable("LensRepository", [
+const lensRepositoryFactory = Injectable_Injectable("LensRepository", [
     requestStateEventTargetFactory.token,
-    cameraKitServiceFetchHandlerFactory.token,
+    cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory.token,
     defaultFetchHandlerFactory.token,
-    lensSourcesFactory.token,
+    LensSources_lensSourcesFactory.token,
     lensAssetRepositoryFactory.token,
     configurationToken,
 ], (requestStateEventTarget, lensMetadataFetchHandler, defaultFetchHandler, lensSources, lensAssetRepository, configuration) => {
-    const lensFetchHandler = new HandlerChainBuilder(defaultFetchHandler)
+    const lensFetchHandler = new HandlerChainBuilder_HandlerChainBuilder(defaultFetchHandler)
         .map(createRequestStateEmittingHandler(requestStateEventTarget))
         .map(createArrayBufferParsingHandler()).handler;
     return new LensRepository(lensMetadataFetchHandler, lensFetchHandler, lensSources, lensAssetRepository, configuration.apiHostname);
@@ -18151,7 +18151,7 @@ function memoize(delegate) {
  * ```
  */
 /** @internal */
-class PartialContainer {
+class PartialContainer_PartialContainer {
     constructor(injectables) {
         this.injectables = injectables;
     }
@@ -18168,7 +18168,7 @@ class PartialContainer {
      * @param fn A InjectableFunction, taking dependencies as arguments, which returns the Service.
      */
     provides(fn) {
-        return new PartialContainer(Object.assign(Object.assign({}, this.injectables), { [fn.token]: fn }));
+        return new PartialContainer_PartialContainer(Object.assign(Object.assign({}, this.injectables), { [fn.token]: fn }));
     }
     /**
      * In order to create a [Container], the InjectableFunctions maintained by the PartialContainer must be memoized
@@ -18264,7 +18264,7 @@ class Container {
         // Although the `provides` method has overloads that match both members of the union type separately, it does
         // not match the union type itself, so the compiler forces us to branch and handle each type within the union
         // separately. (Maybe in the future the compiler will decide to infer this, but for now this is necessary.)
-        if (fnOrContainer instanceof PartialContainer)
+        if (fnOrContainer instanceof PartialContainer_PartialContainer)
             return new Container({}).provides(fnOrContainer);
         if (fnOrContainer instanceof Container)
             return new Container({}).provides(fnOrContainer);
@@ -18321,7 +18321,7 @@ class Container {
         return factory(this);
     }
     run(fnOrContainer) {
-        if (fnOrContainer instanceof PartialContainer) {
+        if (fnOrContainer instanceof PartialContainer_PartialContainer) {
             const runnableContainer = this.provides(fnOrContainer);
             for (const token of fnOrContainer.getTokens()) {
                 runnableContainer.get(token);
@@ -18333,8 +18333,8 @@ class Container {
         return this;
     }
     provides(fnOrContainer) {
-        if (fnOrContainer instanceof PartialContainer || fnOrContainer instanceof Container) {
-            const factories = fnOrContainer instanceof PartialContainer ? fnOrContainer.getFactories(this) : fnOrContainer.factories;
+        if (fnOrContainer instanceof PartialContainer_PartialContainer || fnOrContainer instanceof Container) {
+            const factories = fnOrContainer instanceof PartialContainer_PartialContainer ? fnOrContainer.getFactories(this) : fnOrContainer.factories;
             // Safety: `this.factories` and `factories` are both properly type checked, so merging them produces
             // a Factories object with keys from both Services and AdditionalServices. The compiler is unable to
             // infer that Factories<A> & Factories<B> == Factories<A & B>, so the cast is required.
@@ -18379,7 +18379,7 @@ function filter(predicate, thisArg) {
 ;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/observable/of.js
 
 
-function of() {
+function of_of() {
     var args = [];
     for (var _i = 0; _i < arguments.length; _i++) {
         args[_i] = arguments[_i];
@@ -18797,10 +18797,10 @@ class StateMachine {
         // So instead we need an Observable that does not complete. We achieve this by using `NEVER` and
         // then starting it with `[a, s]`. Note that it's important to then use `take(1)` after `raceWith`
         // so that we don't leak Observables which never complete.
-        NEVER.pipe(startWith([a, s]), reducer, raceWith(of(s)), tap((newState) => {
+        NEVER.pipe(startWith([a, s]), reducer, raceWith(of_of(s)), tap((newState) => {
             if (newState !== s)
                 this.state.next(newState);
-        }), map((newState) => [a, newState]), take(1))))
+        }), map_map((newState) => [a, newState]), take(1))))
             .subscribe(this.eventsSubject);
     }
     dispatch(actionOrName, data) {
@@ -19242,7 +19242,7 @@ function createVideoSource(video, options = {}) {
  *
  * @internal
  */
-const logEntriesFactory = Injectable("logEntries", () => resetLogger().asObservable());
+const logEntriesFactory = Injectable_Injectable("logEntries", () => resetLogger().asObservable());
 //# sourceMappingURL=logEntries.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/session/LensPerformanceMeasurement.js
 const getDefaultFrameMetricsState = () => ({
@@ -19426,7 +19426,7 @@ __decorate([
 function exhaustMap(project, resultSelector) {
     if (resultSelector) {
         return function (source) {
-            return source.pipe(exhaustMap(function (a, i) { return innerFrom_innerFrom(project(a, i)).pipe(map(function (b, ii) { return resultSelector(a, b, i, ii); })); }));
+            return source.pipe(exhaustMap(function (a, i) { return innerFrom_innerFrom(project(a, i)).pipe(map_map(function (b, ii) { return resultSelector(a, b, i, ii); })); }));
         };
     }
     return operate(function (source, subscriber) {
@@ -19452,7 +19452,7 @@ function exhaustMap(project, resultSelector) {
 
 
 
-function switchMap(project, resultSelector) {
+function switchMap_switchMap(project, resultSelector) {
     return operate(function (source, subscriber) {
         var innerSubscriber = null;
         var index = 0;
@@ -19481,7 +19481,7 @@ function switchMap(project, resultSelector) {
 
 
 const LensPersistenceStore_logger = getLogger("LensPersistenceStore");
-const lensPersistenceStoreFactory = Injectable("lensPersistenceStore", [lensCoreFactory.token], (lensCore) => {
+const lensPersistenceStoreFactory = Injectable_Injectable("lensPersistenceStore", [lensCoreFactory.token], (lensCore) => {
     const db = new IndexedDBPersistence({ databaseName: "lensPersistenceStore" });
     lensCore.registerSavePersistentStoreCallback((id, data) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
         try {
@@ -22236,7 +22236,7 @@ function showDialog(options) {
             ${getButtonsHtml((_c = options.buttons) !== null && _c !== void 0 ? _c : [])}
         `;
         const buttonsElements = Array.from(prompt.querySelectorAll("button"));
-        merge(...buttonsElements.map((b) => fromEvent(b, "click").pipe(map(() => b.dataset.key))), fromEvent(prompt, "cancel").pipe(map(() => "dismiss")))
+        merge(...buttonsElements.map((b) => fromEvent(b, "click").pipe(map_map(() => b.dataset.key))), fromEvent(prompt, "cancel").pipe(map_map(() => "dismiss")))
             .pipe(take(1))
             .subscribe({ next: res, complete: () => element.remove() });
         options.container.appendChild(element);
@@ -22350,7 +22350,7 @@ function showFindGuardianDialog() {
 /**
  * @internal
  */
-const legalPromptFactory = Injectable("legalPrompt", () => {
+const legalPromptFactory = Injectable_Injectable("legalPrompt", () => {
     return function legalPrompt(privacyPolicy, termsOfService, learnMore, childrenProtectionActRestricted) {
         const legalMessage = childrenProtectionActRestricted
             ? localizedString("legalPromptVariantGMessage")
@@ -22423,13 +22423,13 @@ const createLegalState = () => {
     const states = defineStates(defineState("unknown")(), defineState("accepted")(), defineState("rejected")());
     const actions = defineActions(defineAction("requestLegalPrompt")(), defineAction("accept")(), defineAction("reject")());
     return new StateMachine(actions, states, states.unknown(), (actions) => {
-        return merge(actions.pipe(inStates("unknown"), forActions("accept"), map(() => states.accepted())), actions.pipe(inStates("unknown"), forActions("reject"), map(() => states.rejected())), 
+        return merge(actions.pipe(inStates("unknown"), forActions("accept"), map_map(() => states.accepted())), actions.pipe(inStates("unknown"), forActions("reject"), map_map(() => states.rejected())), 
         // We don't treat "rejected" as a terminal state -- if we get another request to display the legal prompt,
         // even though we're in the rejected state, we'll transition back to unknown and the prompt will be shown.
         //
         // Conversely, we do treat "accepted" as a terminal state -- we will not transition back to unknown or
         // show the legal prompt if we're already in accepted state, even if we get a request to display the prompt.
-        actions.pipe(inStates("rejected"), forActions("requestLegalPrompt"), map(() => states.unknown())));
+        actions.pipe(inStates("rejected"), forActions("requestLegalPrompt"), map_map(() => states.unknown())));
     });
 };
 const defaultLegalDocumentDate = new Date("2021-09-30T00:00:00+00:00");
@@ -22508,27 +22508,27 @@ const getDocumentOrDefault = (documents) => (type) => {
  *
  * @internal
  */
-const legalStateFactory = Injectable("legalState", [remoteConfigurationFactory.token, legalPromptFactory.token], (remoteConfig, legalPrompt) => {
+const legalStateFactory = Injectable_Injectable("legalState", [remoteConfigurationFactory.token, legalPromptFactory.token], (remoteConfig, legalPrompt) => {
     const persistance = new ExpiringPersistence(() => tosContentHashExpiry, new IndexedDBPersistence({ databaseName: "Legal" }));
     const getLastAcceptedTosContentHash = () => from_from(persistance.retrieve(tosContentHashKey).catch((error) => legalState_logger.warn(error)));
     const setLastAcceptedTosContentHash = (hash) => persistance.store(tosContentHashKey, hash).catch((error) => legalState_logger.warn(error));
     const legalState = createLegalState();
     legalState.events
-        .pipe(inStates("unknown"), forActions("requestLegalPrompt"), switchMap(() => forkJoin({
-        cofConfig: remoteConfig.get("CAMERA_KIT_LEGAL_PROMPT").pipe(map((configResults) => {
+        .pipe(inStates("unknown"), forActions("requestLegalPrompt"), switchMap_switchMap(() => forkJoin({
+        cofConfig: remoteConfig.get("CAMERA_KIT_LEGAL_PROMPT").pipe(map_map((configResults) => {
             const config = configResults.find(hasAnyValue);
             if (!config)
                 return defaultLegalPrompt;
             return LegalPrompt.decode(config.value.anyValue.value);
-        }), catchError((error) => {
+        }), catchError_catchError((error) => {
             legalState_logger.error(error);
-            return of(defaultLegalPrompt);
+            return of_of(defaultLegalPrompt);
         })),
-        initConfig: remoteConfig.getInitializationConfig().pipe(catchError((error) => {
+        initConfig: remoteConfig.getInitializationConfig().pipe(catchError_catchError((error) => {
             legalState_logger.error(error);
-            return of(defaultInitConfig);
+            return of_of(defaultInitConfig);
         })),
-    })), switchMap(({ cofConfig, initConfig }) => {
+    })), switchMap_switchMap(({ cofConfig, initConfig }) => {
         // NOTE: Currently, we check two sources to determine whether ToS is disabled or not:
         // COF and initConfig. Legal document links are pulled only from COF (or defaults),
         // because initConfig has not been implemented yet. In the future, we may choose
@@ -22536,20 +22536,20 @@ const legalStateFactory = Injectable("legalState", [remoteConfigurationFactory.t
         // https://jira.sc-corp.net/browse/CAMKIT-4791
         var _a;
         if ((_a = initConfig.legalPrompt) === null || _a === void 0 ? void 0 : _a.disabled) {
-            return of(legalState.actions.accept("disabled"));
+            return of_of(legalState.actions.accept("disabled"));
         }
         if (cofConfig.disabled) {
-            return of(legalState.actions.accept("disabled"));
+            return of_of(legalState.actions.accept("disabled"));
         }
         const documentOfType = getDocumentOrDefault(cofConfig.documents);
         const prompt = legalPrompt(documentOfType(LegalDocument_Type.PRIVACY_POLICY), documentOfType(LegalDocument_Type.TERMS_OF_SERVICE), documentOfType(LegalDocument_Type.LEARN_MORE), initConfig.childrenProtectionActRestricted);
-        return getLastAcceptedTosContentHash().pipe(switchMap((lastAcceptedTosContentHash) => {
+        return getLastAcceptedTosContentHash().pipe(switchMap_switchMap((lastAcceptedTosContentHash) => {
             if (prompt.contentHash === lastAcceptedTosContentHash)
-                return of(true);
+                return of_of(true);
             // Delegate prompting the end-user to accept/reject the legal documents. This returns with
             // a Promise<boolean> indicating accept/reject.
             return prompt.show();
-        }), map((didAccept) => {
+        }), map_map((didAccept) => {
             if (!didAccept)
                 return legalState.actions.reject(prompt.contentHash);
             setLastAcceptedTosContentHash(prompt.contentHash);
@@ -22784,15 +22784,15 @@ const createLensState = () => {
     const states = defineStates(defineState("noLensApplied")(), defineState("applyingLens")(), defineState("lensApplied")());
     return new StateMachine(actions, states, states.noLensApplied(), (events) => merge(events.pipe(
     // We allow a new lens to be applied at any time, no matter the state.
-    inStates("noLensApplied", "applyingLens", "lensApplied"), forActions("applyLens"), map(([a]) => states.applyingLens(a.data.lens))), events.pipe(inStates("applyingLens"), forActions("applyLensComplete"), map(([a]) => states.lensApplied(a.data))), events.pipe(inStates("applyingLens"), forActions("applyLensFailed"), map(() => states.noLensApplied())), events.pipe(inStates("lensApplied"), forActions("removeLensComplete"), map(() => states.noLensApplied()))));
+    inStates("noLensApplied", "applyingLens", "lensApplied"), forActions("applyLens"), map_map(([a]) => states.applyingLens(a.data.lens))), events.pipe(inStates("applyingLens"), forActions("applyLensComplete"), map_map(([a]) => states.lensApplied(a.data))), events.pipe(inStates("applyingLens"), forActions("applyLensFailed"), map_map(() => states.noLensApplied())), events.pipe(inStates("lensApplied"), forActions("removeLensComplete"), map_map(() => states.noLensApplied()))));
 };
-const lensStateFactory = Injectable("lensState", [
+const lensStateFactory = Injectable_Injectable("lensState", [
     lensCoreFactory.token,
     lensRepositoryFactory.token,
     lensAssetRepositoryFactory.token,
     lensPersistenceStoreFactory.token,
     legalStateFactory.token,
-    operationalMetricReporterFactory.token,
+    operationalMetricsReporter_operationalMetricReporterFactory.token,
 ], (lensCore, lensRepository, lensAssetRepository, lensPersistence, legalState, operationalMetricsReporter) => {
     const lensState = createLensState();
     let firstLensApply = true;
@@ -22804,7 +22804,7 @@ const lensStateFactory = Injectable("lensState", [
     // Determine the legal state (e.g. terms have been accepted). Using exhaustMap means while we are
     // ascertaining legal status (which may include prompting the end user to accept terms), we will ignore
     // any new applyLens actions.
-    exhaustMap(([a]) => of(legalState.actions.requestLegalPrompt()).pipe(dispatch(legalState), inStates("accepted", "rejected"), take(1), map(([, { name }]) => {
+    exhaustMap(([a]) => of_of(legalState.actions.requestLegalPrompt()).pipe(dispatch(legalState), inStates("accepted", "rejected"), take(1), map_map(([, { name }]) => {
         if (name === "accepted")
             return a;
         return lensState.actions.applyLensFailed({
@@ -22815,9 +22815,9 @@ const lensStateFactory = Injectable("lensState", [
     // The use of switchMap is important so that if we get a new applyLens action while we're still
     // downloading lens content for a previously-requested lens, we can cancel those requests and ensure
     // that lenses are applied in the order they're requested.
-    switchMap((a) => {
+    switchMap_switchMap((a) => {
         if (a.name === "applyLensFailed")
-            return of(a);
+            return of_of(a);
         const { lens } = a.data;
         // Convenience method making dispatching an action with Lens data less verbose.
         const dispatch = (action) => {
@@ -22828,10 +22828,10 @@ const lensStateFactory = Injectable("lensState", [
         // are not present for subsequent applies.
         const applyTimer = new Timer("lens").mark("apply", { first: `${firstLensApply}` });
         firstLensApply = false;
-        return of(a.data).pipe(mergeMap(({ lens, launchParams }) => 
+        return of_of(a.data).pipe(mergeMap(({ lens, launchParams }) => 
         // If retrieval throws an error, we still want to proceed with the lens
         // because persisted data is not a necessity.
-        from_from(lensPersistence.retrieve(lens.id).catch(() => undefined)).pipe(map((persistentStore) => ({ lens, launchParams, persistentStore })))), map(({ lens, launchParams, persistentStore }) => {
+        from_from(lensPersistence.retrieve(lens.id).catch(() => undefined)).pipe(map_map((persistentStore) => ({ lens, launchParams, persistentStore })))), map_map(({ lens, launchParams, persistentStore }) => {
             const launchData = createLaunchData({
                 launchParams,
                 persistentStore,
@@ -22863,7 +22863,7 @@ const lensStateFactory = Injectable("lensState", [
             ])).pipe(tap(() => {
                 networkTimer.measure();
                 lensState.dispatch("downloadComplete", lens);
-            }), map(([{ lensBuffer, lensChecksum }]) => {
+            }), map_map(([{ lensBuffer, lensChecksum }]) => {
                 // NOTE: cached array buffer has to be copied each time in order to be reused,
                 // otherwise the original cached copy would be detached by LensCore
                 // One optimization can be done here: do not copy the array if getLensContent()
@@ -22926,10 +22926,10 @@ const lensStateFactory = Injectable("lensState", [
                     subscriber.complete();
                 },
             });
-        })), catchError((error) => {
+        })), catchError_catchError((error) => {
             applyTimer.measure("failure");
             applyTimer.stopAndReport(operationalMetricsReporter);
-            return of(lensState.actions.applyLensFailed({ error, lens }));
+            return of_of(lensState.actions.applyLensFailed({ error, lens }));
         }), 
         // If a new applyLens is received, `switchMap` will unsubscribe from this inner observable,
         // which stops the current lens application. When this happens we can record a separate metric
@@ -22963,12 +22963,12 @@ const lensStateFactory = Injectable("lensState", [
         error: lensState_logger.error,
     });
     lensState.events
-        .pipe(inStates("applyingLens"), forActions("removeLens"), switchMap(([a]) => lensState.events.pipe(
+        .pipe(inStates("applyingLens"), forActions("removeLens"), switchMap_switchMap(([a]) => lensState.events.pipe(
     // Wait to remove the lens until it has been applied.
     inStates("lensApplied"), 
     // But cancel the removal if a new applyLens supercedes the current lens. The goal here is to
     // make sure the latest apply/remove pre-empts any previous request to apply/remove.
-    takeUntil(lensState.events.pipe(forActions("applyLens"))), map(() => a))), dispatch(lensState))
+    takeUntil(lensState.events.pipe(forActions("applyLens"))), map_map(() => a))), dispatch(lensState))
         .subscribe({
         error: lensState_logger.error,
     });
@@ -22985,10 +22985,10 @@ const createSessionState = () => {
     const actions = defineActions(defineAction("suspend")(), defineAction("resume")(), defineAction("destroy")());
     const states = defineStates(defineState("inactive")(), defineState("active")(), defineState("destroyed")());
     return new StateMachine(actions, states, defineState("inactive")()(), (events) => {
-        return merge(events.pipe(forActions("resume"), map(([a]) => states.active(a.data))), events.pipe(forActions("suspend"), map(() => states.inactive())), events.pipe(forActions("destroy"), map(() => states.destroyed())));
+        return merge(events.pipe(forActions("resume"), map_map(([a]) => states.active(a.data))), events.pipe(forActions("suspend"), map_map(() => states.inactive())), events.pipe(forActions("destroy"), map_map(() => states.destroyed())));
     });
 };
-const sessionStateFactory = Injectable("sessionState", () => createSessionState());
+const sessionStateFactory = Injectable_Injectable("sessionState", () => createSessionState());
 //# sourceMappingURL=sessionState.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/session/LensKeyboard.js
 
@@ -23008,7 +23008,7 @@ class LensKeyboard {
                 this.handleReply(this.element.value);
             }
         });
-        this.events = new TypedEventTarget();
+        this.events = new TypedEventTarget_TypedEventTarget();
         this.handleReply = () => { };
         this.uriHandler = {
             uri: "app://textInput/requestKeyboard",
@@ -23073,7 +23073,7 @@ class LensKeyboard {
         // If lens keyboard status is changing, we know a lens must be applied.
         if (isState(state, "noLensApplied"))
             return;
-        this.events.dispatchEvent(new TypedCustomEvent("active", {
+        this.events.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("active", {
             element: this.element,
             active: this.active,
             // If the keyboard is up, it has been triggered by an active lens.
@@ -23084,7 +23084,7 @@ class LensKeyboard {
 /**
  * @internal
  */
-const lensKeyboardFactory = Injectable("lensKeyboard", [lensStateFactory.token], (lensState) => new LensKeyboard(lensState));
+const lensKeyboardFactory = Injectable_Injectable("lensKeyboard", [lensStateFactory.token], (lensState) => new LensKeyboard(lensState));
 //# sourceMappingURL=LensKeyboard.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/session/CameraKitSessionEvents.js
 /**
@@ -23183,7 +23183,7 @@ class CameraKitSession {
          * })
          * ```
          */
-        this.events = new TypedEventTarget();
+        this.events = new TypedEventTarget_TypedEventTarget();
         const outputs = this.lensCore.getOutputCanvases();
         this.output = {
             live: outputs[this.lensCore.CanvasType.Preview.value],
@@ -23197,7 +23197,7 @@ class CameraKitSession {
             removeOnHidden();
             removeOnVisible();
         };
-        const sessionErrors = logEntries.pipe(filter((entry) => entry.level === "error"), map((entry) => entry.messages.find((e) => e instanceof Error)), filter(isSessionError));
+        const sessionErrors = logEntries.pipe(filter((entry) => entry.level === "error"), map_map((entry) => entry.messages.find((e) => e instanceof Error)), filter(isSessionError));
         this.subscriptions = [
             // In case of LensCore lens execution error, we must remove the lens from rendering
             // NOTE: LensCore doesn't differentiate recoverable vs non-recoverable errors and
@@ -23211,7 +23211,7 @@ class CameraKitSession {
                     return;
                 const state = lensState.getState();
                 if (!isState(state, "noLensApplied")) {
-                    this.events.dispatchEvent(new TypedCustomEvent("error", { error, lens: state.data }));
+                    this.events.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("error", { error, lens: state.data }));
                 }
                 else {
                     // NOTE: at this point the error is already reported, so we can just log a warning
@@ -23261,7 +23261,7 @@ class CameraKitSession {
     applyLens(lens, launchParams) {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             const action = this.lensState.actions.applyLens({ lens, launchParams });
-            return firstValueFrom(of(action).pipe(dispatch(this.lensState), 
+            return firstValueFrom(of_of(action).pipe(dispatch(this.lensState), 
             // If another applyLens occurs while we're waiting, resolve this applyLens promise early – we're no
             // longer waiting for the requested lens to be applied.
             takeUntil(this.lensState.events.pipe(forActions("applyLens"), filter(([a]) => a !== action))), 
@@ -23269,7 +23269,7 @@ class CameraKitSession {
             tap(([a]) => {
                 if (isAction(a, "applyLensFailed") && a.data.lens.id === lens.id)
                     throw a.data.error;
-            }), inStates("lensApplied"), map(() => true)), 
+            }), inStates("lensApplied"), map_map(() => true)), 
             // The default value is used if `takeUntil` completes the Observable early – i.e. the lens was not
             // applied (application was interrupted by a new call to `applyLens`), so we'll resolve with `false`.
             { defaultValue: false });
@@ -23292,7 +23292,7 @@ class CameraKitSession {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             if (isState(this.lensState.getState(), "noLensApplied"))
                 return true;
-            return firstValueFrom(of(this.lensState.actions.removeLens()).pipe(dispatch(this.lensState), 
+            return firstValueFrom(of_of(this.lensState.actions.removeLens()).pipe(dispatch(this.lensState), 
             // If lens removal failed, convert this into a rejected promise by throwing the error.
             tap(([a]) => {
                 if (isAction(a, "removeLensFailed"))
@@ -23300,7 +23300,7 @@ class CameraKitSession {
             }), inStates("noLensApplied"), 
             // If applyLens is called while we're waiting for removal, complete immediately – applying the next lens
             // will replace the current one.
-            takeUntil(this.lensState.events.pipe(forActions("applyLens"))), map(() => true)), 
+            takeUntil(this.lensState.events.pipe(forActions("applyLens"))), map_map(() => true)), 
             // The default value is used if `takeUntil` completes the Observable early (otherwise firstValueFrom will
             // return a rejected Promise).
             { defaultValue: false });
@@ -23541,7 +23541,7 @@ __decorate([
 /**
  * @internal
  */
-const cameraKitSessionFactory = Injectable("CameraKitSession", [
+const cameraKitSessionFactory = Injectable_Injectable("CameraKitSession", [
     lensCoreFactory.token,
     logEntriesFactory.token,
     lensKeyboardFactory.token,
@@ -23569,7 +23569,7 @@ const maxConsecutiveErrors = 3;
  * initialized, the registry of the asset provider function will fail silently and no remote assets will be loaded.
  * @internal
  */
-const registerLensAssetsProvider = Injectable("registerLensAssetsProvider", [lensCoreFactory.token, lensRepositoryFactory.token, lensAssetRepositoryFactory.token], (lensCore, lensRepository, lensAssetRepository) => {
+const registerLensAssetsProvider = Injectable_Injectable("registerLensAssetsProvider", [lensCoreFactory.token, lensRepositoryFactory.token, lensAssetRepositoryFactory.token], (lensCore, lensRepository, lensAssetRepository) => {
     const consecutiveErrorsPerAsset = new Map();
     lensCore.setRemoteAssetsProvider((assetDescriptor) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
         var _a, _b, _c;
@@ -23582,7 +23582,7 @@ const registerLensAssetsProvider = Injectable("registerLensAssetsProvider", [len
                 throw new Error(`Maximum consecutive asset load errors reached for asset ${assetId}`);
             }
             const lens = effectId ? lensRepository.getLensMetadata(effectId) : undefined;
-            yield lensAssetRepository.loadAsset(assetDescriptor, lens && toPublicLens(lens), (_b = lens === null || lens === void 0 ? void 0 : lens.content) === null || _b === void 0 ? void 0 : _b.assetManifest);
+            yield lensAssetRepository.loadAsset(assetDescriptor, lens && Lens_toPublicLens(lens), (_b = lens === null || lens === void 0 ? void 0 : lens.content) === null || _b === void 0 ? void 0 : _b.assetManifest);
             consecutiveErrorsPerAsset.set(assetId, 0);
         }
         catch (error) {
@@ -25117,7 +25117,7 @@ function isUriResponse(value) {
  * An extension point for client URI handlers.
  * @internal
  */
-const uriHandlersFactory = Injectable("UriHandlers", () => {
+const uriHandlersFactory = Injectable_Injectable("UriHandlers", () => {
     const uriHandlers = [];
     return uriHandlers;
 });
@@ -25184,7 +25184,7 @@ function handleLensApplicationEnd(lensRequestState, ...lensIds) {
         }
     }
 }
-const remoteApiServicesFactory = Injectable("remoteApiServices", () => {
+const remoteApiServicesFactory = Injectable_Injectable("remoteApiServices", () => {
     const remoteApiServices = [];
     return remoteApiServices;
 });
@@ -25203,7 +25203,7 @@ function getRemoteApiUriHandler(registeredServices, sessionState, lensState, len
     const uriCancelRequests = new Subject();
     const lensRequestState = new Map();
     const lensTurnOffEvents = lensState.events.pipe(forActions("turnedOff"), tap(([action]) => handleLensApplicationEnd(lensRequestState, action.data.id)));
-    const uriRequestEvents = uriRequests.pipe(map((uriRequest) => {
+    const uriRequestEvents = uriRequests.pipe(map_map((uriRequest) => {
         var _a, _b;
         const lensId = uriRequest.lens.id;
         if (!lensRequestState.has(lensId)) {
@@ -25232,7 +25232,7 @@ function getRemoteApiUriHandler(registeredServices, sessionState, lensState, len
     // only handle requests for API spec ID that current lens supports
     filter(({ specId, requestState }) => requestState.supportedSpecIds.has(specId)), 
     // only handle requests if we have a registered service for it
-    filter(({ specId }) => registeredServiceMap.has(specId)), map(({ uriRequest, specId, endpointId, requestState }) => {
+    filter(({ specId }) => registeredServiceMap.has(specId)), map_map(({ uriRequest, specId, endpointId, requestState }) => {
         var _a;
         const dimensions = new Map([["specId", specId]]);
         reporter.count("lens_remote-api_requests", 1, dimensions);
@@ -25295,7 +25295,7 @@ function getRemoteApiUriHandler(registeredServices, sessionState, lensState, len
         }
     }));
     merge(lensTurnOffEvents, uriRequestEvents, uriCancelRequestEvents)
-        .pipe(catchError((error, sourcePipe) => {
+        .pipe(catchError_catchError((error, sourcePipe) => {
         // The expectation is that if an error occurs, it happens in our own implementation,
         // because app callbacks are wrapped with try..catch blocks.
         // Therefore, we would like to report this error.
@@ -25338,7 +25338,7 @@ const uriHandlersRegister_logger = getLogger("uriHandlersRegister");
  * Registers URI handlers within LensCore.
  * @internal
  */
-const registerUriHandlers = Injectable("registerUriHandlers", [
+const registerUriHandlers = Injectable_Injectable("registerUriHandlers", [
     lensCoreFactory.token,
     lensStateFactory.token,
     uriHandlersFactory.token,
@@ -25346,7 +25346,7 @@ const registerUriHandlers = Injectable("registerUriHandlers", [
     remoteApiServicesFactory.token,
     lensRepositoryFactory.token,
     sessionStateFactory.token,
-    operationalMetricReporterFactory.token,
+    operationalMetricsReporter_operationalMetricReporterFactory.token,
 ], (lensCore, lensState, userHandlers, lensKeyboard, remoteApiServices, lensRepository, sessionState, operationalMetricsReporter) => {
     if (!isUriHandlers(userHandlers)) {
         throw new Error("Expected an array of UriHandler objects");
@@ -25458,14 +25458,14 @@ function reportExceptionToBlizzard(logEntries, metricsEventTarget, reporter, len
         recent,
     }), 
     // Start with a dummy recent entry -- it gets overridden each time we handle a log entry.
-    { entries: [], recent: { time: new Date(), module: "any", level: "debug", messages: [] } }), filter(({ recent }) => recent.level === "error"), map(({ entries, recent }) => ({
+    { entries: [], recent: { time: new Date(), module: "any", level: "debug", messages: [] } }), filter(({ recent }) => recent.level === "error"), map_map(({ entries, recent }) => ({
         context: entries,
         error: recent.messages.find((e) => e instanceof Error),
     })), filter(({ error }) => !!error))
         .subscribe(({ error, context }) => {
         const currentLensState = lensState === null || lensState === void 0 ? void 0 : lensState.getState();
         const lensId = currentLensState && !isState(currentLensState, "noLensApplied") ? currentLensState.data.id : "none";
-        metricsEventTarget.dispatchEvent(new TypedCustomEvent("exception", {
+        metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("exception", {
             name: "exception",
             lensId,
             type: error.name,
@@ -25479,7 +25479,7 @@ function reportExceptionToBlizzard(logEntries, metricsEventTarget, reporter, len
  *
  * @internal
  */
-const reportGlobalException = Injectable("reportGlobalException", [logEntriesFactory.token, metricsEventTargetFactory.token, operationalMetricReporterFactory.token], (logEntries, metricsEventTarget, reporter) => {
+const reportGlobalException = Injectable_Injectable("reportGlobalException", [logEntriesFactory.token, metricsEventTargetFactory.token, operationalMetricsReporter_operationalMetricReporterFactory.token], (logEntries, metricsEventTarget, reporter) => {
     // Initially we log exceptions without any lens context
     const cancellationSubject = new Subject();
     reportExceptionToBlizzard(logEntries.pipe(takeUntil(cancellationSubject)), metricsEventTarget, reporter);
@@ -25502,7 +25502,7 @@ const reportGlobalException = Injectable("reportGlobalException", [logEntriesFac
  *
  * @internal
  */
-const reportSessionException = Injectable("reportSessionException", [reportGlobalException.token, lensStateFactory.token], (globalExceptionReporter, lensState) => {
+const reportSessionException = Injectable_Injectable("reportSessionException", [reportGlobalException.token, lensStateFactory.token], (globalExceptionReporter, lensState) => {
     globalExceptionReporter.attachLensContext(lensState);
 });
 //# sourceMappingURL=reportSessionException.js.map
@@ -25515,7 +25515,7 @@ const reportSessionException = Injectable("reportSessionException", [reportGloba
 
 // Allowlist the benchmarks we wish to report.
 const reportableBenchmarks = ["gflops"];
-const reportBenchmarks = Injectable("reportBenchmarks", [metricsEventTargetFactory.token, operationalMetricReporterFactory.token, configurationToken], (metricsEventTarget, reporter, config) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
+const reportBenchmarks = Injectable_Injectable("reportBenchmarks", [metricsEventTargetFactory.token, operationalMetricsReporter_operationalMetricReporterFactory.token, configurationToken], (metricsEventTarget, reporter, config) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
     if (config.lensPerformance === undefined)
         return;
     // Safety: config.lensPerformance cannot reject – all Promises contained in CameraKitConfiguration have
@@ -25531,7 +25531,7 @@ const reportBenchmarks = Injectable("reportBenchmarks", [metricsEventTargetFacto
         if (!reportableBenchmarks.includes(benchmark.name))
             continue;
         const benchmarkComplete = Object.assign(Object.assign({}, baseBenchmark), { benchmarkName: benchmark.name, benchmarkValue: benchmark.value });
-        metricsEventTarget.dispatchEvent(new TypedCustomEvent("benchmarkComplete", benchmarkComplete));
+        metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("benchmarkComplete", benchmarkComplete));
         reporter.histogram(`benchmark.${benchmark.name}`, benchmark.value, dimensions);
     }
 }));
@@ -25553,10 +25553,10 @@ const reportBenchmarks = Injectable("reportBenchmarks", [metricsEventTargetFacto
  */
 const scan_scan = (seedState) => (source, eventTypes, accumulator) => {
     let state = seedState;
-    const sink = new TypedEventTarget();
+    const sink = new TypedEventTarget_TypedEventTarget();
     const listener = (event) => {
         state = accumulator(state, event);
-        sink.dispatchEvent(new TypedCustomEvent("state", state));
+        sink.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("state", state));
     };
     // We'll use Proxies to make sure that event listeners are added/removed at the appropriate time.
     // Callers can then control when to clean up the listeners we add here in a transparent way –
@@ -25598,9 +25598,9 @@ const isLensOrAssetRequest = (value) => {
     // Safety: the cast makes the type less specific so we can check if any string is present in the tuple.
     return typeof requestType === "string" && relevantRequestTypes.includes(requestType);
 };
-const reportLensAndAssetDownload = Injectable("reportLensAndAssetDownload", [
+const reportLensAndAssetDownload = Injectable_Injectable("reportLensAndAssetDownload", [
     metricsEventTargetFactory.token,
-    operationalMetricReporterFactory.token,
+    operationalMetricsReporter_operationalMetricReporterFactory.token,
     requestStateEventTargetFactory.token,
 ], (metricsEventTarget, reporter, requestStateEventTarget) => {
     scan_scan({ name: "inProgress", inProgress: new Map() })(requestStateEventTarget, ["started", "completed", "errored"], (state, event) => {
@@ -25624,7 +25624,7 @@ const reportLensAndAssetDownload = Injectable("reportLensAndAssetDownload", [
                         return {
                             name: "completed",
                             inProgress,
-                            event: new TypedCustomEvent("lensDownload", {
+                            event: new TypedCustomEvent_TypedCustomEvent("lensDownload", {
                                 name: "lensDownload",
                                 lensId: dimensions.lensId,
                                 automaticDownload: false,
@@ -25636,7 +25636,7 @@ const reportLensAndAssetDownload = Injectable("reportLensAndAssetDownload", [
                         return {
                             name: "completed",
                             inProgress,
-                            event: new TypedCustomEvent("assetDownload", {
+                            event: new TypedCustomEvent_TypedCustomEvent("assetDownload", {
                                 name: "assetDownload",
                                 assetId: dimensions.assetId,
                                 automaticDownload: false,
@@ -25656,7 +25656,7 @@ const reportLensAndAssetDownload = Injectable("reportLensAndAssetDownload", [
                 return {
                     name: "completed",
                     inProgress,
-                    event: new TypedCustomEvent("exception", {
+                    event: new TypedCustomEvent_TypedCustomEvent("exception", {
                         name: "exception",
                         lensId: dimensions.lensId,
                         type: dimensions.requestType === "lens_content" ? "lens" : "asset",
@@ -25725,7 +25725,7 @@ const getStatus = (event) => {
 const isRelevantRequest = (value) => {
     return isLensOrAssetRequest(value) || value["requestType"] === COF_REQUEST_TYPE;
 };
-const reportHttpMetrics = Injectable("reportHttpMetrics", [operationalMetricReporterFactory.token, requestStateEventTargetFactory.token], (reporter, requestStateEventTarget) => {
+const reportHttpMetrics = Injectable_Injectable("reportHttpMetrics", [operationalMetricsReporter_operationalMetricReporterFactory.token, requestStateEventTargetFactory.token], (reporter, requestStateEventTarget) => {
     scan_scan({ name: "inProgress", inProgress: new Map() })(requestStateEventTarget, ["started", "completed", "errored"], (state, event) => {
         var _a;
         const { inProgress } = state;
@@ -25747,7 +25747,7 @@ const reportHttpMetrics = Injectable("reportHttpMetrics", [operationalMetricRepo
                 const status = getStatus(event);
                 const operationalDimensions = new Map([
                     ["content_type", getContentType(dimensions)],
-                    ["network_type", (_a = cameraKitUserAgent.connectionType) !== null && _a !== void 0 ? _a : "unknown"],
+                    ["network_type", (_a = cameraKitUserAgent_cameraKitUserAgent.connectionType) !== null && _a !== void 0 ? _a : "unknown"],
                     ["status", status],
                 ]);
                 return {
@@ -26305,9 +26305,9 @@ var KitType;
 /**
  * @internal
  */
-const reportLegalState = Injectable("reportLegalState", [legalStateFactory.token, metricsEventTargetFactory.token, operationalMetricReporterFactory.token], (legalState, metricsEventTarget, operationalMetricsReporter) => {
+const reportLegalState = Injectable_Injectable("reportLegalState", [legalStateFactory.token, metricsEventTargetFactory.token, operationalMetricsReporter_operationalMetricReporterFactory.token], (legalState, metricsEventTarget, operationalMetricsReporter) => {
     legalState.events
-        .pipe(forActions("accept", "reject"), map(([{ data, name }]) => ({
+        .pipe(forActions("accept", "reject"), map_map(([{ data, name }]) => ({
         name: "legalPrompt",
         legalPromptId: data,
         legalPromptResult: name === "accept"
@@ -26316,7 +26316,7 @@ const reportLegalState = Injectable("reportLegalState", [legalStateFactory.token
     })))
         .subscribe({
         next: (legalPromptEvent) => {
-            metricsEventTarget.dispatchEvent(new TypedCustomEvent("legalPrompt", legalPromptEvent));
+            metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("legalPrompt", legalPromptEvent));
             operationalMetricsReporter.count("legal_prompt_interaction", 1, new Map([
                 [
                     "accepted",
@@ -26338,7 +26338,7 @@ const reportLegalState = Injectable("reportLegalState", [legalStateFactory.token
 /**
  * @internal
  */
-const reportLensValidationFailed = Injectable("reportLensValidationFailed", [lensStateFactory.token, metricsEventTargetFactory.token], (lensState, metricsEventTarget) => {
+const reportLensValidationFailed = Injectable_Injectable("reportLensValidationFailed", [lensStateFactory.token, metricsEventTargetFactory.token], (lensState, metricsEventTarget) => {
     lensState.events
         .pipe(forActions("applyLensFailed"), filter(([a]) => a.data.error.name === "LensContentValidationError"))
         .subscribe({
@@ -26348,7 +26348,7 @@ const reportLensValidationFailed = Injectable("reportLensValidationFailed", [len
                 name: "lensContentValidationFailed",
                 lensId: lens.id,
             };
-            metricsEventTarget.dispatchEvent(new TypedCustomEvent("lensContentValidationFailed", lensContentValidationFailed));
+            metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("lensContentValidationFailed", lensContentValidationFailed));
         },
     });
 });
@@ -26550,12 +26550,12 @@ function isFirstTimeWithinPeriods(lensId, persistence) {
 /**
  * @internal
  */
-const reportLensView = Injectable("reportLensView", [
+const reportLensView = Injectable_Injectable("reportLensView", [
     cameraKitSessionFactory.token,
     lensStateFactory.token,
     sessionStateFactory.token,
     metricsEventTargetFactory.token,
-    operationalMetricReporterFactory.token,
+    operationalMetricsReporter_operationalMetricReporterFactory.token,
     configurationToken,
 ], (session, lensState, sessionState, metricsEventTarget, operationalMetricsReporter, configuration) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
     var _a;
@@ -26573,26 +26573,26 @@ const reportLensView = Injectable("reportLensView", [
     merge(
     // Begin measuring LensCore apply time once the lens has finished downloading and we actually add the lens
     // to LensCore (LensWait measures the full download + LensCore apply time i.e. perceived UX latency).
-    lensState.events.pipe(forActions("downloadComplete"), map(([a]) => a.data)), 
+    lensState.events.pipe(forActions("downloadComplete"), map_map(([a]) => a.data)), 
     // If the session is resumed (e.g. user returns to this tab while a lens is on), we count this as a new
     // LensView (and applyDelaySec will be 0).
-    lensState.events.pipe(inStates("lensApplied"), switchMap(([, s]) => sessionState.events.pipe(forActions("resume"), takeUntil(lensState.events.pipe(forActions("removeLens"))), map(() => s.data)))))
-        .pipe(map((lens) => [getTimeMs(), lens.id]), mergeMap(([applyLensStartTime, lensId]) => {
+    lensState.events.pipe(inStates("lensApplied"), switchMap_switchMap(([, s]) => sessionState.events.pipe(forActions("resume"), takeUntil(lensState.events.pipe(forActions("removeLens"))), map_map(() => s.data)))))
+        .pipe(map_map((lens) => [getTimeMs(), lens.id]), mergeMap(([applyLensStartTime, lensId]) => {
         const alreadyOn = isState(lensState.getState(), "lensApplied");
         const applyDelay = alreadyOn
-            ? of(0)
+            ? of_of(0)
             : lensState.events.pipe(forActions("resourcesLoaded"), filter(([a]) => a.data.id === lensId), 
             // Applying a new lens may happen before removing the old one, so if we kept taking events
             // we would get the lensResourcesLoaded for the next lens, too.
-            take(1), map(() => (getTimeMs() - applyLensStartTime) / 1000));
+            take(1), map_map(() => (getTimeMs() - applyLensStartTime) / 1000));
         const viewMetrics = (alreadyOn
-            ? of([getTimeMs(), session.metrics.beginMeasurement()])
-            : lensState.events.pipe(forActions("turnedOn"), filter(([a]) => a.data.id === lensId), map(() => [getTimeMs(), session.metrics.beginMeasurement()]))).pipe(take(1), mergeMap(([lensTurnedOnTime, metricsMeasurement]) => lensState.events.pipe(forActions("turnedOff"), 
+            ? of_of([getTimeMs(), session.metrics.beginMeasurement()])
+            : lensState.events.pipe(forActions("turnedOn"), filter(([a]) => a.data.id === lensId), map_map(() => [getTimeMs(), session.metrics.beginMeasurement()]))).pipe(take(1), mergeMap(([lensTurnedOnTime, metricsMeasurement]) => lensState.events.pipe(forActions("turnedOff"), 
         // Applying a new lens may happen before removing the old one, so we'll get a
         // lensTurnedOff for the prior lens (if one was applied), which we must filter out.
         filter(([a]) => a.data.id === lensId), 
         // If the session is suspended, we'll count that as the lens turning off.
-        raceWith(sessionState.events.pipe(forActions("suspend"))), map(() => {
+        raceWith(sessionState.events.pipe(forActions("suspend"))), map_map(() => {
             metricsMeasurement.end();
             return Object.assign({ viewTimeSec: (getTimeMs() - lensTurnedOnTime) / 1000 }, metricsMeasurement.measure());
         }))));
@@ -26600,7 +26600,7 @@ const reportLensView = Injectable("reportLensView", [
         // This lens should always receive the lensTurnedOff action *before* the next lens is
         // turned on. But just in case that assumption is violated, we'll clean up
         // (and not report) if another lens turns on before our lens is turned off.
-        takeUntil(lensState.events.pipe(forActions("turnedOn"), filter(([a]) => a.data.id !== lensId))), take(1), map(([applyDelaySec, viewMetrics, isFirstTimeResults]) => (Object.assign(Object.assign({ applyDelaySec,
+        takeUntil(lensState.events.pipe(forActions("turnedOn"), filter(([a]) => a.data.id !== lensId))), take(1), map_map(([applyDelaySec, viewMetrics, isFirstTimeResults]) => (Object.assign(Object.assign({ applyDelaySec,
             lensId }, viewMetrics), isFirstTimeResults))));
     }))
         .subscribe({
@@ -26622,7 +26622,7 @@ const reportLensView = Injectable("reportLensView", [
                 performanceCluster,
                 webglRendererInfo,
             };
-            metricsEventTarget.dispatchEvent(new TypedCustomEvent("lensView", lensView));
+            metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("lensView", lensView));
             operationalMetricsReporter.report(Histogram.level("lens_view", viewTimeSec * 1000));
             // The first few frames will typically take much longer to process (as they might involve requesting
             // remote assets to be downloaded, or other high-latency initialization steps) -- so we'll skip
@@ -26660,7 +26660,7 @@ const reportLensWait_viewTimeThresholdSec = 0.1;
  *
  * @internal
  */
-const reportLensWait = Injectable("reportLensWait", [lensStateFactory.token, metricsEventTargetFactory.token, operationalMetricReporterFactory.token], (lensState, metricsEventTarget, reporter) => {
+const reportLensWait = Injectable_Injectable("reportLensWait", [lensStateFactory.token, metricsEventTargetFactory.token, operationalMetricsReporter_operationalMetricReporterFactory.token], (lensState, metricsEventTarget, reporter) => {
     lensState.events
         .pipe(forActions("applyLens"), mergeMap(([a]) => {
         const lensId = a.data.lens.id;
@@ -26676,7 +26676,7 @@ const reportLensWait = Injectable("reportLensWait", [lensStateFactory.token, met
         //
         // (This effect can be mitigated by increasing the viewtimeThresholdSec to ignore low-duration
         // waits that are likely caused by user behavior).
-        forActions("firstFrameProcessed", "applyLens"), take(1), map(() => [(getTimeMs() - applyLensStartTime) / 1000, lensId]));
+        forActions("firstFrameProcessed", "applyLens"), take(1), map_map(() => [(getTimeMs() - applyLensStartTime) / 1000, lensId]));
     }))
         .subscribe({
         next: ([viewTimeSec, lensId]) => {
@@ -26687,7 +26687,7 @@ const reportLensWait = Injectable("reportLensWait", [lensStateFactory.token, met
                 lensId,
                 viewTimeSec,
             };
-            metricsEventTarget.dispatchEvent(new TypedCustomEvent("lensWait", lensWait));
+            metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("lensWait", lensWait));
             reporter.timer("lens.apply_lens_latency", viewTimeSec * 1000);
         },
     });
@@ -26704,7 +26704,7 @@ const reportLensWait = Injectable("reportLensWait", [lensStateFactory.token, met
 /**
  * @internal
  */
-const reportUserSession = Injectable("reportUserSession", [metricsEventTargetFactory.token], (metricsEventTarget) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
+const reportUserSession = Injectable_Injectable("reportUserSession", [metricsEventTargetFactory.token], (metricsEventTarget) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
     var _a, _b;
     const userSessionKey = "userSessionInfo";
     const db = new IndexedDBPersistence({ databaseName: "SessionHistory" });
@@ -26757,7 +26757,7 @@ const reportUserSession = Injectable("reportUserSession", [metricsEventTargetFac
         day,
         year,
     };
-    metricsEventTarget.dispatchEvent(new TypedCustomEvent("session", session));
+    metricsEventTarget.dispatchEvent(new TypedCustomEvent_TypedCustomEvent("session", session));
 }));
 //# sourceMappingURL=reportUserSession.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/metrics/reporters/reporters.js
@@ -26778,7 +26778,7 @@ const reportUserSession = Injectable("reportUserSession", [metricsEventTargetFac
  * The businessEventsReporter is special, it doesn't create any of its own metrics, it simply listens to the global
  * metricsEventTarget and reports metrics emitted there to our backend.
  */
-const reportGloballyScopedMetrics = new PartialContainer({})
+const reportGloballyScopedMetrics = new PartialContainer_PartialContainer({})
     .provides(reportHttpMetrics)
     .provides(reportBenchmarks)
     .provides(reportLensAndAssetDownload)
@@ -26787,7 +26787,7 @@ const reportGloballyScopedMetrics = new PartialContainer({})
  * These metrics reporters must be run once for each CameraKitSession DI container created. They may depend on services
  * which are only available at the session scope (e.g. the CameraKitSession itself).
  */
-const reportSessionScopedMetrics = new PartialContainer({})
+const reportSessionScopedMetrics = new PartialContainer_PartialContainer({})
     .provides(reportUserSession)
     .provides(reportLensView)
     .provides(reportLensWait)
@@ -27003,7 +27003,7 @@ const lensClientInterface_logger = getLogger("lensClientInterface");
  * @param lensCore LensCore instance to register in.
  * @param sessionErrors EventTarget to dispatch errors in.
  */
-const registerLensClientInterfaceHandler = Injectable("registerLensClientInterfaceHandler", [lensCoreFactory.token], (lensCore) => {
+const registerLensClientInterfaceHandler = Injectable_Injectable("registerLensClientInterfaceHandler", [lensCoreFactory.token], (lensCore) => {
     // Make sure we are compatible with previous LensCore versions
     if (!lensCore.setClientInterfaceRequestHandler) {
         lensClientInterface_logger.warn("Current LensCore version doesn't support lens client interface requests");
@@ -27025,7 +27025,7 @@ const registerLensClientInterfaceHandler = Injectable("registerLensClientInterfa
 
 
 
-const setPreloadedConfiguration = Injectable("setPreloadedConfiguration", [lensCoreFactory.token, remoteConfigurationFactory.token], (lensCore, remoteConfiguration) => {
+const setPreloadedConfiguration = Injectable_Injectable("setPreloadedConfiguration", [lensCoreFactory.token, remoteConfigurationFactory.token], (lensCore, remoteConfiguration) => {
     remoteConfiguration
         .getNamespace(Namespace.LENS_CORE_CONFIG)
         .pipe(take(1))
@@ -27096,7 +27096,7 @@ class CameraKit {
         /**
          * Business metrics (e.g. each time a lens is viewed) are emitted here.
          */
-        this.metrics = new TypedEventTarget();
+        this.metrics = new TypedEventTarget_TypedEventTarget();
         this.sessions = [];
         this.lenses = { repository: this.lensRepository };
         // Proxy only a subset of all metrics events to the public-facing emitter -- applications don't need to
@@ -27204,7 +27204,7 @@ __decorate([
     __metadata("design:returntype", Promise)
 ], CameraKit.prototype, "destroy", null);
 /** @internal */
-const cameraKitFactory = Injectable("CameraKit", [
+const cameraKitFactory = Injectable_Injectable("CameraKit", [
     lensRepositoryFactory.token,
     metricsEventTargetFactory.token,
     lensCoreFactory.token,
@@ -27389,7 +27389,7 @@ function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eve
     businessEventsReporter_logger.log(`Session ID: ${sessionId}`);
     // Blizzard convention is to start the sequenceId at 1.
     let sequenceId = 1;
-    const handler = new HandlerChainBuilder(metricsHandler)
+    const handler = new HandlerChainBuilder_HandlerChainBuilder(metricsHandler)
         .map(createMappingHandler((events) => {
         const body = {
             batchEvents: {
@@ -27419,23 +27419,23 @@ function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eve
     })).handler;
     const makeBlizzardEvent = (event) => {
         var _a;
-        const deviceConnectivity = (_a = connectivityTypeMapping[cameraKitUserAgent.connectionType]) !== null && _a !== void 0 ? _a : cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_UNKNOWN;
+        const deviceConnectivity = (_a = connectivityTypeMapping[cameraKitUserAgent_cameraKitUserAgent.connectionType]) !== null && _a !== void 0 ? _a : cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_UNKNOWN;
         return Object.assign(Object.assign({}, event), { cameraKitEventBase: CameraKitEventBase.fromPartial({
                 kitEventBase: KitEventBase.fromPartial({
-                    locale: cameraKitUserAgent.locale,
+                    locale: cameraKitUserAgent_cameraKitUserAgent.locale,
                     kitVariant: KitType.CAMERA_KIT_WEB,
-                    kitVariantVersion: cameraKitUserAgent.sdkShortVersion,
+                    kitVariantVersion: cameraKitUserAgent_cameraKitUserAgent.sdkShortVersion,
                     kitClientTimestampMillis: Date.now(),
                 }),
                 deviceCluster: 0,
-                cameraKitVersion: cameraKitUserAgent.sdkLongVersion,
-                lensCoreVersion: cameraKitUserAgent.lensCoreVersion,
-                deviceModel: cameraKitUserAgent.deviceModel,
+                cameraKitVersion: cameraKitUserAgent_cameraKitUserAgent.sdkLongVersion,
+                lensCoreVersion: cameraKitUserAgent_cameraKitUserAgent.lensCoreVersion,
+                deviceModel: cameraKitUserAgent_cameraKitUserAgent.deviceModel,
                 cameraKitVariant: CameraKitVariant.CAMERA_KIT_VARIANT_PARTNER,
                 cameraKitFlavor: cameraKitEvents_CameraKitFlavor.CAMERA_KIT_FLAVOR_DEBUG,
                 // We overload appId, using the origin instead because it's nice and human-readable (our backed adds
                 // the true appId as oauth_client_id before forwarding events to Blizzard).
-                appId: cameraKitUserAgent.origin,
+                appId: cameraKitUserAgent_cameraKitUserAgent.origin,
                 deviceConnectivity,
                 sessionId: sessionId,
                 appVendorUuid,
@@ -27444,8 +27444,8 @@ function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eve
     const sendServerEvent = (eventName, eventData) => {
         return handler(ServerEvent.fromPartial({
             eventName,
-            osType: cameraKitUserAgent.osType,
-            osVersion: cameraKitUserAgent.osVersion,
+            osType: cameraKitUserAgent_cameraKitUserAgent.osType,
+            osVersion: cameraKitUserAgent_cameraKitUserAgent.osVersion,
             maxSequenceIdOnInstance: 0,
             sequenceId: sequenceId++,
             eventData,
@@ -27465,7 +27465,7 @@ function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eve
         });
     });
 }
-const businessEventsReporterFactory = Injectable("businessEventsReporter", [
+const businessEventsReporterFactory = Injectable_Injectable("businessEventsReporter", [
     metricsEventTargetFactory.token,
     metricsHandlerFactory.token,
     pageVisibilityFactory.token,
@@ -27475,14 +27475,14 @@ const businessEventsReporterFactory = Injectable("businessEventsReporter", [
     const vendorAnalyticsPersistence = new ExpiringPersistence(() => vendorUuidExpiry, new IndexedDBPersistence({ databaseName: "SessionHistory" }));
     remoteConfiguration
         .getInitializationConfig()
-        .pipe(take(1), switchMap(({ appVendorUuidOptIn }) => {
+        .pipe(take(1), switchMap_switchMap(({ appVendorUuidOptIn }) => {
         if (appVendorUuidOptIn) {
             return from_from(getOrGenerateVendorUuid(vendorAnalyticsPersistence));
         }
-        return of(undefined);
-    }), catchError((error) => {
+        return of_of(undefined);
+    }), catchError_catchError((error) => {
         businessEventsReporter_logger.warn(`Failed to retrieve or generate vendor UUID.`, error);
-        return of(undefined);
+        return of_of(undefined);
     }))
         .subscribe({
         next: (appVendorUuid) => {
@@ -27570,7 +27570,7 @@ const businessEventsReporterFactory = Injectable("businessEventsReporter", [
  *
  * @internal
  */
-const registerLogEntriesSubscriber = Injectable("registerLogEntriesSubscriber", [configurationToken, logEntriesFactory.token], (configuration, logEntries) => {
+const registerLogEntriesSubscriber = Injectable_Injectable("registerLogEntriesSubscriber", [configurationToken, logEntriesFactory.token], (configuration, logEntries) => {
     logEntries
         .pipe(filter((entry) => logLevelMap[entry.level] >= logLevelMap[configuration.logLevel]))
         .subscribe((logEntry) => {
@@ -27578,7 +27578,7 @@ const registerLogEntriesSubscriber = Injectable("registerLogEntriesSubscriber", 
             case "console":
                 // Chrome doesn't print the `cause` Error property, so we need to manually construct a complete
                 // stack trace using our `stringifyError` helper.
-                const messages = cameraKitUserAgent.browser.brand === "Chrome"
+                const messages = cameraKitUserAgent_cameraKitUserAgent.browser.brand === "Chrome"
                     ? logEntry.messages.map((message) => {
                         if (!(message instanceof Error))
                             return message;
@@ -27698,7 +27698,7 @@ function bootstrapCameraKit(configuration, provide) {
                 .provides(pageVisibilityFactory)
                 .provides(defaultFetchHandlerFactory)
                 .provides(remoteMediaAssetLoaderFactory)
-                .provides(lensSourcesFactory)
+                .provides(LensSources_lensSourcesFactory)
                 .provides(remoteApiServicesFactory)
                 .provides(uriHandlersFactory);
             const publicContainer = provide ? provide(defaultPublicContainer) : defaultPublicContainer;
@@ -27711,11 +27711,11 @@ function bootstrapCameraKit(configuration, provide) {
             const telemetryContainer = Container.provides(publicContainer)
                 .provides(logEntriesFactory)
                 .run(registerLogEntriesSubscriber)
-                .provides(cameraKitServiceFetchHandlerFactory)
+                .provides(cameraKitServiceFetchHandlerFactory_cameraKitServiceFetchHandlerFactory)
                 .provides(requestStateEventTargetFactory)
                 .provides(metricsEventTargetFactory)
                 .provides(metricsHandlerFactory)
-                .provides(operationalMetricReporterFactory)
+                .provides(operationalMetricsReporter_operationalMetricReporterFactory)
                 .provides(reportGlobalException)
                 .provides(cofHandlerFactory)
                 .provides(remoteConfigurationFactory)
@@ -27739,7 +27739,7 @@ function bootstrapCameraKit(configuration, provide) {
             // wait for that promise once here, then create a new DI container that just contains LensCore.
             const lensCore = yield telemetryContainer.provides(lensCoreFactory).get(lensCoreFactory.token);
             const container = telemetryContainer
-                .provides(Injectable(lensCoreFactory.token, () => lensCore))
+                .provides(Injectable_Injectable(lensCoreFactory.token, () => lensCore))
                 .provides(lensPersistenceStoreFactory)
                 .provides(deviceDependentAssetLoaderFactory)
                 .provides(staticAssetLoaderFactory)
@@ -27748,7 +27748,7 @@ function bootstrapCameraKit(configuration, provide) {
                 .provides(cameraKitFactory);
             const cameraKit = container.get(cameraKitFactory.token);
             const bootstrapTimeMs = performance.now() - startTimeMs;
-            const reporter = container.get(operationalMetricReporterFactory.token);
+            const reporter = container.get(operationalMetricsReporter_operationalMetricReporterFactory.token);
             reporter.timer("bootstrap_time", bootstrapTimeMs);
             return cameraKit;
         }
@@ -27801,7 +27801,7 @@ function bootstrapCameraKit(configuration, provide) {
  *
  * @category Bootstrapping and Configuration
  */
-function createExtension() {
+function bootstrapCameraKit_createExtension() {
     return new PartialContainer({});
 }
 //# sourceMappingURL=bootstrapCameraKit.js.map
@@ -27811,7 +27811,7 @@ function createExtension() {
 
 function getExtensionRequestContext() {
     return ExtensionRequestContext.encode({
-        userAgent: cameraKitUserAgent.userAgent,
+        userAgent: cameraKitUserAgent_cameraKitUserAgent.userAgent,
         locale: fullLocale,
     }).finish();
 }
@@ -28879,7 +28879,7 @@ var ListenLensPushResponse_ExcludedLens_Code;
     ListenLensPushResponse_ExcludedLens_Code["CONTAINS_MUSIC"] = "CONTAINS_MUSIC";
     ListenLensPushResponse_ExcludedLens_Code["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(ListenLensPushResponse_ExcludedLens_Code || (ListenLensPushResponse_ExcludedLens_Code = {}));
-function listenLensPushResponse_ExcludedLens_CodeFromJSON(object) {
+function push_to_device_listenLensPushResponse_ExcludedLens_CodeFromJSON(object) {
     switch (object) {
         case 0:
         case "UNSET":
@@ -29174,7 +29174,7 @@ const PushLensSubscriptionResponse_ExcludedLens = {
 function createBaseListenLensPushRequest() {
     return { extensionRequestContext: new Uint8Array(), heartbeat: 0 };
 }
-const ListenLensPushRequest = {
+const push_to_device_ListenLensPushRequest = {
     encode(message, writer = minimal_default().Writer.create()) {
         if (message.extensionRequestContext.length !== 0) {
             writer.uint32(18).bytes(message.extensionRequestContext);
@@ -29362,7 +29362,7 @@ const ListenLensPushResponse_ExcludedLens = {
                     message.lensId = push_to_device_longToNumber(reader.int64());
                     break;
                 case 2:
-                    message.code = listenLensPushResponse_ExcludedLens_CodeFromJSON(reader.int32());
+                    message.code = push_to_device_listenLensPushResponse_ExcludedLens_CodeFromJSON(reader.int32());
                     break;
                 default:
                     reader.skipType(tag & 7);
@@ -29377,7 +29377,7 @@ const ListenLensPushResponse_ExcludedLens = {
                 ? Number(object.lensId)
                 : 0,
             code: push_to_device_isSet(object.code)
-                ? listenLensPushResponse_ExcludedLens_CodeFromJSON(object.code)
+                ? push_to_device_listenLensPushResponse_ExcludedLens_CodeFromJSON(object.code)
                 : ListenLensPushResponse_ExcludedLens_Code.UNSET,
         };
     },
@@ -29394,7 +29394,7 @@ const ListenLensPushResponse_ExcludedLens = {
         return message;
     }
 };
-class PushToDeviceClientImpl {
+class push_to_device_PushToDeviceClientImpl {
     rpc;
     constructor(rpc) {
         this.rpc = rpc;
@@ -29405,7 +29405,7 @@ class PushToDeviceClientImpl {
         return this.rpc.invoke(PushToDevicePushLensSubscriptionDesc, request, metadata);
     }
     ListenLensPush(request, metadata) {
-        return this.rpc.invoke(PushToDeviceListenLensPushDesc, ListenLensPushRequest.fromPartial(request), metadata);
+        return this.rpc.invoke(PushToDeviceListenLensPushDesc, push_to_device_ListenLensPushRequest.fromPartial(request), metadata);
     }
 }
 const PushToDeviceDesc = {
@@ -29434,7 +29434,7 @@ const PushToDeviceListenLensPushDesc = {
     responseStream: true,
     requestType: {
         serializeBinary() {
-            return ListenLensPushRequest.encode(this).finish();
+            return push_to_device_ListenLensPushRequest.encode(this).finish();
         },
     },
     responseType: {
@@ -29453,17 +29453,17 @@ class push_to_device_GrpcWebImpl {
     unary(methodDesc, _request, metadata) {
         const request = { ..._request, ...methodDesc.requestType };
         const maybeCombinedMetadata = metadata && this.options.metadata
-            ? new browser_headers_umd.BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+            ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
             : metadata || this.options.metadata;
         return new Promise((resolve, reject) => {
-            grpc_web_client_umd.grpc.unary(methodDesc, {
+            grpc.unary(methodDesc, {
                 request,
                 host: this.host,
                 metadata: maybeCombinedMetadata,
                 transport: this.options.transport,
                 debug: this.options.debug,
                 onEnd: function (response) {
-                    if (response.status === grpc_web_client_umd.grpc.Code.OK) {
+                    if (response.status === grpc.Code.OK) {
                         resolve(response.message);
                     }
                     else {
@@ -29481,11 +29481,11 @@ class push_to_device_GrpcWebImpl {
         const DEFAULT_TIMEOUT_TIME = 3000;
         const request = { ..._request, ...methodDesc.requestType };
         const maybeCombinedMetadata = metadata && this.options.metadata
-            ? new browser_headers_umd.BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
+            ? new BrowserHeaders({ ...this.options?.metadata.headersMap, ...metadata?.headersMap })
             : metadata || this.options.metadata;
-        return new Observable_Observable(observer => {
+        return new Observable(observer => {
             const upStream = (() => {
-                const client = grpc_web_client_umd.grpc.invoke(methodDesc, {
+                const client = grpc.invoke(methodDesc, {
                     host: this.host,
                     request,
                     transport: this.options.streamingTransport || this.options.transport,
@@ -30073,7 +30073,7 @@ const export_ExtensionRequestContext = {
 function export_createBaseEnvelope() {
     return { lenses: [] };
 }
-const export_Envelope = {
+const v3_export_Envelope = {
     decode(input, length) {
         const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
         let end = length === undefined ? reader.len : reader.pos + length;
@@ -30191,7 +30191,7 @@ var Code;
     Code["CLOUD_STORAGE_FAILURE"] = "CLOUD_STORAGE_FAILURE";
     Code["UNRECOGNIZED"] = "UNRECOGNIZED";
 })(Code || (Code = {}));
-function codeFromJSON(object) {
+function snap_status_code_codeFromJSON(object) {
     switch (object) {
         case 0:
         case "OK":
@@ -30471,38 +30471,6 @@ function snap_status_code_isSet(value) {
     return value !== null && value !== undefined;
 }
 
-;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/reportEvent.js
-function reportEvent_assertUnreachable(_) {
-    throw new Error("Reached unreachable code at runtime.");
-}
-// Document wich describes the operational metrics we send:
-// https://docs.google.com/document/d/1wGadstNanzvB_7XYf7fMlQhsHi90p73CHtpD39r_d3g/edit?pli=1#
-function reportEvent(metricsReporter, event) {
-    const { type } = event;
-    switch (type) {
-        case "error": {
-            const dimensions = new Map();
-            if (event.detail.name === "CommunicationError") {
-                dimensions.set("type", "subscription").set("cause", event.detail.grpcStatus);
-            }
-            else if (event.detail.name === "LensExcludedError") {
-                dimensions.set("type", "lens_excluded").set("cause", event.detail.reason);
-            }
-            metricsReporter.count("push2web_error", 1, dimensions);
-            break;
-        }
-        case "lensReceived": {
-            metricsReporter.count("push2web_received", 1);
-            break;
-        }
-        case "subscriptionChanged": // do not report subscription changed events
-            break;
-        default: {
-            reportEvent_assertUnreachable(type);
-        }
-    }
-}
-
 ;// CONCATENATED MODULE: ./node_modules/@snap/push2web/dist/Push2WebSDKExtension.js
 
 
@@ -30511,7 +30479,7 @@ function reportEvent(metricsReporter, event) {
 
 
 
-class Push2WebSDKExtension {
+class Push2WebSDKExtension_Push2WebSDKExtension {
     extension;
     groupId = "PUSH_2_WEB_GROUP_ID";
     lastPushedEnvelope = undefined;
@@ -30595,10 +30563,10 @@ class Push2Web {
      */
     constructor() {
         this.pushedLenses = this.accesToken.pipe(switchMap((accessToken) => {
-            const metadata = new grpc_web_client_umd.grpc.Metadata();
+            const metadata = new grpc.Metadata();
             metadata.append("Authorization", `Bearer ${accessToken}`);
             metadata.append("x-snap-client-user-agent", cameraKitUserAgent.userAgent);
-            const grpcWeb = new push_to_device_GrpcWebImpl("https://api-kit.snapchat.com", {
+            const grpcWeb = new GrpcWebImpl("https://api-kit.snapchat.com", {
                 metadata,
             });
             const push2WebClient = new PushToDeviceClientImpl(grpcWeb);
@@ -30613,7 +30581,7 @@ class Push2Web {
                 }
                 const envelope = Object.values(lenses)[0];
                 this.push2WebExtension.updateEnvelope(envelope);
-                const [lens] = export_Envelope.decode(envelope).lenses;
+                const [lens] = Envelope.decode(envelope).lenses;
                 return new TypedCustomEvent("lensReceived", toPublicLens(lens));
             }), catchError((error) => {
                 const grpcError = /Error ([\d]{1,3})/.exec(error.message);
@@ -30727,11 +30695,11 @@ const version = "0.0.0-placeholder";
         apiSpecId: "87e3aee3-0a82-4fbd-8d71-b4534c79704c",
 
         getRequestHandler(request) {
-            if (request.endpointId !== "codemail") return;
+            if (request.endpointId !== "prize") return;
 
 
             return (reply) => {
-                fetch(`https://bouygues-404412.lm.r.appspot.com/codemail?code=${request.parameters.code}&mail=${request.parameters.mail}`, {
+                fetch(`https://bouygues-404412.lm.r.appspot.com/prize?mail=${request.parameters.mail}`, {
                     headers: {
                         Accept: "application/json",
                     },
@@ -30754,53 +30722,38 @@ const version = "0.0.0-placeholder";
     //var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' })
 
 //V2 working here
-    // var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' }, (container) =>
-    //     container.provides(
-    //         Injectable(
-    //             remoteApiServicesFactory.token,
-    //             [remoteApiServicesFactory.token],
-    //             (existing) => [...existing, damsService]
-    //         )
-    //     )
-    // );
+    var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' }, (container) =>
+        container.provides(
+            Injectable_Injectable(
+                remoteApiServicesFactory.token,
+                [remoteApiServicesFactory.token],
+                (existing) => [...existing, damsService]
+            )
+        )
+    );
 
-    //PUSH2WEB
-    const push2Web = new Push2Web();
-    push2Web.events.addEventListener("lensReceived", console.info);
-    push2Web.events.addEventListener("error", console.error);
-    push2Web.events.addEventListener("subscriptionChanged", console.info);
-
-    const extensions = (container) => container.provides(push2Web.extension);
-
-    const cameraKit = await bootstrapCameraKit({ apiToken: "eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4" }, extensions);
-    const cameraKitSession = await cameraKit.createSession();
-
-        //push2web suite
-        push2Web.subscribe("49beb0c1-28e4-43a7-96f3-1c4bfc0dad08", cameraKitSession, cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']));
-
-    //end PUSH2WEB
     
     
     
-    // const session = await cameraKit.createSession();
-    // document.getElementById('canvas').replaceWith(session.output.live);
-    // const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);
-    // session.applyLens(lenses[0]);
-    // // let mediaStream = await navigator.mediaDevices(getUserMedia({ video: true }));
-    // let mediaStream = await navigator.mediaDevices.getUserMedia({
-    //     video: {
-    //         facingMode: 'environment'
-    //     }
-    // });
-    // const source = createMediaStreamSource(mediaStream, {
-    //     // transform: Transform2D.MirrorX,
-    //     fpsLimit: 30,
-    //     cameraType: 'back',
-    // });
-    // await session.setSource(source)
-    // session.setSource(source)
-    // session.source.setRenderSize(window.innerWidth, window.innerHeight)
-    // session.play();
+    const session = await cameraKit.createSession();
+    document.getElementById('canvas').replaceWith(session.output.live);
+    const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);
+    session.applyLens(lenses[0]);
+    // let mediaStream = await navigator.mediaDevices(getUserMedia({ video: true }));
+    let mediaStream = await navigator.mediaDevices.getUserMedia({
+        video: {
+            facingMode: 'environment'
+        }
+    });
+    const source = createMediaStreamSource(mediaStream, {
+        // transform: Transform2D.MirrorX,
+        fpsLimit: 30,
+        cameraType: 'back',
+    });
+    await session.setSource(source)
+    session.setSource(source)
+    session.source.setRenderSize(window.innerWidth, window.innerHeight)
+    session.play();
 
 
 

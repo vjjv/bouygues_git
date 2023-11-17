@@ -23,11 +23,11 @@ import { Push2Web } from "@snap/push2web";
         apiSpecId: "87e3aee3-0a82-4fbd-8d71-b4534c79704c",
 
         getRequestHandler(request) {
-            if (request.endpointId !== "codemail") return;
+            if (request.endpointId !== "prize") return;
 
 
             return (reply) => {
-                fetch(`https://bouygues-404412.lm.r.appspot.com/codemail?code=${request.parameters.code}&mail=${request.parameters.mail}`, {
+                fetch(`https://bouygues-404412.lm.r.appspot.com/prize?mail=${request.parameters.mail}`, {
                     headers: {
                         Accept: "application/json",
                     },
