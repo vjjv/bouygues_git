@@ -28046,8 +28046,8 @@ console.info(`SDK: ${environment_namespaceObject.l} \
                             metadata: {},
                             body: new TextEncoder().encode(res),
                         })
-                        // typeof(res);
-                        // console.log(res);
+                        console.log(typeof(res));
+                        console.log(res);
                     })
             };
         },
