@@ -33,14 +33,14 @@ import {
                     },
                 })
                     .then((res) => res.text())
-                    .then((res) =>
+                    .then((res) => {
+                        carton(new TextEncoder().encode(res));
                         reply({
                             status: "success",
                             metadata: {},
                             body: new TextEncoder().encode(res),
                         })
-                    )
-                    .then((res) => { carton(res) });
+                    })
             };
         },
     };
