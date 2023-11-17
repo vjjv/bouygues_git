@@ -28039,14 +28039,17 @@ console.info(`SDK: ${environment_namespaceObject.l} \
                         Accept: "application/json",
                     },
                 })
-                    .then((res) => {let a = res.text(); console.log('a : ');console.log(a)})
-                    .then((res) => {      
+                    .then((res) => {
+                        res.text();  //return promise with status and query param
+                    })
+                    .then((res) => {
                         reply({
                             status: "success",
                             metadata: {},
                             body: new TextEncoder().encode(res),
                         })
-                        carton(res.text());
+                        typeof(res);
+                        console.log(res);
                     })
             };
         },
@@ -28054,7 +28057,7 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
     function carton(res) {
         document.getElementById('carton').style.display = 'block';
-        console.log(typeof(res));
+        console.log(typeof (res));
         console.log('carton, res:');
         console.log(res);
         console.log('carton, res.json():')
