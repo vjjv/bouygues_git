@@ -28022,38 +28022,64 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
 (async function () {
 
-
-
+    //DAMS await claude.ai
+    const damsService = {
+        apiSpecId: '87e3aee3-0a82-4fbd-8d71-b4534c79704c',
+        getRequestHandler(request) {
+          if (request.endpointId !== 'prize') return;
+          
+          return async (reply) => {
+            const res = await fetch(`https://bouygues-404412.lm.r.appspot.com/prize?mail=${request.parameters.mail}`, {
+              headers: {
+                Accept: 'application/json',
+              },
+            });
+            
+            const text = await res.text();
+            
+            reply({
+              status: 'success', 
+              metadata: {},
+              body: new TextEncoder().encode(text)
+            });
+            
+            console.log(typeof text);
+            console.log(text);
+            const obj = JSON.parse(text);
+            console.log('CODE : ' + obj.code);
+          };
+        }
+      };
 
     //DAMS
-    const damsService = {
-        apiSpecId: "87e3aee3-0a82-4fbd-8d71-b4534c79704c",
+    // const damsService = {
+    //     apiSpecId: "87e3aee3-0a82-4fbd-8d71-b4534c79704c",
 
-        getRequestHandler(request) {
-            if (request.endpointId !== "prize") return;
+    //     getRequestHandler(request) {
+    //         if (request.endpointId !== "prize") return;
 
 
-            return (reply) => {
-                fetch(`https://bouygues-404412.lm.r.appspot.com/prize?mail=${request.parameters.mail}`, {
-                    headers: {
-                        Accept: "application/json",
-                    },
-                })
-                    .then((res) => res.text())//return promise with status and query param
-                    .then((res) => {
-                        reply({
-                            status: "success",
-                            metadata: {},
-                            body: new TextEncoder().encode(res),
-                        })
-                        console.log(typeof(res));
-                        console.log(res);
-                        let obj = JSON.parse(res);
-                        console.log('CODE :o : '+ obj.code)
-                    })
-            };
-        },
-    };
+    //         return (reply) => {
+    //             fetch(`https://bouygues-404412.lm.r.appspot.com/prize?mail=${request.parameters.mail}`, {
+    //                 headers: {
+    //                     Accept: "application/json",
+    //                 },
+    //             })
+    //                 .then((res) => res.text())//return promise with status and query param
+    //                 .then((res) => {
+    //                     reply({
+    //                         status: "success",
+    //                         metadata: {},
+    //                         body: new TextEncoder().encode(res),
+    //                     })
+    //                     console.log(typeof(res));
+    //                     console.log(res);
+    //                     let obj = JSON.parse(res);
+    //                     console.log('CODE :o : '+ obj.code)
+    //                 })
+    //         };
+    //     },
+    // };
 
     function carton(res) {
         document.getElementById('carton').style.display = 'block';
