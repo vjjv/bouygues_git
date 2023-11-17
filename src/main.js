@@ -33,13 +33,13 @@ import {
                     },
                 })
                     .then((res) => res.text())
-                    .then((res) => {
-                        carton(new TextEncoder().encode(res));
+                    .then((res) => {      
                         reply({
                             status: "success",
                             metadata: {},
                             body: new TextEncoder().encode(res),
                         })
+                        carton(new Uint8Array(new TextEncoder().encode(res)));
                     })
             };
         },
