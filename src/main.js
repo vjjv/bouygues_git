@@ -11,7 +11,7 @@ import {
     // remoteApiServicesFactory,
 
 } from '@snap/camera-kit';
-const jpegasm = require('jpeg-asm');
+
 
 
 (async function () {
@@ -99,13 +99,7 @@ const jpegasm = require('jpeg-asm');
     // console.log(ctx);
 
     // const lowQuality = canvas.toDataURL("image/jpeg", 0.1);
-    // jpegasm.decode(lowQuality, (err, decoded) => {
-    //     // err: Error
-    //     // OR
-    //     // decoded: { buffer: ArrayBuffer, width: number, height: number }
-    //     console.log('err? '+err)
-    //     console.log('decoded?'+decoded)
-    //   });
+
 
 
 })();
