@@ -28075,7 +28075,11 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
 
     const session = await cameraKit.createSession();
-    document.getElementById('canvas').replaceWith(session.output.live);
+    // document.getElementById('canvas').replaceWith(session.output.live);
+    // const canvasContainer = document.getElementById("canvas-container");
+    document.body.appendChild(session.output.live);
+
+
     const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);
     session.applyLens(lenses[0], { mail: "launch@param.com" });
     // let mediaStream = await navigator.mediaDevices(getUserMedia({ video: true }));
