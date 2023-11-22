@@ -100,34 +100,28 @@ import {
     // let ctx = session.output.live.getContext('webgl2');
     // console.log(ctx);
 
-    setTimeout(()=>{
-        // const lowQuality = canvas.toDataURL("image/png", 0.1);
-        // var dataUri = canvas.toDataURL('image/png');
-        var dataUri = canvas.toDataURL({
-            format: 'png',
-            left: 0,
-            top: 0,
-            width: 1,
-            height: 1
-        })
+    var reader;
+    setInterval(()=>{
+        const dataUri = canvas.toDataURL("image/png");
         var data = dataUri.split(',')[1];
-        var mimeType = dataUri.split(';')[0].slice(5)
-    
+        var mimeType = dataUri.split(';')[0].slice(5);
         var bytes = window.atob(data);
-        let crop = canvas.toDataURL({
-            format: 'png',
-            left: 0,
-            top: 0,
-            width: 10,
-            height: 10
-        })
-        var reader = new PNGReader(bytes);
+        reader = new PNGReader(bytes);
         reader.parse(function(err, png){
             if (err) throw err;
             console.log(png);
             let rgba = png.getPixel(0, 0);
             console.log(rgba[0],rgba[1],rgba[2],rgba[3],);
         });
+        //
+        // var image = canvas.toDataURL({
+        //     format: 'png',
+        //     left: 0,
+        //     top: 0,
+        //     width: 1,
+        //     height: 1
+        // }).replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
+        // window.location.href=image; // it will save locally
 
     },2000)
 
