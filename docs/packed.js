@@ -1,14 +1,15 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ 37:
-/***/ (function(module) {
+/***/ 3037:
+/***/ (function(module, __unused_webpack_exports, __webpack_require__) {
 
+/* provided dependency */ var console = __webpack_require__(5108);
 !function(e,t){if(true)module.exports=t();else { var n, r; }}(this,(function(){return e={418:function(e,t){!function(e,t){for(var r in t)e[r]=t[r]}(t,function(e){var t={};function r(n){if(t[n])return t[n].exports;var o=t[n]={i:n,l:!1,exports:{}};return e[n].call(o.exports,o,o.exports,r),o.l=!0,o.exports}return r.m=e,r.c=t,r.i=function(e){return e},r.d=function(e,t,n){r.o(e,t)||Object.defineProperty(e,t,{configurable:!1,enumerable:!0,get:n})},r.n=function(e){var t=e&&e.__esModule?function(){return e.default}:function(){return e};return r.d(t,"a",t),t},r.o=function(e,t){return Object.prototype.hasOwnProperty.call(e,t)},r.p="",r(r.s=1)}([function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(3),o=function(){function e(e,t){void 0===e&&(e={}),void 0===t&&(t={splitValues:!1});var r,o=this;this.headersMap={},e&&("undefined"!=typeof Headers&&e instanceof Headers?n.getHeaderKeys(e).forEach((function(r){n.getHeaderValues(e,r).forEach((function(e){t.splitValues?o.append(r,n.splitHeaderValue(e)):o.append(r,e)}))})):"object"==typeof(r=e)&&"object"==typeof r.headersMap&&"function"==typeof r.forEach?e.forEach((function(e,t){o.append(e,t)})):"undefined"!=typeof Map&&e instanceof Map?e.forEach((function(e,t){o.append(t,e)})):"string"==typeof e?this.appendFromString(e):"object"==typeof e&&Object.getOwnPropertyNames(e).forEach((function(t){var r=e[t];Array.isArray(r)?r.forEach((function(e){o.append(t,e)})):o.append(t,r)})))}return e.prototype.appendFromString=function(e){for(var t=e.split("\r\n"),r=0;r<t.length;r++){var n=t[r],o=n.indexOf(":");if(o>0){var s=n.substring(0,o).trim(),i=n.substring(o+1).trim();this.append(s,i)}}},e.prototype.delete=function(e,t){var r=n.normalizeName(e);if(void 0===t)delete this.headersMap[r];else{var o=this.headersMap[r];if(o){var s=o.indexOf(t);s>=0&&o.splice(s,1),0===o.length&&delete this.headersMap[r]}}},e.prototype.append=function(e,t){var r=this,o=n.normalizeName(e);Array.isArray(this.headersMap[o])||(this.headersMap[o]=[]),Array.isArray(t)?t.forEach((function(e){r.headersMap[o].push(n.normalizeValue(e))})):this.headersMap[o].push(n.normalizeValue(t))},e.prototype.set=function(e,t){var r=n.normalizeName(e);if(Array.isArray(t)){var o=[];t.forEach((function(e){o.push(n.normalizeValue(e))})),this.headersMap[r]=o}else this.headersMap[r]=[n.normalizeValue(t)]},e.prototype.has=function(e,t){var r=this.headersMap[n.normalizeName(e)];if(!Array.isArray(r))return!1;if(void 0!==t){var o=n.normalizeValue(t);return r.indexOf(o)>=0}return!0},e.prototype.get=function(e){var t=this.headersMap[n.normalizeName(e)];return void 0!==t?t.concat():[]},e.prototype.forEach=function(e){var t=this;Object.getOwnPropertyNames(this.headersMap).forEach((function(r){e(r,t.headersMap[r])}),this)},e.prototype.toHeaders=function(){if("undefined"!=typeof Headers){var e=new Headers;return this.forEach((function(t,r){r.forEach((function(r){e.append(t,r)}))})),e}throw new Error("Headers class is not defined")},e}();t.BrowserHeaders=o},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(0);t.BrowserHeaders=n.BrowserHeaders},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.iterateHeaders=function(e,t){for(var r=e[Symbol.iterator](),n=r.next();!n.done;)t(n.value[0]),n=r.next()},t.iterateHeadersKeys=function(e,t){for(var r=e.keys(),n=r.next();!n.done;)t(n.value),n=r.next()}},function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0});var n=r(2);t.normalizeName=function(e){if("string"!=typeof e&&(e=String(e)),/[^a-z0-9\-#$%&'*+.\^_`|~]/i.test(e))throw new TypeError("Invalid character in header field name");return e.toLowerCase()},t.normalizeValue=function(e){return"string"!=typeof e&&(e=String(e)),e},t.getHeaderValues=function(e,t){var r=e;if(r instanceof Headers&&r.getAll)return r.getAll(t);var n=r.get(t);return n&&"string"==typeof n?[n]:n},t.getHeaderKeys=function(e){var t=e,r={},o=[];return t.keys?n.iterateHeadersKeys(t,(function(e){r[e]||(r[e]=!0,o.push(e))})):t.forEach?t.forEach((function(e,t){r[t]||(r[t]=!0,o.push(t))})):n.iterateHeaders(t,(function(e){var t=e[0];r[t]||(r[t]=!0,o.push(t))})),o},t.splitHeaderValue=function(e){var t=[];return e.split(", ").forEach((function(e){e.split(",").forEach((function(e){t.push(e)}))})),t}}]))},617:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.ChunkParser=t.ChunkType=t.encodeASCII=t.decodeASCII=void 0;var n,o=r(65);function s(e){return 9===(t=e)||10===t||13===t||e>=32&&e<=126;var t}function i(e){for(var t=0;t!==e.length;++t)if(!s(e[t]))throw new Error("Metadata is not valid (printable) ASCII");return String.fromCharCode.apply(String,Array.prototype.slice.call(e))}function a(e){return 128==(128&e.getUint8(0))}function u(e){return e.getUint32(1,!1)}function d(e,t,r){return e.byteLength-t>=r}function c(e,t,r){if(e.slice)return e.slice(t,r);var n=e.length;void 0!==r&&(n=r);for(var o=new Uint8Array(n-t),s=0,i=t;i<n;i++)o[s++]=e[i];return o}t.decodeASCII=i,t.encodeASCII=function(e){for(var t=new Uint8Array(e.length),r=0;r!==e.length;++r){var n=e.charCodeAt(r);if(!s(n))throw new Error("Metadata contains invalid ASCII");t[r]=n}return t},function(e){e[e.MESSAGE=1]="MESSAGE",e[e.TRAILERS=2]="TRAILERS"}(n=t.ChunkType||(t.ChunkType={}));var p=function(){function e(){this.buffer=null,this.position=0}return e.prototype.parse=function(e,t){if(0===e.length&&t)return[];var r,s=[];if(null==this.buffer)this.buffer=e,this.position=0;else if(this.position===this.buffer.byteLength)this.buffer=e,this.position=0;else{var p=this.buffer.byteLength-this.position,h=new Uint8Array(p+e.byteLength),f=c(this.buffer,this.position);h.set(f,0);var l=new Uint8Array(e);h.set(l,p),this.buffer=h,this.position=0}for(;;){if(!d(this.buffer,this.position,5))return s;var g=c(this.buffer,this.position,this.position+5),b=new DataView(g.buffer,g.byteOffset,g.byteLength),y=u(b);if(!d(this.buffer,this.position,5+y))return s;var v=c(this.buffer,this.position+5,this.position+5+y);if(this.position+=5+y,a(b))return s.push({chunkType:n.TRAILERS,trailers:(r=v,new o.Metadata(i(r)))}),s;s.push({chunkType:n.MESSAGE,data:v})}},e}();t.ChunkParser=p},8:function(e,t){"use strict";var r;Object.defineProperty(t,"__esModule",{value:!0}),t.httpStatusToCode=t.Code=void 0,function(e){e[e.OK=0]="OK",e[e.Canceled=1]="Canceled",e[e.Unknown=2]="Unknown",e[e.InvalidArgument=3]="InvalidArgument",e[e.DeadlineExceeded=4]="DeadlineExceeded",e[e.NotFound=5]="NotFound",e[e.AlreadyExists=6]="AlreadyExists",e[e.PermissionDenied=7]="PermissionDenied",e[e.ResourceExhausted=8]="ResourceExhausted",e[e.FailedPrecondition=9]="FailedPrecondition",e[e.Aborted=10]="Aborted",e[e.OutOfRange=11]="OutOfRange",e[e.Unimplemented=12]="Unimplemented",e[e.Internal=13]="Internal",e[e.Unavailable=14]="Unavailable",e[e.DataLoss=15]="DataLoss",e[e.Unauthenticated=16]="Unauthenticated"}(r=t.Code||(t.Code={})),t.httpStatusToCode=function(e){switch(e){case 0:return r.Internal;case 200:return r.OK;case 400:return r.InvalidArgument;case 401:return r.Unauthenticated;case 403:return r.PermissionDenied;case 404:return r.NotFound;case 409:return r.Aborted;case 412:return r.FailedPrecondition;case 429:return r.ResourceExhausted;case 499:return r.Canceled;case 500:return r.Unknown;case 501:return r.Unimplemented;case 503:return r.Unavailable;case 504:return r.DeadlineExceeded;default:return r.Unknown}}},934:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.client=void 0;var n=r(65),o=r(617),s=r(8),i=r(346),a=r(57),u=r(882);t.client=function(e,t){return new d(e,t)};var d=function(){function e(e,t){this.started=!1,this.sentFirstMessage=!1,this.completed=!1,this.closed=!1,this.finishedSending=!1,this.onHeadersCallbacks=[],this.onMessageCallbacks=[],this.onEndCallbacks=[],this.parser=new o.ChunkParser,this.methodDefinition=e,this.props=t,this.createTransport()}return e.prototype.createTransport=function(){var e=this.props.host+"/"+this.methodDefinition.service.serviceName+"/"+this.methodDefinition.methodName,t={methodDefinition:this.methodDefinition,debug:this.props.debug||!1,url:e,onHeaders:this.onTransportHeaders.bind(this),onChunk:this.onTransportChunk.bind(this),onEnd:this.onTransportEnd.bind(this)};this.props.transport?this.transport=this.props.transport(t):this.transport=a.makeDefaultTransport(t)},e.prototype.onTransportHeaders=function(e,t){if(this.props.debug&&i.debug("onHeaders",e,t),this.closed)this.props.debug&&i.debug("grpc.onHeaders received after request was closed - ignoring");else if(0===t);else{this.responseHeaders=e,this.props.debug&&i.debug("onHeaders.responseHeaders",JSON.stringify(this.responseHeaders,null,2));var r=c(e);this.props.debug&&i.debug("onHeaders.gRPCStatus",r);var n=r&&r>=0?r:s.httpStatusToCode(t);this.props.debug&&i.debug("onHeaders.code",n);var o=e.get("grpc-message")||[];if(this.props.debug&&i.debug("onHeaders.gRPCMessage",o),this.rawOnHeaders(e),n!==s.Code.OK){var a=this.decodeGRPCStatus(o[0]);this.rawOnError(n,a,e)}}},e.prototype.onTransportChunk=function(e){var t=this;if(this.closed)this.props.debug&&i.debug("grpc.onChunk received after request was closed - ignoring");else{var r=[];try{r=this.parser.parse(e)}catch(e){return this.props.debug&&i.debug("onChunk.parsing error",e,e.message),void this.rawOnError(s.Code.Internal,"parsing error: "+e.message)}r.forEach((function(e){if(e.chunkType===o.ChunkType.MESSAGE){var r=t.methodDefinition.responseType.deserializeBinary(e.data);t.rawOnMessage(r)}else e.chunkType===o.ChunkType.TRAILERS&&(t.responseHeaders?(t.responseTrailers=new n.Metadata(e.trailers),t.props.debug&&i.debug("onChunk.trailers",t.responseTrailers)):(t.responseHeaders=new n.Metadata(e.trailers),t.rawOnHeaders(t.responseHeaders)))}))}},e.prototype.onTransportEnd=function(){if(this.props.debug&&i.debug("grpc.onEnd"),this.closed)this.props.debug&&i.debug("grpc.onEnd received after request was closed - ignoring");else if(void 0!==this.responseTrailers){var e=c(this.responseTrailers);if(null!==e){var t=this.responseTrailers.get("grpc-message"),r=this.decodeGRPCStatus(t[0]);this.rawOnEnd(e,r,this.responseTrailers)}else this.rawOnError(s.Code.Internal,"Response closed without grpc-status (Trailers provided)")}else{if(void 0===this.responseHeaders)return void this.rawOnError(s.Code.Unknown,"Response closed without headers");var n=c(this.responseHeaders),o=this.responseHeaders.get("grpc-message");if(this.props.debug&&i.debug("grpc.headers only response ",n,o),null===n)return void this.rawOnEnd(s.Code.Unknown,"Response closed without grpc-status (Headers only)",this.responseHeaders);var a=this.decodeGRPCStatus(o[0]);this.rawOnEnd(n,a,this.responseHeaders)}},e.prototype.decodeGRPCStatus=function(e){if(!e)return"";try{return decodeURIComponent(e)}catch(t){return e}},e.prototype.rawOnEnd=function(e,t,r){var n=this;this.props.debug&&i.debug("rawOnEnd",e,t,r),this.completed||(this.completed=!0,this.onEndCallbacks.forEach((function(o){if(!n.closed)try{o(e,t,r)}catch(e){setTimeout((function(){throw e}),0)}})))},e.prototype.rawOnHeaders=function(e){this.props.debug&&i.debug("rawOnHeaders",e),this.completed||this.onHeadersCallbacks.forEach((function(t){try{t(e)}catch(e){setTimeout((function(){throw e}),0)}}))},e.prototype.rawOnError=function(e,t,r){var o=this;void 0===r&&(r=new n.Metadata),this.props.debug&&i.debug("rawOnError",e,t),this.completed||(this.completed=!0,this.onEndCallbacks.forEach((function(n){if(!o.closed)try{n(e,t,r)}catch(e){setTimeout((function(){throw e}),0)}})))},e.prototype.rawOnMessage=function(e){var t=this;this.props.debug&&i.debug("rawOnMessage",e.toObject()),this.completed||this.closed||this.onMessageCallbacks.forEach((function(r){if(!t.closed)try{r(e)}catch(e){setTimeout((function(){throw e}),0)}}))},e.prototype.onHeaders=function(e){this.onHeadersCallbacks.push(e)},e.prototype.onMessage=function(e){this.onMessageCallbacks.push(e)},e.prototype.onEnd=function(e){this.onEndCallbacks.push(e)},e.prototype.start=function(e){if(this.started)throw new Error("Client already started - cannot .start()");this.started=!0;var t=new n.Metadata(e||{});t.set("content-type","application/grpc-web+proto"),t.set("x-grpc-web","1"),this.transport.start(t)},e.prototype.send=function(e){if(!this.started)throw new Error("Client not started - .start() must be called before .send()");if(this.closed)throw new Error("Client already closed - cannot .send()");if(this.finishedSending)throw new Error("Client already finished sending - cannot .send()");if(!this.methodDefinition.requestStream&&this.sentFirstMessage)throw new Error("Message already sent for non-client-streaming method - cannot .send()");this.sentFirstMessage=!0;var t=u.frameRequest(e);this.transport.sendMessage(t)},e.prototype.finishSend=function(){if(!this.started)throw new Error("Client not started - .finishSend() must be called before .close()");if(this.closed)throw new Error("Client already closed - cannot .send()");if(this.finishedSending)throw new Error("Client already finished sending - cannot .finishSend()");this.finishedSending=!0,this.transport.finishSend()},e.prototype.close=function(){if(!this.started)throw new Error("Client not started - .start() must be called before .close()");if(this.closed)throw new Error("Client already closed - cannot .close()");this.closed=!0,this.props.debug&&i.debug("request.abort aborting request"),this.transport.cancel()},e}();function c(e){var t=e.get("grpc-status")||[];if(t.length>0)try{var r=t[0];return parseInt(r,10)}catch(e){return null}return null}},346:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.debug=void 0,t.debug=function(){for(var e=[],t=0;t<arguments.length;t++)e[t]=arguments[t];console.debug?console.debug.apply(null,e):console.log.apply(null,e)}},607:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.grpc=void 0;var n,o=r(418),s=r(57),i=r(229),a=r(540),u=r(210),d=r(859),c=r(8),p=r(938),h=r(35),f=r(934);(n=t.grpc||(t.grpc={})).setDefaultTransport=s.setDefaultTransportFactory,n.CrossBrowserHttpTransport=d.CrossBrowserHttpTransport,n.FetchReadableStreamTransport=i.FetchReadableStreamTransport,n.XhrTransport=u.XhrTransport,n.WebsocketTransport=a.WebsocketTransport,n.Code=c.Code,n.Metadata=o.BrowserHeaders,n.client=function(e,t){return f.client(e,t)},n.invoke=p.invoke,n.unary=h.unary},938:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.invoke=void 0;var n=r(934);t.invoke=function(e,t){if(e.requestStream)throw new Error(".invoke cannot be used with client-streaming methods. Use .client instead.");var r=n.client(e,{host:t.host,transport:t.transport,debug:t.debug});return t.onHeaders&&r.onHeaders(t.onHeaders),t.onMessage&&r.onMessage(t.onMessage),t.onEnd&&r.onEnd(t.onEnd),r.start(t.metadata),r.send(t.request),r.finishSend(),{close:function(){r.close()}}}},65:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.Metadata=void 0;var n=r(418);Object.defineProperty(t,"Metadata",{enumerable:!0,get:function(){return n.BrowserHeaders}})},57:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.makeDefaultTransport=t.setDefaultTransportFactory=void 0;var n=r(859),o=function(e){return n.CrossBrowserHttpTransport({withCredentials:!1})(e)};t.setDefaultTransportFactory=function(e){o=e},t.makeDefaultTransport=function(e){return o(e)}},229:function(e,t,r){"use strict";var n=this&&this.__assign||function(){return(n=Object.assign||function(e){for(var t,r=1,n=arguments.length;r<n;r++)for(var o in t=arguments[r])Object.prototype.hasOwnProperty.call(t,o)&&(e[o]=t[o]);return e}).apply(this,arguments)};Object.defineProperty(t,"__esModule",{value:!0}),t.detectFetchSupport=t.FetchReadableStreamTransport=void 0;var o=r(65),s=r(346);t.FetchReadableStreamTransport=function(e){return function(t){return function(e,t){return e.debug&&s.debug("fetchRequest",e),new i(e,t)}(t,e)}};var i=function(){function e(e,t){this.cancelled=!1,this.controller=self.AbortController&&new AbortController,this.options=e,this.init=t}return e.prototype.pump=function(e,t){var r=this;if(this.reader=e,this.cancelled)return this.options.debug&&s.debug("Fetch.pump.cancel at first pump"),void this.reader.cancel().catch((function(e){r.options.debug&&s.debug("Fetch.pump.reader.cancel exception",e)}));this.reader.read().then((function(e){if(e.done)return r.options.onEnd(),t;r.options.onChunk(e.value),r.pump(r.reader,t)})).catch((function(e){r.cancelled?r.options.debug&&s.debug("Fetch.catch - request cancelled"):(r.cancelled=!0,r.options.debug&&s.debug("Fetch.catch",e.message),r.options.onEnd(e))}))},e.prototype.send=function(e){var t=this;fetch(this.options.url,n(n({},this.init),{headers:this.metadata.toHeaders(),method:"POST",body:e,signal:this.controller&&this.controller.signal})).then((function(e){if(t.options.debug&&s.debug("Fetch.response",e),t.options.onHeaders(new o.Metadata(e.headers),e.status),!e.body)return e;t.pump(e.body.getReader(),e)})).catch((function(e){t.cancelled?t.options.debug&&s.debug("Fetch.catch - request cancelled"):(t.cancelled=!0,t.options.debug&&s.debug("Fetch.catch",e.message),t.options.onEnd(e))}))},e.prototype.sendMessage=function(e){this.send(e)},e.prototype.finishSend=function(){},e.prototype.start=function(e){this.metadata=e},e.prototype.cancel=function(){var e=this;this.cancelled?this.options.debug&&s.debug("Fetch.cancel already cancelled"):(this.cancelled=!0,this.controller?(this.options.debug&&s.debug("Fetch.cancel.controller.abort"),this.controller.abort()):this.options.debug&&s.debug("Fetch.cancel.missing abort controller"),this.reader?(this.options.debug&&s.debug("Fetch.cancel.reader.cancel"),this.reader.cancel().catch((function(t){e.options.debug&&s.debug("Fetch.cancel.reader.cancel exception",t)}))):this.options.debug&&s.debug("Fetch.cancel before reader"))},e}();t.detectFetchSupport=function(){return"undefined"!=typeof Response&&Response.prototype.hasOwnProperty("body")&&"function"==typeof Headers}},859:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.CrossBrowserHttpTransport=void 0;var n=r(229),o=r(210);t.CrossBrowserHttpTransport=function(e){if(n.detectFetchSupport()){var t={credentials:e.withCredentials?"include":"same-origin"};return n.FetchReadableStreamTransport(t)}return o.XhrTransport({withCredentials:e.withCredentials})}},210:function(e,t,r){"use strict";var n,o=this&&this.__extends||(n=function(e,t){return(n=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(e,t){e.__proto__=t}||function(e,t){for(var r in t)Object.prototype.hasOwnProperty.call(t,r)&&(e[r]=t[r])})(e,t)},function(e,t){function r(){this.constructor=e}n(e,t),e.prototype=null===t?Object.create(t):(r.prototype=t.prototype,new r)});Object.defineProperty(t,"__esModule",{value:!0}),t.stringToArrayBuffer=t.MozChunkedArrayBufferXHR=t.XHR=t.XhrTransport=void 0;var s=r(65),i=r(346),a=r(849);t.XhrTransport=function(e){return function(t){if(a.detectMozXHRSupport())return new d(t,e);if(a.detectXHROverrideMimeTypeSupport())return new u(t,e);throw new Error("This environment's XHR implementation cannot support binary transfer.")}};var u=function(){function e(e,t){this.options=e,this.init=t}return e.prototype.onProgressEvent=function(){this.options.debug&&i.debug("XHR.onProgressEvent.length: ",this.xhr.response.length);var e=this.xhr.response.substr(this.index);this.index=this.xhr.response.length;var t=p(e);this.options.onChunk(t)},e.prototype.onLoadEvent=function(){this.options.debug&&i.debug("XHR.onLoadEvent"),this.options.onEnd()},e.prototype.onStateChange=function(){this.options.debug&&i.debug("XHR.onStateChange",this.xhr.readyState),this.xhr.readyState===XMLHttpRequest.HEADERS_RECEIVED&&this.options.onHeaders(new s.Metadata(this.xhr.getAllResponseHeaders()),this.xhr.status)},e.prototype.sendMessage=function(e){this.xhr.send(e)},e.prototype.finishSend=function(){},e.prototype.start=function(e){var t=this;this.metadata=e;var r=new XMLHttpRequest;this.xhr=r,r.open("POST",this.options.url),this.configureXhr(),this.metadata.forEach((function(e,t){r.setRequestHeader(e,t.join(", "))})),r.withCredentials=Boolean(this.init.withCredentials),r.addEventListener("readystatechange",this.onStateChange.bind(this)),r.addEventListener("progress",this.onProgressEvent.bind(this)),r.addEventListener("loadend",this.onLoadEvent.bind(this)),r.addEventListener("error",(function(e){t.options.debug&&i.debug("XHR.error",e),t.options.onEnd(e.error)}))},e.prototype.configureXhr=function(){this.xhr.responseType="text",this.xhr.overrideMimeType("text/plain; charset=x-user-defined")},e.prototype.cancel=function(){this.options.debug&&i.debug("XHR.abort"),this.xhr.abort()},e}();t.XHR=u;var d=function(e){function t(){return null!==e&&e.apply(this,arguments)||this}return o(t,e),t.prototype.configureXhr=function(){this.options.debug&&i.debug("MozXHR.configureXhr: setting responseType to 'moz-chunked-arraybuffer'"),this.xhr.responseType="moz-chunked-arraybuffer"},t.prototype.onProgressEvent=function(){var e=this.xhr.response;this.options.debug&&i.debug("MozXHR.onProgressEvent: ",new Uint8Array(e)),this.options.onChunk(new Uint8Array(e))},t}(u);function c(e,t){var r=e.charCodeAt(t);if(r>=55296&&r<=56319){var n=e.charCodeAt(t+1);n>=56320&&n<=57343&&(r=65536+(r-55296<<10)+(n-56320))}return r}function p(e){for(var t=new Uint8Array(e.length),r=0,n=0;n<e.length;n++){var o=String.prototype.codePointAt?e.codePointAt(n):c(e,n);t[r++]=255&o}return t}t.MozChunkedArrayBufferXHR=d,t.stringToArrayBuffer=p},849:function(e,t){"use strict";var r;function n(){if(void 0!==r)return r;if(XMLHttpRequest){r=new XMLHttpRequest;try{r.open("GET","https://localhost")}catch(e){}}return r}function o(e){var t=n();if(!t)return!1;try{return t.responseType=e,t.responseType===e}catch(e){}return!1}Object.defineProperty(t,"__esModule",{value:!0}),t.detectXHROverrideMimeTypeSupport=t.detectMozXHRSupport=t.xhrSupportsResponseType=void 0,t.xhrSupportsResponseType=o,t.detectMozXHRSupport=function(){return"undefined"!=typeof XMLHttpRequest&&o("moz-chunked-arraybuffer")},t.detectXHROverrideMimeTypeSupport=function(){return"undefined"!=typeof XMLHttpRequest&&XMLHttpRequest.prototype.hasOwnProperty("overrideMimeType")}},540:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.WebsocketTransport=void 0;var n,o=r(346),s=r(617);!function(e){e[e.FINISH_SEND=1]="FINISH_SEND"}(n||(n={}));var i=new Uint8Array([1]);t.WebsocketTransport=function(){return function(e){return function(e){e.debug&&o.debug("websocketRequest",e);var t,r=function(e){if("https://"===e.substr(0,8))return"wss://"+e.substr(8);if("http://"===e.substr(0,7))return"ws://"+e.substr(7);throw new Error("Websocket transport constructed with non-https:// or http:// host.")}(e.url),a=[];function u(e){if(e===n.FINISH_SEND)t.send(i);else{var r=e,o=new Int8Array(r.byteLength+1);o.set(new Uint8Array([0])),o.set(r,1),t.send(o)}}return{sendMessage:function(e){t&&t.readyState!==t.CONNECTING?u(e):a.push(e)},finishSend:function(){t&&t.readyState!==t.CONNECTING?u(n.FINISH_SEND):a.push(n.FINISH_SEND)},start:function(n){(t=new WebSocket(r,["grpc-websockets"])).binaryType="arraybuffer",t.onopen=function(){var r;e.debug&&o.debug("websocketRequest.onopen"),t.send((r="",n.forEach((function(e,t){r+=e+": "+t.join(", ")+"\r\n"})),s.encodeASCII(r))),a.forEach((function(e){u(e)}))},t.onclose=function(t){e.debug&&o.debug("websocketRequest.onclose",t),e.onEnd()},t.onerror=function(t){e.debug&&o.debug("websocketRequest.onerror",t)},t.onmessage=function(t){e.onChunk(new Uint8Array(t.data))}},cancel:function(){e.debug&&o.debug("websocket.abort"),t.close()}}}(e)}}},35:function(e,t,r){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.unary=void 0;var n=r(65),o=r(934);t.unary=function(e,t){if(e.responseStream)throw new Error(".unary cannot be used with server-streaming methods. Use .invoke or .client instead.");if(e.requestStream)throw new Error(".unary cannot be used with client-streaming methods. Use .client instead.");var r=null,s=null,i=o.client(e,{host:t.host,transport:t.transport,debug:t.debug});return i.onHeaders((function(e){r=e})),i.onMessage((function(e){s=e})),i.onEnd((function(e,o,i){t.onEnd({status:e,statusMessage:o,headers:r||new n.Metadata,message:s,trailers:i})})),i.start(t.metadata),i.send(t.request),i.finishSend(),{close:function(){i.close()}}}},882:function(e,t){"use strict";Object.defineProperty(t,"__esModule",{value:!0}),t.frameRequest=void 0,t.frameRequest=function(e){var t=e.serializeBinary(),r=new ArrayBuffer(t.byteLength+5);return new DataView(r,1,4).setUint32(0,t.length,!1),new Uint8Array(r,5).set(t),new Uint8Array(r)}}},t={},function r(n){if(t[n])return t[n].exports;var o=t[n]={exports:{}};return e[n].call(o.exports,o,o.exports,r),o.exports}(607);var e,t}));
 
 /***/ }),
 
-/***/ 537:
+/***/ 4537:
 /***/ ((module) => {
 
 "use strict";
@@ -68,7 +69,7 @@ function asPromise(fn, ctx/*, varargs */) {
 
 /***/ }),
 
-/***/ 419:
+/***/ 7419:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -215,7 +216,7 @@ base64.test = function test(string) {
 
 /***/ }),
 
-/***/ 211:
+/***/ 9211:
 /***/ ((module) => {
 
 "use strict";
@@ -642,7 +643,7 @@ function readUintBE(buf, pos) {
 
 /***/ }),
 
-/***/ 199:
+/***/ 7199:
 /***/ ((module) => {
 
 "use strict";
@@ -667,7 +668,7 @@ function inquire(moduleName) {
 
 /***/ }),
 
-/***/ 662:
+/***/ 6662:
 /***/ ((module) => {
 
 "use strict";
@@ -723,7 +724,7 @@ function pool(alloc, slice, size) {
 
 /***/ }),
 
-/***/ 997:
+/***/ 4997:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
@@ -836,7 +837,1977 @@ utf8.write = function utf8_write(string, buffer, offset) {
 
 /***/ }),
 
-/***/ 84:
+/***/ 9282:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+/* provided dependency */ var process = __webpack_require__(4155);
+/* provided dependency */ var console = __webpack_require__(5108);
+// Currently in sync with Node.js lib/assert.js
+// https://github.com/nodejs/node/commit/2a51ae424a513ec9a6aa3466baa0cc1d55dd4f3b
+
+// Originally from narwhal.js (http://narwhaljs.org)
+// Copyright (c) 2009 Thomas Robinson <280north.com>
+//
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the 'Software'), to
+// deal in the Software without restriction, including without limitation the
+// rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+// sell copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
+//
+// The above copyright notice and this permission notice shall be included in
+// all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN
+// ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+// WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+var _require = __webpack_require__(2136),
+  _require$codes = _require.codes,
+  ERR_AMBIGUOUS_ARGUMENT = _require$codes.ERR_AMBIGUOUS_ARGUMENT,
+  ERR_INVALID_ARG_TYPE = _require$codes.ERR_INVALID_ARG_TYPE,
+  ERR_INVALID_ARG_VALUE = _require$codes.ERR_INVALID_ARG_VALUE,
+  ERR_INVALID_RETURN_VALUE = _require$codes.ERR_INVALID_RETURN_VALUE,
+  ERR_MISSING_ARGS = _require$codes.ERR_MISSING_ARGS;
+var AssertionError = __webpack_require__(5961);
+var _require2 = __webpack_require__(9539),
+  inspect = _require2.inspect;
+var _require$types = (__webpack_require__(9539).types),
+  isPromise = _require$types.isPromise,
+  isRegExp = _require$types.isRegExp;
+var objectAssign = __webpack_require__(8162)();
+var objectIs = __webpack_require__(5624)();
+var RegExpPrototypeTest = __webpack_require__(1924)('RegExp.prototype.test');
+var errorCache = new Map();
+var isDeepEqual;
+var isDeepStrictEqual;
+var parseExpressionAt;
+var findNodeAround;
+var decoder;
+function lazyLoadComparison() {
+  var comparison = __webpack_require__(9158);
+  isDeepEqual = comparison.isDeepEqual;
+  isDeepStrictEqual = comparison.isDeepStrictEqual;
+}
+
+// Escape control characters but not \n and \t to keep the line breaks and
+// indentation intact.
+// eslint-disable-next-line no-control-regex
+var escapeSequencesRegExp = /[\x00-\x08\x0b\x0c\x0e-\x1f]/g;
+var meta = (/* unused pure expression or super */ null && (["\\u0000", "\\u0001", "\\u0002", "\\u0003", "\\u0004", "\\u0005", "\\u0006", "\\u0007", '\\b', '', '', "\\u000b", '\\f', '', "\\u000e", "\\u000f", "\\u0010", "\\u0011", "\\u0012", "\\u0013", "\\u0014", "\\u0015", "\\u0016", "\\u0017", "\\u0018", "\\u0019", "\\u001a", "\\u001b", "\\u001c", "\\u001d", "\\u001e", "\\u001f"]));
+var escapeFn = function escapeFn(str) {
+  return meta[str.charCodeAt(0)];
+};
+var warned = false;
+
+// The assert module provides functions that throw
+// AssertionError's when particular conditions are not met. The
+// assert module must conform to the following interface.
+
+var assert = module.exports = ok;
+var NO_EXCEPTION_SENTINEL = {};
+
+// All of the following functions must throw an AssertionError
+// when a corresponding condition is not met, with a message that
+// may be undefined if not provided. All assertion methods provide
+// both the actual and expected values to the assertion error for
+// display purposes.
+
+function innerFail(obj) {
+  if (obj.message instanceof Error) throw obj.message;
+  throw new AssertionError(obj);
+}
+function fail(actual, expected, message, operator, stackStartFn) {
+  var argsLen = arguments.length;
+  var internalMessage;
+  if (argsLen === 0) {
+    internalMessage = 'Failed';
+  } else if (argsLen === 1) {
+    message = actual;
+    actual = undefined;
+  } else {
+    if (warned === false) {
+      warned = true;
+      var warn = process.emitWarning ? process.emitWarning : console.warn.bind(console);
+      warn('assert.fail() with more than one argument is deprecated. ' + 'Please use assert.strictEqual() instead or only pass a message.', 'DeprecationWarning', 'DEP0094');
+    }
+    if (argsLen === 2) operator = '!=';
+  }
+  if (message instanceof Error) throw message;
+  var errArgs = {
+    actual: actual,
+    expected: expected,
+    operator: operator === undefined ? 'fail' : operator,
+    stackStartFn: stackStartFn || fail
+  };
+  if (message !== undefined) {
+    errArgs.message = message;
+  }
+  var err = new AssertionError(errArgs);
+  if (internalMessage) {
+    err.message = internalMessage;
+    err.generatedMessage = true;
+  }
+  throw err;
+}
+assert.fail = fail;
+
+// The AssertionError is defined in internal/error.
+assert.AssertionError = AssertionError;
+function innerOk(fn, argLen, value, message) {
+  if (!value) {
+    var generatedMessage = false;
+    if (argLen === 0) {
+      generatedMessage = true;
+      message = 'No value argument passed to `assert.ok()`';
+    } else if (message instanceof Error) {
+      throw message;
+    }
+    var err = new AssertionError({
+      actual: value,
+      expected: true,
+      message: message,
+      operator: '==',
+      stackStartFn: fn
+    });
+    err.generatedMessage = generatedMessage;
+    throw err;
+  }
+}
+
+// Pure assertion tests whether a value is truthy, as determined
+// by !!value.
+function ok() {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+  innerOk.apply(void 0, [ok, args.length].concat(args));
+}
+assert.ok = ok;
+
+// The equality assertion tests shallow, coercive equality with ==.
+/* eslint-disable no-restricted-properties */
+assert.equal = function equal(actual, expected, message) {
+  if (arguments.length < 2) {
+    throw new ERR_MISSING_ARGS('actual', 'expected');
+  }
+  // eslint-disable-next-line eqeqeq
+  if (actual != expected) {
+    innerFail({
+      actual: actual,
+      expected: expected,
+      message: message,
+      operator: '==',
+      stackStartFn: equal
+    });
+  }
+};
+
+// The non-equality assertion tests for whether two objects are not
+// equal with !=.
+assert.notEqual = function notEqual(actual, expected, message) {
+  if (arguments.length < 2) {
+    throw new ERR_MISSING_ARGS('actual', 'expected');
+  }
+  // eslint-disable-next-line eqeqeq
+  if (actual == expected) {
+    innerFail({
+      actual: actual,
+      expected: expected,
+      message: message,
+      operator: '!=',
+      stackStartFn: notEqual
+    });
+  }
+};
+
+// The equivalence assertion tests a deep equality relation.
+assert.deepEqual = function deepEqual(actual, expected, message) {
+  if (arguments.length < 2) {
+    throw new ERR_MISSING_ARGS('actual', 'expected');
+  }
+  if (isDeepEqual === undefined) lazyLoadComparison();
+  if (!isDeepEqual(actual, expected)) {
+    innerFail({
+      actual: actual,
+      expected: expected,
+      message: message,
+      operator: 'deepEqual',
+      stackStartFn: deepEqual
+    });
+  }
+};
+
+// The non-equivalence assertion tests for any deep inequality.
+assert.notDeepEqual = function notDeepEqual(actual, expected, message) {
+  if (arguments.length < 2) {
+    throw new ERR_MISSING_ARGS('actual', 'expected');
+  }
+  if (isDeepEqual === undefined) lazyLoadComparison();
+  if (isDeepEqual(actual, expected)) {
+    innerFail({
+      actual: actual,
+      expected: expected,
+      message: message,
+      operator: 'notDeepEqual',
+      stackStartFn: notDeepEqual
+    });
+  }
+};
+/* eslint-enable */
+
+assert.deepStrictEqual = function deepStrictEqual(actual, expected, message) {
+  if (arguments.length < 2) {
+    throw new ERR_MISSING_ARGS('actual', 'expected');
+  }
+  if (isDeepEqual === undefined) lazyLoadComparison();
+  if (!isDeepStrictEqual(actual, expected)) {
+    innerFail({
+      actual: actual,
+      expected: expected,
+      message: message,
+      operator: 'deepStrictEqual',
+      stackStartFn: deepStrictEqual
+    });
+  }
+};
+assert.notDeepStrictEqual = notDeepStrictEqual;
+function notDeepStrictEqual(actual, expected, message) {
+  if (arguments.length < 2) {
+    throw new ERR_MISSING_ARGS('actual', 'expected');
+  }
+  if (isDeepEqual === undefined) lazyLoadComparison();
+  if (isDeepStrictEqual(actual, expected)) {
+    innerFail({
+      actual: actual,
+      expected: expected,
+      message: message,
+      operator: 'notDeepStrictEqual',
+      stackStartFn: notDeepStrictEqual
+    });
+  }
+}
+assert.strictEqual = function strictEqual(actual, expected, message) {
+  if (arguments.length < 2) {
+    throw new ERR_MISSING_ARGS('actual', 'expected');
+  }
+  if (!objectIs(actual, expected)) {
+    innerFail({
+      actual: actual,
+      expected: expected,
+      message: message,
+      operator: 'strictEqual',
+      stackStartFn: strictEqual
+    });
+  }
+};
+assert.notStrictEqual = function notStrictEqual(actual, expected, message) {
+  if (arguments.length < 2) {
+    throw new ERR_MISSING_ARGS('actual', 'expected');
+  }
+  if (objectIs(actual, expected)) {
+    innerFail({
+      actual: actual,
+      expected: expected,
+      message: message,
+      operator: 'notStrictEqual',
+      stackStartFn: notStrictEqual
+    });
+  }
+};
+var Comparison = /*#__PURE__*/_createClass(function Comparison(obj, keys, actual) {
+  var _this = this;
+  _classCallCheck(this, Comparison);
+  keys.forEach(function (key) {
+    if (key in obj) {
+      if (actual !== undefined && typeof actual[key] === 'string' && isRegExp(obj[key]) && RegExpPrototypeTest(obj[key], actual[key])) {
+        _this[key] = actual[key];
+      } else {
+        _this[key] = obj[key];
+      }
+    }
+  });
+});
+function compareExceptionKey(actual, expected, key, message, keys, fn) {
+  if (!(key in actual) || !isDeepStrictEqual(actual[key], expected[key])) {
+    if (!message) {
+      // Create placeholder objects to create a nice output.
+      var a = new Comparison(actual, keys);
+      var b = new Comparison(expected, keys, actual);
+      var err = new AssertionError({
+        actual: a,
+        expected: b,
+        operator: 'deepStrictEqual',
+        stackStartFn: fn
+      });
+      err.actual = actual;
+      err.expected = expected;
+      err.operator = fn.name;
+      throw err;
+    }
+    innerFail({
+      actual: actual,
+      expected: expected,
+      message: message,
+      operator: fn.name,
+      stackStartFn: fn
+    });
+  }
+}
+function expectedException(actual, expected, msg, fn) {
+  if (typeof expected !== 'function') {
+    if (isRegExp(expected)) return RegExpPrototypeTest(expected, actual);
+    // assert.doesNotThrow does not accept objects.
+    if (arguments.length === 2) {
+      throw new ERR_INVALID_ARG_TYPE('expected', ['Function', 'RegExp'], expected);
+    }
+
+    // Handle primitives properly.
+    if (_typeof(actual) !== 'object' || actual === null) {
+      var err = new AssertionError({
+        actual: actual,
+        expected: expected,
+        message: msg,
+        operator: 'deepStrictEqual',
+        stackStartFn: fn
+      });
+      err.operator = fn.name;
+      throw err;
+    }
+    var keys = Object.keys(expected);
+    // Special handle errors to make sure the name and the message are compared
+    // as well.
+    if (expected instanceof Error) {
+      keys.push('name', 'message');
+    } else if (keys.length === 0) {
+      throw new ERR_INVALID_ARG_VALUE('error', expected, 'may not be an empty object');
+    }
+    if (isDeepEqual === undefined) lazyLoadComparison();
+    keys.forEach(function (key) {
+      if (typeof actual[key] === 'string' && isRegExp(expected[key]) && RegExpPrototypeTest(expected[key], actual[key])) {
+        return;
+      }
+      compareExceptionKey(actual, expected, key, msg, keys, fn);
+    });
+    return true;
+  }
+  // Guard instanceof against arrow functions as they don't have a prototype.
+  if (expected.prototype !== undefined && actual instanceof expected) {
+    return true;
+  }
+  if (Error.isPrototypeOf(expected)) {
+    return false;
+  }
+  return expected.call({}, actual) === true;
+}
+function getActual(fn) {
+  if (typeof fn !== 'function') {
+    throw new ERR_INVALID_ARG_TYPE('fn', 'Function', fn);
+  }
+  try {
+    fn();
+  } catch (e) {
+    return e;
+  }
+  return NO_EXCEPTION_SENTINEL;
+}
+function checkIsPromise(obj) {
+  // Accept native ES6 promises and promises that are implemented in a similar
+  // way. Do not accept thenables that use a function as `obj` and that have no
+  // `catch` handler.
+
+  // TODO: thenables are checked up until they have the correct methods,
+  // but according to documentation, the `then` method should receive
+  // the `fulfill` and `reject` arguments as well or it may be never resolved.
+
+  return isPromise(obj) || obj !== null && _typeof(obj) === 'object' && typeof obj.then === 'function' && typeof obj.catch === 'function';
+}
+function waitForActual(promiseFn) {
+  return Promise.resolve().then(function () {
+    var resultPromise;
+    if (typeof promiseFn === 'function') {
+      // Return a rejected promise if `promiseFn` throws synchronously.
+      resultPromise = promiseFn();
+      // Fail in case no promise is returned.
+      if (!checkIsPromise(resultPromise)) {
+        throw new ERR_INVALID_RETURN_VALUE('instance of Promise', 'promiseFn', resultPromise);
+      }
+    } else if (checkIsPromise(promiseFn)) {
+      resultPromise = promiseFn;
+    } else {
+      throw new ERR_INVALID_ARG_TYPE('promiseFn', ['Function', 'Promise'], promiseFn);
+    }
+    return Promise.resolve().then(function () {
+      return resultPromise;
+    }).then(function () {
+      return NO_EXCEPTION_SENTINEL;
+    }).catch(function (e) {
+      return e;
+    });
+  });
+}
+function expectsError(stackStartFn, actual, error, message) {
+  if (typeof error === 'string') {
+    if (arguments.length === 4) {
+      throw new ERR_INVALID_ARG_TYPE('error', ['Object', 'Error', 'Function', 'RegExp'], error);
+    }
+    if (_typeof(actual) === 'object' && actual !== null) {
+      if (actual.message === error) {
+        throw new ERR_AMBIGUOUS_ARGUMENT('error/message', "The error message \"".concat(actual.message, "\" is identical to the message."));
+      }
+    } else if (actual === error) {
+      throw new ERR_AMBIGUOUS_ARGUMENT('error/message', "The error \"".concat(actual, "\" is identical to the message."));
+    }
+    message = error;
+    error = undefined;
+  } else if (error != null && _typeof(error) !== 'object' && typeof error !== 'function') {
+    throw new ERR_INVALID_ARG_TYPE('error', ['Object', 'Error', 'Function', 'RegExp'], error);
+  }
+  if (actual === NO_EXCEPTION_SENTINEL) {
+    var details = '';
+    if (error && error.name) {
+      details += " (".concat(error.name, ")");
+    }
+    details += message ? ": ".concat(message) : '.';
+    var fnType = stackStartFn.name === 'rejects' ? 'rejection' : 'exception';
+    innerFail({
+      actual: undefined,
+      expected: error,
+      operator: stackStartFn.name,
+      message: "Missing expected ".concat(fnType).concat(details),
+      stackStartFn: stackStartFn
+    });
+  }
+  if (error && !expectedException(actual, error, message, stackStartFn)) {
+    throw actual;
+  }
+}
+function expectsNoError(stackStartFn, actual, error, message) {
+  if (actual === NO_EXCEPTION_SENTINEL) return;
+  if (typeof error === 'string') {
+    message = error;
+    error = undefined;
+  }
+  if (!error || expectedException(actual, error)) {
+    var details = message ? ": ".concat(message) : '.';
+    var fnType = stackStartFn.name === 'doesNotReject' ? 'rejection' : 'exception';
+    innerFail({
+      actual: actual,
+      expected: error,
+      operator: stackStartFn.name,
+      message: "Got unwanted ".concat(fnType).concat(details, "\n") + "Actual message: \"".concat(actual && actual.message, "\""),
+      stackStartFn: stackStartFn
+    });
+  }
+  throw actual;
+}
+assert.throws = function throws(promiseFn) {
+  for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+    args[_key2 - 1] = arguments[_key2];
+  }
+  expectsError.apply(void 0, [throws, getActual(promiseFn)].concat(args));
+};
+assert.rejects = function rejects(promiseFn) {
+  for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+    args[_key3 - 1] = arguments[_key3];
+  }
+  return waitForActual(promiseFn).then(function (result) {
+    return expectsError.apply(void 0, [rejects, result].concat(args));
+  });
+};
+assert.doesNotThrow = function doesNotThrow(fn) {
+  for (var _len4 = arguments.length, args = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+    args[_key4 - 1] = arguments[_key4];
+  }
+  expectsNoError.apply(void 0, [doesNotThrow, getActual(fn)].concat(args));
+};
+assert.doesNotReject = function doesNotReject(fn) {
+  for (var _len5 = arguments.length, args = new Array(_len5 > 1 ? _len5 - 1 : 0), _key5 = 1; _key5 < _len5; _key5++) {
+    args[_key5 - 1] = arguments[_key5];
+  }
+  return waitForActual(fn).then(function (result) {
+    return expectsNoError.apply(void 0, [doesNotReject, result].concat(args));
+  });
+};
+assert.ifError = function ifError(err) {
+  if (err !== null && err !== undefined) {
+    var message = 'ifError got unwanted exception: ';
+    if (_typeof(err) === 'object' && typeof err.message === 'string') {
+      if (err.message.length === 0 && err.constructor) {
+        message += err.constructor.name;
+      } else {
+        message += err.message;
+      }
+    } else {
+      message += inspect(err);
+    }
+    var newErr = new AssertionError({
+      actual: err,
+      expected: null,
+      operator: 'ifError',
+      message: message,
+      stackStartFn: ifError
+    });
+
+    // Make sure we actually have a stack trace!
+    var origStack = err.stack;
+    if (typeof origStack === 'string') {
+      // This will remove any duplicated frames from the error frames taken
+      // from within `ifError` and add the original error frames to the newly
+      // created ones.
+      var tmp2 = origStack.split('\n');
+      tmp2.shift();
+      // Filter all frames existing in err.stack.
+      var tmp1 = newErr.stack.split('\n');
+      for (var i = 0; i < tmp2.length; i++) {
+        // Find the first occurrence of the frame.
+        var pos = tmp1.indexOf(tmp2[i]);
+        if (pos !== -1) {
+          // Only keep new frames.
+          tmp1 = tmp1.slice(0, pos);
+          break;
+        }
+      }
+      newErr.stack = "".concat(tmp1.join('\n'), "\n").concat(tmp2.join('\n'));
+    }
+    throw newErr;
+  }
+};
+
+// Currently in sync with Node.js lib/assert.js
+// https://github.com/nodejs/node/commit/2a871df3dfb8ea663ef5e1f8f62701ec51384ecb
+function internalMatch(string, regexp, message, fn, fnName) {
+  if (!isRegExp(regexp)) {
+    throw new ERR_INVALID_ARG_TYPE('regexp', 'RegExp', regexp);
+  }
+  var match = fnName === 'match';
+  if (typeof string !== 'string' || RegExpPrototypeTest(regexp, string) !== match) {
+    if (message instanceof Error) {
+      throw message;
+    }
+    var generatedMessage = !message;
+
+    // 'The input was expected to not match the regular expression ' +
+    message = message || (typeof string !== 'string' ? 'The "string" argument must be of type string. Received type ' + "".concat(_typeof(string), " (").concat(inspect(string), ")") : (match ? 'The input did not match the regular expression ' : 'The input was expected to not match the regular expression ') + "".concat(inspect(regexp), ". Input:\n\n").concat(inspect(string), "\n"));
+    var err = new AssertionError({
+      actual: string,
+      expected: regexp,
+      message: message,
+      operator: fnName,
+      stackStartFn: fn
+    });
+    err.generatedMessage = generatedMessage;
+    throw err;
+  }
+}
+assert.match = function match(string, regexp, message) {
+  internalMatch(string, regexp, message, match, 'match');
+};
+assert.doesNotMatch = function doesNotMatch(string, regexp, message) {
+  internalMatch(string, regexp, message, doesNotMatch, 'doesNotMatch');
+};
+
+// Expose a strict only variant of assert
+function strict() {
+  for (var _len6 = arguments.length, args = new Array(_len6), _key6 = 0; _key6 < _len6; _key6++) {
+    args[_key6] = arguments[_key6];
+  }
+  innerOk.apply(void 0, [strict, args.length].concat(args));
+}
+assert.strict = objectAssign(strict, assert, {
+  equal: assert.strictEqual,
+  deepEqual: assert.deepStrictEqual,
+  notEqual: assert.notStrictEqual,
+  notDeepEqual: assert.notDeepStrictEqual
+});
+assert.strict.strict = assert.strict;
+
+/***/ }),
+
+/***/ 5961:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+/* provided dependency */ var process = __webpack_require__(4155);
+// Currently in sync with Node.js lib/internal/assert/assertion_error.js
+// https://github.com/nodejs/node/commit/0817840f775032169ddd70c85ac059f18ffcc81c
+
+
+
+function ownKeys(e, r) { var t = Object.keys(e); if (Object.getOwnPropertySymbols) { var o = Object.getOwnPropertySymbols(e); r && (o = o.filter(function (r) { return Object.getOwnPropertyDescriptor(e, r).enumerable; })), t.push.apply(t, o); } return t; }
+function _objectSpread(e) { for (var r = 1; r < arguments.length; r++) { var t = null != arguments[r] ? arguments[r] : {}; r % 2 ? ownKeys(Object(t), !0).forEach(function (r) { _defineProperty(e, r, t[r]); }) : Object.getOwnPropertyDescriptors ? Object.defineProperties(e, Object.getOwnPropertyDescriptors(t)) : ownKeys(Object(t)).forEach(function (r) { Object.defineProperty(e, r, Object.getOwnPropertyDescriptor(t, r)); }); } return e; }
+function _defineProperty(obj, key, value) { key = _toPropertyKey(key); if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _wrapNativeSuper(Class) { var _cache = typeof Map === "function" ? new Map() : undefined; _wrapNativeSuper = function _wrapNativeSuper(Class) { if (Class === null || !_isNativeFunction(Class)) return Class; if (typeof Class !== "function") { throw new TypeError("Super expression must either be null or a function"); } if (typeof _cache !== "undefined") { if (_cache.has(Class)) return _cache.get(Class); _cache.set(Class, Wrapper); } function Wrapper() { return _construct(Class, arguments, _getPrototypeOf(this).constructor); } Wrapper.prototype = Object.create(Class.prototype, { constructor: { value: Wrapper, enumerable: false, writable: true, configurable: true } }); return _setPrototypeOf(Wrapper, Class); }; return _wrapNativeSuper(Class); }
+function _construct(Parent, args, Class) { if (_isNativeReflectConstruct()) { _construct = Reflect.construct.bind(); } else { _construct = function _construct(Parent, args, Class) { var a = [null]; a.push.apply(a, args); var Constructor = Function.bind.apply(Parent, a); var instance = new Constructor(); if (Class) _setPrototypeOf(instance, Class.prototype); return instance; }; } return _construct.apply(null, arguments); }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _isNativeFunction(fn) { return Function.toString.call(fn).indexOf("[native code]") !== -1; }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+var _require = __webpack_require__(9539),
+  inspect = _require.inspect;
+var _require2 = __webpack_require__(2136),
+  ERR_INVALID_ARG_TYPE = _require2.codes.ERR_INVALID_ARG_TYPE;
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith
+function endsWith(str, search, this_len) {
+  if (this_len === undefined || this_len > str.length) {
+    this_len = str.length;
+  }
+  return str.substring(this_len - search.length, this_len) === search;
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
+function repeat(str, count) {
+  count = Math.floor(count);
+  if (str.length == 0 || count == 0) return '';
+  var maxCount = str.length * count;
+  count = Math.floor(Math.log(count) / Math.log(2));
+  while (count) {
+    str += str;
+    count--;
+  }
+  str += str.substring(0, maxCount - str.length);
+  return str;
+}
+var blue = '';
+var green = '';
+var red = '';
+var white = '';
+var kReadableOperator = {
+  deepStrictEqual: 'Expected values to be strictly deep-equal:',
+  strictEqual: 'Expected values to be strictly equal:',
+  strictEqualObject: 'Expected "actual" to be reference-equal to "expected":',
+  deepEqual: 'Expected values to be loosely deep-equal:',
+  equal: 'Expected values to be loosely equal:',
+  notDeepStrictEqual: 'Expected "actual" not to be strictly deep-equal to:',
+  notStrictEqual: 'Expected "actual" to be strictly unequal to:',
+  notStrictEqualObject: 'Expected "actual" not to be reference-equal to "expected":',
+  notDeepEqual: 'Expected "actual" not to be loosely deep-equal to:',
+  notEqual: 'Expected "actual" to be loosely unequal to:',
+  notIdentical: 'Values identical but not reference-equal:'
+};
+
+// Comparing short primitives should just show === / !== instead of using the
+// diff.
+var kMaxShortLength = 10;
+function copyError(source) {
+  var keys = Object.keys(source);
+  var target = Object.create(Object.getPrototypeOf(source));
+  keys.forEach(function (key) {
+    target[key] = source[key];
+  });
+  Object.defineProperty(target, 'message', {
+    value: source.message
+  });
+  return target;
+}
+function inspectValue(val) {
+  // The util.inspect default values could be changed. This makes sure the
+  // error messages contain the necessary information nevertheless.
+  return inspect(val, {
+    compact: false,
+    customInspect: false,
+    depth: 1000,
+    maxArrayLength: Infinity,
+    // Assert compares only enumerable properties (with a few exceptions).
+    showHidden: false,
+    // Having a long line as error is better than wrapping the line for
+    // comparison for now.
+    // TODO(BridgeAR): `breakLength` should be limited as soon as soon as we
+    // have meta information about the inspected properties (i.e., know where
+    // in what line the property starts and ends).
+    breakLength: Infinity,
+    // Assert does not detect proxies currently.
+    showProxy: false,
+    sorted: true,
+    // Inspect getters as we also check them when comparing entries.
+    getters: true
+  });
+}
+function createErrDiff(actual, expected, operator) {
+  var other = '';
+  var res = '';
+  var lastPos = 0;
+  var end = '';
+  var skipped = false;
+  var actualInspected = inspectValue(actual);
+  var actualLines = actualInspected.split('\n');
+  var expectedLines = inspectValue(expected).split('\n');
+  var i = 0;
+  var indicator = '';
+
+  // In case both values are objects explicitly mark them as not reference equal
+  // for the `strictEqual` operator.
+  if (operator === 'strictEqual' && _typeof(actual) === 'object' && _typeof(expected) === 'object' && actual !== null && expected !== null) {
+    operator = 'strictEqualObject';
+  }
+
+  // If "actual" and "expected" fit on a single line and they are not strictly
+  // equal, check further special handling.
+  if (actualLines.length === 1 && expectedLines.length === 1 && actualLines[0] !== expectedLines[0]) {
+    var inputLength = actualLines[0].length + expectedLines[0].length;
+    // If the character length of "actual" and "expected" together is less than
+    // kMaxShortLength and if neither is an object and at least one of them is
+    // not `zero`, use the strict equal comparison to visualize the output.
+    if (inputLength <= kMaxShortLength) {
+      if ((_typeof(actual) !== 'object' || actual === null) && (_typeof(expected) !== 'object' || expected === null) && (actual !== 0 || expected !== 0)) {
+        // -0 === +0
+        return "".concat(kReadableOperator[operator], "\n\n") + "".concat(actualLines[0], " !== ").concat(expectedLines[0], "\n");
+      }
+    } else if (operator !== 'strictEqualObject') {
+      // If the stderr is a tty and the input length is lower than the current
+      // columns per line, add a mismatch indicator below the output. If it is
+      // not a tty, use a default value of 80 characters.
+      var maxLength = process.stderr && process.stderr.isTTY ? process.stderr.columns : 80;
+      if (inputLength < maxLength) {
+        while (actualLines[0][i] === expectedLines[0][i]) {
+          i++;
+        }
+        // Ignore the first characters.
+        if (i > 2) {
+          // Add position indicator for the first mismatch in case it is a
+          // single line and the input length is less than the column length.
+          indicator = "\n  ".concat(repeat(' ', i), "^");
+          i = 0;
+        }
+      }
+    }
+  }
+
+  // Remove all ending lines that match (this optimizes the output for
+  // readability by reducing the number of total changed lines).
+  var a = actualLines[actualLines.length - 1];
+  var b = expectedLines[expectedLines.length - 1];
+  while (a === b) {
+    if (i++ < 2) {
+      end = "\n  ".concat(a).concat(end);
+    } else {
+      other = a;
+    }
+    actualLines.pop();
+    expectedLines.pop();
+    if (actualLines.length === 0 || expectedLines.length === 0) break;
+    a = actualLines[actualLines.length - 1];
+    b = expectedLines[expectedLines.length - 1];
+  }
+  var maxLines = Math.max(actualLines.length, expectedLines.length);
+  // Strict equal with identical objects that are not identical by reference.
+  // E.g., assert.deepStrictEqual({ a: Symbol() }, { a: Symbol() })
+  if (maxLines === 0) {
+    // We have to get the result again. The lines were all removed before.
+    var _actualLines = actualInspected.split('\n');
+
+    // Only remove lines in case it makes sense to collapse those.
+    // TODO: Accept env to always show the full error.
+    if (_actualLines.length > 30) {
+      _actualLines[26] = "".concat(blue, "...").concat(white);
+      while (_actualLines.length > 27) {
+        _actualLines.pop();
+      }
+    }
+    return "".concat(kReadableOperator.notIdentical, "\n\n").concat(_actualLines.join('\n'), "\n");
+  }
+  if (i > 3) {
+    end = "\n".concat(blue, "...").concat(white).concat(end);
+    skipped = true;
+  }
+  if (other !== '') {
+    end = "\n  ".concat(other).concat(end);
+    other = '';
+  }
+  var printedLines = 0;
+  var msg = kReadableOperator[operator] + "\n".concat(green, "+ actual").concat(white, " ").concat(red, "- expected").concat(white);
+  var skippedMsg = " ".concat(blue, "...").concat(white, " Lines skipped");
+  for (i = 0; i < maxLines; i++) {
+    // Only extra expected lines exist
+    var cur = i - lastPos;
+    if (actualLines.length < i + 1) {
+      // If the last diverging line is more than one line above and the
+      // current line is at least line three, add some of the former lines and
+      // also add dots to indicate skipped entries.
+      if (cur > 1 && i > 2) {
+        if (cur > 4) {
+          res += "\n".concat(blue, "...").concat(white);
+          skipped = true;
+        } else if (cur > 3) {
+          res += "\n  ".concat(expectedLines[i - 2]);
+          printedLines++;
+        }
+        res += "\n  ".concat(expectedLines[i - 1]);
+        printedLines++;
+      }
+      // Mark the current line as the last diverging one.
+      lastPos = i;
+      // Add the expected line to the cache.
+      other += "\n".concat(red, "-").concat(white, " ").concat(expectedLines[i]);
+      printedLines++;
+      // Only extra actual lines exist
+    } else if (expectedLines.length < i + 1) {
+      // If the last diverging line is more than one line above and the
+      // current line is at least line three, add some of the former lines and
+      // also add dots to indicate skipped entries.
+      if (cur > 1 && i > 2) {
+        if (cur > 4) {
+          res += "\n".concat(blue, "...").concat(white);
+          skipped = true;
+        } else if (cur > 3) {
+          res += "\n  ".concat(actualLines[i - 2]);
+          printedLines++;
+        }
+        res += "\n  ".concat(actualLines[i - 1]);
+        printedLines++;
+      }
+      // Mark the current line as the last diverging one.
+      lastPos = i;
+      // Add the actual line to the result.
+      res += "\n".concat(green, "+").concat(white, " ").concat(actualLines[i]);
+      printedLines++;
+      // Lines diverge
+    } else {
+      var expectedLine = expectedLines[i];
+      var actualLine = actualLines[i];
+      // If the lines diverge, specifically check for lines that only diverge by
+      // a trailing comma. In that case it is actually identical and we should
+      // mark it as such.
+      var divergingLines = actualLine !== expectedLine && (!endsWith(actualLine, ',') || actualLine.slice(0, -1) !== expectedLine);
+      // If the expected line has a trailing comma but is otherwise identical,
+      // add a comma at the end of the actual line. Otherwise the output could
+      // look weird as in:
+      //
+      //   [
+      //     1         // No comma at the end!
+      // +   2
+      //   ]
+      //
+      if (divergingLines && endsWith(expectedLine, ',') && expectedLine.slice(0, -1) === actualLine) {
+        divergingLines = false;
+        actualLine += ',';
+      }
+      if (divergingLines) {
+        // If the last diverging line is more than one line above and the
+        // current line is at least line three, add some of the former lines and
+        // also add dots to indicate skipped entries.
+        if (cur > 1 && i > 2) {
+          if (cur > 4) {
+            res += "\n".concat(blue, "...").concat(white);
+            skipped = true;
+          } else if (cur > 3) {
+            res += "\n  ".concat(actualLines[i - 2]);
+            printedLines++;
+          }
+          res += "\n  ".concat(actualLines[i - 1]);
+          printedLines++;
+        }
+        // Mark the current line as the last diverging one.
+        lastPos = i;
+        // Add the actual line to the result and cache the expected diverging
+        // line so consecutive diverging lines show up as +++--- and not +-+-+-.
+        res += "\n".concat(green, "+").concat(white, " ").concat(actualLine);
+        other += "\n".concat(red, "-").concat(white, " ").concat(expectedLine);
+        printedLines += 2;
+        // Lines are identical
+      } else {
+        // Add all cached information to the result before adding other things
+        // and reset the cache.
+        res += other;
+        other = '';
+        // If the last diverging line is exactly one line above or if it is the
+        // very first line, add the line to the result.
+        if (cur === 1 || i === 0) {
+          res += "\n  ".concat(actualLine);
+          printedLines++;
+        }
+      }
+    }
+    // Inspected object to big (Show ~20 rows max)
+    if (printedLines > 20 && i < maxLines - 2) {
+      return "".concat(msg).concat(skippedMsg, "\n").concat(res, "\n").concat(blue, "...").concat(white).concat(other, "\n") + "".concat(blue, "...").concat(white);
+    }
+  }
+  return "".concat(msg).concat(skipped ? skippedMsg : '', "\n").concat(res).concat(other).concat(end).concat(indicator);
+}
+var AssertionError = /*#__PURE__*/function (_Error, _inspect$custom) {
+  _inherits(AssertionError, _Error);
+  var _super = _createSuper(AssertionError);
+  function AssertionError(options) {
+    var _this;
+    _classCallCheck(this, AssertionError);
+    if (_typeof(options) !== 'object' || options === null) {
+      throw new ERR_INVALID_ARG_TYPE('options', 'Object', options);
+    }
+    var message = options.message,
+      operator = options.operator,
+      stackStartFn = options.stackStartFn;
+    var actual = options.actual,
+      expected = options.expected;
+    var limit = Error.stackTraceLimit;
+    Error.stackTraceLimit = 0;
+    if (message != null) {
+      _this = _super.call(this, String(message));
+    } else {
+      if (process.stderr && process.stderr.isTTY) {
+        // Reset on each call to make sure we handle dynamically set environment
+        // variables correct.
+        if (process.stderr && process.stderr.getColorDepth && process.stderr.getColorDepth() !== 1) {
+          blue = "\x1B[34m";
+          green = "\x1B[32m";
+          white = "\x1B[39m";
+          red = "\x1B[31m";
+        } else {
+          blue = '';
+          green = '';
+          white = '';
+          red = '';
+        }
+      }
+      // Prevent the error stack from being visible by duplicating the error
+      // in a very close way to the original in case both sides are actually
+      // instances of Error.
+      if (_typeof(actual) === 'object' && actual !== null && _typeof(expected) === 'object' && expected !== null && 'stack' in actual && actual instanceof Error && 'stack' in expected && expected instanceof Error) {
+        actual = copyError(actual);
+        expected = copyError(expected);
+      }
+      if (operator === 'deepStrictEqual' || operator === 'strictEqual') {
+        _this = _super.call(this, createErrDiff(actual, expected, operator));
+      } else if (operator === 'notDeepStrictEqual' || operator === 'notStrictEqual') {
+        // In case the objects are equal but the operator requires unequal, show
+        // the first object and say A equals B
+        var base = kReadableOperator[operator];
+        var res = inspectValue(actual).split('\n');
+
+        // In case "actual" is an object, it should not be reference equal.
+        if (operator === 'notStrictEqual' && _typeof(actual) === 'object' && actual !== null) {
+          base = kReadableOperator.notStrictEqualObject;
+        }
+
+        // Only remove lines in case it makes sense to collapse those.
+        // TODO: Accept env to always show the full error.
+        if (res.length > 30) {
+          res[26] = "".concat(blue, "...").concat(white);
+          while (res.length > 27) {
+            res.pop();
+          }
+        }
+
+        // Only print a single input.
+        if (res.length === 1) {
+          _this = _super.call(this, "".concat(base, " ").concat(res[0]));
+        } else {
+          _this = _super.call(this, "".concat(base, "\n\n").concat(res.join('\n'), "\n"));
+        }
+      } else {
+        var _res = inspectValue(actual);
+        var other = '';
+        var knownOperators = kReadableOperator[operator];
+        if (operator === 'notDeepEqual' || operator === 'notEqual') {
+          _res = "".concat(kReadableOperator[operator], "\n\n").concat(_res);
+          if (_res.length > 1024) {
+            _res = "".concat(_res.slice(0, 1021), "...");
+          }
+        } else {
+          other = "".concat(inspectValue(expected));
+          if (_res.length > 512) {
+            _res = "".concat(_res.slice(0, 509), "...");
+          }
+          if (other.length > 512) {
+            other = "".concat(other.slice(0, 509), "...");
+          }
+          if (operator === 'deepEqual' || operator === 'equal') {
+            _res = "".concat(knownOperators, "\n\n").concat(_res, "\n\nshould equal\n\n");
+          } else {
+            other = " ".concat(operator, " ").concat(other);
+          }
+        }
+        _this = _super.call(this, "".concat(_res).concat(other));
+      }
+    }
+    Error.stackTraceLimit = limit;
+    _this.generatedMessage = !message;
+    Object.defineProperty(_assertThisInitialized(_this), 'name', {
+      value: 'AssertionError [ERR_ASSERTION]',
+      enumerable: false,
+      writable: true,
+      configurable: true
+    });
+    _this.code = 'ERR_ASSERTION';
+    _this.actual = actual;
+    _this.expected = expected;
+    _this.operator = operator;
+    if (Error.captureStackTrace) {
+      // eslint-disable-next-line no-restricted-syntax
+      Error.captureStackTrace(_assertThisInitialized(_this), stackStartFn);
+    }
+    // Create error message including the error code in the name.
+    _this.stack;
+    // Reset the name.
+    _this.name = 'AssertionError';
+    return _possibleConstructorReturn(_this);
+  }
+  _createClass(AssertionError, [{
+    key: "toString",
+    value: function toString() {
+      return "".concat(this.name, " [").concat(this.code, "]: ").concat(this.message);
+    }
+  }, {
+    key: _inspect$custom,
+    value: function value(recurseTimes, ctx) {
+      // This limits the `actual` and `expected` property default inspection to
+      // the minimum depth. Otherwise those values would be too verbose compared
+      // to the actual error message which contains a combined view of these two
+      // input values.
+      return inspect(this, _objectSpread(_objectSpread({}, ctx), {}, {
+        customInspect: false,
+        depth: 0
+      }));
+    }
+  }]);
+  return AssertionError;
+}( /*#__PURE__*/_wrapNativeSuper(Error), inspect.custom);
+module.exports = AssertionError;
+
+/***/ }),
+
+/***/ 2136:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+// Currently in sync with Node.js lib/internal/errors.js
+// https://github.com/nodejs/node/commit/3b044962c48fe313905877a96b5d0894a5404f6f
+
+/* eslint node-core/documented-errors: "error" */
+/* eslint node-core/alphabetize-errors: "error" */
+/* eslint node-core/prefer-util-format-errors: "error" */
+
+
+
+// The whole point behind this internal module is to allow Node.js to no
+// longer be forced to treat every error message change as a semver-major
+// change. The NodeError classes here all expose a `code` property whose
+// value statically and permanently identifies the error. While the error
+// message may change, the code should not.
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, _toPropertyKey(descriptor.key), descriptor); } }
+function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); Object.defineProperty(Constructor, "prototype", { writable: false }); return Constructor; }
+function _toPropertyKey(arg) { var key = _toPrimitive(arg, "string"); return _typeof(key) === "symbol" ? key : String(key); }
+function _toPrimitive(input, hint) { if (_typeof(input) !== "object" || input === null) return input; var prim = input[Symbol.toPrimitive]; if (prim !== undefined) { var res = prim.call(input, hint || "default"); if (_typeof(res) !== "object") return res; throw new TypeError("@@toPrimitive must return a primitive value."); } return (hint === "string" ? String : Number)(input); }
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function"); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, writable: true, configurable: true } }); Object.defineProperty(subClass, "prototype", { writable: false }); if (superClass) _setPrototypeOf(subClass, superClass); }
+function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf ? Object.setPrototypeOf.bind() : function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
+function _createSuper(Derived) { var hasNativeReflectConstruct = _isNativeReflectConstruct(); return function _createSuperInternal() { var Super = _getPrototypeOf(Derived), result; if (hasNativeReflectConstruct) { var NewTarget = _getPrototypeOf(this).constructor; result = Reflect.construct(Super, arguments, NewTarget); } else { result = Super.apply(this, arguments); } return _possibleConstructorReturn(this, result); }; }
+function _possibleConstructorReturn(self, call) { if (call && (_typeof(call) === "object" || typeof call === "function")) { return call; } else if (call !== void 0) { throw new TypeError("Derived constructors may only return object or undefined"); } return _assertThisInitialized(self); }
+function _assertThisInitialized(self) { if (self === void 0) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return self; }
+function _isNativeReflectConstruct() { if (typeof Reflect === "undefined" || !Reflect.construct) return false; if (Reflect.construct.sham) return false; if (typeof Proxy === "function") return true; try { Boolean.prototype.valueOf.call(Reflect.construct(Boolean, [], function () {})); return true; } catch (e) { return false; } }
+function _getPrototypeOf(o) { _getPrototypeOf = Object.setPrototypeOf ? Object.getPrototypeOf.bind() : function _getPrototypeOf(o) { return o.__proto__ || Object.getPrototypeOf(o); }; return _getPrototypeOf(o); }
+var codes = {};
+
+// Lazy loaded
+var assert;
+var util;
+function createErrorType(code, message, Base) {
+  if (!Base) {
+    Base = Error;
+  }
+  function getMessage(arg1, arg2, arg3) {
+    if (typeof message === 'string') {
+      return message;
+    } else {
+      return message(arg1, arg2, arg3);
+    }
+  }
+  var NodeError = /*#__PURE__*/function (_Base) {
+    _inherits(NodeError, _Base);
+    var _super = _createSuper(NodeError);
+    function NodeError(arg1, arg2, arg3) {
+      var _this;
+      _classCallCheck(this, NodeError);
+      _this = _super.call(this, getMessage(arg1, arg2, arg3));
+      _this.code = code;
+      return _this;
+    }
+    return _createClass(NodeError);
+  }(Base);
+  codes[code] = NodeError;
+}
+
+// https://github.com/nodejs/node/blob/v10.8.0/lib/internal/errors.js
+function oneOf(expected, thing) {
+  if (Array.isArray(expected)) {
+    var len = expected.length;
+    expected = expected.map(function (i) {
+      return String(i);
+    });
+    if (len > 2) {
+      return "one of ".concat(thing, " ").concat(expected.slice(0, len - 1).join(', '), ", or ") + expected[len - 1];
+    } else if (len === 2) {
+      return "one of ".concat(thing, " ").concat(expected[0], " or ").concat(expected[1]);
+    } else {
+      return "of ".concat(thing, " ").concat(expected[0]);
+    }
+  } else {
+    return "of ".concat(thing, " ").concat(String(expected));
+  }
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/startsWith
+function startsWith(str, search, pos) {
+  return str.substr(!pos || pos < 0 ? 0 : +pos, search.length) === search;
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/endsWith
+function endsWith(str, search, this_len) {
+  if (this_len === undefined || this_len > str.length) {
+    this_len = str.length;
+  }
+  return str.substring(this_len - search.length, this_len) === search;
+}
+
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/includes
+function includes(str, search, start) {
+  if (typeof start !== 'number') {
+    start = 0;
+  }
+  if (start + search.length > str.length) {
+    return false;
+  } else {
+    return str.indexOf(search, start) !== -1;
+  }
+}
+createErrorType('ERR_AMBIGUOUS_ARGUMENT', 'The "%s" argument is ambiguous. %s', TypeError);
+createErrorType('ERR_INVALID_ARG_TYPE', function (name, expected, actual) {
+  if (assert === undefined) assert = __webpack_require__(9282);
+  assert(typeof name === 'string', "'name' must be a string");
+
+  // determiner: 'must be' or 'must not be'
+  var determiner;
+  if (typeof expected === 'string' && startsWith(expected, 'not ')) {
+    determiner = 'must not be';
+    expected = expected.replace(/^not /, '');
+  } else {
+    determiner = 'must be';
+  }
+  var msg;
+  if (endsWith(name, ' argument')) {
+    // For cases like 'first argument'
+    msg = "The ".concat(name, " ").concat(determiner, " ").concat(oneOf(expected, 'type'));
+  } else {
+    var type = includes(name, '.') ? 'property' : 'argument';
+    msg = "The \"".concat(name, "\" ").concat(type, " ").concat(determiner, " ").concat(oneOf(expected, 'type'));
+  }
+
+  // TODO(BridgeAR): Improve the output by showing `null` and similar.
+  msg += ". Received type ".concat(_typeof(actual));
+  return msg;
+}, TypeError);
+createErrorType('ERR_INVALID_ARG_VALUE', function (name, value) {
+  var reason = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'is invalid';
+  if (util === undefined) util = __webpack_require__(9539);
+  var inspected = util.inspect(value);
+  if (inspected.length > 128) {
+    inspected = "".concat(inspected.slice(0, 128), "...");
+  }
+  return "The argument '".concat(name, "' ").concat(reason, ". Received ").concat(inspected);
+}, TypeError, RangeError);
+createErrorType('ERR_INVALID_RETURN_VALUE', function (input, name, value) {
+  var type;
+  if (value && value.constructor && value.constructor.name) {
+    type = "instance of ".concat(value.constructor.name);
+  } else {
+    type = "type ".concat(_typeof(value));
+  }
+  return "Expected ".concat(input, " to be returned from the \"").concat(name, "\"") + " function but got ".concat(type, ".");
+}, TypeError);
+createErrorType('ERR_MISSING_ARGS', function () {
+  for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+    args[_key] = arguments[_key];
+  }
+  if (assert === undefined) assert = __webpack_require__(9282);
+  assert(args.length > 0, 'At least one arg needs to be specified');
+  var msg = 'The ';
+  var len = args.length;
+  args = args.map(function (a) {
+    return "\"".concat(a, "\"");
+  });
+  switch (len) {
+    case 1:
+      msg += "".concat(args[0], " argument");
+      break;
+    case 2:
+      msg += "".concat(args[0], " and ").concat(args[1], " arguments");
+      break;
+    default:
+      msg += args.slice(0, len - 1).join(', ');
+      msg += ", and ".concat(args[len - 1], " arguments");
+      break;
+  }
+  return "".concat(msg, " must be specified");
+}, TypeError);
+module.exports.codes = codes;
+
+/***/ }),
+
+/***/ 9158:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+// Currently in sync with Node.js lib/internal/util/comparisons.js
+// https://github.com/nodejs/node/commit/112cc7c27551254aa2b17098fb774867f05ed0d9
+
+
+
+function _slicedToArray(arr, i) { return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest(); }
+function _nonIterableRest() { throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) arr2[i] = arr[i]; return arr2; }
+function _iterableToArrayLimit(r, l) { var t = null == r ? null : "undefined" != typeof Symbol && r[Symbol.iterator] || r["@@iterator"]; if (null != t) { var e, n, i, u, a = [], f = !0, o = !1; try { if (i = (t = t.call(r)).next, 0 === l) { if (Object(t) !== t) return; f = !1; } else for (; !(f = (e = i.call(t)).done) && (a.push(e.value), a.length !== l); f = !0); } catch (r) { o = !0, n = r; } finally { try { if (!f && null != t.return && (u = t.return(), Object(u) !== u)) return; } finally { if (o) throw n; } } return a; } }
+function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
+function _typeof(o) { "@babel/helpers - typeof"; return _typeof = "function" == typeof Symbol && "symbol" == typeof Symbol.iterator ? function (o) { return typeof o; } : function (o) { return o && "function" == typeof Symbol && o.constructor === Symbol && o !== Symbol.prototype ? "symbol" : typeof o; }, _typeof(o); }
+var regexFlagsSupported = /a/g.flags !== undefined;
+var arrayFromSet = function arrayFromSet(set) {
+  var array = [];
+  set.forEach(function (value) {
+    return array.push(value);
+  });
+  return array;
+};
+var arrayFromMap = function arrayFromMap(map) {
+  var array = [];
+  map.forEach(function (value, key) {
+    return array.push([key, value]);
+  });
+  return array;
+};
+var objectIs = Object.is ? Object.is : __webpack_require__(609);
+var objectGetOwnPropertySymbols = Object.getOwnPropertySymbols ? Object.getOwnPropertySymbols : function () {
+  return [];
+};
+var numberIsNaN = Number.isNaN ? Number.isNaN : __webpack_require__(360);
+function uncurryThis(f) {
+  return f.call.bind(f);
+}
+var hasOwnProperty = uncurryThis(Object.prototype.hasOwnProperty);
+var propertyIsEnumerable = uncurryThis(Object.prototype.propertyIsEnumerable);
+var objectToString = uncurryThis(Object.prototype.toString);
+var _require$types = (__webpack_require__(9539).types),
+  isAnyArrayBuffer = _require$types.isAnyArrayBuffer,
+  isArrayBufferView = _require$types.isArrayBufferView,
+  isDate = _require$types.isDate,
+  isMap = _require$types.isMap,
+  isRegExp = _require$types.isRegExp,
+  isSet = _require$types.isSet,
+  isNativeError = _require$types.isNativeError,
+  isBoxedPrimitive = _require$types.isBoxedPrimitive,
+  isNumberObject = _require$types.isNumberObject,
+  isStringObject = _require$types.isStringObject,
+  isBooleanObject = _require$types.isBooleanObject,
+  isBigIntObject = _require$types.isBigIntObject,
+  isSymbolObject = _require$types.isSymbolObject,
+  isFloat32Array = _require$types.isFloat32Array,
+  isFloat64Array = _require$types.isFloat64Array;
+function isNonIndex(key) {
+  if (key.length === 0 || key.length > 10) return true;
+  for (var i = 0; i < key.length; i++) {
+    var code = key.charCodeAt(i);
+    if (code < 48 || code > 57) return true;
+  }
+  // The maximum size for an array is 2 ** 32 -1.
+  return key.length === 10 && key >= Math.pow(2, 32);
+}
+function getOwnNonIndexProperties(value) {
+  return Object.keys(value).filter(isNonIndex).concat(objectGetOwnPropertySymbols(value).filter(Object.prototype.propertyIsEnumerable.bind(value)));
+}
+
+// Taken from https://github.com/feross/buffer/blob/680e9e5e488f22aac27599a57dc844a6315928dd/index.js
+// original notice:
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <feross@feross.org> <http://feross.org>
+ * @license  MIT
+ */
+function compare(a, b) {
+  if (a === b) {
+    return 0;
+  }
+  var x = a.length;
+  var y = b.length;
+  for (var i = 0, len = Math.min(x, y); i < len; ++i) {
+    if (a[i] !== b[i]) {
+      x = a[i];
+      y = b[i];
+      break;
+    }
+  }
+  if (x < y) {
+    return -1;
+  }
+  if (y < x) {
+    return 1;
+  }
+  return 0;
+}
+var ONLY_ENUMERABLE = undefined;
+var kStrict = true;
+var kLoose = false;
+var kNoIterator = 0;
+var kIsArray = 1;
+var kIsSet = 2;
+var kIsMap = 3;
+
+// Check if they have the same source and flags
+function areSimilarRegExps(a, b) {
+  return regexFlagsSupported ? a.source === b.source && a.flags === b.flags : RegExp.prototype.toString.call(a) === RegExp.prototype.toString.call(b);
+}
+function areSimilarFloatArrays(a, b) {
+  if (a.byteLength !== b.byteLength) {
+    return false;
+  }
+  for (var offset = 0; offset < a.byteLength; offset++) {
+    if (a[offset] !== b[offset]) {
+      return false;
+    }
+  }
+  return true;
+}
+function areSimilarTypedArrays(a, b) {
+  if (a.byteLength !== b.byteLength) {
+    return false;
+  }
+  return compare(new Uint8Array(a.buffer, a.byteOffset, a.byteLength), new Uint8Array(b.buffer, b.byteOffset, b.byteLength)) === 0;
+}
+function areEqualArrayBuffers(buf1, buf2) {
+  return buf1.byteLength === buf2.byteLength && compare(new Uint8Array(buf1), new Uint8Array(buf2)) === 0;
+}
+function isEqualBoxedPrimitive(val1, val2) {
+  if (isNumberObject(val1)) {
+    return isNumberObject(val2) && objectIs(Number.prototype.valueOf.call(val1), Number.prototype.valueOf.call(val2));
+  }
+  if (isStringObject(val1)) {
+    return isStringObject(val2) && String.prototype.valueOf.call(val1) === String.prototype.valueOf.call(val2);
+  }
+  if (isBooleanObject(val1)) {
+    return isBooleanObject(val2) && Boolean.prototype.valueOf.call(val1) === Boolean.prototype.valueOf.call(val2);
+  }
+  if (isBigIntObject(val1)) {
+    return isBigIntObject(val2) && BigInt.prototype.valueOf.call(val1) === BigInt.prototype.valueOf.call(val2);
+  }
+  return isSymbolObject(val2) && Symbol.prototype.valueOf.call(val1) === Symbol.prototype.valueOf.call(val2);
+}
+
+// Notes: Type tags are historical [[Class]] properties that can be set by
+// FunctionTemplate::SetClassName() in C++ or Symbol.toStringTag in JS
+// and retrieved using Object.prototype.toString.call(obj) in JS
+// See https://tc39.github.io/ecma262/#sec-object.prototype.tostring
+// for a list of tags pre-defined in the spec.
+// There are some unspecified tags in the wild too (e.g. typed array tags).
+// Since tags can be altered, they only serve fast failures
+//
+// Typed arrays and buffers are checked by comparing the content in their
+// underlying ArrayBuffer. This optimization requires that it's
+// reasonable to interpret their underlying memory in the same way,
+// which is checked by comparing their type tags.
+// (e.g. a Uint8Array and a Uint16Array with the same memory content
+// could still be different because they will be interpreted differently).
+//
+// For strict comparison, objects should have
+// a) The same built-in type tags
+// b) The same prototypes.
+
+function innerDeepEqual(val1, val2, strict, memos) {
+  // All identical values are equivalent, as determined by ===.
+  if (val1 === val2) {
+    if (val1 !== 0) return true;
+    return strict ? objectIs(val1, val2) : true;
+  }
+
+  // Check more closely if val1 and val2 are equal.
+  if (strict) {
+    if (_typeof(val1) !== 'object') {
+      return typeof val1 === 'number' && numberIsNaN(val1) && numberIsNaN(val2);
+    }
+    if (_typeof(val2) !== 'object' || val1 === null || val2 === null) {
+      return false;
+    }
+    if (Object.getPrototypeOf(val1) !== Object.getPrototypeOf(val2)) {
+      return false;
+    }
+  } else {
+    if (val1 === null || _typeof(val1) !== 'object') {
+      if (val2 === null || _typeof(val2) !== 'object') {
+        // eslint-disable-next-line eqeqeq
+        return val1 == val2;
+      }
+      return false;
+    }
+    if (val2 === null || _typeof(val2) !== 'object') {
+      return false;
+    }
+  }
+  var val1Tag = objectToString(val1);
+  var val2Tag = objectToString(val2);
+  if (val1Tag !== val2Tag) {
+    return false;
+  }
+  if (Array.isArray(val1)) {
+    // Check for sparse arrays and general fast path
+    if (val1.length !== val2.length) {
+      return false;
+    }
+    var keys1 = getOwnNonIndexProperties(val1, ONLY_ENUMERABLE);
+    var keys2 = getOwnNonIndexProperties(val2, ONLY_ENUMERABLE);
+    if (keys1.length !== keys2.length) {
+      return false;
+    }
+    return keyCheck(val1, val2, strict, memos, kIsArray, keys1);
+  }
+  // [browserify] This triggers on certain types in IE (Map/Set) so we don't
+  // wan't to early return out of the rest of the checks. However we can check
+  // if the second value is one of these values and the first isn't.
+  if (val1Tag === '[object Object]') {
+    // return keyCheck(val1, val2, strict, memos, kNoIterator);
+    if (!isMap(val1) && isMap(val2) || !isSet(val1) && isSet(val2)) {
+      return false;
+    }
+  }
+  if (isDate(val1)) {
+    if (!isDate(val2) || Date.prototype.getTime.call(val1) !== Date.prototype.getTime.call(val2)) {
+      return false;
+    }
+  } else if (isRegExp(val1)) {
+    if (!isRegExp(val2) || !areSimilarRegExps(val1, val2)) {
+      return false;
+    }
+  } else if (isNativeError(val1) || val1 instanceof Error) {
+    // Do not compare the stack as it might differ even though the error itself
+    // is otherwise identical.
+    if (val1.message !== val2.message || val1.name !== val2.name) {
+      return false;
+    }
+  } else if (isArrayBufferView(val1)) {
+    if (!strict && (isFloat32Array(val1) || isFloat64Array(val1))) {
+      if (!areSimilarFloatArrays(val1, val2)) {
+        return false;
+      }
+    } else if (!areSimilarTypedArrays(val1, val2)) {
+      return false;
+    }
+    // Buffer.compare returns true, so val1.length === val2.length. If they both
+    // only contain numeric keys, we don't need to exam further than checking
+    // the symbols.
+    var _keys = getOwnNonIndexProperties(val1, ONLY_ENUMERABLE);
+    var _keys2 = getOwnNonIndexProperties(val2, ONLY_ENUMERABLE);
+    if (_keys.length !== _keys2.length) {
+      return false;
+    }
+    return keyCheck(val1, val2, strict, memos, kNoIterator, _keys);
+  } else if (isSet(val1)) {
+    if (!isSet(val2) || val1.size !== val2.size) {
+      return false;
+    }
+    return keyCheck(val1, val2, strict, memos, kIsSet);
+  } else if (isMap(val1)) {
+    if (!isMap(val2) || val1.size !== val2.size) {
+      return false;
+    }
+    return keyCheck(val1, val2, strict, memos, kIsMap);
+  } else if (isAnyArrayBuffer(val1)) {
+    if (!areEqualArrayBuffers(val1, val2)) {
+      return false;
+    }
+  } else if (isBoxedPrimitive(val1) && !isEqualBoxedPrimitive(val1, val2)) {
+    return false;
+  }
+  return keyCheck(val1, val2, strict, memos, kNoIterator);
+}
+function getEnumerables(val, keys) {
+  return keys.filter(function (k) {
+    return propertyIsEnumerable(val, k);
+  });
+}
+function keyCheck(val1, val2, strict, memos, iterationType, aKeys) {
+  // For all remaining Object pairs, including Array, objects and Maps,
+  // equivalence is determined by having:
+  // a) The same number of owned enumerable properties
+  // b) The same set of keys/indexes (although not necessarily the same order)
+  // c) Equivalent values for every corresponding key/index
+  // d) For Sets and Maps, equal contents
+  // Note: this accounts for both named and indexed properties on Arrays.
+  if (arguments.length === 5) {
+    aKeys = Object.keys(val1);
+    var bKeys = Object.keys(val2);
+
+    // The pair must have the same number of owned properties.
+    if (aKeys.length !== bKeys.length) {
+      return false;
+    }
+  }
+
+  // Cheap key test
+  var i = 0;
+  for (; i < aKeys.length; i++) {
+    if (!hasOwnProperty(val2, aKeys[i])) {
+      return false;
+    }
+  }
+  if (strict && arguments.length === 5) {
+    var symbolKeysA = objectGetOwnPropertySymbols(val1);
+    if (symbolKeysA.length !== 0) {
+      var count = 0;
+      for (i = 0; i < symbolKeysA.length; i++) {
+        var key = symbolKeysA[i];
+        if (propertyIsEnumerable(val1, key)) {
+          if (!propertyIsEnumerable(val2, key)) {
+            return false;
+          }
+          aKeys.push(key);
+          count++;
+        } else if (propertyIsEnumerable(val2, key)) {
+          return false;
+        }
+      }
+      var symbolKeysB = objectGetOwnPropertySymbols(val2);
+      if (symbolKeysA.length !== symbolKeysB.length && getEnumerables(val2, symbolKeysB).length !== count) {
+        return false;
+      }
+    } else {
+      var _symbolKeysB = objectGetOwnPropertySymbols(val2);
+      if (_symbolKeysB.length !== 0 && getEnumerables(val2, _symbolKeysB).length !== 0) {
+        return false;
+      }
+    }
+  }
+  if (aKeys.length === 0 && (iterationType === kNoIterator || iterationType === kIsArray && val1.length === 0 || val1.size === 0)) {
+    return true;
+  }
+
+  // Use memos to handle cycles.
+  if (memos === undefined) {
+    memos = {
+      val1: new Map(),
+      val2: new Map(),
+      position: 0
+    };
+  } else {
+    // We prevent up to two map.has(x) calls by directly retrieving the value
+    // and checking for undefined. The map can only contain numbers, so it is
+    // safe to check for undefined only.
+    var val2MemoA = memos.val1.get(val1);
+    if (val2MemoA !== undefined) {
+      var val2MemoB = memos.val2.get(val2);
+      if (val2MemoB !== undefined) {
+        return val2MemoA === val2MemoB;
+      }
+    }
+    memos.position++;
+  }
+  memos.val1.set(val1, memos.position);
+  memos.val2.set(val2, memos.position);
+  var areEq = objEquiv(val1, val2, strict, aKeys, memos, iterationType);
+  memos.val1.delete(val1);
+  memos.val2.delete(val2);
+  return areEq;
+}
+function setHasEqualElement(set, val1, strict, memo) {
+  // Go looking.
+  var setValues = arrayFromSet(set);
+  for (var i = 0; i < setValues.length; i++) {
+    var val2 = setValues[i];
+    if (innerDeepEqual(val1, val2, strict, memo)) {
+      // Remove the matching element to make sure we do not check that again.
+      set.delete(val2);
+      return true;
+    }
+  }
+  return false;
+}
+
+// See https://developer.mozilla.org/en-US/docs/Web/JavaScript/Equality_comparisons_and_sameness#Loose_equality_using
+// Sadly it is not possible to detect corresponding values properly in case the
+// type is a string, number, bigint or boolean. The reason is that those values
+// can match lots of different string values (e.g., 1n == '+00001').
+function findLooseMatchingPrimitives(prim) {
+  switch (_typeof(prim)) {
+    case 'undefined':
+      return null;
+    case 'object':
+      // Only pass in null as object!
+      return undefined;
+    case 'symbol':
+      return false;
+    case 'string':
+      prim = +prim;
+    // Loose equal entries exist only if the string is possible to convert to
+    // a regular number and not NaN.
+    // Fall through
+    case 'number':
+      if (numberIsNaN(prim)) {
+        return false;
+      }
+  }
+  return true;
+}
+function setMightHaveLoosePrim(a, b, prim) {
+  var altValue = findLooseMatchingPrimitives(prim);
+  if (altValue != null) return altValue;
+  return b.has(altValue) && !a.has(altValue);
+}
+function mapMightHaveLoosePrim(a, b, prim, item, memo) {
+  var altValue = findLooseMatchingPrimitives(prim);
+  if (altValue != null) {
+    return altValue;
+  }
+  var curB = b.get(altValue);
+  if (curB === undefined && !b.has(altValue) || !innerDeepEqual(item, curB, false, memo)) {
+    return false;
+  }
+  return !a.has(altValue) && innerDeepEqual(item, curB, false, memo);
+}
+function setEquiv(a, b, strict, memo) {
+  // This is a lazily initiated Set of entries which have to be compared
+  // pairwise.
+  var set = null;
+  var aValues = arrayFromSet(a);
+  for (var i = 0; i < aValues.length; i++) {
+    var val = aValues[i];
+    // Note: Checking for the objects first improves the performance for object
+    // heavy sets but it is a minor slow down for primitives. As they are fast
+    // to check this improves the worst case scenario instead.
+    if (_typeof(val) === 'object' && val !== null) {
+      if (set === null) {
+        set = new Set();
+      }
+      // If the specified value doesn't exist in the second set its an not null
+      // object (or non strict only: a not matching primitive) we'll need to go
+      // hunting for something thats deep-(strict-)equal to it. To make this
+      // O(n log n) complexity we have to copy these values in a new set first.
+      set.add(val);
+    } else if (!b.has(val)) {
+      if (strict) return false;
+
+      // Fast path to detect missing string, symbol, undefined and null values.
+      if (!setMightHaveLoosePrim(a, b, val)) {
+        return false;
+      }
+      if (set === null) {
+        set = new Set();
+      }
+      set.add(val);
+    }
+  }
+  if (set !== null) {
+    var bValues = arrayFromSet(b);
+    for (var _i = 0; _i < bValues.length; _i++) {
+      var _val = bValues[_i];
+      // We have to check if a primitive value is already
+      // matching and only if it's not, go hunting for it.
+      if (_typeof(_val) === 'object' && _val !== null) {
+        if (!setHasEqualElement(set, _val, strict, memo)) return false;
+      } else if (!strict && !a.has(_val) && !setHasEqualElement(set, _val, strict, memo)) {
+        return false;
+      }
+    }
+    return set.size === 0;
+  }
+  return true;
+}
+function mapHasEqualEntry(set, map, key1, item1, strict, memo) {
+  // To be able to handle cases like:
+  //   Map([[{}, 'a'], [{}, 'b']]) vs Map([[{}, 'b'], [{}, 'a']])
+  // ... we need to consider *all* matching keys, not just the first we find.
+  var setValues = arrayFromSet(set);
+  for (var i = 0; i < setValues.length; i++) {
+    var key2 = setValues[i];
+    if (innerDeepEqual(key1, key2, strict, memo) && innerDeepEqual(item1, map.get(key2), strict, memo)) {
+      set.delete(key2);
+      return true;
+    }
+  }
+  return false;
+}
+function mapEquiv(a, b, strict, memo) {
+  var set = null;
+  var aEntries = arrayFromMap(a);
+  for (var i = 0; i < aEntries.length; i++) {
+    var _aEntries$i = _slicedToArray(aEntries[i], 2),
+      key = _aEntries$i[0],
+      item1 = _aEntries$i[1];
+    if (_typeof(key) === 'object' && key !== null) {
+      if (set === null) {
+        set = new Set();
+      }
+      set.add(key);
+    } else {
+      // By directly retrieving the value we prevent another b.has(key) check in
+      // almost all possible cases.
+      var item2 = b.get(key);
+      if (item2 === undefined && !b.has(key) || !innerDeepEqual(item1, item2, strict, memo)) {
+        if (strict) return false;
+        // Fast path to detect missing string, symbol, undefined and null
+        // keys.
+        if (!mapMightHaveLoosePrim(a, b, key, item1, memo)) return false;
+        if (set === null) {
+          set = new Set();
+        }
+        set.add(key);
+      }
+    }
+  }
+  if (set !== null) {
+    var bEntries = arrayFromMap(b);
+    for (var _i2 = 0; _i2 < bEntries.length; _i2++) {
+      var _bEntries$_i = _slicedToArray(bEntries[_i2], 2),
+        _key = _bEntries$_i[0],
+        item = _bEntries$_i[1];
+      if (_typeof(_key) === 'object' && _key !== null) {
+        if (!mapHasEqualEntry(set, a, _key, item, strict, memo)) return false;
+      } else if (!strict && (!a.has(_key) || !innerDeepEqual(a.get(_key), item, false, memo)) && !mapHasEqualEntry(set, a, _key, item, false, memo)) {
+        return false;
+      }
+    }
+    return set.size === 0;
+  }
+  return true;
+}
+function objEquiv(a, b, strict, keys, memos, iterationType) {
+  // Sets and maps don't have their entries accessible via normal object
+  // properties.
+  var i = 0;
+  if (iterationType === kIsSet) {
+    if (!setEquiv(a, b, strict, memos)) {
+      return false;
+    }
+  } else if (iterationType === kIsMap) {
+    if (!mapEquiv(a, b, strict, memos)) {
+      return false;
+    }
+  } else if (iterationType === kIsArray) {
+    for (; i < a.length; i++) {
+      if (hasOwnProperty(a, i)) {
+        if (!hasOwnProperty(b, i) || !innerDeepEqual(a[i], b[i], strict, memos)) {
+          return false;
+        }
+      } else if (hasOwnProperty(b, i)) {
+        return false;
+      } else {
+        // Array is sparse.
+        var keysA = Object.keys(a);
+        for (; i < keysA.length; i++) {
+          var key = keysA[i];
+          if (!hasOwnProperty(b, key) || !innerDeepEqual(a[key], b[key], strict, memos)) {
+            return false;
+          }
+        }
+        if (keysA.length !== Object.keys(b).length) {
+          return false;
+        }
+        return true;
+      }
+    }
+  }
+
+  // The pair must have equivalent values for every corresponding key.
+  // Possibly expensive deep test:
+  for (i = 0; i < keys.length; i++) {
+    var _key2 = keys[i];
+    if (!innerDeepEqual(a[_key2], b[_key2], strict, memos)) {
+      return false;
+    }
+  }
+  return true;
+}
+function isDeepEqual(val1, val2) {
+  return innerDeepEqual(val1, val2, kLoose);
+}
+function isDeepStrictEqual(val1, val2) {
+  return innerDeepEqual(val1, val2, kStrict);
+}
+module.exports = {
+  isDeepEqual: isDeepEqual,
+  isDeepStrictEqual: isDeepStrictEqual
+};
+
+/***/ }),
+
+/***/ 9742:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+
+exports.byteLength = byteLength
+exports.toByteArray = toByteArray
+exports.fromByteArray = fromByteArray
+
+var lookup = []
+var revLookup = []
+var Arr = typeof Uint8Array !== 'undefined' ? Uint8Array : Array
+
+var code = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'
+for (var i = 0, len = code.length; i < len; ++i) {
+  lookup[i] = code[i]
+  revLookup[code.charCodeAt(i)] = i
+}
+
+// Support decoding URL-safe base64 strings, as Node.js does.
+// See: https://en.wikipedia.org/wiki/Base64#URL_applications
+revLookup['-'.charCodeAt(0)] = 62
+revLookup['_'.charCodeAt(0)] = 63
+
+function getLens (b64) {
+  var len = b64.length
+
+  if (len % 4 > 0) {
+    throw new Error('Invalid string. Length must be a multiple of 4')
+  }
+
+  // Trim off extra bytes after placeholder bytes are found
+  // See: https://github.com/beatgammit/base64-js/issues/42
+  var validLen = b64.indexOf('=')
+  if (validLen === -1) validLen = len
+
+  var placeHoldersLen = validLen === len
+    ? 0
+    : 4 - (validLen % 4)
+
+  return [validLen, placeHoldersLen]
+}
+
+// base64 is 4/3 + up to two characters of the original data
+function byteLength (b64) {
+  var lens = getLens(b64)
+  var validLen = lens[0]
+  var placeHoldersLen = lens[1]
+  return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
+}
+
+function _byteLength (b64, validLen, placeHoldersLen) {
+  return ((validLen + placeHoldersLen) * 3 / 4) - placeHoldersLen
+}
+
+function toByteArray (b64) {
+  var tmp
+  var lens = getLens(b64)
+  var validLen = lens[0]
+  var placeHoldersLen = lens[1]
+
+  var arr = new Arr(_byteLength(b64, validLen, placeHoldersLen))
+
+  var curByte = 0
+
+  // if there are placeholders, only get up to the last complete 4 chars
+  var len = placeHoldersLen > 0
+    ? validLen - 4
+    : validLen
+
+  var i
+  for (i = 0; i < len; i += 4) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 18) |
+      (revLookup[b64.charCodeAt(i + 1)] << 12) |
+      (revLookup[b64.charCodeAt(i + 2)] << 6) |
+      revLookup[b64.charCodeAt(i + 3)]
+    arr[curByte++] = (tmp >> 16) & 0xFF
+    arr[curByte++] = (tmp >> 8) & 0xFF
+    arr[curByte++] = tmp & 0xFF
+  }
+
+  if (placeHoldersLen === 2) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 2) |
+      (revLookup[b64.charCodeAt(i + 1)] >> 4)
+    arr[curByte++] = tmp & 0xFF
+  }
+
+  if (placeHoldersLen === 1) {
+    tmp =
+      (revLookup[b64.charCodeAt(i)] << 10) |
+      (revLookup[b64.charCodeAt(i + 1)] << 4) |
+      (revLookup[b64.charCodeAt(i + 2)] >> 2)
+    arr[curByte++] = (tmp >> 8) & 0xFF
+    arr[curByte++] = tmp & 0xFF
+  }
+
+  return arr
+}
+
+function tripletToBase64 (num) {
+  return lookup[num >> 18 & 0x3F] +
+    lookup[num >> 12 & 0x3F] +
+    lookup[num >> 6 & 0x3F] +
+    lookup[num & 0x3F]
+}
+
+function encodeChunk (uint8, start, end) {
+  var tmp
+  var output = []
+  for (var i = start; i < end; i += 3) {
+    tmp =
+      ((uint8[i] << 16) & 0xFF0000) +
+      ((uint8[i + 1] << 8) & 0xFF00) +
+      (uint8[i + 2] & 0xFF)
+    output.push(tripletToBase64(tmp))
+  }
+  return output.join('')
+}
+
+function fromByteArray (uint8) {
+  var tmp
+  var len = uint8.length
+  var extraBytes = len % 3 // if we have 1 byte left, pad 2 bytes
+  var parts = []
+  var maxChunkLength = 16383 // must be multiple of 3
+
+  // go through the array every three bytes, we'll deal with trailing stuff later
+  for (var i = 0, len2 = len - extraBytes; i < len2; i += maxChunkLength) {
+    parts.push(encodeChunk(uint8, i, (i + maxChunkLength) > len2 ? len2 : (i + maxChunkLength)))
+  }
+
+  // pad the end with zeros, but make sure to not forget the extra bytes
+  if (extraBytes === 1) {
+    tmp = uint8[len - 1]
+    parts.push(
+      lookup[tmp >> 2] +
+      lookup[(tmp << 4) & 0x3F] +
+      '=='
+    )
+  } else if (extraBytes === 2) {
+    tmp = (uint8[len - 2] << 8) + uint8[len - 1]
+    parts.push(
+      lookup[tmp >> 10] +
+      lookup[(tmp >> 4) & 0x3F] +
+      lookup[(tmp << 2) & 0x3F] +
+      '='
+    )
+  }
+
+  return parts.join('')
+}
+
+
+/***/ }),
+
+/***/ 2084:
 /***/ (function(module) {
 
 (function webpackUniversalModuleDefinition(root, factory) {
@@ -1208,7 +3179,3748 @@ exports.splitHeaderValue = splitHeaderValue;
 
 /***/ }),
 
-/***/ 720:
+/***/ 8764:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+var __webpack_unused_export__;
+/* provided dependency */ var console = __webpack_require__(5108);
+/*!
+ * The buffer module from node.js, for the browser.
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+/* eslint-disable no-proto */
+
+
+
+const base64 = __webpack_require__(9742)
+const ieee754 = __webpack_require__(645)
+const customInspectSymbol =
+  (typeof Symbol === 'function' && typeof Symbol['for'] === 'function') // eslint-disable-line dot-notation
+    ? Symbol['for']('nodejs.util.inspect.custom') // eslint-disable-line dot-notation
+    : null
+
+exports.lW = Buffer
+__webpack_unused_export__ = SlowBuffer
+exports.h2 = 50
+
+const K_MAX_LENGTH = 0x7fffffff
+__webpack_unused_export__ = K_MAX_LENGTH
+
+/**
+ * If `Buffer.TYPED_ARRAY_SUPPORT`:
+ *   === true    Use Uint8Array implementation (fastest)
+ *   === false   Print warning and recommend using `buffer` v4.x which has an Object
+ *               implementation (most compatible, even IE6)
+ *
+ * Browsers that support typed arrays are IE 10+, Firefox 4+, Chrome 7+, Safari 5.1+,
+ * Opera 11.6+, iOS 4.2+.
+ *
+ * We report that the browser does not support typed arrays if the are not subclassable
+ * using __proto__. Firefox 4-29 lacks support for adding new properties to `Uint8Array`
+ * (See: https://bugzilla.mozilla.org/show_bug.cgi?id=695438). IE 10 lacks support
+ * for __proto__ and has a buggy typed array implementation.
+ */
+Buffer.TYPED_ARRAY_SUPPORT = typedArraySupport()
+
+if (!Buffer.TYPED_ARRAY_SUPPORT && typeof console !== 'undefined' &&
+    typeof console.error === 'function') {
+  console.error(
+    'This browser lacks typed array (Uint8Array) support which is required by ' +
+    '`buffer` v5.x. Use `buffer` v4.x if you require old browser support.'
+  )
+}
+
+function typedArraySupport () {
+  // Can typed array instances can be augmented?
+  try {
+    const arr = new Uint8Array(1)
+    const proto = { foo: function () { return 42 } }
+    Object.setPrototypeOf(proto, Uint8Array.prototype)
+    Object.setPrototypeOf(arr, proto)
+    return arr.foo() === 42
+  } catch (e) {
+    return false
+  }
+}
+
+Object.defineProperty(Buffer.prototype, 'parent', {
+  enumerable: true,
+  get: function () {
+    if (!Buffer.isBuffer(this)) return undefined
+    return this.buffer
+  }
+})
+
+Object.defineProperty(Buffer.prototype, 'offset', {
+  enumerable: true,
+  get: function () {
+    if (!Buffer.isBuffer(this)) return undefined
+    return this.byteOffset
+  }
+})
+
+function createBuffer (length) {
+  if (length > K_MAX_LENGTH) {
+    throw new RangeError('The value "' + length + '" is invalid for option "size"')
+  }
+  // Return an augmented `Uint8Array` instance
+  const buf = new Uint8Array(length)
+  Object.setPrototypeOf(buf, Buffer.prototype)
+  return buf
+}
+
+/**
+ * The Buffer constructor returns instances of `Uint8Array` that have their
+ * prototype changed to `Buffer.prototype`. Furthermore, `Buffer` is a subclass of
+ * `Uint8Array`, so the returned instances will have all the node `Buffer` methods
+ * and the `Uint8Array` methods. Square bracket notation works as expected -- it
+ * returns a single octet.
+ *
+ * The `Uint8Array` prototype remains unmodified.
+ */
+
+function Buffer (arg, encodingOrOffset, length) {
+  // Common case.
+  if (typeof arg === 'number') {
+    if (typeof encodingOrOffset === 'string') {
+      throw new TypeError(
+        'The "string" argument must be of type string. Received type number'
+      )
+    }
+    return allocUnsafe(arg)
+  }
+  return from(arg, encodingOrOffset, length)
+}
+
+Buffer.poolSize = 8192 // not used by this implementation
+
+function from (value, encodingOrOffset, length) {
+  if (typeof value === 'string') {
+    return fromString(value, encodingOrOffset)
+  }
+
+  if (ArrayBuffer.isView(value)) {
+    return fromArrayView(value)
+  }
+
+  if (value == null) {
+    throw new TypeError(
+      'The first argument must be one of type string, Buffer, ArrayBuffer, Array, ' +
+      'or Array-like Object. Received type ' + (typeof value)
+    )
+  }
+
+  if (isInstance(value, ArrayBuffer) ||
+      (value && isInstance(value.buffer, ArrayBuffer))) {
+    return fromArrayBuffer(value, encodingOrOffset, length)
+  }
+
+  if (typeof SharedArrayBuffer !== 'undefined' &&
+      (isInstance(value, SharedArrayBuffer) ||
+      (value && isInstance(value.buffer, SharedArrayBuffer)))) {
+    return fromArrayBuffer(value, encodingOrOffset, length)
+  }
+
+  if (typeof value === 'number') {
+    throw new TypeError(
+      'The "value" argument must not be of type number. Received type number'
+    )
+  }
+
+  const valueOf = value.valueOf && value.valueOf()
+  if (valueOf != null && valueOf !== value) {
+    return Buffer.from(valueOf, encodingOrOffset, length)
+  }
+
+  const b = fromObject(value)
+  if (b) return b
+
+  if (typeof Symbol !== 'undefined' && Symbol.toPrimitive != null &&
+      typeof value[Symbol.toPrimitive] === 'function') {
+    return Buffer.from(value[Symbol.toPrimitive]('string'), encodingOrOffset, length)
+  }
+
+  throw new TypeError(
+    'The first argument must be one of type string, Buffer, ArrayBuffer, Array, ' +
+    'or Array-like Object. Received type ' + (typeof value)
+  )
+}
+
+/**
+ * Functionally equivalent to Buffer(arg, encoding) but throws a TypeError
+ * if value is a number.
+ * Buffer.from(str[, encoding])
+ * Buffer.from(array)
+ * Buffer.from(buffer)
+ * Buffer.from(arrayBuffer[, byteOffset[, length]])
+ **/
+Buffer.from = function (value, encodingOrOffset, length) {
+  return from(value, encodingOrOffset, length)
+}
+
+// Note: Change prototype *after* Buffer.from is defined to workaround Chrome bug:
+// https://github.com/feross/buffer/pull/148
+Object.setPrototypeOf(Buffer.prototype, Uint8Array.prototype)
+Object.setPrototypeOf(Buffer, Uint8Array)
+
+function assertSize (size) {
+  if (typeof size !== 'number') {
+    throw new TypeError('"size" argument must be of type number')
+  } else if (size < 0) {
+    throw new RangeError('The value "' + size + '" is invalid for option "size"')
+  }
+}
+
+function alloc (size, fill, encoding) {
+  assertSize(size)
+  if (size <= 0) {
+    return createBuffer(size)
+  }
+  if (fill !== undefined) {
+    // Only pay attention to encoding if it's a string. This
+    // prevents accidentally sending in a number that would
+    // be interpreted as a start offset.
+    return typeof encoding === 'string'
+      ? createBuffer(size).fill(fill, encoding)
+      : createBuffer(size).fill(fill)
+  }
+  return createBuffer(size)
+}
+
+/**
+ * Creates a new filled Buffer instance.
+ * alloc(size[, fill[, encoding]])
+ **/
+Buffer.alloc = function (size, fill, encoding) {
+  return alloc(size, fill, encoding)
+}
+
+function allocUnsafe (size) {
+  assertSize(size)
+  return createBuffer(size < 0 ? 0 : checked(size) | 0)
+}
+
+/**
+ * Equivalent to Buffer(num), by default creates a non-zero-filled Buffer instance.
+ * */
+Buffer.allocUnsafe = function (size) {
+  return allocUnsafe(size)
+}
+/**
+ * Equivalent to SlowBuffer(num), by default creates a non-zero-filled Buffer instance.
+ */
+Buffer.allocUnsafeSlow = function (size) {
+  return allocUnsafe(size)
+}
+
+function fromString (string, encoding) {
+  if (typeof encoding !== 'string' || encoding === '') {
+    encoding = 'utf8'
+  }
+
+  if (!Buffer.isEncoding(encoding)) {
+    throw new TypeError('Unknown encoding: ' + encoding)
+  }
+
+  const length = byteLength(string, encoding) | 0
+  let buf = createBuffer(length)
+
+  const actual = buf.write(string, encoding)
+
+  if (actual !== length) {
+    // Writing a hex string, for example, that contains invalid characters will
+    // cause everything after the first invalid character to be ignored. (e.g.
+    // 'abxxcd' will be treated as 'ab')
+    buf = buf.slice(0, actual)
+  }
+
+  return buf
+}
+
+function fromArrayLike (array) {
+  const length = array.length < 0 ? 0 : checked(array.length) | 0
+  const buf = createBuffer(length)
+  for (let i = 0; i < length; i += 1) {
+    buf[i] = array[i] & 255
+  }
+  return buf
+}
+
+function fromArrayView (arrayView) {
+  if (isInstance(arrayView, Uint8Array)) {
+    const copy = new Uint8Array(arrayView)
+    return fromArrayBuffer(copy.buffer, copy.byteOffset, copy.byteLength)
+  }
+  return fromArrayLike(arrayView)
+}
+
+function fromArrayBuffer (array, byteOffset, length) {
+  if (byteOffset < 0 || array.byteLength < byteOffset) {
+    throw new RangeError('"offset" is outside of buffer bounds')
+  }
+
+  if (array.byteLength < byteOffset + (length || 0)) {
+    throw new RangeError('"length" is outside of buffer bounds')
+  }
+
+  let buf
+  if (byteOffset === undefined && length === undefined) {
+    buf = new Uint8Array(array)
+  } else if (length === undefined) {
+    buf = new Uint8Array(array, byteOffset)
+  } else {
+    buf = new Uint8Array(array, byteOffset, length)
+  }
+
+  // Return an augmented `Uint8Array` instance
+  Object.setPrototypeOf(buf, Buffer.prototype)
+
+  return buf
+}
+
+function fromObject (obj) {
+  if (Buffer.isBuffer(obj)) {
+    const len = checked(obj.length) | 0
+    const buf = createBuffer(len)
+
+    if (buf.length === 0) {
+      return buf
+    }
+
+    obj.copy(buf, 0, 0, len)
+    return buf
+  }
+
+  if (obj.length !== undefined) {
+    if (typeof obj.length !== 'number' || numberIsNaN(obj.length)) {
+      return createBuffer(0)
+    }
+    return fromArrayLike(obj)
+  }
+
+  if (obj.type === 'Buffer' && Array.isArray(obj.data)) {
+    return fromArrayLike(obj.data)
+  }
+}
+
+function checked (length) {
+  // Note: cannot use `length < K_MAX_LENGTH` here because that fails when
+  // length is NaN (which is otherwise coerced to zero.)
+  if (length >= K_MAX_LENGTH) {
+    throw new RangeError('Attempt to allocate Buffer larger than maximum ' +
+                         'size: 0x' + K_MAX_LENGTH.toString(16) + ' bytes')
+  }
+  return length | 0
+}
+
+function SlowBuffer (length) {
+  if (+length != length) { // eslint-disable-line eqeqeq
+    length = 0
+  }
+  return Buffer.alloc(+length)
+}
+
+Buffer.isBuffer = function isBuffer (b) {
+  return b != null && b._isBuffer === true &&
+    b !== Buffer.prototype // so Buffer.isBuffer(Buffer.prototype) will be false
+}
+
+Buffer.compare = function compare (a, b) {
+  if (isInstance(a, Uint8Array)) a = Buffer.from(a, a.offset, a.byteLength)
+  if (isInstance(b, Uint8Array)) b = Buffer.from(b, b.offset, b.byteLength)
+  if (!Buffer.isBuffer(a) || !Buffer.isBuffer(b)) {
+    throw new TypeError(
+      'The "buf1", "buf2" arguments must be one of type Buffer or Uint8Array'
+    )
+  }
+
+  if (a === b) return 0
+
+  let x = a.length
+  let y = b.length
+
+  for (let i = 0, len = Math.min(x, y); i < len; ++i) {
+    if (a[i] !== b[i]) {
+      x = a[i]
+      y = b[i]
+      break
+    }
+  }
+
+  if (x < y) return -1
+  if (y < x) return 1
+  return 0
+}
+
+Buffer.isEncoding = function isEncoding (encoding) {
+  switch (String(encoding).toLowerCase()) {
+    case 'hex':
+    case 'utf8':
+    case 'utf-8':
+    case 'ascii':
+    case 'latin1':
+    case 'binary':
+    case 'base64':
+    case 'ucs2':
+    case 'ucs-2':
+    case 'utf16le':
+    case 'utf-16le':
+      return true
+    default:
+      return false
+  }
+}
+
+Buffer.concat = function concat (list, length) {
+  if (!Array.isArray(list)) {
+    throw new TypeError('"list" argument must be an Array of Buffers')
+  }
+
+  if (list.length === 0) {
+    return Buffer.alloc(0)
+  }
+
+  let i
+  if (length === undefined) {
+    length = 0
+    for (i = 0; i < list.length; ++i) {
+      length += list[i].length
+    }
+  }
+
+  const buffer = Buffer.allocUnsafe(length)
+  let pos = 0
+  for (i = 0; i < list.length; ++i) {
+    let buf = list[i]
+    if (isInstance(buf, Uint8Array)) {
+      if (pos + buf.length > buffer.length) {
+        if (!Buffer.isBuffer(buf)) buf = Buffer.from(buf)
+        buf.copy(buffer, pos)
+      } else {
+        Uint8Array.prototype.set.call(
+          buffer,
+          buf,
+          pos
+        )
+      }
+    } else if (!Buffer.isBuffer(buf)) {
+      throw new TypeError('"list" argument must be an Array of Buffers')
+    } else {
+      buf.copy(buffer, pos)
+    }
+    pos += buf.length
+  }
+  return buffer
+}
+
+function byteLength (string, encoding) {
+  if (Buffer.isBuffer(string)) {
+    return string.length
+  }
+  if (ArrayBuffer.isView(string) || isInstance(string, ArrayBuffer)) {
+    return string.byteLength
+  }
+  if (typeof string !== 'string') {
+    throw new TypeError(
+      'The "string" argument must be one of type string, Buffer, or ArrayBuffer. ' +
+      'Received type ' + typeof string
+    )
+  }
+
+  const len = string.length
+  const mustMatch = (arguments.length > 2 && arguments[2] === true)
+  if (!mustMatch && len === 0) return 0
+
+  // Use a for loop to avoid recursion
+  let loweredCase = false
+  for (;;) {
+    switch (encoding) {
+      case 'ascii':
+      case 'latin1':
+      case 'binary':
+        return len
+      case 'utf8':
+      case 'utf-8':
+        return utf8ToBytes(string).length
+      case 'ucs2':
+      case 'ucs-2':
+      case 'utf16le':
+      case 'utf-16le':
+        return len * 2
+      case 'hex':
+        return len >>> 1
+      case 'base64':
+        return base64ToBytes(string).length
+      default:
+        if (loweredCase) {
+          return mustMatch ? -1 : utf8ToBytes(string).length // assume utf8
+        }
+        encoding = ('' + encoding).toLowerCase()
+        loweredCase = true
+    }
+  }
+}
+Buffer.byteLength = byteLength
+
+function slowToString (encoding, start, end) {
+  let loweredCase = false
+
+  // No need to verify that "this.length <= MAX_UINT32" since it's a read-only
+  // property of a typed array.
+
+  // This behaves neither like String nor Uint8Array in that we set start/end
+  // to their upper/lower bounds if the value passed is out of range.
+  // undefined is handled specially as per ECMA-262 6th Edition,
+  // Section 13.3.3.7 Runtime Semantics: KeyedBindingInitialization.
+  if (start === undefined || start < 0) {
+    start = 0
+  }
+  // Return early if start > this.length. Done here to prevent potential uint32
+  // coercion fail below.
+  if (start > this.length) {
+    return ''
+  }
+
+  if (end === undefined || end > this.length) {
+    end = this.length
+  }
+
+  if (end <= 0) {
+    return ''
+  }
+
+  // Force coercion to uint32. This will also coerce falsey/NaN values to 0.
+  end >>>= 0
+  start >>>= 0
+
+  if (end <= start) {
+    return ''
+  }
+
+  if (!encoding) encoding = 'utf8'
+
+  while (true) {
+    switch (encoding) {
+      case 'hex':
+        return hexSlice(this, start, end)
+
+      case 'utf8':
+      case 'utf-8':
+        return utf8Slice(this, start, end)
+
+      case 'ascii':
+        return asciiSlice(this, start, end)
+
+      case 'latin1':
+      case 'binary':
+        return latin1Slice(this, start, end)
+
+      case 'base64':
+        return base64Slice(this, start, end)
+
+      case 'ucs2':
+      case 'ucs-2':
+      case 'utf16le':
+      case 'utf-16le':
+        return utf16leSlice(this, start, end)
+
+      default:
+        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
+        encoding = (encoding + '').toLowerCase()
+        loweredCase = true
+    }
+  }
+}
+
+// This property is used by `Buffer.isBuffer` (and the `is-buffer` npm package)
+// to detect a Buffer instance. It's not possible to use `instanceof Buffer`
+// reliably in a browserify context because there could be multiple different
+// copies of the 'buffer' package in use. This method works even for Buffer
+// instances that were created from another copy of the `buffer` package.
+// See: https://github.com/feross/buffer/issues/154
+Buffer.prototype._isBuffer = true
+
+function swap (b, n, m) {
+  const i = b[n]
+  b[n] = b[m]
+  b[m] = i
+}
+
+Buffer.prototype.swap16 = function swap16 () {
+  const len = this.length
+  if (len % 2 !== 0) {
+    throw new RangeError('Buffer size must be a multiple of 16-bits')
+  }
+  for (let i = 0; i < len; i += 2) {
+    swap(this, i, i + 1)
+  }
+  return this
+}
+
+Buffer.prototype.swap32 = function swap32 () {
+  const len = this.length
+  if (len % 4 !== 0) {
+    throw new RangeError('Buffer size must be a multiple of 32-bits')
+  }
+  for (let i = 0; i < len; i += 4) {
+    swap(this, i, i + 3)
+    swap(this, i + 1, i + 2)
+  }
+  return this
+}
+
+Buffer.prototype.swap64 = function swap64 () {
+  const len = this.length
+  if (len % 8 !== 0) {
+    throw new RangeError('Buffer size must be a multiple of 64-bits')
+  }
+  for (let i = 0; i < len; i += 8) {
+    swap(this, i, i + 7)
+    swap(this, i + 1, i + 6)
+    swap(this, i + 2, i + 5)
+    swap(this, i + 3, i + 4)
+  }
+  return this
+}
+
+Buffer.prototype.toString = function toString () {
+  const length = this.length
+  if (length === 0) return ''
+  if (arguments.length === 0) return utf8Slice(this, 0, length)
+  return slowToString.apply(this, arguments)
+}
+
+Buffer.prototype.toLocaleString = Buffer.prototype.toString
+
+Buffer.prototype.equals = function equals (b) {
+  if (!Buffer.isBuffer(b)) throw new TypeError('Argument must be a Buffer')
+  if (this === b) return true
+  return Buffer.compare(this, b) === 0
+}
+
+Buffer.prototype.inspect = function inspect () {
+  let str = ''
+  const max = exports.h2
+  str = this.toString('hex', 0, max).replace(/(.{2})/g, '$1 ').trim()
+  if (this.length > max) str += ' ... '
+  return '<Buffer ' + str + '>'
+}
+if (customInspectSymbol) {
+  Buffer.prototype[customInspectSymbol] = Buffer.prototype.inspect
+}
+
+Buffer.prototype.compare = function compare (target, start, end, thisStart, thisEnd) {
+  if (isInstance(target, Uint8Array)) {
+    target = Buffer.from(target, target.offset, target.byteLength)
+  }
+  if (!Buffer.isBuffer(target)) {
+    throw new TypeError(
+      'The "target" argument must be one of type Buffer or Uint8Array. ' +
+      'Received type ' + (typeof target)
+    )
+  }
+
+  if (start === undefined) {
+    start = 0
+  }
+  if (end === undefined) {
+    end = target ? target.length : 0
+  }
+  if (thisStart === undefined) {
+    thisStart = 0
+  }
+  if (thisEnd === undefined) {
+    thisEnd = this.length
+  }
+
+  if (start < 0 || end > target.length || thisStart < 0 || thisEnd > this.length) {
+    throw new RangeError('out of range index')
+  }
+
+  if (thisStart >= thisEnd && start >= end) {
+    return 0
+  }
+  if (thisStart >= thisEnd) {
+    return -1
+  }
+  if (start >= end) {
+    return 1
+  }
+
+  start >>>= 0
+  end >>>= 0
+  thisStart >>>= 0
+  thisEnd >>>= 0
+
+  if (this === target) return 0
+
+  let x = thisEnd - thisStart
+  let y = end - start
+  const len = Math.min(x, y)
+
+  const thisCopy = this.slice(thisStart, thisEnd)
+  const targetCopy = target.slice(start, end)
+
+  for (let i = 0; i < len; ++i) {
+    if (thisCopy[i] !== targetCopy[i]) {
+      x = thisCopy[i]
+      y = targetCopy[i]
+      break
+    }
+  }
+
+  if (x < y) return -1
+  if (y < x) return 1
+  return 0
+}
+
+// Finds either the first index of `val` in `buffer` at offset >= `byteOffset`,
+// OR the last index of `val` in `buffer` at offset <= `byteOffset`.
+//
+// Arguments:
+// - buffer - a Buffer to search
+// - val - a string, Buffer, or number
+// - byteOffset - an index into `buffer`; will be clamped to an int32
+// - encoding - an optional encoding, relevant is val is a string
+// - dir - true for indexOf, false for lastIndexOf
+function bidirectionalIndexOf (buffer, val, byteOffset, encoding, dir) {
+  // Empty buffer means no match
+  if (buffer.length === 0) return -1
+
+  // Normalize byteOffset
+  if (typeof byteOffset === 'string') {
+    encoding = byteOffset
+    byteOffset = 0
+  } else if (byteOffset > 0x7fffffff) {
+    byteOffset = 0x7fffffff
+  } else if (byteOffset < -0x80000000) {
+    byteOffset = -0x80000000
+  }
+  byteOffset = +byteOffset // Coerce to Number.
+  if (numberIsNaN(byteOffset)) {
+    // byteOffset: it it's undefined, null, NaN, "foo", etc, search whole buffer
+    byteOffset = dir ? 0 : (buffer.length - 1)
+  }
+
+  // Normalize byteOffset: negative offsets start from the end of the buffer
+  if (byteOffset < 0) byteOffset = buffer.length + byteOffset
+  if (byteOffset >= buffer.length) {
+    if (dir) return -1
+    else byteOffset = buffer.length - 1
+  } else if (byteOffset < 0) {
+    if (dir) byteOffset = 0
+    else return -1
+  }
+
+  // Normalize val
+  if (typeof val === 'string') {
+    val = Buffer.from(val, encoding)
+  }
+
+  // Finally, search either indexOf (if dir is true) or lastIndexOf
+  if (Buffer.isBuffer(val)) {
+    // Special case: looking for empty string/buffer always fails
+    if (val.length === 0) {
+      return -1
+    }
+    return arrayIndexOf(buffer, val, byteOffset, encoding, dir)
+  } else if (typeof val === 'number') {
+    val = val & 0xFF // Search for a byte value [0-255]
+    if (typeof Uint8Array.prototype.indexOf === 'function') {
+      if (dir) {
+        return Uint8Array.prototype.indexOf.call(buffer, val, byteOffset)
+      } else {
+        return Uint8Array.prototype.lastIndexOf.call(buffer, val, byteOffset)
+      }
+    }
+    return arrayIndexOf(buffer, [val], byteOffset, encoding, dir)
+  }
+
+  throw new TypeError('val must be string, number or Buffer')
+}
+
+function arrayIndexOf (arr, val, byteOffset, encoding, dir) {
+  let indexSize = 1
+  let arrLength = arr.length
+  let valLength = val.length
+
+  if (encoding !== undefined) {
+    encoding = String(encoding).toLowerCase()
+    if (encoding === 'ucs2' || encoding === 'ucs-2' ||
+        encoding === 'utf16le' || encoding === 'utf-16le') {
+      if (arr.length < 2 || val.length < 2) {
+        return -1
+      }
+      indexSize = 2
+      arrLength /= 2
+      valLength /= 2
+      byteOffset /= 2
+    }
+  }
+
+  function read (buf, i) {
+    if (indexSize === 1) {
+      return buf[i]
+    } else {
+      return buf.readUInt16BE(i * indexSize)
+    }
+  }
+
+  let i
+  if (dir) {
+    let foundIndex = -1
+    for (i = byteOffset; i < arrLength; i++) {
+      if (read(arr, i) === read(val, foundIndex === -1 ? 0 : i - foundIndex)) {
+        if (foundIndex === -1) foundIndex = i
+        if (i - foundIndex + 1 === valLength) return foundIndex * indexSize
+      } else {
+        if (foundIndex !== -1) i -= i - foundIndex
+        foundIndex = -1
+      }
+    }
+  } else {
+    if (byteOffset + valLength > arrLength) byteOffset = arrLength - valLength
+    for (i = byteOffset; i >= 0; i--) {
+      let found = true
+      for (let j = 0; j < valLength; j++) {
+        if (read(arr, i + j) !== read(val, j)) {
+          found = false
+          break
+        }
+      }
+      if (found) return i
+    }
+  }
+
+  return -1
+}
+
+Buffer.prototype.includes = function includes (val, byteOffset, encoding) {
+  return this.indexOf(val, byteOffset, encoding) !== -1
+}
+
+Buffer.prototype.indexOf = function indexOf (val, byteOffset, encoding) {
+  return bidirectionalIndexOf(this, val, byteOffset, encoding, true)
+}
+
+Buffer.prototype.lastIndexOf = function lastIndexOf (val, byteOffset, encoding) {
+  return bidirectionalIndexOf(this, val, byteOffset, encoding, false)
+}
+
+function hexWrite (buf, string, offset, length) {
+  offset = Number(offset) || 0
+  const remaining = buf.length - offset
+  if (!length) {
+    length = remaining
+  } else {
+    length = Number(length)
+    if (length > remaining) {
+      length = remaining
+    }
+  }
+
+  const strLen = string.length
+
+  if (length > strLen / 2) {
+    length = strLen / 2
+  }
+  let i
+  for (i = 0; i < length; ++i) {
+    const parsed = parseInt(string.substr(i * 2, 2), 16)
+    if (numberIsNaN(parsed)) return i
+    buf[offset + i] = parsed
+  }
+  return i
+}
+
+function utf8Write (buf, string, offset, length) {
+  return blitBuffer(utf8ToBytes(string, buf.length - offset), buf, offset, length)
+}
+
+function asciiWrite (buf, string, offset, length) {
+  return blitBuffer(asciiToBytes(string), buf, offset, length)
+}
+
+function base64Write (buf, string, offset, length) {
+  return blitBuffer(base64ToBytes(string), buf, offset, length)
+}
+
+function ucs2Write (buf, string, offset, length) {
+  return blitBuffer(utf16leToBytes(string, buf.length - offset), buf, offset, length)
+}
+
+Buffer.prototype.write = function write (string, offset, length, encoding) {
+  // Buffer#write(string)
+  if (offset === undefined) {
+    encoding = 'utf8'
+    length = this.length
+    offset = 0
+  // Buffer#write(string, encoding)
+  } else if (length === undefined && typeof offset === 'string') {
+    encoding = offset
+    length = this.length
+    offset = 0
+  // Buffer#write(string, offset[, length][, encoding])
+  } else if (isFinite(offset)) {
+    offset = offset >>> 0
+    if (isFinite(length)) {
+      length = length >>> 0
+      if (encoding === undefined) encoding = 'utf8'
+    } else {
+      encoding = length
+      length = undefined
+    }
+  } else {
+    throw new Error(
+      'Buffer.write(string, encoding, offset[, length]) is no longer supported'
+    )
+  }
+
+  const remaining = this.length - offset
+  if (length === undefined || length > remaining) length = remaining
+
+  if ((string.length > 0 && (length < 0 || offset < 0)) || offset > this.length) {
+    throw new RangeError('Attempt to write outside buffer bounds')
+  }
+
+  if (!encoding) encoding = 'utf8'
+
+  let loweredCase = false
+  for (;;) {
+    switch (encoding) {
+      case 'hex':
+        return hexWrite(this, string, offset, length)
+
+      case 'utf8':
+      case 'utf-8':
+        return utf8Write(this, string, offset, length)
+
+      case 'ascii':
+      case 'latin1':
+      case 'binary':
+        return asciiWrite(this, string, offset, length)
+
+      case 'base64':
+        // Warning: maxLength not taken into account in base64Write
+        return base64Write(this, string, offset, length)
+
+      case 'ucs2':
+      case 'ucs-2':
+      case 'utf16le':
+      case 'utf-16le':
+        return ucs2Write(this, string, offset, length)
+
+      default:
+        if (loweredCase) throw new TypeError('Unknown encoding: ' + encoding)
+        encoding = ('' + encoding).toLowerCase()
+        loweredCase = true
+    }
+  }
+}
+
+Buffer.prototype.toJSON = function toJSON () {
+  return {
+    type: 'Buffer',
+    data: Array.prototype.slice.call(this._arr || this, 0)
+  }
+}
+
+function base64Slice (buf, start, end) {
+  if (start === 0 && end === buf.length) {
+    return base64.fromByteArray(buf)
+  } else {
+    return base64.fromByteArray(buf.slice(start, end))
+  }
+}
+
+function utf8Slice (buf, start, end) {
+  end = Math.min(buf.length, end)
+  const res = []
+
+  let i = start
+  while (i < end) {
+    const firstByte = buf[i]
+    let codePoint = null
+    let bytesPerSequence = (firstByte > 0xEF)
+      ? 4
+      : (firstByte > 0xDF)
+          ? 3
+          : (firstByte > 0xBF)
+              ? 2
+              : 1
+
+    if (i + bytesPerSequence <= end) {
+      let secondByte, thirdByte, fourthByte, tempCodePoint
+
+      switch (bytesPerSequence) {
+        case 1:
+          if (firstByte < 0x80) {
+            codePoint = firstByte
+          }
+          break
+        case 2:
+          secondByte = buf[i + 1]
+          if ((secondByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0x1F) << 0x6 | (secondByte & 0x3F)
+            if (tempCodePoint > 0x7F) {
+              codePoint = tempCodePoint
+            }
+          }
+          break
+        case 3:
+          secondByte = buf[i + 1]
+          thirdByte = buf[i + 2]
+          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0xF) << 0xC | (secondByte & 0x3F) << 0x6 | (thirdByte & 0x3F)
+            if (tempCodePoint > 0x7FF && (tempCodePoint < 0xD800 || tempCodePoint > 0xDFFF)) {
+              codePoint = tempCodePoint
+            }
+          }
+          break
+        case 4:
+          secondByte = buf[i + 1]
+          thirdByte = buf[i + 2]
+          fourthByte = buf[i + 3]
+          if ((secondByte & 0xC0) === 0x80 && (thirdByte & 0xC0) === 0x80 && (fourthByte & 0xC0) === 0x80) {
+            tempCodePoint = (firstByte & 0xF) << 0x12 | (secondByte & 0x3F) << 0xC | (thirdByte & 0x3F) << 0x6 | (fourthByte & 0x3F)
+            if (tempCodePoint > 0xFFFF && tempCodePoint < 0x110000) {
+              codePoint = tempCodePoint
+            }
+          }
+      }
+    }
+
+    if (codePoint === null) {
+      // we did not generate a valid codePoint so insert a
+      // replacement char (U+FFFD) and advance only 1 byte
+      codePoint = 0xFFFD
+      bytesPerSequence = 1
+    } else if (codePoint > 0xFFFF) {
+      // encode to utf16 (surrogate pair dance)
+      codePoint -= 0x10000
+      res.push(codePoint >>> 10 & 0x3FF | 0xD800)
+      codePoint = 0xDC00 | codePoint & 0x3FF
+    }
+
+    res.push(codePoint)
+    i += bytesPerSequence
+  }
+
+  return decodeCodePointsArray(res)
+}
+
+// Based on http://stackoverflow.com/a/22747272/680742, the browser with
+// the lowest limit is Chrome, with 0x10000 args.
+// We go 1 magnitude less, for safety
+const MAX_ARGUMENTS_LENGTH = 0x1000
+
+function decodeCodePointsArray (codePoints) {
+  const len = codePoints.length
+  if (len <= MAX_ARGUMENTS_LENGTH) {
+    return String.fromCharCode.apply(String, codePoints) // avoid extra slice()
+  }
+
+  // Decode in chunks to avoid "call stack size exceeded".
+  let res = ''
+  let i = 0
+  while (i < len) {
+    res += String.fromCharCode.apply(
+      String,
+      codePoints.slice(i, i += MAX_ARGUMENTS_LENGTH)
+    )
+  }
+  return res
+}
+
+function asciiSlice (buf, start, end) {
+  let ret = ''
+  end = Math.min(buf.length, end)
+
+  for (let i = start; i < end; ++i) {
+    ret += String.fromCharCode(buf[i] & 0x7F)
+  }
+  return ret
+}
+
+function latin1Slice (buf, start, end) {
+  let ret = ''
+  end = Math.min(buf.length, end)
+
+  for (let i = start; i < end; ++i) {
+    ret += String.fromCharCode(buf[i])
+  }
+  return ret
+}
+
+function hexSlice (buf, start, end) {
+  const len = buf.length
+
+  if (!start || start < 0) start = 0
+  if (!end || end < 0 || end > len) end = len
+
+  let out = ''
+  for (let i = start; i < end; ++i) {
+    out += hexSliceLookupTable[buf[i]]
+  }
+  return out
+}
+
+function utf16leSlice (buf, start, end) {
+  const bytes = buf.slice(start, end)
+  let res = ''
+  // If bytes.length is odd, the last 8 bits must be ignored (same as node.js)
+  for (let i = 0; i < bytes.length - 1; i += 2) {
+    res += String.fromCharCode(bytes[i] + (bytes[i + 1] * 256))
+  }
+  return res
+}
+
+Buffer.prototype.slice = function slice (start, end) {
+  const len = this.length
+  start = ~~start
+  end = end === undefined ? len : ~~end
+
+  if (start < 0) {
+    start += len
+    if (start < 0) start = 0
+  } else if (start > len) {
+    start = len
+  }
+
+  if (end < 0) {
+    end += len
+    if (end < 0) end = 0
+  } else if (end > len) {
+    end = len
+  }
+
+  if (end < start) end = start
+
+  const newBuf = this.subarray(start, end)
+  // Return an augmented `Uint8Array` instance
+  Object.setPrototypeOf(newBuf, Buffer.prototype)
+
+  return newBuf
+}
+
+/*
+ * Need to make sure that buffer isn't trying to write out of bounds.
+ */
+function checkOffset (offset, ext, length) {
+  if ((offset % 1) !== 0 || offset < 0) throw new RangeError('offset is not uint')
+  if (offset + ext > length) throw new RangeError('Trying to access beyond buffer length')
+}
+
+Buffer.prototype.readUintLE =
+Buffer.prototype.readUIntLE = function readUIntLE (offset, byteLength, noAssert) {
+  offset = offset >>> 0
+  byteLength = byteLength >>> 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
+
+  let val = this[offset]
+  let mul = 1
+  let i = 0
+  while (++i < byteLength && (mul *= 0x100)) {
+    val += this[offset + i] * mul
+  }
+
+  return val
+}
+
+Buffer.prototype.readUintBE =
+Buffer.prototype.readUIntBE = function readUIntBE (offset, byteLength, noAssert) {
+  offset = offset >>> 0
+  byteLength = byteLength >>> 0
+  if (!noAssert) {
+    checkOffset(offset, byteLength, this.length)
+  }
+
+  let val = this[offset + --byteLength]
+  let mul = 1
+  while (byteLength > 0 && (mul *= 0x100)) {
+    val += this[offset + --byteLength] * mul
+  }
+
+  return val
+}
+
+Buffer.prototype.readUint8 =
+Buffer.prototype.readUInt8 = function readUInt8 (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 1, this.length)
+  return this[offset]
+}
+
+Buffer.prototype.readUint16LE =
+Buffer.prototype.readUInt16LE = function readUInt16LE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  return this[offset] | (this[offset + 1] << 8)
+}
+
+Buffer.prototype.readUint16BE =
+Buffer.prototype.readUInt16BE = function readUInt16BE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  return (this[offset] << 8) | this[offset + 1]
+}
+
+Buffer.prototype.readUint32LE =
+Buffer.prototype.readUInt32LE = function readUInt32LE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return ((this[offset]) |
+      (this[offset + 1] << 8) |
+      (this[offset + 2] << 16)) +
+      (this[offset + 3] * 0x1000000)
+}
+
+Buffer.prototype.readUint32BE =
+Buffer.prototype.readUInt32BE = function readUInt32BE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return (this[offset] * 0x1000000) +
+    ((this[offset + 1] << 16) |
+    (this[offset + 2] << 8) |
+    this[offset + 3])
+}
+
+Buffer.prototype.readBigUInt64LE = defineBigIntMethod(function readBigUInt64LE (offset) {
+  offset = offset >>> 0
+  validateNumber(offset, 'offset')
+  const first = this[offset]
+  const last = this[offset + 7]
+  if (first === undefined || last === undefined) {
+    boundsError(offset, this.length - 8)
+  }
+
+  const lo = first +
+    this[++offset] * 2 ** 8 +
+    this[++offset] * 2 ** 16 +
+    this[++offset] * 2 ** 24
+
+  const hi = this[++offset] +
+    this[++offset] * 2 ** 8 +
+    this[++offset] * 2 ** 16 +
+    last * 2 ** 24
+
+  return BigInt(lo) + (BigInt(hi) << BigInt(32))
+})
+
+Buffer.prototype.readBigUInt64BE = defineBigIntMethod(function readBigUInt64BE (offset) {
+  offset = offset >>> 0
+  validateNumber(offset, 'offset')
+  const first = this[offset]
+  const last = this[offset + 7]
+  if (first === undefined || last === undefined) {
+    boundsError(offset, this.length - 8)
+  }
+
+  const hi = first * 2 ** 24 +
+    this[++offset] * 2 ** 16 +
+    this[++offset] * 2 ** 8 +
+    this[++offset]
+
+  const lo = this[++offset] * 2 ** 24 +
+    this[++offset] * 2 ** 16 +
+    this[++offset] * 2 ** 8 +
+    last
+
+  return (BigInt(hi) << BigInt(32)) + BigInt(lo)
+})
+
+Buffer.prototype.readIntLE = function readIntLE (offset, byteLength, noAssert) {
+  offset = offset >>> 0
+  byteLength = byteLength >>> 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
+
+  let val = this[offset]
+  let mul = 1
+  let i = 0
+  while (++i < byteLength && (mul *= 0x100)) {
+    val += this[offset + i] * mul
+  }
+  mul *= 0x80
+
+  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
+
+  return val
+}
+
+Buffer.prototype.readIntBE = function readIntBE (offset, byteLength, noAssert) {
+  offset = offset >>> 0
+  byteLength = byteLength >>> 0
+  if (!noAssert) checkOffset(offset, byteLength, this.length)
+
+  let i = byteLength
+  let mul = 1
+  let val = this[offset + --i]
+  while (i > 0 && (mul *= 0x100)) {
+    val += this[offset + --i] * mul
+  }
+  mul *= 0x80
+
+  if (val >= mul) val -= Math.pow(2, 8 * byteLength)
+
+  return val
+}
+
+Buffer.prototype.readInt8 = function readInt8 (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 1, this.length)
+  if (!(this[offset] & 0x80)) return (this[offset])
+  return ((0xff - this[offset] + 1) * -1)
+}
+
+Buffer.prototype.readInt16LE = function readInt16LE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  const val = this[offset] | (this[offset + 1] << 8)
+  return (val & 0x8000) ? val | 0xFFFF0000 : val
+}
+
+Buffer.prototype.readInt16BE = function readInt16BE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 2, this.length)
+  const val = this[offset + 1] | (this[offset] << 8)
+  return (val & 0x8000) ? val | 0xFFFF0000 : val
+}
+
+Buffer.prototype.readInt32LE = function readInt32LE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return (this[offset]) |
+    (this[offset + 1] << 8) |
+    (this[offset + 2] << 16) |
+    (this[offset + 3] << 24)
+}
+
+Buffer.prototype.readInt32BE = function readInt32BE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 4, this.length)
+
+  return (this[offset] << 24) |
+    (this[offset + 1] << 16) |
+    (this[offset + 2] << 8) |
+    (this[offset + 3])
+}
+
+Buffer.prototype.readBigInt64LE = defineBigIntMethod(function readBigInt64LE (offset) {
+  offset = offset >>> 0
+  validateNumber(offset, 'offset')
+  const first = this[offset]
+  const last = this[offset + 7]
+  if (first === undefined || last === undefined) {
+    boundsError(offset, this.length - 8)
+  }
+
+  const val = this[offset + 4] +
+    this[offset + 5] * 2 ** 8 +
+    this[offset + 6] * 2 ** 16 +
+    (last << 24) // Overflow
+
+  return (BigInt(val) << BigInt(32)) +
+    BigInt(first +
+    this[++offset] * 2 ** 8 +
+    this[++offset] * 2 ** 16 +
+    this[++offset] * 2 ** 24)
+})
+
+Buffer.prototype.readBigInt64BE = defineBigIntMethod(function readBigInt64BE (offset) {
+  offset = offset >>> 0
+  validateNumber(offset, 'offset')
+  const first = this[offset]
+  const last = this[offset + 7]
+  if (first === undefined || last === undefined) {
+    boundsError(offset, this.length - 8)
+  }
+
+  const val = (first << 24) + // Overflow
+    this[++offset] * 2 ** 16 +
+    this[++offset] * 2 ** 8 +
+    this[++offset]
+
+  return (BigInt(val) << BigInt(32)) +
+    BigInt(this[++offset] * 2 ** 24 +
+    this[++offset] * 2 ** 16 +
+    this[++offset] * 2 ** 8 +
+    last)
+})
+
+Buffer.prototype.readFloatLE = function readFloatLE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 4, this.length)
+  return ieee754.read(this, offset, true, 23, 4)
+}
+
+Buffer.prototype.readFloatBE = function readFloatBE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 4, this.length)
+  return ieee754.read(this, offset, false, 23, 4)
+}
+
+Buffer.prototype.readDoubleLE = function readDoubleLE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 8, this.length)
+  return ieee754.read(this, offset, true, 52, 8)
+}
+
+Buffer.prototype.readDoubleBE = function readDoubleBE (offset, noAssert) {
+  offset = offset >>> 0
+  if (!noAssert) checkOffset(offset, 8, this.length)
+  return ieee754.read(this, offset, false, 52, 8)
+}
+
+function checkInt (buf, value, offset, ext, max, min) {
+  if (!Buffer.isBuffer(buf)) throw new TypeError('"buffer" argument must be a Buffer instance')
+  if (value > max || value < min) throw new RangeError('"value" argument is out of bounds')
+  if (offset + ext > buf.length) throw new RangeError('Index out of range')
+}
+
+Buffer.prototype.writeUintLE =
+Buffer.prototype.writeUIntLE = function writeUIntLE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  byteLength = byteLength >>> 0
+  if (!noAssert) {
+    const maxBytes = Math.pow(2, 8 * byteLength) - 1
+    checkInt(this, value, offset, byteLength, maxBytes, 0)
+  }
+
+  let mul = 1
+  let i = 0
+  this[offset] = value & 0xFF
+  while (++i < byteLength && (mul *= 0x100)) {
+    this[offset + i] = (value / mul) & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeUintBE =
+Buffer.prototype.writeUIntBE = function writeUIntBE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  byteLength = byteLength >>> 0
+  if (!noAssert) {
+    const maxBytes = Math.pow(2, 8 * byteLength) - 1
+    checkInt(this, value, offset, byteLength, maxBytes, 0)
+  }
+
+  let i = byteLength - 1
+  let mul = 1
+  this[offset + i] = value & 0xFF
+  while (--i >= 0 && (mul *= 0x100)) {
+    this[offset + i] = (value / mul) & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeUint8 =
+Buffer.prototype.writeUInt8 = function writeUInt8 (value, offset, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) checkInt(this, value, offset, 1, 0xff, 0)
+  this[offset] = (value & 0xff)
+  return offset + 1
+}
+
+Buffer.prototype.writeUint16LE =
+Buffer.prototype.writeUInt16LE = function writeUInt16LE (value, offset, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
+  this[offset] = (value & 0xff)
+  this[offset + 1] = (value >>> 8)
+  return offset + 2
+}
+
+Buffer.prototype.writeUint16BE =
+Buffer.prototype.writeUInt16BE = function writeUInt16BE (value, offset, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0xffff, 0)
+  this[offset] = (value >>> 8)
+  this[offset + 1] = (value & 0xff)
+  return offset + 2
+}
+
+Buffer.prototype.writeUint32LE =
+Buffer.prototype.writeUInt32LE = function writeUInt32LE (value, offset, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
+  this[offset + 3] = (value >>> 24)
+  this[offset + 2] = (value >>> 16)
+  this[offset + 1] = (value >>> 8)
+  this[offset] = (value & 0xff)
+  return offset + 4
+}
+
+Buffer.prototype.writeUint32BE =
+Buffer.prototype.writeUInt32BE = function writeUInt32BE (value, offset, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0xffffffff, 0)
+  this[offset] = (value >>> 24)
+  this[offset + 1] = (value >>> 16)
+  this[offset + 2] = (value >>> 8)
+  this[offset + 3] = (value & 0xff)
+  return offset + 4
+}
+
+function wrtBigUInt64LE (buf, value, offset, min, max) {
+  checkIntBI(value, min, max, buf, offset, 7)
+
+  let lo = Number(value & BigInt(0xffffffff))
+  buf[offset++] = lo
+  lo = lo >> 8
+  buf[offset++] = lo
+  lo = lo >> 8
+  buf[offset++] = lo
+  lo = lo >> 8
+  buf[offset++] = lo
+  let hi = Number(value >> BigInt(32) & BigInt(0xffffffff))
+  buf[offset++] = hi
+  hi = hi >> 8
+  buf[offset++] = hi
+  hi = hi >> 8
+  buf[offset++] = hi
+  hi = hi >> 8
+  buf[offset++] = hi
+  return offset
+}
+
+function wrtBigUInt64BE (buf, value, offset, min, max) {
+  checkIntBI(value, min, max, buf, offset, 7)
+
+  let lo = Number(value & BigInt(0xffffffff))
+  buf[offset + 7] = lo
+  lo = lo >> 8
+  buf[offset + 6] = lo
+  lo = lo >> 8
+  buf[offset + 5] = lo
+  lo = lo >> 8
+  buf[offset + 4] = lo
+  let hi = Number(value >> BigInt(32) & BigInt(0xffffffff))
+  buf[offset + 3] = hi
+  hi = hi >> 8
+  buf[offset + 2] = hi
+  hi = hi >> 8
+  buf[offset + 1] = hi
+  hi = hi >> 8
+  buf[offset] = hi
+  return offset + 8
+}
+
+Buffer.prototype.writeBigUInt64LE = defineBigIntMethod(function writeBigUInt64LE (value, offset = 0) {
+  return wrtBigUInt64LE(this, value, offset, BigInt(0), BigInt('0xffffffffffffffff'))
+})
+
+Buffer.prototype.writeBigUInt64BE = defineBigIntMethod(function writeBigUInt64BE (value, offset = 0) {
+  return wrtBigUInt64BE(this, value, offset, BigInt(0), BigInt('0xffffffffffffffff'))
+})
+
+Buffer.prototype.writeIntLE = function writeIntLE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) {
+    const limit = Math.pow(2, (8 * byteLength) - 1)
+
+    checkInt(this, value, offset, byteLength, limit - 1, -limit)
+  }
+
+  let i = 0
+  let mul = 1
+  let sub = 0
+  this[offset] = value & 0xFF
+  while (++i < byteLength && (mul *= 0x100)) {
+    if (value < 0 && sub === 0 && this[offset + i - 1] !== 0) {
+      sub = 1
+    }
+    this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeIntBE = function writeIntBE (value, offset, byteLength, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) {
+    const limit = Math.pow(2, (8 * byteLength) - 1)
+
+    checkInt(this, value, offset, byteLength, limit - 1, -limit)
+  }
+
+  let i = byteLength - 1
+  let mul = 1
+  let sub = 0
+  this[offset + i] = value & 0xFF
+  while (--i >= 0 && (mul *= 0x100)) {
+    if (value < 0 && sub === 0 && this[offset + i + 1] !== 0) {
+      sub = 1
+    }
+    this[offset + i] = ((value / mul) >> 0) - sub & 0xFF
+  }
+
+  return offset + byteLength
+}
+
+Buffer.prototype.writeInt8 = function writeInt8 (value, offset, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) checkInt(this, value, offset, 1, 0x7f, -0x80)
+  if (value < 0) value = 0xff + value + 1
+  this[offset] = (value & 0xff)
+  return offset + 1
+}
+
+Buffer.prototype.writeInt16LE = function writeInt16LE (value, offset, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
+  this[offset] = (value & 0xff)
+  this[offset + 1] = (value >>> 8)
+  return offset + 2
+}
+
+Buffer.prototype.writeInt16BE = function writeInt16BE (value, offset, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) checkInt(this, value, offset, 2, 0x7fff, -0x8000)
+  this[offset] = (value >>> 8)
+  this[offset + 1] = (value & 0xff)
+  return offset + 2
+}
+
+Buffer.prototype.writeInt32LE = function writeInt32LE (value, offset, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
+  this[offset] = (value & 0xff)
+  this[offset + 1] = (value >>> 8)
+  this[offset + 2] = (value >>> 16)
+  this[offset + 3] = (value >>> 24)
+  return offset + 4
+}
+
+Buffer.prototype.writeInt32BE = function writeInt32BE (value, offset, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) checkInt(this, value, offset, 4, 0x7fffffff, -0x80000000)
+  if (value < 0) value = 0xffffffff + value + 1
+  this[offset] = (value >>> 24)
+  this[offset + 1] = (value >>> 16)
+  this[offset + 2] = (value >>> 8)
+  this[offset + 3] = (value & 0xff)
+  return offset + 4
+}
+
+Buffer.prototype.writeBigInt64LE = defineBigIntMethod(function writeBigInt64LE (value, offset = 0) {
+  return wrtBigUInt64LE(this, value, offset, -BigInt('0x8000000000000000'), BigInt('0x7fffffffffffffff'))
+})
+
+Buffer.prototype.writeBigInt64BE = defineBigIntMethod(function writeBigInt64BE (value, offset = 0) {
+  return wrtBigUInt64BE(this, value, offset, -BigInt('0x8000000000000000'), BigInt('0x7fffffffffffffff'))
+})
+
+function checkIEEE754 (buf, value, offset, ext, max, min) {
+  if (offset + ext > buf.length) throw new RangeError('Index out of range')
+  if (offset < 0) throw new RangeError('Index out of range')
+}
+
+function writeFloat (buf, value, offset, littleEndian, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) {
+    checkIEEE754(buf, value, offset, 4, 3.4028234663852886e+38, -3.4028234663852886e+38)
+  }
+  ieee754.write(buf, value, offset, littleEndian, 23, 4)
+  return offset + 4
+}
+
+Buffer.prototype.writeFloatLE = function writeFloatLE (value, offset, noAssert) {
+  return writeFloat(this, value, offset, true, noAssert)
+}
+
+Buffer.prototype.writeFloatBE = function writeFloatBE (value, offset, noAssert) {
+  return writeFloat(this, value, offset, false, noAssert)
+}
+
+function writeDouble (buf, value, offset, littleEndian, noAssert) {
+  value = +value
+  offset = offset >>> 0
+  if (!noAssert) {
+    checkIEEE754(buf, value, offset, 8, 1.7976931348623157E+308, -1.7976931348623157E+308)
+  }
+  ieee754.write(buf, value, offset, littleEndian, 52, 8)
+  return offset + 8
+}
+
+Buffer.prototype.writeDoubleLE = function writeDoubleLE (value, offset, noAssert) {
+  return writeDouble(this, value, offset, true, noAssert)
+}
+
+Buffer.prototype.writeDoubleBE = function writeDoubleBE (value, offset, noAssert) {
+  return writeDouble(this, value, offset, false, noAssert)
+}
+
+// copy(targetBuffer, targetStart=0, sourceStart=0, sourceEnd=buffer.length)
+Buffer.prototype.copy = function copy (target, targetStart, start, end) {
+  if (!Buffer.isBuffer(target)) throw new TypeError('argument should be a Buffer')
+  if (!start) start = 0
+  if (!end && end !== 0) end = this.length
+  if (targetStart >= target.length) targetStart = target.length
+  if (!targetStart) targetStart = 0
+  if (end > 0 && end < start) end = start
+
+  // Copy 0 bytes; we're done
+  if (end === start) return 0
+  if (target.length === 0 || this.length === 0) return 0
+
+  // Fatal error conditions
+  if (targetStart < 0) {
+    throw new RangeError('targetStart out of bounds')
+  }
+  if (start < 0 || start >= this.length) throw new RangeError('Index out of range')
+  if (end < 0) throw new RangeError('sourceEnd out of bounds')
+
+  // Are we oob?
+  if (end > this.length) end = this.length
+  if (target.length - targetStart < end - start) {
+    end = target.length - targetStart + start
+  }
+
+  const len = end - start
+
+  if (this === target && typeof Uint8Array.prototype.copyWithin === 'function') {
+    // Use built-in when available, missing from IE11
+    this.copyWithin(targetStart, start, end)
+  } else {
+    Uint8Array.prototype.set.call(
+      target,
+      this.subarray(start, end),
+      targetStart
+    )
+  }
+
+  return len
+}
+
+// Usage:
+//    buffer.fill(number[, offset[, end]])
+//    buffer.fill(buffer[, offset[, end]])
+//    buffer.fill(string[, offset[, end]][, encoding])
+Buffer.prototype.fill = function fill (val, start, end, encoding) {
+  // Handle string cases:
+  if (typeof val === 'string') {
+    if (typeof start === 'string') {
+      encoding = start
+      start = 0
+      end = this.length
+    } else if (typeof end === 'string') {
+      encoding = end
+      end = this.length
+    }
+    if (encoding !== undefined && typeof encoding !== 'string') {
+      throw new TypeError('encoding must be a string')
+    }
+    if (typeof encoding === 'string' && !Buffer.isEncoding(encoding)) {
+      throw new TypeError('Unknown encoding: ' + encoding)
+    }
+    if (val.length === 1) {
+      const code = val.charCodeAt(0)
+      if ((encoding === 'utf8' && code < 128) ||
+          encoding === 'latin1') {
+        // Fast path: If `val` fits into a single byte, use that numeric value.
+        val = code
+      }
+    }
+  } else if (typeof val === 'number') {
+    val = val & 255
+  } else if (typeof val === 'boolean') {
+    val = Number(val)
+  }
+
+  // Invalid ranges are not set to a default, so can range check early.
+  if (start < 0 || this.length < start || this.length < end) {
+    throw new RangeError('Out of range index')
+  }
+
+  if (end <= start) {
+    return this
+  }
+
+  start = start >>> 0
+  end = end === undefined ? this.length : end >>> 0
+
+  if (!val) val = 0
+
+  let i
+  if (typeof val === 'number') {
+    for (i = start; i < end; ++i) {
+      this[i] = val
+    }
+  } else {
+    const bytes = Buffer.isBuffer(val)
+      ? val
+      : Buffer.from(val, encoding)
+    const len = bytes.length
+    if (len === 0) {
+      throw new TypeError('The value "' + val +
+        '" is invalid for argument "value"')
+    }
+    for (i = 0; i < end - start; ++i) {
+      this[i + start] = bytes[i % len]
+    }
+  }
+
+  return this
+}
+
+// CUSTOM ERRORS
+// =============
+
+// Simplified versions from Node, changed for Buffer-only usage
+const errors = {}
+function E (sym, getMessage, Base) {
+  errors[sym] = class NodeError extends Base {
+    constructor () {
+      super()
+
+      Object.defineProperty(this, 'message', {
+        value: getMessage.apply(this, arguments),
+        writable: true,
+        configurable: true
+      })
+
+      // Add the error code to the name to include it in the stack trace.
+      this.name = `${this.name} [${sym}]`
+      // Access the stack to generate the error message including the error code
+      // from the name.
+      this.stack // eslint-disable-line no-unused-expressions
+      // Reset the name to the actual name.
+      delete this.name
+    }
+
+    get code () {
+      return sym
+    }
+
+    set code (value) {
+      Object.defineProperty(this, 'code', {
+        configurable: true,
+        enumerable: true,
+        value,
+        writable: true
+      })
+    }
+
+    toString () {
+      return `${this.name} [${sym}]: ${this.message}`
+    }
+  }
+}
+
+E('ERR_BUFFER_OUT_OF_BOUNDS',
+  function (name) {
+    if (name) {
+      return `${name} is outside of buffer bounds`
+    }
+
+    return 'Attempt to access memory outside buffer bounds'
+  }, RangeError)
+E('ERR_INVALID_ARG_TYPE',
+  function (name, actual) {
+    return `The "${name}" argument must be of type number. Received type ${typeof actual}`
+  }, TypeError)
+E('ERR_OUT_OF_RANGE',
+  function (str, range, input) {
+    let msg = `The value of "${str}" is out of range.`
+    let received = input
+    if (Number.isInteger(input) && Math.abs(input) > 2 ** 32) {
+      received = addNumericalSeparator(String(input))
+    } else if (typeof input === 'bigint') {
+      received = String(input)
+      if (input > BigInt(2) ** BigInt(32) || input < -(BigInt(2) ** BigInt(32))) {
+        received = addNumericalSeparator(received)
+      }
+      received += 'n'
+    }
+    msg += ` It must be ${range}. Received ${received}`
+    return msg
+  }, RangeError)
+
+function addNumericalSeparator (val) {
+  let res = ''
+  let i = val.length
+  const start = val[0] === '-' ? 1 : 0
+  for (; i >= start + 4; i -= 3) {
+    res = `_${val.slice(i - 3, i)}${res}`
+  }
+  return `${val.slice(0, i)}${res}`
+}
+
+// CHECK FUNCTIONS
+// ===============
+
+function checkBounds (buf, offset, byteLength) {
+  validateNumber(offset, 'offset')
+  if (buf[offset] === undefined || buf[offset + byteLength] === undefined) {
+    boundsError(offset, buf.length - (byteLength + 1))
+  }
+}
+
+function checkIntBI (value, min, max, buf, offset, byteLength) {
+  if (value > max || value < min) {
+    const n = typeof min === 'bigint' ? 'n' : ''
+    let range
+    if (byteLength > 3) {
+      if (min === 0 || min === BigInt(0)) {
+        range = `>= 0${n} and < 2${n} ** ${(byteLength + 1) * 8}${n}`
+      } else {
+        range = `>= -(2${n} ** ${(byteLength + 1) * 8 - 1}${n}) and < 2 ** ` +
+                `${(byteLength + 1) * 8 - 1}${n}`
+      }
+    } else {
+      range = `>= ${min}${n} and <= ${max}${n}`
+    }
+    throw new errors.ERR_OUT_OF_RANGE('value', range, value)
+  }
+  checkBounds(buf, offset, byteLength)
+}
+
+function validateNumber (value, name) {
+  if (typeof value !== 'number') {
+    throw new errors.ERR_INVALID_ARG_TYPE(name, 'number', value)
+  }
+}
+
+function boundsError (value, length, type) {
+  if (Math.floor(value) !== value) {
+    validateNumber(value, type)
+    throw new errors.ERR_OUT_OF_RANGE(type || 'offset', 'an integer', value)
+  }
+
+  if (length < 0) {
+    throw new errors.ERR_BUFFER_OUT_OF_BOUNDS()
+  }
+
+  throw new errors.ERR_OUT_OF_RANGE(type || 'offset',
+                                    `>= ${type ? 1 : 0} and <= ${length}`,
+                                    value)
+}
+
+// HELPER FUNCTIONS
+// ================
+
+const INVALID_BASE64_RE = /[^+/0-9A-Za-z-_]/g
+
+function base64clean (str) {
+  // Node takes equal signs as end of the Base64 encoding
+  str = str.split('=')[0]
+  // Node strips out invalid characters like \n and \t from the string, base64-js does not
+  str = str.trim().replace(INVALID_BASE64_RE, '')
+  // Node converts strings with length < 2 to ''
+  if (str.length < 2) return ''
+  // Node allows for non-padded base64 strings (missing trailing ===), base64-js does not
+  while (str.length % 4 !== 0) {
+    str = str + '='
+  }
+  return str
+}
+
+function utf8ToBytes (string, units) {
+  units = units || Infinity
+  let codePoint
+  const length = string.length
+  let leadSurrogate = null
+  const bytes = []
+
+  for (let i = 0; i < length; ++i) {
+    codePoint = string.charCodeAt(i)
+
+    // is surrogate component
+    if (codePoint > 0xD7FF && codePoint < 0xE000) {
+      // last char was a lead
+      if (!leadSurrogate) {
+        // no lead yet
+        if (codePoint > 0xDBFF) {
+          // unexpected trail
+          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+          continue
+        } else if (i + 1 === length) {
+          // unpaired lead
+          if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+          continue
+        }
+
+        // valid lead
+        leadSurrogate = codePoint
+
+        continue
+      }
+
+      // 2 leads in a row
+      if (codePoint < 0xDC00) {
+        if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+        leadSurrogate = codePoint
+        continue
+      }
+
+      // valid surrogate pair
+      codePoint = (leadSurrogate - 0xD800 << 10 | codePoint - 0xDC00) + 0x10000
+    } else if (leadSurrogate) {
+      // valid bmp char, but last char was a lead
+      if ((units -= 3) > -1) bytes.push(0xEF, 0xBF, 0xBD)
+    }
+
+    leadSurrogate = null
+
+    // encode utf8
+    if (codePoint < 0x80) {
+      if ((units -= 1) < 0) break
+      bytes.push(codePoint)
+    } else if (codePoint < 0x800) {
+      if ((units -= 2) < 0) break
+      bytes.push(
+        codePoint >> 0x6 | 0xC0,
+        codePoint & 0x3F | 0x80
+      )
+    } else if (codePoint < 0x10000) {
+      if ((units -= 3) < 0) break
+      bytes.push(
+        codePoint >> 0xC | 0xE0,
+        codePoint >> 0x6 & 0x3F | 0x80,
+        codePoint & 0x3F | 0x80
+      )
+    } else if (codePoint < 0x110000) {
+      if ((units -= 4) < 0) break
+      bytes.push(
+        codePoint >> 0x12 | 0xF0,
+        codePoint >> 0xC & 0x3F | 0x80,
+        codePoint >> 0x6 & 0x3F | 0x80,
+        codePoint & 0x3F | 0x80
+      )
+    } else {
+      throw new Error('Invalid code point')
+    }
+  }
+
+  return bytes
+}
+
+function asciiToBytes (str) {
+  const byteArray = []
+  for (let i = 0; i < str.length; ++i) {
+    // Node's code seems to be doing this and not & 0x7F..
+    byteArray.push(str.charCodeAt(i) & 0xFF)
+  }
+  return byteArray
+}
+
+function utf16leToBytes (str, units) {
+  let c, hi, lo
+  const byteArray = []
+  for (let i = 0; i < str.length; ++i) {
+    if ((units -= 2) < 0) break
+
+    c = str.charCodeAt(i)
+    hi = c >> 8
+    lo = c % 256
+    byteArray.push(lo)
+    byteArray.push(hi)
+  }
+
+  return byteArray
+}
+
+function base64ToBytes (str) {
+  return base64.toByteArray(base64clean(str))
+}
+
+function blitBuffer (src, dst, offset, length) {
+  let i
+  for (i = 0; i < length; ++i) {
+    if ((i + offset >= dst.length) || (i >= src.length)) break
+    dst[i + offset] = src[i]
+  }
+  return i
+}
+
+// ArrayBuffer or Uint8Array objects from other contexts (i.e. iframes) do not pass
+// the `instanceof` check but they should be treated as of that type.
+// See: https://github.com/feross/buffer/issues/166
+function isInstance (obj, type) {
+  return obj instanceof type ||
+    (obj != null && obj.constructor != null && obj.constructor.name != null &&
+      obj.constructor.name === type.name)
+}
+function numberIsNaN (obj) {
+  // For IE11 support
+  return obj !== obj // eslint-disable-line no-self-compare
+}
+
+// Create lookup table for `toString('hex')`
+// See: https://github.com/feross/buffer/issues/219
+const hexSliceLookupTable = (function () {
+  const alphabet = '0123456789abcdef'
+  const table = new Array(256)
+  for (let i = 0; i < 16; ++i) {
+    const i16 = i * 16
+    for (let j = 0; j < 16; ++j) {
+      table[i16 + j] = alphabet[i] + alphabet[j]
+    }
+  }
+  return table
+})()
+
+// Return not function with Error if BigInt not supported
+function defineBigIntMethod (fn) {
+  return typeof BigInt === 'undefined' ? BufferBigIntNotDefined : fn
+}
+
+function BufferBigIntNotDefined () {
+  throw new Error('BigInt not supported')
+}
+
+
+/***/ }),
+
+/***/ 1924:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var GetIntrinsic = __webpack_require__(210);
+
+var callBind = __webpack_require__(5559);
+
+var $indexOf = callBind(GetIntrinsic('String.prototype.indexOf'));
+
+module.exports = function callBoundIntrinsic(name, allowMissing) {
+	var intrinsic = GetIntrinsic(name, !!allowMissing);
+	if (typeof intrinsic === 'function' && $indexOf(name, '.prototype.') > -1) {
+		return callBind(intrinsic);
+	}
+	return intrinsic;
+};
+
+
+/***/ }),
+
+/***/ 5559:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var bind = __webpack_require__(8612);
+var GetIntrinsic = __webpack_require__(210);
+
+var $apply = GetIntrinsic('%Function.prototype.apply%');
+var $call = GetIntrinsic('%Function.prototype.call%');
+var $reflectApply = GetIntrinsic('%Reflect.apply%', true) || bind.call($call, $apply);
+
+var $gOPD = GetIntrinsic('%Object.getOwnPropertyDescriptor%', true);
+var $defineProperty = GetIntrinsic('%Object.defineProperty%', true);
+var $max = GetIntrinsic('%Math.max%');
+
+if ($defineProperty) {
+	try {
+		$defineProperty({}, 'a', { value: 1 });
+	} catch (e) {
+		// IE 8 has a broken defineProperty
+		$defineProperty = null;
+	}
+}
+
+module.exports = function callBind(originalFunction) {
+	var func = $reflectApply(bind, $call, arguments);
+	if ($gOPD && $defineProperty) {
+		var desc = $gOPD(func, 'length');
+		if (desc.configurable) {
+			// original length, plus the receiver, minus any additional arguments (after the receiver)
+			$defineProperty(
+				func,
+				'length',
+				{ value: 1 + $max(0, originalFunction.length - (arguments.length - 1)) }
+			);
+		}
+	}
+	return func;
+};
+
+var applyBind = function applyBind() {
+	return $reflectApply(bind, $apply, arguments);
+};
+
+if ($defineProperty) {
+	$defineProperty(module.exports, 'apply', { value: applyBind });
+} else {
+	module.exports.apply = applyBind;
+}
+
+
+/***/ }),
+
+/***/ 5108:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+/*global window, global*/
+var util = __webpack_require__(9539)
+var assert = __webpack_require__(9282)
+function now() { return new Date().getTime() }
+
+var slice = Array.prototype.slice
+var console
+var times = {}
+
+if (typeof __webpack_require__.g !== "undefined" && __webpack_require__.g.console) {
+    console = __webpack_require__.g.console
+} else if (typeof window !== "undefined" && window.console) {
+    console = window.console
+} else {
+    console = {}
+}
+
+var functions = [
+    [log, "log"],
+    [info, "info"],
+    [warn, "warn"],
+    [error, "error"],
+    [time, "time"],
+    [timeEnd, "timeEnd"],
+    [trace, "trace"],
+    [dir, "dir"],
+    [consoleAssert, "assert"]
+]
+
+for (var i = 0; i < functions.length; i++) {
+    var tuple = functions[i]
+    var f = tuple[0]
+    var name = tuple[1]
+
+    if (!console[name]) {
+        console[name] = f
+    }
+}
+
+module.exports = console
+
+function log() {}
+
+function info() {
+    console.log.apply(console, arguments)
+}
+
+function warn() {
+    console.log.apply(console, arguments)
+}
+
+function error() {
+    console.warn.apply(console, arguments)
+}
+
+function time(label) {
+    times[label] = now()
+}
+
+function timeEnd(label) {
+    var time = times[label]
+    if (!time) {
+        throw new Error("No such label: " + label)
+    }
+
+    delete times[label]
+    var duration = now() - time
+    console.log(label + ": " + duration + "ms")
+}
+
+function trace() {
+    var err = new Error()
+    err.name = "Trace"
+    err.message = util.format.apply(null, arguments)
+    console.error(err.stack)
+}
+
+function dir(object) {
+    console.log(util.inspect(object) + "\n")
+}
+
+function consoleAssert(expression) {
+    if (!expression) {
+        var arr = slice.call(arguments, 1)
+        assert.ok(false, util.format.apply(null, arr))
+    }
+}
+
+
+/***/ }),
+
+/***/ 2296:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var hasPropertyDescriptors = __webpack_require__(1044)();
+
+var GetIntrinsic = __webpack_require__(210);
+
+var $defineProperty = hasPropertyDescriptors && GetIntrinsic('%Object.defineProperty%', true);
+
+var $SyntaxError = GetIntrinsic('%SyntaxError%');
+var $TypeError = GetIntrinsic('%TypeError%');
+
+var gopd = __webpack_require__(7296);
+
+/** @type {(obj: Record<PropertyKey, unknown>, property: PropertyKey, value: unknown, nonEnumerable?: boolean | null, nonWritable?: boolean | null, nonConfigurable?: boolean | null, loose?: boolean) => void} */
+module.exports = function defineDataProperty(
+	obj,
+	property,
+	value
+) {
+	if (!obj || (typeof obj !== 'object' && typeof obj !== 'function')) {
+		throw new $TypeError('`obj` must be an object or a function`');
+	}
+	if (typeof property !== 'string' && typeof property !== 'symbol') {
+		throw new $TypeError('`property` must be a string or a symbol`');
+	}
+	if (arguments.length > 3 && typeof arguments[3] !== 'boolean' && arguments[3] !== null) {
+		throw new $TypeError('`nonEnumerable`, if provided, must be a boolean or null');
+	}
+	if (arguments.length > 4 && typeof arguments[4] !== 'boolean' && arguments[4] !== null) {
+		throw new $TypeError('`nonWritable`, if provided, must be a boolean or null');
+	}
+	if (arguments.length > 5 && typeof arguments[5] !== 'boolean' && arguments[5] !== null) {
+		throw new $TypeError('`nonConfigurable`, if provided, must be a boolean or null');
+	}
+	if (arguments.length > 6 && typeof arguments[6] !== 'boolean') {
+		throw new $TypeError('`loose`, if provided, must be a boolean');
+	}
+
+	var nonEnumerable = arguments.length > 3 ? arguments[3] : null;
+	var nonWritable = arguments.length > 4 ? arguments[4] : null;
+	var nonConfigurable = arguments.length > 5 ? arguments[5] : null;
+	var loose = arguments.length > 6 ? arguments[6] : false;
+
+	/* @type {false | TypedPropertyDescriptor<unknown>} */
+	var desc = !!gopd && gopd(obj, property);
+
+	if ($defineProperty) {
+		$defineProperty(obj, property, {
+			configurable: nonConfigurable === null && desc ? desc.configurable : !nonConfigurable,
+			enumerable: nonEnumerable === null && desc ? desc.enumerable : !nonEnumerable,
+			value: value,
+			writable: nonWritable === null && desc ? desc.writable : !nonWritable
+		});
+	} else if (loose || (!nonEnumerable && !nonWritable && !nonConfigurable)) {
+		// must fall back to [[Set]], and was not explicitly asked to make non-enumerable, non-writable, or non-configurable
+		obj[property] = value; // eslint-disable-line no-param-reassign
+	} else {
+		throw new $SyntaxError('This environment does not support defining a property as non-configurable, non-writable, or non-enumerable.');
+	}
+};
+
+
+/***/ }),
+
+/***/ 4289:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var keys = __webpack_require__(2215);
+var hasSymbols = typeof Symbol === 'function' && typeof Symbol('foo') === 'symbol';
+
+var toStr = Object.prototype.toString;
+var concat = Array.prototype.concat;
+var defineDataProperty = __webpack_require__(2296);
+
+var isFunction = function (fn) {
+	return typeof fn === 'function' && toStr.call(fn) === '[object Function]';
+};
+
+var supportsDescriptors = __webpack_require__(1044)();
+
+var defineProperty = function (object, name, value, predicate) {
+	if (name in object) {
+		if (predicate === true) {
+			if (object[name] === value) {
+				return;
+			}
+		} else if (!isFunction(predicate) || !predicate()) {
+			return;
+		}
+	}
+
+	if (supportsDescriptors) {
+		defineDataProperty(object, name, value, true);
+	} else {
+		defineDataProperty(object, name, value);
+	}
+};
+
+var defineProperties = function (object, map) {
+	var predicates = arguments.length > 2 ? arguments[2] : {};
+	var props = keys(map);
+	if (hasSymbols) {
+		props = concat.call(props, Object.getOwnPropertySymbols(map));
+	}
+	for (var i = 0; i < props.length; i += 1) {
+		defineProperty(object, props[i], map[props[i]], predicates[props[i]]);
+	}
+};
+
+defineProperties.supportsDescriptors = !!supportsDescriptors;
+
+module.exports = defineProperties;
+
+
+/***/ }),
+
+/***/ 4029:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var isCallable = __webpack_require__(5320);
+
+var toStr = Object.prototype.toString;
+var hasOwnProperty = Object.prototype.hasOwnProperty;
+
+var forEachArray = function forEachArray(array, iterator, receiver) {
+    for (var i = 0, len = array.length; i < len; i++) {
+        if (hasOwnProperty.call(array, i)) {
+            if (receiver == null) {
+                iterator(array[i], i, array);
+            } else {
+                iterator.call(receiver, array[i], i, array);
+            }
+        }
+    }
+};
+
+var forEachString = function forEachString(string, iterator, receiver) {
+    for (var i = 0, len = string.length; i < len; i++) {
+        // no such thing as a sparse string.
+        if (receiver == null) {
+            iterator(string.charAt(i), i, string);
+        } else {
+            iterator.call(receiver, string.charAt(i), i, string);
+        }
+    }
+};
+
+var forEachObject = function forEachObject(object, iterator, receiver) {
+    for (var k in object) {
+        if (hasOwnProperty.call(object, k)) {
+            if (receiver == null) {
+                iterator(object[k], k, object);
+            } else {
+                iterator.call(receiver, object[k], k, object);
+            }
+        }
+    }
+};
+
+var forEach = function forEach(list, iterator, thisArg) {
+    if (!isCallable(iterator)) {
+        throw new TypeError('iterator must be a function');
+    }
+
+    var receiver;
+    if (arguments.length >= 3) {
+        receiver = thisArg;
+    }
+
+    if (toStr.call(list) === '[object Array]') {
+        forEachArray(list, iterator, receiver);
+    } else if (typeof list === 'string') {
+        forEachString(list, iterator, receiver);
+    } else {
+        forEachObject(list, iterator, receiver);
+    }
+};
+
+module.exports = forEach;
+
+
+/***/ }),
+
+/***/ 7648:
+/***/ ((module) => {
+
+"use strict";
+
+
+/* eslint no-invalid-this: 1 */
+
+var ERROR_MESSAGE = 'Function.prototype.bind called on incompatible ';
+var slice = Array.prototype.slice;
+var toStr = Object.prototype.toString;
+var funcType = '[object Function]';
+
+module.exports = function bind(that) {
+    var target = this;
+    if (typeof target !== 'function' || toStr.call(target) !== funcType) {
+        throw new TypeError(ERROR_MESSAGE + target);
+    }
+    var args = slice.call(arguments, 1);
+
+    var bound;
+    var binder = function () {
+        if (this instanceof bound) {
+            var result = target.apply(
+                this,
+                args.concat(slice.call(arguments))
+            );
+            if (Object(result) === result) {
+                return result;
+            }
+            return this;
+        } else {
+            return target.apply(
+                that,
+                args.concat(slice.call(arguments))
+            );
+        }
+    };
+
+    var boundLength = Math.max(0, target.length - args.length);
+    var boundArgs = [];
+    for (var i = 0; i < boundLength; i++) {
+        boundArgs.push('$' + i);
+    }
+
+    bound = Function('binder', 'return function (' + boundArgs.join(',') + '){ return binder.apply(this,arguments); }')(binder);
+
+    if (target.prototype) {
+        var Empty = function Empty() {};
+        Empty.prototype = target.prototype;
+        bound.prototype = new Empty();
+        Empty.prototype = null;
+    }
+
+    return bound;
+};
+
+
+/***/ }),
+
+/***/ 8612:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var implementation = __webpack_require__(7648);
+
+module.exports = Function.prototype.bind || implementation;
+
+
+/***/ }),
+
+/***/ 210:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var undefined;
+
+var $SyntaxError = SyntaxError;
+var $Function = Function;
+var $TypeError = TypeError;
+
+// eslint-disable-next-line consistent-return
+var getEvalledConstructor = function (expressionSyntax) {
+	try {
+		return $Function('"use strict"; return (' + expressionSyntax + ').constructor;')();
+	} catch (e) {}
+};
+
+var $gOPD = Object.getOwnPropertyDescriptor;
+if ($gOPD) {
+	try {
+		$gOPD({}, '');
+	} catch (e) {
+		$gOPD = null; // this is IE 8, which has a broken gOPD
+	}
+}
+
+var throwTypeError = function () {
+	throw new $TypeError();
+};
+var ThrowTypeError = $gOPD
+	? (function () {
+		try {
+			// eslint-disable-next-line no-unused-expressions, no-caller, no-restricted-properties
+			arguments.callee; // IE 8 does not throw here
+			return throwTypeError;
+		} catch (calleeThrows) {
+			try {
+				// IE 8 throws on Object.getOwnPropertyDescriptor(arguments, '')
+				return $gOPD(arguments, 'callee').get;
+			} catch (gOPDthrows) {
+				return throwTypeError;
+			}
+		}
+	}())
+	: throwTypeError;
+
+var hasSymbols = __webpack_require__(1405)();
+var hasProto = __webpack_require__(8185)();
+
+var getProto = Object.getPrototypeOf || (
+	hasProto
+		? function (x) { return x.__proto__; } // eslint-disable-line no-proto
+		: null
+);
+
+var needsEval = {};
+
+var TypedArray = typeof Uint8Array === 'undefined' || !getProto ? undefined : getProto(Uint8Array);
+
+var INTRINSICS = {
+	'%AggregateError%': typeof AggregateError === 'undefined' ? undefined : AggregateError,
+	'%Array%': Array,
+	'%ArrayBuffer%': typeof ArrayBuffer === 'undefined' ? undefined : ArrayBuffer,
+	'%ArrayIteratorPrototype%': hasSymbols && getProto ? getProto([][Symbol.iterator]()) : undefined,
+	'%AsyncFromSyncIteratorPrototype%': undefined,
+	'%AsyncFunction%': needsEval,
+	'%AsyncGenerator%': needsEval,
+	'%AsyncGeneratorFunction%': needsEval,
+	'%AsyncIteratorPrototype%': needsEval,
+	'%Atomics%': typeof Atomics === 'undefined' ? undefined : Atomics,
+	'%BigInt%': typeof BigInt === 'undefined' ? undefined : BigInt,
+	'%BigInt64Array%': typeof BigInt64Array === 'undefined' ? undefined : BigInt64Array,
+	'%BigUint64Array%': typeof BigUint64Array === 'undefined' ? undefined : BigUint64Array,
+	'%Boolean%': Boolean,
+	'%DataView%': typeof DataView === 'undefined' ? undefined : DataView,
+	'%Date%': Date,
+	'%decodeURI%': decodeURI,
+	'%decodeURIComponent%': decodeURIComponent,
+	'%encodeURI%': encodeURI,
+	'%encodeURIComponent%': encodeURIComponent,
+	'%Error%': Error,
+	'%eval%': eval, // eslint-disable-line no-eval
+	'%EvalError%': EvalError,
+	'%Float32Array%': typeof Float32Array === 'undefined' ? undefined : Float32Array,
+	'%Float64Array%': typeof Float64Array === 'undefined' ? undefined : Float64Array,
+	'%FinalizationRegistry%': typeof FinalizationRegistry === 'undefined' ? undefined : FinalizationRegistry,
+	'%Function%': $Function,
+	'%GeneratorFunction%': needsEval,
+	'%Int8Array%': typeof Int8Array === 'undefined' ? undefined : Int8Array,
+	'%Int16Array%': typeof Int16Array === 'undefined' ? undefined : Int16Array,
+	'%Int32Array%': typeof Int32Array === 'undefined' ? undefined : Int32Array,
+	'%isFinite%': isFinite,
+	'%isNaN%': isNaN,
+	'%IteratorPrototype%': hasSymbols && getProto ? getProto(getProto([][Symbol.iterator]())) : undefined,
+	'%JSON%': typeof JSON === 'object' ? JSON : undefined,
+	'%Map%': typeof Map === 'undefined' ? undefined : Map,
+	'%MapIteratorPrototype%': typeof Map === 'undefined' || !hasSymbols || !getProto ? undefined : getProto(new Map()[Symbol.iterator]()),
+	'%Math%': Math,
+	'%Number%': Number,
+	'%Object%': Object,
+	'%parseFloat%': parseFloat,
+	'%parseInt%': parseInt,
+	'%Promise%': typeof Promise === 'undefined' ? undefined : Promise,
+	'%Proxy%': typeof Proxy === 'undefined' ? undefined : Proxy,
+	'%RangeError%': RangeError,
+	'%ReferenceError%': ReferenceError,
+	'%Reflect%': typeof Reflect === 'undefined' ? undefined : Reflect,
+	'%RegExp%': RegExp,
+	'%Set%': typeof Set === 'undefined' ? undefined : Set,
+	'%SetIteratorPrototype%': typeof Set === 'undefined' || !hasSymbols || !getProto ? undefined : getProto(new Set()[Symbol.iterator]()),
+	'%SharedArrayBuffer%': typeof SharedArrayBuffer === 'undefined' ? undefined : SharedArrayBuffer,
+	'%String%': String,
+	'%StringIteratorPrototype%': hasSymbols && getProto ? getProto(''[Symbol.iterator]()) : undefined,
+	'%Symbol%': hasSymbols ? Symbol : undefined,
+	'%SyntaxError%': $SyntaxError,
+	'%ThrowTypeError%': ThrowTypeError,
+	'%TypedArray%': TypedArray,
+	'%TypeError%': $TypeError,
+	'%Uint8Array%': typeof Uint8Array === 'undefined' ? undefined : Uint8Array,
+	'%Uint8ClampedArray%': typeof Uint8ClampedArray === 'undefined' ? undefined : Uint8ClampedArray,
+	'%Uint16Array%': typeof Uint16Array === 'undefined' ? undefined : Uint16Array,
+	'%Uint32Array%': typeof Uint32Array === 'undefined' ? undefined : Uint32Array,
+	'%URIError%': URIError,
+	'%WeakMap%': typeof WeakMap === 'undefined' ? undefined : WeakMap,
+	'%WeakRef%': typeof WeakRef === 'undefined' ? undefined : WeakRef,
+	'%WeakSet%': typeof WeakSet === 'undefined' ? undefined : WeakSet
+};
+
+if (getProto) {
+	try {
+		null.error; // eslint-disable-line no-unused-expressions
+	} catch (e) {
+		// https://github.com/tc39/proposal-shadowrealm/pull/384#issuecomment-1364264229
+		var errorProto = getProto(getProto(e));
+		INTRINSICS['%Error.prototype%'] = errorProto;
+	}
+}
+
+var doEval = function doEval(name) {
+	var value;
+	if (name === '%AsyncFunction%') {
+		value = getEvalledConstructor('async function () {}');
+	} else if (name === '%GeneratorFunction%') {
+		value = getEvalledConstructor('function* () {}');
+	} else if (name === '%AsyncGeneratorFunction%') {
+		value = getEvalledConstructor('async function* () {}');
+	} else if (name === '%AsyncGenerator%') {
+		var fn = doEval('%AsyncGeneratorFunction%');
+		if (fn) {
+			value = fn.prototype;
+		}
+	} else if (name === '%AsyncIteratorPrototype%') {
+		var gen = doEval('%AsyncGenerator%');
+		if (gen && getProto) {
+			value = getProto(gen.prototype);
+		}
+	}
+
+	INTRINSICS[name] = value;
+
+	return value;
+};
+
+var LEGACY_ALIASES = {
+	'%ArrayBufferPrototype%': ['ArrayBuffer', 'prototype'],
+	'%ArrayPrototype%': ['Array', 'prototype'],
+	'%ArrayProto_entries%': ['Array', 'prototype', 'entries'],
+	'%ArrayProto_forEach%': ['Array', 'prototype', 'forEach'],
+	'%ArrayProto_keys%': ['Array', 'prototype', 'keys'],
+	'%ArrayProto_values%': ['Array', 'prototype', 'values'],
+	'%AsyncFunctionPrototype%': ['AsyncFunction', 'prototype'],
+	'%AsyncGenerator%': ['AsyncGeneratorFunction', 'prototype'],
+	'%AsyncGeneratorPrototype%': ['AsyncGeneratorFunction', 'prototype', 'prototype'],
+	'%BooleanPrototype%': ['Boolean', 'prototype'],
+	'%DataViewPrototype%': ['DataView', 'prototype'],
+	'%DatePrototype%': ['Date', 'prototype'],
+	'%ErrorPrototype%': ['Error', 'prototype'],
+	'%EvalErrorPrototype%': ['EvalError', 'prototype'],
+	'%Float32ArrayPrototype%': ['Float32Array', 'prototype'],
+	'%Float64ArrayPrototype%': ['Float64Array', 'prototype'],
+	'%FunctionPrototype%': ['Function', 'prototype'],
+	'%Generator%': ['GeneratorFunction', 'prototype'],
+	'%GeneratorPrototype%': ['GeneratorFunction', 'prototype', 'prototype'],
+	'%Int8ArrayPrototype%': ['Int8Array', 'prototype'],
+	'%Int16ArrayPrototype%': ['Int16Array', 'prototype'],
+	'%Int32ArrayPrototype%': ['Int32Array', 'prototype'],
+	'%JSONParse%': ['JSON', 'parse'],
+	'%JSONStringify%': ['JSON', 'stringify'],
+	'%MapPrototype%': ['Map', 'prototype'],
+	'%NumberPrototype%': ['Number', 'prototype'],
+	'%ObjectPrototype%': ['Object', 'prototype'],
+	'%ObjProto_toString%': ['Object', 'prototype', 'toString'],
+	'%ObjProto_valueOf%': ['Object', 'prototype', 'valueOf'],
+	'%PromisePrototype%': ['Promise', 'prototype'],
+	'%PromiseProto_then%': ['Promise', 'prototype', 'then'],
+	'%Promise_all%': ['Promise', 'all'],
+	'%Promise_reject%': ['Promise', 'reject'],
+	'%Promise_resolve%': ['Promise', 'resolve'],
+	'%RangeErrorPrototype%': ['RangeError', 'prototype'],
+	'%ReferenceErrorPrototype%': ['ReferenceError', 'prototype'],
+	'%RegExpPrototype%': ['RegExp', 'prototype'],
+	'%SetPrototype%': ['Set', 'prototype'],
+	'%SharedArrayBufferPrototype%': ['SharedArrayBuffer', 'prototype'],
+	'%StringPrototype%': ['String', 'prototype'],
+	'%SymbolPrototype%': ['Symbol', 'prototype'],
+	'%SyntaxErrorPrototype%': ['SyntaxError', 'prototype'],
+	'%TypedArrayPrototype%': ['TypedArray', 'prototype'],
+	'%TypeErrorPrototype%': ['TypeError', 'prototype'],
+	'%Uint8ArrayPrototype%': ['Uint8Array', 'prototype'],
+	'%Uint8ClampedArrayPrototype%': ['Uint8ClampedArray', 'prototype'],
+	'%Uint16ArrayPrototype%': ['Uint16Array', 'prototype'],
+	'%Uint32ArrayPrototype%': ['Uint32Array', 'prototype'],
+	'%URIErrorPrototype%': ['URIError', 'prototype'],
+	'%WeakMapPrototype%': ['WeakMap', 'prototype'],
+	'%WeakSetPrototype%': ['WeakSet', 'prototype']
+};
+
+var bind = __webpack_require__(8612);
+var hasOwn = __webpack_require__(7642);
+var $concat = bind.call(Function.call, Array.prototype.concat);
+var $spliceApply = bind.call(Function.apply, Array.prototype.splice);
+var $replace = bind.call(Function.call, String.prototype.replace);
+var $strSlice = bind.call(Function.call, String.prototype.slice);
+var $exec = bind.call(Function.call, RegExp.prototype.exec);
+
+/* adapted from https://github.com/lodash/lodash/blob/4.17.15/dist/lodash.js#L6735-L6744 */
+var rePropName = /[^%.[\]]+|\[(?:(-?\d+(?:\.\d+)?)|(["'])((?:(?!\2)[^\\]|\\.)*?)\2)\]|(?=(?:\.|\[\])(?:\.|\[\]|%$))/g;
+var reEscapeChar = /\\(\\)?/g; /** Used to match backslashes in property paths. */
+var stringToPath = function stringToPath(string) {
+	var first = $strSlice(string, 0, 1);
+	var last = $strSlice(string, -1);
+	if (first === '%' && last !== '%') {
+		throw new $SyntaxError('invalid intrinsic syntax, expected closing `%`');
+	} else if (last === '%' && first !== '%') {
+		throw new $SyntaxError('invalid intrinsic syntax, expected opening `%`');
+	}
+	var result = [];
+	$replace(string, rePropName, function (match, number, quote, subString) {
+		result[result.length] = quote ? $replace(subString, reEscapeChar, '$1') : number || match;
+	});
+	return result;
+};
+/* end adaptation */
+
+var getBaseIntrinsic = function getBaseIntrinsic(name, allowMissing) {
+	var intrinsicName = name;
+	var alias;
+	if (hasOwn(LEGACY_ALIASES, intrinsicName)) {
+		alias = LEGACY_ALIASES[intrinsicName];
+		intrinsicName = '%' + alias[0] + '%';
+	}
+
+	if (hasOwn(INTRINSICS, intrinsicName)) {
+		var value = INTRINSICS[intrinsicName];
+		if (value === needsEval) {
+			value = doEval(intrinsicName);
+		}
+		if (typeof value === 'undefined' && !allowMissing) {
+			throw new $TypeError('intrinsic ' + name + ' exists, but is not available. Please file an issue!');
+		}
+
+		return {
+			alias: alias,
+			name: intrinsicName,
+			value: value
+		};
+	}
+
+	throw new $SyntaxError('intrinsic ' + name + ' does not exist!');
+};
+
+module.exports = function GetIntrinsic(name, allowMissing) {
+	if (typeof name !== 'string' || name.length === 0) {
+		throw new $TypeError('intrinsic name must be a non-empty string');
+	}
+	if (arguments.length > 1 && typeof allowMissing !== 'boolean') {
+		throw new $TypeError('"allowMissing" argument must be a boolean');
+	}
+
+	if ($exec(/^%?[^%]*%?$/, name) === null) {
+		throw new $SyntaxError('`%` may not be present anywhere but at the beginning and end of the intrinsic name');
+	}
+	var parts = stringToPath(name);
+	var intrinsicBaseName = parts.length > 0 ? parts[0] : '';
+
+	var intrinsic = getBaseIntrinsic('%' + intrinsicBaseName + '%', allowMissing);
+	var intrinsicRealName = intrinsic.name;
+	var value = intrinsic.value;
+	var skipFurtherCaching = false;
+
+	var alias = intrinsic.alias;
+	if (alias) {
+		intrinsicBaseName = alias[0];
+		$spliceApply(parts, $concat([0, 1], alias));
+	}
+
+	for (var i = 1, isOwn = true; i < parts.length; i += 1) {
+		var part = parts[i];
+		var first = $strSlice(part, 0, 1);
+		var last = $strSlice(part, -1);
+		if (
+			(
+				(first === '"' || first === "'" || first === '`')
+				|| (last === '"' || last === "'" || last === '`')
+			)
+			&& first !== last
+		) {
+			throw new $SyntaxError('property names with quotes must have matching quotes');
+		}
+		if (part === 'constructor' || !isOwn) {
+			skipFurtherCaching = true;
+		}
+
+		intrinsicBaseName += '.' + part;
+		intrinsicRealName = '%' + intrinsicBaseName + '%';
+
+		if (hasOwn(INTRINSICS, intrinsicRealName)) {
+			value = INTRINSICS[intrinsicRealName];
+		} else if (value != null) {
+			if (!(part in value)) {
+				if (!allowMissing) {
+					throw new $TypeError('base intrinsic for ' + name + ' exists, but the property is not available.');
+				}
+				return void undefined;
+			}
+			if ($gOPD && (i + 1) >= parts.length) {
+				var desc = $gOPD(value, part);
+				isOwn = !!desc;
+
+				// By convention, when a data property is converted to an accessor
+				// property to emulate a data property that does not suffer from
+				// the override mistake, that accessor's getter is marked with
+				// an `originalValue` property. Here, when we detect this, we
+				// uphold the illusion by pretending to see that original data
+				// property, i.e., returning the value rather than the getter
+				// itself.
+				if (isOwn && 'get' in desc && !('originalValue' in desc.get)) {
+					value = desc.get;
+				} else {
+					value = value[part];
+				}
+			} else {
+				isOwn = hasOwn(value, part);
+				value = value[part];
+			}
+
+			if (isOwn && !skipFurtherCaching) {
+				INTRINSICS[intrinsicRealName] = value;
+			}
+		}
+	}
+	return value;
+};
+
+
+/***/ }),
+
+/***/ 7296:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var GetIntrinsic = __webpack_require__(210);
+
+var $gOPD = GetIntrinsic('%Object.getOwnPropertyDescriptor%', true);
+
+if ($gOPD) {
+	try {
+		$gOPD([], 'length');
+	} catch (e) {
+		// IE 8 has a broken gOPD
+		$gOPD = null;
+	}
+}
+
+module.exports = $gOPD;
+
+
+/***/ }),
+
+/***/ 1044:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var GetIntrinsic = __webpack_require__(210);
+
+var $defineProperty = GetIntrinsic('%Object.defineProperty%', true);
+
+var hasPropertyDescriptors = function hasPropertyDescriptors() {
+	if ($defineProperty) {
+		try {
+			$defineProperty({}, 'a', { value: 1 });
+			return true;
+		} catch (e) {
+			// IE 8 has a broken defineProperty
+			return false;
+		}
+	}
+	return false;
+};
+
+hasPropertyDescriptors.hasArrayLengthDefineBug = function hasArrayLengthDefineBug() {
+	// node v0.6 has a bug where array lengths can be Set but not Defined
+	if (!hasPropertyDescriptors()) {
+		return null;
+	}
+	try {
+		return $defineProperty([], 'length', { value: 1 }).length !== 1;
+	} catch (e) {
+		// In Firefox 4-22, defining length on an array throws an exception.
+		return true;
+	}
+};
+
+module.exports = hasPropertyDescriptors;
+
+
+/***/ }),
+
+/***/ 8185:
+/***/ ((module) => {
+
+"use strict";
+
+
+var test = {
+	foo: {}
+};
+
+var $Object = Object;
+
+module.exports = function hasProto() {
+	return { __proto__: test }.foo === test.foo && !({ __proto__: null } instanceof $Object);
+};
+
+
+/***/ }),
+
+/***/ 1405:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var origSymbol = typeof Symbol !== 'undefined' && Symbol;
+var hasSymbolSham = __webpack_require__(5419);
+
+module.exports = function hasNativeSymbols() {
+	if (typeof origSymbol !== 'function') { return false; }
+	if (typeof Symbol !== 'function') { return false; }
+	if (typeof origSymbol('foo') !== 'symbol') { return false; }
+	if (typeof Symbol('bar') !== 'symbol') { return false; }
+
+	return hasSymbolSham();
+};
+
+
+/***/ }),
+
+/***/ 5419:
+/***/ ((module) => {
+
+"use strict";
+
+
+/* eslint complexity: [2, 18], max-statements: [2, 33] */
+module.exports = function hasSymbols() {
+	if (typeof Symbol !== 'function' || typeof Object.getOwnPropertySymbols !== 'function') { return false; }
+	if (typeof Symbol.iterator === 'symbol') { return true; }
+
+	var obj = {};
+	var sym = Symbol('test');
+	var symObj = Object(sym);
+	if (typeof sym === 'string') { return false; }
+
+	if (Object.prototype.toString.call(sym) !== '[object Symbol]') { return false; }
+	if (Object.prototype.toString.call(symObj) !== '[object Symbol]') { return false; }
+
+	// temp disabled per https://github.com/ljharb/object.assign/issues/17
+	// if (sym instanceof Symbol) { return false; }
+	// temp disabled per https://github.com/WebReflection/get-own-property-symbols/issues/4
+	// if (!(symObj instanceof Symbol)) { return false; }
+
+	// if (typeof Symbol.prototype.toString !== 'function') { return false; }
+	// if (String(sym) !== Symbol.prototype.toString.call(sym)) { return false; }
+
+	var symVal = 42;
+	obj[sym] = symVal;
+	for (sym in obj) { return false; } // eslint-disable-line no-restricted-syntax, no-unreachable-loop
+	if (typeof Object.keys === 'function' && Object.keys(obj).length !== 0) { return false; }
+
+	if (typeof Object.getOwnPropertyNames === 'function' && Object.getOwnPropertyNames(obj).length !== 0) { return false; }
+
+	var syms = Object.getOwnPropertySymbols(obj);
+	if (syms.length !== 1 || syms[0] !== sym) { return false; }
+
+	if (!Object.prototype.propertyIsEnumerable.call(obj, sym)) { return false; }
+
+	if (typeof Object.getOwnPropertyDescriptor === 'function') {
+		var descriptor = Object.getOwnPropertyDescriptor(obj, sym);
+		if (descriptor.value !== symVal || descriptor.enumerable !== true) { return false; }
+	}
+
+	return true;
+};
+
+
+/***/ }),
+
+/***/ 6410:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var hasSymbols = __webpack_require__(5419);
+
+module.exports = function hasToStringTagShams() {
+	return hasSymbols() && !!Symbol.toStringTag;
+};
+
+
+/***/ }),
+
+/***/ 7642:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var bind = __webpack_require__(8612);
+
+module.exports = bind.call(Function.call, Object.prototype.hasOwnProperty);
+
+
+/***/ }),
+
+/***/ 645:
+/***/ ((__unused_webpack_module, exports) => {
+
+/*! ieee754. BSD-3-Clause License. Feross Aboukhadijeh <https://feross.org/opensource> */
+exports.read = function (buffer, offset, isLE, mLen, nBytes) {
+  var e, m
+  var eLen = (nBytes * 8) - mLen - 1
+  var eMax = (1 << eLen) - 1
+  var eBias = eMax >> 1
+  var nBits = -7
+  var i = isLE ? (nBytes - 1) : 0
+  var d = isLE ? -1 : 1
+  var s = buffer[offset + i]
+
+  i += d
+
+  e = s & ((1 << (-nBits)) - 1)
+  s >>= (-nBits)
+  nBits += eLen
+  for (; nBits > 0; e = (e * 256) + buffer[offset + i], i += d, nBits -= 8) {}
+
+  m = e & ((1 << (-nBits)) - 1)
+  e >>= (-nBits)
+  nBits += mLen
+  for (; nBits > 0; m = (m * 256) + buffer[offset + i], i += d, nBits -= 8) {}
+
+  if (e === 0) {
+    e = 1 - eBias
+  } else if (e === eMax) {
+    return m ? NaN : ((s ? -1 : 1) * Infinity)
+  } else {
+    m = m + Math.pow(2, mLen)
+    e = e - eBias
+  }
+  return (s ? -1 : 1) * m * Math.pow(2, e - mLen)
+}
+
+exports.write = function (buffer, value, offset, isLE, mLen, nBytes) {
+  var e, m, c
+  var eLen = (nBytes * 8) - mLen - 1
+  var eMax = (1 << eLen) - 1
+  var eBias = eMax >> 1
+  var rt = (mLen === 23 ? Math.pow(2, -24) - Math.pow(2, -77) : 0)
+  var i = isLE ? 0 : (nBytes - 1)
+  var d = isLE ? 1 : -1
+  var s = value < 0 || (value === 0 && 1 / value < 0) ? 1 : 0
+
+  value = Math.abs(value)
+
+  if (isNaN(value) || value === Infinity) {
+    m = isNaN(value) ? 1 : 0
+    e = eMax
+  } else {
+    e = Math.floor(Math.log(value) / Math.LN2)
+    if (value * (c = Math.pow(2, -e)) < 1) {
+      e--
+      c *= 2
+    }
+    if (e + eBias >= 1) {
+      value += rt / c
+    } else {
+      value += rt * Math.pow(2, 1 - eBias)
+    }
+    if (value * c >= 2) {
+      e++
+      c /= 2
+    }
+
+    if (e + eBias >= eMax) {
+      m = 0
+      e = eMax
+    } else if (e + eBias >= 1) {
+      m = ((value * c) - 1) * Math.pow(2, mLen)
+      e = e + eBias
+    } else {
+      m = value * Math.pow(2, eBias - 1) * Math.pow(2, mLen)
+      e = 0
+    }
+  }
+
+  for (; mLen >= 8; buffer[offset + i] = m & 0xff, i += d, m /= 256, mLen -= 8) {}
+
+  e = (e << mLen) | m
+  eLen += mLen
+  for (; eLen > 0; buffer[offset + i] = e & 0xff, i += d, e /= 256, eLen -= 8) {}
+
+  buffer[offset + i - d] |= s * 128
+}
+
+
+/***/ }),
+
+/***/ 5717:
+/***/ ((module) => {
+
+if (typeof Object.create === 'function') {
+  // implementation from standard node.js 'util' module
+  module.exports = function inherits(ctor, superCtor) {
+    if (superCtor) {
+      ctor.super_ = superCtor
+      ctor.prototype = Object.create(superCtor.prototype, {
+        constructor: {
+          value: ctor,
+          enumerable: false,
+          writable: true,
+          configurable: true
+        }
+      })
+    }
+  };
+} else {
+  // old school shim for old browsers
+  module.exports = function inherits(ctor, superCtor) {
+    if (superCtor) {
+      ctor.super_ = superCtor
+      var TempCtor = function () {}
+      TempCtor.prototype = superCtor.prototype
+      ctor.prototype = new TempCtor()
+      ctor.prototype.constructor = ctor
+    }
+  }
+}
+
+
+/***/ }),
+
+/***/ 2584:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var hasToStringTag = __webpack_require__(6410)();
+var callBound = __webpack_require__(1924);
+
+var $toString = callBound('Object.prototype.toString');
+
+var isStandardArguments = function isArguments(value) {
+	if (hasToStringTag && value && typeof value === 'object' && Symbol.toStringTag in value) {
+		return false;
+	}
+	return $toString(value) === '[object Arguments]';
+};
+
+var isLegacyArguments = function isArguments(value) {
+	if (isStandardArguments(value)) {
+		return true;
+	}
+	return value !== null &&
+		typeof value === 'object' &&
+		typeof value.length === 'number' &&
+		value.length >= 0 &&
+		$toString(value) !== '[object Array]' &&
+		$toString(value.callee) === '[object Function]';
+};
+
+var supportsStandardArguments = (function () {
+	return isStandardArguments(arguments);
+}());
+
+isStandardArguments.isLegacyArguments = isLegacyArguments; // for tests
+
+module.exports = supportsStandardArguments ? isStandardArguments : isLegacyArguments;
+
+
+/***/ }),
+
+/***/ 5320:
+/***/ ((module) => {
+
+"use strict";
+
+
+var fnToStr = Function.prototype.toString;
+var reflectApply = typeof Reflect === 'object' && Reflect !== null && Reflect.apply;
+var badArrayLike;
+var isCallableMarker;
+if (typeof reflectApply === 'function' && typeof Object.defineProperty === 'function') {
+	try {
+		badArrayLike = Object.defineProperty({}, 'length', {
+			get: function () {
+				throw isCallableMarker;
+			}
+		});
+		isCallableMarker = {};
+		// eslint-disable-next-line no-throw-literal
+		reflectApply(function () { throw 42; }, null, badArrayLike);
+	} catch (_) {
+		if (_ !== isCallableMarker) {
+			reflectApply = null;
+		}
+	}
+} else {
+	reflectApply = null;
+}
+
+var constructorRegex = /^\s*class\b/;
+var isES6ClassFn = function isES6ClassFunction(value) {
+	try {
+		var fnStr = fnToStr.call(value);
+		return constructorRegex.test(fnStr);
+	} catch (e) {
+		return false; // not a function
+	}
+};
+
+var tryFunctionObject = function tryFunctionToStr(value) {
+	try {
+		if (isES6ClassFn(value)) { return false; }
+		fnToStr.call(value);
+		return true;
+	} catch (e) {
+		return false;
+	}
+};
+var toStr = Object.prototype.toString;
+var objectClass = '[object Object]';
+var fnClass = '[object Function]';
+var genClass = '[object GeneratorFunction]';
+var ddaClass = '[object HTMLAllCollection]'; // IE 11
+var ddaClass2 = '[object HTML document.all class]';
+var ddaClass3 = '[object HTMLCollection]'; // IE 9-10
+var hasToStringTag = typeof Symbol === 'function' && !!Symbol.toStringTag; // better: use `has-tostringtag`
+
+var isIE68 = !(0 in [,]); // eslint-disable-line no-sparse-arrays, comma-spacing
+
+var isDDA = function isDocumentDotAll() { return false; };
+if (typeof document === 'object') {
+	// Firefox 3 canonicalizes DDA to undefined when it's not accessed directly
+	var all = document.all;
+	if (toStr.call(all) === toStr.call(document.all)) {
+		isDDA = function isDocumentDotAll(value) {
+			/* globals document: false */
+			// in IE 6-8, typeof document.all is "object" and it's truthy
+			if ((isIE68 || !value) && (typeof value === 'undefined' || typeof value === 'object')) {
+				try {
+					var str = toStr.call(value);
+					return (
+						str === ddaClass
+						|| str === ddaClass2
+						|| str === ddaClass3 // opera 12.16
+						|| str === objectClass // IE 6-8
+					) && value('') == null; // eslint-disable-line eqeqeq
+				} catch (e) { /**/ }
+			}
+			return false;
+		};
+	}
+}
+
+module.exports = reflectApply
+	? function isCallable(value) {
+		if (isDDA(value)) { return true; }
+		if (!value) { return false; }
+		if (typeof value !== 'function' && typeof value !== 'object') { return false; }
+		try {
+			reflectApply(value, null, badArrayLike);
+		} catch (e) {
+			if (e !== isCallableMarker) { return false; }
+		}
+		return !isES6ClassFn(value) && tryFunctionObject(value);
+	}
+	: function isCallable(value) {
+		if (isDDA(value)) { return true; }
+		if (!value) { return false; }
+		if (typeof value !== 'function' && typeof value !== 'object') { return false; }
+		if (hasToStringTag) { return tryFunctionObject(value); }
+		if (isES6ClassFn(value)) { return false; }
+		var strClass = toStr.call(value);
+		if (strClass !== fnClass && strClass !== genClass && !(/^\[object HTML/).test(strClass)) { return false; }
+		return tryFunctionObject(value);
+	};
+
+
+/***/ }),
+
+/***/ 8662:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var toStr = Object.prototype.toString;
+var fnToStr = Function.prototype.toString;
+var isFnRegex = /^\s*(?:function)?\*/;
+var hasToStringTag = __webpack_require__(6410)();
+var getProto = Object.getPrototypeOf;
+var getGeneratorFunc = function () { // eslint-disable-line consistent-return
+	if (!hasToStringTag) {
+		return false;
+	}
+	try {
+		return Function('return function*() {}')();
+	} catch (e) {
+	}
+};
+var GeneratorFunction;
+
+module.exports = function isGeneratorFunction(fn) {
+	if (typeof fn !== 'function') {
+		return false;
+	}
+	if (isFnRegex.test(fnToStr.call(fn))) {
+		return true;
+	}
+	if (!hasToStringTag) {
+		var str = toStr.call(fn);
+		return str === '[object GeneratorFunction]';
+	}
+	if (!getProto) {
+		return false;
+	}
+	if (typeof GeneratorFunction === 'undefined') {
+		var generatorFunc = getGeneratorFunc();
+		GeneratorFunction = generatorFunc ? getProto(generatorFunc) : false;
+	}
+	return getProto(fn) === GeneratorFunction;
+};
+
+
+/***/ }),
+
+/***/ 8611:
+/***/ ((module) => {
+
+"use strict";
+
+
+/* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
+
+module.exports = function isNaN(value) {
+	return value !== value;
+};
+
+
+/***/ }),
+
+/***/ 360:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var callBind = __webpack_require__(5559);
+var define = __webpack_require__(4289);
+
+var implementation = __webpack_require__(8611);
+var getPolyfill = __webpack_require__(9415);
+var shim = __webpack_require__(3194);
+
+var polyfill = callBind(getPolyfill(), Number);
+
+/* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
+
+define(polyfill, {
+	getPolyfill: getPolyfill,
+	implementation: implementation,
+	shim: shim
+});
+
+module.exports = polyfill;
+
+
+/***/ }),
+
+/***/ 9415:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var implementation = __webpack_require__(8611);
+
+module.exports = function getPolyfill() {
+	if (Number.isNaN && Number.isNaN(NaN) && !Number.isNaN('a')) {
+		return Number.isNaN;
+	}
+	return implementation;
+};
+
+
+/***/ }),
+
+/***/ 3194:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var define = __webpack_require__(4289);
+var getPolyfill = __webpack_require__(9415);
+
+/* http://www.ecma-international.org/ecma-262/6.0/#sec-number.isnan */
+
+module.exports = function shimNumberIsNaN() {
+	var polyfill = getPolyfill();
+	define(Number, { isNaN: polyfill }, {
+		isNaN: function testIsNaN() {
+			return Number.isNaN !== polyfill;
+		}
+	});
+	return polyfill;
+};
+
+
+/***/ }),
+
+/***/ 5692:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var whichTypedArray = __webpack_require__(6430);
+
+module.exports = function isTypedArray(value) {
+	return !!whichTypedArray(value);
+};
+
+
+/***/ }),
+
+/***/ 1010:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+var __dirname = "/";
+/* provided dependency */ var process = __webpack_require__(4155);
+/* provided dependency */ var console = __webpack_require__(5108);
+/* provided dependency */ var Buffer = __webpack_require__(8764)["lW"];
+var Module=typeof Module!=="undefined"?Module:{};var moduleOverrides={};var key;for(key in Module){if(Module.hasOwnProperty(key)){moduleOverrides[key]=Module[key]}}var arguments_=[];var thisProgram="./this.program";var quit_=function(status,toThrow){throw toThrow};var ENVIRONMENT_IS_WEB=false;var ENVIRONMENT_IS_WORKER=false;var ENVIRONMENT_IS_NODE=false;var ENVIRONMENT_IS_SHELL=false;ENVIRONMENT_IS_WEB=typeof window==="object";ENVIRONMENT_IS_WORKER=typeof importScripts==="function";ENVIRONMENT_IS_NODE=typeof process==="object"&&typeof process.versions==="object"&&typeof process.versions.node==="string";ENVIRONMENT_IS_SHELL=!ENVIRONMENT_IS_WEB&&!ENVIRONMENT_IS_NODE&&!ENVIRONMENT_IS_WORKER;var scriptDirectory="";function locateFile(path){if(Module["locateFile"]){return Module["locateFile"](path,scriptDirectory)}return scriptDirectory+path}var read_,readAsync,readBinary,setWindowTitle;var nodeFS;var nodePath;if(ENVIRONMENT_IS_NODE){if(ENVIRONMENT_IS_WORKER){scriptDirectory=(__webpack_require__(6470).dirname)(scriptDirectory)+"/"}else{scriptDirectory=__dirname+"/"}read_=function shell_read(filename,binary){var ret=tryParseAsDataURI(filename);if(ret){return binary?ret:ret.toString()}if(!nodeFS)nodeFS=__webpack_require__(9716);if(!nodePath)nodePath=__webpack_require__(6470);filename=nodePath["normalize"](filename);return nodeFS["readFileSync"](filename,binary?null:"utf8")};readBinary=function readBinary(filename){var ret=read_(filename,true);if(!ret.buffer){ret=new Uint8Array(ret)}assert(ret.buffer);return ret};if(process["argv"].length>1){thisProgram=process["argv"][1].replace(/\\/g,"/")}arguments_=process["argv"].slice(2);if(true){module["exports"]=Module}process["on"]("uncaughtException",function(ex){if(!(ex instanceof ExitStatus)){throw ex}});process["on"]("unhandledRejection",abort);quit_=function(status){process["exit"](status)};Module["inspect"]=function(){return"[Emscripten Module object]"}}else if(ENVIRONMENT_IS_SHELL){if(typeof read!="undefined"){read_=function shell_read(f){var data=tryParseAsDataURI(f);if(data){return intArrayToString(data)}return read(f)}}readBinary=function readBinary(f){var data;data=tryParseAsDataURI(f);if(data){return data}if(typeof readbuffer==="function"){return new Uint8Array(readbuffer(f))}data=read(f,"binary");assert(typeof data==="object");return data};if(typeof scriptArgs!="undefined"){arguments_=scriptArgs}else if(typeof arguments!="undefined"){arguments_=arguments}if(typeof quit==="function"){quit_=function(status){quit(status)}}if(typeof print!=="undefined"){if(typeof console==="undefined")console={};console.log=print;console.warn=console.error=typeof printErr!=="undefined"?printErr:print}}else if(ENVIRONMENT_IS_WEB||ENVIRONMENT_IS_WORKER){if(ENVIRONMENT_IS_WORKER){scriptDirectory=self.location.href}else if(document.currentScript){scriptDirectory=document.currentScript.src}if(scriptDirectory.indexOf("blob:")!==0){scriptDirectory=scriptDirectory.substr(0,scriptDirectory.lastIndexOf("/")+1)}else{scriptDirectory=""}{read_=function shell_read(url){try{var xhr=new XMLHttpRequest;xhr.open("GET",url,false);xhr.send(null);return xhr.responseText}catch(err){var data=tryParseAsDataURI(url);if(data){return intArrayToString(data)}throw err}};if(ENVIRONMENT_IS_WORKER){readBinary=function readBinary(url){try{var xhr=new XMLHttpRequest;xhr.open("GET",url,false);xhr.responseType="arraybuffer";xhr.send(null);return new Uint8Array(xhr.response)}catch(err){var data=tryParseAsDataURI(url);if(data){return data}throw err}}}readAsync=function readAsync(url,onload,onerror){var xhr=new XMLHttpRequest;xhr.open("GET",url,true);xhr.responseType="arraybuffer";xhr.onload=function xhr_onload(){if(xhr.status==200||xhr.status==0&&xhr.response){onload(xhr.response);return}var data=tryParseAsDataURI(url);if(data){onload(data.buffer);return}onerror()};xhr.onerror=onerror;xhr.send(null)}}setWindowTitle=function(title){document.title=title}}else{}var out=Module["print"]||console.log.bind(console);var err=Module["printErr"]||console.warn.bind(console);for(key in moduleOverrides){if(moduleOverrides.hasOwnProperty(key)){Module[key]=moduleOverrides[key]}}moduleOverrides=null;if(Module["arguments"])arguments_=Module["arguments"];if(Module["thisProgram"])thisProgram=Module["thisProgram"];if(Module["quit"])quit_=Module["quit"];var STACK_ALIGN=16;function getNativeTypeSize(type){switch(type){case"i1":case"i8":return 1;case"i16":return 2;case"i32":return 4;case"i64":return 8;case"float":return 4;case"double":return 8;default:{if(type[type.length-1]==="*"){return 4}else if(type[0]==="i"){var bits=Number(type.substr(1));assert(bits%8===0,"getNativeTypeSize invalid bits "+bits+", type "+type);return bits/8}else{return 0}}}}function warnOnce(text){if(!warnOnce.shown)warnOnce.shown={};if(!warnOnce.shown[text]){warnOnce.shown[text]=1;err(text)}}function convertJsFunctionToWasm(func,sig){return func}var freeTableIndexes=(/* unused pure expression or super */ null && ([]));var functionsInTableMap;function addFunctionWasm(func,sig){var table=wasmTable;if(!functionsInTableMap){functionsInTableMap=new WeakMap;for(var i=0;i<table.length;i++){var item=table.get(i);if(item){functionsInTableMap.set(item,i)}}}if(functionsInTableMap.has(func)){return functionsInTableMap.get(func)}var ret;if(freeTableIndexes.length){ret=freeTableIndexes.pop()}else{ret=table.length;try{table.grow(1)}catch(err){if(!(err instanceof RangeError)){throw err}throw"Unable to grow wasm table. Set ALLOW_TABLE_GROWTH."}}try{table.set(ret,func)}catch(err){if(!(err instanceof TypeError)){throw err}var wrapped=convertJsFunctionToWasm(func,sig);table.set(ret,wrapped)}functionsInTableMap.set(func,ret);return ret}function removeFunctionWasm(index){functionsInTableMap.delete(wasmTable.get(index));freeTableIndexes.push(index)}var tempRet0=0;var setTempRet0=function(value){tempRet0=value};var getTempRet0=function(){return tempRet0};var wasmBinary;if(Module["wasmBinary"])wasmBinary=Module["wasmBinary"];var noExitRuntime;if(Module["noExitRuntime"])noExitRuntime=Module["noExitRuntime"];var WebAssembly={Memory:function(opts){this.buffer=new ArrayBuffer(opts["initial"]*65536);this.grow=function(amount){var ret=__growWasmMemory(amount);return ret}},Table:function(opts){var ret=new Array(opts["initial"]);ret.set=function(i,func){ret[i]=func};ret.get=function(i){return ret[i]};return ret},Module:function(binary){},Instance:function(module,info){this.exports=(
+// EMSCRIPTEN_START_ASM
+function a(asmLibraryArg,wasmMemory,wasmTable){var scratchBuffer=new ArrayBuffer(16);var b=new Int32Array(scratchBuffer);var c=new Float32Array(scratchBuffer);var d=new Float64Array(scratchBuffer);function e(index){return b[index]}function f(index,value){b[index]=value}function g(){return d[0]}function h(value){d[0]=value}function i(value){c[2]=value}function j(){return c[2]}function k(global,env,buffer){var l=env.memory;var m=wasmTable;var n=new global.Int8Array(buffer);var o=new global.Int16Array(buffer);var p=new global.Int32Array(buffer);var q=new global.Uint8Array(buffer);var r=new global.Uint16Array(buffer);var s=new global.Uint32Array(buffer);var t=new global.Float32Array(buffer);var u=new global.Float64Array(buffer);var v=global.Math.imul;var w=global.Math.fround;var x=global.Math.abs;var y=global.Math.clz32;var z=global.Math.min;var A=global.Math.max;var B=global.Math.floor;var C=global.Math.ceil;var D=global.Math.sqrt;var E=env.abort;var F=global.NaN;var G=global.Infinity;var H=env.emscripten_longjmp;var I=env.exit;var J=env.invoke_ii;var K=env.setTempRet0;var L=env.getTempRet0;var M=env.invoke_viii;var N=env.invoke_vi;var O=env.invoke_vii;var P=env.invoke_iiii;var Q=env.invoke_iii;var R=env.invoke_iiiii;var S=env.fd_close;var T=env.fd_write;var U=env.environ_sizes_get;var V=env.environ_get;var W=env.emscripten_resize_heap;var X=env.emscripten_memcpy_big;var Y=env.fd_seek;var Z=5255888;var _=13004;var $=0;
+// EMSCRIPTEN_START_FUNCS
+function md(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,s=0,t=0,u=0;j=Z-288|0;Z=j;l=a+264|0;s=a+248|0;u=a+232|0;b=p[a+440>>2];while(1){a:{b:{c:{if(b){break c}if(!p[p[a+464>>2]+12>>2]){c=p[a+24>>2];b=p[c+4>>2];if(!b){if(!(m[p[c+12>>2]](a)|0)){b=0;break b}b=p[c+4>>2]}e=p[c>>2];g=q[e|0];f=e+1|0;e=b+ -1|0;if(!e){if(!(m[p[c+12>>2]](a)|0)){b=0;break b}e=p[c+4>>2];f=p[c>>2]}d=f+1|0;e=e+ -1|0;b=q[f|0];if(!((b|0)==216?(g|0)==255:0)){f=p[a>>2];p[f+24>>2]=g;p[f+20>>2]=55;p[p[a>>2]+28>>2]=b;m[p[p[a>>2]>>2]](a)}p[a+440>>2]=b;p[c+4>>2]=e;p[c>>2]=d;break c}if(!id(a)){b=0;break b}b=p[a+440>>2]}d:{e:{switch(b+ -1|0){case 215:c=p[a>>2];p[c+20>>2]=104;m[p[c+4>>2]](a,1);b=p[a+464>>2];if(p[b+12>>2]){c=p[a>>2];p[c+20>>2]=64;m[p[c>>2]](a);b=p[a+464>>2]}c=u;n[c|0]=0;n[c+1|0]=0;n[c+2|0]=0;n[c+3|0]=0;n[c+4|0]=0;n[c+5|0]=0;n[c+6|0]=0;n[c+7|0]=0;n[c+8|0]=0;n[c+9|0]=0;n[c+10|0]=0;n[c+11|0]=0;n[c+12|0]=0;n[c+13|0]=0;n[c+14|0]=0;n[c+15|0]=0;c=s;n[c+8|0]=16843009;n[c+9|0]=65793;n[c+10|0]=257;n[c+11|0]=1;n[c+12|0]=16843009;n[c+13|0]=65793;n[c+14|0]=257;n[c+15|0]=1;n[c|0]=16843009;n[c+1|0]=65793;n[c+2|0]=257;n[c+3|0]=1;n[c+4|0]=16843009;n[c+5|0]=65793;n[c+6|0]=257;n[c+7|0]=1;c=l;n[c+8|0]=84215045;n[c+9|0]=328965;n[c+10|0]=1285;n[c+11|0]=5;n[c+12|0]=84215045;n[c+13|0]=328965;n[c+14|0]=1285;n[c+15|0]=5;n[c|0]=84215045;n[c+1|0]=328965;n[c+2|0]=1285;n[c+3|0]=5;n[c+4|0]=84215045;n[c+5|0]=328965;n[c+6|0]=1285;n[c+7|0]=5;p[a+304>>2]=0;p[a+308>>2]=0;p[a+40>>2]=0;p[a+280>>2]=0;p[a+284>>2]=0;n[a+300|0]=0;p[a+292>>2]=65537;p[a+296>>2]=0;n[a+290|0]=0;o[a+288>>1]=257;p[b+12>>2]=1;break a;case 192:b=0;if(pd(a,0,0,0)){break a}break b;case 193:b=0;if(pd(a,0,1,0)){break a}break b;case 200:b=0;if(pd(a,0,0,1)){break a}break b;case 201:b=0;if(pd(a,0,1,1)){break a}break b;case 194:case 196:case 197:case 198:case 199:case 202:case 204:case 205:case 206:c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=63;m[p[p[a>>2]>>2]](a);break a;case 217:g=p[a+24>>2];b=p[g+4>>2];d=p[g>>2];if(!p[p[a+464>>2]+16>>2]){c=p[a>>2];p[c+20>>2]=60;th(c+24|0,8680,80);m[p[p[a>>2]>>2]](a)}if(!b){if(!(m[p[g+12>>2]](a)|0)){b=0;break b}d=p[g>>2];b=p[g+4>>2]}f=q[d|0];c=b+ -1|0;e=d+1|0;f:{if(c){break f}if(!(m[p[g+12>>2]](a)|0)){b=0;break b}c=p[g+4>>2];e=p[g>>2]}b=q[e|0];d=c+ -1|0;e=e+1|0;g:{if(d){break g}if(!(m[p[g+12>>2]](a)|0)){b=0;break b}d=p[g+4>>2];e=p[g>>2]}c=p[a>>2];l=q[e|0];p[c+24>>2]=l;p[c+20>>2]=105;c=1;m[p[p[a>>2]+4>>2]](a,1);h:{i:{j:{if(((l<<1)+6|0)!=(b|f<<8)|l>>>0>4){break j}if(l){p[a+340>>2]=l;i=e+1|0;f=d+ -1|0;break i}if(!p[a+224>>2]){break j}p[a+340>>2]=l;i=e+1|0;f=d+ -1|0;break h}b=p[a>>2];p[b+20>>2]=12;m[p[b>>2]](a);p[a+340>>2]=l;i=e+1|0;f=d+ -1|0;if(!l){break h}}e=0;while(1){if(!f){if(!(m[p[g+12>>2]](a)|0)){b=0;break b}i=p[g>>2];f=p[g+4>>2]}d=q[i|0];b=0;k:{if(!e){break k}while(1){if(p[p[((b<<2)+a|0)+344>>2]>>2]!=(d|0)){b=b+1|0;if((e|0)!=(b|0)){continue}break k}break}b=p[p[a+344>>2]>>2];d=1;if(e>>>0>=2){while(1){c=p[p[((d<<2)+a|0)+344>>2]>>2];b=(c|0)>(b|0)?c:b;d=d+1|0;if((e|0)!=(d|0)){continue}break}}d=b+1|0}h=f+ -1|0;b=p[a+216>>2];s=p[a+36>>2];l:{if((s|0)>=1){f=v(s,88)+b|0;c=0;while(1){if(p[b>>2]==(d|0)){break l}b=b+88|0;c=c+1|0;if((s|0)!=(c|0)){continue}break}b=f}c=p[a>>2];p[c+24>>2]=d;p[c+20>>2]=4;m[p[p[a>>2]>>2]](a)}p[((e<<2)+a|0)+344>>2]=b;if(h){f=i+1|0}else{if(!(m[p[g+12>>2]](a)|0)){b=0;break b}h=p[g+4>>2];f=p[g>>2]}c=q[f|0];p[b+24>>2]=c&15;p[b+20>>2]=c>>>4;c=p[a>>2];p[c+24>>2]=p[b>>2];p[c+28>>2]=p[b+20>>2];b=p[b+24>>2];p[c+20>>2]=106;p[c+32>>2]=b;m[p[c+4>>2]](a,1);i=f+1|0;f=h+ -1|0;e=e+1|0;if((l|0)!=(e|0)){continue}break}c=0}if(!f){if(!(m[p[g+12>>2]](a)|0)){b=0;break b}i=p[g>>2];f=p[g+4>>2]}p[a+412>>2]=q[i|0];e=a;d=f+ -1|0;b=i+1|0;m:{if(d){break m}if(!(m[p[g+12>>2]](a)|0)){b=0;break b}d=p[g+4>>2];b=p[g>>2]}p[e+416>>2]=q[b|0];k=a;f=d+ -1|0;l=b+1|0;n:{if(f){break n}if(!(m[p[g+12>>2]](a)|0)){b=0;break b}f=p[g+4>>2];l=p[g>>2]}e=q[l|0];p[k+424>>2]=e&15;p[a+420>>2]=e>>>4;e=p[a>>2];p[e+24>>2]=p[a+412>>2];p[e+28>>2]=p[a+416>>2];p[e+32>>2]=p[a+420>>2];p[e+36>>2]=p[a+424>>2];p[e+20>>2]=107;b=1;m[p[e+4>>2]](a,1);p[p[a+464>>2]+20>>2]=0;e=l+1|0;f=f+ -1|0;if(!c){p[a+144>>2]=p[a+144>>2]+1}p[g+4>>2]=f;p[g>>2]=e;p[a+440>>2]=0;break b;case 216:c=p[a>>2];p[c+20>>2]=87;m[p[c+4>>2]](a,1);p[a+440>>2]=0;b=2;break b;case 203:f=p[a+24>>2];b=p[f+4>>2];if(!b){if(!(m[p[f+12>>2]](a)|0)){b=0;break b}b=p[f+4>>2]}c=p[f>>2];g=q[c|0];d=b+ -1|0;e=c+1|0;o:{if(d){break o}if(!(m[p[f+12>>2]](a)|0)){b=0;break b}d=p[f+4>>2];e=p[f>>2]}c=e+1|0;d=d+ -1|0;e=q[e|0]|g<<8;b=e+ -2|0;if(e>>>0>=3){while(1){e=b;if(!d){if(!(m[p[f+12>>2]](a)|0)){b=0;break b}d=p[f+4>>2];c=p[f>>2]}b=q[c|0];h=d+ -1|0;c=c+1|0;p:{if(h){break p}if(!(m[p[f+12>>2]](a)|0)){b=0;break b}h=p[f+4>>2];c=p[f>>2]}g=q[c|0];d=p[a>>2];p[d+24>>2]=b;p[d+20>>2]=81;p[p[a>>2]+28>>2]=g;m[p[p[a>>2]+4>>2]](a,1);q:{r:{s:{if(b>>>0>=32){d=p[a>>2];p[d+24>>2]=b;p[d+20>>2]=29;m[p[p[a>>2]>>2]](a);break s}if(b>>>0<16){break r}}n[(a+b|0)+248|0]=g;break q}b=a+b|0;d=g>>>4|0;n[b+248|0]=d;k=b;b=g&15;n[k+232|0]=b;if(b>>>0<=d>>>0){break q}b=p[a>>2];p[b+24>>2]=g;p[b+20>>2]=30;m[p[p[a>>2]>>2]](a)}c=c+1|0;d=h+ -1|0;b=e+ -2|0;if((e|0)>2){continue}break}}if(b){e=p[a>>2];p[e+20>>2]=12;m[p[e>>2]](a)}p[f+4>>2]=d;p[f>>2]=c;break a;case 195:f=p[a+24>>2];b=p[f+4>>2];if(!b){if(!(m[p[f+12>>2]](a)|0)){break d}b=p[f+4>>2]}c=p[f>>2];e=q[c|0];b=b+ -1|0;c=c+1|0;t:{if(b){break t}if(!(m[p[f+12>>2]](a)|0)){break d}b=p[f+4>>2];c=p[f>>2]}d=c+1|0;b=b+ -1|0;c=q[c|0]|e<<8;g=c+ -2|0;if(c>>>0>=19){while(1){if(!b){if(!(m[p[f+12>>2]](a)|0)){break d}d=p[f>>2];b=p[f+4>>2]}c=p[a>>2];i=q[d|0];p[c+24>>2]=i;p[c+20>>2]=82;c=1;m[p[p[a>>2]+4>>2]](a,1);e=0;n[j+256|0]=0;d=d+1|0;b=b+ -1|0;while(1){if(!b){if(!(m[p[f+12>>2]](a)|0)){break d}d=p[f>>2];b=p[f+4>>2]}h=q[d|0];n[(j+256|0)+c|0]=h;d=d+1|0;b=b+ -1|0;e=e+h|0;c=c+1|0;if((c|0)!=17){continue}break}c=p[a>>2];p[c+24>>2]=q[j+257|0];p[c+28>>2]=q[j+258|0];p[c+32>>2]=q[j+259|0];p[c+36>>2]=q[j+260|0];p[c+40>>2]=q[j+261|0];p[c+44>>2]=q[j+262|0];p[c+48>>2]=q[j+263|0];h=q[j+264|0];p[c+20>>2]=88;p[c+52>>2]=h;m[p[c+4>>2]](a,2);c=p[a>>2];p[c+24>>2]=q[j+265|0];p[c+28>>2]=q[j+266|0];p[c+32>>2]=q[j+267|0];p[c+36>>2]=q[j+268|0];p[c+40>>2]=q[j+269|0];p[c+44>>2]=q[j+270|0];p[c+48>>2]=q[j+271|0];h=q[j+272|0];p[c+20>>2]=88;p[c+52>>2]=h;m[p[c+4>>2]](a,2);g=g+ -17|0;if(!((g|0)>=(e|0)?e>>>0<=256:0)){c=p[a>>2];p[c+20>>2]=9;m[p[c>>2]](a)}c=0;if(e){while(1){if(!b){if(!(m[p[f+12>>2]](a)|0)){break d}d=p[f>>2];b=p[f+4>>2]}n[c+j|0]=q[d|0];d=d+1|0;b=b+ -1|0;c=c+1|0;if((e|0)!=(c|0)){continue}break}}c=i+ -16|0;k=i&16;h=k?((c<<2)+a|0)+196|0:((i<<2)+a|0)+180|0;c=k?c:i;if(c>>>0>=4){i=p[a>>2];p[i+24>>2]=c;p[i+20>>2]=31;m[p[p[a>>2]>>2]](a)}c=p[h>>2];if(!c){c=ta(a);p[h>>2]=c}g=g-e|0;i=p[j+260>>2];p[c>>2]=p[j+256>>2];p[c+4>>2]=i;i=p[j+268>>2];p[c+8>>2]=p[j+264>>2];p[c+12>>2]=i;n[c+16|0]=q[j+272|0];if(e){th(p[h>>2]+17|0,j,e)}if((g|0)>16){continue}break}}if(g){c=p[a>>2];p[c+20>>2]=12;m[p[c>>2]](a)}p[f+4>>2]=b;p[f>>2]=d;break a;case 218:h=p[a+24>>2];b=p[h+4>>2];if(!b){if(!(m[p[h+12>>2]](a)|0)){b=0;break b}b=p[h+4>>2]}c=p[h>>2];g=q[c|0];d=b+ -1|0;f=c+1|0;u:{if(d){break u}if(!(m[p[h+12>>2]](a)|0)){b=0;break b}d=p[h+4>>2];f=p[h>>2]}c=f+1|0;e=d+ -1|0;b=q[f|0]|g<<8;f=b+ -2|0;if(b>>>0>=3){while(1){if(!e){if(!(m[p[h+12>>2]](a)|0)){b=0;break b}e=p[h+4>>2];c=p[h>>2]}g=q[c|0];b=p[a>>2];p[b+20>>2]=83;k=b;b=g&15;p[k+24>>2]=b;t=g>>>4|0;p[p[a>>2]+28>>2]=t;m[p[p[a>>2]+4>>2]](a,1);if(b>>>0>=4){g=p[a>>2];p[g+24>>2]=b;p[g+20>>2]=32;m[p[p[a>>2]>>2]](a)}g=((b<<2)+a|0)+164|0;b=p[g>>2];if(!b){b=sa(a);p[g>>2]=b}g=f+ -1|0;v:{w:{x:{y:{z:{if(t){d=0;if((f|0)>128){break y}while(1){o[(d<<1)+b>>1]=1;d=d+1|0;if((d|0)!=64){continue}break}f=g>>1;break z}d=0;if((f|0)>64){break y}while(1){o[(d<<1)+b>>1]=1;d=d+1|0;if((d|0)!=64){continue}break}f=g}i=7440;A:{B:{switch(f+ -4|0){case 5:i=7328;break A;case 12:i=7200;break A;case 21:i=7024;break A;case 32:i=6816;break A;case 0:break A;case 45:break B;default:break x}}i=6544}c=c+1|0;e=e+ -1|0;break w}c=c+1|0;e=e+ -1|0;f=64;i=6224;break w}c=c+1|0;e=e+ -1|0;i=6224;if((f|0)<1){break v}}d=0;while(1){C:{if(t){if(!e){if(!(m[p[h+12>>2]](a)|0)){b=0;break b}e=p[h+4>>2];c=p[h>>2]}k=q[c|0];e=e+ -1|0;c=c+1|0;D:{if(e){break D}if(!(m[p[h+12>>2]](a)|0)){b=0;break b}e=p[h+4>>2];c=p[h>>2]}k=q[c|0]|k<<8;break C}if(!e){if(!(m[p[h+12>>2]](a)|0)){b=0;break b}e=p[h+4>>2];c=p[h>>2]}k=q[c|0]}o[(p[(d<<2)+i>>2]<<1)+b>>1]=k;c=c+1|0;e=e+ -1|0;d=d+1|0;if((f|0)!=(d|0)){continue}break}}i=0;E:{d=p[a>>2];if(p[d+104>>2]<2){break E}while(1){k=i<<1;p[d+24>>2]=r[k+b>>1];p[d+28>>2]=r[(k|2)+b>>1];p[d+32>>2]=r[(k|4)+b>>1];p[d+36>>2]=r[(k|6)+b>>1];p[d+40>>2]=r[(k|8)+b>>1];p[d+44>>2]=r[(k|10)+b>>1];p[d+48>>2]=r[(k|12)+b>>1];k=r[(k|14)+b>>1];p[d+20>>2]=95;p[d+52>>2]=k;m[p[d+4>>2]](a,2);if(i>>>0>55){break E}i=i+8|0;d=p[a>>2];continue}}f=(g-f|0)-(t?f:0)|0;if((f|0)>0){continue}break}}if(f){b=p[a>>2];p[b+20>>2]=12;m[p[b>>2]](a)}p[h+4>>2]=e;p[h>>2]=c;break a;case 220:b=p[a+24>>2];d=p[b+4>>2];if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2]}c=p[b>>2];e=q[c|0];d=d+ -1|0;c=c+1|0;F:{if(d){break F}if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}d=d+ -1|0;if((q[c|0]|e<<8)!=4){e=p[a>>2];p[e+20>>2]=12;m[p[e>>2]](a)}if(d){c=c+1|0}else{if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}f=q[c|0];e=d+ -1|0;c=c+1|0;G:{if(e){break G}if(!(m[p[b+12>>2]](a)|0)){b=0;break b}e=p[b+4>>2];c=p[b>>2]}g=q[c|0];d=p[a>>2];p[d+20>>2]=84;f=g|f<<8;p[d+24>>2]=f;m[p[p[a>>2]+4>>2]](a,1);p[a+280>>2]=f;p[b+4>>2]=e+ -1;p[b>>2]=c+1;break a;case 247:b=p[a+24>>2];d=p[b+4>>2];c=p[b>>2];if(!p[p[a+464>>2]+16>>2]){e=p[a>>2];p[e+20>>2]=60;th(e+24|0,8761,80);m[p[p[a>>2]>>2]](a)}H:{I:{if(p[a+36>>2]<3){break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}e=q[c|0];d=d+ -1|0;c=c+1|0;J:{if(d){break J}if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}d=d+ -1|0;if((q[c|0]|e<<8)!=24){e=p[a>>2];p[e+20>>2]=12;m[p[e>>2]](a)}if(d){c=c+1|0}else{if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}d=d+ -1|0;if(q[c|0]!=13){e=p[a>>2];p[e+20>>2]=70;p[e+24>>2]=p[a+440>>2];m[p[p[a>>2]>>2]](a)}if(d){c=c+1|0}else{if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}f=q[c|0];d=d+ -1|0;e=c+1|0;K:{if(d){break K}if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}c=e+1|0;d=d+ -1|0;if((q[e|0]|f<<8)!=255){break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}e=c+1|0;d=d+ -1|0;if(q[c|0]!=3){c=e;break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}c=e+1|0;d=d+ -1|0;f=p[a+216>>2];if(p[f+88>>2]!=q[e|0]){break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}f=p[a+216>>2];d=p[b+4>>2];c=p[b>>2]}e=c+1|0;d=d+ -1|0;if(p[f>>2]!=q[c|0]){c=e;break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}f=p[a+216>>2];d=p[b+4>>2];e=p[b>>2]}c=e+1|0;d=d+ -1|0;if(p[f+176>>2]!=q[e|0]){break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}e=c+1|0;d=d+ -1|0;if(q[c|0]!=128){c=e;break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}f=q[e|0];d=d+ -1|0;e=e+1|0;L:{if(d){break L}if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}c=e+1|0;d=d+ -1|0;if(q[e|0]|f<<8){break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}f=q[c|0];d=d+ -1|0;e=c+1|0;M:{if(d){break M}if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}c=e+1|0;d=d+ -1|0;if(q[e|0]|f<<8){break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}e=c+1|0;d=d+ -1|0;if(q[c|0]){c=e;break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}f=q[e|0];d=d+ -1|0;e=e+1|0;N:{if(d){break N}if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}c=e+1|0;d=d+ -1|0;if((q[e|0]|f<<8)!=1){break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}f=q[c|0];d=d+ -1|0;e=c+1|0;O:{if(d){break O}if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}c=e+1|0;d=d+ -1|0;if(q[e|0]|f<<8){break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}e=c+1|0;d=d+ -1|0;if(q[c|0]){c=e;break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}f=q[e|0];d=d+ -1|0;e=e+1|0;P:{if(d){break P}if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}c=e+1|0;d=d+ -1|0;if((q[e|0]|f<<8)!=1){break I}if(!d){if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];c=p[b>>2]}f=q[c|0];d=d+ -1|0;e=c+1|0;Q:{if(d){break Q}if(!(m[p[b+12>>2]](a)|0)){b=0;break b}d=p[b+4>>2];e=p[b>>2]}c=e+1|0;d=d+ -1|0;if(!(q[e|0]|f<<8)){break H}}e=p[a>>2];p[e+20>>2]=28;m[p[e>>2]](a)}p[a+304>>2]=1;p[b+4>>2]=d;p[b>>2]=c;break a;case 223:case 224:case 225:case 226:case 227:case 228:case 229:case 230:case 231:case 232:case 233:case 234:case 235:case 236:case 237:case 238:if(m[p[(p[a+464>>2]+(b<<2)|0)+ -864>>2]](a)|0){break a}b=0;break b;case 253:if(m[p[p[a+464>>2]+28>>2]](a)|0){break a}b=0;break b;case 0:case 207:case 208:case 209:case 210:case 211:case 212:case 213:case 214:c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=94;m[p[p[a>>2]+4>>2]](a,1);break a;case 219:e=p[a+24>>2];d=p[e+4>>2];if(!d){if(!(m[p[e+12>>2]](a)|0)){b=0;break b}d=p[e+4>>2]}c=p[e>>2];f=q[c|0];b=c+1|0;c=d+ -1|0;if(!c){if(!(m[p[e+12>>2]](a)|0)){b=0;break b}c=p[e+4>>2];b=p[e>>2]}g=q[b|0];d=p[a>>2];p[d+20>>2]=93;p[d+24>>2]=p[a+440>>2];f=g|f<<8;g=f+ -2|0;p[p[a>>2]+28>>2]=g;m[p[p[a>>2]+4>>2]](a,1);p[e+4>>2]=c+ -1;p[e>>2]=b+1;if(f>>>0<3){break a}m[p[p[a+24>>2]+16>>2]](a,g);break a;default:c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=70;m[p[p[a>>2]>>2]](a);break a;case 191:break e}}b=0;if(pd(a,1,0,0)){break a}break b}b=0}Z=j+288|0;return b|0}b=0;p[a+440>>2]=0;continue}}function kh(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0;m=Z-16|0;Z=m;a:{b:{c:{d:{e:{f:{g:{h:{i:{j:{k:{l:{if(a>>>0<=244){g=p[3127];h=a>>>0<11?16:a+11&-8;b=h>>>3|0;a=g>>>b|0;if(a&3){d=b+((a^-1)&1)|0;b=d<<3;e=p[b+12556>>2];a=e+8|0;c=p[e+8>>2];b=b+12548|0;m:{if((c|0)==(b|0)){n=12508,o=Hh(d)&g,p[n>>2]=o;break m}p[c+12>>2]=b;p[b+8>>2]=c}b=d<<3;p[e+4>>2]=b|3;b=b+e|0;p[b+4>>2]=p[b+4>>2]|1;break a}l=p[3129];if(h>>>0<=l>>>0){break l}if(a){c=a<<b;a=2<<b;a=c&(0-a|a);b=(0-a&a)+ -1|0;a=b>>>12&16;c=a;b=b>>>a|0;a=b>>>5&8;c=c|a;b=b>>>a|0;a=b>>>2&4;c=c|a;b=b>>>a|0;a=b>>>1&2;c=c|a;b=b>>>a|0;a=b>>>1&1;c=(c|a)+(b>>>a|0)|0;a=c<<3;f=p[a+12556>>2];b=p[f+8>>2];a=a+12548|0;n:{if((b|0)==(a|0)){g=Hh(c)&g;p[3127]=g;break n}p[b+12>>2]=a;p[a+8>>2]=b}a=f+8|0;p[f+4>>2]=h|3;d=f+h|0;b=c<<3;e=b-h|0;p[d+4>>2]=e|1;p[b+f>>2]=e;if(l){b=l>>>3|0;c=(b<<3)+12548|0;h=p[3132];b=1<<b;o:{if(!(b&g)){p[3127]=b|g;b=c;break o}b=p[c+8>>2]}p[c+8>>2]=h;p[b+12>>2]=h;p[h+12>>2]=c;p[h+8>>2]=b}p[3132]=d;p[3129]=e;break a}i=p[3128];if(!i){break l}b=(i&0-i)+ -1|0;a=b>>>12&16;c=a;b=b>>>a|0;a=b>>>5&8;c=c|a;b=b>>>a|0;a=b>>>2&4;c=c|a;b=b>>>a|0;a=b>>>1&2;c=c|a;b=b>>>a|0;a=b>>>1&1;b=p[((c|a)+(b>>>a|0)<<2)+12812>>2];e=(p[b+4>>2]&-8)-h|0;c=b;while(1){p:{a=p[c+16>>2];if(!a){a=p[c+20>>2];if(!a){break p}}c=(p[a+4>>2]&-8)-h|0;d=c>>>0<e>>>0;e=d?c:e;b=d?a:b;c=a;continue}break}j=b+h|0;if(j>>>0<=b>>>0){break k}k=p[b+24>>2];d=p[b+12>>2];if((d|0)!=(b|0)){a=p[b+8>>2];p[a+12>>2]=d;p[d+8>>2]=a;break b}c=b+20|0;a=p[c>>2];if(!a){a=p[b+16>>2];if(!a){break j}c=b+16|0}while(1){f=c;d=a;c=a+20|0;a=p[c>>2];if(a){continue}c=d+16|0;a=p[d+16>>2];if(a){continue}break}p[f>>2]=0;break b}h=-1;if(a>>>0>4294967231){break l}a=a+11|0;h=a&-8;i=p[3128];if(!i){break l}a=a>>>8|0;f=0;q:{if(!a){break q}f=31;if(h>>>0>16777215){break q}b=a+1048320>>>16&8;a=a<<b;e=a+520192>>>16&4;a=a<<e;c=a+245760>>>16&2;a=(a<<c>>>15|0)-(c|(b|e))|0;f=(a<<1|h>>>a+21&1)+28|0}e=0-h|0;c=p[(f<<2)+12812>>2];r:{s:{t:{if(!c){a=0;break t}a=0;b=h<<((f|0)==31?0:25-(f>>>1|0)|0);while(1){u:{g=(p[c+4>>2]&-8)-h|0;if(g>>>0>=e>>>0){break u}d=c;e=g;if(e){break u}e=0;a=c;break s}g=p[c+20>>2];c=p[((b>>>29&4)+c|0)+16>>2];a=g?(g|0)==(c|0)?a:g:a;b=b<<1;if(c){continue}break}}if(!(a|d)){a=2<<f;a=(0-a|a)&i;if(!a){break l}b=(a&0-a)+ -1|0;a=b>>>12&16;c=a;b=b>>>a|0;a=b>>>5&8;c=c|a;b=b>>>a|0;a=b>>>2&4;c=c|a;b=b>>>a|0;a=b>>>1&2;c=c|a;b=b>>>a|0;a=b>>>1&1;a=p[((c|a)+(b>>>a|0)<<2)+12812>>2]}if(!a){break r}}while(1){b=(p[a+4>>2]&-8)-h|0;c=b>>>0<e>>>0;e=c?b:e;d=c?a:d;b=p[a+16>>2];if(b){a=b}else{a=p[a+20>>2]}if(a){continue}break}}if(!d|e>>>0>=p[3129]-h>>>0){break l}f=d+h|0;if(f>>>0<=d>>>0){break k}j=p[d+24>>2];b=p[d+12>>2];if((d|0)!=(b|0)){a=p[d+8>>2];p[a+12>>2]=b;p[b+8>>2]=a;break c}c=d+20|0;a=p[c>>2];if(!a){a=p[d+16>>2];if(!a){break i}c=d+16|0}while(1){g=c;b=a;c=a+20|0;a=p[c>>2];if(a){continue}c=b+16|0;a=p[b+16>>2];if(a){continue}break}p[g>>2]=0;break c}c=p[3129];if(c>>>0>=h>>>0){d=p[3132];b=c-h|0;v:{if(b>>>0>=16){p[3129]=b;a=d+h|0;p[3132]=a;p[a+4>>2]=b|1;p[c+d>>2]=b;p[d+4>>2]=h|3;break v}p[3132]=0;p[3129]=0;p[d+4>>2]=c|3;a=c+d|0;p[a+4>>2]=p[a+4>>2]|1}a=d+8|0;break a}i=p[3130];if(i>>>0>h>>>0){b=i-h|0;p[3130]=b;c=p[3133];a=c+h|0;p[3133]=a;p[a+4>>2]=b|1;p[c+4>>2]=h|3;a=c+8|0;break a}a=0;j=h+47|0;b=j;if(p[3245]){c=p[3247]}else{p[3248]=-1;p[3249]=-1;p[3246]=4096;p[3247]=4096;p[3245]=m+12&-16^1431655768;p[3250]=0;p[3238]=0;c=4096}f=b+c|0;g=0-c|0;c=f&g;if(c>>>0<=h>>>0){break a}e=p[3237];if(e){d=p[3235];b=d+c|0;if(b>>>0<=d>>>0|b>>>0>e>>>0){break a}}if(q[12952]&4){break f}w:{x:{d=p[3133];if(d){a=12956;while(1){b=p[a>>2];if(b+p[a+4>>2]>>>0>d>>>0?b>>>0<=d>>>0:0){break x}a=p[a+8>>2];if(a){continue}break}}b=ph(0);if((b|0)==-1){break g}g=c;d=p[3246];a=d+ -1|0;if(a&b){g=(c-b|0)+(a+b&0-d)|0}if(g>>>0<=h>>>0|g>>>0>2147483646){break g}e=p[3237];if(e){d=p[3235];a=d+g|0;if(a>>>0<=d>>>0|a>>>0>e>>>0){break g}}a=ph(g);if((b|0)!=(a|0)){break w}break e}g=g&f-i;if(g>>>0>2147483646){break g}b=ph(g);if((b|0)==(p[a>>2]+p[a+4>>2]|0)){break h}a=b}if(!((a|0)==-1|h+48>>>0<=g>>>0)){b=p[3247];b=b+(j-g|0)&0-b;if(b>>>0>2147483646){b=a;break e}if((ph(b)|0)!=-1){g=b+g|0;b=a;break e}ph(0-g|0);break g}b=a;if((a|0)!=-1){break e}break g}E()}d=0;break b}b=0;break c}if((b|0)!=-1){break e}}p[3238]=p[3238]|4}if(c>>>0>2147483646){break d}b=ph(c);a=ph(0);if(b>>>0>=a>>>0|(b|0)==-1|(a|0)==-1){break d}g=a-b|0;if(g>>>0<=h+40>>>0){break d}}a=p[3235]+g|0;p[3235]=a;if(a>>>0>s[3236]){p[3236]=a}y:{z:{A:{e=p[3133];if(e){a=12956;while(1){d=p[a>>2];c=p[a+4>>2];if((d+c|0)==(b|0)){break A}a=p[a+8>>2];if(a){continue}break}break z}a=p[3131];if(!(b>>>0>=a>>>0?a:0)){p[3131]=b}a=0;p[3240]=g;p[3239]=b;p[3135]=-1;p[3136]=p[3245];p[3242]=0;while(1){d=a<<3;c=d+12548|0;p[d+12556>>2]=c;p[d+12560>>2]=c;a=a+1|0;if((a|0)!=32){continue}break}d=g+ -40|0;a=b+8&7?-8-b&7:0;c=d-a|0;p[3130]=c;a=a+b|0;p[3133]=a;p[a+4>>2]=c|1;p[(b+d|0)+4>>2]=40;p[3134]=p[3249];break y}if(q[a+12|0]&8|b>>>0<=e>>>0|d>>>0>e>>>0){break z}p[a+4>>2]=c+g;a=e+8&7?-8-e&7:0;c=a+e|0;p[3133]=c;b=p[3130]+g|0;a=b-a|0;p[3130]=a;p[c+4>>2]=a|1;p[(b+e|0)+4>>2]=40;p[3134]=p[3249];break y}d=p[3131];if(b>>>0<d>>>0){p[3131]=b;d=0}c=b+g|0;a=12956;B:{C:{D:{E:{F:{G:{while(1){if((c|0)!=p[a>>2]){a=p[a+8>>2];if(a){continue}break G}break}if(!(q[a+12|0]&8)){break F}}a=12956;while(1){c=p[a>>2];if(c>>>0<=e>>>0){f=c+p[a+4>>2]|0;if(f>>>0>e>>>0){break E}}a=p[a+8>>2];continue}}p[a>>2]=b;p[a+4>>2]=p[a+4>>2]+g;i=(b+8&7?-8-b&7:0)+b|0;p[i+4>>2]=h|3;b=c+(c+8&7?-8-c&7:0)|0;a=(b-i|0)-h|0;f=h+i|0;if((b|0)==(e|0)){p[3133]=f;a=p[3130]+a|0;p[3130]=a;p[f+4>>2]=a|1;break C}if(p[3132]==(b|0)){p[3132]=f;a=p[3129]+a|0;p[3129]=a;p[f+4>>2]=a|1;p[a+f>>2]=a;break C}c=p[b+4>>2];if((c&3)==1){j=c&-8;H:{if(c>>>0<=255){e=p[b+8>>2];c=c>>>3|0;d=p[b+12>>2];if((d|0)==(e|0)){n=12508,o=p[3127]&Hh(c),p[n>>2]=o;break H}p[e+12>>2]=d;p[d+8>>2]=e;break H}k=p[b+24>>2];g=p[b+12>>2];I:{if((g|0)!=(b|0)){c=p[b+8>>2];p[c+12>>2]=g;p[g+8>>2]=c;break I}J:{e=b+20|0;h=p[e>>2];if(h){break J}e=b+16|0;h=p[e>>2];if(h){break J}g=0;break I}while(1){c=e;g=h;e=g+20|0;h=p[e>>2];if(h){continue}e=g+16|0;h=p[g+16>>2];if(h){continue}break}p[c>>2]=0}if(!k){break H}d=p[b+28>>2];c=(d<<2)+12812|0;K:{if(p[c>>2]==(b|0)){p[c>>2]=g;if(g){break K}n=12512,o=p[3128]&Hh(d),p[n>>2]=o;break H}p[k+(p[k+16>>2]==(b|0)?16:20)>>2]=g;if(!g){break H}}p[g+24>>2]=k;c=p[b+16>>2];if(c){p[g+16>>2]=c;p[c+24>>2]=g}c=p[b+20>>2];if(!c){break H}p[g+20>>2]=c;p[c+24>>2]=g}b=b+j|0;a=a+j|0}p[b+4>>2]=p[b+4>>2]&-2;p[f+4>>2]=a|1;p[a+f>>2]=a;if(a>>>0<=255){a=a>>>3|0;b=(a<<3)+12548|0;c=p[3127];a=1<<a;L:{if(!(c&a)){p[3127]=a|c;a=b;break L}a=p[b+8>>2]}p[b+8>>2]=f;p[a+12>>2]=f;p[f+12>>2]=b;p[f+8>>2]=a;break C}b=f;d=a>>>8|0;c=0;M:{if(!d){break M}c=31;if(a>>>0>16777215){break M}c=d;d=d+1048320>>>16&8;c=c<<d;g=c+520192>>>16&4;c=c<<g;e=c+245760>>>16&2;c=(c<<e>>>15|0)-(e|(d|g))|0;c=(c<<1|a>>>c+21&1)+28|0}p[b+28>>2]=c;p[f+16>>2]=0;p[f+20>>2]=0;g=(c<<2)+12812|0;d=p[3128];b=1<<c;N:{if(!(d&b)){p[3128]=b|d;p[g>>2]=f;p[f+24>>2]=g;break N}e=a<<((c|0)==31?0:25-(c>>>1|0)|0);b=p[g>>2];while(1){c=b;if((p[b+4>>2]&-8)==(a|0)){break D}b=e>>>29|0;e=e<<1;d=(c+(b&4)|0)+16|0;b=p[d>>2];if(b){continue}break}p[d>>2]=f;p[f+24>>2]=c}p[f+12>>2]=f;p[f+8>>2]=f;break C}d=g+ -40|0;a=b+8&7?-8-b&7:0;c=d-a|0;p[3130]=c;a=a+b|0;p[3133]=a;p[a+4>>2]=c|1;p[(b+d|0)+4>>2]=40;p[3134]=p[3249];a=(f+(f+ -39&7?39-f&7:0)|0)+ -47|0;c=a>>>0<e+16>>>0?e:a;p[c+4>>2]=27;a=p[3242];p[c+16>>2]=p[3241];p[c+20>>2]=a;a=p[3240];p[c+8>>2]=p[3239];p[c+12>>2]=a;p[3241]=c+8;p[3240]=g;p[3239]=b;p[3242]=0;a=c+24|0;while(1){p[a+4>>2]=7;b=a+8|0;a=a+4|0;if(f>>>0>b>>>0){continue}break}if((c|0)==(e|0)){break y}p[c+4>>2]=p[c+4>>2]&-2;f=c-e|0;p[e+4>>2]=f|1;p[c>>2]=f;if(f>>>0<=255){a=f>>>3|0;b=(a<<3)+12548|0;c=p[3127];a=1<<a;O:{if(!(c&a)){p[3127]=a|c;a=b;break O}a=p[b+8>>2]}p[b+8>>2]=e;p[a+12>>2]=e;p[e+12>>2]=b;p[e+8>>2]=a;break y}p[e+16>>2]=0;p[e+20>>2]=0;a=e;c=f>>>8|0;b=0;P:{if(!c){break P}b=31;if(f>>>0>16777215){break P}b=c;c=c+1048320>>>16&8;b=b<<c;g=b+520192>>>16&4;b=b<<g;d=b+245760>>>16&2;b=(b<<d>>>15|0)-(d|(c|g))|0;b=(b<<1|f>>>b+21&1)+28|0}p[a+28>>2]=b;d=(b<<2)+12812|0;c=p[3128];a=1<<b;Q:{if(!(c&a)){p[3128]=a|c;p[d>>2]=e;p[e+24>>2]=d;break Q}a=f<<((b|0)==31?0:25-(b>>>1|0)|0);b=p[d>>2];while(1){c=b;if((f|0)==(p[b+4>>2]&-8)){break B}b=a>>>29|0;a=a<<1;d=(c+(b&4)|0)+16|0;b=p[d>>2];if(b){continue}break}p[d>>2]=e;p[e+24>>2]=c}p[e+12>>2]=e;p[e+8>>2]=e;break y}a=p[c+8>>2];p[a+12>>2]=f;p[c+8>>2]=f;p[f+24>>2]=0;p[f+12>>2]=c;p[f+8>>2]=a}a=i+8|0;break a}a=p[c+8>>2];p[a+12>>2]=e;p[c+8>>2]=e;p[e+24>>2]=0;p[e+12>>2]=c;p[e+8>>2]=a}a=p[3130];if(a>>>0<=h>>>0){break d}b=a-h|0;p[3130]=b;c=p[3133];a=c+h|0;p[3133]=a;p[a+4>>2]=b|1;p[c+4>>2]=h|3;a=c+8|0;break a}p[3103]=48;a=0;break a}R:{if(!j){break R}c=p[d+28>>2];a=(c<<2)+12812|0;S:{if(p[a>>2]==(d|0)){p[a>>2]=b;if(b){break S}i=Hh(c)&i;p[3128]=i;break R}p[j+(p[j+16>>2]==(d|0)?16:20)>>2]=b;if(!b){break R}}p[b+24>>2]=j;a=p[d+16>>2];if(a){p[b+16>>2]=a;p[a+24>>2]=b}a=p[d+20>>2];if(!a){break R}p[b+20>>2]=a;p[a+24>>2]=b}T:{if(e>>>0<=15){a=e+h|0;p[d+4>>2]=a|3;a=a+d|0;p[a+4>>2]=p[a+4>>2]|1;break T}p[d+4>>2]=h|3;p[f+4>>2]=e|1;p[e+f>>2]=e;if(e>>>0<=255){a=e>>>3|0;b=(a<<3)+12548|0;c=p[3127];a=1<<a;U:{if(!(c&a)){p[3127]=a|c;a=b;break U}a=p[b+8>>2]}p[b+8>>2]=f;p[a+12>>2]=f;p[f+12>>2]=b;p[f+8>>2]=a;break T}a=f;c=e>>>8|0;b=0;V:{if(!c){break V}b=31;if(e>>>0>16777215){break V}b=c;c=c+1048320>>>16&8;b=b<<c;h=b+520192>>>16&4;b=b<<h;g=b+245760>>>16&2;b=(b<<g>>>15|0)-(g|(c|h))|0;b=(b<<1|e>>>b+21&1)+28|0}p[a+28>>2]=b;p[f+16>>2]=0;p[f+20>>2]=0;c=(b<<2)+12812|0;W:{a=1<<b;X:{if(!(a&i)){p[3128]=a|i;p[c>>2]=f;p[f+24>>2]=c;break X}a=e<<((b|0)==31?0:25-(b>>>1|0)|0);h=p[c>>2];while(1){b=h;if((p[b+4>>2]&-8)==(e|0)){break W}c=a>>>29|0;a=a<<1;c=(b+(c&4)|0)+16|0;h=p[c>>2];if(h){continue}break}p[c>>2]=f;p[f+24>>2]=b}p[f+12>>2]=f;p[f+8>>2]=f;break T}a=p[b+8>>2];p[a+12>>2]=f;p[b+8>>2]=f;p[f+24>>2]=0;p[f+12>>2]=b;p[f+8>>2]=a}a=d+8|0;break a}Y:{if(!k){break Y}c=p[b+28>>2];a=(c<<2)+12812|0;Z:{if(p[a>>2]==(b|0)){p[a>>2]=d;if(d){break Z}n=12512,o=Hh(c)&i,p[n>>2]=o;break Y}p[(p[k+16>>2]==(b|0)?16:20)+k>>2]=d;if(!d){break Y}}p[d+24>>2]=k;a=p[b+16>>2];if(a){p[d+16>>2]=a;p[a+24>>2]=d}a=p[b+20>>2];if(!a){break Y}p[d+20>>2]=a;p[a+24>>2]=d}_:{if(e>>>0<=15){a=e+h|0;p[b+4>>2]=a|3;a=a+b|0;p[a+4>>2]=p[a+4>>2]|1;break _}p[b+4>>2]=h|3;p[j+4>>2]=e|1;p[e+j>>2]=e;if(l){a=l>>>3|0;c=(a<<3)+12548|0;d=p[3132];a=1<<a;$:{if(!(a&g)){p[3127]=a|g;a=c;break $}a=p[c+8>>2]}p[c+8>>2]=d;p[a+12>>2]=d;p[d+12>>2]=c;p[d+8>>2]=a}p[3132]=j;p[3129]=e}a=b+8|0}Z=m+16|0;return a|0}function eh(a,b,c,d,e,f,g,h,i){var j=0,k=0,l=0,m=0,n=0,o=0,q=0,r=0,s=0,t=0,u=0,v=0,w=0,x=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0,J=0,K=0,L=0,M=0,N=0,O=0,P=0,Q=0,R=0;n=Z-192|0;Z=n;A=h;H=i&65535;q=d;s=e&65535;D=(e^i)&-2147483648;o=i>>>16&32767;a:{v=e>>>16&32767;b:{c:{if(o+ -1>>>0<32766?v+ -1>>>0<=32765:0){break c}m=e&2147483647;j=m;l=d;if(!(!d&(j|0)==2147418112?!(b|c):(j|0)==2147418112&d>>>0<0|j>>>0<2147418112)){J=d;D=e|32768;break b}m=i&2147483647;e=m;d=h;if(!(!d&(e|0)==2147418112?!(f|g):(e|0)==2147418112&d>>>0<0|e>>>0<2147418112)){J=h;D=i|32768;b=f;c=g;break b}if(!(b|l|(j^2147418112|c))){if(!(d|f|(e^2147418112|g))){b=0;c=0;D=2147450880;break b}D=D|2147418112;b=0;c=0;break b}if(!(d|f|(e^2147418112|g))){b=0;c=0;break b}if(!(b|l|(c|j))){break a}if(!(d|f|(e|g))){D=D|2147418112;b=0;c=0;break b}if((j|0)==65535|j>>>0<65535){i=b;d=!(q|s);h=d<<6;j=y(d?b:q)+32|0;b=y(d?c:s);b=h+((b|0)==32?j:b)|0;Xg(n+176|0,i,c,q,s,b+ -15|0);k=16-b|0;q=p[n+184>>2];s=p[n+188>>2];c=p[n+180>>2];b=p[n+176>>2]}if(e>>>0>65535){break c}d=!(A|H);e=d<<6;h=y(d?f:A)+32|0;d=y(d?g:H);d=e+((d|0)==32?h:d)|0;Xg(n+160|0,f,g,A,H,d+ -15|0);k=(d+k|0)+ -16|0;A=p[n+168>>2];H=p[n+172>>2];f=p[n+160>>2];g=p[n+164>>2]}e=H|65536;I=e;N=A;d=A;m=e<<15|d>>>17;d=d<<15|g>>>17;h=-102865788-d|0;e=m;j=e;i=1963258675-(j+(4192101508<d>>>0)|0)|0;Wg(n+144|0,d,j,h,i);l=p[n+152>>2];Wg(n+128|0,0-l|0,0-(p[n+156>>2]+(0<l>>>0)|0)|0,h,i);h=p[n+136>>2];i=h<<1|p[n+132>>2]>>>31;h=p[n+140>>2]<<1|h>>>31;Wg(n+112|0,i,h,d,j);l=h;h=p[n+120>>2];Wg(n+96|0,i,l,0-h|0,0-(p[n+124>>2]+(0<h>>>0)|0)|0);h=p[n+104>>2];i=h<<1|p[n+100>>2]>>>31;h=p[n+108>>2]<<1|h>>>31;Wg(n+80|0,i,h,d,j);l=h;h=p[n+88>>2];Wg(n- -64|0,i,l,0-h|0,0-(p[n+92>>2]+(0<h>>>0)|0)|0);h=p[n+72>>2];i=h<<1|p[n+68>>2]>>>31;h=p[n+76>>2]<<1|h>>>31;Wg(n+48|0,i,h,d,j);l=h;h=p[n+56>>2];Wg(n+32|0,i,l,0-h|0,0-(p[n+60>>2]+(0<h>>>0)|0)|0);h=p[n+40>>2];i=h<<1|p[n+36>>2]>>>31;h=p[n+44>>2]<<1|h>>>31;Wg(n+16|0,i,h,d,j);j=h;h=p[n+24>>2];Wg(n,i,j,0-h|0,0-(p[n+28>>2]+(0<h>>>0)|0)|0);L=(v-o|0)+k|0;h=p[n+8>>2];l=p[n+12>>2]<<1|h>>>31;i=h<<1;m=l+ -1|0;i=(p[n+4>>2]>>>31|i)+ -1|0;if((i|0)!=-1){m=m+1|0}h=i;l=0;B=l;r=e;k=0;v=Fh(h,l,e,k);e=$;t=e;x=m;o=0;h=d;l=Fh(m,o,d,0);d=l+v|0;j=$+e|0;e=d;j=d>>>0<l>>>0?j+1|0:j;l=0;m=(j|0)==(t|0)&e>>>0<v>>>0|j>>>0<t>>>0;v=Fh(r,k,x,o);k=v+j|0;j=$+(l|m)|0;j=k>>>0<v>>>0?j+1|0:j;l=k;m=e;e=0;h=Fh(i,B,h,u);d=e+h|0;k=$+m|0;k=d>>>0<h>>>0?k+1|0:k;v=d;h=d;d=k;e=(m|0)==(d|0)&h>>>0<e>>>0|d>>>0<m>>>0;h=l+e|0;if(h>>>0<e>>>0){j=j+1|0}C=h;h=j;e=g;z=(e&131071)<<15|f>>>17;r=Fh(i,B,z,0);e=$;u=e;j=f;w=j<<15&-32768;j=Fh(x,o,w,0);l=j+r|0;k=$+e|0;k=l>>>0<j>>>0?k+1|0:k;e=k;F=Fh(i,B,w,F);w=0+F|0;j=l;k=j+$|0;k=w>>>0<F>>>0?k+1|0:k;k=(j|0)==(k|0)&w>>>0<G>>>0|k>>>0<j>>>0;j=(e|0)==(u|0)&j>>>0<r>>>0|e>>>0<u>>>0;l=e;e=Fh(x,o,z,E)+e|0;m=j+$|0;m=e>>>0<l>>>0?m+1|0:m;j=e;e=k+j|0;l=m;l=e>>>0<j>>>0?l+1|0:l;m=e;e=v+e|0;j=l+d|0;j=e>>>0<m>>>0?j+1|0:j;k=h;t=j;d=(d|0)==(j|0)&e>>>0<v>>>0|j>>>0<d>>>0;h=d+C|0;if(h>>>0<d>>>0){k=k+1|0}j=k;d=(e|0)!=0|(t|0)!=0;h=h+d|0;if(h>>>0<d>>>0){j=j+1|0}m=h;h=0-h|0;r=0;v=Fh(h,r,i,B);d=$;u=d;w=Fh(x,o,h,r);h=$;C=h;z=0-((0<m>>>0)+j|0)|0;j=0;r=Fh(i,B,z,j);m=r+w|0;k=$+h|0;k=m>>>0<r>>>0?k+1|0:k;h=m;l=h;r=0+v|0;m=d+l|0;m=r>>>0<E>>>0?m+1|0:m;l=r;d=m;m=(u|0)==(d|0)&l>>>0<v>>>0|d>>>0<u>>>0;l=(k|0)==(C|0)&h>>>0<w>>>0|k>>>0<C>>>0;h=Fh(x,o,z,j)+k|0;j=l+$|0;j=h>>>0<k>>>0?j+1|0:j;l=h;h=m+l|0;if(h>>>0<l>>>0){j=j+1|0}z=h;h=j;m=r;l=0-((0<e>>>0)+t|0)|0;e=0-e|0;E=l;t=0;C=Fh(l,t,i,B);w=$;u=e;F=0;l=Fh(e,F,x,o);e=l+C|0;k=$+w|0;k=e>>>0<l>>>0?k+1|0:k;l=e;e=k;u=Fh(i,B,u,F);i=0+u|0;j=l;k=j+$|0;k=i>>>0<u>>>0?k+1|0:k;k=(j|0)==(k|0)&i>>>0<G>>>0|k>>>0<j>>>0;j=(e|0)==(w|0)&j>>>0<C>>>0|e>>>0<w>>>0;i=e;e=Fh(E,t,x,o)+e|0;l=j+$|0;l=e>>>0<i>>>0?l+1|0:l;i=e;e=k+e|0;j=l;j=e>>>0<i>>>0?j+1|0:j;i=e;e=e+m|0;j=j+d|0;j=e>>>0<i>>>0?j+1|0:j;i=e;k=h;e=j;d=(d|0)==(j|0)&i>>>0<m>>>0|j>>>0<d>>>0;h=d+z|0;if(h>>>0<d>>>0){k=k+1|0}d=h;j=k;k=d;m=e+ -1|0;d=i+ -2|0;if(d>>>0<4294967294){m=m+1|0}h=d;l=d;d=m;e=(e|0)==(d|0)&l>>>0<i>>>0|d>>>0<e>>>0;i=k+e|0;if(i>>>0<e>>>0){j=j+1|0}e=i+ -1|0;k=j+ -1|0;k=(e|0)!=-1?k+1|0:k;i=0;x=i;o=e;l=q;w=l<<2|c>>>30;z=0;t=Fh(e,i,w,z);i=$;l=i;i=c;E=(i&1073741823)<<2|b>>>30;v=0;F=k;i=0;j=Fh(E,v,k,i);e=j+t|0;m=$+l|0;m=e>>>0<j>>>0?m+1|0:m;j=e;r=m;u=(l|0)==(m|0)&j>>>0<t>>>0|m>>>0<l>>>0;l=m;m=0;t=m;k=0;C=d;G=((s&1073741823)<<2|q>>>30)&-262145|262144;e=Fh(d,m,G,0);d=e+j|0;l=$+l|0;l=d>>>0<e>>>0?l+1|0:l;q=d;e=l;d=(r|0)==(e|0)&d>>>0<j>>>0|e>>>0<r>>>0;l=d+u|0;if(l>>>0<d>>>0){k=1}c=l;l=Fh(F,i,G,K);d=c+l|0;j=$+k|0;r=d;m=d>>>0<l>>>0?j+1|0:j;k=Fh(o,x,G,K);j=$;s=Fh(w,z,F,i);d=s+k|0;l=$+j|0;l=d>>>0<s>>>0?l+1|0:l;s=d;d=l;l=(j|0)==(d|0)&s>>>0<k>>>0|d>>>0<j>>>0;r=d+r|0;k=l+m|0;j=r;l=j>>>0<d>>>0?k+1|0:k;c=j;m=e+s|0;k=0;d=k+q|0;if(d>>>0<k>>>0){m=m+1|0}s=d;j=d;d=m;e=(e|0)==(d|0)&j>>>0<q>>>0|d>>>0<e>>>0;j=c+e|0;if(j>>>0<e>>>0){l=l+1|0}O=j;e=s;k=d;q=Fh(E,v,C,t);m=$;r=h;u=Fh(h,0,w,z);h=u+q|0;j=$+m|0;j=h>>>0<u>>>0?j+1|0:j;B=h;u=h;h=j;q=(m|0)==(j|0)&u>>>0<q>>>0|j>>>0<m>>>0;c=e;j=0;Q=q;M=b<<2&-4;q=Fh(o,x,M,0);e=q+u|0;m=$+h|0;m=e>>>0<q>>>0?m+1|0:m;u=e;q=e;e=m;h=(h|0)==(e|0)&q>>>0<B>>>0|e>>>0<h>>>0;m=Q+h|0;if(m>>>0<h>>>0){j=1}h=c+m|0;k=j+k|0;k=h>>>0<m>>>0?k+1|0:k;q=h;m=l;h=k;d=(d|0)==(k|0)&q>>>0<s>>>0|k>>>0<d>>>0;l=d+O|0;if(l>>>0<d>>>0){m=m+1|0}c=l;s=q;B=h;O=Fh(F,i,M,P);F=$;i=Fh(r,R,G,K);d=i+O|0;l=$+F|0;l=d>>>0<i>>>0?l+1|0:l;G=d;j=Fh(w,z,C,t);d=d+j|0;i=l;k=l+$|0;k=d>>>0<j>>>0?k+1|0:k;w=d;l=Fh(o,x,E,v);d=d+l|0;j=$+k|0;o=d;j=d>>>0<l>>>0?j+1|0:j;x=0;l=m;d=j;j=(j|0)==(k|0)&o>>>0<w>>>0|j>>>0<k>>>0;m=(i|0)==(F|0)&G>>>0<O>>>0|i>>>0<F>>>0;i=(i|0)==(k|0)&w>>>0<G>>>0|k>>>0<i>>>0;m=m+i|0;m>>>0<i>>>0;k=m;i=j+k|0;k=i;j=d|0;i=j+s|0;k=(k|x)+B|0;k=i>>>0<j>>>0?k+1|0:k;B=i;s=k;h=(h|0)==(k|0)&i>>>0<q>>>0|k>>>0<h>>>0;i=h+c|0;if(i>>>0<h>>>0){l=l+1|0}z=i;i=l;q=B;x=s;k=u;C=Fh(C,t,M,P);t=$;l=Fh(E,v,r,R);h=l+C|0;m=$+t|0;m=h>>>0<l>>>0?m+1|0:m;l=m;m=0;j=(l|0)==(t|0)&h>>>0<C>>>0|l>>>0<t>>>0;h=l+k|0;k=(j|m)+e|0;k=h>>>0<l>>>0?k+1|0:k;l=h;j=l;j=(e|0)==(k|0)&j>>>0<u>>>0|k>>>0<e>>>0;e=k;c=j;k=o;o=0;d=o+l|0;j=e+k|0;j=d>>>0<o>>>0?j+1|0:j;d=(e|0)==(j|0)&d>>>0<l>>>0|j>>>0<e>>>0;e=c+d|0;if(e>>>0<d>>>0){m=1}d=e+q|0;l=m+x|0;h=d;j=i;l=d>>>0<e>>>0?l+1|0:l;i=l;d=(s|0)==(l|0)&d>>>0<B>>>0|l>>>0<s>>>0;e=d+z|0;if(e>>>0<d>>>0){j=j+1|0}d=e;e=j;d:{if((j|0)==131071|j>>>0<131071){l=h;x=0;w=0;m=Fh(l,x,f,w);k=$;j=b<<17;b=0;c=(m|0)!=0|(k|0)!=0;q=b-c|0;G=j-(b>>>0<c>>>0)|0;v=0-m|0;t=0-((0<m>>>0)+k|0)|0;c=0;z=Fh(i,c,f,w);b=$;E=b;o=0;k=Fh(l,x,g,o);j=k+z|0;m=$+b|0;m=j>>>0<k>>>0?m+1|0:m;b=j;k=j;r=0;j=r;u=k;j=(k|0)==(t|0)&v>>>0<j>>>0|t>>>0<k>>>0;B=q-j|0;q=G-(q>>>0<j>>>0)|0;j=Fh(d,0,f,w);k=$;s=Fh(l,x,A,0);j=s+j|0;l=$+k|0;l=j>>>0<s>>>0?l+1|0:l;s=Fh(i,c,g,o);j=s+j|0;k=$+l|0;k=j>>>0<s>>>0?k+1|0:k;l=k;k=(m|0)==(E|0)&b>>>0<z>>>0|m>>>0<E>>>0;b=m+j|0;k=k+l|0;k=b>>>0<m>>>0?k+1|0:k;m=b;b=k;l=Fh(h,i,I,0);k=$;s=m;m=Fh(f,g,e,0);l=m+l|0;j=$+k|0;j=l>>>0<m>>>0?j+1|0:j;m=Fh(d,e,g,o);l=m+l|0;k=$+j|0;j=l;l=Fh(i,c,A,H);c=j+l|0;j=c;l=0;c=s+l|0;j=b+j|0;b=c;s=B-b|0;c=q-((B>>>0<b>>>0)+(b>>>0<l>>>0?j+1|0:j)|0)|0;L=L+ -1|0;A=v-r|0;b=t-((v>>>0<r>>>0)+u|0)|0;break d}B=i>>>1|0;m=0;l=b<<16;c=0;k=d<<31;h=(i&1)<<31|h>>>1;i=i>>>1|k;z=0;o=f;E=0;b=Fh(h,z,o,E);j=$;k=j;j=(b|0)!=0|(j|0)!=0;t=c-j|0;K=l-(c>>>0<j>>>0)|0;r=0-b|0;u=0-((0<b>>>0)+k|0)|0;q=0;v=Fh(h,z,g,q);b=$;G=b;l=m;k=e<<31|d>>>1;m=d<<31|B;M=k|l;l=Fh(m,0,o,E);c=l+v|0;j=$+b|0;j=c>>>0<l>>>0?j+1|0:j;b=j;j=c;w=j;x=0;l=(j|0)==(u|0)&r>>>0<x>>>0|u>>>0<j>>>0;C=t-l|0;t=K-(t>>>0<l>>>0)|0;l=Fh(h,i,I,0);k=$;j=Fh(o,g,e>>>1|0,0);l=j+l|0;k=$+k|0;k=l>>>0<j>>>0?k+1|0:k;d=(e&1)<<31|d>>>1;e=e>>>1|0;K=Fh(d,e,g,q);l=K+l|0;j=$+k|0;k=Fh(m,M,A,H);l=k+l|0;H=0;j=Fh(g,q,m,P);k=$;o=Fh(d,0,o,E);m=o+j|0;j=$+k|0;j=m>>>0<o>>>0?j+1|0:j;A=Fh(h,z,A,0);m=A+m|0;k=$+j|0;k=m>>>0<A>>>0?k+1|0:k;A=m;m=((b|0)==(G|0)&c>>>0<v>>>0|b>>>0<G>>>0)+k|0;c=b;b=b+A|0;if(b>>>0<c>>>0){m=m+1|0}c=b;b=b+H|0;j=l+m|0;j=b>>>0<c>>>0?j+1|0:j;s=C-b|0;c=t-((C>>>0<b>>>0)+j|0)|0;A=r-x|0;b=u-((r>>>0<x>>>0)+w|0)|0}if((L|0)>=16384){D=D|2147418112;b=0;c=0;break b}l=L+16383|0;if((L|0)<=-16383){e:{if(l){break e}l=i;o=A;k=b<<1|o>>>31;m=o<<1;g=(g|0)==(k|0)&m>>>0>f>>>0|k>>>0>g>>>0;m=e&65535;f=s;k=c<<1|f>>>31;c=f<<1|b>>>31;e=c;b=(e|0)==(N|0)&(k|0)==(I|0)?g:(I|0)==(k|0)&e>>>0>N>>>0|k>>>0>I>>>0;c=b+h|0;if(c>>>0<b>>>0){l=l+1|0}b=c;e=b;c=l;e=d+((i|0)==(l|0)&e>>>0<h>>>0|l>>>0<i>>>0)|0;if(e>>>0<d>>>0){m=m+1|0}d=m;if(!(d&65536)){break e}J=e|J;D=d|D;break b}b=0;c=0;break b}j=i;e=e&65535;o=A;m=b<<1|o>>>31;o=o<<1;g=(g|0)==(m|0)&o>>>0>=f>>>0|m>>>0>g>>>0;f=s;m=c<<1|f>>>31;c=f<<1|b>>>31;b=(c|0)==(N|0)&(m|0)==(I|0)?g:(I|0)==(m|0)&c>>>0>=N>>>0|m>>>0>I>>>0;c=b+h|0;if(c>>>0<b>>>0){j=j+1|0}b=c;c=j;f=d;d=((i|0)==(j|0)&b>>>0<h>>>0|j>>>0<i>>>0)+d|0;j=l<<16|e;J=d|J;D=D|(d>>>0<f>>>0?j+1|0:j)}p[a>>2]=b;p[a+4>>2]=c;p[a+8>>2]=J;p[a+12>>2]=D;Z=n+192|0;return}p[a>>2]=0;p[a+4>>2]=0;b=!(d|f|(e|g));p[a+8>>2]=b?0:J;p[a+12>>2]=b?2147450880:D;Z=n+192|0}function Dg(a,b,c,d,e,f){var g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0;g=Z-8976|0;Z=g;y=d+e|0;E=0-y|0;a:{b:{while(1){c:{if((c|0)!=48){if((c|0)!=46){break a}c=p[b+4>>2];if(c>>>0>=s[b+104>>2]){break c}p[b+4>>2]=c+1;c=q[c|0];break b}c=p[b+4>>2];if(c>>>0<s[b+104>>2]){h=1;p[b+4>>2]=c+1;c=q[c|0]}else{h=1;c=yg(b)}continue}break}c=yg(b)}n=1;if((c|0)!=48){break a}while(1){j=j+ -1|0;c=i+ -1|0;if((c|0)!=-1){j=j+1|0}i=c;c=p[b+4>>2];d:{if(c>>>0<s[b+104>>2]){p[b+4>>2]=c+1;c=q[c|0];break d}c=yg(b)}if((c|0)==48){continue}break}h=1}p[g+784>>2]=0;e:{f:{o=(c|0)==46;m=c+ -48|0;g:{h:{i:{j:{if(o|m>>>0<=9){while(1){k:{if(o&1){if(!n){i=l;j=k;n=1;break k}h=!h;break j}l=l+1|0;if(l>>>0<1){k=k+1|0}if((r|0)<=2044){x=(c|0)==48?x:l;h=(g+784|0)+(r<<2)|0;o=h;if(t){m=(v(p[h>>2],10)+c|0)+ -48|0}p[o>>2]=m;h=1;m=t+1|0;c=(m|0)==9;t=c?0:m;r=c+r|0;break k}if((c|0)==48){break k}p[g+8960>>2]=p[g+8960>>2]|1;x=18396}c=p[b+4>>2];l:{if(c>>>0<s[b+104>>2]){p[b+4>>2]=c+1;c=q[c|0];break l}c=yg(b)}o=(c|0)==46;m=c+ -48|0;if(o|m>>>0<10){continue}break}}i=n?i:l;j=n?j:k;if(!(!h|(c&-33)!=69)){c=Eg(b);m=$;n=m;if(!c&(m|0)==-2147483648){break g}if(!h){break h}j=j+n|0;b=c+i|0;if(b>>>0<c>>>0){j=j+1|0}i=b;break f}h=!h;if((c|0)<0){break i}}if(!p[b+104>>2]){break i}p[b+4>>2]=p[b+4>>2]+ -1}if(!h){break f}}p[3103]=28}l=0;k=0;xg(b,0,0);c=0;b=0;break e}b=p[g+784>>2];if(!b){ah(g,+(f|0)*0);l=p[g>>2];k=p[g+4>>2];c=p[g+12>>2];b=p[g+8>>2];break e}if(!((i|0)!=(l|0)|(j|0)!=(k|0)|((k|0)>0?1:(k|0)>=0?l>>>0>9:0)|(b>>>d|0?(d|0)<=30:0))){dh(g+48|0,f);gh(g+32|0,b);bh(g+16|0,p[g+48>>2],p[g+52>>2],p[g+56>>2],p[g+60>>2],p[g+32>>2],p[g+36>>2],p[g+40>>2],p[g+44>>2]);l=p[g+16>>2];k=p[g+20>>2];c=p[g+28>>2];b=p[g+24>>2];break e}if((j|0)>0?1:(j|0)>=0?i>>>0>(e|0)/-2>>>0:0){p[3103]=68;dh(g+96|0,f);bh(g+80|0,p[g+96>>2],p[g+100>>2],p[g+104>>2],p[g+108>>2],-1,-1,-1,2147418111);bh(g- -64|0,p[g+80>>2],p[g+84>>2],p[g+88>>2],p[g+92>>2],-1,-1,-1,2147418111);l=p[g+64>>2];k=p[g+68>>2];c=p[g+76>>2];b=p[g+72>>2];break e}b=e+ -226|0;c=i>>>0<b>>>0;b=b>>31;if((j|0)<(b|0)?1:(j|0)<=(b|0)?c:0){p[3103]=68;dh(g+144|0,f);bh(g+128|0,p[g+144>>2],p[g+148>>2],p[g+152>>2],p[g+156>>2],0,0,0,65536);bh(g+112|0,p[g+128>>2],p[g+132>>2],p[g+136>>2],p[g+140>>2],0,0,0,65536);l=p[g+112>>2];k=p[g+116>>2];c=p[g+124>>2];b=p[g+120>>2];break e}if(t){if((t|0)<=8){c=(g+784|0)+(r<<2)|0;b=p[c>>2];while(1){b=v(b,10);t=t+1|0;if((t|0)!=9){continue}break}p[c>>2]=b}r=r+1|0}m:{n=i;if((x|0)>(i|0)|(x|0)>=9|(i|0)>17){break m}if((n|0)==9){dh(g+192|0,f);gh(g+176|0,p[g+784>>2]);bh(g+160|0,p[g+192>>2],p[g+196>>2],p[g+200>>2],p[g+204>>2],p[g+176>>2],p[g+180>>2],p[g+184>>2],p[g+188>>2]);l=p[g+160>>2];k=p[g+164>>2];c=p[g+172>>2];b=p[g+168>>2];break e}if((n|0)<=8){dh(g+272|0,f);gh(g+256|0,p[g+784>>2]);bh(g+240|0,p[g+272>>2],p[g+276>>2],p[g+280>>2],p[g+284>>2],p[g+256>>2],p[g+260>>2],p[g+264>>2],p[g+268>>2]);dh(g+224|0,p[(0-n<<2)+10992>>2]);eh(g+208|0,p[g+240>>2],p[g+244>>2],p[g+248>>2],p[g+252>>2],p[g+224>>2],p[g+228>>2],p[g+232>>2],p[g+236>>2]);l=p[g+208>>2];k=p[g+212>>2];c=p[g+220>>2];b=p[g+216>>2];break e}b=(v(n,-3)+d|0)+27|0;c=p[g+784>>2];if(c>>>b|0?(b|0)<=30:0){break m}dh(g+352|0,f);gh(g+336|0,c);bh(g+320|0,p[g+352>>2],p[g+356>>2],p[g+360>>2],p[g+364>>2],p[g+336>>2],p[g+340>>2],p[g+344>>2],p[g+348>>2]);dh(g+304|0,p[(n<<2)+10920>>2]);bh(g+288|0,p[g+320>>2],p[g+324>>2],p[g+328>>2],p[g+332>>2],p[g+304>>2],p[g+308>>2],p[g+312>>2],p[g+316>>2]);l=p[g+288>>2];k=p[g+292>>2];c=p[g+300>>2];b=p[g+296>>2];break e}while(1){c=r;r=c+ -1|0;if(!p[(g+784|0)+(r<<2)>>2]){continue}break}t=0;b=(n|0)%9|0;n:{if(!b){h=0;break n}m=(n|0)>-1?b:b+9|0;o:{if(!c){h=0;c=0;break o}j=p[(0-m<<2)+10992>>2];k=1e9/(j|0)|0;o=0;b=0;h=0;while(1){i=o;l=(g+784|0)+(b<<2)|0;o=p[l>>2];r=(o>>>0)/(j>>>0)|0;i=i+r|0;p[l>>2]=i;i=!i&(b|0)==(h|0);h=i?h+1&2047:h;n=i?n+ -9|0:n;o=v(k,o-v(j,r)|0);b=b+1|0;if((c|0)!=(b|0)){continue}break}if(!o){break o}p[(g+784|0)+(c<<2)>>2]=o;c=c+1|0}n=(n-m|0)+9|0}while(1){l=(g+784|0)+(h<<2)|0;p:{while(1){if((n|0)!=36|s[l>>2]>=10384593?(n|0)>=36:0){break p}r=c+2047|0;o=0;m=c;while(1){c=m;k=r&2047;r=(g+784|0)+(k<<2)|0;b=p[r>>2];j=b>>>3|0;m=b<<29;b=m+o|0;if(b>>>0<m>>>0){j=j+1|0}i=b;m=0;q:{if(!j&b>>>0<1000000001|j>>>0<0){break q}m=Gh(b,j,1e9);i=i-Fh(m,$,1e9,0)|0}o=m;p[r>>2]=i;m=(k|0)!=(c+ -1&2047)?c:(h|0)==(k|0)?c:i?c:k;r=k+ -1|0;if((h|0)!=(k|0)){continue}break}t=t+ -29|0;if(!o){continue}break}h=h+ -1&2047;if((m|0)==(h|0)){b=(g+784|0)+((m+2046&2047)<<2)|0;c=m+ -1&2047;p[b>>2]=p[b>>2]|p[(g+784|0)+(c<<2)>>2]}n=n+9|0;p[(g+784|0)+(h<<2)>>2]=o;continue}break}r:{s:while(1){j=c+1&2047;k=(g+784|0)+((c+ -1&2047)<<2)|0;while(1){i=(n|0)>45?9:1;t:{while(1){m=h;b=0;u:{while(1){v:{h=b+m&2047;if((h|0)==(c|0)){break v}h=p[(g+784|0)+(h<<2)>>2];l=p[(b<<2)+10944>>2];if(h>>>0<l>>>0){break v}if(h>>>0>l>>>0){break u}b=b+1|0;if((b|0)!=4){continue}}break}if((n|0)!=36){break u}i=0;j=0;b=0;l=0;k=0;while(1){h=b+m&2047;if((h|0)==(c|0)){c=c+1&2047;p[((c<<2)+g|0)+780>>2]=0}bh(g+768|0,i,j,l,k,0,0,1342177280,1075633366);gh(g+752|0,p[(g+784|0)+(h<<2)>>2]);Yg(g+736|0,p[g+768>>2],p[g+772>>2],p[g+776>>2],p[g+780>>2],p[g+752>>2],p[g+756>>2],p[g+760>>2],p[g+764>>2]);l=p[g+744>>2];k=p[g+748>>2];i=p[g+736>>2];j=p[g+740>>2];b=b+1|0;if((b|0)!=4){continue}break}dh(g+720|0,f);bh(g+704|0,i,j,l,k,p[g+720>>2],p[g+724>>2],p[g+728>>2],p[g+732>>2]);l=p[g+712>>2];k=p[g+716>>2];i=0;j=0;b=p[g+704>>2];h=p[g+708>>2];r=t+113|0;e=r-e|0;n=(e|0)<(d|0);d=n?(e|0)>0?e:0:d;if((d|0)<=112){break t}break r}t=i+t|0;h=c;if((c|0)==(m|0)){continue}break}l=1e9>>>i|0;o=-1<<i^-1;b=0;h=m;while(1){r=(g+784|0)+(m<<2)|0;x=p[r>>2];b=(x>>>i|0)+b|0;p[r>>2]=b;b=!b&(h|0)==(m|0);h=b?h+1&2047:h;n=b?n+ -9|0:n;b=v(l,o&x);m=m+1&2047;if((m|0)!=(c|0)){continue}break}if(!b){continue}if((h|0)!=(j|0)){p[(g+784|0)+(c<<2)>>2]=b;c=j;continue s}p[k>>2]=p[k>>2]|1;h=j;continue}break}break}ah(g+656|0,rh(225-d|0));zg(g+688|0,p[g+656>>2],p[g+660>>2],p[g+664>>2],p[g+668>>2],b,h,l,k);z=p[g+696>>2];A=p[g+700>>2];B=p[g+688>>2];C=p[g+692>>2];ah(g+640|0,rh(113-d|0));qh(g+672|0,b,h,l,k,p[g+640>>2],p[g+644>>2],p[g+648>>2],p[g+652>>2]);i=p[g+672>>2];j=p[g+676>>2];u=p[g+680>>2];w=p[g+684>>2];ch(g+624|0,b,h,l,k,i,j,u,w);Yg(g+608|0,B,C,z,A,p[g+624>>2],p[g+628>>2],p[g+632>>2],p[g+636>>2]);l=p[g+616>>2];k=p[g+620>>2];b=p[g+608>>2];h=p[g+612>>2]}o=m+4&2047;w:{if((o|0)==(c|0)){break w}o=p[(g+784|0)+(o<<2)>>2];x:{if(o>>>0<=499999999){if((m+5&2047)==(c|0)?!o:0){break x}ah(g+496|0,+(f|0)*.25);Yg(g+480|0,i,j,u,w,p[g+496>>2],p[g+500>>2],p[g+504>>2],p[g+508>>2]);u=p[g+488>>2];w=p[g+492>>2];i=p[g+480>>2];j=p[g+484>>2];break x}if((o|0)!=5e8){ah(g+592|0,+(f|0)*.75);Yg(g+576|0,i,j,u,w,p[g+592>>2],p[g+596>>2],p[g+600>>2],p[g+604>>2]);u=p[g+584>>2];w=p[g+588>>2];i=p[g+576>>2];j=p[g+580>>2];break x}D=+(f|0);if((m+5&2047)==(c|0)){ah(g+528|0,D*.5);Yg(g+512|0,i,j,u,w,p[g+528>>2],p[g+532>>2],p[g+536>>2],p[g+540>>2]);u=p[g+520>>2];w=p[g+524>>2];i=p[g+512>>2];j=p[g+516>>2];break x}ah(g+560|0,D*.75);Yg(g+544|0,i,j,u,w,p[g+560>>2],p[g+564>>2],p[g+568>>2],p[g+572>>2]);u=p[g+552>>2];w=p[g+556>>2];i=p[g+544>>2];j=p[g+548>>2]}if((d|0)>111){break w}qh(g+464|0,i,j,u,w,0,0,0,1073676288);if(Ug(p[g+464>>2],p[g+468>>2],p[g+472>>2],p[g+476>>2],0,0,0,0)){break w}Yg(g+448|0,i,j,u,w,0,0,0,1073676288);u=p[g+456>>2];w=p[g+460>>2];i=p[g+448>>2];j=p[g+452>>2]}Yg(g+432|0,b,h,l,k,i,j,u,w);ch(g+416|0,p[g+432>>2],p[g+436>>2],p[g+440>>2],p[g+444>>2],B,C,z,A);l=p[g+424>>2];k=p[g+428>>2];b=p[g+416>>2];h=p[g+420>>2];y:{if((r&2147483647)<=(-2-y|0)){break y}c=g+400|0;p[c+8>>2]=l;p[c+12>>2]=k&2147483647;p[c>>2]=b;p[c+4>>2]=h;bh(g+384|0,b,h,l,k,0,0,0,1073610752);f=Vg(p[g+400>>2],p[g+404>>2],p[g+408>>2],p[g+412>>2],1081081856);c=(f|0)<0;l=c?l:p[g+392>>2];k=c?k:p[g+396>>2];b=c?b:p[g+384>>2];h=c?h:p[g+388>>2];t=((f|0)>-1)+t|0;if(F=!(n&(c|(d|0)!=(e|0))&(Ug(i,j,u,w,0,0,0,0)|0)!=0),G=0,H=(t+110|0)<=(E|0),H?F:G){break y}p[3103]=68}Ag(g+368|0,b,h,l,k,t);l=p[g+368>>2];k=p[g+372>>2];c=p[g+380>>2];b=p[g+376>>2]}p[a>>2]=l;p[a+4>>2]=k;p[a+8>>2]=b;p[a+12>>2]=c;Z=g+8976|0}function Za(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0;c=p[a+76>>2];if((c|0)>=1){d=p[a+84>>2];while(1){f=$a(a,p[d+16>>2])+f|0;d=d+88|0;b=b+1|0;c=p[a+76>>2];if((b|0)<(c|0)){continue}break}}a:{b:{c:{d:{if(!p[a+212>>2]){b=194;if(p[a+268>>2]){break a}if(p[a+72>>2]!=8|p[a+380>>2]!=8){break c}e=1;if((c|0)>=1){d=p[a+84>>2];while(1){e=(p[d+24>>2]<2?p[d+20>>2]<=1:0)?e:0;d=d+88|0;g=g+1|0;if((g|0)!=(c|0)){continue}break}}if(!f|!e){break c}d=p[a>>2];p[d+20>>2]=77;m[p[d+4>>2]](a,0);if(!p[a+212>>2]){break d}}b=p[a+268>>2]?202:201;break a}if(!p[a+268>>2]){break b}break a}if(p[a+268>>2]){break a}b=192;if(e){break a}}b=193}ab(a,b);e:{f:{g:{switch(p[a+260>>2]){case 1:if(p[a+76>>2]>2){break f}break;case 0:break e;default:break g}}d=p[a>>2];p[d+20>>2]=28;m[p[d>>2]](a)}b=p[a+24>>2];d=p[b>>2];p[b>>2]=d+1;n[d|0]=255;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;d=a+24|0;h:{if(c){break h}if(m[p[b+12>>2]](a)|0){break h}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=248;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;i:{if(c){break i}if(m[p[b+12>>2]](a)|0){break i}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;j:{if(c){break j}if(m[p[b+12>>2]](a)|0){break j}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=24;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;k:{if(c){break k}if(m[p[b+12>>2]](a)|0){break k}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=13;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;l:{if(c){break l}if(m[p[b+12>>2]](a)|0){break l}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;m:{if(c){break m}if(m[p[b+12>>2]](a)|0){break m}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=255;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;n:{if(c){break n}if(m[p[b+12>>2]](a)|0){break n}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=3;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;o:{if(c){break o}if(m[p[b+12>>2]](a)|0){break o}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}e=p[p[a+84>>2]+88>>2];b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=e;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;p:{if(c){break p}if(m[p[b+12>>2]](a)|0){break p}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}e=p[p[a+84>>2]>>2];b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=e;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;q:{if(c){break q}if(m[p[b+12>>2]](a)|0){break q}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}e=p[p[a+84>>2]+176>>2];b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=e;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;r:{if(c){break r}if(m[p[b+12>>2]](a)|0){break r}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=128;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;s:{if(c){break s}if(m[p[b+12>>2]](a)|0){break s}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;t:{if(c){break t}if(m[p[b+12>>2]](a)|0){break t}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;u:{if(c){break u}if(m[p[b+12>>2]](a)|0){break u}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;v:{if(c){break v}if(m[p[b+12>>2]](a)|0){break v}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;w:{if(c){break w}if(m[p[b+12>>2]](a)|0){break w}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;x:{if(c){break x}if(m[p[b+12>>2]](a)|0){break x}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;y:{if(c){break y}if(m[p[b+12>>2]](a)|0){break y}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=1;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;z:{if(c){break z}if(m[p[b+12>>2]](a)|0){break z}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;A:{if(c){break A}if(m[p[b+12>>2]](a)|0){break A}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;B:{if(c){break B}if(m[p[b+12>>2]](a)|0){break B}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;C:{if(c){break C}if(m[p[b+12>>2]](a)|0){break C}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;D:{if(c){break D}if(m[p[b+12>>2]](a)|0){break D}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=1;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;E:{if(c){break E}if(m[p[b+12>>2]](a)|0){break E}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;F:{if(c){break F}if(m[p[b+12>>2]](a)|0){break F}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}d=p[d>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=0;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;if(b){break e}if(m[p[d+12>>2]](a)|0){break e}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}G:{if(!p[a+268>>2]|p[a+380>>2]==8){break G}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=255;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;H:{if(b){break H}if(m[p[d+12>>2]](a)|0){break H}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=218;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;I:{if(b){break I}if(m[p[d+12>>2]](a)|0){break I}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=0;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;J:{if(b){break J}if(m[p[d+12>>2]](a)|0){break J}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=6;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;K:{if(b){break K}if(m[p[d+12>>2]](a)|0){break K}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=0;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;L:{if(b){break L}if(m[p[d+12>>2]](a)|0){break L}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=0;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;M:{if(b){break M}if(m[p[d+12>>2]](a)|0){break M}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}b=p[a+380>>2];d=p[a+24>>2];c=p[d>>2];p[d>>2]=c+1;n[c|0]=v(b,b)+ -1;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;N:{if(b){break N}if(m[p[d+12>>2]](a)|0){break N}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=0;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;if(b){break G}if(m[p[d+12>>2]](a)|0){break G}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}}function _a(a){a=a|0;var b=0,c=0,d=0,e=0;e=p[a+408>>2];b=p[a+24>>2];d=p[b>>2];p[b>>2]=d+1;n[d|0]=255;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;d=a+24|0;a:{if(c){break a}if(m[p[b+12>>2]](a)|0){break a}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=216;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;b:{if(c){break b}if(m[p[b+12>>2]](a)|0){break b}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}p[e+28>>2]=0;c:{if(!p[a+244>>2]){break c}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=255;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;d:{if(c){break d}if(m[p[b+12>>2]](a)|0){break d}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=224;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;e:{if(c){break e}if(m[p[b+12>>2]](a)|0){break e}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;f:{if(c){break f}if(m[p[b+12>>2]](a)|0){break f}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=16;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;g:{if(c){break g}if(m[p[b+12>>2]](a)|0){break g}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=74;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;h:{if(c){break h}if(m[p[b+12>>2]](a)|0){break h}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=70;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;i:{if(c){break i}if(m[p[b+12>>2]](a)|0){break i}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=73;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;j:{if(c){break j}if(m[p[b+12>>2]](a)|0){break j}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=70;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;k:{if(c){break k}if(m[p[b+12>>2]](a)|0){break k}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;l:{if(c){break l}if(m[p[b+12>>2]](a)|0){break l}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}e=q[a+248|0];b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=e;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;m:{if(c){break m}if(m[p[b+12>>2]](a)|0){break m}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}e=q[a+249|0];b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=e;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;n:{if(c){break n}if(m[p[b+12>>2]](a)|0){break n}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}e=q[a+250|0];b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=e;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;o:{if(c){break o}if(m[p[b+12>>2]](a)|0){break o}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}c=r[a+252>>1];b=p[a+24>>2];e=p[b>>2];p[b>>2]=e+1;n[e|0]=c>>>8;e=p[b+4>>2]+ -1|0;p[b+4>>2]=e;p:{if(e){break p}if(m[p[b+12>>2]](a)|0){break p}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];e=p[b>>2];p[b>>2]=e+1;n[e|0]=c;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;q:{if(c){break q}if(m[p[b+12>>2]](a)|0){break q}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}c=r[a+254>>1];b=p[a+24>>2];e=p[b>>2];p[b>>2]=e+1;n[e|0]=c>>>8;e=p[b+4>>2]+ -1|0;p[b+4>>2]=e;r:{if(e){break r}if(m[p[b+12>>2]](a)|0){break r}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];e=p[b>>2];p[b>>2]=e+1;n[e|0]=c;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;s:{if(c){break s}if(m[p[b+12>>2]](a)|0){break s}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;t:{if(c){break t}if(m[p[b+12>>2]](a)|0){break t}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;if(c){break c}if(m[p[b+12>>2]](a)|0){break c}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}u:{v:{if(!p[a+256>>2]){break v}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=255;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;w:{if(c){break w}if(m[p[b+12>>2]](a)|0){break w}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=238;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;x:{if(c){break x}if(m[p[b+12>>2]](a)|0){break x}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;y:{if(c){break y}if(m[p[b+12>>2]](a)|0){break y}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=14;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;z:{if(c){break z}if(m[p[b+12>>2]](a)|0){break z}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=65;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;A:{if(c){break A}if(m[p[b+12>>2]](a)|0){break A}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=100;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;B:{if(c){break B}if(m[p[b+12>>2]](a)|0){break B}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=111;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;C:{if(c){break C}if(m[p[b+12>>2]](a)|0){break C}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=98;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;D:{if(c){break D}if(m[p[b+12>>2]](a)|0){break D}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=101;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;E:{if(c){break E}if(m[p[b+12>>2]](a)|0){break E}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;F:{if(c){break F}if(m[p[b+12>>2]](a)|0){break F}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=100;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;G:{if(c){break G}if(m[p[b+12>>2]](a)|0){break G}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;H:{if(c){break H}if(m[p[b+12>>2]](a)|0){break H}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;I:{if(c){break I}if(m[p[b+12>>2]](a)|0){break I}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;J:{if(c){break J}if(m[p[b+12>>2]](a)|0){break J}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;K:{if(c){break K}if(m[p[b+12>>2]](a)|0){break K}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}L:{switch(p[a+80>>2]+ -3|0){case 0:d=p[d>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=1;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;if(b){break v}if(m[p[d+12>>2]](a)|0){break v}break u;case 2:d=p[d>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=2;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;if(b){break v}if(m[p[d+12>>2]](a)|0){break v}break u;default:break L}}d=p[d>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=0;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;if(b){break v}if(m[p[d+12>>2]](a)|0){break v}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}return}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}function Lc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,q=0,r=0,s=0,t=0,u=0,v=0,w=0,x=0,z=0,A=0;c=Z-48|0;Z=c;j=p[a+424>>2];d=p[a+24>>2];g=p[d>>2];p[c+8>>2]=g;f=p[d+4>>2];p[c+12>>2]=f;d=p[j+24>>2];p[c+24>>2]=p[j+20>>2];p[c+28>>2]=d;d=p[j+32>>2];p[c+32>>2]=p[j+28>>2];p[c+36>>2]=d;d=p[j+16>>2];p[c+16>>2]=p[j+12>>2];p[c+20>>2]=d;p[c+40>>2]=a;a:{b:{if(!p[a+236>>2]){d=a;break b}d=a;if(p[j+36>>2]){break b}h=p[j+40>>2];e=p[c+20>>2];if((e|0)>=1){d=e+7|0;f=p[c+16>>2]|127<<17-e;while(1){p[c+8>>2]=g+1;n[g|0]=f>>>16;e=p[c+12>>2]+ -1|0;p[c+12>>2]=e;if(!e){g=p[c+40>>2];e=p[g+24>>2];if(!(m[p[e+12>>2]](g)|0)){break a}p[c+8>>2]=p[e>>2];p[c+12>>2]=p[e+4>>2]}c:{if((f&16711680)!=16711680){break c}e=p[c+8>>2];p[c+8>>2]=e+1;n[e|0]=0;e=p[c+12>>2]+ -1|0;p[c+12>>2]=e;if(e){break c}g=p[c+40>>2];e=p[g+24>>2];if(!(m[p[e+12>>2]](g)|0)){break a}p[c+8>>2]=p[e>>2];p[c+12>>2]=p[e+4>>2]}if((d|0)>=16){f=f<<8;d=d+ -8|0;g=p[c+8>>2];continue}break}g=p[c+8>>2]}p[c+16>>2]=0;p[c+20>>2]=0;p[c+8>>2]=g+1;n[g|0]=255;d=p[c+12>>2]+ -1|0;p[c+12>>2]=d;d:{if(d){f=p[c+8>>2];break d}e=p[c+40>>2];d=p[e+24>>2];if(!(m[p[d+12>>2]](e)|0)){break a}f=p[d>>2];p[c+8>>2]=f;p[c+12>>2]=p[d+4>>2]}p[c+8>>2]=f+1;n[f|0]=h+ -48;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;d=p[c+40>>2];if(!f){e=p[d+24>>2];if(!(m[p[e+12>>2]](d)|0)){break a}p[c+8>>2]=p[e>>2];f=p[e+4>>2];p[c+12>>2]=f}if(p[d+292>>2]<1){break b}g=0;while(1){p[((g<<2)+c|0)+24>>2]=0;g=g+1|0;if((g|0)<p[d+292>>2]){continue}break}}k=1;e:{if(p[a+320>>2]<1){break e}while(1){g=u<<2;i=p[(g+a|0)+324>>2]<<2;e=p[(i+a|0)+296>>2];q=p[((p[e+24>>2]<<2)+j|0)+60>>2];h=p[((p[e+20>>2]<<2)+j|0)+44>>2];A=p[d+384>>2];v=p[d+388>>2];e=0;w=b+g|0;x=p[w>>2];z=(c+i|0)+24|0;g=o[x>>1]-p[z>>2]|0;i=g>>31;l=i;i=g+i|0;g=l^i;f:{if(!g){break f}e=32-y(g)|0;if(g>>>0<2048){break f}g=p[d>>2];p[g+20>>2]=6;m[p[g>>2]](d)}g=p[h+(e<<2)>>2];h=n[(e+h|0)+1024|0];if(!h){l=p[d>>2];p[l+20>>2]=41;m[p[l>>2]](d)}d=h+p[c+20>>2]|0;g=p[c+16>>2]|(g&(-1<<h^-1))<<24-d;if((d|0)>=8){while(1){h=d;d=p[c+8>>2];p[c+8>>2]=d+1;n[d|0]=g>>>16;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(!f){f=p[c+40>>2];d=p[f+24>>2];if(!(m[p[d+12>>2]](f)|0)){k=0;break a}p[c+8>>2]=p[d>>2];f=p[d+4>>2];p[c+12>>2]=f}g:{if((g&16711680)!=16711680){break g}d=p[c+8>>2];p[c+8>>2]=d+1;n[d|0]=0;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(f){break g}f=p[c+40>>2];d=p[f+24>>2];if(!(m[p[d+12>>2]](f)|0)){k=0;break a}p[c+8>>2]=p[d>>2];f=p[d+4>>2];p[c+12>>2]=f}d=h+ -8|0;g=g<<8;if((h|0)>15){continue}break}}p[c+20>>2]=d;p[c+16>>2]=g;if(e){d=d+e|0;g=(i&(-1<<e^-1))<<24-d|g;if((d|0)>=8){while(1){e=d;d=p[c+8>>2];p[c+8>>2]=d+1;n[d|0]=g>>>16;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(!f){h=p[c+40>>2];d=p[h+24>>2];if(!(m[p[d+12>>2]](h)|0)){k=0;break a}p[c+8>>2]=p[d>>2];f=p[d+4>>2];p[c+12>>2]=f}h:{if((g&16711680)!=16711680){break h}d=p[c+8>>2];p[c+8>>2]=d+1;n[d|0]=0;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(f){break h}h=p[c+40>>2];d=p[h+24>>2];if(!(m[p[d+12>>2]](h)|0)){k=0;break a}p[c+8>>2]=p[d>>2];f=p[d+4>>2];p[c+12>>2]=f}d=e+ -8|0;g=g<<8;if((e|0)>15){continue}break}}p[c+20>>2]=d;p[c+16>>2]=g}i:{if((v|0)<1){break i}e=1;j:while(1){i=0;h=e;while(1){l=o[(p[(h<<2)+A>>2]<<1)+x>>1];if(l){if(i>>>0>=16){while(1){s=p[q+960>>2];e=n[q+1264|0];if(!e){r=p[c+40>>2];t=p[r>>2];p[t+20>>2]=41;m[p[t>>2]](r)}d=d+e|0;g=(s&(-1<<e^-1))<<24-d|g;if((d|0)>=8){while(1){e=d;d=p[c+8>>2];p[c+8>>2]=d+1;n[d|0]=g>>>16;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(!f){f=p[c+40>>2];d=p[f+24>>2];if(!(m[p[d+12>>2]](f)|0)){k=0;break a}p[c+8>>2]=p[d>>2];f=p[d+4>>2];p[c+12>>2]=f}k:{if((g&16711680)!=16711680){break k}d=p[c+8>>2];p[c+8>>2]=d+1;n[d|0]=0;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(f){break k}f=p[c+40>>2];d=p[f+24>>2];if(!(m[p[d+12>>2]](f)|0)){k=0;break a}p[c+8>>2]=p[d>>2];f=p[d+4>>2];p[c+12>>2]=f}d=e+ -8|0;g=g<<8;if((e|0)>15){continue}break}}p[c+20>>2]=d;p[c+16>>2]=g;e=(i|0)>31;i=i+ -16|0;if(e){continue}break}}e=l>>31;e=e+l^e;s=33-y(e>>>1|0)|0;if(e>>>0>=1024){e=p[c+40>>2];r=p[e>>2];p[r+20>>2]=6;m[p[r>>2]](e)}e=s+(i<<4)|0;i=p[(e<<2)+q>>2];e=n[(e+q|0)+1024|0];if(!e){r=p[c+40>>2];t=p[r>>2];p[t+20>>2]=41;m[p[t>>2]](r)}i=i&(-1<<e^-1);e=d+e|0;g=i<<24-e|g;if((e|0)>=8){while(1){d=e;e=p[c+8>>2];p[c+8>>2]=e+1;n[e|0]=g>>>16;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(!f){f=p[c+40>>2];e=p[f+24>>2];if(!(m[p[e+12>>2]](f)|0)){k=0;break a}p[c+8>>2]=p[e>>2];f=p[e+4>>2];p[c+12>>2]=f}l:{if((g&16711680)!=16711680){break l}e=p[c+8>>2];p[c+8>>2]=e+1;n[e|0]=0;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(f){break l}f=p[c+40>>2];e=p[f+24>>2];if(!(m[p[e+12>>2]](f)|0)){k=0;break a}p[c+8>>2]=p[e>>2];f=p[e+4>>2];p[c+12>>2]=f}e=d+ -8|0;g=g<<8;if((d|0)>15){continue}break}}p[c+20>>2]=e;p[c+16>>2]=g;d=e+s|0;g=(l+(l>>15)&(-1<<s^-1))<<24-d|g;if((d|0)>=8){while(1){e=d;d=p[c+8>>2];p[c+8>>2]=d+1;n[d|0]=g>>>16;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(!f){f=p[c+40>>2];d=p[f+24>>2];if(!(m[p[d+12>>2]](f)|0)){k=0;break a}p[c+8>>2]=p[d>>2];f=p[d+4>>2];p[c+12>>2]=f}m:{if((g&16711680)!=16711680){break m}d=p[c+8>>2];p[c+8>>2]=d+1;n[d|0]=0;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(f){break m}f=p[c+40>>2];d=p[f+24>>2];if(!(m[p[d+12>>2]](f)|0)){k=0;break a}p[c+8>>2]=p[d>>2];f=p[d+4>>2];p[c+12>>2]=f}d=e+ -8|0;g=g<<8;if((e|0)>15){continue}break}}p[c+20>>2]=d;p[c+16>>2]=g;e=h+1|0;if((h|0)!=(v|0)){continue j}break i}i=i+1|0;e=(h|0)==(v|0);h=h+1|0;if(!e){continue}break}break}h=p[q>>2];e=n[q+1024|0];if(!e){i=p[c+40>>2];q=p[i>>2];p[q+20>>2]=41;m[p[q>>2]](i)}i=h&(-1<<e^-1);h=d+e|0;g=i<<24-h|g;if((h|0)>=8){while(1){d=h;e=p[c+8>>2];p[c+8>>2]=e+1;n[e|0]=g>>>16;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(!f){h=p[c+40>>2];e=p[h+24>>2];if(!(m[p[e+12>>2]](h)|0)){k=0;break a}p[c+8>>2]=p[e>>2];f=p[e+4>>2];p[c+12>>2]=f}n:{if((g&16711680)!=16711680){break n}e=p[c+8>>2];p[c+8>>2]=e+1;n[e|0]=0;f=p[c+12>>2]+ -1|0;p[c+12>>2]=f;if(f){break n}h=p[c+40>>2];e=p[h+24>>2];if(!(m[p[e+12>>2]](h)|0)){k=0;break a}p[c+8>>2]=p[e>>2];f=p[e+4>>2];p[c+12>>2]=f}h=d+ -8|0;g=g<<8;if((d|0)>15){continue}break}}p[c+20>>2]=h;p[c+16>>2]=g}p[z>>2]=o[p[w>>2]>>1];u=u+1|0;if((u|0)>=p[a+320>>2]){break e}d=p[c+40>>2];continue}}b=p[c+8>>2];d=p[a+24>>2];p[d+4>>2]=f;p[d>>2]=b;d=c+16|0;e=p[d+20>>2];b=j+12|0;p[b+16>>2]=p[d+16>>2];p[b+20>>2]=e;e=p[d+12>>2];p[b+8>>2]=p[d+8>>2];p[b+12>>2]=e;e=p[d+4>>2];p[b>>2]=p[d>>2];p[b+4>>2]=e;a=p[a+236>>2];if(!a){break a}b=j;d=p[j+36>>2];if(d){a=d}else{p[j+36>>2]=a;p[j+40>>2]=p[j+40>>2]+1&7}p[b+36>>2]=a+ -1}Z=c+48|0;return k|0}function Ya(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,o=0,r=0,s=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0,J=0,K=0,L=0,M=0;e=Z-32|0;Z=e;j=p[a+408>>2];a:{if(!p[a+212>>2]){if(p[a+292>>2]<1){break a}while(1){b=p[((f<<2)+a|0)+296>>2];if(!(p[a+364>>2]|p[a+372>>2])){bb(a,p[b+20>>2],0)}if(p[a+368>>2]){bb(a,p[b+24>>2],1)}f=f+1|0;if((f|0)<p[a+292>>2]){continue}break}break a}p[e+16>>2]=0;p[e+20>>2]=0;p[e+24>>2]=0;p[e+28>>2]=0;p[e+8>>2]=0;p[e+12>>2]=0;p[e>>2]=0;p[e+4>>2]=0;h=p[a+292>>2];b:{if((h|0)<1){h=0;break b}d=p[a+368>>2];b=p[a+364>>2];while(1){c=p[((f<<2)+a|0)+296>>2];if(!(p[a+372>>2]|b)){n[p[c+20>>2]+(e+16|0)|0]=1}if(d){n[p[c+24>>2]+e|0]=1}f=f+1|0;if((h|0)!=(f|0)){continue}break}i=q[e+31|0];f=q[e+14|0];k=q[e+30|0];l=q[e+13|0];o=n[e+29|0];r=n[e+12|0];s=n[e+28|0];t=n[e+11|0];u=n[e+27|0];v=n[e+10|0];w=n[e+26|0];x=n[e+9|0];y=n[e+25|0];z=n[e+8|0];A=n[e+24|0];B=n[e+7|0];C=n[e+23|0];D=n[e+6|0];E=n[e+22|0];F=n[e+5|0];G=n[e+21|0];H=n[e+4|0];I=n[e+20|0];J=n[e+3|0];K=n[e+19|0];L=n[e+2|0];M=n[e+18|0];g=n[e+1|0];c=n[e+17|0];d=n[e|0];b=n[e+16|0];h=q[e+15|0]}d=(((((o+(((((((((((((((((((((((((r+s|0)+t|0)+u|0)+v|0)+w|0)+x|0)+y|0)+z|0)+A|0)+B|0)+C|0)+D|0)+E|0)+F|0)+G|0)+H|0)+I|0)+J|0)+K|0)+L|0)+M|0)+g|0)+c|0)+d|0)+b|0)|0)+(l<<24>>24)|0)+(k<<24>>24)|0)+(f<<24>>24)|0)+(i<<24>>24)|0)+(h<<24>>24)|0;if(!d){break a}c=p[a+24>>2];b=p[c>>2];p[c>>2]=b+1;n[b|0]=255;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;c:{if(b){break c}if(m[p[c+12>>2]](a)|0){break c}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}c=p[a+24>>2];b=p[c>>2];p[c>>2]=b+1;n[b|0]=204;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;d:{if(b){break d}if(m[p[c+12>>2]](a)|0){break d}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}c=p[a+24>>2];b=p[c>>2];p[c>>2]=b+1;d=(d<<1)+2|0;n[b|0]=d>>>8;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;e:{if(b){break e}if(m[p[c+12>>2]](a)|0){break e}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}c=p[a+24>>2];b=p[c>>2];p[c>>2]=b+1;n[b|0]=d;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;f:{if(b){break f}if(m[p[c+12>>2]](a)|0){break f}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}f=0;while(1){g:{if(!q[(e+16|0)+f|0]){break g}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=f;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;h:{if(b){break h}if(m[p[d+12>>2]](a)|0){break h}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=a+f|0;d=q[b+152|0];b=q[b+168|0];g=p[a+24>>2];c=p[g>>2];p[g>>2]=c+1;n[c|0]=d+(b<<4);b=p[g+4>>2]+ -1|0;p[g+4>>2]=b;if(b){break g}if(m[p[g+12>>2]](a)|0){break g}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}i:{if(!q[e+f|0]){break i}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=f+16;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;j:{if(b){break j}if(m[p[d+12>>2]](a)|0){break j}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=q[(a+f|0)+184|0];c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=b;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;if(b){break i}if(m[p[c+12>>2]](a)|0){break i}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}f=f+1|0;if((f|0)!=16){continue}break}}if(p[a+236>>2]!=p[j+28>>2]){d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=255;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;k:{if(b){break k}if(m[p[d+12>>2]](a)|0){break k}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=221;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;l:{if(b){break l}if(m[p[d+12>>2]](a)|0){break l}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=0;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;m:{if(b){break m}if(m[p[d+12>>2]](a)|0){break m}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=4;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;n:{if(b){break n}if(m[p[d+12>>2]](a)|0){break n}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}d=p[a+236>>2];c=p[a+24>>2];b=p[c>>2];p[c>>2]=b+1;n[b|0]=d>>>8;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;o:{if(b){break o}if(m[p[c+12>>2]](a)|0){break o}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}c=p[a+24>>2];b=p[c>>2];p[c>>2]=b+1;n[b|0]=d;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;p:{if(b){break p}if(m[p[c+12>>2]](a)|0){break p}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}p[j+28>>2]=p[a+236>>2]}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=255;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;q:{if(b){break q}if(m[p[d+12>>2]](a)|0){break q}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=218;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;r:{if(b){break r}if(m[p[d+12>>2]](a)|0){break r}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+292>>2];c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;h=d;d=(b<<1)+6|0;n[h|0]=d>>>8;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;s:{if(b){break s}if(m[p[c+12>>2]](a)|0){break s}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}c=p[a+24>>2];b=p[c>>2];p[c>>2]=b+1;n[b|0]=d;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;t:{if(b){break t}if(m[p[c+12>>2]](a)|0){break t}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+292>>2];c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=b;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;u:{if(b){break u}if(m[p[c+12>>2]](a)|0){break u}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if(p[a+292>>2]>=1){i=0;while(1){c=p[((i<<2)+a|0)+296>>2];b=p[c>>2];g=p[a+24>>2];d=p[g>>2];p[g>>2]=d+1;n[d|0]=b;b=p[g+4>>2]+ -1|0;p[g+4>>2]=b;v:{if(b){break v}if(m[p[g+12>>2]](a)|0){break v}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}f=0;b=0;w:{if(p[a+364>>2]){break w}b=0;if(p[a+372>>2]){break w}b=p[c+20>>2]}f=p[a+368>>2]?p[c+24>>2]:f;c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=(b<<4)+f;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;x:{if(b){break x}if(m[p[c+12>>2]](a)|0){break x}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}i=i+1|0;if((i|0)<p[a+292>>2]){continue}break}}b=p[a+364>>2];c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=b;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;y:{if(b){break y}if(m[p[c+12>>2]](a)|0){break y}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+368>>2];c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=b;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;z:{if(b){break z}if(m[p[c+12>>2]](a)|0){break z}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}d=p[a+376>>2];b=p[a+372>>2];g=p[a+24>>2];c=p[g>>2];p[g>>2]=c+1;n[c|0]=d+(b<<4);b=p[g+4>>2]+ -1|0;p[g+4>>2]=b;A:{if(b){break A}if(m[p[g+12>>2]](a)|0){break A}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}Z=e+32|0}function nb(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,o=0,q=0,r=0,s=0,t=0;j=Z-2608|0;Z=j;k=m[p[p[a+4>>2]>>2]](a,1,36)|0;p[a+392>>2]=k;p[k+16>>2]=0;p[k+8>>2]=27;p[k+4>>2]=28;p[k>>2]=29;c=p[a+380>>2];if(c+ -1>>>0>=16){b=p[a>>2];p[b+24>>2]=c;p[b+20>>2]=7;p[p[a>>2]+28>>2]=p[a+380>>2];m[p[p[a>>2]>>2]](a);c=p[a+380>>2]}b=7440;a:{b:{switch(c+ -2|0){case 1:b=7328;break a;case 2:b=7200;break a;case 3:b=7024;break a;case 4:b=6816;break a;case 5:b=6544;break a;case 0:break a;default:break b}}b=6224}p[a+384>>2]=b;p[a+388>>2]=(c|0)<8?v(c,c)+ -1|0:63;c=p[a+68>>2];if(!(p[a+76>>2]>0?!(!c|!p[a+64>>2]):0)){b=p[a>>2];p[b+20>>2]=33;m[p[b>>2]](a);c=p[a+68>>2]}if(!(p[a+64>>2]<65501?(c|0)<=65500:0)){b=p[a>>2];p[b+20>>2]=42;p[b+24>>2]=65500;m[p[p[a>>2]>>2]](a)}d=p[a+72>>2];if(d+ -8>>>0>=5){b=p[a>>2];p[b+24>>2]=d;p[b+20>>2]=16;m[p[p[a>>2]>>2]](a)}g=p[a+76>>2];if((g|0)>=11){b=p[a>>2];p[b+24>>2]=g;p[b+20>>2]=27;p[p[a>>2]+28>>2]=10;m[p[p[a>>2]>>2]](a);g=p[a+76>>2]}p[a+272>>2]=1;p[a+276>>2]=1;b=1;c:{if((g|0)<1){break c}c=p[a+84>>2];d=1;while(1){h=p[c+8>>2];d:{if(h+ -1>>>0<=3){e=p[c+12>>2];if(e+ -1>>>0<4){break d}}b=p[a>>2];p[b+20>>2]=19;m[p[b>>2]](a);g=p[a+76>>2];e=p[c+12>>2];b=p[a+276>>2];h=p[c+8>>2];d=p[a+272>>2]}b=(b|0)>(e|0)?b:e;p[a+276>>2]=b;d=(d|0)>(h|0)?d:h;p[a+272>>2]=d;c=c+88|0;f=f+1|0;if((f|0)<(g|0)){continue}break}if((g|0)<1){break c}c=p[a+84>>2];while(1){p[c+4>>2]=o;h=p[a+280>>2];e:{if(!p[a+208>>2]){d=1;e=1;l=p[a+224>>2]?8:4;f:{if((h|0)>(l|0)){break f}g=p[c+8>>2];f=p[a+272>>2];while(1){b=e<<1;if((f|0)%(v(b,g)|0)|0){break f}e=b;if((v(b,h)|0)<=(l|0)){continue}break}}h=v(e,h);p[c+36>>2]=h;i=c+36|0;e=p[a+284>>2];if((e|0)>(l|0)){break e}g=p[c+12>>2];f=p[a+276>>2];while(1){b=d<<1;if((f|0)%(v(b,g)|0)|0){break e}d=b;if((v(b,e)|0)<=(l|0)){continue}break}break e}p[c+36>>2]=h;i=c+36|0;e=p[a+284>>2];d=1}d=v(d,e);p[c+40>>2]=d;b=d<<1;g:{if((h|0)>(b|0)){p[i>>2]=b;break g}b=h<<1;if((d|0)<=(b|0)){break g}p[c+40>>2]=b}s=c,t=Qa(v(p[c+8>>2],p[a+64>>2]),v(p[a+380>>2],p[a+272>>2])),p[s+28>>2]=t;s=c,t=Qa(v(p[c+12>>2],p[a+68>>2]),v(p[a+380>>2],p[a+276>>2])),p[s+32>>2]=t;s=c,t=Qa(v(p[c+36>>2],v(p[c+8>>2],p[a+64>>2])),v(p[a+380>>2],p[a+272>>2])),p[s+44>>2]=t;b=Qa(v(p[c+40>>2],v(p[c+12>>2],p[a+68>>2])),v(p[a+380>>2],p[a+276>>2]));p[c+52>>2]=0;p[c+48>>2]=b;c=c+88|0;o=o+1|0;if((o|0)<p[a+76>>2]){continue}break}b=p[a+276>>2]}s=a,t=Qa(p[a+68>>2],v(p[a+380>>2],b)),p[s+288>>2]=t;i=p[a+204>>2];h:{if(i){if(p[a+200>>2]<=0){b=p[a>>2];p[b+20>>2]=20;p[b+24>>2]=0;m[p[p[a>>2]>>2]](a);i=p[a+204>>2]}i:{if(!(p[i+24>>2]==63?!p[i+20>>2]:0)){c=1;p[a+268>>2]=1;b=p[a+76>>2];if((b|0)<1){break i}uh(j,255,b<<8);break i}c=0;p[a+268>>2]=0;b=p[a+76>>2];if((b|0)<1){break i}uh(j+2560|0,0,b<<2)}if(p[a+200>>2]>=1){c=1;while(1){f=c;j:{k:{n=p[i>>2];if(n+ -1>>>0<4){break k}b=p[a>>2];p[b+24>>2]=n;p[b+20>>2]=27;p[p[a>>2]+28>>2]=4;m[p[p[a>>2]>>2]](a);if((n|0)>=1){break k}b=0;break j}b=p[i+4>>2];if(!((b|0)<p[a+76>>2]?(b|0)>=0:0)){b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=20;m[p[p[a>>2]>>2]](a)}c=1;b=1;if((n|0)==1){break j}while(1){d=(c<<2)+i|0;e=p[d+4>>2];if(!((e|0)<p[a+76>>2]?(e|0)>=0:0)){b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=20;m[p[p[a>>2]>>2]](a)}if((e|0)<=p[d>>2]){b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=20;m[p[p[a>>2]>>2]](a)}b=1;c=c+1|0;if((n|0)!=(c|0)){continue}break}}h=p[i+32>>2];q=p[i+28>>2];r=p[i+24>>2];e=p[i+20>>2];l:{if(p[a+268>>2]){m:{n:{if((r|0)<(e|0)|e>>>0>63|((q|0)<0|(r|0)>63)){break n}d=p[a+72>>2]>8?13:10;if(h>>>0>d>>>0){break n}if((q|0)<=(d|0)){break m}}d=p[a>>2];p[d+24>>2]=f;p[d+20>>2]=18;m[p[p[a>>2]>>2]](a)}o:{if(!e){if(!r){break o}d=p[a>>2];p[d+24>>2]=f;p[d+20>>2]=18;m[p[p[a>>2]>>2]](a);break o}if((n|0)==1){break o}d=p[a>>2];p[d+24>>2]=f;p[d+20>>2]=18;m[p[p[a>>2]>>2]](a)}if(!b){break l}g=q+ -1|0;l=0;while(1){o=p[((l<<2)+i|0)+4>>2];if(!(!e|p[(o<<8)+j>>2]>-1)){b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=18;m[p[p[a>>2]>>2]](a)}b=e;if((b|0)<=(r|0)){while(1){d=b;c=((o<<8)+j|0)+(b<<2)|0;b=p[c>>2];p:{if((b|0)<=-1){if(!q){break p}b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=18;m[p[p[a>>2]>>2]](a);break p}if((b|0)==(q|0)?(g|0)==(h|0):0){break p}b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=18;m[p[p[a>>2]>>2]](a)}p[c>>2]=h;b=d+1|0;if((d|0)!=(r|0)){continue}break}}l=l+1|0;if((l|0)!=(n|0)){continue}break}break l}if(!(h|(e|q)?0:(r|0)==63)){d=p[a>>2];p[d+24>>2]=f;p[d+20>>2]=18;m[p[p[a>>2]>>2]](a)}c=0;if(!b){break l}while(1){d=(j+2560|0)+(p[((c<<2)+i|0)+4>>2]<<2)|0;if(p[d>>2]){b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=20;m[p[p[a>>2]>>2]](a)}p[d>>2]=1;c=c+1|0;if((n|0)!=(c|0)){continue}break}}c=f+1|0;i=i+36|0;if((f|0)<p[a+200>>2]){continue}break}c=p[a+268>>2]}b=p[a+76>>2];q:{if(c){if((b|0)<1){break q}c=0;while(1){if(p[(c<<8)+j>>2]<=-1){b=p[a>>2];p[b+20>>2]=46;m[p[b>>2]](a);b=p[a+76>>2]}c=c+1|0;if((c|0)<(b|0)){continue}break}break q}if((b|0)<1){break q}c=0;while(1){if(!p[(j+2560|0)+(c<<2)>>2]){b=p[a>>2];p[b+20>>2]=46;m[p[b>>2]](a);b=p[a+76>>2]}c=c+1|0;if((c|0)<(b|0)){continue}break}}if(p[a+380>>2]>7){break h}b=0;if(p[a+200>>2]<1){p[a+200>>2]=0;break h}f=p[a+204>>2];c=0;while(1){if((b|0)!=(c|0)){e=f+v(b,36)|0;d=p[e+4>>2];g=f+v(c,36)|0;p[g>>2]=p[e>>2];p[g+4>>2]=d;p[g+32>>2]=p[e+32>>2];d=p[e+28>>2];p[g+24>>2]=p[e+24>>2];p[g+28>>2]=d;d=p[e+20>>2];p[g+16>>2]=p[e+16>>2];p[g+20>>2]=d;d=p[e+12>>2];p[g+8>>2]=p[e+8>>2];p[g+12>>2]=d}e=f+v(c,36)|0;d=p[a+388>>2];if(p[e+20>>2]<=(d|0)){if(p[e+24>>2]>(d|0)){p[e+24>>2]=d}c=c+1|0}b=b+1|0;if((b|0)<p[a+200>>2]){continue}break}p[a+200>>2]=c;break h}p[a+200>>2]=1;p[a+268>>2]=0}b=k;c=p[a+216>>2];r:{if(c){p[a+212>>2]=0;break r}if(p[a+212>>2]|!(p[a+268>>2]|p[a+380>>2]+ -2>>>0<6)){break r}c=1;p[a+216>>2]=1}p[k+32>>2]=0;p[k+20>>2]=0;p[k+24>>2]=0;d=p[a+200>>2];s:{if(!c){break s}d=p[a+200>>2]<<1}p[b+28>>2]=d;Z=j+2608|0}function Hg(a,b){var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=w(0),G=0;e=6199;g=Z-304|0;Z=g;d=q[6199];a:{if(!d){break a}k=a+4|0;b:{c:{d:{while(1){e:{f:{if(vg(d&255)){while(1){d=e;e=d+1|0;if(vg(q[d+1|0])){continue}break}xg(a,0,0);while(1){c=p[a+4>>2];g:{if(c>>>0<s[a+104>>2]){p[k>>2]=c+1;c=q[c|0];break g}c=yg(a)}if(vg(c)){continue}break}h:{if(!p[a+104>>2]){e=p[k>>2];break h}e=p[k>>2]+ -1|0;p[k>>2]=e}c=e-p[a+8>>2]|0;e=c;j=c>>31;i=i+p[a+124>>2]|0;c=m+p[a+120>>2]|0;if(c>>>0<m>>>0){i=i+1|0}m=c;c=c+e|0;i=i+j|0;i=c>>>0<m>>>0?i+1|0:i;m=c;break f}i:{j:{k:{c=q[e|0];if((c|0)==37){d=q[e+1|0];if((d|0)==42){break k}if((d|0)!=37){break j}}xg(a,0,0);d=((c|0)==37)+e|0;c=p[a+4>>2];l:{if(c>>>0<s[a+104>>2]){p[k>>2]=c+1;c=q[c|0];break l}c=yg(a)}if((c|0)!=q[d|0]){if(p[a+104>>2]){p[k>>2]=p[k>>2]+ -1}z=0;if((c|0)>=0){break a}break c}c=m+1|0;if(c>>>0<1){i=i+1|0}m=c;break f}j=0;d=e+2|0;break i}if(!(!eg(d)|q[e+2|0]!=36)){j=Ig(b,q[e+1|0]+ -48|0);d=e+3|0;break i}j=p[b>>2];b=b+4|0;d=e+1|0}z=0;e=0;if(eg(q[d|0])){while(1){e=(q[d|0]+v(e,10)|0)+ -48|0;c=q[d+1|0];d=d+1|0;if(eg(c)){continue}break}}c=d;f=q[c|0];m:{if((f|0)!=109){break m}l=0;z=(j|0)!=0;f=q[d+1|0];x=0;c=d+1|0}d=c+1|0;h=3;n:{o:{switch(f+ -65|0){case 39:f=c+2|0;c=q[c+1|0]==104;d=c?f:d;h=c?-2:-1;break n;case 43:f=c+2|0;c=q[c+1|0]==108;d=c?f:d;h=c?3:1;break n;case 51:case 57:h=1;break n;case 11:h=2;break n;case 41:break n;case 0:case 2:case 4:case 5:case 6:case 18:case 23:case 26:case 32:case 34:case 35:case 36:case 37:case 38:case 40:case 45:case 46:case 47:case 50:case 52:case 55:break o;default:break c}}h=0;d=c}c=q[d|0];f=(c&47)==3;A=f?1:h;y=f?c|32:c;p:{if((y|0)==91){break p}q:{if((y|0)!=110){if((y|0)!=99){break q}e=(e|0)>1?e:1;break p}Jg(j,A,m,i);break f}xg(a,0,0);while(1){c=p[a+4>>2];r:{if(c>>>0<s[a+104>>2]){p[k>>2]=c+1;c=q[c|0];break r}c=yg(a)}if(vg(c)){continue}break}s:{if(!p[a+104>>2]){c=p[k>>2];break s}c=p[k>>2]+ -1|0;p[k>>2]=c}c=c-p[a+8>>2]|0;f=c;c=c>>31;h=f;i=i+p[a+124>>2]|0;f=m+p[a+120>>2]|0;if(f>>>0<m>>>0){i=i+1|0}m=h+f|0;c=c+i|0;c=m>>>0<f>>>0?c+1|0:c;i=c}D=e;C=e>>31;xg(a,e,C);f=p[a+4>>2];c=p[a+104>>2];t:{if(f>>>0<c>>>0){p[k>>2]=f+1;break t}if((yg(a)|0)<0){break c}c=p[a+104>>2]}if(c){p[k>>2]=p[k>>2]+ -1}c=16;u:{v:{w:{x:{y:{z:{A:{switch(y+ -88|0){default:c=y+ -65|0;if(c>>>0>6|!(1<<c&113)){break u};case 9:case 13:case 14:case 15:Bg(g,a,A);c=p[a+4>>2]-p[a+8>>2]|0;if(p[a+120>>2]==(0-c|0)&p[a+124>>2]==(0-((c>>31)+(0<c>>>0)|0)|0)){break b}if(!j){break u}c=p[g+8>>2];e=p[g+12>>2];f=p[g>>2];r=p[g+4>>2];switch(A|0){case 2:break w;case 1:break x;case 0:break y;default:break u};case 3:case 11:case 27:if((y&239)==99){uh(g+32|0,-1,257);n[g+32|0]=0;if((y|0)!=115){break v}n[g+65|0]=0;n[g+46|0]=0;o[g+42>>1]=0;o[g+44>>1]=0;break v}f=q[d+1|0];r=(f|0)==94;uh(g+32|0,r,257);n[g+32|0]=0;c=r?d+2|0:d+1|0;B:{C:{D:{d=q[(r?2:1)+d|0];if((d|0)!=45){if((d|0)==93){break D}h=(f|0)!=94;break B}h=(f|0)!=94;n[g+78|0]=h;break C}h=(f|0)!=94;n[g+126|0]=h}c=c+1|0}d=c;while(1){c=q[d|0];E:{if((c|0)!=45){if(!c){break c}if((c|0)!=93){break E}break v}c=45;f=q[d+1|0];if(!f|(f|0)==93){break E}r=d+1|0;d=q[d+ -1|0];F:{if(d>>>0>=f>>>0){c=f;break F}while(1){d=d+1|0;n[d+(g+32|0)|0]=h;c=q[r|0];if(d>>>0<c>>>0){continue}break}}d=r}n[(c+g|0)+33|0]=h;d=d+1|0;continue};case 23:c=8;break z;case 12:case 29:c=10;break z;case 1:case 2:case 4:case 5:case 6:case 7:case 8:case 10:case 16:case 18:case 19:case 20:case 21:case 22:case 25:case 26:case 28:case 30:case 31:break u;case 0:case 24:case 32:break z;case 17:break A}}c=0}c=Fg(a,c);e=$;f=p[a+4>>2]-p[a+8>>2]|0;if(p[a+120>>2]==(0-f|0)&p[a+124>>2]==(0-((f>>31)+(0<f>>>0)|0)|0)){break b}if(!(!j|(y|0)!=112)){p[j>>2]=c;break u}Jg(j,A,c,e);break u}E=j,F=$g(f,r,c,e),t[E>>2]=F;break u}E=j,G=fh(f,r,c,e),u[E>>3]=G;break u}p[j>>2]=f;p[j+4>>2]=r;p[j+8>>2]=c;p[j+12>>2]=e;break u}r=(y|0)==99;h=r?e+1|0:31;y=(A|0)!=1;G:{if(!y){c=j;if(z){c=kh(h<<2);if(!c){break d}}p[g+296>>2]=0;p[g+300>>2]=0;e=0;l=(z|0)!=0;while(1){x=c;H:{while(1){c=p[a+4>>2];I:{if(c>>>0<s[a+104>>2]){p[k>>2]=c+1;c=q[c|0];break I}c=yg(a)}if(!q[(c+g|0)+33|0]){break H}n[g+27|0]=c;c=Gg(g+28|0,g+27|0,g+296|0);if((c|0)==-2){continue}if((c|0)==-1){break e}if(x){p[(e<<2)+x>>2]=p[g+28>>2];e=e+1|0}if(l^1|(e|0)!=(h|0)){continue}break}h=h<<1|1;c=mh(x,h<<2);if(c){continue}break e}break}l=g+296|0;c=1;J:{if(!l){break J}c=!p[l>>2]}if(!c){break e}l=0;break G}if(z){e=0;c=kh(h);if(!c){break d}while(1){l=c;while(1){c=p[a+4>>2];K:{if(c>>>0<s[a+104>>2]){p[k>>2]=c+1;c=q[c|0];break K}c=yg(a)}if(!q[(c+g|0)+33|0]){x=0;break G}n[e+l|0]=c;e=e+1|0;if((h|0)!=(e|0)){continue}break}x=0;h=h<<1|1;c=mh(l,h);if(c){continue}break}break c}e=0;if(j){while(1){c=p[a+4>>2];L:{if(c>>>0<s[a+104>>2]){p[k>>2]=c+1;c=q[c|0];break L}c=yg(a)}if(q[(c+g|0)+33|0]){n[e+j|0]=c;e=e+1|0;continue}else{x=0;l=j;break G}}}while(1){c=p[a+4>>2];M:{if(c>>>0<s[a+104>>2]){p[k>>2]=c+1;c=q[c|0];break M}c=yg(a)}if(q[(c+g|0)+33|0]){continue}break}l=0;x=0}N:{if(!p[a+104>>2]){c=p[k>>2];break N}c=p[k>>2]+ -1|0;p[k>>2]=c}c=c-p[a+8>>2]|0;h=c;f=c+p[a+120>>2]|0;c=p[a+124>>2]+(c>>31)|0;c=f>>>0<h>>>0?c+1|0:c;if(!(c|f)|(r?(f|0)!=(D|0)|(c|0)!=(C|0):0)){break b}O:{if(!z){break O}if(!y){p[j>>2]=x;break O}p[j>>2]=l}if(r){break u}if(x){p[(e<<2)+x>>2]=0}if(!l){l=0;break u}n[e+l|0]=0}c=p[a+4>>2]-p[a+8>>2]|0;e=c;f=c>>31;i=i+p[a+124>>2]|0;c=m+p[a+120>>2]|0;if(c>>>0<m>>>0){i=i+1|0}m=c;c=c+e|0;i=f+i|0;i=c>>>0<m>>>0?i+1|0:i;m=c;B=((j|0)!=0)+B|0}e=d+1|0;d=q[d+1|0];if(d){continue}break a}break}l=0;break c}l=0;x=0}B=B?B:-1}if(!z){break a}lh(l);lh(x)}Z=g+304|0;return B}function Qc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,q=0,s=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0;t=Z-256|0;Z=t;d=p[a+424>>2];c=p[a+24>>2];p[d+112>>2]=p[c>>2];p[d+116>>2]=p[c+4>>2];if(!(p[d+36>>2]|!p[a+236>>2])){Wc(d,p[d+40>>2])}g=d+116|0;h=d+112|0;c=p[a+364>>2];u=p[a+368>>2];a:{if((c|0)<=(u|0)){w=p[b>>2];x=p[a+384>>2];q=p[a+376>>2];b=c;while(1){i=b<<2;f=o[(p[i+x>>2]<<1)+w>>1];e=f>>31;f=(e^f+e)>>>q|0;p[i+t>>2]=f;y=(f|0)==1?b:y;f=(b|0)!=(u|0);b=b+1|0;if(f){continue}break}b=0;if((c|0)>(u|0)){break a}l=p[d+136>>2]+p[d+132>>2]|0;while(1){q=c;z=c<<2;v=p[z+t>>2];b:{if(v){if(!((b|0)<=15|(q|0)>(y|0))){while(1){i=b;Tc(d);b=p[d+124>>2];c:{if(p[d+108>>2]){b=p[((b<<2)+d|0)+92>>2];p[b+960>>2]=p[b+960>>2]+1;break c}b=p[((b<<2)+d|0)+60>>2];f=p[b+960>>2];e=n[b+1264|0];if(!e){c=p[d+120>>2];b=p[c>>2];p[b+20>>2]=41;m[p[b>>2]](c);if(p[d+108>>2]){break c}}c=e+p[d+16>>2]|0;b=p[d+12>>2]|(f&(-1<<e^-1))<<24-c;s=0;f=0;if((c|0)>=8){while(1){f=c;c=p[h>>2];p[h>>2]=c+1;n[c|0]=b>>>16;c=p[g>>2]+ -1|0;p[g>>2]=c;if(!c){c=p[d+120>>2];j=p[c+24>>2];if(!(m[p[j+12>>2]](c)|0)){e=p[d+120>>2];c=p[e>>2];p[c+20>>2]=25;m[p[c>>2]](e)}p[h>>2]=p[j>>2];p[g>>2]=p[j+4>>2]}d:{if((b&16711680)!=16711680){break d}c=p[h>>2];p[h>>2]=c+1;n[c|0]=0;c=p[g>>2]+ -1|0;p[g>>2]=c;if(c){break d}c=p[d+120>>2];j=p[c+24>>2];if(!(m[p[j+12>>2]](c)|0)){e=p[d+120>>2];c=p[e>>2];p[c+20>>2]=25;m[p[c>>2]](e)}p[h>>2]=p[j>>2];p[g>>2]=p[j+4>>2]}c=f+ -8|0;b=b<<8;if((f|0)>15){continue}break}f=p[d+108>>2]}p[d+16>>2]=c;p[d+12>>2]=b;if(f|!k){break c}while(1){if(!s){f=p[d+16>>2];b=p[d+12>>2]|(n[l|0]&1)<<23-f;c=f+1|0;if((f|0)>=7){while(1){f=c;c=p[h>>2];p[h>>2]=c+1;n[c|0]=b>>>16;c=p[g>>2]+ -1|0;p[g>>2]=c;if(!c){c=p[d+120>>2];j=p[c+24>>2];if(!(m[p[j+12>>2]](c)|0)){e=p[d+120>>2];c=p[e>>2];p[c+20>>2]=25;m[p[c>>2]](e)}p[h>>2]=p[j>>2];p[g>>2]=p[j+4>>2]}e:{if((b&16711680)!=16711680){break e}c=p[h>>2];p[h>>2]=c+1;n[c|0]=0;c=p[g>>2]+ -1|0;p[g>>2]=c;if(c){break e}c=p[d+120>>2];j=p[c+24>>2];if(!(m[p[j+12>>2]](c)|0)){e=p[d+120>>2];c=p[e>>2];p[c+20>>2]=25;m[p[c>>2]](e)}p[h>>2]=p[j>>2];p[g>>2]=p[j+4>>2]}c=f+ -8|0;b=b<<8;if((f|0)>15){continue}break}}p[d+16>>2]=c;p[d+12>>2]=b}k=k+ -1|0;if(!k){break c}l=l+1|0;s=p[d+108>>2];continue}}b=i+ -16|0;l=p[d+136>>2];k=0;if((i|0)>31){continue}break}}if((v|0)>=2){n[k+l|0]=v&1;k=k+1|0;break b}c=b<<4|1;Tc(d);b=p[d+124>>2];f:{if(p[d+108>>2]){b=p[((b<<2)+d|0)+92>>2]+(c<<2)|0;p[b>>2]=p[b>>2]+1;break f}b=p[((b<<2)+d|0)+60>>2];f=p[b+(c<<2)>>2];i=n[(b+c|0)+1024|0];if(!i){c=p[d+120>>2];b=p[c>>2];p[b+20>>2]=41;m[p[b>>2]](c);if(p[d+108>>2]){break f}}c=i+p[d+16>>2]|0;b=p[d+12>>2]|(f&(-1<<i^-1))<<24-c;g:{if((c|0)<=7){p[d+16>>2]=c;p[d+12>>2]=b;break g}while(1){f=c;c=p[h>>2];p[h>>2]=c+1;n[c|0]=b>>>16;c=p[g>>2]+ -1|0;p[g>>2]=c;if(!c){c=p[d+120>>2];e=p[c+24>>2];if(!(m[p[e+12>>2]](c)|0)){i=p[d+120>>2];c=p[i>>2];p[c+20>>2]=25;m[p[c>>2]](i)}p[h>>2]=p[e>>2];p[g>>2]=p[e+4>>2]}h:{if((b&16711680)!=16711680){break h}c=p[h>>2];p[h>>2]=c+1;n[c|0]=0;c=p[g>>2]+ -1|0;p[g>>2]=c;if(c){break h}c=p[d+120>>2];e=p[c+24>>2];if(!(m[p[e+12>>2]](c)|0)){i=p[d+120>>2];c=p[i>>2];p[c+20>>2]=25;m[p[c>>2]](i)}p[h>>2]=p[e>>2];p[g>>2]=p[e+4>>2]}c=f+ -8|0;b=b<<8;if((f|0)>15){continue}break}p[d+16>>2]=c;p[d+12>>2]=b;if(p[d+108>>2]){break f}}i=p[d+16>>2];b=p[d+12>>2]|((r[(p[x+z>>2]<<1)+w>>1]^-1)&32768)>>>15<<23-i;c=i+1|0;s=0;f=0;if((i|0)>=7){while(1){f=c;c=p[h>>2];p[h>>2]=c+1;n[c|0]=b>>>16;c=p[g>>2]+ -1|0;p[g>>2]=c;if(!c){c=p[d+120>>2];e=p[c+24>>2];if(!(m[p[e+12>>2]](c)|0)){i=p[d+120>>2];c=p[i>>2];p[c+20>>2]=25;m[p[c>>2]](i)}p[h>>2]=p[e>>2];p[g>>2]=p[e+4>>2]}i:{if((b&16711680)!=16711680){break i}c=p[h>>2];p[h>>2]=c+1;n[c|0]=0;c=p[g>>2]+ -1|0;p[g>>2]=c;if(c){break i}c=p[d+120>>2];e=p[c+24>>2];if(!(m[p[e+12>>2]](c)|0)){i=p[d+120>>2];c=p[i>>2];p[c+20>>2]=25;m[p[c>>2]](i)}p[h>>2]=p[e>>2];p[g>>2]=p[e+4>>2]}c=f+ -8|0;b=b<<8;if((f|0)>15){continue}break}f=p[d+108>>2]}p[d+16>>2]=c;p[d+12>>2]=b;if(f|!k){break f}while(1){if(!s){f=p[d+16>>2];b=p[d+12>>2]|(n[l|0]&1)<<23-f;c=f+1|0;if((f|0)>=7){while(1){f=c;c=p[h>>2];p[h>>2]=c+1;n[c|0]=b>>>16;c=p[g>>2]+ -1|0;p[g>>2]=c;if(!c){c=p[d+120>>2];e=p[c+24>>2];if(!(m[p[e+12>>2]](c)|0)){i=p[d+120>>2];c=p[i>>2];p[c+20>>2]=25;m[p[c>>2]](i)}p[h>>2]=p[e>>2];p[g>>2]=p[e+4>>2]}j:{if((b&16711680)!=16711680){break j}c=p[h>>2];p[h>>2]=c+1;n[c|0]=0;c=p[g>>2]+ -1|0;p[g>>2]=c;if(c){break j}c=p[d+120>>2];e=p[c+24>>2];if(!(m[p[e+12>>2]](c)|0)){i=p[d+120>>2];c=p[i>>2];p[c+20>>2]=25;m[p[c>>2]](i)}p[h>>2]=p[e>>2];p[g>>2]=p[e+4>>2]}c=f+ -8|0;b=b<<8;if((f|0)>15){continue}break}}p[d+16>>2]=c;p[d+12>>2]=b}k=k+ -1|0;if(!k){break f}l=l+1|0;s=p[d+108>>2];continue}}l=p[d+136>>2];b=0;k=0;break b}b=b+1|0}c=q+1|0;if((q|0)!=(u|0)){continue}break}break a}b=0}k:{if(k?0:(b|0)<=0){break k}c=p[d+128>>2]+1|0;p[d+128>>2]=c;b=p[d+132>>2]+k|0;p[d+132>>2]=b;if(b>>>0<938?(c|0)!=32767:0){break k}Tc(d)}b=p[a+24>>2];p[b>>2]=p[h>>2];p[b+4>>2]=p[g>>2];c=p[a+236>>2];if(c){b=d;a=p[d+36>>2];if(!a){p[d+36>>2]=c;p[d+40>>2]=p[d+40>>2]+1&7;a=c}p[b+36>>2]=a+ -1}Z=t+256|0;return 1}function jg(a,b,c,d,e){var f=0,g=0,h=0,i=0,j=0,k=0,l=0,r=0,s=0,t=0,w=0,x=0,y=0,z=0,A=0;f=Z-80|0;Z=f;p[f+76>>2]=b;A=f+55|0;x=f+56|0;b=0;a:{b:while(1){c:{if((s|0)<0){break c}if((b|0)>(2147483647-s|0)){p[3103]=61;s=-1;break c}s=b+s|0}d:{e:{f:{i=p[f+76>>2];b=i;g=q[b|0];if(g){while(1){g:{g=g&255;h:{if(!g){g=b;break h}if((g|0)!=37){break g}g=b;while(1){if(q[b+1|0]!=37){break h}h=b+2|0;p[f+76>>2]=h;g=g+1|0;j=q[b+2|0];b=h;if((j|0)==37){continue}break}}b=g-i|0;if(a){kg(a,i,b)}if(b){continue b}g=f;h=!eg(n[p[f+76>>2]+1|0]);b=p[f+76>>2];i:{if(!(h|q[b+2|0]!=36)){w=n[b+1|0]+ -48|0;y=1;b=b+3|0;break i}w=-1;b=b+1|0}p[g+76>>2]=b;k=0;t=n[b|0];h=t+ -32|0;j:{if(h>>>0>31){g=b;break j}g=b;h=1<<h;if(!(h&75913)){break j}while(1){g=b+1|0;p[f+76>>2]=g;k=h|k;t=n[b+1|0];h=t+ -32|0;if(h>>>0>=32){break j}b=g;h=1<<h;if(h&75913){continue}break}}k:{if((t|0)==42){h=f;l:{m:{if(!eg(n[g+1|0])){break m}b=p[f+76>>2];if(q[b+2|0]!=36){break m}p[((n[b+1|0]<<2)+e|0)+ -192>>2]=10;l=p[((n[b+1|0]<<3)+d|0)+ -384>>2];y=1;b=b+3|0;break l}if(y){break f}y=0;l=0;if(a){b=p[c>>2];p[c>>2]=b+4;l=p[b>>2]}b=p[f+76>>2]+1|0}p[h+76>>2]=b;if((l|0)>-1){break k}l=0-l|0;k=k|8192;break k}l=lg(f+76|0);if((l|0)<0){break f}b=p[f+76>>2]}j=-1;n:{if(q[b|0]!=46){break n}if(q[b+1|0]==42){o:{if(!eg(n[b+2|0])){break o}b=p[f+76>>2];if(q[b+3|0]!=36){break o}p[((n[b+2|0]<<2)+e|0)+ -192>>2]=10;j=p[((n[b+2|0]<<3)+d|0)+ -384>>2];b=b+4|0;p[f+76>>2]=b;break n}if(y){break f}if(a){b=p[c>>2];p[c>>2]=b+4;j=p[b>>2]}else{j=0}b=p[f+76>>2]+2|0;p[f+76>>2]=b;break n}p[f+76>>2]=b+1;j=lg(f+76|0);b=p[f+76>>2]}g=0;while(1){z=g;r=-1;if(n[b|0]+ -65>>>0>57){break a}t=b+1|0;p[f+76>>2]=t;g=n[b|0];b=t;g=q[(g+v(z,58)|0)+10367|0];if(g+ -1>>>0<8){continue}break}p:{q:{if((g|0)!=19){if(!g){break a}if((w|0)>=0){p[(w<<2)+e>>2]=g;b=(w<<3)+d|0;g=p[b+4>>2];p[f+64>>2]=p[b>>2];p[f+68>>2]=g;break q}if(!a){break d}mg(f- -64|0,g,c);t=p[f+76>>2];break p}if((w|0)>-1){break a}}b=0;if(!a){continue b}}h=k&-65537;g=k&8192?h:k;r=0;w=10400;k=x;r:{s:{t:{u:{v:{w:{x:{y:{z:{A:{B:{C:{D:{E:{F:{G:{b=n[t+ -1|0];b=z?(b&15)==3?b&-33:b:b;switch(b+ -88|0){case 11:break r;case 9:case 13:case 14:case 15:break s;case 27:break x;case 12:case 17:break A;case 23:break B;case 0:case 32:break C;case 24:break D;case 22:break E;case 29:break F;case 1:case 2:case 3:case 4:case 5:case 6:case 7:case 8:case 10:case 16:case 18:case 19:case 20:case 21:case 25:case 26:case 28:case 30:case 31:break e;default:break G}}H:{switch(b+ -65|0){case 0:case 4:case 5:case 6:break s;case 2:break v;case 1:case 3:break e;default:break H}}if((b|0)==83){break w}break e}b=p[f+64>>2];i=p[f+68>>2];w=10400;break z}b=0;I:{switch(z&255){case 0:p[p[f+64>>2]>>2]=s;continue b;case 1:p[p[f+64>>2]>>2]=s;continue b;case 2:g=p[f+64>>2];p[g>>2]=s;p[g+4>>2]=s>>31;continue b;case 3:o[p[f+64>>2]>>1]=s;continue b;case 4:n[p[f+64>>2]]=s;continue b;case 6:p[p[f+64>>2]>>2]=s;continue b;case 7:break I;default:continue b}}g=p[f+64>>2];p[g>>2]=s;p[g+4>>2]=s>>31;continue b}j=j>>>0>8?j:8;g=g|8;b=120}i=ng(p[f+64>>2],p[f+68>>2],x,b&32);if(!(g&8)|!(p[f+64>>2]|p[f+68>>2])){break y}w=(b>>>4|0)+10400|0;r=2;break y}i=og(p[f+64>>2],p[f+68>>2],x);if(!(g&8)){break y}b=x-i|0;j=(j|0)>(b|0)?j:b+1|0;break y}h=p[f+68>>2];i=h;b=p[f+64>>2];if((h|0)<-1?1:(h|0)<=-1){i=0-(i+(0<b>>>0)|0)|0;b=0-b|0;p[f+64>>2]=b;p[f+68>>2]=i;r=1;w=10400;break z}if(g&2048){r=1;w=10401;break z}r=g&1;w=r?10402:10400}i=pg(b,i,x)}g=(j|0)>-1?g&-65537:g;b=p[f+64>>2];h=p[f+68>>2];if(!(!!(b|h)|j)){j=0;i=x;break e}b=!(b|h)+(x-i|0)|0;j=(j|0)>(b|0)?j:b;break e}b=p[f+64>>2];i=b?b:10410;b=fg(i,j);k=b?b:j+i|0;g=h;j=b?b-i|0:j;break e}h=p[f+64>>2];if(j){break u}b=0;qg(a,32,l,0,g);break t}p[f+12>>2]=0;p[f+8>>2]=p[f+64>>2];p[f+64>>2]=f+8;j=-1;h=f+8|0}b=0;J:{while(1){i=p[h>>2];if(!i){break J}i=hg(f+4|0,i);k=(i|0)<0;if(!(k|i>>>0>j-b>>>0)){h=h+4|0;b=b+i|0;if(j>>>0>b>>>0){continue}break J}break}r=-1;if(k){break a}}qg(a,32,l,b,g);if(!b){b=0;break t}t=0;h=p[f+64>>2];while(1){i=p[h>>2];if(!i){break t}i=hg(f+4|0,i);t=i+t|0;if((t|0)>(b|0)){break t}kg(a,f+4|0,i);h=h+4|0;if(t>>>0<b>>>0){continue}break}}qg(a,32,l,b,g^8192);b=(l|0)>(b|0)?l:b;continue b}b=m[0](a,u[f+64>>3],l,j,g,b)|0;continue b}n[f+55|0]=p[f+64>>2];j=1;i=A;g=h;break e}h=b+1|0;p[f+76>>2]=h;g=q[b+1|0];b=h;continue}}r=s;if(a){break a}if(!y){break d}b=1;while(1){a=p[(b<<2)+e>>2];if(a){mg((b<<3)+d|0,a,c);r=1;b=b+1|0;if((b|0)!=10){continue}break a}break}r=1;if(b>>>0>=10){break a}while(1){if(p[(b<<2)+e>>2]){break f}b=b+1|0;if((b|0)!=10){continue}break}break a}r=-1;break a}k=k-i|0;j=(j|0)<(k|0)?k:j;h=j+r|0;b=(l|0)<(h|0)?h:l;qg(a,32,b,h,g);kg(a,w,r);qg(a,48,b,h,g^65536);qg(a,48,j,k,0);kg(a,i,k);qg(a,32,b,h,g^8192);continue}break}r=0}Z=f+80|0;return r}function bh(a,b,c,d,e,f,g,h,i){var j=0,k=0,l=0,m=0,n=0,o=0,q=0,r=0,s=0,t=0,u=0,v=0,w=0,x=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0,J=0,K=0,L=0,M=0,N=0,O=0,P=0,Q=0,R=0,S=0,T=0,U=0,V=0,W=0,X=0;n=Z-96|0;Z=n;q=c;k=g;u=(k&131071)<<15|f>>>17;j=i&65535;w=j;s=h;k=h;B=k<<15|g>>>17;o=(e^i)&-2147483648;k=e&65535;m=k;r=d;E=k;k=j;C=(k&131071)<<15|h>>>17;F=i>>>16&32767;N=e>>>16&32767;a:{b:{if(N+ -1>>>0<=32765){v=0;if(F+ -1>>>0<32766){break b}}x=e&2147483647;j=x;k=d;if(!(!d&(j|0)==2147418112?!(b|c):(j|0)==2147418112&d>>>0<0|j>>>0<2147418112)){z=d;o=e|32768;break a}x=i&2147483647;e=x;d=h;if(!(!d&(e|0)==2147418112?!(f|g):(e|0)==2147418112&d>>>0<0|e>>>0<2147418112)){z=h;o=i|32768;b=f;c=g;break a}if(!(b|k|(j^2147418112|c))){if(!(d|f|(e|g))){o=2147450880;b=0;c=0;break a}o=o|2147418112;b=0;c=0;break a}if(!(d|f|(e^2147418112|g))){d=b|k;e=c|j;b=0;c=0;if(!(d|e)){o=2147450880;break a}o=o|2147418112;break a}if(!(b|k|(c|j))){b=0;c=0;break a}if(!(d|f|(e|g))){b=0;c=0;break a}if((j|0)==65535|j>>>0<65535){i=b;j=c;d=!(m|r);h=d<<6;k=y(d?b:r)+32|0;b=y(d?c:m);b=h+((b|0)==32?k:b)|0;Xg(n+80|0,i,j,r,m,b+ -15|0);r=p[n+88>>2];q=p[n+84>>2];E=p[n+92>>2];l=16-b|0;b=p[n+80>>2]}v=l;if(e>>>0>65535){break b}c=!(s|w);d=c<<6;e=y(c?f:s)+32|0;c=y(c?g:w);c=d+((c|0)==32?e:c)|0;h=c;Xg(n- -64|0,f,g,s,w,c+ -15|0);f=p[n+76>>2];c=f;i=p[n+68>>2];g=i;e=p[n+72>>2];d=e;B=d<<15|g>>>17;d=g;f=p[n+64>>2];u=(d&131071)<<15|f>>>17;C=(c&131071)<<15|e>>>17;v=(l-h|0)+16|0}d=u;s=0;i=Fh(d,0,b,s);c=$;D=c;A=f<<15&-32768;f=Fh(A,0,q,0);e=f+i|0;l=$+c|0;l=e>>>0<f>>>0?l+1|0:l;c=e;f=0;g=Fh(A,G,b,s);e=f+g|0;j=$+c|0;j=e>>>0<g>>>0?j+1|0:j;u=e;g=j;X=(c|0)==(j|0)&e>>>0<f>>>0|j>>>0<c>>>0;Q=Fh(d,O,q,P);J=$;x=r;f=Fh(A,G,r,0);e=f+Q|0;m=$+J|0;m=e>>>0<f>>>0?m+1|0:m;R=e;h=Fh(B,0,b,s);e=e+h|0;f=$+m|0;K=e;f=e>>>0<h>>>0?f+1|0:f;w=f;h=f;f=(l|0)==(D|0)&c>>>0<i>>>0|l>>>0<D>>>0;e=l;c=e+K|0;j=f+h|0;D=c;j=c>>>0<e>>>0?j+1|0:j;e=j;h=c;T=Fh(d,O,r,S);L=$;c=A;H=E|65536;A=t;f=Fh(c,G,H,t);c=f+T|0;j=$+L|0;j=c>>>0<f>>>0?j+1|0:j;U=c;k=Fh(q,P,B,V);c=c+k|0;t=j;f=j+$|0;f=c>>>0<k>>>0?f+1|0:f;M=c;I=C&2147483647|-2147483648;c=Fh(I,0,b,s);b=M+c|0;s=f;k=f+$|0;G=b;c=b>>>0<c>>>0?k+1|0:k;j=e+b|0;f=0;b=f+h|0;if(b>>>0<f>>>0){j=j+1|0}E=b;C=j;f=j;h=b+X|0;if(h>>>0<b>>>0){f=f+1|0}i=f;r=(v+(F+N|0)|0)+ -16383|0;f=Fh(x,S,B,V);b=$;l=0;k=Fh(d,O,H,A);d=k+f|0;j=$+b|0;j=d>>>0<k>>>0?j+1|0:j;v=d;k=d;d=j;j=(b|0)==(d|0)&k>>>0<f>>>0|d>>>0<b>>>0;f=Fh(I,W,q,P);b=f+k|0;k=$+d|0;k=b>>>0<f>>>0?k+1|0:k;q=b;f=b;b=k;d=(d|0)==(b|0)&f>>>0<v>>>0|b>>>0<d>>>0;f=j+d|0;if(f>>>0<d>>>0){l=1}k=f;d=b;f=l;F=k;j=0;k=(m|0)==(w|0)&K>>>0<R>>>0|w>>>0<m>>>0;m=k+((m|0)==(J|0)&R>>>0<Q>>>0|m>>>0<J>>>0)|0;if(m>>>0<k>>>0){j=1}l=m;m=m+q|0;k=d+j|0;v=m;j=m;k=j>>>0<l>>>0?k+1|0:k;d=k;b=(b|0)==(d|0)&j>>>0<q>>>0|d>>>0<b>>>0;k=F+b|0;if(k>>>0<b>>>0){f=f+1|0}b=k;k=Fh(I,W,H,A);b=b+k|0;j=$+f|0;j=b>>>0<k>>>0?j+1|0:j;l=b;m=Fh(I,W,x,S);f=$;q=Fh(B,V,H,A);b=q+m|0;k=$+f|0;k=b>>>0<q>>>0?k+1|0:k;q=b;b=k;k=(f|0)==(b|0)&q>>>0<m>>>0|b>>>0<f>>>0;f=b+l|0;l=j+k|0;k=f>>>0<b>>>0?l+1|0:l;x=f;j=d+q|0;l=0;b=l+v|0;if(b>>>0<l>>>0){j=j+1|0}m=b;f=b;b=j;d=(d|0)==(b|0)&f>>>0<v>>>0|b>>>0<d>>>0;f=x+d|0;if(f>>>0<d>>>0){k=k+1|0}q=f;l=b;j=0;f=(t|0)==(s|0)&M>>>0<U>>>0|s>>>0<t>>>0;t=f+((t|0)==(L|0)&U>>>0<T>>>0|t>>>0<L>>>0)|0;if(t>>>0<f>>>0){j=1}f=t+((c|0)==(s|0)&G>>>0<M>>>0|c>>>0<s>>>0)|0;d=c;c=d+m|0;l=f+l|0;l=c>>>0<d>>>0?l+1|0:l;t=c;d=c;c=l;b=(b|0)==(c|0)&d>>>0<m>>>0|c>>>0<b>>>0;d=b+q|0;if(d>>>0<b>>>0){k=k+1|0}b=c;j=k;k=d;f=0;d=(e|0)==(C|0)&E>>>0<D>>>0|C>>>0<e>>>0;e=d+((e|0)==(w|0)&D>>>0<K>>>0|e>>>0<w>>>0)|0;if(e>>>0<d>>>0){f=1}d=e+t|0;l=b+f|0;l=d>>>0<e>>>0?l+1|0:l;b=d;e=l;b=(c|0)==(e|0)&b>>>0<t>>>0|e>>>0<c>>>0;c=k+b|0;if(c>>>0<b>>>0){j=j+1|0}b=c;c=j;c:{if(c&65536){r=r+1|0;break c}m=g>>>31|0;j=c<<1|b>>>31;b=b<<1|e>>>31;c=j;j=e<<1|d>>>31;d=d<<1|i>>>31;e=j;k=u;j=g<<1|k>>>31;u=k<<1;g=j;k=i<<1|h>>>31;h=h<<1|m;i=k}if((r|0)>=32767){o=o|2147418112;b=0;c=0;break a}d:{if((r|0)<=0){f=1-r|0;if(f>>>0>=128){b=0;c=0;break a}k=r+127|0;Xg(n+48|0,u,g,h,i,k);Xg(n+32|0,d,e,b,c,k);_g(n+16|0,u,g,h,i,f);_g(n,d,e,b,c,f);u=(p[n+48>>2]|p[n+56>>2])!=0|(p[n+52>>2]|p[n+60>>2])!=0|(p[n+32>>2]|p[n+16>>2]);g=p[n+36>>2]|p[n+20>>2];h=p[n+40>>2]|p[n+24>>2];i=p[n+44>>2]|p[n+28>>2];d=p[n>>2];e=p[n+4>>2];c=p[n+12>>2];b=p[n+8>>2];break d}c=c&65535|r<<16}z=b|z;o=c|o;if(!(!h&(i|0)==-2147483648?!(g|u):(i|0)>-1)){l=o;m=e;b=d+1|0;if(b>>>0<1){m=m+1|0}c=m;d=(e|0)==(c|0)&b>>>0<d>>>0|c>>>0<e>>>0;e=d+z|0;if(e>>>0<d>>>0){l=l+1|0}z=e;o=l;break a}if(h|u|(i^-2147483648|g)){b=d;c=e;break a}m=o;j=e;b=d&1;c=b+d|0;if(c>>>0<b>>>0){j=j+1|0}b=c;c=j;d=(e|0)==(c|0)&b>>>0<d>>>0|c>>>0<e>>>0;e=d+z|0;if(e>>>0<d>>>0){m=m+1|0}z=e;o=m}p[a>>2]=b;p[a+4>>2]=c;p[a+8>>2]=z;p[a+12>>2]=o;Z=n+96|0}function vc(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0;if(p[a+76>>2]>=1){d=p[a+420>>2];i=p[a+84>>2];while(1){a:{b:{c:{d:{e:{f:{g:{h:{i:{j:{k:{l:{m:{n:{o:{p:{q:{r:{s:{t:{u:{v:{w:{x:{y:{z:{A:{B:{C:{D:{E:{F:{G:{H:{I:{g=p[i+36>>2];b=p[i+40>>2]+(g<<8)|0;if((b|0)<=2051){if((b|0)<=1025){J:{switch(b+ -513|0){case 0:break n;case 1:break H;case 2:break c;case 3:break g;default:break J}}K:{switch(b+ -257|0){case 0:break I;case 1:break f;default:break K}}switch(b+ -771|0){case 3:break h;case 0:break G;default:break c}}if((b|0)<=1538){L:{switch(b+ -1026|0){case 6:break i;case 0:break o;case 2:break F;case 1:case 3:case 4:case 5:break c;default:break L}}switch(b+ -1285|0){case 5:break j;case 0:break E;default:break c}}M:{switch(b+ -1539|0){case 9:break k;case 0:break p;case 3:break D;case 1:case 2:case 4:case 5:case 6:case 7:case 8:break c;default:break M}}switch(b+ -1799|0){case 7:break l;case 0:break C;default:break c}}if((b|0)<=3077){if((b|0)<=2564){switch(b+ -2052|0){case 12:break m;case 0:break q;case 1:case 2:case 3:case 5:case 6:case 7:case 8:case 9:case 10:case 11:break c;case 4:break e;default:break d}}switch(b+ -2565|0){case 0:break r;case 5:break B;case 1:case 2:case 3:case 4:break c;default:break A}}if((b|0)<=3590){switch(b+ -3078|0){case 0:break s;case 6:break z;case 1:case 2:case 3:case 4:case 5:break c;default:break y}}N:{switch(b+ -3591|0){case 0:break t;case 7:break x;case 1:case 2:case 3:case 4:case 5:case 6:break c;default:break N}}switch(b+ -4104|0){case 0:break u;case 8:break v;case 1:case 2:case 3:case 4:case 5:case 6:case 7:break c;default:break w}}p[((c<<2)+d|0)+44>>2]=51;e=0;break a}p[((c<<2)+d|0)+44>>2]=52;e=0;break a}p[((c<<2)+d|0)+44>>2]=53;e=0;break a}p[((c<<2)+d|0)+44>>2]=54;e=0;break a}p[((c<<2)+d|0)+44>>2]=55;e=0;break a}p[((c<<2)+d|0)+44>>2]=56;e=0;break a}p[((c<<2)+d|0)+44>>2]=57;e=0;break a}p[((c<<2)+d|0)+44>>2]=58;e=0;break a}if((b|0)!=2827){break c}p[((c<<2)+d|0)+44>>2]=59;e=0;break a}p[((c<<2)+d|0)+44>>2]=60;e=0;break a}if((b|0)!=3341){break c}p[((c<<2)+d|0)+44>>2]=61;e=0;break a}p[((c<<2)+d|0)+44>>2]=62;e=0;break a}if((b|0)!=3855){break c}p[((c<<2)+d|0)+44>>2]=63;e=0;break a}p[((c<<2)+d|0)+44>>2]=64;e=0;break a}p[((c<<2)+d|0)+44>>2]=65;e=0;break a}p[((c<<2)+d|0)+44>>2]=66;e=0;break a}p[((c<<2)+d|0)+44>>2]=67;e=0;break a}p[((c<<2)+d|0)+44>>2]=68;e=0;break a}p[((c<<2)+d|0)+44>>2]=69;e=0;break a}p[((c<<2)+d|0)+44>>2]=70;e=0;break a}p[((c<<2)+d|0)+44>>2]=71;e=0;break a}p[((c<<2)+d|0)+44>>2]=72;e=0;break a}p[((c<<2)+d|0)+44>>2]=73;e=0;break a}p[((c<<2)+d|0)+44>>2]=74;e=0;break a}p[((c<<2)+d|0)+44>>2]=75;e=0;break a}p[((c<<2)+d|0)+44>>2]=76;e=0;break a}p[((c<<2)+d|0)+44>>2]=77;e=0;break a}p[((c<<2)+d|0)+44>>2]=78;e=0;break a}p[((c<<2)+d|0)+44>>2]=79;e=0;break a}p[((c<<2)+d|0)+44>>2]=80;e=0;break a}O:{switch(p[a+232>>2]){case 0:p[((c<<2)+d|0)+44>>2]=81;e=0;break a;case 1:p[((c<<2)+d|0)+44>>2]=82;e=1;break a;case 2:e=2;p[((c<<2)+d|0)+84>>2]=83;break a;default:break O}}b=p[a>>2];p[b+20>>2]=49;m[p[b>>2]](a);break a}if((b|0)==2313){break b}}b=p[a>>2];p[b+24>>2]=g;p[b+20>>2]=7;p[p[a>>2]+28>>2]=p[i+40>>2];m[p[p[a>>2]>>2]](a);break a}p[((c<<2)+d|0)+44>>2]=84;e=0}b=p[i+16>>2];P:{if(b>>>0<=3){g=p[((b<<2)+a|0)+88>>2];if(g){break P}}g=p[a>>2];p[g+24>>2]=b;p[g+20>>2]=54;m[p[p[a>>2]>>2]](a);g=p[((b<<2)+a|0)+88>>2]}Q:{R:{switch(e|0){case 0:h=p[i+52>>2]?4:3;j=p[i+84>>2];b=0;while(1){p[j+(b<<2)>>2]=r[(b<<1)+g>>1]<<h;b=b+1|0;if((b|0)!=64){continue}break}p[((c<<2)+d|0)+4>>2]=85;break Q;case 1:h=p[i+52>>2]?10:11;j=1<<h+ -1;f=p[i+84>>2];b=0;while(1){n=b<<1;p[(b<<2)+f>>2]=j+v(o[n+8032>>1],r[g+n>>1])>>h;b=b+1|0;if((b|0)!=64){continue}break}p[((c<<2)+d|0)+4>>2]=85;break Q;case 2:k=p[i+52>>2]?16:8;h=p[i+84>>2];j=0;b=0;while(1){l=u[(j<<3)+8160>>3];t[h+(b<<2)>>2]=1/(l*+r[(b<<1)+g>>1]*k);f=b|1;t[h+(f<<2)>>2]=1/(l*+r[(f<<1)+g>>1]*1.387039845*k);f=b|2;t[h+(f<<2)>>2]=1/(l*+r[(f<<1)+g>>1]*1.306562965*k);f=b|3;t[h+(f<<2)>>2]=1/(l*+r[(f<<1)+g>>1]*1.175875602*k);f=b|4;t[h+(f<<2)>>2]=1/(l*+r[(f<<1)+g>>1]*k);f=b|5;t[h+(f<<2)>>2]=1/(l*+r[(f<<1)+g>>1]*.785694958*k);f=b|6;t[h+(f<<2)>>2]=1/(l*+r[(f<<1)+g>>1]*.5411961*k);f=b|7;t[h+(f<<2)>>2]=1/(l*+r[(f<<1)+g>>1]*.275899379*k);b=b+8|0;j=j+1|0;if((j|0)!=8){continue}break}p[((c<<2)+d|0)+4>>2]=86;break Q;default:break R}}b=p[a>>2];p[b+20>>2]=49;m[p[b>>2]](a)}i=i+88|0;c=c+1|0;if((c|0)<p[a+76>>2]){continue}break}}}function Cg(a,b,c,d,e){var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0;f=Z-432|0;Z=f;g=p[b+4>>2];a:{if(g>>>0<s[b+104>>2]){p[b+4>>2]=g+1;h=q[g|0];break a}h=yg(b)}b:{c:{while(1){d:{if((h|0)!=48){if((h|0)!=46){break b}g=p[b+4>>2];if(g>>>0>=s[b+104>>2]){break d}p[b+4>>2]=g+1;h=q[g|0];break c}g=p[b+4>>2];if(g>>>0<s[b+104>>2]){x=1;p[b+4>>2]=g+1;h=q[g|0]}else{x=1;h=yg(b)}continue}break}h=yg(b)}y=1;if((h|0)!=48){break b}while(1){n=n+ -1|0;g=u+ -1|0;if((g|0)!=-1){n=n+1|0}u=g;g=p[b+4>>2];e:{if(g>>>0<s[b+104>>2]){p[b+4>>2]=g+1;h=q[g|0];break e}h=yg(b)}if((h|0)==48){continue}break}x=1}g=1073676288;while(1){f:{z=h|32;g:{h:{A=h+ -48|0;if(A>>>0<10){break h}if(z+ -97>>>0>5?(h|0)!=46:0){break f}if((h|0)!=46){break h}if(y){break f}y=1;u=l;n=i;break g}h=(h|0)>57?z+ -87|0:A;i:{if((i|0)<0?1:(i|0)<=0?l>>>0<=7:0){o=h+(o<<4)|0;break i}if((i|0)<0?1:(i|0)<=0?l>>>0<=28:0){dh(f+48|0,h);bh(f+32|0,v,w,m,g,0,0,0,1073414144);v=p[f+32>>2];w=p[f+36>>2];m=p[f+40>>2];g=p[f+44>>2];bh(f+16|0,v,w,m,g,p[f+48>>2],p[f+52>>2],p[f+56>>2],p[f+60>>2]);Yg(f,j,k,r,t,p[f+16>>2],p[f+20>>2],p[f+24>>2],p[f+28>>2]);r=p[f+8>>2];t=p[f+12>>2];j=p[f>>2];k=p[f+4>>2];break i}if(!h|D){break i}bh(f+80|0,v,w,m,g,0,0,0,1073610752);Yg(f- -64|0,j,k,r,t,p[f+80>>2],p[f+84>>2],p[f+88>>2],p[f+92>>2]);r=p[f+72>>2];t=p[f+76>>2];D=1;j=p[f+64>>2];k=p[f+68>>2]}l=l+1|0;if(l>>>0<1){i=i+1|0}x=1}h=p[b+4>>2];if(h>>>0<s[b+104>>2]){p[b+4>>2]=h+1;h=q[h|0]}else{h=yg(b)}continue}break}j:{k:{if(!x){if(!p[b+104>>2]){break k}p[b+4>>2]=p[b+4>>2]+ -1;break k}if((i|0)<0?1:(i|0)<=0?l>>>0<=7:0){m=l;g=i;while(1){o=o<<4;m=m+1|0;if(m>>>0<1){g=g+1|0}if((m|0)!=8|g){continue}break}}l:{if((h&-33)==80){m=Eg(b);h=$;g=h;if(m|(g|0)!=-2147483648){break l}j=0;k=0;xg(b,0,0);c=0;b=0;break j}m=0;g=0;if(!p[b+104>>2]){break l}p[b+4>>2]=p[b+4>>2]+ -1}if(!o){ah(f+112|0,+(e|0)*0);j=p[f+112>>2];k=p[f+116>>2];c=p[f+120>>2];b=p[f+124>>2];break j}b=y?n:i;i=y?u:l;n=b<<2|i>>>30;b=m+(i<<2)|0;i=g+n|0;i=b>>>0<m>>>0?i+1|0:i;b=b+ -32|0;g=i+ -1|0;l=b;i=b>>>0<4294967264?g+1|0:g;if((i|0)>0?1:(i|0)>=0?b>>>0>0-d>>>0:0){p[3103]=68;dh(f+160|0,e);bh(f+144|0,p[f+160>>2],p[f+164>>2],p[f+168>>2],p[f+172>>2],-1,-1,-1,2147418111);bh(f+128|0,p[f+144>>2],p[f+148>>2],p[f+152>>2],p[f+156>>2],-1,-1,-1,2147418111);j=p[f+128>>2];k=p[f+132>>2];c=p[f+136>>2];b=p[f+140>>2];break j}b=d+ -226|0;h=l>>>0>=b>>>0;b=b>>31;if((i|0)>(b|0)?1:(i|0)>=(b|0)?h:0){if((o|0)>-1){while(1){Yg(f+416|0,j,k,r,t,0,0,0,-1073807360);h=Vg(j,k,r,t,1073610752);g=(h|0)<0;b=g;Yg(f+400|0,j,k,r,t,b?j:p[f+416>>2],b?k:p[f+420>>2],b?r:p[f+424>>2],b?t:p[f+428>>2]);i=i+ -1|0;b=l+ -1|0;if((b|0)!=-1){i=i+1|0}l=b;r=p[f+408>>2];t=p[f+412>>2];j=p[f+400>>2];k=p[f+404>>2];o=o<<1|(h|0)>-1;if((o|0)>-1){continue}break}}g=l;b=d;h=(g-b|0)+32|0;i=i-((b>>31)+(g>>>0<b>>>0)|0)|0;b=h;i=b>>>0<32?i+1|0:i;c=((i|0)<0?1:(i|0)<=0?b>>>0<c>>>0:0)?(b|0)>0?b:0:c;m:{if((c|0)>=113){dh(f+384|0,e);u=p[f+392>>2];n=p[f+396>>2];v=p[f+384>>2];w=p[f+388>>2];d=0;b=0;break m}ah(f+352|0,rh(144-c|0));dh(f+336|0,e);v=p[f+336>>2];w=p[f+340>>2];u=p[f+344>>2];n=p[f+348>>2];zg(f+368|0,p[f+352>>2],p[f+356>>2],p[f+360>>2],p[f+364>>2],v,w,u,n);B=p[f+376>>2];C=p[f+380>>2];d=p[f+372>>2];b=p[f+368>>2]}c=!(o&1)&((Ug(j,k,r,t,0,0,0,0)|0)!=0&(c|0)<32);gh(f+320|0,c+o|0);bh(f+304|0,v,w,u,n,p[f+320>>2],p[f+324>>2],p[f+328>>2],p[f+332>>2]);Yg(f+272|0,p[f+304>>2],p[f+308>>2],p[f+312>>2],p[f+316>>2],b,d,B,C);bh(f+288|0,c?0:j,c?0:k,c?0:r,c?0:t,v,w,u,n);Yg(f+256|0,p[f+288>>2],p[f+292>>2],p[f+296>>2],p[f+300>>2],p[f+272>>2],p[f+276>>2],p[f+280>>2],p[f+284>>2]);ch(f+240|0,p[f+256>>2],p[f+260>>2],p[f+264>>2],p[f+268>>2],b,d,B,C);e=p[f+240>>2];d=p[f+244>>2];c=p[f+248>>2];b=p[f+252>>2];if(!Ug(e,d,c,b,0,0,0,0)){p[3103]=68}Ag(f+224|0,e,d,c,b,l);j=p[f+224>>2];k=p[f+228>>2];c=p[f+232>>2];b=p[f+236>>2];break j}p[3103]=68;dh(f+208|0,e);bh(f+192|0,p[f+208>>2],p[f+212>>2],p[f+216>>2],p[f+220>>2],0,0,0,65536);bh(f+176|0,p[f+192>>2],p[f+196>>2],p[f+200>>2],p[f+204>>2],0,0,0,65536);j=p[f+176>>2];k=p[f+180>>2];c=p[f+184>>2];b=p[f+188>>2];break j}xg(b,0,0);ah(f+96|0,+(e|0)*0);j=p[f+96>>2];k=p[f+100>>2];c=p[f+104>>2];b=p[f+108>>2]}p[a>>2]=j;p[a+4>>2]=k;p[a+8>>2]=c;p[a+12>>2]=b;Z=f+432|0}function Wd(a,b,c,d){var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0;r=Z-1408|0;Z=r;f=d<<3&-32;t=f|4;e=c<<2&-32;u=e|2;h=b<<3&-32;z=h|4;D=p[p[a+484>>2]+24>>2];w=p[a+132>>2];if((w|0)>=1){m=f|28;x=m+t>>1;k=e|30;A=k+u>>1;i=h|28;B=i+z>>1;f=p[a+136>>2];C=p[f+8>>2];y=p[f+4>>2];s=p[f>>2];j=2147483647;while(1){f=q[g+s|0];a:{if((z|0)>(f|0)){e=f-i<<1;e=v(e,e);f=f-z<<1;f=v(f,f);break a}if((i|0)<(f|0)){e=f-z<<1;e=v(e,e);f=f-i<<1;f=v(f,f);break a}b:{if((B|0)>=(f|0)){f=f-i<<1;e=v(f,f);break b}f=f-z<<1;e=v(f,f)}f=0}h=q[g+y|0];c:{if((u|0)>(h|0)){l=f;f=v(h-u|0,3);f=l+v(f,f)|0;h=v(h-k|0,3);h=v(h,h);break c}if((k|0)<(h|0)){l=f;f=v(h-k|0,3);f=l+v(f,f)|0;h=v(h-u|0,3);h=v(h,h);break c}if((A|0)>=(h|0)){h=v(h-k|0,3);h=v(h,h);break c}h=v(h-u|0,3);h=v(h,h)}h=h+e|0;e=q[g+C|0];d:{if((t|0)>(e|0)){l=f;f=e-t|0;f=l+v(f,f)|0;e=e-m|0;e=v(e,e);break d}if((m|0)<(e|0)){l=f;f=e-m|0;f=l+v(f,f)|0;e=e-t|0;e=v(e,e);break d}if((x|0)>=(e|0)){e=e-m|0;e=v(e,e);break d}e=e-t|0;e=v(e,e)}p[(r+384|0)+(g<<2)>>2]=f;f=e+h|0;j=(f|0)<(j|0)?f:j;g=g+1|0;if((w|0)!=(g|0)){continue}break}x=0;g=0;while(1){if(p[(r+384|0)+(g<<2)>>2]<=(j|0)){n[(r+128|0)+x|0]=g;x=x+1|0}g=g+1|0;if((w|0)!=(g|0)){continue}break}}f=127;g=r+384|0;while(1){p[g>>2]=2147483647;e=f;f=f+ -1|0;g=g+4|0;if(e){continue}break}if((x|0)>=1){C=0;while(1){j=q[(r+128|0)+C|0];h=p[a+136>>2];k=t-q[j+p[h+8>>2]|0]|0;f=k<<4;w=f+320|0;A=f+192|0;B=f- -64|0;i=z-q[j+p[h>>2]|0]|0;y=i<<6;s=y+256|0;e=7;f=r;g=f+384|0;l=u-q[j+p[h+4>>2]|0]|0;m=v(l,72)+144|0;h=m;l=v(l,3);i=i<<1;l=(v(l,l)+v(i,i)|0)+v(k,k)|0;i=l;while(1){k=e;if((i|0)<p[g>>2]){p[g>>2]=i;n[f|0]=j}e=i+B|0;if((e|0)<p[g+4>>2]){p[g+4>>2]=e;n[f+1|0]=j}e=e+A|0;if((e|0)<p[g+8>>2]){p[g+8>>2]=e;n[f+2|0]=j}e=e+w|0;if((e|0)<p[g+12>>2]){p[g+12>>2]=e;n[f+3|0]=j}e=k+ -1|0;i=h+i|0;f=f+4|0;g=g+16|0;h=h+288|0;if(k){continue}break}E=y+768|0;e=7;h=m;s=s+l|0;i=s;while(1){k=e;if((i|0)<p[g>>2]){p[g>>2]=i;n[f|0]=j}e=i+B|0;if((e|0)<p[g+4>>2]){p[g+4>>2]=e;n[f+1|0]=j}e=e+A|0;if((e|0)<p[g+8>>2]){p[g+8>>2]=e;n[f+2|0]=j}e=e+w|0;if((e|0)<p[g+12>>2]){p[g+12>>2]=e;n[f+3|0]=j}e=k+ -1|0;i=h+i|0;f=f+4|0;g=g+16|0;h=h+288|0;if(k){continue}break}y=y+1280|0;e=7;h=m;s=s+E|0;i=s;while(1){k=e;if((i|0)<p[g>>2]){p[g>>2]=i;n[f|0]=j}e=i+B|0;if((e|0)<p[g+4>>2]){p[g+4>>2]=e;n[f+1|0]=j}e=e+A|0;if((e|0)<p[g+8>>2]){p[g+8>>2]=e;n[f+2|0]=j}e=e+w|0;if((e|0)<p[g+12>>2]){p[g+12>>2]=e;n[f+3|0]=j}e=k+ -1|0;i=h+i|0;f=f+4|0;g=g+16|0;h=h+288|0;if(k){continue}break}i=s+y|0;e=7;while(1){h=e;if((i|0)<p[g>>2]){p[g>>2]=i;n[f|0]=j}e=i+B|0;if((e|0)<p[g+4>>2]){p[g+4>>2]=e;n[f+1|0]=j}e=e+A|0;if((e|0)<p[g+8>>2]){p[g+8>>2]=e;n[f+2|0]=j}e=e+w|0;if((e|0)<p[g+12>>2]){p[g+12>>2]=e;n[f+3|0]=j}e=h+ -1|0;i=i+m|0;f=f+4|0;g=g+16|0;m=m+288|0;if(h){continue}break}C=C+1|0;if((C|0)!=(x|0)){continue}break}}e=b&-4;f=0;g=r;a=(d&-4)<<1;d=c&-8;h=(d|1)<<6;m=(d|2)<<6;k=(d|3)<<6;i=(d|4)<<6;j=(d|5)<<6;t=(d|6)<<6;u=(c|7)<<6;while(1){b=p[(f+e<<2)+D>>2];c=a+(b+(d<<6)|0)|0;o[c>>1]=q[g|0]+1;o[c+2>>1]=q[g+1|0]+1;o[c+4>>1]=q[g+2|0]+1;o[c+6>>1]=q[g+3|0]+1;c=a+(b+h|0)|0;o[c>>1]=q[g+4|0]+1;o[c+2>>1]=q[g+5|0]+1;o[c+4>>1]=q[g+6|0]+1;o[c+6>>1]=q[g+7|0]+1;c=a+(b+m|0)|0;o[c>>1]=q[g+8|0]+1;o[c+2>>1]=q[g+9|0]+1;o[c+4>>1]=q[g+10|0]+1;o[c+6>>1]=q[g+11|0]+1;c=a+(b+k|0)|0;o[c>>1]=q[g+12|0]+1;o[c+2>>1]=q[g+13|0]+1;o[c+4>>1]=q[g+14|0]+1;o[c+6>>1]=q[g+15|0]+1;c=a+(b+i|0)|0;o[c>>1]=q[g+16|0]+1;o[c+2>>1]=q[g+17|0]+1;o[c+4>>1]=q[g+18|0]+1;o[c+6>>1]=q[g+19|0]+1;c=a+(b+j|0)|0;o[c>>1]=q[g+20|0]+1;o[c+2>>1]=q[g+21|0]+1;o[c+4>>1]=q[g+22|0]+1;o[c+6>>1]=q[g+23|0]+1;c=a+(b+t|0)|0;o[c>>1]=q[g+24|0]+1;o[c+2>>1]=q[g+25|0]+1;o[c+4>>1]=q[g+26|0]+1;o[c+6>>1]=q[g+27|0]+1;b=a+(b+u|0)|0;o[b>>1]=q[g+28|0]+1;o[b+2>>1]=q[g+29|0]+1;o[b+4>>1]=q[g+30|0]+1;o[b+6>>1]=q[g+31|0]+1;g=g+32|0;f=f+1|0;if((f|0)!=4){continue}break}Z=r+1408|0}function wd(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;c=2;a:{g=p[a+460>>2];if(p[g+20>>2]){break a}while(1){d=a;b:{c:{d:{e:{c=m[p[p[a+464>>2]+4>>2]](a)|0;if((c|0)!=1){if((c|0)!=2){break a}p[g+20>>2]=1;if(!p[g+24>>2]){break e}c=2;if(!p[p[a+464>>2]+16>>2]){break a}d=p[a>>2];p[d+20>>2]=62;m[p[d>>2]](a);return 2}f:{switch(p[g+24>>2]){default:c=p[a+340>>2];break b;case 1:if(!(p[a+28>>2]<65501?p[a+32>>2]<=65500:0)){b=p[a>>2];p[b+20>>2]=42;p[b+24>>2]=65500;m[p[p[a>>2]>>2]](a)}h=p[a+212>>2];if(h+ -8>>>0>=5){b=p[a>>2];p[b+24>>2]=h;p[b+20>>2]=16;m[p[p[a>>2]>>2]](a)}f=p[a+36>>2];if((f|0)>=11){b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=27;p[p[a>>2]+28>>2]=10;m[p[p[a>>2]>>2]](a);f=p[a+36>>2]}p[a+316>>2]=1;p[a+320>>2]=1;if((f|0)>=1){c=p[a+216>>2];h=0;b=1;e=1;while(1){i=p[c+8>>2];g:{if(i+ -1>>>0<=3){j=p[c+12>>2];if(j+ -1>>>0<4){break g}}b=p[a>>2];p[b+20>>2]=19;m[p[b>>2]](a);f=p[a+36>>2];j=p[c+12>>2];b=p[a+320>>2];i=p[c+8>>2];e=p[a+316>>2]}b=(b|0)>(j|0)?b:j;p[a+320>>2]=b;e=(e|0)>(i|0)?e:i;p[a+316>>2]=e;c=c+88|0;h=h+1|0;if((h|0)<(f|0)){continue}break}}if(!(!p[a+224>>2]|!p[a+340>>2]?!p[a+220>>2]:0)){break d}h:{i:{j:{k:{l:{m:{n:{o:{p:{q:{r:{s:{t:{u:{b=p[a+416>>2];if((b|0)<=119){switch(b|0){case 99:break m;case 80:break n;case 48:break o;case 35:break p;case 24:break q;case 15:break r;case 8:break s;case 3:break t;case 0:break u;case 63:break d;default:break h}}if((b|0)<=194){if((b|0)==120){break l}if((b|0)==143){break k}if((b|0)!=168){break h}p[a+436>>2]=63;p[a+432>>2]=6224;p[a+428>>2]=13;b=13;break c}if((b|0)==195){break j}if((b|0)==224){break i}if((b|0)!=255){break h}p[a+436>>2]=63;p[a+432>>2]=6224;p[a+428>>2]=16;b=16;break c}p[a+436>>2]=0;p[a+432>>2]=6224;p[a+428>>2]=1;b=1;break c}p[a+436>>2]=3;p[a+432>>2]=7440;p[a+428>>2]=2;b=2;break c}p[a+436>>2]=8;p[a+432>>2]=7328;p[a+428>>2]=3;b=3;break c}p[a+436>>2]=15;p[a+432>>2]=7200;p[a+428>>2]=4;b=4;break c}p[a+436>>2]=24;p[a+432>>2]=7024;p[a+428>>2]=5;b=5;break c}p[a+436>>2]=35;p[a+432>>2]=6816;p[a+428>>2]=6;b=6;break c}p[a+436>>2]=48;p[a+432>>2]=6544;p[a+428>>2]=7;b=7;break c}p[a+436>>2]=63;p[a+432>>2]=6224;p[a+428>>2]=9;b=9;break c}p[a+436>>2]=63;p[a+432>>2]=6224;p[a+428>>2]=10;b=10;break c}p[a+436>>2]=63;p[a+432>>2]=6224;p[a+428>>2]=11;b=11;break c}p[a+436>>2]=63;p[a+432>>2]=6224;p[a+428>>2]=12;b=12;break c}p[a+436>>2]=63;p[a+432>>2]=6224;p[a+428>>2]=14;b=14;break c}p[a+436>>2]=63;p[a+432>>2]=6224;p[a+428>>2]=15;b=15;break c}b=p[a>>2];p[b+20>>2]=17;p[b+24>>2]=p[a+412>>2];p[p[a>>2]+28>>2]=p[a+416>>2];p[p[a>>2]+32>>2]=p[a+420>>2];p[p[a>>2]+36>>2]=p[a+424>>2];m[p[p[a>>2]>>2]](a);f=p[a+36>>2];b=p[a+428>>2];break c;case 0:break f}}if(!p[g+16>>2]){d=p[a>>2];p[d+20>>2]=36;m[p[d>>2]](a)}if(!p[a+340>>2]){continue}ud(a);return 1}c=2;d=p[a+144>>2];if(p[a+152>>2]<=(d|0)){break a}p[a+152>>2]=d;break a}p[a+436>>2]=63;p[a+432>>2]=6224;p[a+428>>2]=8;b=8}p[d+328>>2]=b;p[a+324>>2]=b;if((f|0)>=1){c=p[a+216>>2];e=0;while(1){p[c+40>>2]=b;p[c+36>>2]=b;k=c,l=Qa(v(p[c+8>>2],p[a+28>>2]),v(p[a+316>>2],b)),p[k+28>>2]=l;k=c,l=Qa(v(p[c+12>>2],p[a+32>>2]),v(p[a+428>>2],p[a+320>>2])),p[k+32>>2]=l;k=c,l=Qa(v(p[c+8>>2],p[a+28>>2]),p[a+316>>2]),p[k+44>>2]=l;d=Qa(v(p[c+12>>2],p[a+32>>2]),p[a+320>>2]);p[c+80>>2]=0;p[c+52>>2]=1;p[c+48>>2]=d;e=e+1|0;if((e|0)<p[a+36>>2]){c=c+88|0;b=p[a+428>>2];continue}break}b=p[a+428>>2]}k=a,l=Qa(p[a+32>>2],v(p[a+320>>2],b)),p[k+332>>2]=l;c=p[a+340>>2];if(!(p[a+224>>2]?0:(c|0)>=p[a+36>>2])){p[p[a+460>>2]+16>>2]=1;break b}p[p[a+460>>2]+16>>2]=0}if(!c){p[g+24>>2]=2;continue}break}p[g+24>>2]=0;return 1}return c|0}function gf(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;if(p[a+36>>2]>=1){l=p[a+472>>2];h=p[a+216>>2];while(1){e=b;g=c;b=165;a:{b:{c:{d:{e:{f:{g:{h:{i:{j:{k:{l:{m:{n:{o:{p:{q:{r:{s:{t:{u:{v:{w:{x:{y:{z:{A:{B:{C:{D:{E:{F:{G:{H:{I:{J:{i=p[h+36>>2];d=p[h+40>>2]+(i<<8)|0;if((d|0)<=2051){if((d|0)<=1025){K:{switch(d+ -513|0){case 3:break i;case 0:break p;case 1:break J;case 2:break e;default:break K}}c=0;L:{switch(d+ -257|0){case 1:break h;case 0:break a;default:break L}}switch(d+ -771|0){case 3:break j;case 0:break I;default:break e}}if((d|0)<=1538){M:{switch(d+ -1026|0){case 6:break k;case 0:break q;case 2:break H;case 1:case 3:case 4:case 5:break e;default:break M}}switch(d+ -1285|0){case 5:break l;case 0:break G;default:break e}}N:{switch(d+ -1539|0){case 9:break m;case 0:break r;case 3:break F;case 1:case 2:case 4:case 5:case 6:case 7:case 8:break e;default:break N}}switch(d+ -1799|0){case 7:break n;case 0:break E;default:break e}}if((d|0)<=3077){if((d|0)<=2564){switch(d+ -2052|0){case 12:break o;case 0:break s;case 1:case 2:case 3:case 5:case 6:case 7:case 8:case 9:case 10:case 11:break e;case 4:break g;default:break f}}switch(d+ -2565|0){case 0:break t;case 5:break D;case 1:case 2:case 3:case 4:break e;default:break C}}if((d|0)<=3590){switch(d+ -3078|0){case 0:break u;case 6:break B;case 1:case 2:case 3:case 4:case 5:break e;default:break A}}O:{switch(d+ -3591|0){case 0:break v;case 7:break z;case 1:case 2:case 3:case 4:case 5:case 6:break e;default:break O}}switch(d+ -4104|0){case 0:break w;case 8:break x;case 1:case 2:case 3:case 4:case 5:case 6:case 7:break e;default:break y}}b=166;c=0;break a}b=167;break a}b=168;c=0;break a}b=169;c=0;break a}b=170;c=0;break a}b=171;c=0;break a}b=172;c=0;break a}if((d|0)!=2827){break e}b=173;c=0;break a}b=174;c=0;break a}if((d|0)!=3341){break e}b=175;c=0;break a}b=176;c=0;break a}if((d|0)!=3855){break e}b=177;c=0;break a}b=178;c=0;break a}b=179;c=0;break a}b=180;c=0;break a}b=181;c=0;break a}b=182;c=0;break a}b=183;c=0;break a}b=184;c=0;break a}b=185;c=0;break a}b=186;c=0;break a}b=187;c=0;break a}b=188;c=0;break a}b=189;c=0;break a}b=190;c=0;break a}b=191;c=0;break a}b=192;break a}b=193;c=0;break a}b=194;break a}c=p[a+72>>2];if(c>>>0<3){break d}b=p[a>>2];p[b+20>>2]=49;m[p[b>>2]](a);break c}if((d|0)==2313){break b}}b=p[a>>2];p[b+24>>2]=i;p[b+20>>2]=7;p[p[a>>2]+28>>2]=p[h+40>>2];m[p[p[a>>2]>>2]](a);break c}b=p[(c<<2)+12016>>2];break a}b=e;c=g;break a}b=195;c=0}e=(k<<2)+l|0;p[e+4>>2]=b;P:{if(!p[h+52>>2]){break P}e=e+44|0;if(p[e>>2]==(c|0)){break P}g=p[h+80>>2];if(!g){break P}p[e>>2]=c;Q:{switch(c|0){case 0:d=p[h+84>>2];e=0;while(1){p[d+(e<<2)>>2]=r[g+(e<<1)>>1];e=e+1|0;if((e|0)!=64){continue}break}break P;case 1:d=p[h+84>>2];e=0;while(1){i=e<<1;p[d+(e<<2)>>2]=v(o[i+9120>>1],r[g+i>>1])+2048>>12;e=e+1|0;if((e|0)!=64){continue}break}break P;case 2:d=p[h+84>>2];i=0;e=0;while(1){j=u[(i<<3)+9248>>3];t[d+(e<<2)>>2]=j*+r[g+(e<<1)>>1]*.125;f=e|1;t[d+(f<<2)>>2]=j*+r[g+(f<<1)>>1]*1.387039845*.125;f=e|2;t[d+(f<<2)>>2]=j*+r[g+(f<<1)>>1]*1.306562965*.125;f=e|3;t[d+(f<<2)>>2]=j*+r[g+(f<<1)>>1]*1.175875602*.125;f=e|4;t[d+(f<<2)>>2]=j*+r[g+(f<<1)>>1]*.125;f=e|5;t[d+(f<<2)>>2]=j*+r[g+(f<<1)>>1]*.785694958*.125;f=e|6;t[d+(f<<2)>>2]=j*+r[g+(f<<1)>>1]*.5411961*.125;f=e|7;t[d+(f<<2)>>2]=j*+r[g+(f<<1)>>1]*.275899379*.125;e=e+8|0;i=i+1|0;if((i|0)!=8){continue}break}break P;default:break Q}}e=p[a>>2];p[e+20>>2]=49;m[p[e>>2]](a)}h=h+88|0;k=k+1|0;if((k|0)<p[a+36>>2]){continue}break}}}function Oc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,q=0,r=0,s=0,t=0,u=0;c=p[a+424>>2];d=p[a+24>>2];p[c+112>>2]=p[d>>2];p[c+116>>2]=p[d+4>>2];if(!(p[c+36>>2]|!p[a+236>>2])){Wc(c,p[c+40>>2])}d=p[a+364>>2];l=p[a+368>>2];a:{if((d|0)>(l|0)){break a}s=p[b>>2];t=p[a+384>>2];q=p[a+376>>2];b=0;while(1){r=d;d=o[(p[(d<<2)+t>>2]<<1)+s>>1];e=b+1|0;b:{if(!d){break b}g=0-d>>q;k=d>>q;i=(d|0)<0;f=i?g:k;e=b+1|0;if(!f){break b}if(p[c+128>>2]){Tc(c)}u=g^-1;if((b|0)>15){while(1){e=b;b=p[c+124>>2];c:{if(p[c+108>>2]){b=p[((b<<2)+c|0)+92>>2];p[b+960>>2]=p[b+960>>2]+1;break c}b=p[((b<<2)+c|0)+60>>2];d=p[b+960>>2];b=n[b+1264|0];if(!b){g=p[c+120>>2];h=p[g>>2];p[h+20>>2]=41;m[p[h>>2]](g);if(p[c+108>>2]){break c}}d=d&(-1<<b^-1);b=b+p[c+16>>2]|0;d=p[c+12>>2]|d<<24-b;if((b|0)>=8){while(1){g=b;b=p[c+112>>2];p[c+112>>2]=b+1;n[b|0]=d>>>16;b=p[c+116>>2]+ -1|0;p[c+116>>2]=b;if(!b){h=p[c+120>>2];b=p[h+24>>2];if(!(m[p[b+12>>2]](h)|0)){h=p[c+120>>2];j=p[h>>2];p[j+20>>2]=25;m[p[j>>2]](h)}p[c+112>>2]=p[b>>2];p[c+116>>2]=p[b+4>>2]}d:{if((d&16711680)!=16711680){break d}b=p[c+112>>2];p[c+112>>2]=b+1;n[b|0]=0;b=p[c+116>>2]+ -1|0;p[c+116>>2]=b;if(b){break d}h=p[c+120>>2];b=p[h+24>>2];if(!(m[p[b+12>>2]](h)|0)){h=p[c+120>>2];j=p[h>>2];p[j+20>>2]=25;m[p[j>>2]](h)}p[c+112>>2]=p[b>>2];p[c+116>>2]=p[b+4>>2]}b=g+ -8|0;d=d<<8;if((g|0)>15){continue}break}}p[c+16>>2]=b;p[c+12>>2]=d}b=e+ -16|0;if((e|0)>31){continue}break}}k=i?u:k;d=1;while(1){g=d;d=d+1|0;f=f>>1;if(f){continue}break}if(g>>>0>=11){d=p[a>>2];p[d+20>>2]=6;m[p[d>>2]](a)}b=g+(b<<4)|0;d=p[c+124>>2];e:{if(p[c+108>>2]){b=p[((d<<2)+c|0)+92>>2]+(b<<2)|0;p[b>>2]=p[b>>2]+1;break e}d=p[((d<<2)+c|0)+60>>2];f=p[d+(b<<2)>>2];b=n[(b+d|0)+1024|0];if(!b){d=p[c+120>>2];e=p[d>>2];p[e+20>>2]=41;m[p[e>>2]](d);e=0;if(p[c+108>>2]){break b}}d=f&(-1<<b^-1);f=b+p[c+16>>2]|0;d=p[c+12>>2]|d<<24-f;f:{if((f|0)<=7){p[c+16>>2]=f;p[c+12>>2]=d;break f}while(1){b=f;f=p[c+112>>2];p[c+112>>2]=f+1;n[f|0]=d>>>16;f=p[c+116>>2]+ -1|0;p[c+116>>2]=f;if(!f){e=p[c+120>>2];f=p[e+24>>2];if(!(m[p[f+12>>2]](e)|0)){e=p[c+120>>2];i=p[e>>2];p[i+20>>2]=25;m[p[i>>2]](e)}p[c+112>>2]=p[f>>2];p[c+116>>2]=p[f+4>>2]}g:{if((d&16711680)!=16711680){break g}f=p[c+112>>2];p[c+112>>2]=f+1;n[f|0]=0;f=p[c+116>>2]+ -1|0;p[c+116>>2]=f;if(f){break g}e=p[c+120>>2];f=p[e+24>>2];if(!(m[p[f+12>>2]](e)|0)){e=p[c+120>>2];i=p[e>>2];p[i+20>>2]=25;m[p[i>>2]](e)}p[c+112>>2]=p[f>>2];p[c+116>>2]=p[f+4>>2]}f=b+ -8|0;d=d<<8;if((b|0)>15){continue}break}p[c+16>>2]=f;p[c+12>>2]=d;e=0;if(p[c+108>>2]){break b}}b=g+p[c+16>>2]|0;d=p[c+12>>2]|(k&(-1<<g^-1))<<24-b;if((b|0)>=8){while(1){f=b;b=p[c+112>>2];p[c+112>>2]=b+1;n[b|0]=d>>>16;b=p[c+116>>2]+ -1|0;p[c+116>>2]=b;if(!b){e=p[c+120>>2];b=p[e+24>>2];if(!(m[p[b+12>>2]](e)|0)){e=p[c+120>>2];g=p[e>>2];p[g+20>>2]=25;m[p[g>>2]](e)}p[c+112>>2]=p[b>>2];p[c+116>>2]=p[b+4>>2]}h:{if((d&16711680)!=16711680){break h}b=p[c+112>>2];p[c+112>>2]=b+1;n[b|0]=0;b=p[c+116>>2]+ -1|0;p[c+116>>2]=b;if(b){break h}e=p[c+120>>2];b=p[e+24>>2];if(!(m[p[b+12>>2]](e)|0)){e=p[c+120>>2];g=p[e>>2];p[g+20>>2]=25;m[p[g>>2]](e)}p[c+112>>2]=p[b>>2];p[c+116>>2]=p[b+4>>2]}b=f+ -8|0;d=d<<8;if((f|0)>15){continue}break}}p[c+16>>2]=b;p[c+12>>2]=d}e=0}b=e;d=r+1|0;if((r|0)!=(l|0)){continue}break}if((b|0)<1){break a}b=p[c+128>>2]+1|0;p[c+128>>2]=b;if((b|0)!=32767){break a}Tc(c)}b=p[a+24>>2];p[b>>2]=p[c+112>>2];p[b+4>>2]=p[c+116>>2];a=p[a+236>>2];if(a){b=c;d=p[c+36>>2];if(d){a=d}else{p[c+36>>2]=a;p[c+40>>2]=p[c+40>>2]+1&7}p[b+36>>2]=a+ -1}return 1}function Yg(a,b,c,d,e,f,g,h,i){var j=0,k=0,l=0,m=0,n=0,o=0,q=0,r=0,s=0,t=0;l=Z-112|0;Z=l;m=h;n=i&2147483647;k=c+ -1|0;j=b+ -1|0;if((j|0)!=-1){k=k+1|0}o=j;s=(j|0)==-1&(k|0)==-1;q=e&2147483647;j=q;r=d;k=(c|0)==(k|0)&o>>>0<b>>>0|k>>>0<c>>>0;o=d+k|0;if(o>>>0<k>>>0){j=j+1|0}k=o+ -1|0;j=j+ -1|0;j=(k|0)!=-1?j+1|0:j;a:{b:{if(!((k|0)==-1&(j|0)==2147418111?s:j>>>0>2147418111)){k=g+ -1|0;j=f+ -1|0;if((j|0)!=-1){k=k+1|0}o=j;s=(j|0)!=-1|(k|0)!=-1;j=n;k=(g|0)==(k|0)&o>>>0<f>>>0|k>>>0<g>>>0;o=k+m|0;if(o>>>0<k>>>0){j=j+1|0}k=o+ -1|0;j=j+ -1|0;j=(k|0)!=-1?j+1|0:j;if((k|0)==-1&(j|0)==2147418111?s:(j|0)==2147418111&(k|0)!=-1|j>>>0<2147418111){break b}}if(!(!r&(q|0)==2147418112?!(b|c):(q|0)==2147418112&r>>>0<0|q>>>0<2147418112)){h=d;i=e|32768;f=b;g=c;break a}if(!(!m&(n|0)==2147418112?!(f|g):(n|0)==2147418112&m>>>0<0|n>>>0<2147418112)){i=i|32768;break a}if(!(b|r|(q^2147418112|c))){j=d;d=!(b^f|d^h|(c^g|e^i^-2147483648));h=d?0:j;i=d?2147450880:e;f=d?0:b;g=d?0:c;break a}if(!(f|m|(n^2147418112|g))){break a}if(!(b|r|(c|q))){if(f|m|(g|n)){break a}f=b&f;g=c&g;h=d&h;i=e&i;break a}if(f|m|(g|n)){break b}f=b;g=c;h=d;i=e;break a}j=(m|0)==(r|0)&(n|0)==(q|0)?(c|0)==(g|0)&f>>>0>b>>>0|g>>>0>c>>>0:(n|0)==(q|0)&m>>>0>r>>>0|n>>>0>q>>>0;q=j?f:b;k=j?g:c;m=j?i:e;r=m;o=j?h:d;m=m&65535;e=j?e:i;t=e;h=j?d:h;s=e>>>16&32767;n=r>>>16&32767;if(!n){d=!(m|o);e=d<<6;i=y(d?q:o)+32|0;d=y(d?k:m);d=e+((d|0)==32?i:d)|0;Xg(l+96|0,q,k,o,m,d+ -15|0);o=p[l+104>>2];m=p[l+108>>2];q=p[l+96>>2];n=16-d|0;k=p[l+100>>2]}f=j?b:f;g=j?c:g;i=t&65535;if(!s){b=!(h|i);c=b<<6;d=y(b?f:h)+32|0;b=y(b?g:i);b=c+((b|0)==32?d:b)|0;Xg(l+80|0,f,g,h,i,b+ -15|0);s=16-b|0;h=p[l+88>>2];i=p[l+92>>2];g=p[l+84>>2];f=p[l+80>>2]}b=h;j=i<<3|b>>>29;h=b<<3|g>>>29;i=j|524288;b=o;d=m<<3|b>>>29;e=b<<3|k>>>29;o=d;m=r^t;b=f;j=g<<3|b>>>29;b=b<<3;c=j;f=n-s|0;d=b;c:{if(!f){break c}if(f>>>0>127){h=0;i=0;j=0;d=1;break c}Xg(l- -64|0,b,c,h,i,128-f|0);_g(l+48|0,b,c,h,i,f);h=p[l+56>>2];i=p[l+60>>2];j=p[l+52>>2];d=p[l+48>>2]|((p[l+64>>2]|p[l+72>>2])!=0|(p[l+68>>2]|p[l+76>>2])!=0)}f=j;o=o|524288;b=q;j=k<<3|b>>>29;c=b<<3;d:{if((m|0)<-1?1:(m|0)<=-1){k=d;b=c-d|0;m=h;q=e-h|0;d=(f|0)==(j|0)&c>>>0<d>>>0|j>>>0<f>>>0;h=q-d|0;c=j-((c>>>0<k>>>0)+f|0)|0;i=(o-((e>>>0<m>>>0)+i|0)|0)-(q>>>0<d>>>0)|0;if(!(b|h|(c|i))){f=0;g=0;h=0;i=0;break a}if(i>>>0>524287){break d}f=b;d=!(h|i);e=d<<6;g=y(d?b:h)+32|0;b=y(d?c:i);b=e+((b|0)==32?g:b)|0;b=b+ -12|0;Xg(l+32|0,f,c,h,i,b);n=n-b|0;h=p[l+40>>2];i=p[l+44>>2];b=p[l+32>>2];c=p[l+36>>2];break d}j=f+j|0;b=d;c=b+c|0;if(c>>>0<b>>>0){j=j+1|0}b=c;c=j;g=(f|0)==(j|0)&b>>>0<d>>>0|j>>>0<f>>>0;k=i+o|0;d=e+h|0;if(d>>>0<e>>>0){k=k+1|0}f=d;e=g+d|0;d=k;h=e;i=h>>>0<f>>>0?d+1|0:d;if(!(i&1048576)){break d}b=b&1|((c&1)<<31|b>>>1);c=h<<31|c>>>1;n=n+1|0;h=(i&1)<<31|h>>>1;i=i>>>1|0}k=0;m=r&-2147483648;if((n|0)>=32767){h=k;i=m|2147418112;f=0;g=0;break a}e=0;e:{if((n|0)>0){e=n;break e}Xg(l+16|0,b,c,h,i,n+127|0);_g(l,b,c,h,i,1-n|0);b=p[l>>2]|((p[l+16>>2]|p[l+24>>2])!=0|(p[l+20>>2]|p[l+28>>2])!=0);c=p[l+4>>2];h=p[l+8>>2];i=p[l+12>>2]}f=h<<29;d=c>>>3|0;c=(c&7)<<29|b>>>3;d=d|f;j=d;b=b&7;f=b>>>0>4;g=f+c|0;if(g>>>0<f>>>0){j=j+1|0}f=g;g=j;c=(d|0)==(j|0)&f>>>0<c>>>0|j>>>0<d>>>0;d=k|((i&7)<<29|h>>>3);j=m|i>>>3&65535|e<<16;c=d+c|0;if(c>>>0<d>>>0){j=j+1|0}h=c;i=j;f:{if((b|0)==4){b=0;d=g+b|0;c=f&1;e=f+c|0;if(e>>>0<f>>>0){d=d+1|0}f=e;g=d;b=(b|0)==(d|0)&f>>>0<c>>>0|d>>>0<b>>>0;c=b+h|0;if(c>>>0<b>>>0){j=j+1|0}h=c;i=j;break f}if(!b){break a}}}p[a>>2]=f;p[a+4>>2]=g;p[a+8>>2]=h;p[a+12>>2]=i;Z=l+112|0}function lh(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0;a:{if(!a){break a}d=a+ -8|0;c=p[a+ -4>>2];a=c&-8;f=d+a|0;b:{if(c&1){break b}if(!(c&3)){break a}c=p[d>>2];d=d-c|0;if(d>>>0<s[3131]){break a}a=a+c|0;if(p[3132]!=(d|0)){if(c>>>0<=255){e=p[d+8>>2];c=c>>>3|0;b=p[d+12>>2];if((b|0)==(e|0)){i=12508,j=p[3127]&Hh(c),p[i>>2]=j;break b}p[e+12>>2]=b;p[b+8>>2]=e;break b}h=p[d+24>>2];c=p[d+12>>2];c:{if((c|0)!=(d|0)){b=p[d+8>>2];p[b+12>>2]=c;p[c+8>>2]=b;break c}d:{e=d+20|0;b=p[e>>2];if(b){break d}e=d+16|0;b=p[e>>2];if(b){break d}c=0;break c}while(1){g=e;c=b;e=c+20|0;b=p[e>>2];if(b){continue}e=c+16|0;b=p[c+16>>2];if(b){continue}break}p[g>>2]=0}if(!h){break b}e=p[d+28>>2];b=(e<<2)+12812|0;e:{if(p[b>>2]==(d|0)){p[b>>2]=c;if(c){break e}i=12512,j=p[3128]&Hh(e),p[i>>2]=j;break b}p[h+(p[h+16>>2]==(d|0)?16:20)>>2]=c;if(!c){break b}}p[c+24>>2]=h;b=p[d+16>>2];if(b){p[c+16>>2]=b;p[b+24>>2]=c}b=p[d+20>>2];if(!b){break b}p[c+20>>2]=b;p[b+24>>2]=c;break b}c=p[f+4>>2];if((c&3)!=3){break b}p[3129]=a;p[f+4>>2]=c&-2;p[d+4>>2]=a|1;p[a+d>>2]=a;return}if(f>>>0<=d>>>0){break a}c=p[f+4>>2];if(!(c&1)){break a}f:{if(!(c&2)){if((f|0)==p[3133]){p[3133]=d;a=p[3130]+a|0;p[3130]=a;p[d+4>>2]=a|1;if(p[3132]!=(d|0)){break a}p[3129]=0;p[3132]=0;return}if((f|0)==p[3132]){p[3132]=d;a=p[3129]+a|0;p[3129]=a;p[d+4>>2]=a|1;p[a+d>>2]=a;return}a=(c&-8)+a|0;g:{if(c>>>0<=255){b=p[f+8>>2];c=c>>>3|0;e=p[f+12>>2];if((b|0)==(e|0)){i=12508,j=p[3127]&Hh(c),p[i>>2]=j;break g}p[b+12>>2]=e;p[e+8>>2]=b;break g}h=p[f+24>>2];c=p[f+12>>2];h:{if((f|0)!=(c|0)){b=p[f+8>>2];p[b+12>>2]=c;p[c+8>>2]=b;break h}i:{e=f+20|0;b=p[e>>2];if(b){break i}e=f+16|0;b=p[e>>2];if(b){break i}c=0;break h}while(1){g=e;c=b;e=c+20|0;b=p[e>>2];if(b){continue}e=c+16|0;b=p[c+16>>2];if(b){continue}break}p[g>>2]=0}if(!h){break g}e=p[f+28>>2];b=(e<<2)+12812|0;j:{if((f|0)==p[b>>2]){p[b>>2]=c;if(c){break j}i=12512,j=p[3128]&Hh(e),p[i>>2]=j;break g}p[h+((f|0)==p[h+16>>2]?16:20)>>2]=c;if(!c){break g}}p[c+24>>2]=h;b=p[f+16>>2];if(b){p[c+16>>2]=b;p[b+24>>2]=c}b=p[f+20>>2];if(!b){break g}p[c+20>>2]=b;p[b+24>>2]=c}p[d+4>>2]=a|1;p[a+d>>2]=a;if(p[3132]!=(d|0)){break f}p[3129]=a;return}p[f+4>>2]=c&-2;p[d+4>>2]=a|1;p[a+d>>2]=a}if(a>>>0<=255){a=a>>>3|0;c=(a<<3)+12548|0;b=p[3127];a=1<<a;k:{if(!(b&a)){p[3127]=a|b;a=c;break k}a=p[c+8>>2]}p[c+8>>2]=d;p[a+12>>2]=d;p[d+12>>2]=c;p[d+8>>2]=a;return}p[d+16>>2]=0;p[d+20>>2]=0;f=d;e=a>>>8|0;b=0;l:{if(!e){break l}b=31;if(a>>>0>16777215){break l}c=e;e=e+1048320>>>16&8;b=c<<e;h=b+520192>>>16&4;b=b<<h;g=b+245760>>>16&2;b=(b<<g>>>15|0)-(g|(e|h))|0;b=(b<<1|a>>>b+21&1)+28|0}p[f+28>>2]=b;g=(b<<2)+12812|0;m:{n:{e=p[3128];c=1<<b;o:{if(!(e&c)){p[3128]=c|e;p[g>>2]=d;p[d+24>>2]=g;break o}e=a<<((b|0)==31?0:25-(b>>>1|0)|0);c=p[g>>2];while(1){b=c;if((p[c+4>>2]&-8)==(a|0)){break n}c=e>>>29|0;e=e<<1;g=(b+(c&4)|0)+16|0;c=p[g>>2];if(c){continue}break}p[g>>2]=d;p[d+24>>2]=b}p[d+12>>2]=d;p[d+8>>2]=d;break m}a=p[b+8>>2];p[a+12>>2]=d;p[b+8>>2]=d;p[d+24>>2]=0;p[d+12>>2]=b;p[d+8>>2]=a}a=p[3135]+ -1|0;p[3135]=a;if(a){break a}d=12964;while(1){a=p[d>>2];d=a+8|0;if(a){continue}break}p[3135]=-1}}function zc(a){a=a|0;var b=0,c=0,d=0,e=0;d=p[a+424>>2];b=p[d+12>>2];c=(b+p[d+16>>2]|0)+ -1&-65536;c=((c|0)<(b|0)?c|32768:c)<<p[d+28>>2];p[d+12>>2]=c;b=p[d+32>>2];a:{if(c>>>0>=134217728){b:{if((b|0)<0){break b}if(p[d+24>>2]){while(1){b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;c:{if(c){break c}if(m[p[b+12>>2]](a)|0){break c}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d+24>>2]+ -1|0;p[d+24>>2]=b;if(b){continue}break}b=p[d+32>>2]}c=p[a+24>>2];e=p[c>>2];p[c>>2]=e+1;n[e|0]=b+1;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;d:{if(b){break d}if(m[p[c+12>>2]](a)|0){break d}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if(p[d+32>>2]!=254){break b}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;if(c){break b}if(m[p[b+12>>2]](a)|0){break b}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d+20>>2];p[d+20>>2]=0;p[d+24>>2]=b+p[d+24>>2];break a}e:{if(!b){p[d+24>>2]=p[d+24>>2]+1;break e}if((b|0)<0){break e}if(p[d+24>>2]){while(1){b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;f:{if(c){break f}if(m[p[b+12>>2]](a)|0){break f}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d+24>>2]+ -1|0;p[d+24>>2]=b;if(b){continue}break}b=p[d+32>>2]}c=p[a+24>>2];e=p[c>>2];p[c>>2]=e+1;n[e|0]=b;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;if(b){break e}if(m[p[c+12>>2]](a)|0){break e}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if(!p[d+20>>2]){break a}if(p[d+24>>2]){while(1){b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;g:{if(c){break g}if(m[p[b+12>>2]](a)|0){break g}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d+24>>2]+ -1|0;p[d+24>>2]=b;if(b){continue}break}}while(1){b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=255;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;h:{if(c){break h}if(m[p[b+12>>2]](a)|0){break h}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;i:{if(c){break i}if(m[p[b+12>>2]](a)|0){break i}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d+20>>2]+ -1|0;p[d+20>>2]=b;if(b){continue}break}}c=p[d+12>>2];j:{if(!(c&134215680)){break j}if(p[d+24>>2]){while(1){b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;k:{if(c){break k}if(m[p[b+12>>2]](a)|0){break k}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d+24>>2]+ -1|0;p[d+24>>2]=b;if(b){continue}break}c=p[d+12>>2]}b=p[a+24>>2];e=p[b>>2];p[b>>2]=e+1;n[e|0]=c>>>19;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;l:{if(c){break l}if(m[p[b+12>>2]](a)|0){break l}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}m:{if((p[d+12>>2]&133693440)!=133693440){break m}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;if(c){break m}if(m[p[b+12>>2]](a)|0){break m}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}e=p[d+12>>2];if(!(e&522240)){break j}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=e>>>11;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;n:{if(c){break n}if(m[p[b+12>>2]](a)|0){break n}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if((p[d+12>>2]&522240)!=522240){break j}d=p[a+24>>2];b=p[d>>2];p[d>>2]=b+1;n[b|0]=0;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;if(b){break j}if(m[p[d+12>>2]](a)|0){break j}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}}function Fg(a,b){var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,t=0;j=Z-16|0;Z=j;a:{b:{c:{d:{e:{f:{if(b>>>0<=36){while(1){c=p[a+4>>2];g:{if(c>>>0<s[a+104>>2]){p[a+4>>2]=c+1;c=q[c|0];break g}c=yg(a)}if(vg(c)){continue}break}h:{i:{switch(c+ -43|0){case 0:case 2:break i;default:break h}}l=(c|0)==45?-1:0;c=p[a+4>>2];if(c>>>0<s[a+104>>2]){p[a+4>>2]=c+1;c=q[c|0];break h}c=yg(a)}j:{if(!(b&-17|(c|0)!=48)){c=p[a+4>>2];k:{if(c>>>0<s[a+104>>2]){p[a+4>>2]=c+1;c=q[c|0];break k}c=yg(a)}if((c&-33)==88){b=16;c=p[a+4>>2];l:{if(c>>>0<s[a+104>>2]){p[a+4>>2]=c+1;c=q[c|0];break l}c=yg(a)}if(q[c+11025|0]<16){break e}if(!p[a+104>>2]){break b}p[a+4>>2]=p[a+4>>2]+ -1;break b}if(b){break j}b=8;break e}b=b?b:10;if(b>>>0>q[c+11025|0]){break j}if(p[a+104>>2]){p[a+4>>2]=p[a+4>>2]+ -1}xg(a,0,0);p[3103]=28;b=0;a=0;break a}if((b|0)!=10){break e}d=c+ -48|0;if(d>>>0<=9){b=0;while(1){b=v(b,10)+d|0;c=p[a+4>>2];m:{if(c>>>0<s[a+104>>2]){p[a+4>>2]=c+1;c=q[c|0];break m}c=yg(a)}d=c+ -48|0;if(b>>>0<429496729?d>>>0<=9:0){continue}break}e=b}if(d>>>0>9){break f}h=Fh(e,0,10,0);g=$;b=d;while(1){f=g;c=b+h|0;if(c>>>0<b>>>0){f=f+1|0}e=c;g=(f|0)==429496729&c>>>0>=2576980378|f>>>0>429496729;b=p[a+4>>2];n:{if(b>>>0<s[a+104>>2]){p[a+4>>2]=b+1;c=q[b|0];break n}c=yg(a)}d=c+ -48|0;if(g|d>>>0>9){break f}h=Fh(e,f,10,0);g=$;b=d;if((g|0)==-1&h>>>0<=(b^-1)>>>0|(g|0)!=-1){continue}break}b=10;break d}p[3103]=28;b=0;a=0;break a}b=10;if(d>>>0<=9){break d}break c}if(b+ -1&b){d=q[c+11025|0];if(b>>>0>d>>>0){while(1){g=v(b,g)+d|0;i=g>>>0<=119304646;e=b;c=p[a+4>>2];o:{if(c>>>0<s[a+104>>2]){p[a+4>>2]=c+1;c=q[c|0];break o}c=yg(a)}d=q[c+11025|0];if(e>>>0>d>>>0?i:0){continue}break}e=g}if(b>>>0<=d>>>0){break d}g=b;while(1){i=Fh(e,f,g,0);h=$;d=d&255;if((h|0)==-1&i>>>0>(d^-1)>>>0){break d}f=h;c=d+i|0;if(c>>>0<d>>>0){f=f+1|0}e=c;i=b;c=p[a+4>>2];p:{if(c>>>0<s[a+104>>2]){p[a+4>>2]=c+1;c=q[c|0];break p}c=yg(a)}d=q[c+11025|0];if(i>>>0<=d>>>0){break d}Wg(j,g,0,e,f);if(!(p[j+8>>2]|p[j+12>>2])){continue}break}break d}m=n[(v(b,23)>>>5&7)+11281|0];i=m;d=i;h=d&31;if(32<=(d&63)>>>0){d=0;k=-1>>>h|0}else{d=-1>>>h|0;k=(1<<h)-1<<32-h|-1>>>h}r=k;h=d;o=d;d=q[c+11025|0];if(b>>>0>d>>>0){while(1){g=g<<m|d;t=g>>>0<=134217727;e=b;c=p[a+4>>2];q:{if(c>>>0<s[a+104>>2]){p[a+4>>2]=c+1;c=q[c|0];break q}c=yg(a)}d=q[c+11025|0];if(e>>>0>d>>>0?t:0){continue}break}e=g}if(!o&r>>>0<e>>>0|o>>>0<0|b>>>0<=d>>>0){break d}while(1){g=d&255;d=e;c=i;e=c&31;if(32<=(c&63)>>>0){f=d<<e;c=0}else{f=(1<<e)-1&d>>>32-e|f<<e;c=d<<e}e=g|c;c=p[a+4>>2];r:{if(c>>>0<s[a+104>>2]){p[a+4>>2]=c+1;c=q[c|0];break r}c=yg(a)}if((f|0)==(h|0)&e>>>0>k>>>0|f>>>0>h>>>0){break d}d=q[c+11025|0];if(b>>>0>d>>>0){continue}break}}if(b>>>0<=q[c+11025|0]){break c}while(1){c=b;f=p[a+4>>2];s:{if(f>>>0<s[a+104>>2]){p[a+4>>2]=f+1;d=q[f|0];break s}d=yg(a)}if(c>>>0>q[d+11025|0]){continue}break}p[3103]=68;l=0;e=-1;f=-1}if(p[a+104>>2]){p[a+4>>2]=p[a+4>>2]+ -1}t:{if((e|0)!=-1|(f|0)!=-1){break t}}a=l;c=a^e;b=c-a|0;d=f;f=a>>31;a=(d^f)-(f+(c>>>0<a>>>0)|0)|0;break a}xg(a,0,0);b=0;a=0}Z=j+16|0;$=a;return b}function Oe(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0,J=0;I=Z-512|0;Z=I;A=p[a+336>>2];a=p[b+84>>2];b=I;while(1){k=v(p[a+64>>2],o[c+32>>1]);j=v(p[a+192>>2],o[c+96>>1]);h=k-j|0;t=v(h,11363);i=v(p[a+96>>2],o[c+48>>1]);r=v(p[a+32>>2],o[c+16>>1]);l=v(i+r|0,11086);D=t+v(j,20995)|0;m=v(p[a+128>>2],o[c+64>>1]);E=v(m,10703);s=v(o[c>>1],p[a>>2])<<13|1024;y=E+s|0;z=D+y|0;f=v(p[a+224>>2],o[c+112>>1]);F=v(f+r|0,8956);g=v(p[a+160>>2],o[c+80>>1]);u=g+r|0;x=v(u,10217);w=F+(x+(l+v(r,-18730)|0)|0)|0;p[b+480>>2]=z-w>>11;p[b>>2]=w+z>>11;h=v(h,2260);z=h+v(k,7373)|0;m=v(m,4433);w=m+s|0;B=z+w|0;G=f+i|0;H=v(G,-5461);C=l+v(i,589)|0;l=v(g+i|0,1136);C=H+(C+l|0)|0;p[b+448>>2]=B-C>>11;p[b+32>>2]=B+C>>11;k=t+v(k,-4926)|0;t=s-m|0;m=k+t|0;x=x+(l+v(g,-9222)|0)|0;l=v(f+g|0,-11086);x=x+l|0;p[b+416>>2]=m-x>>11;p[b+64>>2]=m+x>>11;j=h+v(j,-4176)|0;s=s-E|0;h=j+s|0;l=l+(F+(H+v(f,8728)|0)|0)|0;p[b+384>>2]=h-l>>11;p[b+96>>2]=h+l>>11;s=s-j|0;l=v(r-f|0,7350);j=v(G,-10217);h=l+(j+v(f,25733)|0)|0;f=v(f-g|0,3363);h=h+f|0;p[b+352>>2]=s-h>>11;p[b+128>>2]=h+s>>11;s=t-k|0;k=v(u,5461);h=v(g,-6278);g=v(g-i|0,11529);f=f+(k+(h+g|0)|0)|0;p[b+320>>2]=s-f>>11;p[b+160>>2]=f+s>>11;f=w-z|0;h=v(i,16154);i=v(r-i|0,3363);g=j+(g+(h+i|0)|0)|0;p[b+288>>2]=f-g>>11;p[b+192>>2]=f+g>>11;g=y-D|0;i=l+(k+(i+v(r,-15038)|0)|0)|0;p[b+256>>2]=g-i>>11;p[b+224>>2]=g+i>>11;b=b+4|0;a=a+4|0;c=c+2|0;J=J+1|0;if((J|0)!=8){continue}break}b=A+ -384|0;s=0;a=I;while(1){i=p[a+12>>2];r=p[a+4>>2];j=v(i+r|0,11086);t=p[a+8>>2];l=p[a+24>>2];h=t-l|0;A=v(h,11363);c=p[(s<<2)+d>>2]+e|0;f=p[a+28>>2];E=v(f+r|0,8956);g=p[a+20>>2];D=g+r|0;m=v(D,10217);y=E+(m+(j+v(r,-18730)|0)|0)|0;z=A+v(l,20995)|0;k=(p[a>>2]<<13)+134348800|0;u=p[a+16>>2];x=v(u,10703);F=k+x|0;w=z+F|0;n[c|0]=q[b+(y+w>>>18&1023)|0];n[c+15|0]=q[b+(w-y>>>18&1023)|0];y=f+i|0;w=v(y,-5461);B=j+v(i,589)|0;j=v(g+i|0,1136);B=w+(B+j|0)|0;h=v(h,2260);G=h+v(t,7373)|0;u=v(u,4433);H=u+k|0;C=G+H|0;n[c+1|0]=q[b+(B+C>>>18&1023)|0];n[c+14|0]=q[b+(C-B>>>18&1023)|0];m=m+(j+v(g,-9222)|0)|0;j=v(f+g|0,-11086);m=m+j|0;t=A+v(t,-4926)|0;A=k-u|0;u=t+A|0;n[c+2|0]=q[b+(m+u>>>18&1023)|0];n[c+13|0]=q[b+(u-m>>>18&1023)|0];j=j+(E+(w+v(f,8728)|0)|0)|0;l=h+v(l,-4176)|0;k=k-x|0;h=l+k|0;n[c+3|0]=q[b+(j+h>>>18&1023)|0];n[c+12|0]=q[b+(h-j>>>18&1023)|0];h=v(r-f|0,7350);j=v(y,-10217);m=h+(j+v(f,25733)|0)|0;f=v(f-g|0,3363);m=m+f|0;k=k-l|0;n[c+4|0]=q[b+(m+k>>>18&1023)|0];n[c+11|0]=q[b+(k-m>>>18&1023)|0];k=v(D,5461);l=v(g,-6278);g=v(g-i|0,11529);f=f+(k+(l+g|0)|0)|0;t=A-t|0;n[c+5|0]=q[b+(f+t>>>18&1023)|0];n[c+10|0]=q[b+(t-f>>>18&1023)|0];f=v(i,16154);i=v(r-i|0,3363);g=j+(g+(f+i|0)|0)|0;f=H-G|0;n[c+6|0]=q[b+(g+f>>>18&1023)|0];n[c+9|0]=q[b+(f-g>>>18&1023)|0];i=h+(k+(i+v(r,-15038)|0)|0)|0;r=F-z|0;n[c+7|0]=q[b+(i+r>>>18&1023)|0];n[c+8|0]=q[b+(r-i>>>18&1023)|0];a=a+32|0;s=s+1|0;if((s|0)!=16){continue}break}Z=I+512|0}function Af(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,r=0,s=0,t=0,u=0,v=0;e=Z-48|0;Z=e;i=p[a+468>>2];c=p[a+280>>2];a:{b:{if(!c){c=0;break b}if(p[i+44>>2]){break b}c=p[a+464>>2];g=i+16|0;p[c+24>>2]=p[c+24>>2]+(p[g>>2]/8|0);p[g>>2]=0;if(!(m[p[c+8>>2]](a)|0)){break a}if(p[a+340>>2]>=1){c=0;while(1){p[((c<<2)+i|0)+24>>2]=0;c=c+1|0;if((c|0)<p[a+340>>2]){continue}break}}p[i+20>>2]=0;c=p[a+280>>2];p[i+44>>2]=c;if(p[a+440>>2]){break b}p[i+40>>2]=0}if(!p[i+40>>2]){t=p[a+436>>2];v=p[a+432>>2];p[e+40>>2]=a;h=p[a+24>>2];f=p[h>>2];p[e+24>>2]=f;d=p[h+4>>2];p[e+28>>2]=d;c=p[i+16>>2];g=p[i+12>>2];u=e+16|0;p[u>>2]=p[i+36>>2];n=p[i+32>>2];r=e+8|0;j=r;p[j>>2]=p[i+28>>2];p[j+4>>2]=n;j=p[i+24>>2];p[e>>2]=p[i+20>>2];p[e+4>>2]=j;if(p[a+368>>2]>=1){while(1){h=s<<2;n=p[h+b>>2];k=i+h|0;d=p[k+100>>2];c:{d:{e:{if((c|0)<=7){f=0;if(!Bf(e+24|0,g,c,0)){break a}g=p[e+32>>2];c=p[e+36>>2];j=1;if((c|0)<8){break e}}f=g>>c+ -8&255;j=p[(d+(f<<2)|0)+144>>2];if(j){break d}j=9}f=0;d=Cf(e+24|0,g,c,d,j);if((d|0)<0){break a}g=p[e+32>>2];c=p[e+36>>2];break c}d=q[(d+f|0)+1168|0];c=c-j|0}j=p[k+140>>2];k=p[k+180>>2];f:{g:{if(k){if(d){if((c|0)<(d|0)){if(!Bf(e+24|0,g,c,d)){f=0;break a}g=p[e+32>>2];c=p[e+36>>2]}c=c-d|0;d=(d<<2)+10160|0;f=p[d>>2];l=g>>c&f;d=l-((l|0)>p[d+ -4>>2]?0:f)|0}else{d=0}h=((p[(a+h|0)+372>>2]<<2)+e|0)+4|0;d=d+p[h>>2]|0;p[h>>2]=d;o[n>>1]=d;h=1;if((k|0)<2){break g}while(1){h:{i:{j:{if((c|0)<=7){f=0;if(!Bf(e+24|0,g,c,0)){break a}g=p[e+32>>2];c=p[e+36>>2];d=1;if((c|0)<8){break j}}d=g>>c+ -8&255;f=p[(j+(d<<2)|0)+144>>2];if(f){break i}d=9}f=0;d=Cf(e+24|0,g,c,j,d);if((d|0)<0){break a}g=p[e+32>>2];c=p[e+36>>2];break h}d=q[(d+j|0)+1168|0];c=c-f|0}f=d>>>4|0;d=d&15;k:{if(d){if((c|0)<(d|0)){if(!Bf(e+24|0,g,c,d)){f=0;break a}g=p[e+32>>2];c=p[e+36>>2]}h=f+h|0;c=c-d|0;d=(d<<2)+10160|0;f=p[d>>2];l=g>>c&f;o[(p[(h<<2)+v>>2]<<1)+n>>1]=l-((l|0)>p[d+ -4>>2]?0:f);break k}if((f|0)!=15){break f}h=h+15|0}h=h+1|0;if((h|0)<(k|0)){continue}break}break g}h=1;if(!d){break g}if((c|0)<(d|0)){if(!Bf(e+24|0,g,c,d)){f=0;break a}g=p[e+32>>2];c=p[e+36>>2]}c=c-d|0}if((h|0)>(t|0)){break f}while(1){l:{m:{n:{if((c|0)<=7){f=0;if(!Bf(e+24|0,g,c,0)){break a}g=p[e+32>>2];c=p[e+36>>2];d=1;if((c|0)<8){break n}}d=g>>c+ -8&255;f=p[(j+(d<<2)|0)+144>>2];if(f){break m}d=9}f=0;d=Cf(e+24|0,g,c,j,d);if((d|0)<0){break a}g=p[e+32>>2];c=p[e+36>>2];break l}d=q[(d+j|0)+1168|0];c=c-f|0}f=d>>>4|0;d=d&15;o:{if(d){if((c|0)<(d|0)){if(!Bf(e+24|0,g,c,d)){f=0;break a}g=p[e+32>>2];c=p[e+36>>2]}c=c-d|0;break o}if((f|0)!=15){break f}}h=(f+h|0)+1|0;if((h|0)<=(t|0)){continue}break}}s=s+1|0;if((s|0)<p[a+368>>2]){continue}break}h=p[a+24>>2];f=p[e+24>>2];d=p[e+28>>2]}p[h+4>>2]=d;p[h>>2]=f;p[i+16>>2]=c;p[i+12>>2]=g;b=i+20|0;p[b+16>>2]=p[u>>2];c=p[r+4>>2];p[b+8>>2]=p[r>>2];p[b+12>>2]=c;c=p[e+4>>2];p[b>>2]=p[e>>2];p[b+4>>2]=c;c=p[a+280>>2]}f=1;if(!c){break a}p[i+44>>2]=p[i+44>>2]+ -1}Z=e+48|0;return f|0}function tf(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0;d=p[a+412>>2];f=p[a+468>>2];a:{if(p[a+224>>2]){b=p[a+416>>2];b:{c:{d:{if(!d){if(!b){break d}break c}if((b|0)<(d|0)|(b|0)>p[a+436>>2]|p[a+340>>2]!=1){break c}}b=p[a+420>>2];e:{if(!b){c=p[a+424>>2];break e}c=b+ -1|0;if((c|0)!=p[a+424>>2]){break c}}if((c|0)<14){break b}}b=p[a>>2];p[b+24>>2]=d;p[b+20>>2]=17;p[p[a>>2]+28>>2]=p[a+416>>2];p[p[a>>2]+32>>2]=p[a+420>>2];p[p[a>>2]+36>>2]=p[a+424>>2];m[p[p[a>>2]>>2]](a)}d=p[a+340>>2];if((d|0)>=1){while(1){c=p[p[((e<<2)+a|0)+344>>2]+4>>2];h=p[a+160>>2];b=p[a+412>>2];d=0;f:{if(!b){break f}d=b;if(p[h+(c<<8)>>2]>-1){break f}d=p[a>>2];p[d+24>>2]=c;p[d+20>>2]=118;p[p[a>>2]+28>>2]=0;m[p[p[a>>2]+4>>2]](a,-1);d=p[a+412>>2]}if((d|0)<=p[a+416>>2]){while(1){b=(h+(c<<8)|0)+(d<<2)|0;g=p[b>>2];if(p[a+420>>2]!=(((g|0)>0?g:0)|0)){g=p[a>>2];p[g+24>>2]=c;p[g+20>>2]=118;p[p[a>>2]+28>>2]=d;m[p[p[a>>2]+4>>2]](a,-1)}p[b>>2]=p[a+424>>2];b=(d|0)<p[a+416>>2];d=d+1|0;if(b){continue}break}}e=e+1|0;d=p[a+340>>2];if((e|0)<(d|0)){continue}break}}c=p[a+412>>2];p[f+4>>2]=p[a+420>>2]?c?208:209:c?210:211;g:{if((d|0)<1){break g}d=0;while(1){e=d<<2;b=p[(e+a|0)+344>>2];h:{if(!c){if(p[a+420>>2]){break h}b=p[b+20>>2];yf(a,1,b,((b<<2)+f|0)+48|0);break h}c=p[b+24>>2];b=((c<<2)+f|0)+48|0;yf(a,0,c,b);p[f+64>>2]=p[b>>2]}p[(e+f|0)+24>>2]=0;d=d+1|0;if((d|0)>=p[a+340>>2]){break g}c=p[a+412>>2];continue}}p[f+20>>2]=0;break a}i:{if(!(p[a+424>>2]|(p[a+420>>2]|d))){d=p[a+416>>2];if(((d|0)>63?!p[a+220>>2]:0)|(d|0)==p[a+436>>2]){break i}}d=p[a>>2];p[d+20>>2]=125;m[p[d+4>>2]](a,-1)}p[f+4>>2]=p[a+436>>2]==63?212:213;d=0;if(p[a+340>>2]>0){while(1){b=d<<2;c=p[(b+a|0)+344>>2];e=p[c+20>>2];yf(a,1,e,((e<<2)+f|0)+68|0);if(p[a+436>>2]){c=p[c+24>>2];yf(a,0,c,((c<<2)+f|0)+84|0)}p[(b+f|0)+24>>2]=0;d=d+1|0;if((d|0)<p[a+340>>2]){continue}break}}if(p[a+368>>2]<=0){break a}while(1){b=h<<2;d=b+f|0;e=p[((p[(a+b|0)+372>>2]<<2)+a|0)+344>>2];p[d+100>>2]=p[((p[e+20>>2]<<2)+f|0)+68>>2];c=0;b=d;g=p[a+436>>2];if(g){i=p[((p[e+24>>2]<<2)+f|0)+84>>2]}else{i=0}p[b+140>>2]=i;j:{if(!p[e+52>>2]){break j}b=p[e+36>>2];e=p[e+40>>2];c=1;k:{switch(g|0){case 3:c=p[((((e|0)!=1)<<3)+9312|0)+(((b|0)!=1)<<2)>>2]+1|0;break j;case 8:c=e+ -1|0;b=b+ -1|0;c=p[(v(c>>>0<2?c:2,12)+9328|0)+((b>>>0<2?b:2)<<2)>>2]+1|0;break j;case 15:c=e+ -1|0;b=b+ -1|0;c=p[(((c>>>0<3?c:3)<<4)+9376|0)+((b>>>0<3?b:3)<<2)>>2]+1|0;break j;case 24:c=e+ -1|0;b=b+ -1|0;c=p[(v(c>>>0<4?c:4,20)+9440|0)+((b>>>0<4?b:4)<<2)>>2]+1|0;break j;case 35:c=e+ -1|0;b=b+ -1|0;c=p[(v(c>>>0<5?c:5,24)+9552|0)+((b>>>0<5?b:5)<<2)>>2]+1|0;break j;case 48:c=e+ -1|0;b=b+ -1|0;c=p[(v(c>>>0<6?c:6,28)+9696|0)+((b>>>0<6?b:6)<<2)>>2]+1|0;break j;case 0:break j;default:break k}}c=e+ -1|0;b=b+ -1|0;c=p[(((c>>>0<7?c:7)<<5)+9904|0)+((b>>>0<7?b:7)<<2)>>2]+1|0}p[d+180>>2]=c;h=h+1|0;if((h|0)<p[a+368>>2]){continue}break}}p[f+40>>2]=0;p[f+12>>2]=0;p[f+16>>2]=0;p[f+44>>2]=p[a+280>>2]}function Jf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,q=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0,J=0,K=0,L=0,M=0,N=0,O=0,P=0,Q=0,R=0,S=0,T=0,U=0,V=0,W=0,X=0,Y=0,_=0,$=0,aa=0;k=Z-128|0;Z=k;Y=p[a+332>>2]+ -1|0;E=p[a+452>>2];a:{b:{while(1){l=p[a+144>>2];g=p[a+152>>2];if((l|0)>(g|0)){break b}d=p[a+460>>2];if(p[d+20>>2]|(s[a+148>>2]>p[a+156>>2]+!p[a+412>>2]>>>0?(g|0)==(l|0):0)){break b}if(m[p[d>>2]](a)|0){continue}break}a=0;break a}if(p[a+36>>2]>=1){q=p[a+216>>2];while(1){c:{if(!p[q+52>>2]){break c}z=p[a+156>>2];I=z>>>0>=Y>>>0;d:{if(!I){g=p[q+12>>2];n=g<<1;l=g;break d}g=p[q+12>>2];d=s[q+32>>2]%(g>>>0)|0;n=d?d:g;l=n}F=l;e:{if(z){J=(m[p[p[a+4>>2]+32>>2]](a,p[((u<<2)+E|0)+72>>2],v(z+ -1|0,g),g+n|0,0)|0)+(p[q+12>>2]<<2)|0;break e}J=m[p[p[a+4>>2]+32>>2]](a,p[((u<<2)+E|0)+72>>2],0,n,0)|0}if((F|0)<1){break c}x=p[E+112>>2]+v(u,24)|0;g=u<<2;_=p[(g+p[a+472>>2]|0)+4>>2];t=p[q+80>>2];d=r[t+4>>1];K=d<<8;L=d<<7;d=r[t+18>>1];M=d<<8;N=d<<7;l=r[t>>1];$=v(l,5);d=r[t+32>>1];O=d<<8;P=d<<7;Q=v(l,9);d=r[t+16>>1];R=d<<8;S=d<<7;d=r[t+2>>1];T=d<<8;U=d<<7;V=v(l,36);aa=F+ -1|0;G=p[b+g>>2];w=0;while(1){d=(w<<2)+J|0;n=p[d>>2];A=w|z?p[d+ -4>>2]:n;W=p[q+28>>2]+ -1|0;B=0;t=(w|0)==(aa|0)&I?n:p[d+4>>2];C=o[t>>1];l=C;y=o[n>>1];g=y;D=o[A>>1];d=D;H=0;while(1){h=d;d=D;X=g;g=y;f=l;l=C;th(k,n,128);if(B>>>0<W>>>0){C=o[t+128>>1];y=o[n+128>>1];D=o[A+128>>1]}i=p[x+4>>2];if(!(r[k+2>>1]|!i)){j=k;c=v(X-y|0,V);f:{if((c|0)>=0){e=(c+U|0)/(T|0)|0;c=e;if((i|0)<1){break f}c=1<<i;c=(e|0)<(c|0)?e:c+ -1|0;break f}e=(U-c|0)/(T|0)|0;c=1<<i;c=0-((i|0)>0?(e|0)<(c|0)?e:c+ -1|0:e)|0}o[j+2>>1]=c}i=p[x+8>>2];if(!(r[k+16>>1]|!i)){j=k;c=v(d-l|0,V);g:{if((c|0)>=0){e=(c+S|0)/(R|0)|0;c=e;if((i|0)<1){break g}c=1<<i;c=(e|0)<(c|0)?e:c+ -1|0;break g}e=(S-c|0)/(R|0)|0;c=1<<i;c=0-((i|0)>0?(e|0)<(c|0)?e:c+ -1|0:e)|0}o[j+16>>1]=c}i=p[x+12>>2];if(!(r[k+32>>1]|!i)){j=k;c=v((d-(g<<1)|0)+l|0,Q);h:{if((c|0)>=0){e=(c+P|0)/(O|0)|0;c=e;if((i|0)<1){break h}c=1<<i;c=(e|0)<(c|0)?e:c+ -1|0;break h}e=(P-c|0)/(O|0)|0;c=1<<i;c=0-((i|0)>0?(e|0)<(c|0)?e:c+ -1|0:e)|0}o[j+32>>1]=c}c=p[x+16>>2];if(!(r[k+18>>1]|!c)){e=k;f=v(((h-f|0)-D|0)+C|0,$);i:{if((f|0)>=0){h=(f+N|0)/(M|0)|0;j=h;if((c|0)<1){break i}f=1<<c;j=(h|0)<(f|0)?h:f+ -1|0;break i}h=(N-f|0)/(M|0)|0;f=1<<c;j=0-((c|0)>0?(h|0)<(f|0)?h:f+ -1|0:h)|0}o[e+18>>1]=j}c=p[x+20>>2];if(!(r[k+4>>1]|!c)){e=k;f=v((X-(g<<1)|0)+y|0,Q);j:{if((f|0)>=0){h=(f+L|0)/(K|0)|0;j=h;if((c|0)<1){break j}f=1<<c;j=(h|0)<(f|0)?h:f+ -1|0;break j}h=(L-f|0)/(K|0)|0;f=1<<c;j=0-((c|0)>0?(h|0)<(f|0)?h:f+ -1|0:h)|0}o[e+4>>1]=j}m[_|0](a,q,k,G,H);t=t+128|0;A=A+128|0;n=n+128|0;H=p[q+36>>2]+H|0;B=B+1|0;if(B>>>0<=W>>>0){continue}break}G=(p[q+40>>2]<<2)+G|0;w=w+1|0;if((F|0)!=(w|0)){continue}break}}q=q+88|0;u=u+1|0;if((u|0)<p[a+36>>2]){continue}break}}b=p[a+156>>2]+1|0;p[a+156>>2]=b;a=b>>>0<s[a+332>>2]?3:4}Z=k+128|0;return a|0}function zf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,r=0,s=0,t=0;e=Z-48|0;Z=e;h=p[a+468>>2];c=p[a+280>>2];a:{b:{if(!c){c=0;break b}if(p[h+44>>2]){break b}c=p[a+464>>2];g=h+16|0;p[c+24>>2]=p[c+24>>2]+(p[g>>2]/8|0);p[g>>2]=0;if(!(m[p[c+8>>2]](a)|0)){break a}if(p[a+340>>2]>=1){c=0;while(1){p[((c<<2)+h|0)+24>>2]=0;c=c+1|0;if((c|0)<p[a+340>>2]){continue}break}}p[h+20>>2]=0;c=p[a+280>>2];p[h+44>>2]=c;if(p[a+440>>2]){break b}p[h+40>>2]=0}if(!p[h+40>>2]){p[e+40>>2]=a;d=p[a+24>>2];i=p[d>>2];p[e+24>>2]=i;f=p[d+4>>2];p[e+28>>2]=f;c=p[h+16>>2];g=p[h+12>>2];t=e+16|0;p[t>>2]=p[h+36>>2];n=p[h+32>>2];r=e+8|0;j=r;p[j>>2]=p[h+28>>2];p[j+4>>2]=n;j=p[h+24>>2];p[e>>2]=p[h+20>>2];p[e+4>>2]=j;if(p[a+368>>2]>=1){while(1){i=s<<2;n=p[i+b>>2];k=h+i|0;d=p[k+100>>2];c:{d:{e:{if((c|0)<=7){f=0;if(!Bf(e+24|0,g,c,0)){break a}g=p[e+32>>2];c=p[e+36>>2];j=1;if((c|0)<8){break e}}f=g>>c+ -8&255;j=p[(d+(f<<2)|0)+144>>2];if(j){break d}j=9}f=0;d=Cf(e+24|0,g,c,d,j);if((d|0)<0){break a}g=p[e+32>>2];c=p[e+36>>2];break c}d=q[(d+f|0)+1168|0];c=c-j|0}j=p[k+140>>2];k=p[k+180>>2];f:{g:{if(k){if(d){if((c|0)<(d|0)){if(!Bf(e+24|0,g,c,d)){f=0;break a}g=p[e+32>>2];c=p[e+36>>2]}c=c-d|0;d=(d<<2)+10160|0;f=p[d>>2];l=g>>c&f;d=l-((l|0)>p[d+ -4>>2]?0:f)|0}else{d=0}f=((p[(a+i|0)+372>>2]<<2)+e|0)+4|0;d=d+p[f>>2]|0;p[f>>2]=d;o[n>>1]=d;i=1;if((k|0)<2){break g}while(1){h:{i:{j:{if((c|0)<=7){f=0;if(!Bf(e+24|0,g,c,0)){break a}g=p[e+32>>2];c=p[e+36>>2];d=1;if((c|0)<8){break j}}d=g>>c+ -8&255;f=p[(j+(d<<2)|0)+144>>2];if(f){break i}d=9}f=0;d=Cf(e+24|0,g,c,j,d);if((d|0)<0){break a}g=p[e+32>>2];c=p[e+36>>2];break h}d=q[(d+j|0)+1168|0];c=c-f|0}f=d>>>4|0;d=d&15;k:{if(d){if((c|0)<(d|0)){if(!Bf(e+24|0,g,c,d)){f=0;break a}g=p[e+32>>2];c=p[e+36>>2]}f=f+i|0;c=c-d|0;d=(d<<2)+10160|0;i=p[d>>2];l=g>>c&i;o[(p[(f<<2)+6224>>2]<<1)+n>>1]=l-((l|0)>p[d+ -4>>2]?0:i);break k}if((f|0)!=15){break f}f=i+15|0}i=f+1|0;if((i|0)<(k|0)){continue}break}if((f|0)<=62){break g}break f}i=1;if(!d){break g}if((c|0)<(d|0)){if(!Bf(e+24|0,g,c,d)){f=0;break a}g=p[e+32>>2];c=p[e+36>>2]}c=c-d|0}while(1){l:{m:{n:{if((c|0)<=7){f=0;if(!Bf(e+24|0,g,c,0)){break a}g=p[e+32>>2];c=p[e+36>>2];d=1;if((c|0)<8){break n}}d=g>>c+ -8&255;f=p[(j+(d<<2)|0)+144>>2];if(f){break m}d=9}f=0;d=Cf(e+24|0,g,c,j,d);if((d|0)<0){break a}g=p[e+32>>2];c=p[e+36>>2];break l}d=q[(d+j|0)+1168|0];c=c-f|0}f=d>>>4|0;d=d&15;o:{if(d){if((c|0)<(d|0)){if(!Bf(e+24|0,g,c,d)){f=0;break a}g=p[e+32>>2];c=p[e+36>>2]}c=c-d|0;break o}if((f|0)!=15){break f}}i=(f+i|0)+1|0;if((i|0)<64){continue}break}}s=s+1|0;if((s|0)<p[a+368>>2]){continue}break}f=p[e+28>>2];i=p[e+24>>2];d=p[a+24>>2]}p[d+4>>2]=f;p[d>>2]=i;p[h+16>>2]=c;p[h+12>>2]=g;b=h+20|0;p[b+16>>2]=p[t>>2];c=p[r+4>>2];p[b+8>>2]=p[r>>2];p[b+12>>2]=c;c=p[e+4>>2];p[b>>2]=p[e>>2];p[b+4>>2]=c;c=p[a+280>>2]}f=1;if(!c){break a}p[h+44>>2]=p[h+44>>2]+ -1}Z=e+48|0;return f|0}function oh(a,b){var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0;f=a+b|0;a:{b:{c=p[a+4>>2];if(c&1){break b}if(!(c&3)){break a}c=p[a>>2];b=c+b|0;a=a-c|0;if((a|0)!=p[3132]){if(c>>>0<=255){e=c>>>3|0;c=p[a+8>>2];d=p[a+12>>2];if((d|0)==(c|0)){i=12508,j=p[3127]&Hh(e),p[i>>2]=j;break b}p[c+12>>2]=d;p[d+8>>2]=c;break b}h=p[a+24>>2];c=p[a+12>>2];c:{if((c|0)!=(a|0)){d=p[a+8>>2];p[d+12>>2]=c;p[c+8>>2]=d;break c}d:{d=a+20|0;e=p[d>>2];if(e){break d}d=a+16|0;e=p[d>>2];if(e){break d}c=0;break c}while(1){g=d;c=e;d=c+20|0;e=p[d>>2];if(e){continue}d=c+16|0;e=p[c+16>>2];if(e){continue}break}p[g>>2]=0}if(!h){break b}d=p[a+28>>2];e=(d<<2)+12812|0;e:{if(p[e>>2]==(a|0)){p[e>>2]=c;if(c){break e}i=12512,j=p[3128]&Hh(d),p[i>>2]=j;break b}p[h+(p[h+16>>2]==(a|0)?16:20)>>2]=c;if(!c){break b}}p[c+24>>2]=h;d=p[a+16>>2];if(d){p[c+16>>2]=d;p[d+24>>2]=c}d=p[a+20>>2];if(!d){break b}p[c+20>>2]=d;p[d+24>>2]=c;break b}c=p[f+4>>2];if((c&3)!=3){break b}p[3129]=b;p[f+4>>2]=c&-2;p[a+4>>2]=b|1;p[f>>2]=b;return}c=p[f+4>>2];f:{if(!(c&2)){if((f|0)==p[3133]){p[3133]=a;b=p[3130]+b|0;p[3130]=b;p[a+4>>2]=b|1;if(p[3132]!=(a|0)){break a}p[3129]=0;p[3132]=0;return}if((f|0)==p[3132]){p[3132]=a;b=p[3129]+b|0;p[3129]=b;p[a+4>>2]=b|1;p[a+b>>2]=b;return}b=(c&-8)+b|0;g:{if(c>>>0<=255){e=c>>>3|0;c=p[f+8>>2];d=p[f+12>>2];if((c|0)==(d|0)){i=12508,j=p[3127]&Hh(e),p[i>>2]=j;break g}p[c+12>>2]=d;p[d+8>>2]=c;break g}h=p[f+24>>2];c=p[f+12>>2];h:{if((f|0)!=(c|0)){d=p[f+8>>2];p[d+12>>2]=c;p[c+8>>2]=d;break h}i:{d=f+20|0;e=p[d>>2];if(e){break i}d=f+16|0;e=p[d>>2];if(e){break i}c=0;break h}while(1){g=d;c=e;d=c+20|0;e=p[d>>2];if(e){continue}d=c+16|0;e=p[c+16>>2];if(e){continue}break}p[g>>2]=0}if(!h){break g}d=p[f+28>>2];e=(d<<2)+12812|0;j:{if((f|0)==p[e>>2]){p[e>>2]=c;if(c){break j}i=12512,j=p[3128]&Hh(d),p[i>>2]=j;break g}p[h+((f|0)==p[h+16>>2]?16:20)>>2]=c;if(!c){break g}}p[c+24>>2]=h;d=p[f+16>>2];if(d){p[c+16>>2]=d;p[d+24>>2]=c}d=p[f+20>>2];if(!d){break g}p[c+20>>2]=d;p[d+24>>2]=c}p[a+4>>2]=b|1;p[a+b>>2]=b;if(p[3132]!=(a|0)){break f}p[3129]=b;return}p[f+4>>2]=c&-2;p[a+4>>2]=b|1;p[a+b>>2]=b}if(b>>>0<=255){c=b>>>3|0;b=(c<<3)+12548|0;d=p[3127];c=1<<c;k:{if(!(d&c)){p[3127]=c|d;c=b;break k}c=p[b+8>>2]}p[b+8>>2]=a;p[c+12>>2]=a;p[a+12>>2]=b;p[a+8>>2]=c;return}p[a+16>>2]=0;p[a+20>>2]=0;d=a;e=b>>>8|0;c=0;l:{if(!e){break l}c=31;if(b>>>0>16777215){break l}g=e+1048320>>>16&8;e=e<<g;c=e+520192>>>16&4;f=e<<c;e=f+245760>>>16&2;c=(f<<e>>>15|0)-(e|(c|g))|0;c=(c<<1|b>>>c+21&1)+28|0}p[d+28>>2]=c;e=(c<<2)+12812|0;m:{d=p[3128];g=1<<c;n:{if(!(d&g)){p[3128]=d|g;p[e>>2]=a;break n}d=b<<((c|0)==31?0:25-(c>>>1|0)|0);c=p[e>>2];while(1){e=c;if((p[c+4>>2]&-8)==(b|0)){break m}c=d>>>29|0;d=d<<1;g=(e+(c&4)|0)+16|0;c=p[g>>2];if(c){continue}break}p[g>>2]=a}p[a+24>>2]=e;p[a+12>>2]=a;p[a+8>>2]=a;return}b=p[e+8>>2];p[b+12>>2]=a;p[e+8>>2]=a;p[a+24>>2]=0;p[a+12>>2]=e;p[a+8>>2]=b}}function jb(a){var b=0,c=0,d=0;a:{b:{c:{d:{e:{f:{g:{h:{i:{j:{k:{switch(p[a+40>>2]){case 0:b=p[a+20>>2];if((b|0)!=100){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}p[a+256>>2]=0;p[a+244>>2]=0;p[a+80>>2]=0;c=p[a+36>>2];p[a+76>>2]=c;if(c+ -1>>>0>=10){b=p[a>>2];p[b+24>>2]=c;p[b+20>>2]=27;p[p[a>>2]+28>>2]=10;m[p[p[a>>2]>>2]](a);c=p[a+76>>2];if((c|0)<1){break e}}d=p[a+84>>2];a=0;while(1){b=v(a,88)+d|0;p[b+24>>2]=0;p[b+16>>2]=0;p[b+20>>2]=0;p[b+8>>2]=1;p[b+12>>2]=1;p[b>>2]=a;a=a+1|0;if((c|0)!=(a|0)){continue}break}break e;case 2:case 3:break d;case 7:break g;case 6:break h;case 5:break i;case 4:break j;case 1:break k;default:break f}}b=p[a+20>>2];if((b|0)!=100){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}p[a+256>>2]=0;p[a+76>>2]=1;p[a+80>>2]=1;p[a+244>>2]=1;a=p[a+84>>2];p[a+24>>2]=0;p[a+16>>2]=0;p[a+20>>2]=0;p[a+8>>2]=1;p[a+12>>2]=1;p[a>>2]=1;return}b=p[a+20>>2];if((b|0)!=100){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}p[a+256>>2]=1;p[a+244>>2]=0;p[a+76>>2]=4;p[a+80>>2]=4;a=p[a+84>>2];p[a+264>>2]=75;p[a+176>>2]=89;p[a+88>>2]=77;p[a+24>>2]=0;p[a+16>>2]=0;p[a+20>>2]=0;p[a+8>>2]=1;p[a+12>>2]=1;p[a>>2]=67;p[a+288>>2]=0;p[a+280>>2]=0;p[a+284>>2]=0;p[a+272>>2]=1;p[a+276>>2]=1;p[a+200>>2]=0;p[a+192>>2]=0;p[a+196>>2]=0;p[a+184>>2]=1;p[a+188>>2]=1;p[a+112>>2]=0;p[a+104>>2]=0;p[a+108>>2]=0;break a}b=p[a+20>>2];if((b|0)!=100){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}p[a+256>>2]=1;p[a+244>>2]=0;p[a+76>>2]=4;p[a+80>>2]=5;a=p[a+84>>2];p[a+264>>2]=4;p[a+176>>2]=3;p[a+88>>2]=2;p[a+24>>2]=0;p[a+16>>2]=0;p[a+20>>2]=0;p[a+8>>2]=2;p[a+12>>2]=2;p[a>>2]=1;p[a+288>>2]=0;p[a+280>>2]=0;p[a+284>>2]=0;p[a+272>>2]=2;p[a+276>>2]=2;break b}b=p[a+20>>2];if((b|0)!=100){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}p[a+256>>2]=0;p[a+76>>2]=3;p[a+80>>2]=6;n[a+248|0]=2;p[a+244>>2]=1;b=p[a+84>>2];p[b+16>>2]=0;p[b+8>>2]=1;p[b+12>>2]=1;p[b>>2]=114;a=p[a+260>>2];p[b+88>>2]=103;p[b+112>>2]=0;p[b+176>>2]=98;p[b+192>>2]=0;p[b+96>>2]=1;p[b+100>>2]=1;p[b+104>>2]=0;p[b+108>>2]=0;p[b+184>>2]=1;p[b+188>>2]=1;a=(a|0)==1;p[b+24>>2]=a;p[b+196>>2]=a;p[b+200>>2]=a;p[b+20>>2]=a;return}b=p[a+20>>2];if((b|0)!=100){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}p[a+256>>2]=0;p[a+76>>2]=3;p[a+80>>2]=7;n[a+248|0]=2;p[a+244>>2]=1;a=p[a+84>>2];p[a+176>>2]=35;p[a+88>>2]=34;break c}b=p[a>>2];p[b+20>>2]=10;m[p[b>>2]](a)}return}b=p[a+20>>2];if((b|0)!=100){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}p[a+256>>2]=0;p[a+76>>2]=3;p[a+80>>2]=3;p[a+244>>2]=1;a=p[a+84>>2];p[a+176>>2]=3;p[a+88>>2]=2}p[a+24>>2]=0;p[a+16>>2]=0;p[a+20>>2]=0;p[a+8>>2]=2;p[a+12>>2]=2;p[a>>2]=1}p[a+200>>2]=1;p[a+192>>2]=1;p[a+196>>2]=1;p[a+184>>2]=1;p[a+188>>2]=1;p[a+112>>2]=1;p[a+104>>2]=1;p[a+108>>2]=1}p[a+96>>2]=1;p[a+100>>2]=1}function jf(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0;b=p[a+412>>2];e=p[a+468>>2];a:{if(p[a+224>>2]){c=p[a+416>>2];b:{c:{d:{if(!b){if(!c){break d}break c}if((c|0)<(b|0)|(c|0)>p[a+436>>2]|p[a+340>>2]!=1){break c}}c=p[a+420>>2];e:{if(!c){c=p[a+424>>2];break e}c=c+ -1|0;if((c|0)!=p[a+424>>2]){break c}}if((c|0)<14){break b}}c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=17;p[p[a>>2]+28>>2]=p[a+416>>2];p[p[a>>2]+32>>2]=p[a+420>>2];p[p[a>>2]+36>>2]=p[a+424>>2];m[p[p[a>>2]>>2]](a)}b=p[a+340>>2];if((b|0)>=1){while(1){d=p[p[((g<<2)+a|0)+344>>2]+4>>2];f=p[a+160>>2];c=p[a+412>>2];b=0;f:{if(!c){break f}b=c;if(p[f+(d<<8)>>2]>-1){break f}b=p[a>>2];p[b+24>>2]=d;p[b+20>>2]=118;p[p[a>>2]+28>>2]=0;m[p[p[a>>2]+4>>2]](a,-1);b=p[a+412>>2]}if((b|0)<=p[a+416>>2]){while(1){c=(f+(d<<8)|0)+(b<<2)|0;h=p[c>>2];if(p[a+420>>2]!=(((h|0)>0?h:0)|0)){h=p[a>>2];p[h+24>>2]=d;p[h+20>>2]=118;p[p[a>>2]+28>>2]=b;m[p[p[a>>2]+4>>2]](a,-1)}p[c>>2]=p[a+424>>2];c=(b|0)<p[a+416>>2];b=b+1|0;if(c){continue}break}}g=g+1|0;b=p[a+340>>2];if((g|0)<(b|0)){continue}break}}c=p[a+412>>2];if(!p[a+420>>2]){if(!c){p[e+4>>2]=201;break a}p[e+4>>2]=202;break a}if(!c){p[e+4>>2]=203;break a}p[e+4>>2]=204;break a}g:{if(!(p[a+424>>2]|(p[a+420>>2]|b))){b=p[a+416>>2];if((b|0)>63|(b|0)==p[a+436>>2]){break g}}b=p[a>>2];p[b+20>>2]=125;m[p[b+4>>2]](a,-1)}p[e+4>>2]=205;b=p[a+340>>2]}if((b|0)>=1){c=0;while(1){g=c<<2;d=p[(g+a|0)+344>>2];h:{i:{if(p[a+224>>2]){if(p[a+412>>2]){break i}if(p[a+420>>2]){break h}}b=p[d+20>>2];if(b>>>0>=16){f=p[a>>2];p[f+24>>2]=b;p[f+20>>2]=50;m[p[p[a>>2]>>2]](a)}f=((b<<2)+e|0)+60|0;b=p[f>>2];if(!b){b=m[p[p[a+4>>2]>>2]](a,1,64)|0;p[f>>2]=b}n[b|0]=0;n[b+1|0]=0;n[b+2|0]=0;n[b+3|0]=0;n[b+4|0]=0;n[b+5|0]=0;n[b+6|0]=0;n[b+7|0]=0;n[b+56|0]=0;n[b+57|0]=0;n[b+58|0]=0;n[b+59|0]=0;n[b+60|0]=0;n[b+61|0]=0;n[b+62|0]=0;n[b+63|0]=0;n[b+48|0]=0;n[b+49|0]=0;n[b+50|0]=0;n[b+51|0]=0;n[b+52|0]=0;n[b+53|0]=0;n[b+54|0]=0;n[b+55|0]=0;n[b+40|0]=0;n[b+41|0]=0;n[b+42|0]=0;n[b+43|0]=0;n[b+44|0]=0;n[b+45|0]=0;n[b+46|0]=0;n[b+47|0]=0;n[b+32|0]=0;n[b+33|0]=0;n[b+34|0]=0;n[b+35|0]=0;n[b+36|0]=0;n[b+37|0]=0;n[b+38|0]=0;n[b+39|0]=0;n[b+24|0]=0;n[b+25|0]=0;n[b+26|0]=0;n[b+27|0]=0;n[b+28|0]=0;n[b+29|0]=0;n[b+30|0]=0;n[b+31|0]=0;n[b+16|0]=0;n[b+17|0]=0;n[b+18|0]=0;n[b+19|0]=0;n[b+20|0]=0;n[b+21|0]=0;n[b+22|0]=0;n[b+23|0]=0;n[b+8|0]=0;n[b+9|0]=0;n[b+10|0]=0;n[b+11|0]=0;n[b+12|0]=0;n[b+13|0]=0;n[b+14|0]=0;n[b+15|0]=0;b=e+g|0;p[b+40>>2]=0;p[b+24>>2]=0;if(!p[a+224>>2]){if(p[a+436>>2]){break i}break h}if(!p[a+412>>2]){break h}}b=p[d+24>>2];if(b>>>0>=16){d=p[a>>2];p[d+24>>2]=b;p[d+20>>2]=50;m[p[p[a>>2]>>2]](a)}d=((b<<2)+e|0)+124|0;b=p[d>>2];if(!b){b=m[p[p[a+4>>2]>>2]](a,1,256)|0;p[d>>2]=b}uh(b,0,256)}c=c+1|0;if((c|0)<p[a+340>>2]){continue}break}}p[e+20>>2]=-16;p[e+12>>2]=0;p[e+16>>2]=0;p[e+56>>2]=p[a+280>>2]}function be(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0;b=m[p[p[a+4>>2]>>2]](a,1,28)|0;p[a+480>>2]=b;p[b>>2]=143;a:{b:{c=p[a+40>>2];if(c>>>0>7){break b}c:{if(!(1<<c&204)){if(1<<c&48){break c}if((c|0)!=1){break b}if(p[a+36>>2]==1){break a}c=p[a>>2];p[c+20>>2]=11;m[p[c>>2]](a);break a}if(p[a+36>>2]==3){break a}c=p[a>>2];p[c+20>>2]=11;m[p[c>>2]](a);break a}if(p[a+36>>2]==4){break a}c=p[a>>2];p[c+20>>2]=11;m[p[c>>2]](a);break a}if(p[a+36>>2]>0){break a}c=p[a>>2];p[c+20>>2]=11;m[p[c>>2]](a)}d:{if(!p[a+304>>2]){break d}e:{switch(p[a+40>>2]+ -2|0){case 0:case 4:break d;default:break e}}c=p[a>>2];p[c+20>>2]=28;m[p[c>>2]](a)}f:{g:{h:{i:{j:{k:{c=p[a+44>>2];switch(c+ -1|0){case 5:break i;case 1:break j;case 0:break k;case 3:break h;default:break g}}p[a+120>>2]=1;l:{switch(p[a+40>>2]+ -1|0){case 0:case 2:case 6:p[b+4>>2]=144;c=p[a+36>>2];if((c|0)<2){break f}d=p[a+216>>2];b=1;while(1){p[(d+v(b,88)|0)+52>>2]=0;b=b+1|0;if((c|0)!=(b|0)){continue}break}break f;case 1:m:{n:{switch(p[a+304>>2]){case 0:p[b+4>>2]=145;break m;case 1:p[b+4>>2]=146;break m;default:break n}}b=p[a>>2];p[b+20>>2]=28;m[p[b>>2]](a)}b=p[a+480>>2];d=m[p[p[a+4>>2]>>2]](a,1,3072)|0;p[b+24>>2]=d;b=0;while(1){c=d+(b<<2)|0;p[c>>2]=v(b,19595);p[c+2048>>2]=v(b,7471)+32768;p[c+1024>>2]=v(b,38470);b=b+1|0;if((b|0)!=256){continue}break}break f;default:break l}}b=p[a>>2];p[b+20>>2]=28;m[p[b>>2]](a);break f}p[a+120>>2]=3;o:{switch(p[a+40>>2]+ -1|0){case 0:p[b+4>>2]=147;break f;case 2:p[b+4>>2]=148;he(a);break f;case 6:p[b+4>>2]=148;b=p[a+480>>2];i=b,j=m[p[p[a+4>>2]>>2]](a,1,1024)|0,p[i+8>>2]=j;i=b,j=m[p[p[a+4>>2]>>2]](a,1,1024)|0,p[i+12>>2]=j;i=b,j=m[p[p[a+4>>2]>>2]](a,1,1024)|0,p[i+16>>2]=j;e=m[p[p[a+4>>2]>>2]](a,1,1024)|0;p[b+20>>2]=e;f=p[b+16>>2];g=p[b+12>>2];h=p[b+8>>2];b=-128;while(1){c=d<<2;p[c+h>>2]=v(b,183763)+32768>>16;p[c+g>>2]=v(b,232260)+32768>>16;p[c+f>>2]=v(b,-93603);p[c+e>>2]=v(b,-45107)+32768;b=b+1|0;d=d+1|0;if((d|0)!=256){continue}break}break f;case 1:p:{switch(p[a+304>>2]){case 0:p[b+4>>2]=149;break f;case 1:p[b+4>>2]=150;break f;default:break p}}b=p[a>>2];p[b+20>>2]=28;m[p[b>>2]](a);break f;default:break o}}b=p[a>>2];p[b+20>>2]=28;m[p[b>>2]](a);break f}p[a+120>>2]=3;if(p[a+40>>2]!=6){c=p[a>>2];p[c+20>>2]=28;m[p[c>>2]](a)}q:{switch(p[a+304>>2]){case 0:p[b+4>>2]=149;break f;case 1:p[b+4>>2]=150;break f;default:break q}}b=p[a>>2];p[b+20>>2]=28;m[p[b>>2]](a);break f}p[a+120>>2]=4;r:{switch(p[a+40>>2]+ -4|0){case 1:p[b+4>>2]=151;he(a);break f;case 0:p[b+4>>2]=152;break f;default:break r}}b=p[a>>2];p[b+20>>2]=28;m[p[b>>2]](a);break f}if((c|0)!=p[a+40>>2]){c=p[a>>2];p[c+20>>2]=28;m[p[c>>2]](a)}p[a+120>>2]=p[a+36>>2];p[b+4>>2]=152}p[a+124>>2]=p[a+84>>2]?1:p[a+120>>2]}function Pe(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0,J=0;E=Z-256|0;Z=E;A=p[a+336>>2];a=p[b+84>>2];k=8;b=E;while(1){a:{b:{g=r[c+32>>1];f=o[c+16>>1];if((g|f)&65535){break b}g=0;if(r[c+48>>1]|r[c+64>>1]|(r[c+80>>1]|r[c+96>>1])){break b}if(r[c+112>>1]){break b}g=v(o[c>>1],p[a>>2])<<2;p[b+192>>2]=g;p[b+160>>2]=g;p[b+128>>2]=g;p[b+96>>2]=g;p[b+64>>2]=g;p[b+32>>2]=g;p[b>>2]=g;f=56;break a}l=v(p[a+192>>2],o[c+96>>1]);w=v(p[a+64>>2],g<<16>>16);g=v(l+w|0,4433);f=v(f,p[a+32>>2]);x=v(p[a+224>>2],o[c+112>>1]);m=v(f+x|0,-7373);j=v(p[a+160>>2],o[c+80>>1]);h=j+f|0;s=v(p[a+96>>2],o[c+48>>1]);y=s+x|0;t=v(h+y|0,9633);w=g+v(w,6270)|0;z=v(o[c+64>>1],p[a+128>>2])<<13;u=v(o[c>>1],p[a>>2])<<13|1024;B=z+u|0;C=w+B|0;i=m+v(f,12299)|0;f=t+v(h,-3196)|0;h=i+f|0;p[b+224>>2]=C-h>>11;p[b>>2]=h+C>>11;g=g+v(l,-15137)|0;l=u-z|0;h=g+l|0;t=t+v(y,-16069)|0;i=v(s,25172);s=v(j+s|0,-20995);y=t+(i+s|0)|0;p[b+192>>2]=h-y>>11;p[b+32>>2]=h+y>>11;g=l-g|0;f=f+(s+v(j,16819)|0)|0;p[b+160>>2]=g-f>>11;p[b+64>>2]=g+f>>11;g=t+(m+v(x,2446)|0)|0;f=B-w|0;p[b+96>>2]=g+f>>11;g=f-g>>11;f=32}p[(f<<2)+b>>2]=g;c=c+2|0;a=a+4|0;b=b+4|0;i=k>>>0>1;k=k+ -1|0;if(i){continue}break}b=A+ -384|0;x=0;a=E;while(1){i=p[a+12>>2];g=p[a+4>>2];j=v(i+g|0,11086);s=p[a+8>>2];t=p[a+24>>2];l=s-t|0;A=v(l,11363);c=p[(x<<2)+d>>2]+e|0;f=p[a+28>>2];y=v(f+g|0,8956);k=p[a+20>>2];w=k+g|0;h=v(w,10217);z=y+(h+(j+v(g,-18730)|0)|0)|0;u=p[a+16>>2];B=v(u,10703);m=(p[a>>2]<<13)+134348800|0;C=B+m|0;G=A+v(t,20995)|0;D=C+G|0;n[c|0]=q[b+(z+D>>>18&1023)|0];n[c+15|0]=q[b+(D-z>>>18&1023)|0];z=f+i|0;D=v(z,-5461);F=j+v(i,589)|0;j=v(k+i|0,1136);F=D+(F+j|0)|0;l=v(l,2260);H=l+v(s,7373)|0;u=v(u,4433);I=u+m|0;J=H+I|0;n[c+1|0]=q[b+(F+J>>>18&1023)|0];n[c+14|0]=q[b+(J-F>>>18&1023)|0];h=h+(j+v(k,-9222)|0)|0;j=v(f+k|0,-11086);h=h+j|0;s=A+v(s,-4926)|0;A=m-u|0;u=s+A|0;n[c+2|0]=q[b+(h+u>>>18&1023)|0];n[c+13|0]=q[b+(u-h>>>18&1023)|0];j=j+(y+(D+v(f,8728)|0)|0)|0;t=l+v(t,-4176)|0;m=m-B|0;l=t+m|0;n[c+3|0]=q[b+(j+l>>>18&1023)|0];n[c+12|0]=q[b+(l-j>>>18&1023)|0];l=v(g-f|0,7350);j=v(z,-10217);h=l+(j+v(f,25733)|0)|0;f=v(f-k|0,3363);h=h+f|0;m=m-t|0;n[c+4|0]=q[b+(h+m>>>18&1023)|0];n[c+11|0]=q[b+(m-h>>>18&1023)|0];m=v(w,5461);h=v(k,-6278);k=v(k-i|0,11529);f=f+(m+(h+k|0)|0)|0;s=A-s|0;n[c+5|0]=q[b+(f+s>>>18&1023)|0];n[c+10|0]=q[b+(s-f>>>18&1023)|0];f=v(i,16154);i=v(g-i|0,3363);k=j+(k+(f+i|0)|0)|0;f=I-H|0;n[c+6|0]=q[b+(k+f>>>18&1023)|0];n[c+9|0]=q[b+(f-k>>>18&1023)|0];i=l+(m+(i+v(g,-15038)|0)|0)|0;g=C-G|0;n[c+7|0]=q[b+(i+g>>>18&1023)|0];n[c+8|0]=q[b+(g-i>>>18&1023)|0];a=a+32|0;x=x+1|0;if((x|0)!=8){continue}break}Z=E+256|0}function Tc(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0;e=p[a+128>>2];if(e){while(1){b=c;c=b+1|0;e=e>>1;if(e){continue}break}if(b>>>0>=15){c=p[a+120>>2];d=p[c>>2];p[d+20>>2]=41;m[p[d>>2]](c)}c=b<<4;d=p[a+124>>2];a:{if(p[a+108>>2]){c=p[((d<<2)+a|0)+92>>2]+(c<<2)|0;p[c>>2]=p[c>>2]+1;break a}d=p[((d<<2)+a|0)+60>>2];e=p[d+(c<<2)>>2];c=n[(c+d|0)+1024|0];if(!c){d=p[a+120>>2];f=p[d>>2];p[f+20>>2]=41;m[p[f>>2]](d);if(p[a+108>>2]){break a}}d=e&(-1<<c^-1);c=c+p[a+16>>2]|0;e=p[a+12>>2]|d<<24-c;if((c|0)>=8){while(1){d=c;c=p[a+112>>2];p[a+112>>2]=c+1;n[c|0]=e>>>16;c=p[a+116>>2]+ -1|0;p[a+116>>2]=c;if(!c){f=p[a+120>>2];c=p[f+24>>2];if(!(m[p[c+12>>2]](f)|0)){f=p[a+120>>2];g=p[f>>2];p[g+20>>2]=25;m[p[g>>2]](f)}p[a+112>>2]=p[c>>2];p[a+116>>2]=p[c+4>>2]}b:{if((e&16711680)!=16711680){break b}c=p[a+112>>2];p[a+112>>2]=c+1;n[c|0]=0;c=p[a+116>>2]+ -1|0;p[a+116>>2]=c;if(c){break b}f=p[a+120>>2];c=p[f+24>>2];if(!(m[p[c+12>>2]](f)|0)){f=p[a+120>>2];g=p[f>>2];p[g+20>>2]=25;m[p[g>>2]](f)}p[a+112>>2]=p[c>>2];p[a+116>>2]=p[c+4>>2]}c=d+ -8|0;e=e<<8;if((d|0)>15){continue}break}}p[a+16>>2]=c;p[a+12>>2]=e}if(!(p[a+108>>2]|!b)){c=p[a+128>>2]&(-1<<b^-1);b=b+p[a+16>>2]|0;e=p[a+12>>2]|c<<24-b;if((b|0)>=8){while(1){c=b;b=p[a+112>>2];p[a+112>>2]=b+1;n[b|0]=e>>>16;b=p[a+116>>2]+ -1|0;p[a+116>>2]=b;if(!b){d=p[a+120>>2];b=p[d+24>>2];if(!(m[p[b+12>>2]](d)|0)){d=p[a+120>>2];f=p[d>>2];p[f+20>>2]=25;m[p[f>>2]](d)}p[a+112>>2]=p[b>>2];p[a+116>>2]=p[b+4>>2]}c:{if((e&16711680)!=16711680){break c}b=p[a+112>>2];p[a+112>>2]=b+1;n[b|0]=0;b=p[a+116>>2]+ -1|0;p[a+116>>2]=b;if(b){break c}d=p[a+120>>2];b=p[d+24>>2];if(!(m[p[b+12>>2]](d)|0)){d=p[a+120>>2];f=p[d>>2];p[f+20>>2]=25;m[p[f>>2]](d)}p[a+112>>2]=p[b>>2];p[a+116>>2]=p[b+4>>2]}b=c+ -8|0;e=e<<8;if((c|0)>15){continue}break}}p[a+16>>2]=b;p[a+12>>2]=e}p[a+128>>2]=0;d:{f=p[a+132>>2];if(p[a+108>>2]|!f){break d}c=p[a+136>>2];e=0;while(1){if(!e){d=p[a+16>>2];e=p[a+12>>2]|(n[c|0]&1)<<23-d;b=d+1|0;if((d|0)>=7){while(1){d=b;b=p[a+112>>2];p[a+112>>2]=b+1;n[b|0]=e>>>16;b=p[a+116>>2]+ -1|0;p[a+116>>2]=b;if(!b){g=p[a+120>>2];b=p[g+24>>2];if(!(m[p[b+12>>2]](g)|0)){g=p[a+120>>2];h=p[g>>2];p[h+20>>2]=25;m[p[h>>2]](g)}p[a+112>>2]=p[b>>2];p[a+116>>2]=p[b+4>>2]}e:{if((e&16711680)!=16711680){break e}b=p[a+112>>2];p[a+112>>2]=b+1;n[b|0]=0;b=p[a+116>>2]+ -1|0;p[a+116>>2]=b;if(b){break e}g=p[a+120>>2];b=p[g+24>>2];if(!(m[p[b+12>>2]](g)|0)){g=p[a+120>>2];h=p[g>>2];p[h+20>>2]=25;m[p[h>>2]](g)}p[a+112>>2]=p[b>>2];p[a+116>>2]=p[b+4>>2]}b=d+ -8|0;e=e<<8;if((d|0)>15){continue}break}}p[a+16>>2]=b;p[a+12>>2]=e}f=f+ -1|0;if(!f){break d}c=c+1|0;e=p[a+108>>2];continue}}p[a+132>>2]=0}}function Ne(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0;H=Z-480|0;Z=H;B=p[a+336>>2];a=p[b+84>>2];b=H;while(1){t=p[a+160>>2];u=o[c+80>>1];h=p[a+32>>2];l=o[c+16>>1];k=p[a+224>>2];s=o[c+112>>1];i=p[a+96>>2];w=o[c+48>>1];f=v(o[c>>1],p[a>>2])<<13|1024;z=v(p[a+192>>2],o[c+96>>1]);m=f+v(z,-11586)|0;r=v(p[a+64>>2],o[c+32>>1]);j=v(p[a+128>>2],o[c+64>>1]);g=r-j|0;p[b+224>>2]=m+v(g,-11584)>>11;t=v(v(t,u),10033);h=v(h,l);l=v(k,s);x=h-l|0;u=t+v(x,11522)|0;s=f+v(z,9373)|0;C=v(g,374);k=j+r|0;j=v(k,10958);y=s+(C+j|0)|0;i=v(i,w);w=v(i,-11018);A=u+(v(l,20131)-w|0)|0;p[b+448>>2]=y-A>>11;p[b>>2]=y+A>>11;z=f+v(z,-3580)|0;y=v(g,2896);A=v(k,6476);f=z+(y+A|0)|0;D=i-l|0;E=v(D+h|0,6810);F=E+v(h,4209)|0;p[b+416>>2]=f-F>>11;p[b+32>>2]=f+F>>11;f=m+v(g,5792)|0;m=v(x,10033)-t|0;p[b+384>>2]=f-m>>11;p[b+64>>2]=f+m>>11;r=v(r,11795);f=z+(C+(r-j|0)|0)|0;j=v(h+l|0,4712);i=v(i,-6810);m=j+((i+v(h,3897)|0)-t|0)|0;p[b+352>>2]=f-m>>11;p[b+96>>2]=f+m>>11;f=y+(s-A|0)|0;m=E+v(D,-17828)|0;p[b+320>>2]=f-m>>11;p[b+128>>2]=f+m>>11;g=v(g,-3271);f=v(k,4482);k=g+(s-f|0)|0;l=j+((t+w|0)+v(l,-7121)|0)|0;p[b+288>>2]=k-l>>11;p[b+160>>2]=l+k>>11;g=z+(g+(f-r|0)|0)|0;h=u+(i+v(h,-9113)|0)|0;p[b+256>>2]=g-h>>11;p[b+192>>2]=h+g>>11;b=b+4|0;a=a+4|0;c=c+2|0;G=G+1|0;if((G|0)!=8){continue}break}b=B+ -384|0;t=0;a=H;while(1){r=v(p[a+20>>2],10033);h=p[a+4>>2];g=p[a+28>>2];j=h-g|0;z=r+v(j,11522)|0;c=p[(t<<2)+d>>2]+e|0;f=p[a+12>>2];m=v(f,-11018);w=z+(v(g,20131)-m|0)|0;i=(p[a>>2]<<13)+134348800|0;s=p[a+24>>2];B=i+v(s,9373)|0;u=p[a+8>>2];k=p[a+16>>2];l=u-k|0;x=v(l,374);k=k+u|0;C=v(k,10958);y=B+(x+C|0)|0;n[c|0]=q[b+(w+y>>>18&1023)|0];n[c+14|0]=q[b+(y-w>>>18&1023)|0];y=f-g|0;A=v(y+h|0,6810);D=A+v(h,4209)|0;w=i+v(s,-3580)|0;E=v(l,2896);F=v(k,6476);G=w+(E+F|0)|0;n[c+1|0]=q[b+(D+G>>>18&1023)|0];n[c+13|0]=q[b+(G-D>>>18&1023)|0];j=v(j,10033)-r|0;s=i+v(s,-11586)|0;i=s+v(l,5792)|0;n[c+2|0]=q[b+(j+i>>>18&1023)|0];n[c+12|0]=q[b+(i-j>>>18&1023)|0];i=v(h+g|0,4712);f=v(f,-6810);j=i+((f+v(h,3897)|0)-r|0)|0;u=v(u,11795);x=w+(x+(u-C|0)|0)|0;n[c+3|0]=q[b+(j+x>>>18&1023)|0];n[c+11|0]=q[b+(x-j>>>18&1023)|0];j=A+v(y,-17828)|0;x=E+(B-F|0)|0;n[c+4|0]=q[b+(j+x>>>18&1023)|0];n[c+10|0]=q[b+(x-j>>>18&1023)|0];g=i+((r+m|0)+v(g,-7121)|0)|0;r=v(k,4482);k=v(l,-3271);i=(B-r|0)+k|0;n[c+5|0]=q[b+(g+i>>>18&1023)|0];n[c+9|0]=q[b+(i-g>>>18&1023)|0];h=z+(f+v(h,-9113)|0)|0;g=w+(k+(r-u|0)|0)|0;n[c+6|0]=q[b+(h+g>>>18&1023)|0];n[c+8|0]=q[b+(g-h>>>18&1023)|0];n[c+7|0]=q[b+(s+v(l,-11584)>>>18&1023)|0];a=a+32|0;t=t+1|0;if((t|0)!=15){continue}break}Z=H+480|0}function Le(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0;E=Z-416|0;Z=E;y=p[a+336>>2];a=p[b+84>>2];b=E;while(1){t=p[a+224>>2];l=o[c+112>>1];g=p[a+96>>2];j=o[c+48>>1];w=p[a+160>>2];x=o[c+80>>1];i=p[a+32>>2];h=o[c+16>>1];m=v(o[c>>1],p[a>>2])<<13|1024;f=v(p[a+128>>2],o[c+64>>1]);s=v(p[a+192>>2],o[c+96>>1]);r=f-s|0;k=v(p[a+64>>2],o[c+32>>1]);p[b+192>>2]=m+v(r-k|0,11585)>>11;g=v(g,j);i=v(h,i);h=v(g+i|0,10832);z=m+v(r,793)|0;f=f+s|0;s=v(f,9465);A=z+(s+v(k,11249)|0)|0;j=v(w,x);w=v(j+i|0,9534);t=v(t,l);l=t+i|0;x=v(l,7682);u=(w+(h+v(i,-16549)|0)|0)+x|0;p[b+384>>2]=A-u>>11;p[b>>2]=u+A>>11;u=m+v(r,3989)|0;A=v(f,2592);C=u+(v(k,8672)-A|0)|0;D=v(g+t|0,-9534);B=h+v(g,6859)|0;h=v(g+j|0,-2773);B=D+(B+h|0)|0;p[b+352>>2]=C-B>>11;p[b+32>>2]=C+B>>11;s=z+(v(k,4108)-s|0)|0;w=w+(h+v(j,-12879)|0)|0;h=v(j+t|0,-5384);w=w+h|0;p[b+320>>2]=s-w>>11;p[b+64>>2]=s+w>>11;r=m+v(r,-7678)|0;f=v(f,3570);m=r+(v(k,-1396)-f|0)|0;h=h+(x+(D+v(t,18068)|0)|0)|0;p[b+288>>2]=m-h>>11;p[b+96>>2]=h+m>>11;r=r+(f+v(k,-6581)|0)|0;f=v(i,2611);i=v(l,2773)+v(j-g|0,7682)|0;g=(f+i|0)+v(g,-3818)|0;p[b+256>>2]=r-g>>11;p[b+128>>2]=g+r>>11;k=u+(A+v(k,-10258)|0)|0;g=(i+v(j,3150)|0)+v(t,-14273)|0;p[b+224>>2]=k-g>>11;p[b+160>>2]=g+k>>11;b=b+4|0;a=a+4|0;c=c+2|0;F=F+1|0;if((F|0)!=8){continue}break}b=y+ -384|0;r=0;a=E;while(1){g=p[a+12>>2];i=p[a+4>>2];f=v(g+i|0,10832);c=p[(r<<2)+d>>2]+e|0;t=p[a+28>>2];w=t+i|0;x=v(w,7682);j=p[a+20>>2];l=v(j+i|0,9534);s=x+(l+(f+v(i,-16549)|0)|0)|0;m=p[a+24>>2];h=p[a+16>>2];y=m+h|0;z=v(y,9465);k=p[a+8>>2];m=h-m|0;h=(p[a>>2]<<13)+134348800|0;A=v(m,793)+h|0;u=(z+v(k,11249)|0)+A|0;n[c|0]=q[b+(s+u>>>18&1023)|0];n[c+12|0]=q[b+(u-s>>>18&1023)|0];s=v(g+t|0,-9534);u=f+v(g,6859)|0;f=v(g+j|0,-2773);u=s+(u+f|0)|0;D=h+v(m,3989)|0;C=v(y,2592);B=D+(v(k,8672)-C|0)|0;n[c+1|0]=q[b+(u+B>>>18&1023)|0];n[c+11|0]=q[b+(B-u>>>18&1023)|0];l=l+(f+v(j,-12879)|0)|0;f=v(j+t|0,-5384);l=l+f|0;z=A+(v(k,4108)-z|0)|0;n[c+2|0]=q[b+(l+z>>>18&1023)|0];n[c+10|0]=q[b+(z-l>>>18&1023)|0];f=f+(x+(s+v(t,18068)|0)|0)|0;l=h+v(m,-7678)|0;y=v(y,3570);x=l+(v(k,-1396)-y|0)|0;n[c+3|0]=q[b+(f+x>>>18&1023)|0];n[c+9|0]=q[b+(x-f>>>18&1023)|0];f=v(i,2611);i=v(w,2773)+v(j-g|0,7682)|0;g=(f+i|0)+v(g,-3818)|0;f=l+(y+v(k,-6581)|0)|0;n[c+4|0]=q[b+(g+f>>>18&1023)|0];n[c+8|0]=q[b+(f-g>>>18&1023)|0];g=(i+v(j,3150)|0)+v(t,-14273)|0;j=D+(C+v(k,-10258)|0)|0;n[c+5|0]=q[b+(g+j>>>18&1023)|0];n[c+7|0]=q[b+(j-g>>>18&1023)|0];n[c+6|0]=q[b+(h+v(m-k|0,11585)>>>18&1023)|0];a=a+32|0;r=r+1|0;if((r|0)!=13){continue}break}Z=E+416|0}function bc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0,J=0,K=0,L=0;I=Z-256|0;Z=I;g=a;while(1){a:{i=g;d=p[(k<<2)+b>>2]+c|0;n=q[d+9|0];o=q[d+6|0];e=n+o|0;s=q[d+14|0];l=q[d+1|0];h=s+l|0;f=e+h|0;j=q[d+10|0];m=q[d+5|0];r=j+m|0;u=q[d+13|0];w=q[d+2|0];t=u+w|0;x=r+t|0;y=q[d+8|0];z=q[d+7|0];A=y+z|0;B=q[d+15|0];C=q[d|0];D=B+C|0;E=A+D|0;F=q[d+11|0];G=q[d+4|0];H=F+G|0;J=q[d+12|0];K=q[d+3|0];d=J+K|0;L=H+d|0;p[g+16>>2]=(v(f-x|0,4433)+v(E-L|0,10703)|0)+1024>>11;p[g>>2]=(E+(f+(x+L|0)|0)<<2)+ -8192;f=D-A|0;r=t-r|0;t=d-H|0;e=h-e|0;d=(v(f-r|0,11363)+v(t-e|0,2260)|0)+1024|0;p[g+24>>2]=(d+v(t,-8697)|0)+v(f,-1730)>>11;p[g+8>>2]=(d+v(r,17799)|0)+v(e,11893)>>11;d=m-j|0;e=G-F|0;h=K-J|0;f=w-u|0;j=(v(d-e|0,3363)+v(h+f|0,-11086)|0)+1024|0;n=o-n|0;o=l-s|0;s=v(n+e|0,-10217)+v(o+h|0,-5461)|0;r=s+((j+v(h,8728)|0)+v(e,17760)|0)|0;l=e;e=z-y|0;m=h;h=C-B|0;l=v(l-e|0,7350)+v(m+h|0,8956)|0;p[g+28>>2]=r+l>>11;m=(j+v(f,-9222)|0)+v(d,10055)|0;j=v(n-d|0,11529)+v(f+o|0,1136)|0;d=v(d+e|0,5461)+v(f+h|0,10217)|0;p[g+20>>2]=(m+j|0)+d>>11;f=v(n-e|0,3363)+v(h+o|0,11086)|0;p[g+12>>2]=(f+(j+((s+v(o,589)|0)+v(n,-13631)|0)|0)|0)+1024>>11;p[g+4>>2]=(d+(l+((f+v(h,-18730)|0)+v(e,6387)|0)|0)|0)+1024>>11;e=k+ -7|0;k=k+1|0;d=7;g=I;b:{switch(e|0){case 0:continue;case 8:break a;default:break b}}g=i+32|0;continue}break}while(1){e=p[g+32>>2];h=p[a+192>>2];b=e+h|0;n=p[g+192>>2];o=p[a+32>>2];c=n+o|0;i=b+c|0;k=p[g+64>>2];f=p[a+160>>2];j=k+f|0;s=p[g+160>>2];l=p[a+64>>2];m=s+l|0;r=j+m|0;u=p[g>>2];w=p[a+224>>2];t=u+w|0;x=p[g+224>>2];y=p[a>>2];z=x+y|0;A=t+z|0;B=p[g+96>>2];C=p[a+128>>2];D=B+C|0;E=p[g+128>>2];F=p[a+96>>2];G=E+F|0;H=D+G|0;p[a+128>>2]=(v(i-r|0,4433)+v(A-H|0,10703)|0)+65536>>17;p[a>>2]=(A+(i+(r+H|0)|0)|0)+8>>4;i=z-t|0;j=m-j|0;m=G-D|0;c=c-b|0;b=(v(i-j|0,11363)+v(m-c|0,2260)|0)+65536|0;p[a+192>>2]=(b+v(m,-8697)|0)+v(i,-1730)>>17;p[a+64>>2]=(b+v(j,17799)|0)+v(c,11893)>>17;b=f-k|0;c=C-B|0;i=F-E|0;k=l-s|0;f=(v(b-c|0,3363)+v(i+k|0,-11086)|0)+65536|0;e=h-e|0;h=o-n|0;n=v(e+c|0,-10217)+v(h+i|0,-5461)|0;j=n+((f+v(i,8728)|0)+v(c,17760)|0)|0;l=c;c=w-u|0;m=i;i=y-x|0;o=v(l-c|0,7350)+v(m+i|0,8956)|0;p[a+224>>2]=j+o>>17;l=(f+v(k,-9222)|0)+v(b,10055)|0;f=v(e-b|0,11529)+v(h+k|0,1136)|0;b=v(b+c|0,5461)+v(i+k|0,10217)|0;p[a+160>>2]=(l+f|0)+b>>17;k=v(e-c|0,3363)+v(h+i|0,11086)|0;p[a+96>>2]=(k+(f+((n+v(h,589)|0)+v(e,-13631)|0)|0)|0)+65536>>17;p[a+32>>2]=(b+(o+((k+v(i,-18730)|0)+v(c,6387)|0)|0)|0)+65536>>17;b=d;d=d+ -1|0;g=g+4|0;a=a+4|0;if(b){continue}break}Z=I+256|0}function ef(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=w(0),g=w(0),h=0,i=0,j=w(0),k=w(0),l=w(0),m=w(0),s=w(0),u=w(0),v=0,y=w(0),z=w(0),A=w(0),B=w(0),C=w(0),D=w(0),E=0,F=w(0),G=0;E=Z-256|0;Z=E;G=p[a+336>>2];a=p[b+84>>2];v=8;b=E;while(1){a:{b:{h=r[c+32>>1];i=r[c+16>>1];if(h|i){break b}h=0;if(r[c+48>>1]|r[c+64>>1]|(r[c+80>>1]|r[c+96>>1])){break b}if(r[c+112>>1]){break b}g=w(t[a>>2]*w(o[c>>1]));t[b+192>>2]=g;t[b+160>>2]=g;t[b+128>>2]=g;t[b+96>>2]=g;t[b+64>>2]=g;t[b+32>>2]=g;t[b>>2]=g;h=56;break a}j=w(t[a>>2]*w(o[c>>1]));k=w(t[a+128>>2]*w(o[c+64>>1]));y=w(j+k);l=w(t[a+64>>2]*w(h<<16>>16));m=w(t[a+192>>2]*w(o[c+96>>1]));g=w(l+m);s=w(y+g);u=w(t[a+96>>2]*w(o[c+48>>1]));z=w(t[a+160>>2]*w(o[c+80>>1]));A=w(u+z);B=w(t[a+32>>2]*w(i<<16>>16));C=w(t[a+224>>2]*w(o[c+112>>1]));D=w(B+C);f=w(A+D);t[b+224>>2]=s-f;t[b>>2]=s+f;j=w(j-k);k=w(w(w(l-m)*w(1.4142135381698608))-g);l=w(j+k);m=w(z-u);s=w(B-C);u=w(w(m+s)*w(1.8477590084075928));f=w(w(u+w(m*w(-2.613126039505005)))-f);t[b+192>>2]=l-f;t[b+32>>2]=l+f;j=w(j-k);f=w(w(w(D-A)*w(1.4142135381698608))-f);t[b+160>>2]=j-f;t[b+64>>2]=j+f;g=w(y-g);f=w(w(u+w(s*w(-1.0823922157287598)))-f);t[b+96>>2]=g+f;g=w(g-f);h=32}t[(h<<2)+b>>2]=g;c=c+2|0;a=a+4|0;b=b+4|0;h=v>>>0>1;v=v+ -1|0;if(h){continue}break}a=G+ -384|0;v=0;c=E;while(1){b=p[(v<<2)+d>>2]+e|0;h=b;j=w(t[c>>2]+w(512.5));k=t[c+16>>2];y=w(j+k);l=t[c+8>>2];m=t[c+24>>2];g=w(l+m);s=w(y+g);u=t[c+20>>2];z=t[c+12>>2];A=w(u+z);B=t[c+4>>2];C=t[c+28>>2];D=w(B+C);f=w(A+D);F=w(s+f);c:{if(w(x(F))<w(2147483648)){i=~~F;break c}i=-2147483648}n[h|0]=q[(i&1023)+a|0];h=b;s=w(s-f);d:{if(w(x(s))<w(2147483648)){i=~~s;break d}i=-2147483648}n[h+7|0]=q[(i&1023)+a|0];h=b;j=w(j-k);k=w(w(w(l-m)*w(1.4142135381698608))-g);l=w(j+k);m=w(u-z);s=w(B-C);u=w(w(m+s)*w(1.8477590084075928));f=w(w(u+w(m*w(-2.613126039505005)))-f);m=w(l+f);e:{if(w(x(m))<w(2147483648)){i=~~m;break e}i=-2147483648}n[h+1|0]=q[(i&1023)+a|0];h=b;l=w(l-f);f:{if(w(x(l))<w(2147483648)){i=~~l;break f}i=-2147483648}n[h+6|0]=q[(i&1023)+a|0];h=b;j=w(j-k);f=w(w(w(D-A)*w(1.4142135381698608))-f);k=w(j+f);g:{if(w(x(k))<w(2147483648)){i=~~k;break g}i=-2147483648}n[h+2|0]=q[(i&1023)+a|0];h=b;j=w(j-f);h:{if(w(x(j))<w(2147483648)){i=~~j;break h}i=-2147483648}n[h+5|0]=q[(i&1023)+a|0];h=b;g=w(y-g);f=w(w(u+w(s*w(-1.0823922157287598)))-f);j=w(g+f);i:{if(w(x(j))<w(2147483648)){i=~~j;break i}i=-2147483648}n[h+3|0]=q[(i&1023)+a|0];g=w(g-f);j:{if(w(x(g))<w(2147483648)){h=~~g;break j}h=-2147483648}n[b+4|0]=q[(h&1023)+a|0];c=c+32|0;v=v+1|0;if((v|0)!=8){continue}break}Z=E+256|0}function Hc(a,b,c){var d=0,e=0,f=0,g=0,h=0;d=p[a+424>>2];g=q[b|0];h=p[((g&127)<<2)+8224>>2];f=h>>16;e=p[d+16>>2]-f|0;p[d+16>>2]=e;a:{b:{if((g>>>7|0)!=(c|0)){if((e|0)>=(f|0)){p[d+16>>2]=f;p[d+12>>2]=e+p[d+12>>2]}c=h&255;break b}if((e|0)>32767){break a}c=h>>>8|0;if((e|0)>=(f|0)){break b}p[d+16>>2]=f;p[d+12>>2]=e+p[d+12>>2]}n[b|0]=g&128^c;c=p[d+28>>2];e=p[d+12>>2];b=p[d+16>>2];while(1){c=c+ -1|0;p[d+28>>2]=c;e=e<<1;p[d+12>>2]=e;b=b<<1;p[d+16>>2]=b;if(!c){f=e>>19;c:{if((e|0)>=134217728){b=p[d+32>>2];d:{if((b|0)<0){break d}if(p[d+24>>2]){while(1){b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;e:{if(c){break e}if(m[p[b+12>>2]](a)|0){break e}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d+24>>2]+ -1|0;p[d+24>>2]=b;if(b){continue}break}b=p[d+32>>2]}c=p[a+24>>2];e=p[c>>2];p[c>>2]=e+1;n[e|0]=b+1;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;f:{if(b){break f}if(m[p[c+12>>2]](a)|0){break f}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if(p[d+32>>2]!=254){break d}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;if(c){break d}if(m[p[b+12>>2]](a)|0){break d}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}p[d+32>>2]=f&255;b=p[d+20>>2];p[d+20>>2]=0;p[d+24>>2]=b+p[d+24>>2];break c}if((f|0)==255){p[d+20>>2]=p[d+20>>2]+1;break c}c=p[d+32>>2];g:{if(!c){p[d+24>>2]=p[d+24>>2]+1;break g}if((c|0)<0){break g}if(p[d+24>>2]){while(1){b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;h:{if(c){break h}if(m[p[b+12>>2]](a)|0){break h}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d+24>>2]+ -1|0;p[d+24>>2]=b;if(b){continue}break}c=p[d+32>>2]}b=p[a+24>>2];e=p[b>>2];p[b>>2]=e+1;n[e|0]=c;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;if(c){break g}if(m[p[b+12>>2]](a)|0){break g}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if(p[d+20>>2]){if(p[d+24>>2]){while(1){b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;i:{if(c){break i}if(m[p[b+12>>2]](a)|0){break i}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d+24>>2]+ -1|0;p[d+24>>2]=b;if(b){continue}break}}while(1){b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=255;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;j:{if(c){break j}if(m[p[b+12>>2]](a)|0){break j}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=0;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;k:{if(c){break k}if(m[p[b+12>>2]](a)|0){break k}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[d+20>>2]+ -1|0;p[d+20>>2]=b;if(b){continue}break}}p[d+32>>2]=f&255}e=p[d+12>>2]&524287;p[d+12>>2]=e;c=p[d+28>>2]+8|0;p[d+28>>2]=c;b=p[d+16>>2]}if((b|0)<32768){continue}break}}}function ab(a,b){var c=0,d=0,e=0,f=0,g=0;c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=255;d=p[c+4>>2]+ -1|0;p[c+4>>2]=d;a:{if(d){break a}if(m[p[c+12>>2]](a)|0){break a}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=b;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;b:{if(b){break b}if(m[p[c+12>>2]](a)|0){break b}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}d=p[a+76>>2];b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;d=v(d,3)+8|0;n[c|0]=d>>>8;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;c:{if(c){break c}if(m[p[b+12>>2]](a)|0){break c}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=d;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;d:{if(c){break d}if(m[p[b+12>>2]](a)|0){break d}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if(!(p[a+64>>2]<65536?p[a+68>>2]<=65535:0)){b=p[a>>2];p[b+20>>2]=42;p[b+24>>2]=65535;m[p[p[a>>2]>>2]](a)}d=p[a+72>>2];b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=d;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;e:{if(c){break e}if(m[p[b+12>>2]](a)|0){break e}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}c=p[a+68>>2];b=p[a+24>>2];d=p[b>>2];p[b>>2]=d+1;n[d|0]=c>>>8;d=p[b+4>>2]+ -1|0;p[b+4>>2]=d;f:{if(d){break f}if(m[p[b+12>>2]](a)|0){break f}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+24>>2];d=p[b>>2];p[b>>2]=d+1;n[d|0]=c;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;g:{if(c){break g}if(m[p[b+12>>2]](a)|0){break g}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}c=p[a+64>>2];b=p[a+24>>2];d=p[b>>2];p[b>>2]=d+1;n[d|0]=c>>>8;d=p[b+4>>2]+ -1|0;p[b+4>>2]=d;h:{if(d){break h}if(m[p[b+12>>2]](a)|0){break h}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+24>>2];d=p[b>>2];p[b>>2]=d+1;n[d|0]=c;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;i:{if(c){break i}if(m[p[b+12>>2]](a)|0){break i}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}d=p[a+76>>2];b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=d;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;j:{if(c){break j}if(m[p[b+12>>2]](a)|0){break j}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if(p[a+76>>2]>=1){b=p[a+84>>2];d=0;while(1){f=p[b>>2];c=p[a+24>>2];e=p[c>>2];p[c>>2]=e+1;n[e|0]=f;e=p[c+4>>2]+ -1|0;p[c+4>>2]=e;k:{if(e){break k}if(m[p[c+12>>2]](a)|0){break k}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}f=p[b+12>>2];g=p[b+8>>2];c=p[a+24>>2];e=p[c>>2];p[c>>2]=e+1;n[e|0]=f+(g<<4);e=p[c+4>>2]+ -1|0;p[c+4>>2]=e;l:{if(e){break l}if(m[p[c+12>>2]](a)|0){break l}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}f=p[b+16>>2];c=p[a+24>>2];e=p[c>>2];p[c>>2]=e+1;n[e|0]=f;e=p[c+4>>2]+ -1|0;p[c+4>>2]=e;m:{if(e){break m}if(m[p[c+12>>2]](a)|0){break m}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}b=b+88|0;d=d+1|0;if((d|0)<p[a+76>>2]){continue}break}}}function Yf(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;var h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0;j=Z-944|0;Z=j;l=kh(40);p[l>>2]=0;p[3124]=0;p[j+940>>2]=0;p[j+936>>2]=0;m=J(227,j+8|0)|0;h=p[3124];p[3124]=0;i=-1;n=4;a:{b:{if(!h){break b}k=p[3125];if(!k){break b}i=jh(p[h>>2],l,4);if(!i){break a}K(k|0)}h=L()|0;if((i|0)!=1){p[j+8>>2]=228;p[j+496>>2]=m;l=ih(j+340|0,1,l,4);n=L()|0;h=0}c:{d:while(1){e:{f:{g:{h:{i:{if(h){p[3124]=0;k=p[j+28>>2];o=J(229,j+140|0)|0;h=p[3124];p[3124]=0;i=-1;if(!h){break h}m=p[3125];if(!m){break h}i=jh(p[h>>2],l,n);if(i){break i}H(h|0,m|0);E()}p[3124]=0;M(230,j+496|0,90,440);h=p[3124];p[3124]=0;i=-1;if(!h){break f}k=p[3125];if(!k){break f}i=jh(p[h>>2],l,n);if(i){break g}break a}K(m|0)}h=L()|0;if((i|0)!=1){break e}continue}K(k|0)}h=L()|0;if((i|0)==1){continue}p[3124]=0;p[j+532>>2]=3;p[j+536>>2]=2;p[j+528>>2]=c;p[j+524>>2]=b;N(231,j+496|0);h=p[3124];p[3124]=0;i=-1;j:{if(!h){break j}k=p[3125];if(!k){break j}i=jh(p[h>>2],l,n);if(!i){break a}K(k|0)}h=L()|0;if((i|0)==1){continue}p[3124]=0;M(232,j+496|0,d|0,1);h=p[3124];p[3124]=0;i=-1;k:{if(!h){break k}k=p[3125];if(!k){break k}i=jh(p[h>>2],l,n);if(!i){break a}K(k|0)}h=L()|0;if((i|0)==1){continue}p[3124]=0;M(233,j+496|0,j+940|0,j+936|0);h=p[3124];p[3124]=0;i=-1;l:{if(!h){break l}k=p[3125];if(!k){break l}i=jh(p[h>>2],l,n);if(!i){break a}K(k|0)}h=L()|0;if((i|0)==1){continue}p[3124]=0;O(234,j+496|0,1);h=p[3124];p[3124]=0;i=-1;m:{if(!h){break m}k=p[3125];if(!k){break m}i=jh(p[h>>2],l,n);if(!i){break a}K(k|0)}h=L()|0;if((i|0)==1){continue}i=p[j+760>>2];if(i>>>0<s[j+528>>2]){m=v(b,3);while(1){p[3124]=0;p[j+4>>2]=v(i,m)+a;P(235,j+496|0,j+4|0,1)|0;h=p[3124];p[3124]=0;i=-1;n:{if(!h){break n}k=p[3125];if(!k){break n}i=jh(p[h>>2],l,n);if(!i){break a}K(k|0)}h=L()|0;if((i|0)==1){continue d}i=p[j+760>>2];if(i>>>0<s[j+528>>2]){continue}break}}p[3124]=0;N(236,j+496|0);h=p[3124];p[3124]=0;i=-1;o:{if(!h){break o}k=p[3125];if(!k){break o}i=jh(p[h>>2],l,n);if(!i){break a}K(k|0)}h=L()|0;if((i|0)==1){continue}p[3124]=0;N(237,j+496|0);h=p[3124];p[3124]=0;i=-1;p:{if(!h){break p}k=p[3125];if(!k){break p}i=jh(p[h>>2],l,n);if(!i){break a}K(k|0)}h=L()|0;if((i|0)==1){continue}p[e>>2]=p[j+940>>2];p[f>>2]=p[j+936>>2];k=0;break c}p[g>>2]=o;p[3124]=0;N(237,j+496|0);h=p[3124];p[3124]=0;i=-1;q:{if(!h){break q}m=p[3125];if(!m){break q}i=jh(p[h>>2],l,n);if(!i){H(h|0,m|0);E()}K(m|0)}h=L()|0;if((i|0)==1){continue}break}a=p[j+940>>2];if(!a){break c}lh(a)}lh(l);Z=j+944|0;return k|0}H(h|0,k|0);E()}function uf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,s=0,t=0,u=0,v=0,w=0,x=0;e=Z-288|0;Z=e;h=p[a+468>>2];d=p[a+280>>2];a:{b:{if(!d){d=0;break b}if(p[h+44>>2]){break b}d=p[a+464>>2];i=h+16|0;p[d+24>>2]=p[d+24>>2]+(p[i>>2]/8|0);p[i>>2]=0;if(!(m[p[d+8>>2]](a)|0)){break a}if(p[a+340>>2]>=1){while(1){p[((c<<2)+h|0)+24>>2]=0;c=c+1|0;if((c|0)<p[a+340>>2]){continue}break}}p[h+20>>2]=0;d=p[a+280>>2];p[h+44>>2]=d;if(p[a+440>>2]){break b}p[h+40>>2]=0}c:{if(!p[h+40>>2]){t=p[a+432>>2];j=p[a+416>>2];d=p[a+424>>2];p[e+280>>2]=a;c=p[a+24>>2];p[e+264>>2]=p[c>>2];p[e+268>>2]=p[c+4>>2];f=65536<<d;k=f>>16;c=p[h+16>>2];d=p[a+412>>2];n=p[b>>2];g=p[h+12>>2];d:{e:{i=p[h+20>>2];if(i){break e}u=p[h+64>>2];x=0-(f&-65536)>>16;while(1){f:{g:{h:{if((c|0)<=7){if(!Bf(e+264|0,g,c,0)){break c}g=p[e+272>>2];c=p[e+276>>2];b=1;if((c|0)<8){break h}}b=g>>c+ -8&255;i=p[((b<<2)+u|0)+144>>2];if(i){break g}b=9}b=Cf(e+264|0,g,c,u,b);if((b|0)<0){break c}g=p[e+272>>2];c=p[e+276>>2];break f}b=q[(b+u|0)+1168|0];c=c-i|0}f=b>>>4|0;i:{j:{switch(b&15){default:b=p[a>>2];p[b+20>>2]=121;m[p[b+4>>2]](a,-1);case 1:if((c|0)<=0){if(!Bf(e+264|0,g,c,1)){break c}g=p[e+272>>2];c=p[e+276>>2]}c=c+ -1|0;v=g>>>c&1?k:x;break i;case 0:break j}}v=0;if((f|0)==15){break i}i=1;if(!f){break e}if((c|0)<(f|0)){if(!Bf(e+264|0,g,c,f)){break c}g=p[e+272>>2];c=p[e+276>>2]}c=c-f|0;i=(p[(f<<2)+10160>>2]&g>>c)+(1<<f)|0;if(i){break e}b=0;break d}w=(d|0)>(j|0)?d:j;i=w+1|0;k:{while(1){b=d;d=(p[(d<<2)+t>>2]<<1)+n|0;l:{if(r[d>>1]){if((c|0)<=0){if(!Bf(e+264|0,g,c,1)){break c}g=p[e+272>>2];c=p[e+276>>2]}c=c+ -1|0;if(!(g>>>c&1)){break l}s=o[d>>1];if(s&k){break l}if((s|0)>=0){o[d>>1]=k+s;break l}o[d>>1]=s-k;break l}if((f|0)<1){break k}f=f+ -1|0}d=b+1|0;if((b|0)!=(w|0)){continue}break}b=i}if(v){d=p[(b<<2)+t>>2];o[(d<<1)+n>>1]=v;p[(l<<2)+e>>2]=d;l=l+1|0}d=b+1|0;if((b|0)<(j|0)){continue}break}b=0;break d}j=(d|0)>(j|0)?d:j;while(1){b=d;d=(p[(d<<2)+t>>2]<<1)+n|0;m:{if(!r[d>>1]){break m}if((c|0)<=0){if(!Bf(e+264|0,g,c,1)){break c}g=p[e+272>>2];c=p[e+276>>2]}c=c+ -1|0;if(!(g>>>c&1)){break m}f=o[d>>1];if(f&k){break m}if((f|0)>=0){o[d>>1]=f+k;break m}o[d>>1]=f-k}d=b+1|0;if((b|0)!=(j|0)){continue}break}b=i+ -1|0}d=p[a+24>>2];p[d>>2]=p[e+264>>2];p[d+4>>2]=p[e+268>>2];p[h+20>>2]=b;p[h+16>>2]=c;p[h+12>>2]=g;d=p[a+280>>2]}c=1;if(!d){break a}p[h+44>>2]=p[h+44>>2]+ -1;break a}if(!l){c=0;break a}while(1){c=0;l=l+ -1|0;o[(p[(l<<2)+e>>2]<<1)+n>>1]=0;if(l){continue}break}}Z=e+288|0;return c|0}function _b(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0;E=Z-160|0;Z=E;d=a;while(1){a:{e=d;d=p[(j<<2)+b>>2]+c|0;k=q[d+12|0];t=q[d|0];g=k+t|0;u=q[d+11|0];l=q[d+1|0];f=u+l|0;m=q[d+10|0];w=q[d+2|0];o=m+w|0;x=q[d+9|0];h=q[d+3|0];r=x+h|0;z=q[d+8|0];A=q[d+4|0];s=z+A|0;B=q[d+7|0];C=q[d+5|0];i=B+C|0;d=q[d+6|0];p[e>>2]=((((((g+f|0)+o|0)+r|0)+s|0)+i|0)+d|0)+ -1664;d=d<<1;r=r-d|0;s=s-d|0;y=g-d|0;o=o-d|0;n=f-d|0;i=i-d|0;d=(v(r-s|0,-3570)+v(y-o|0,9465)|0)+v(n-i|0,-2592)|0;g=(v(r+s|0,-7678)+v(o+y|0,793)|0)+v(i+n|0,3989)|0;p[e+24>>2]=(d-g|0)+4096>>13;p[e+16>>2]=(d+g|0)+4096>>13;d=h-x|0;g=w-m|0;w=v(d+g|0,-5384);f=C-B|0;m=A-z|0;k=t-k|0;t=v(f+m|0,2773)+v(k+d|0,7682)|0;x=w+v(d,18068)|0;h=d;d=l-u|0;u=v(h+d|0,-9534);p[e+28>>2]=(t+((x+u|0)+v(f,-14273)|0)|0)+4096>>13;l=v(g+k|0,9534);h=(w+(l+v(g,-12879)|0)|0)+v(f,18515)|0;g=v(m-f|0,7682)+v(d+g|0,-2773)|0;p[e+20>>2]=(h+g|0)+4096>>13;h=v(d,6859);d=v(d+k|0,10832)+4096|0;p[e+12>>2]=g+((u+(h+d|0)|0)+v(m,-19183)|0)>>13;p[e+4>>2]=t+((l+(d+v(k,-16549)|0)|0)+v(m,2611)|0)>>13;p[e+8>>2]=(((((v(n,8672)+v(y,11249)|0)+v(o,4108)|0)+v(r,-1396)|0)+v(s,-6581)|0)+v(i,-10258)|0)+4096>>13;f=j+ -7|0;j=j+1|0;g=7;d=E;b:{switch(f|0){case 0:continue;case 5:break a;default:break b}}d=e+32|0;continue}break}while(1){c=p[d+32>>2];e=p[a+96>>2];w=c+e|0;t=p[a+192>>2];b=t<<1;m=w-b|0;j=p[d>>2];f=p[a+128>>2];u=j+f|0;k=u-b|0;i=p[d+128>>2];l=p[a>>2];x=i+l|0;r=x-b|0;n=p[d+64>>2];h=p[a+64>>2];z=n+h|0;s=z-b|0;A=p[d+96>>2];B=p[a+32>>2];C=A+B|0;y=C-b|0;D=p[a+224>>2];F=p[a+160>>2];G=D+F|0;o=G-b|0;b=(v(m-k|0,-2704)+v(r-s|0,7169)|0)+v(y-o|0,-1963)|0;H=(v(k+m|0,-5816)+v(r+s|0,601)|0)+v(o+y|0,3021)|0;p[a+192>>2]=(b-H|0)- -8192>>14;p[a+128>>2]=(b+H|0)- -8192>>14;b=e-c|0;c=h-n|0;n=v(b+c|0,-4078);e=F-D|0;j=f-j|0;f=l-i|0;i=v(e+j|0,2100)+v(f+b|0,5819)|0;D=n+v(b,13685)|0;h=b;b=B-A|0;l=v(h+b|0,-7221);p[a+224>>2]=(i+((D+l|0)+v(e,-10811)|0)|0)- -8192>>14;h=v(c+f|0,7221);n=(n+(h+v(c,-9754)|0)|0)+v(e,14023)|0;c=v(j-e|0,5819)+v(b+c|0,-2100)|0;p[a+160>>2]=(n+c|0)- -8192>>14;e=v(b,5195);b=v(b+f|0,8204)- -8192|0;p[a+96>>2]=c+((l+(e+b|0)|0)+v(j,-14529)|0)>>14;p[a+32>>2]=i+((h+(b+v(f,-12534)|0)|0)+v(j,1978)|0)>>14;p[a+64>>2]=(((((v(y,6568)+v(r,8520)|0)+v(s,3112)|0)+v(m,-1058)|0)+v(k,-4985)|0)+v(o,-7770)|0)- -8192>>14;p[a>>2]=v(t+((u+(w+(z+(x+C|0)|0)|0)|0)+G|0)|0,6205)- -8192>>14;b=g;g=b+ -1|0;d=d+4|0;a=a+4|0;if(b){continue}break}Z=E+160|0}function pd(a,b,c,d){var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;f=p[a+24>>2];e=p[f+4>>2];g=p[f>>2];p[a+228>>2]=d;p[a+224>>2]=c;p[a+220>>2]=b;a:{if(!e){if(!(m[p[f+12>>2]](a)|0)){break a}g=p[f>>2];e=p[f+4>>2]}h=q[g|0];b=e+ -1|0;d=g+1|0;b:{if(b){break b}if(!(m[p[f+12>>2]](a)|0)){break a}b=p[f+4>>2];d=p[f>>2]}e=q[d|0];c=a;g=b+ -1|0;d=d+1|0;c:{if(g){break c}if(!(m[p[f+12>>2]](a)|0)){break a}g=p[f+4>>2];d=p[f>>2]}p[c+212>>2]=q[d|0];c=a;g=g+ -1|0;d=d+1|0;d:{if(g){break d}if(!(m[p[f+12>>2]](a)|0)){break a}g=p[f+4>>2];d=p[f>>2]}b=q[d|0]<<8;p[c+32>>2]=b;c=a;g=g+ -1|0;d=d+1|0;e:{if(g){break e}if(!(m[p[f+12>>2]](a)|0)){break a}b=p[a+32>>2];g=p[f+4>>2];d=p[f>>2]}p[c+32>>2]=q[d|0]+b;i=a;g=g+ -1|0;d=d+1|0;f:{if(g){break f}if(!(m[p[f+12>>2]](a)|0)){break a}g=p[f+4>>2];d=p[f>>2]}b=q[d|0]<<8;p[i+28>>2]=b;g=g+ -1|0;d=d+1|0;g:{if(g){break g}if(!(m[p[f+12>>2]](a)|0)){break a}b=p[a+28>>2];g=p[f+4>>2];d=p[f>>2]}p[c+28>>2]=q[d|0]+b;b=g+ -1|0;c=d+1|0;h:{if(b){break h}if(!(m[p[f+12>>2]](a)|0)){break a}b=p[f+4>>2];c=p[f>>2]}e=e|h<<8;p[a+36>>2]=q[c|0];d=p[a>>2];p[d+24>>2]=p[a+440>>2];p[d+28>>2]=p[a+28>>2];p[d+32>>2]=p[a+32>>2];h=p[a+36>>2];p[d+20>>2]=102;p[d+36>>2]=h;m[p[d+4>>2]](a,1);if(p[p[a+464>>2]+16>>2]){d=p[a>>2];p[d+20>>2]=61;m[p[d>>2]](a)}d=e+ -8|0;i:{if(!(!p[a+32>>2]|!p[a+28>>2])){e=p[a+36>>2];if((e|0)>0){break i}}e=p[a>>2];p[e+20>>2]=33;m[p[e>>2]](a);e=p[a+36>>2]}if((d|0)!=(v(e,3)|0)){d=p[a>>2];p[d+20>>2]=12;m[p[d>>2]](a)}if(!p[a+216>>2]){k=a,l=m[p[p[a+4>>2]>>2]](a,1,v(p[a+36>>2],88))|0,p[k+216>>2]=l}i=c+1|0;e=b+ -1|0;if(p[a+36>>2]>=1){b=0;while(1){if(!e){if(!(m[p[f+12>>2]](a)|0)){break a}i=p[f>>2];e=p[f+4>>2]}j=e+ -1|0;d=p[a+216>>2];c=q[i|0];j:{if(!b){e=d;break j}h=d+v(b,88)|0;g=0;e=d;while(1){if(p[e>>2]==(c|0)){e=d+88|0;g=p[d>>2];c=1;if(b>>>0>=2){while(1){d=p[e>>2];g=(d|0)>(g|0)?d:g;e=e+88|0;c=c+1|0;if((c|0)!=(b|0)){continue}break}e=h}c=g+1|0;break j}e=e+88|0;g=g+1|0;if((g|0)!=(b|0)){continue}break}e=h}p[e+4>>2]=b;p[e>>2]=c;h=e;if(j){d=i+1|0}else{if(!(m[p[f+12>>2]](a)|0)){break a}j=p[f+4>>2];d=p[f>>2]}c=q[d|0];p[h+12>>2]=c&15;p[e+8>>2]=c>>>4;c=e;h=d+1|0;d=j+ -1|0;if(!d){if(!(m[p[f+12>>2]](a)|0)){break a}d=p[f+4>>2];h=p[f>>2]}p[c+16>>2]=q[h|0];c=p[a>>2];p[c+24>>2]=p[e>>2];p[c+28>>2]=p[e+8>>2];p[c+32>>2]=p[e+12>>2];e=p[e+16>>2];p[c+20>>2]=103;p[c+36>>2]=e;m[p[c+4>>2]](a,1);i=h+1|0;e=d+ -1|0;b=b+1|0;if((b|0)<p[a+36>>2]){continue}break}}p[p[a+464>>2]+16>>2]=1;p[f+4>>2]=e;p[f>>2]=i;return 1}return 0}function Vd(a,b){var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0;k=p[b+20>>2];f=p[b+16>>2];l=p[b+12>>2];d=p[b+8>>2];n=p[p[a+484>>2]+24>>2];h=p[b+4>>2];g=p[b>>2];a:{if((h|0)>(g|0)){j=g;while(1){if((d|0)<=(l|0)){m=p[(j<<2)+n>>2];c=d;while(1){if((f|0)<=(k|0)){a=(m+(c<<6)|0)+(f<<1)|0;e=f;while(1){if(r[a>>1]){p[b>>2]=j;break a}a=a+2|0;i=(e|0)!=(k|0);e=e+1|0;if(i){continue}break}}a=(c|0)!=(l|0);c=c+1|0;if(a){continue}break}}a=(h|0)!=(j|0);j=j+1|0;if(a){continue}break}}j=g}b:{if((h|0)>(j|0)){i=h;while(1){if((d|0)<=(l|0)){m=p[(i<<2)+n>>2];c=d;while(1){if((f|0)<=(k|0)){a=(m+(c<<6)|0)+(f<<1)|0;e=f;while(1){if(r[a>>1]){p[b+4>>2]=i;break b}a=a+2|0;g=(e|0)!=(k|0);e=e+1|0;if(g){continue}break}}a=(c|0)!=(l|0);c=c+1|0;if(a){continue}break}}a=(i|0)>(j|0);i=i+ -1|0;if(a){continue}break}}i=h}c:{if((l|0)>(d|0)){g=d;while(1){c=j;if((i|0)>=(c|0)){while(1){if((f|0)<=(k|0)){a=(p[(c<<2)+n>>2]+(g<<6)|0)+(f<<1)|0;e=f;while(1){if(r[a>>1]){p[b+8>>2]=g;break c}a=a+2|0;h=(e|0)!=(k|0);e=e+1|0;if(h){continue}break}}a=(c|0)!=(i|0);c=c+1|0;if(a){continue}break}}a=(g|0)!=(l|0);g=g+1|0;if(a){continue}break}}g=d}d:{if((l|0)>(g|0)){h=l;while(1){c=j;if((i|0)>=(c|0)){while(1){if((f|0)<=(k|0)){a=(p[(c<<2)+n>>2]+(h<<6)|0)+(f<<1)|0;e=f;while(1){if(r[a>>1]){p[b+12>>2]=h;break d}a=a+2|0;d=(e|0)!=(k|0);e=e+1|0;if(d){continue}break}}a=(c|0)!=(i|0);c=c+1|0;if(a){continue}break}}a=(h|0)>(g|0);h=h+ -1|0;if(a){continue}break}}h=l}e:{if((k|0)>(f|0)){m=g<<6;c=f;while(1){d=j;if((i|0)>=(d|0)){while(1){if((h|0)>=(g|0)){a=(m+p[(d<<2)+n>>2]|0)+(c<<1)|0;e=g;while(1){if(r[a>>1]){p[b+16>>2]=c;break e}a=a- -64|0;l=(e|0)!=(h|0);e=e+1|0;if(l){continue}break}}a=(d|0)!=(i|0);d=d+1|0;if(a){continue}break}}a=(c|0)!=(k|0);c=c+1|0;if(a){continue}break}}c=f}f:{if((k|0)>(c|0)){m=g<<6;f=k;while(1){d=j;if((i|0)>=(d|0)){while(1){if((h|0)>=(g|0)){a=(m+p[(d<<2)+n>>2]|0)+(f<<1)|0;e=g;while(1){if(r[a>>1]){p[b+20>>2]=f;break f}a=a- -64|0;l=(e|0)!=(h|0);e=e+1|0;if(l){continue}break}}a=(d|0)!=(i|0);d=d+1|0;if(a){continue}break}}a=(f|0)>(c|0);f=f+ -1|0;if(a){continue}break}}f=k}a=v(h-g|0,12);d=v(a,a);a=i-j<<4;d=d+v(a,a)|0;a=f-c<<3;p[b+24>>2]=d+v(a,a);e=0;if((i|0)>=(j|0)){while(1){if((h|0)>=(g|0)){k=p[(j<<2)+n>>2];d=g;while(1){if((f|0)>=(c|0)){m=(k+(d<<6)|0)+(c<<1)|0;a=c;while(1){e=(r[m>>1]!=0)+e|0;l=(a|0)!=(f|0);m=m+2|0;a=a+1|0;if(l){continue}break}}a=(d|0)!=(h|0);d=d+1|0;if(a){continue}break}}a=(i|0)!=(j|0);j=j+1|0;if(a){continue}break}}p[b+28>>2]=e}function Me(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0;C=Z-448|0;Z=C;x=p[a+336>>2];a=p[b+84>>2];b=C;while(1){k=p[a+192>>2];s=o[c+96>>1];i=p[a+64>>2];l=o[c+32>>1];u=v(o[c>>1],p[a>>2])<<13|1024;j=v(p[a+128>>2],o[c+64>>1]);m=u+v(j,-11586)>>11;g=v(p[a+224>>2],o[c+112>>1]);r=v(p[a+32>>2],o[c+16>>1]);f=v(p[a+96>>2],o[c+48>>1]);y=r-f|0;h=v(p[a+160>>2],o[c+80>>1]);t=g+(y-h|0)<<2;p[b+320>>2]=m-t;p[b+96>>2]=m+t;s=v(k,s);i=v(i,l);l=v(s+i|0,9058);m=l+v(s,-14084)|0;t=u+v(j,2578)|0;z=m+t|0;k=g<<13;g=v(f+h|0,-1297)-k|0;A=v(f+r|0,10935);w=g+(A+v(f,-3474)|0)|0;p[b+384>>2]=z-w>>11;p[b+32>>2]=w+z>>11;s=v(s,-11295)+v(i,5027)|0;z=u+v(j,-7223)|0;w=s+z|0;B=h+r|0;D=v(B,9810);g=g+(D+v(h,-19447)|0)|0;p[b+352>>2]=w-g>>11;p[b+64>>2]=g+w>>11;m=t-m|0;y=v(y,3826)-k|0;g=v(f,5529);f=v(h-f|0,11512);g=y+(g+f|0)|0;p[b+256>>2]=m-g>>11;p[b+160>>2]=g+m>>11;j=u+v(j,10438)|0;u=l+v(i,2237)|0;i=j-u|0;l=v(B,6164);m=y+(l+v(r,-8693)|0)|0;p[b+224>>2]=i-m>>11;p[b+192>>2]=i+m>>11;j=j+u|0;r=k+((A+v(r,-9232)|0)+D|0)|0;p[b+416>>2]=j-r>>11;p[b>>2]=j+r>>11;r=z-s|0;f=k+(l+(f+v(h,-13850)|0)|0)|0;p[b+288>>2]=r-f>>11;p[b+128>>2]=f+r>>11;b=b+4|0;a=a+4|0;c=c+2|0;E=E+1|0;if((E|0)!=8){continue}break}b=x+ -384|0;u=0;a=C;while(1){f=p[a+12>>2];r=p[a+4>>2];i=v(f+r|0,10935);l=p[a+24>>2];x=p[a+8>>2];m=v(l+x|0,9058);c=p[(u<<2)+d>>2]+e|0;j=p[a+28>>2]<<13;h=p[a+20>>2];y=h+r|0;g=v(y,9810);t=j+(g+(i+v(r,-9232)|0)|0)|0;z=m+v(x,2237)|0;s=(p[a>>2]<<13)+134348800|0;k=p[a+16>>2];A=s+v(k,10438)|0;w=z+A|0;n[c|0]=q[b+(t+w>>>18&1023)|0];n[c+13|0]=q[b+(w-t>>>18&1023)|0];t=i+v(f,-3474)|0;i=v(f+h|0,-1297)-j|0;t=t+i|0;m=m+v(l,-14084)|0;w=s+v(k,2578)|0;B=m+w|0;n[c+1|0]=q[b+(t+B>>>18&1023)|0];n[c+12|0]=q[b+(B-t>>>18&1023)|0];i=i+(g+v(h,-19447)|0)|0;l=v(l,-11295)+v(x,5027)|0;x=s+v(k,-7223)|0;g=l+x|0;n[c+2|0]=q[b+(i+g>>>18&1023)|0];n[c+11|0]=q[b+(g-i>>>18&1023)|0];i=r-f|0;g=j+(i-h<<13)|0;k=s+v(k,-11586)|0;n[c+3|0]=q[b+(g+k>>>18&1023)|0];n[c+10|0]=q[b+(k-g>>>18&1023)|0];k=v(y,6164);g=j+v(h,-13850)|0;h=v(h-f|0,11512);s=k+(g+h|0)|0;l=x-l|0;n[c+4|0]=q[b+(s+l>>>18&1023)|0];n[c+9|0]=q[b+(l-s>>>18&1023)|0];h=h+v(f,5529)|0;f=v(i,3826)-j|0;h=h+f|0;j=w-m|0;n[c+5|0]=q[b+(h+j>>>18&1023)|0];n[c+8|0]=q[b+(j-h>>>18&1023)|0];f=f+(k+v(r,-8693)|0)|0;h=A-z|0;n[c+6|0]=q[b+(f+h>>>18&1023)|0];n[c+7|0]=q[b+(h-f>>>18&1023)|0];a=a+32|0;u=u+1|0;if((u|0)!=14){continue}break}Z=C+448|0}function ac(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0;C=Z-224|0;Z=C;e=a;while(1){a:{d=p[(D<<2)+b>>2]+c|0;I=q[d+10|0];l=e;u=q[d+12|0];w=q[d+2|0];A=u+w|0;x=q[d+7|0];y=A+x|0;B=q[d+9|0];m=q[d+5|0];E=B+m|0;z=q[d+4|0];F=z+I|0;j=q[d+14|0];n=q[d|0];G=j+n|0;o=E+(F+G|0)|0;r=q[d+11|0];g=q[d+3|0];H=r+g|0;h=q[d+13|0];i=q[d+1|0];s=h+i|0;k=q[d+8|0];d=q[d+6|0];t=k+d|0;f=(H+s|0)+t|0;p[e>>2]=(y+(o+f|0)|0)+ -1920;j=n-j|0;n=z-I|0;m=m-B|0;i=i-h|0;g=g-r|0;h=d-k|0;p[e+12>>2]=(v((j-n|0)-m|0,11018)+v((i-g|0)-h|0,6810)|0)+4096>>13;d=y<<1;p[e+24>>2]=(v(o-d|0,9373)+v(f-d|0,-3580)|0)+4096>>13;d=(v(g+m|0,4712)+v(i+n|0,11018)|0)+v(j-h|0,11522)|0;k=w-u|0;f=v(k,10033);p[e+28>>2]=(d+(((v(j,-2912)+v(i,-17828)|0)-f|0)+v(m,-7121)|0)|0)+4096>>13;p[e+20>>2]=v(h+(m+((j-k|0)-g|0)|0)|0,10033)+4096>>13;p[e+4>>2]=(d+(((f+v(g,3897)|0)+v(n,-4209)|0)+v(h,13930)|0)|0)+4096>>13;d=((v(s-F|0,6476)+v(G-H|0,11332)|0)+v(t-E|0,7752)|0)+4096|0;f=(A+(s+F>>>1|0)|0)-(x<<1)|0;p[e+16>>2]=(d+v(E-f|0,6541)|0)+v(G-f|0,-748)>>13;p[e+8>>2]=(d+v(H-f|0,12543)|0)+v(t-f|0,-18336)>>13;f=D+ -7|0;d=7;D=D+1|0;e=C;b:{switch(f|0){case 0:continue;case 7:break a;default:break b}}e=l+32|0;continue}break}while(1){A=p[e+128>>2];h=p[a>>2];i=p[e+192>>2];s=h-i|0;k=p[a+128>>2];f=p[e+64>>2];x=k-f|0;l=p[a+160>>2];c=p[e+32>>2];t=l-c|0;B=p[a+32>>2];m=p[e+160>>2];y=B-m|0;o=p[a+96>>2];r=p[e+96>>2];u=o-r|0;g=p[a+192>>2];b=p[e>>2];w=g-b|0;p[a+96>>2]=(v((s-x|0)-t|0,12536)+v((y-u|0)-w|0,7748)|0)+16384>>15;n=c+l|0;z=f+k|0;j=h+i|0;h=n+(z+j|0)|0;i=p[a+224>>2];k=p[a+64>>2];f=k+A|0;l=i+f|0;c=l<<1;g=b+g|0;o=o+r|0;r=m+B|0;b=g+(o+r|0)|0;p[a+192>>2]=(v(h-c|0,10664)+v(b-c|0,-4073)|0)+16384>>15;p[a>>2]=v(l+(b+h|0)|0,9321)+16384>>15;b=(v(t+u|0,5361)+v(x+y|0,12536)|0)+v(s-w|0,13109)|0;l=k-A|0;c=v(l,11415);p[a+224>>2]=(b+(((v(s,-3314)+v(y,-20284)|0)-c|0)+v(t,-8102)|0)|0)+16384>>15;p[a+160>>2]=v(w+(t+((s-l|0)-u|0)|0)|0,11415)+16384>>15;p[a+32>>2]=(b+(((c+v(u,4434)|0)+v(x,-4788)|0)+v(w,15850)|0)|0)+16384>>15;b=((v(r-z|0,7369)+v(j-o|0,12893)|0)+v(g-n|0,8820)|0)+16384|0;c=(f+(r+z>>1)|0)-(i<<1)|0;p[a+128>>2]=(b+v(n-c|0,7442)|0)+v(j-c|0,-852)>>15;p[a+64>>2]=(b+v(o-c|0,14271)|0)+v(g-c|0,-20862)>>15;b=d;d=d+ -1|0;e=e+4|0;a=a+4|0;if(b){continue}break}Z=C+224|0}function Ja(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,o=0;k=p[a+4>>2];c=p[k+68>>2];if(c){while(1){if(!p[c>>2]){e=p[c+8>>2];b=v(e,p[c+4>>2])+b|0;f=v(e,p[c+12>>2])+f|0}c=p[c+44>>2];if(c){continue}break}}c=p[k+72>>2];if(c){while(1){if(!p[c>>2]){e=p[c+8>>2]<<7;b=v(e,p[c+4>>2])+b|0;f=v(e,p[c+12>>2])+f|0}c=p[c+44>>2];if(c){continue}break}}a:{if((f|0)<1){break a}l=1e9;e=p[p[a+4>>2]+44>>2];e=e?e-p[k+76>>2]|0:b;if((e|0)<(b|0)){b=(e|0)/(f|0)|0;l=(b|0)>1?b:1}d=p[k+68>>2];if(d){while(1){if(!p[d>>2]){g=p[d+4>>2];b=p[d+12>>2];b:{if((((g+ -1>>>0)/(b>>>0)|0)+1|0)<=(l|0)){p[d+16>>2]=g;break b}p[d+16>>2]=v(b,l);Ba(a);p[d+40>>2]=1;g=p[d+16>>2]}i=p[d+8>>2];b=999999984/(i>>>0)|0;e=p[a+4>>2];if(i>>>0>=999999985){c=p[a>>2];p[c+20>>2]=72;m[p[c>>2]](a)}c=e;e=(b|0)<(g|0)?b:g;p[c+80>>2]=e;c=0;n=Pa(a,1,g<<2);if(g){while(1){f=p[a+4>>2];b=g-c|0;e=e>>>0<b>>>0?e:b;b=v(i,e);if(b>>>0>=999999985){h=p[a>>2];p[h+20>>2]=56;p[h+24>>2]=3;m[p[p[a>>2]>>2]](a)}h=b&7;h=b+(h?8-h|0:0)|0;j=h+16|0;b=kh(j);if(!b){o=p[a>>2];p[o+20>>2]=56;p[o+24>>2]=4;m[p[p[a>>2]>>2]](a)}p[f+76>>2]=j+p[f+76>>2];f=f- -64|0;j=p[f>>2];p[b+8>>2]=0;p[b+4>>2]=h;p[b>>2]=j;p[f>>2]=b;if(e){f=b+16|0;b=e;while(1){p[n+(c<<2)>>2]=f;f=f+i|0;c=c+1|0;b=b+ -1|0;if(b){continue}break}}if(c>>>0<g>>>0){continue}break}}p[d>>2]=n;b=p[k+80>>2];p[d+36>>2]=0;p[d+24>>2]=0;p[d+28>>2]=0;p[d+20>>2]=b}d=p[d+44>>2];if(d){continue}break}}d=p[k+72>>2];if(!d){break a}while(1){if(!p[d>>2]){g=p[d+4>>2];b=p[d+12>>2];c:{if((((g+ -1>>>0)/(b>>>0)|0)+1|0)<=(l|0)){p[d+16>>2]=g;break c}p[d+16>>2]=v(b,l);Ba(a);p[d+40>>2]=1;g=p[d+16>>2]}i=p[d+8>>2]<<7;b=999999984/(i>>>0)|0;e=p[a+4>>2];if(i>>>0>=999999985){c=p[a>>2];p[c+20>>2]=72;m[p[c>>2]](a)}c=e;e=(b|0)<(g|0)?b:g;p[c+80>>2]=e;c=0;n=Pa(a,1,g<<2);if(g){while(1){f=p[a+4>>2];b=g-c|0;e=e>>>0<b>>>0?e:b;h=v(i,e);if(h>>>0>=999999985){b=p[a>>2];p[b+20>>2]=56;p[b+24>>2]=3;m[p[p[a>>2]>>2]](a)}j=h|16;b=kh(j);if(!b){o=p[a>>2];p[o+20>>2]=56;p[o+24>>2]=4;m[p[p[a>>2]>>2]](a)}p[f+76>>2]=j+p[f+76>>2];f=f- -64|0;j=p[f>>2];p[b+8>>2]=0;p[b+4>>2]=h;p[b>>2]=j;p[f>>2]=b;if(e){f=b+16|0;b=e;while(1){p[n+(c<<2)>>2]=f;c=c+1|0;f=f+i|0;b=b+ -1|0;if(b){continue}break}}if(c>>>0<g>>>0){continue}break}}p[d>>2]=n;b=p[k+80>>2];p[d+36>>2]=0;p[d+24>>2]=0;p[d+28>>2]=0;p[d+20>>2]=b}d=p[d+44>>2];if(d){continue}break}}}function Je(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0;C=Z-352|0;Z=C;A=p[a+336>>2];a=p[b+84>>2];b=C;while(1){u=p[a+224>>2];w=o[c+112>>1];g=p[a+96>>2];i=o[c+48>>1];r=p[a+160>>2];s=o[c+80>>1];j=p[a+32>>2];y=o[c+16>>1];f=v(o[c>>1],p[a>>2])<<13|1024;k=v(p[a+192>>2],o[c+96>>1]);l=v(p[a+64>>2],o[c+32>>1]);t=k+l|0;h=v(p[a+128>>2],o[c+64>>1]);z=t-h|0;p[b+160>>2]=f+v(z,-11585)>>11;g=v(g,i);j=v(j,y);m=g+j|0;y=v(m,7274);i=v(r,s);r=v(i+j|0,5492);u=v(u,w);w=v(u+(i+m|0)|0,3264);s=f+v(z,11116)|0;z=s+v(h-k|0,20862)|0;f=z+v(k,17333)|0;m=r+(y+v(j,-7562)|0)|0;j=w+v(j+u|0,3e3)|0;m=m+j|0;p[b+320>>2]=f-m>>11;p[b>>2]=f+m>>11;f=v(k,-6461);k=s+v(t,-9467)|0;t=f+k|0;f=r+v(i,-9766)|0;r=w+v(g+i|0,-9527)|0;f=f+r|0;p[b+256>>2]=t-f>>11;p[b+64>>2]=t+f>>11;f=s;s=v(h-l|0,3529);t=(f+s|0)+v(l,-12399)|0;f=v(g+u|0,-14731);j=j+(f+v(u,17223)|0)|0;p[b+224>>2]=t-j>>11;p[b+96>>2]=j+t>>11;k=k+(v(h,15929)+v(l,-11395)|0)|0;i=w+((v(i,8203)+v(g,-12019)|0)+v(u,-13802)|0)|0;p[b+192>>2]=k-i>>11;p[b+128>>2]=i+k>>11;h=s+(z+v(h,-14924)|0)|0;g=r+(f+(y+v(g,16984)|0)|0)|0;p[b+288>>2]=h-g>>11;p[b+32>>2]=g+h>>11;b=b+4|0;a=a+4|0;c=c+2|0;x=x+1|0;if((x|0)!=8){continue}break}b=A+ -384|0;k=0;a=C;while(1){h=p[a+12>>2];l=p[a+4>>2];c=h+l|0;s=v(c,7274);g=p[a+20>>2];A=v(g+l|0,5492);i=p[a+28>>2];j=v(i+(c+g|0)|0,3264);f=(p[a>>2]<<13)+134348800|0;w=p[a+24>>2];y=p[a+8>>2];t=w+y|0;u=p[a+16>>2];z=t-u|0;r=f+v(z,11116)|0;c=p[(k<<2)+d>>2]+e|0;m=A+(s+v(l,-7562)|0)|0;l=j+v(i+l|0,3e3)|0;m=m+l|0;x=r+v(u-w|0,20862)|0;B=x+v(w,17333)|0;n[c|0]=q[b+(m+B>>>18&1023)|0];n[c+10|0]=q[b+(B-m>>>18&1023)|0];m=v(u-y|0,3529);x=m+(x+v(u,-14924)|0)|0;B=j+v(g+h|0,-9527)|0;D=s+v(h,16984)|0;s=v(i+h|0,-14731);D=B+(D+s|0)|0;n[c+1|0]=q[b+(x+D>>>18&1023)|0];n[c+9|0]=q[b+(x-D>>>18&1023)|0];A=B+(A+v(g,-9766)|0)|0;x=v(w,-6461);w=r+v(t,-9467)|0;t=x+w|0;n[c+2|0]=q[b+(A+t>>>18&1023)|0];n[c+8|0]=q[b+(t-A>>>18&1023)|0];l=l+(s+v(i,17223)|0)|0;r=(r+m|0)+v(y,-12399)|0;n[c+3|0]=q[b+(l+r>>>18&1023)|0];n[c+7|0]=q[b+(r-l>>>18&1023)|0];h=j+((v(g,8203)+v(h,-12019)|0)+v(i,-13802)|0)|0;g=w+(v(u,15929)+v(y,-11395)|0)|0;n[c+4|0]=q[b+(h+g>>>18&1023)|0];n[c+6|0]=q[b+(g-h>>>18&1023)|0];n[c+5|0]=q[b+(f+v(z,-11585)>>>18&1023)|0];a=a+32|0;k=k+1|0;if((k|0)!=11){continue}break}Z=C+352|0}function ze(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0;B=Z-256|0;Z=B;w=p[a+336>>2];a=p[b+84>>2];j=8;b=B;while(1){a:{b:{f=r[c+32>>1];g=o[c+16>>1];if((f|g)&65535){break b}f=0;if(r[c+48>>1]|r[c+64>>1]|(r[c+80>>1]|r[c+96>>1])){break b}if(r[c+112>>1]){break b}f=v(o[c>>1],p[a>>2])<<2;p[b+192>>2]=f;p[b+160>>2]=f;p[b+128>>2]=f;p[b+96>>2]=f;p[b+64>>2]=f;p[b+32>>2]=f;p[b>>2]=f;h=56;break a}i=v(p[a+192>>2],o[c+96>>1]);u=v(p[a+64>>2],f<<16>>16);f=v(i+u|0,4433);g=v(g,p[a+32>>2]);x=v(p[a+224>>2],o[c+112>>1]);y=v(g+x|0,-7373);m=v(p[a+160>>2],o[c+80>>1]);h=m+g|0;s=v(p[a+96>>2],o[c+48>>1]);k=s+x|0;l=v(h+k|0,9633);u=f+v(u,6270)|0;z=v(o[c+64>>1],p[a+128>>2])<<13;A=v(o[c>>1],p[a>>2])<<13|1024;t=z+A|0;C=u+t|0;D=y+v(g,12299)|0;g=l+v(h,-3196)|0;h=D+g|0;p[b+224>>2]=C-h>>11;p[b>>2]=h+C>>11;f=f+v(i,-15137)|0;i=A-z|0;h=f+i|0;l=l+v(k,-16069)|0;k=v(s,25172);s=v(m+s|0,-20995);k=l+(k+s|0)|0;p[b+192>>2]=h-k>>11;p[b+32>>2]=h+k>>11;f=i-f|0;g=g+(s+v(m,16819)|0)|0;p[b+160>>2]=f-g>>11;p[b+64>>2]=f+g>>11;f=l+(y+v(x,2446)|0)|0;g=t-u|0;p[b+96>>2]=f+g>>11;f=g-f>>11;h=32}p[(h<<2)+b>>2]=f;c=c+2|0;a=a+4|0;b=b+4|0;t=j>>>0>1;j=j+ -1|0;if(t){continue}break}b=w+ -384|0;t=0;c=B;while(1){j=p[c>>2]+16400|0;a=p[(t<<2)+d>>2]+e|0;c:{d:{f=p[c+8>>2];g=p[c+4>>2];if(f|g){break d}f=0;if(p[c+12>>2]|p[c+16>>2]|(p[c+20>>2]|p[c+24>>2])){break d}if(p[c+28>>2]){break d}f=Fh(q[b+(j>>>5&1023)|0],0,16843009,16843009);n[a|0]=f;n[a+1|0]=f>>>8;n[a+2|0]=f>>>16;n[a+3|0]=f>>>24;f=$;n[a+4|0]=f;n[a+5|0]=f>>>8;n[a+6|0]=f>>>16;n[a+7|0]=f>>>24;break c}x=p[c+28>>2];y=v(x+g|0,-7373);m=p[c+12>>2];w=m+x|0;s=p[c+20>>2];i=s+g|0;l=v(w+i|0,9633);h=y+v(g,12299)|0;g=l+v(i,-3196)|0;i=h+g|0;k=v(f,6270);h=f;f=p[c+24>>2];u=v(h+f|0,4433);h=k+u|0;k=p[c+16>>2];z=k+j<<13;A=h+z|0;n[a|0]=q[b+(i+A>>>18&1023)|0];n[a+7|0]=q[b+(A-i>>>18&1023)|0];l=l+v(w,-16069)|0;i=v(m,25172);m=v(m+s|0,-20995);w=l+(i+m|0)|0;f=u+v(f,-15137)|0;j=j-k<<13;i=f+j|0;n[a+1|0]=q[b+(w+i>>>18&1023)|0];n[a+6|0]=q[b+(i-w>>>18&1023)|0];g=g+(m+v(s,16819)|0)|0;f=j-f|0;n[a+2|0]=q[b+(g+f>>>18&1023)|0];n[a+5|0]=q[b+(f-g>>>18&1023)|0];f=l+(y+v(x,2446)|0)|0;j=z-h|0;n[a+3|0]=q[b+(f+j>>>18&1023)|0];n[a+4|0]=q[b+(j-f>>>18&1023)|0]}c=c+32|0;t=t+1|0;if((t|0)!=8){continue}break}Z=B+256|0}function Xe(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0,J=0;C=Z-512|0;Z=C;x=p[a+336>>2];a=p[b+84>>2];b=C;while(1){l=v(p[a+64>>2],o[c+32>>1]);r=v(p[a+192>>2],o[c+96>>1]);i=l-r|0;t=v(i,11363);k=v(p[a+96>>2],o[c+48>>1]);j=v(p[a+32>>2],o[c+16>>1]);g=v(k+j|0,11086);u=t+v(r,20995)|0;s=v(p[a+128>>2],o[c+64>>1]);z=v(s,10703);h=v(o[c>>1],p[a>>2])<<13|1024;A=z+h|0;w=u+A|0;f=v(p[a+224>>2],o[c+112>>1]);E=v(f+j|0,8956);m=v(p[a+160>>2],o[c+80>>1]);F=m+j|0;y=v(F,10217);B=E+(y+(g+v(j,-18730)|0)|0)|0;p[b+480>>2]=w-B>>11;p[b>>2]=w+B>>11;i=v(i,2260);w=i+v(l,7373)|0;s=v(s,4433);B=s+h|0;G=w+B|0;H=f+k|0;I=v(H,-5461);D=g+v(k,589)|0;g=v(k+m|0,1136);D=I+(D+g|0)|0;p[b+448>>2]=G-D>>11;p[b+32>>2]=G+D>>11;l=t+v(l,-4926)|0;t=h-s|0;s=l+t|0;y=y+(g+v(m,-9222)|0)|0;g=v(f+m|0,-11086);y=y+g|0;p[b+416>>2]=s-y>>11;p[b+64>>2]=s+y>>11;r=i+v(r,-4176)|0;h=h-z|0;i=r+h|0;g=g+((v(f,8728)+I|0)+E|0)|0;p[b+384>>2]=i-g>>11;p[b+96>>2]=g+i>>11;h=h-r|0;g=v(j-f|0,7350);r=v(H,-10217);i=g+(r+v(f,25733)|0)|0;f=v(f-m|0,3363);i=i+f|0;p[b+352>>2]=h-i>>11;p[b+128>>2]=h+i>>11;h=t-l|0;l=v(F,5461);i=v(m,-6278);m=v(m-k|0,11529);f=f+(l+(i+m|0)|0)|0;p[b+320>>2]=h-f>>11;p[b+160>>2]=f+h>>11;f=B-w|0;h=v(k,16154);k=v(j-k|0,3363);m=r+(m+(h+k|0)|0)|0;p[b+288>>2]=f-m>>11;p[b+192>>2]=f+m>>11;f=A-u|0;k=g+(l+(k+v(j,-15038)|0)|0)|0;p[b+256>>2]=f-k>>11;p[b+224>>2]=f+k>>11;b=b+4|0;a=a+4|0;c=c+2|0;J=J+1|0;if((J|0)!=8){continue}break}a=x+ -384|0;k=0;b=C;while(1){j=p[b+4>>2];f=p[b+28>>2];m=v(j+f|0,-7373);h=p[b+20>>2];g=h+j|0;l=p[b+12>>2];x=l+f|0;r=v(g+x|0,9633);i=p[b+24>>2];u=p[b+8>>2];t=v(i+u|0,4433);c=p[(k<<2)+d>>2]+e|0;s=m+v(j,12299)|0;j=r+v(g,-3196)|0;g=s+j|0;u=t+v(u,6270)|0;s=p[b>>2]+16400|0;z=p[b+16>>2];A=s+z<<13;w=u+A|0;n[c|0]=q[a+(g+w>>>18&1023)|0];n[c+7|0]=q[a+(w-g>>>18&1023)|0];r=r+v(x,-16069)|0;g=v(l,25172);l=v(h+l|0,-20995);g=r+(g+l|0)|0;t=t+v(i,-15137)|0;x=s-z<<13;i=t+x|0;n[c+1|0]=q[a+(g+i>>>18&1023)|0];n[c+6|0]=q[a+(i-g>>>18&1023)|0];j=j+(l+v(h,16819)|0)|0;h=x-t|0;n[c+2|0]=q[a+(j+h>>>18&1023)|0];n[c+5|0]=q[a+(h-j>>>18&1023)|0];j=r+(m+v(f,2446)|0)|0;f=A-u|0;n[c+3|0]=q[a+(j+f>>>18&1023)|0];n[c+4|0]=q[a+(f-j>>>18&1023)|0];b=b+32|0;k=k+1|0;if((k|0)!=16){continue}break}Z=C+512|0}function Zf(a,b,c,d,e,f){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;var g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0;j=Z-976|0;Z=j;k=kh(40);p[k>>2]=0;p[3124]=0;l=J(227,j|0)|0;g=p[3124];p[3124]=0;h=-1;m=4;a:{b:{if(!g){break b}i=p[3125];if(!i){break b}h=jh(p[g>>2],k,4);if(!h){break a}K(i|0)}g=L()|0;if((h|0)!=1){p[j>>2]=228;p[j+488>>2]=l;k=ih(j+332|0,1,k,4);m=L()|0;g=0}c:while(1){d:{e:{f:{g:{h:{if(g){p[3124]=0;i=p[j+20>>2];n=J(229,j+132|0)|0;g=p[3124];p[3124]=0;h=-1;if(!g){break g}l=p[3125];if(!l){break g}h=jh(p[g>>2],k,m);if(h){break h}H(g|0,l|0);E()}p[3124]=0;M(238,j+488|0,90,488);g=p[3124];p[3124]=0;h=-1;if(!g){break e}i=p[3125];if(!i){break e}h=jh(p[g>>2],k,m);if(h){break f}break a}K(l|0)}g=L()|0;if((h|0)==1){continue}p[f>>2]=n;break d}K(i|0)}g=L()|0;if((h|0)==1){continue}p[3124]=0;M(239,j+488|0,a|0,b|0);g=p[3124];p[3124]=0;h=-1;i:{if(!g){break i}i=p[3125];if(!i){break i}h=jh(p[g>>2],k,m);if(!h){break a}K(i|0)}g=L()|0;if((h|0)==1){continue}p[3124]=0;Q(240,j+488|0,1)|0;g=p[3124];p[3124]=0;h=-1;j:{if(!g){break j}i=p[3125];if(!i){break j}h=jh(p[g>>2],k,m);if(!h){break a}K(i|0)}g=L()|0;if((h|0)==1){continue}p[3124]=0;J(241,j+488|0)|0;g=p[3124];p[3124]=0;h=-1;k:{if(!g){break k}i=p[3125];if(!i){break k}h=jh(p[g>>2],k,m);if(!h){break a}K(i|0)}g=L()|0;if((h|0)==1){continue}h=p[p[j+492>>2]+8>>2];p[3124]=0;i=v(p[j+612>>2],p[j+600>>2]);l=R(h|0,j+488|0,1,i|0,1)|0;g=p[3124];p[3124]=0;h=-1;l:{if(!g){break l}n=p[3125];if(!n){break l}h=jh(p[g>>2],k,m);if(!h){H(g|0,n|0);E()}K(n|0)}g=L()|0;if((h|0)==1){continue}h=p[j+604>>2];n=kh(v(h,i));p[c>>2]=n;p[d>>2]=p[j+600>>2];p[e>>2]=h;if(s[j+628>>2]<h>>>0){while(1){p[3124]=0;P(242,j+488|0,l|0,1)|0;g=p[3124];p[3124]=0;h=-1;m:{if(!g){break m}o=p[3125];if(!o){break m}h=jh(p[g>>2],k,m);if(!h){H(g|0,o|0);E()}K(o|0)}g=L()|0;if((h|0)==1){continue c}n=th(n,p[l>>2],i)+i|0;if(s[j+628>>2]<s[j+604>>2]){continue}break}}p[3124]=0;J(243,j+488|0)|0;g=p[3124];p[3124]=0;h=-1;n:{if(!g){break n}i=p[3125];if(!i){break n}h=jh(p[g>>2],k,m);if(!h){break a}K(i|0)}g=L()|0;if((h|0)==1){continue}i=0}p[3124]=0;N(244,j+488|0);g=p[3124];p[3124]=0;h=-1;o:{if(!g){break o}l=p[3125];if(!l){break o}h=jh(p[g>>2],k,m);if(!h){H(g|0,l|0);E()}K(l|0)}g=L()|0;if((h|0)==1){continue}break}lh(k);Z=j+976|0;return i|0}H(g|0,i|0);E()}function Nc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0;d=p[a+424>>2];c=p[a+24>>2];p[d+112>>2]=p[c>>2];p[d+116>>2]=p[c+4>>2];if(!(p[d+36>>2]|!p[a+236>>2])){Wc(d,p[d+40>>2])}if(p[a+320>>2]>=1){while(1){e=k<<2;f=p[(e+a|0)+324>>2]<<2;c=p[p[(f+a|0)+296>>2]+20>>2];f=(d+f|0)+20|0;i=p[f>>2];e=o[p[b+e>>2]>>1]>>p[a+376>>2];p[f>>2]=e;g=0;f=e-i|0;e=f>>31;i=e+f|0;e=e^i;a:{if(!e){break a}g=32-y(e)|0;if(e>>>0<2048){break a}e=p[a>>2];p[e+20>>2]=6;m[p[e>>2]](a)}b:{if(p[d+108>>2]){c=p[((c<<2)+d|0)+76>>2]+(g<<2)|0;p[c>>2]=p[c>>2]+1;break b}c=p[((c<<2)+d|0)+44>>2];e=p[c+(g<<2)>>2];c=n[(c+g|0)+1024|0];if(!c){f=p[d+120>>2];h=p[f>>2];p[h+20>>2]=41;m[p[h>>2]](f);if(p[d+108>>2]){break b}}e=e&(-1<<c^-1);c=c+p[d+16>>2]|0;f=p[d+12>>2]|e<<24-c;if((c|0)>=8){while(1){e=c;c=p[d+112>>2];p[d+112>>2]=c+1;n[c|0]=f>>>16;c=p[d+116>>2]+ -1|0;p[d+116>>2]=c;if(!c){h=p[d+120>>2];c=p[h+24>>2];if(!(m[p[c+12>>2]](h)|0)){h=p[d+120>>2];j=p[h>>2];p[j+20>>2]=25;m[p[j>>2]](h)}p[d+112>>2]=p[c>>2];p[d+116>>2]=p[c+4>>2]}c:{if((f&16711680)!=16711680){break c}c=p[d+112>>2];p[d+112>>2]=c+1;n[c|0]=0;c=p[d+116>>2]+ -1|0;p[d+116>>2]=c;if(c){break c}h=p[d+120>>2];c=p[h+24>>2];if(!(m[p[c+12>>2]](h)|0)){h=p[d+120>>2];j=p[h>>2];p[j+20>>2]=25;m[p[j>>2]](h)}p[d+112>>2]=p[c>>2];p[d+116>>2]=p[c+4>>2]}c=e+ -8|0;f=f<<8;if((e|0)>15){continue}break}}p[d+16>>2]=c;p[d+12>>2]=f}if(!(p[d+108>>2]|!g)){c=p[d+16>>2]+g|0;f=p[d+12>>2]|((-1<<g^-1)&i)<<24-c;if((c|0)>=8){while(1){e=c;c=p[d+112>>2];p[d+112>>2]=c+1;n[c|0]=f>>>16;c=p[d+116>>2]+ -1|0;p[d+116>>2]=c;if(!c){g=p[d+120>>2];c=p[g+24>>2];if(!(m[p[c+12>>2]](g)|0)){g=p[d+120>>2];i=p[g>>2];p[i+20>>2]=25;m[p[i>>2]](g)}p[d+112>>2]=p[c>>2];p[d+116>>2]=p[c+4>>2]}d:{if((f&16711680)!=16711680){break d}c=p[d+112>>2];p[d+112>>2]=c+1;n[c|0]=0;c=p[d+116>>2]+ -1|0;p[d+116>>2]=c;if(c){break d}g=p[d+120>>2];c=p[g+24>>2];if(!(m[p[c+12>>2]](g)|0)){g=p[d+120>>2];i=p[g>>2];p[i+20>>2]=25;m[p[i>>2]](g)}p[d+112>>2]=p[c>>2];p[d+116>>2]=p[c+4>>2]}c=e+ -8|0;f=f<<8;if((e|0)>15){continue}break}}p[d+16>>2]=c;p[d+12>>2]=f}k=k+1|0;if((k|0)<p[a+320>>2]){continue}break}}b=p[a+24>>2];p[b>>2]=p[d+112>>2];p[b+4>>2]=p[d+116>>2];a=p[a+236>>2];if(a){b=d;c=p[d+36>>2];if(c){a=c}else{p[d+36>>2]=a;p[d+40>>2]=p[d+40>>2]+1&7}p[b+36>>2]=a+ -1}return 1}function ec(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0;n[a+192|0]=0;n[a+193|0]=0;n[a+194|0]=0;n[a+195|0]=0;n[a+196|0]=0;n[a+197|0]=0;n[a+198|0]=0;n[a+199|0]=0;n[a+248|0]=0;n[a+249|0]=0;n[a+250|0]=0;n[a+251|0]=0;n[a+252|0]=0;n[a+253|0]=0;n[a+254|0]=0;n[a+255|0]=0;n[a+240|0]=0;n[a+241|0]=0;n[a+242|0]=0;n[a+243|0]=0;n[a+244|0]=0;n[a+245|0]=0;n[a+246|0]=0;n[a+247|0]=0;n[a+232|0]=0;n[a+233|0]=0;n[a+234|0]=0;n[a+235|0]=0;n[a+236|0]=0;n[a+237|0]=0;n[a+238|0]=0;n[a+239|0]=0;n[a+224|0]=0;n[a+225|0]=0;n[a+226|0]=0;n[a+227|0]=0;n[a+228|0]=0;n[a+229|0]=0;n[a+230|0]=0;n[a+231|0]=0;n[a+216|0]=0;n[a+217|0]=0;n[a+218|0]=0;n[a+219|0]=0;n[a+220|0]=0;n[a+221|0]=0;n[a+222|0]=0;n[a+223|0]=0;n[a+208|0]=0;n[a+209|0]=0;n[a+210|0]=0;n[a+211|0]=0;n[a+212|0]=0;n[a+213|0]=0;n[a+214|0]=0;n[a+215|0]=0;n[a+200|0]=0;n[a+201|0]=0;n[a+202|0]=0;n[a+203|0]=0;n[a+204|0]=0;n[a+205|0]=0;n[a+206|0]=0;n[a+207|0]=0;f=a;while(1){d=p[(k<<2)+b>>2]+c|0;g=q[d+11|0];l=q[d|0];h=g+l|0;m=q[d+5|0];o=q[d+6|0];j=m+o|0;r=h-j|0;s=q[d+10|0];t=q[d+1|0];e=s+t|0;u=q[d+7|0];w=q[d+4|0];i=u+w|0;x=q[d+9|0];y=q[d+2|0];z=x+y|0;A=q[d+8|0];B=q[d+3|0];C=A+B|0;d=z-C|0;p[f+24>>2]=r-((e-i|0)+d|0)<<2;h=h+j|0;j=z+C|0;p[f+16>>2]=v(h-j|0,10033)+1024>>11;p[f>>2]=(h+(i+(e+j|0)|0)<<2)+ -6144;p[f+8>>2]=((e-(d+i|0)|0)+v(d+r|0,11190)|0)+1024>>11;i=w-u|0;j=t-s|0;h=v(i+j|0,4433);d=l-g|0;e=B-A|0;l=h+v(i,-15137)|0;i=m-o|0;g=y-x|0;p[f+12>>2]=((v(d-e|0,10703)+l|0)+v(i+g|0,-4433)|0)+1024>>11;m=v(d+e|0,7053);o=m+v(e,5946)|0;e=v(e+g|0,-1512);h=h+v(j,6270)|0;p[f+28>>2]=(((o+e|0)-h|0)+v(i,-9191)|0)+1024>>11;j=v(g,-19165);g=v(d+g|0,9191)+1024|0;p[f+20>>2]=((e+(j+g|0)|0)-l|0)+v(i,7053)>>11;p[f+4>>2]=(h+(m+(g+v(d,-4758)|0)|0)|0)+v(i,1512)>>11;f=f+32|0;k=k+1|0;if((k|0)!=6){continue}break}b=7;while(1){f=p[a+160>>2];d=p[a>>2];c=f+d|0;e=p[a+96>>2];i=p[a+64>>2];g=e+i|0;p[a+64>>2]=v(c-g|0,17837)+32768>>16;c=c+g|0;g=p[a+128>>2];k=p[a+32>>2];h=g+k|0;p[a+128>>2]=v(c-(h<<1)|0,10298)+32768>>16;p[a>>2]=v(c+h|0,14564)+32768>>16;c=i-e|0;f=d-f|0;d=v(c+f|0,5331)+32768|0;e=k-g|0;p[a+160>>2]=d+v(c-e|0,14564)>>16;p[a+96>>2]=v((f-e|0)-c|0,14564)+32768>>16;p[a+32>>2]=d+v(f+e|0,14564)>>16;c=b;b=c+ -1|0;a=a+4|0;if(c){continue}break}}function Uc(a,b,c){var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,o=0;f=Z-2128|0;Z=f;p[c+1024>>2]=1;e=256;while(1){a:{if(p[(d<<2)+c>>2]){e=f+(e<<2)|0;if(d>>>0>255){break a}p[e>>2]=d;e=d}d=d+1|0;continue}break}p[e>>2]=-1;g=p[f+1024>>2];if((g|0)>=0){h=b+17|0;while(1){d=g<<2;e=p[d+f>>2];b:{if((e|0)<0){i=256;break b}d=p[c+d>>2];i=256;j=g;while(1){l=e<<2;o=p[l+c>>2];k=(o|0)>(d|0);d=k?o:d;i=k?j:i;g=k?e:g;j=e;e=p[f+l>>2];if((e|0)>-1){continue}break}e=p[f+(g<<2)>>2]}p[f+(i<<2)>>2]=e;n[h|0]=g;h=h+1|0;g=p[f+1024>>2];if((g|0)>-1){continue}break}}n[f+2112|0]=0;d=f+2104|0;p[d>>2]=0;p[d+4>>2]=0;d=f+2096|0;p[d>>2]=0;p[d+4>>2]=0;p[f+2088>>2]=0;p[f+2092>>2]=0;p[f+2080>>2]=0;p[f+2084>>2]=0;uh(f+1040|0,0,1028);f=uh(f,255,1028);h=1e9;g=0;j=-1;while(1){d=p[(g<<2)+c>>2];e=!d|(d|0)>(h|0);h=e?h:d;j=e?j:g;i=-1;d=0;e=1e9;g=g+1|0;if((g|0)!=257){continue}while(1){g=p[(d<<2)+c>>2];h=!g|(g|0)>(e|0)|(d|0)==(j|0);e=h?e:g;i=h?i:d;d=d+1|0;if((d|0)!=257){continue}break}if((i|0)<=-1){d=0;while(1){c=p[(f+1040|0)+(d<<2)>>2];if(c){if((c|0)>=33){e=p[a>>2];p[e+20>>2]=40;m[p[e>>2]](a)}c=c+(f+2080|0)|0;n[c|0]=q[c|0]+1}d=d+1|0;if((d|0)!=257){continue}break}c=32;while(1){k=(f+2080|0)+c|0;i=q[k|0];c:{if(!i){h=c+ -1|0;break c}h=c+ -1|0;l=h+(f+2080|0)|0;j=c+ -2|0;g=j+(f+2080|0)|0;while(1){d=j;e=g;if(!q[e|0]){while(1){if(!d){e=p[a>>2];p[e+20>>2]=40;m[p[e>>2]](a)}d=d+ -1|0;e=d+(f+2080|0)|0;if(!q[e|0]){continue}break}}n[k|0]=i+ -2;n[l|0]=q[l|0]+1;d=(d+f|0)+2081|0;n[d|0]=q[d|0]+2;n[e|0]=q[e|0]+ -1;i=q[k|0];if(i){continue}break}}d=c>>>0>17;c=h;if(d){continue}break}d=16;while(1){a=(f+2080|0)+d|0;d=d+ -1|0;c=q[a|0];if(!c){continue}break}n[a|0]=c+ -1;n[b+16|0]=q[f+2096|0];a=p[f+2092>>2];p[b+8>>2]=p[f+2088>>2];p[b+12>>2]=a;a=p[f+2084>>2];p[b>>2]=p[f+2080>>2];p[b+4>>2]=a;p[b+276>>2]=0;Z=f+2128|0;return}d=j<<2;e=d+c|0;j=e;g=p[e>>2];k=i<<2;e=k+c|0;p[j>>2]=g+p[e>>2];p[e>>2]=0;e=d+(f+1040|0)|0;p[e>>2]=p[e>>2]+1;e=d+f|0;d=p[e>>2];if((d|0)>=0){while(1){d=d<<2;e=d+(f+1040|0)|0;p[e>>2]=p[e>>2]+1;e=d+f|0;d=p[e>>2];if((d|0)>-1){continue}break}}p[e>>2]=i;d=k+(f+1040|0)|0;p[d>>2]=p[d>>2]+1;g=0;j=-1;h=1e9;d=p[f+k>>2];if((d|0)<0){continue}while(1){d=d<<2;e=d+(f+1040|0)|0;p[e>>2]=p[e>>2]+1;d=p[d+f>>2];if((d|0)>-1){continue}break}continue}}function Yb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0;s=Z-96|0;d=a;while(1){a:{f=d;d=p[(w<<2)+b>>2]+c|0;z=q[d+9|0];n=q[d+1|0];t=z+n|0;A=q[d+10|0];B=q[d|0];h=A+B|0;l=q[d+8|0];o=q[d+2|0];j=l+o|0;r=q[d+7|0];u=q[d+3|0];i=r+u|0;k=q[d+6|0];e=q[d+4|0];g=k+e|0;d=q[d+5|0];p[f>>2]=(((((t+h|0)+j|0)+i|0)+g|0)+d<<1)+ -2816;m=d<<1;h=h-m|0;i=i-m|0;y=j-m|0;x=g-m|0;d=v(h+i|0,11116)+v(y+x|0,1649)|0;g=v(h,-13275);t=t-m|0;h=v(h-t|0,9746)+2048|0;p[f+24>>2]=d+((g+h|0)+v(y,-6461)|0)>>12;j=v(t-i|0,7587);p[f+8>>2]=(d+((j+v(i,-8342)|0)+v(x,-11395)|0)|0)+2048>>12;d=u-r|0;n=n-z|0;u=v(d+n|0,-11467);r=B-A|0;i=v(r+d|0,6263);m=i+(u+v(d,10695)|0)|0;g=o-l|0;d=v(g+d|0,3264);k=e-k|0;p[f+28>>2]=((m+d|0)+v(k,-10538)|0)+2048>>12;e=v(g+n|0,-6263);l=e+v(g,-16294)|0;g=v(g+r|0,8756);p[f+20>>2]=((d+(l+g|0)|0)+v(k,11467)|0)+2048>>12;d=v(n+r|0,10538)+2048|0;p[f+12>>2]=(u+(e+(d+v(n,10456)|0)|0)|0)+v(k,-8756)>>12;p[f+4>>2]=(i+(g+(d+v(r,-14090)|0)|0)|0)+v(k,3264)>>12;p[f+16>>2]=j+(((h+v(t,511)|0)+v(y,-11116)|0)+v(x,4813)|0)>>12;e=w+ -7|0;w=w+1|0;g=7;d=s;b:{switch(e|0){case 0:continue;case 3:break a;default:break b}}d=f+32|0;continue}break}while(1){z=p[d+64>>2];n=p[a>>2];t=z+n|0;A=p[a+160>>2];e=A<<1;b=t-e|0;B=p[a+224>>2];l=p[a+96>>2];o=B+l|0;C=o-e|0;r=p[d>>2];u=p[a+64>>2];k=r+u|0;m=k-e|0;h=p[a+128>>2];j=p[a+192>>2];f=h+j|0;w=f-e|0;y=v(b+C|0,11759)+v(m+w|0,1744)|0;D=v(b,-14043);i=b;s=p[d+32>>2];c=p[a+32>>2];b=s+c|0;x=b-e|0;i=v(i-x|0,10310)+16384|0;p[a+192>>2]=y+((D+i|0)+v(m,-6835)|0)>>15;e=v(x-C|0,8026);p[a+64>>2]=(y+((e+v(C,-8825)|0)+v(w,-12054)|0)|0)+16384>>15;p[a>>2]=v(A+(f+(o+(k+(b+t|0)|0)|0)|0)|0,8666)+16384>>15;b=l-B|0;l=c-s|0;k=v(b+l|0,-12131);o=n-z|0;f=v(o+b|0,6626);s=f+(k+v(b,11314)|0)|0;c=u-r|0;b=v(c+b|0,3453);j=h-j|0;p[a+224>>2]=((s+b|0)+v(j,-11148)|0)+16384>>15;s=v(c+l|0,-6626);h=s+v(c,-17237)|0;c=v(c+o|0,9262);p[a+160>>2]=((b+(h+c|0)|0)+v(j,12131)|0)+16384>>15;b=v(l+o|0,11148)+16384|0;p[a+96>>2]=(k+(s+(b+v(l,11061)|0)|0)|0)+v(j,-9262)>>15;p[a+32>>2]=(f+(c+(b+v(o,-14905)|0)|0)|0)+v(j,3453)>>15;p[a+128>>2]=(((i+v(x,540)|0)+v(m,-11759)|0)+v(w,5091)|0)+e>>15;b=g;g=b+ -1|0;d=d+4|0;a=a+4|0;if(b){continue}break}}function $b(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0;G=Z-192|0;Z=G;e=a;while(1){a:{o=e;d=p[(k<<2)+b>>2]+c|0;f=q[d|0];g=q[d+13|0];l=f-g|0;i=q[d+3|0];j=q[d+10|0];B=i-j|0;t=q[d+2|0];u=q[d+11|0];m=t-u|0;w=q[d+1|0];x=q[d+12|0];h=w-x|0;C=m+h|0;y=q[d+5|0];z=q[d+8|0];n=y-z|0;A=q[d+4|0];D=q[d+9|0];s=A-D|0;E=n-s|0;F=q[d+6|0];r=q[d+7|0];d=F-r|0;p[e+28>>2]=(l+B-(C+E)|0)-d;y=y+z|0;w=w+x|0;x=y+w|0;i=i+j|0;j=A+D|0;t=t+u|0;u=j+t|0;z=F+r|0;g=f+g|0;A=z+g|0;p[e>>2]=((x+(i+u|0)|0)+A|0)+ -1792;f=i<<1;p[e+16>>2]=((v(u-f|0,-7223)+v(x-f|0,2578)|0)+v(A-f|0,10438)|0)+4096>>13;f=t-j|0;g=g-z|0;i=w-y|0;j=v(g+i|0,9058)+4096|0;p[e+24>>2]=(v(f,-11295)+j|0)+v(i,-14084)>>13;p[e+8>>2]=(j+v(f,5027)|0)+v(g,2237)>>13;f=B<<13;g=((v(E,11512)-f|0)+v(C,-1297)|0)+4096|0;r=(g+v(m,-19447)|0)+v(s,9175)|0;m=v(d+s|0,6164)+v(l+m|0,9810)|0;p[e+20>>2]=r+m>>13;r=(g+v(h,-3474)|0)+v(n,-25148)|0;h=v(n-d|0,3826)+v(l+h|0,10935)|0;p[e+12>>2]=r+h>>13;p[e+4>>2]=(m+((d+(f+h|0)|0)+v(d+l|0,-9232)|0)|0)+4096>>13;l=k+ -7|0;k=k+1|0;d=7;e=G;b:{switch(l|0){case 0:continue;case 6:break a;default:break b}}e=o+32|0;continue}break}while(1){c=p[e+32>>2];m=p[a+128>>2];h=c+m|0;o=p[e+96>>2];k=p[a+64>>2];n=o+k|0;l=h+n|0;s=p[e+64>>2];f=p[a+96>>2];g=s+f|0;b=g<<1;i=p[e>>2];j=p[a+160>>2];B=i+j|0;t=p[e+128>>2];u=p[a+32>>2];w=t+u|0;x=B+w|0;C=p[a+224>>2];y=p[a+192>>2];z=C+y|0;A=p[e+160>>2];D=p[a>>2];E=A+D|0;F=z+E|0;p[a+128>>2]=((v(l-b|0,-4717)+v(x-b|0,1684)|0)+v(F-b|0,6817)|0)- -8192>>14;p[a>>2]=v(F+(x+(g+l|0)|0)|0,5350)- -8192>>14;b=D-A|0;s=f-s|0;o=k-o|0;k=u-t|0;f=o+k|0;l=j-i|0;m=m-c|0;g=l-m|0;c=y-C|0;p[a+224>>2]=v((b+s-(f+g)|0)-c|0,5350)- -8192>>14;h=n-h|0;n=E-z|0;i=w-B|0;j=v(n+i|0,5915)- -8192|0;p[a+192>>2]=(v(h,-7376)+j|0)+v(i,-9198)>>14;p[a+64>>2]=(j+v(h,3283)|0)+v(n,1461)>>14;h=v(s,5350);n=((v(g,7518)-h|0)+v(f,-847)|0)- -8192|0;r=(n+v(o,-12700)|0)+v(m,5992)|0;o=v(c+m|0,4025)+v(b+o|0,6406)|0;p[a+160>>2]=r+o>>14;r=(n+v(k,-2269)|0)+v(l,-16423)|0;k=v(l-c|0,2499)+v(b+k|0,7141)|0;p[a+96>>2]=r+k>>14;p[a+32>>2]=(o+((h+(k+v(b,-6029)|0)|0)+v(c,-679)|0)|0)- -8192>>14;b=d;d=d+ -1|0;e=e+4|0;a=a+4|0;if(b){continue}break}Z=G+192|0}function Ke(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0;B=Z-384|0;Z=B;x=p[a+336>>2];a=p[b+84>>2];b=B;while(1){u=p[a+128>>2];w=o[c+64>>1];s=v(p[a+32>>2],o[c+16>>1]);i=v(p[a+224>>2],o[c+112>>1]);f=s-i|0;l=v(p[a+96>>2],o[c+48>>1]);k=v(p[a+160>>2],o[c+80>>1]);y=l-k|0;h=v(f+y|0,4433);m=v(p[a+64>>2],o[c+32>>1]);j=v(o[c+96>>1],p[a+192>>2])<<13;t=(m<<13)-j|0;g=v(o[c>>1],p[a>>2])<<13|1024;z=t+g|0;f=h+v(f,6270)|0;p[b+320>>2]=z-f>>11;p[b+32>>2]=f+z>>11;f=g-t|0;h=h+v(y,-15137)|0;p[b+224>>2]=f-h>>11;p[b+128>>2]=h+f>>11;u=v(v(u,w),10033);w=u+g|0;f=j+v(m,11190)|0;y=w-f|0;z=k+s|0;h=v(z+i|0,7053);t=v(l,-4433);r=h+((t+v(s,-5540)|0)+v(i,-16244)|0)|0;p[b+192>>2]=y-r>>11;p[b+160>>2]=r+y>>11;w=f+w|0;f=v(s,2295);s=v(l,10703);l=h+v(z,2139)|0;f=(f+s|0)+l|0;p[b+352>>2]=w-f>>11;p[b>>2]=f+w>>11;m=v(m,2998)-j|0;g=g-u|0;j=m+g|0;f=t+v(k,-12112)|0;k=v(i+k|0,-8565);l=l+(f+k|0)|0;p[b+288>>2]=j-l>>11;p[b+64>>2]=j+l>>11;g=g-m|0;i=k+(h+(v(i,12998)-s|0)|0)|0;p[b+256>>2]=g-i>>11;p[b+96>>2]=g+i>>11;b=b+4|0;a=a+4|0;c=c+2|0;A=A+1|0;if((A|0)!=8){continue}break}b=x+ -384|0;s=0;a=B;while(1){k=p[a+4>>2];g=p[a+20>>2];h=k+g|0;i=p[a+28>>2];l=v(h+i|0,7053);c=p[(s<<2)+d>>2]+e|0;f=l+v(h,2139)|0;m=p[a+12>>2];w=v(m,10703);u=f+(w+v(k,2295)|0)|0;x=p[a+24>>2]<<13;j=p[a+8>>2];y=x+v(j,11190)|0;h=(p[a>>2]<<13)+134348800|0;t=v(p[a+16>>2],10033);z=h+t|0;r=y+z|0;n[c|0]=q[b+(u+r>>>18&1023)|0];n[c+11|0]=q[b+(r-u>>>18&1023)|0];r=k-i|0;A=m-g|0;u=v(r+A|0,4433);C=(j<<13)-x|0;D=h+C|0;r=u+v(r,6270)|0;n[c+1|0]=q[b+(D+r>>>18&1023)|0];n[c+10|0]=q[b+(D-r>>>18&1023)|0];m=v(m,-4433);r=m+v(g,-12112)|0;g=v(g+i|0,-8565);f=f+(r+g|0)|0;j=v(j,2998)-x|0;x=h-t|0;t=j+x|0;n[c+2|0]=q[b+(f+t>>>18&1023)|0];n[c+9|0]=q[b+(t-f>>>18&1023)|0];g=g+(l+(v(i,12998)-w|0)|0)|0;j=x-j|0;n[c+3|0]=q[b+(g+j>>>18&1023)|0];n[c+8|0]=q[b+(j-g>>>18&1023)|0];g=u+v(A,-15137)|0;h=h-C|0;n[c+4|0]=q[b+(g+h>>>18&1023)|0];n[c+7|0]=q[b+(h-g>>>18&1023)|0];i=l+((m+v(k,-5540)|0)+v(i,-16244)|0)|0;k=z-y|0;n[c+5|0]=q[b+(i+k>>>18&1023)|0];n[c+6|0]=q[b+(k-i>>>18&1023)|0];a=a+32|0;s=s+1|0;if((s|0)!=12){continue}break}Z=B+384|0}function pc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0;a=uh(a,0,256);d=p[b>>2]+c|0;e=q[d+2|0];f=q[d|0];g=e+f|0;d=q[d+1|0];p[a>>2]=(g+d<<3)+ -3072;p[a+4>>2]=v(f-e|0,10033)+512>>10;p[a+8>>2]=v(g-(d<<1)|0,5793)+512>>10;d=p[b+4>>2]+c|0;e=q[d+2|0];f=q[d|0];g=e+f|0;d=q[d+1|0];p[a+32>>2]=(g+d<<3)+ -3072;p[a+36>>2]=v(f-e|0,10033)+512>>10;p[a+40>>2]=v(g-(d<<1)|0,5793)+512>>10;d=p[b+8>>2]+c|0;e=q[d+2|0];f=q[d|0];g=e+f|0;d=q[d+1|0];p[a+64>>2]=(g+d<<3)+ -3072;p[a+68>>2]=v(f-e|0,10033)+512>>10;p[a+72>>2]=v(g-(d<<1)|0,5793)+512>>10;d=p[b+12>>2]+c|0;e=q[d+2|0];f=q[d|0];g=e+f|0;h=q[d+1|0];d=(g+h<<3)+ -3072|0;p[a+96>>2]=d;p[a+100>>2]=v(f-e|0,10033)+512>>10;p[a+104>>2]=v(g-(h<<1)|0,5793)+512>>10;e=p[b+16>>2]+c|0;f=q[e+2|0];g=q[e|0];h=f+g|0;i=q[e+1|0];e=(h+i<<3)+ -3072|0;p[a+128>>2]=e;p[a+132>>2]=v(g-f|0,10033)+512>>10;p[a+136>>2]=v(h-(i<<1)|0,5793)+512>>10;b=p[b+20>>2]+c|0;c=q[b+2|0];f=q[b|0];g=c+f|0;h=q[b+1|0];b=(g+h<<3)+ -3072|0;p[a+160>>2]=b;c=v(f-c|0,10033)+512>>10;p[a+164>>2]=c;p[a+168>>2]=v(g-(h<<1)|0,5793)+512>>10;f=p[a>>2];h=f+b|0;g=p[a+64>>2];i=g+d|0;p[a+64>>2]=v(h-i|0,17837)+16384>>15;d=g-d|0;b=f-b|0;f=v(d+b|0,5331)+16384|0;j=p[a+32>>2];g=j-e|0;p[a+160>>2]=f+v(d-g|0,14564)>>15;h=h+i|0;e=e+j|0;p[a+128>>2]=v(h-(e<<1)|0,10298)+16384>>15;p[a+96>>2]=v((b-g|0)-d|0,14564)+16384>>15;p[a>>2]=v(e+h|0,14564)+16384>>15;p[a+32>>2]=f+v(b+g|0,14564)>>15;b=p[a+132>>2];d=p[a+36>>2];f=p[a+4>>2];e=f+c|0;g=p[a+100>>2];h=p[a+68>>2];i=g+h|0;p[a+68>>2]=v(e-i|0,17837)+16384>>15;e=e+i|0;i=b+d|0;p[a+132>>2]=v(e-(i<<1)|0,10298)+16384>>15;p[a+4>>2]=v(e+i|0,14564)+16384>>15;e=h-g|0;c=f-c|0;f=v(e+c|0,5331)+16384|0;b=d-b|0;p[a+164>>2]=f+v(e-b|0,14564)>>15;p[a+100>>2]=v((c-b|0)-e|0,14564)+16384>>15;p[a+36>>2]=f+v(b+c|0,14564)>>15;b=p[a+136>>2];c=p[a+40>>2];e=p[a+168>>2];f=p[a+8>>2];d=e+f|0;g=p[a+104>>2];h=p[a+72>>2];i=g+h|0;p[a+72>>2]=v(d-i|0,17837)+16384>>15;d=d+i|0;i=b+c|0;p[a+136>>2]=v(d-(i<<1)|0,10298)+16384>>15;p[a+8>>2]=v(d+i|0,14564)+16384>>15;d=h-g|0;e=f-e|0;f=v(d+e|0,5331)+16384|0;b=c-b|0;p[a+168>>2]=f+v(d-b|0,14564)>>15;p[a+104>>2]=v((e-b|0)-d|0,14564)+16384>>15;p[a+40>>2]=f+v(b+e|0,14564)>>15}function dc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0;n[a+224|0]=0;n[a+225|0]=0;n[a+226|0]=0;n[a+227|0]=0;n[a+228|0]=0;n[a+229|0]=0;n[a+230|0]=0;n[a+231|0]=0;n[a+248|0]=0;n[a+249|0]=0;n[a+250|0]=0;n[a+251|0]=0;n[a+252|0]=0;n[a+253|0]=0;n[a+254|0]=0;n[a+255|0]=0;n[a+240|0]=0;n[a+241|0]=0;n[a+242|0]=0;n[a+243|0]=0;n[a+244|0]=0;n[a+245|0]=0;n[a+246|0]=0;n[a+247|0]=0;n[a+232|0]=0;n[a+233|0]=0;n[a+234|0]=0;n[a+235|0]=0;n[a+236|0]=0;n[a+237|0]=0;n[a+238|0]=0;n[a+239|0]=0;f=a;while(1){d=p[(m<<2)+b>>2]+c|0;h=q[d|0];e=q[d+13|0];g=h-e|0;i=q[d+3|0];l=q[d+10|0];A=i-l|0;s=q[d+2|0];t=q[d+11|0];j=s-t|0;u=q[d+1|0];w=q[d+12|0];k=u-w|0;B=j+k|0;x=q[d+5|0];y=q[d+8|0];o=x-y|0;z=q[d+4|0];C=q[d+9|0];r=z-C|0;D=o-r|0;E=q[d+6|0];F=q[d+7|0];d=E-F|0;p[f+28>>2]=(g+A-(B+D)|0)-d<<2;z=z+C|0;s=s+t|0;t=z+s|0;i=i+l|0;l=x+y|0;u=u+w|0;w=l+u|0;x=E+F|0;e=e+h|0;y=x+e|0;p[f>>2]=(((t+i|0)+w|0)+y<<2)+ -7168;h=i<<1;p[f+16>>2]=((v(t-h|0,-7223)+v(w-h|0,2578)|0)+v(y-h|0,10438)|0)+1024>>11;e=e-x|0;i=u-l|0;l=v(e+i|0,9058)+1024|0;h=s-z|0;p[f+24>>2]=(l+v(h,-11295)|0)+v(i,-14084)>>11;p[f+8>>2]=(l+v(h,5027)|0)+v(e,2237)>>11;h=A<<13;e=((v(D,11512)-h|0)+v(B,-1297)|0)+1024|0;i=(e+v(j,-19447)|0)+v(r,9175)|0;j=v(d+r|0,6164)+v(g+j|0,9810)|0;p[f+20>>2]=i+j>>11;e=(e+v(k,-3474)|0)+v(o,-25148)|0;k=v(o-d|0,3826)+v(g+k|0,10935)|0;p[f+12>>2]=e+k>>11;p[f+4>>2]=(j+((d+(h+k|0)|0)+v(d+g|0,-9232)|0)|0)+1024>>11;f=f+32|0;d=7;m=m+1|0;if((m|0)!=7){continue}break}while(1){k=p[a+128>>2];o=p[a+64>>2];f=k+o|0;r=p[a+192>>2];h=p[a>>2];g=r+h|0;e=f+g|0;c=p[a+96>>2];m=p[a+160>>2];j=p[a+32>>2];b=m+j|0;p[a>>2]=v(e+(c+b|0)|0,10700)+32768>>16;e=v(e-(c<<2)|0,3783);i=v(g-b|0,9434)+32768|0;g=v(g-f|0,9850);p[a+192>>2]=e+(i-g|0)>>16;f=v(b-f|0,3367);p[a+128>>2]=(f+i|0)+v(b-(c<<1)|0,-7566)>>16;p[a+64>>2]=(e+(f+g|0)|0)+32768>>16;b=o-k|0;c=h-r|0;f=v(b+c|0,6565)+32768|0;e=f+v(b,20017)|0;g=b;b=j-m|0;g=v(g+b|0,-14752);p[a+160>>2]=e+g>>16;e=g;g=v(c-b|0,1822);b=v(b+c|0,10009);p[a+96>>2]=((e+g|0)+b|0)+32768>>16;p[a+32>>2]=b+(f-g|0)>>16;b=d;d=d+ -1|0;a=a+4|0;if(b){continue}break}}function qh(a,b,c,d,e,f,g,h,i){var j=0,k=0,l=0,m=0,n=0,o=0,q=0,r=0,s=0,t=0,u=0;j=Z-128|0;Z=j;a:{b:{c:{if(!Ug(f,g,h,i,0,0,0,0)){break c}o=sh(f,g,h,i);t=e>>>16|0;q=t&32767;if((q|0)==32767){break c}if(o){break b}}bh(j+16|0,b,c,d,e,f,g,h,i);b=p[j+16>>2];c=p[j+20>>2];d=p[j+24>>2];e=p[j+28>>2];eh(j,b,c,d,e,b,c,d,e);d=p[j+8>>2];e=p[j+12>>2];h=p[j>>2];i=p[j+4>>2];break a}l=q<<16;n=d;l=l|e&65535;o=l;m=h;s=i>>>16&32767;k=i&65535|s<<16;if((Ug(b,c,n,l,f,g,h,k)|0)<=0){if(Ug(b,c,n,o,f,g,m,k)){h=b;i=c;break a}bh(j+112|0,b,c,d,e,0,0,0,0);d=p[j+120>>2];e=p[j+124>>2];h=p[j+112>>2];i=p[j+116>>2];break a}if(q){i=c;h=b}else{bh(j+96|0,b,c,n,o,0,0,0,1081540608);h=p[j+108>>2];o=h;n=p[j+104>>2];q=(h>>>16|0)+ -120|0;i=p[j+100>>2];h=p[j+96>>2]}if(!s){bh(j+80|0,f,g,m,k,0,0,0,1081540608);f=p[j+92>>2];k=f;m=p[j+88>>2];s=(k>>>16|0)+ -120|0;g=p[j+84>>2];f=p[j+80>>2]}u=k&65535|65536;o=o&65535|65536;if((q|0)>(s|0)){while(1){k=n;r=k-m|0;l=(g|0)==(i|0)&h>>>0<f>>>0|i>>>0<g>>>0;k=(o-((k>>>0<m>>>0)+u|0)|0)-(r>>>0<l>>>0)|0;r=r-l|0;d:{if((k|0)>0?1:(k|0)>=0?r>>>0>=0:0){n=h;h=h-f|0;i=i-((n>>>0<f>>>0)+g|0)|0;if(!(h|r|(i|k))){bh(j+32|0,b,c,d,e,0,0,0,0);d=p[j+40>>2];e=p[j+44>>2];h=p[j+32>>2];i=p[j+36>>2];break a}n=i>>>31|0;o=0;l=k<<1|r>>>31;k=r<<1;break d}l=o<<1|n>>>31;n=n<<1;o=l;l=0;k=i>>>31|0}r=l;l=i<<1|h>>>31;h=h<<1;i=l;n=k|n;o=o|r;q=q+ -1|0;if((q|0)>(s|0)){continue}break}q=s}e:{k=n;l=k-m|0;k=o-((k>>>0<m>>>0)+u|0)|0;m=(g|0)==(i|0)&h>>>0<f>>>0|i>>>0<g>>>0;k=k-(l>>>0<m>>>0)|0;m=l-m|0;if((k|0)<0?1:(k|0)<=0?m>>>0<0:0){m=n;k=o;break e}n=h;h=h-f|0;i=i-((n>>>0<f>>>0)+g|0)|0;if(h|m|(i|k)){break e}bh(j+48|0,b,c,d,e,0,0,0,0);d=p[j+56>>2];e=p[j+60>>2];h=p[j+48>>2];i=p[j+52>>2];break a}if((k|0)==65535|k>>>0<65535){while(1){d=i>>>31|0;b=0;q=q+ -1|0;l=i<<1|h>>>31;h=h<<1;i=l;l=k<<1|m>>>31;m=m<<1|d;b=b|l;k=b;if((k|0)==65536&m>>>0<0|k>>>0<65536){continue}break}}b=t&32768;if((q|0)<=0){bh(j- -64|0,h,i,m,k&65535|(b|q+120)<<16,0,0,0,1065811968);d=p[j+72>>2];e=p[j+76>>2];h=p[j+64>>2];i=p[j+68>>2];break a}d=m;e=k&65535|(b|q)<<16}p[a>>2]=h;p[a+4>>2]=i;p[a+8>>2]=d;p[a+12>>2]=e;Z=j+128|0}function kc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0;x=Z-256|0;Z=x;e=a;while(1){a:{h=e;d=p[(l<<2)+b>>2]+c|0;i=q[d+4|0];m=q[d+3|0];g=i+m|0;k=q[d+7|0];j=q[d|0];f=k+j|0;n=g+f|0;r=q[d+5|0];o=q[d+2|0];s=r+o|0;t=q[d+6|0];u=q[d+1|0];d=t+u|0;w=s+d|0;p[e+16>>2]=n-w<<2;p[e>>2]=(n+w<<2)+ -4096;g=f-g|0;f=d-s|0;d=v(g+f|0,4433)+1024|0;p[e+24>>2]=d+v(f,-15137)>>11;p[e+8>>2]=d+v(g,6270)>>11;d=m-i|0;i=j-k|0;m=v(d+i|0,-7373)+1024|0;g=u-t|0;f=g+d|0;k=o-r|0;n=k+i|0;j=v(f+n|0,9633);o=m+v(d,2446)|0;d=j+v(f,-16069)|0;p[e+28>>2]=o+d>>11;j=j+v(n,-3196)|0;f=v(k,16819);k=v(g+k|0,-20995)+1024|0;p[e+20>>2]=j+(f+k|0)>>11;p[e+12>>2]=d+(k+v(g,25172)|0)>>11;p[e+4>>2]=j+(m+v(i,12299)|0)>>11;i=l+ -7|0;l=l+1|0;d=7;e=x;b:{switch(i|0){case 0:continue;case 8:break a;default:break b}}e=h+32|0;continue}break}while(1){i=p[e+32>>2];m=p[a+192>>2];b=i+m|0;k=p[e+192>>2];j=p[a+32>>2];c=k+j|0;h=b+c|0;l=p[e+64>>2];g=p[a+160>>2];f=l+g|0;n=p[e+160>>2];r=p[a+64>>2];o=n+r|0;s=f+o|0;t=p[e>>2];u=p[a+224>>2];w=t+u|0;y=p[e+224>>2];z=p[a>>2];A=y+z|0;B=w+A|0;C=p[e+96>>2];D=p[a+128>>2];E=C+D|0;F=p[e+128>>2];G=p[a+96>>2];H=F+G|0;I=E+H|0;p[a+128>>2]=(v(h-s|0,4433)+v(B-I|0,10703)|0)+32768>>16;p[a>>2]=((h+(s+I|0)|0)+B|0)+4>>3;h=A-w|0;f=o-f|0;o=H-E|0;c=c-b|0;b=(v(h-f|0,11363)+v(o-c|0,2260)|0)+32768|0;p[a+192>>2]=(b+v(o,-8697)|0)+v(h,-1730)>>16;p[a+64>>2]=(b+v(f,17799)|0)+v(c,11893)>>16;b=g-l|0;c=D-C|0;h=G-F|0;l=r-n|0;g=(v(b-c|0,3363)+v(h+l|0,-11086)|0)+32768|0;i=m-i|0;m=j-k|0;k=v(i+c|0,-10217)+v(m+h|0,-5461)|0;n=k+((g+v(h,8728)|0)+v(c,17760)|0)|0;j=c;c=u-t|0;f=h;h=z-y|0;j=v(j-c|0,7350)+v(f+h|0,8956)|0;p[a+224>>2]=n+j>>16;f=(g+v(l,-9222)|0)+v(b,10055)|0;g=v(i-b|0,11529)+v(l+m|0,1136)|0;b=v(b+c|0,5461)+v(h+l|0,10217)|0;p[a+160>>2]=(f+g|0)+b>>16;l=v(i-c|0,3363)+v(h+m|0,11086)|0;p[a+96>>2]=(l+(g+((k+v(m,589)|0)+v(i,-13631)|0)|0)|0)+32768>>16;p[a+32>>2]=(b+(j+((l+v(h,-18730)|0)+v(c,6387)|0)|0)|0)+32768>>16;b=d;d=d+ -1|0;e=e+4|0;a=a+4|0;if(b){continue}break}Z=x+256|0}function tb(a){var b=0,c=0;c=m[p[p[a+4>>2]>>2]](a,1,12)|0;p[a+412>>2]=c;p[c>>2]=30;a:{b:{b=p[a+40>>2];if(b>>>0>7){break b}c:{if(!(1<<b&204)){if(1<<b&48){break c}if((b|0)!=1){break b}if(p[a+36>>2]==1){break a}b=p[a>>2];p[b+20>>2]=10;m[p[b>>2]](a);break a}if(p[a+36>>2]==3){break a}b=p[a>>2];p[b+20>>2]=10;m[p[b>>2]](a);break a}if(p[a+36>>2]==4){break a}b=p[a>>2];p[b+20>>2]=10;m[p[b>>2]](a);break a}if(p[a+36>>2]>0){break a}b=p[a>>2];p[b+20>>2]=10;m[p[b>>2]](a)}d:{if(!p[a+260>>2]){break d}e:{switch(p[a+80>>2]+ -2|0){case 0:case 4:break d;default:break e}}b=p[a>>2];p[b+20>>2]=28;m[p[b>>2]](a)}f:{g:{h:{i:{j:{k:{l:{m:{n:{o:{p:{b=p[a+80>>2];switch(b+ -1|0){case 6:break m;case 2:break n;case 1:case 5:break o;case 0:break p;case 4:break k;case 3:break l;default:break j}}if(p[a+76>>2]!=1){b=p[a>>2];p[b+20>>2]=11;m[p[b>>2]](a)}q:{switch(p[a+40>>2]+ -1|0){case 0:case 2:case 6:p[c+4>>2]=31;return;case 1:p[c+4>>2]=32;break h;default:break q}}break g}if(p[a+76>>2]!=3){b=p[a>>2];p[b+20>>2]=11;m[p[b>>2]](a);b=p[a+80>>2]}if((b|0)!=p[a+40>>2]){b=p[a>>2];p[b+20>>2]=28;m[p[b>>2]](a)}r:{switch(p[a+260>>2]){case 0:p[c+4>>2]=34;return;case 1:p[c+4>>2]=35;return;default:break r}}break g}if(p[a+76>>2]!=3){b=p[a>>2];p[b+20>>2]=11;m[p[b>>2]](a)}s:{switch(p[a+40>>2]+ -2|0){case 0:break i;case 1:break f;default:break s}}break g}if(p[a+76>>2]!=3){b=p[a>>2];p[b+20>>2]=11;m[p[b>>2]](a)}t:{switch(p[a+40>>2]+ -2|0){case 0:a=p[a+84>>2];p[a+228>>2]=1;p[a+140>>2]=1;break i;case 1:a=p[a+84>>2];p[a+228>>2]=1;p[a+140>>2]=1;break f;case 5:break f;default:break t}}break g}if(p[a+76>>2]!=4){b=p[a>>2];p[b+20>>2]=11;m[p[b>>2]](a)}if(p[a+40>>2]!=4){b=p[a>>2];p[b+20>>2]=28;m[p[b>>2]](a)}break f}if(p[a+76>>2]!=4){b=p[a>>2];p[b+20>>2]=11;m[p[b>>2]](a)}u:{switch(p[a+40>>2]+ -4|0){case 0:p[c+4>>2]=38;break h;case 1:break f;default:break u}}break g}if(!(p[a+76>>2]==p[a+36>>2]?p[a+40>>2]==(b|0):0)){b=p[a>>2];p[b+20>>2]=28;m[p[b>>2]](a)}p[c+4>>2]=37;return}p[c+4>>2]=36}p[c>>2]=33;return}c=p[a>>2];p[c+20>>2]=28;m[p[c>>2]](a);return}p[c+4>>2]=37}function df(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0;A=Z-256|0;Z=A;m=p[a+336>>2];a=p[b+84>>2];b=A;i=8;while(1){a:{b:{h=r[c+32>>1];f=o[c+16>>1];if((h|f)&65535){break b}h=0;if(r[c+48>>1]|r[c+64>>1]|(r[c+80>>1]|r[c+96>>1])){break b}if(r[c+112>>1]){break b}h=v(p[a>>2],o[c>>1]);p[b+192>>2]=h;p[b+160>>2]=h;p[b+128>>2]=h;p[b+96>>2]=h;p[b+64>>2]=h;p[b+32>>2]=h;p[b>>2]=h;f=56;break a}j=v(p[a+192>>2],o[c+96>>1]);k=v(p[a+64>>2],h<<16>>16);h=j+k|0;s=v(p[a+128>>2],o[c+64>>1]);l=v(p[a>>2],o[c>>1]);w=s+l|0;t=h+w|0;u=v(p[a+224>>2],o[c+112>>1]);x=v(f,p[a+32>>2]);y=u+x|0;z=v(p[a+160>>2],o[c+80>>1]);g=v(p[a+96>>2],o[c+48>>1]);B=z+g|0;f=y+B|0;p[b+224>>2]=t-f;p[b>>2]=f+t;j=(v(k-j|0,362)>>8)-h|0;k=l-s|0;s=j+k|0;l=x-u|0;t=z-g|0;u=v(l+t|0,473)>>8;f=(u-(v(t,669)>>8)|0)-f|0;p[b+192>>2]=s-f;p[b+32>>2]=f+s;j=k-j|0;f=(v(y-B|0,362)>>8)-f|0;p[b+160>>2]=j-f;p[b+64>>2]=f+j;f=(u-(v(l,277)>>8)|0)-f|0;h=w-h|0;p[b+96>>2]=f+h;h=h-f|0;f=32}p[(f<<2)+b>>2]=h;c=c+2|0;a=a+4|0;b=b+4|0;g=i>>>0>1;i=i+ -1|0;if(g){continue}break}b=m+ -384|0;h=0;c=A;while(1){g=p[c>>2]+16400|0;a=p[(h<<2)+d>>2]+e|0;c:{d:{i=p[c+8>>2];f=p[c+4>>2];if(i|f){break d}i=0;if(p[c+12>>2]|p[c+16>>2]|(p[c+20>>2]|p[c+24>>2])){break d}if(p[c+28>>2]){break d}g=Fh(q[b+(g>>>5&1023)|0],0,16843009,16843009);n[a|0]=g;n[a+1|0]=g>>>8;n[a+2|0]=g>>>16;n[a+3|0]=g>>>24;g=$;n[a+4|0]=g;n[a+5|0]=g>>>8;n[a+6|0]=g>>>16;n[a+7|0]=g>>>24;break c}k=p[c+28>>2];s=k+f|0;l=p[c+12>>2];w=p[c+20>>2];t=l+w|0;m=s+t|0;u=p[c+24>>2];j=u+i|0;x=p[c+16>>2];y=x+g|0;z=j+y|0;n[a|0]=q[b+(m+z>>>5&1023)|0];n[a+7|0]=q[b+(z-m>>>5&1023)|0];k=f-k|0;f=w-l|0;l=v(k+f|0,473)>>8;f=(l-(v(f,669)>>8)|0)-m|0;i=(v(i-u|0,362)>>8)-j|0;m=g-x|0;g=i+m|0;n[a+1|0]=q[b+(f+g>>>5&1023)|0];n[a+6|0]=q[b+(g-f>>>5&1023)|0];g=(v(s-t|0,362)>>8)-f|0;i=m-i|0;n[a+2|0]=q[b+(g+i>>>5&1023)|0];n[a+5|0]=q[b+(i-g>>>5&1023)|0];g=(l-(v(k,277)>>8)|0)-g|0;i=y-j|0;n[a+3|0]=q[b+(g+i>>>5&1023)|0];n[a+4|0]=q[b+(i-g>>>5&1023)|0]}c=c+32|0;h=h+1|0;if((h|0)!=8){continue}break}Z=A+256|0}function Qe(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0;z=Z-224|0;Z=z;s=p[a+336>>2];b=p[b+84>>2];a=z;while(1){h=p[b+160>>2];i=o[c+80>>1];j=p[b+32>>2];t=o[c+16>>1];u=p[b+96>>2];l=o[c+48>>1];m=v(o[c>>1],p[b>>2])<<13|1024;g=v(p[b+128>>2],o[c+64>>1]);f=v(p[b+192>>2],o[c+96>>1]);r=v(p[b+64>>2],o[c+32>>1]);k=f+r|0;p[a+96>>2]=m+v(g-k|0,11585)>>11;h=v(h,i);i=v(j,t);j=v(h+i|0,5027);k=m+v(k,10438)|0;t=v(g-f|0,7223);w=k+(t+v(f,-637)|0)|0;f=v(u,l);u=v(f+i|0,7663);i=v(i-f|0,1395);l=j+(u-i|0)|0;p[a+192>>2]=w-l>>11;p[a>>2]=l+w>>11;l=v(r,-20239);r=v(r-g|0,2578);l=k+(l+r|0)|0;f=v(f+h|0,-11295);h=f+(j+v(h,15326)|0)|0;p[a+128>>2]=l-h>>11;p[a+64>>2]=h+l>>11;g=t+(r+(m+v(g,-15083)|0)|0)|0;f=f+(i+u|0)|0;p[a+160>>2]=g-f>>11;p[a+32>>2]=f+g>>11;a=a+4|0;b=b+4|0;c=c+2|0;x=x+1|0;if((x|0)!=8){continue}break}b=s+ -384|0;x=0;a=z;while(1){g=p[a+12>>2];r=p[a+4>>2];j=v(g+r|0,10935);s=p[a+24>>2];t=p[a+8>>2];u=v(s+t|0,9058);c=p[(x<<2)+d>>2]+e|0;m=p[a+28>>2]<<13;f=p[a+20>>2];l=f+r|0;k=v(l,9810);w=m+(k+(j+v(r,-9232)|0)|0)|0;i=(p[a>>2]<<13)+134348800|0;h=p[a+16>>2];B=i+v(h,10438)|0;C=u+v(t,2237)|0;y=B+C|0;n[c|0]=q[b+(w+y>>>18&1023)|0];n[c+13|0]=q[b+(y-w>>>18&1023)|0];u=u+v(s,-14084)|0;w=i+v(h,2578)|0;y=u+w|0;A=j+v(g,-3474)|0;j=v(f+g|0,-1297)-m|0;A=A+j|0;n[c+1|0]=q[b+(y+A>>>18&1023)|0];n[c+12|0]=q[b+(y-A>>>18&1023)|0];j=j+(k+v(f,-19447)|0)|0;s=v(s,-11295)+v(t,5027)|0;t=i+v(h,-7223)|0;k=s+t|0;n[c+2|0]=q[b+(j+k>>>18&1023)|0];n[c+11|0]=q[b+(k-j>>>18&1023)|0];j=r-g|0;k=m+(j-f<<13)|0;h=i+v(h,-11586)|0;n[c+3|0]=q[b+(k+h>>>18&1023)|0];n[c+10|0]=q[b+(h-k>>>18&1023)|0];h=v(l,6164);i=m+v(f,-13850)|0;f=v(f-g|0,11512);i=h+(i+f|0)|0;s=t-s|0;n[c+4|0]=q[b+(i+s>>>18&1023)|0];n[c+9|0]=q[b+(s-i>>>18&1023)|0];f=f+v(g,5529)|0;g=v(j,3826)-m|0;f=f+g|0;m=w-u|0;n[c+5|0]=q[b+(f+m>>>18&1023)|0];n[c+8|0]=q[b+(m-f>>>18&1023)|0];g=g+(h+v(r,-8693)|0)|0;f=B-C|0;n[c+6|0]=q[b+(g+f>>>18&1023)|0];n[c+7|0]=q[b+(f-g>>>18&1023)|0];a=a+32|0;x=x+1|0;if((x|0)!=7){continue}break}Z=z+224|0}function Ye(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0;z=Z-400|0;Z=z;A=p[a+336>>2];a=p[b+84>>2];b=z;while(1){j=p[a+192>>2];s=o[c+96>>1];k=p[a+64>>2];r=o[c+32>>1];l=v(o[c>>1],p[a>>2])<<13|1024;h=v(p[a+128>>2],o[c+64>>1]);m=l+v(h,-11586)>>11;g=v(p[a+224>>2],o[c+112>>1]);f=v(p[a+32>>2],o[c+16>>1]);i=v(p[a+96>>2],o[c+48>>1]);w=f-i|0;t=v(p[a+160>>2],o[c+80>>1]);u=g+(w-t|0)<<2;p[b+280>>2]=m-u;p[b+84>>2]=m+u;s=v(j,s);k=v(k,r);r=v(s+k|0,9058);m=r+v(s,-14084)|0;u=l+v(h,2578)|0;x=m+u|0;j=g<<13;g=v(i+t|0,-1297)-j|0;B=v(f+i|0,10935);y=g+(B+v(i,-3474)|0)|0;p[b+336>>2]=x-y>>11;p[b+28>>2]=x+y>>11;s=v(s,-11295)+v(k,5027)|0;x=l+v(h,-7223)|0;y=s+x|0;C=f+t|0;D=v(C,9810);g=g+(D+v(t,-19447)|0)|0;p[b+308>>2]=y-g>>11;p[b+56>>2]=g+y>>11;m=u-m|0;w=v(w,3826)-j|0;g=v(i,5529);i=v(t-i|0,11512);g=w+(g+i|0)|0;p[b+224>>2]=m-g>>11;p[b+140>>2]=m+g>>11;h=l+v(h,10438)|0;l=r+v(k,2237)|0;k=h-l|0;r=v(C,6164);m=w+(r+v(f,-8693)|0)|0;p[b+196>>2]=k-m>>11;p[b+168>>2]=k+m>>11;h=h+l|0;f=j+((v(f,-9232)+B|0)+D|0)|0;p[b+364>>2]=h-f>>11;p[b>>2]=f+h>>11;f=x-s|0;i=j+(r+(i+v(t,-13850)|0)|0)|0;p[b+252>>2]=f-i>>11;p[b+112>>2]=f+i>>11;b=b+4|0;a=a+4|0;c=c+2|0;E=E+1|0;if((E|0)!=7){continue}break}a=A+ -384|0;i=0;b=z;while(1){t=p[b+16>>2];f=p[b+24>>2];h=v(t-f|0,7223);c=p[(i<<2)+d>>2]+e|0;l=p[b+12>>2];j=p[b+4>>2];k=v(l+j|0,7663);r=v(j-l|0,1395);g=j;j=p[b+20>>2];A=v(g+j|0,5027);m=(k-r|0)+A|0;u=h+v(f,-637)|0;s=(p[b>>2]<<13)+134348800|0;g=f;f=p[b+8>>2];w=g+f|0;g=s+v(w,10438)|0;u=u+g|0;n[c|0]=q[a+(m+u>>>18&1023)|0];n[c+6|0]=q[a+(u-m>>>18&1023)|0];l=v(j+l|0,-11295);k=l+(k+r|0)|0;r=v(f-t|0,2578);h=h+(r+(s+v(t,-15083)|0)|0)|0;n[c+1|0]=q[a+(k+h>>>18&1023)|0];n[c+5|0]=q[a+(h-k>>>18&1023)|0];h=l+(A+v(j,15326)|0)|0;f=g+(r+v(f,-20239)|0)|0;n[c+2|0]=q[a+(h+f>>>18&1023)|0];n[c+4|0]=q[a+(f-h>>>18&1023)|0];n[c+3|0]=q[a+(s+v(t-w|0,11585)>>>18&1023)|0];b=b+28|0;i=i+1|0;if((i|0)!=14){continue}break}Z=z+400|0}function dd(a){var b=0,c=0,d=0,e=0,f=0,g=0;if(!(s[a+32>>2]<16777216?s[a+28>>2]<=16777215:0)){c=p[a>>2];p[c+20>>2]=42;p[c+24>>2]=65500;m[p[p[a>>2]>>2]](a)}d=p[a+56>>2];b=p[a+380>>2];e=v(b,p[a+60>>2]);a:{if(d>>>0>=e>>>0){p[a+64>>2]=v(b,p[a+28>>2]);c=1;b=v(b,p[a+32>>2]);break a}if(d<<1>>>0>=e>>>0){c=2;f=a,g=Qa(v(b,p[a+28>>2]),2),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),2);break a}c=3;if(v(d,3)>>>0>=e>>>0){f=a,g=Qa(v(b,p[a+28>>2]),3),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),3);break a}if(d<<2>>>0>=e>>>0){c=4;f=a,g=Qa(v(b,p[a+28>>2]),4),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),4);break a}c=5;if(v(d,5)>>>0>=e>>>0){f=a,g=Qa(v(b,p[a+28>>2]),5),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),5);break a}c=6;if(v(d,6)>>>0>=e>>>0){f=a,g=Qa(v(b,p[a+28>>2]),6),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),6);break a}c=7;if(v(d,7)>>>0>=e>>>0){f=a,g=Qa(v(b,p[a+28>>2]),7),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),7);break a}if(d<<3>>>0>=e>>>0){c=8;f=a,g=Qa(v(b,p[a+28>>2]),8),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),8);break a}c=9;if(v(d,9)>>>0>=e>>>0){f=a,g=Qa(v(b,p[a+28>>2]),9),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),9);break a}c=10;if(v(d,10)>>>0>=e>>>0){f=a,g=Qa(v(b,p[a+28>>2]),10),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),10);break a}c=11;if(v(d,11)>>>0>=e>>>0){f=a,g=Qa(v(b,p[a+28>>2]),11),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),11);break a}c=12;if(v(d,12)>>>0>=e>>>0){f=a,g=Qa(v(b,p[a+28>>2]),12),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),12);break a}c=13;if(v(d,13)>>>0>=e>>>0){f=a,g=Qa(v(b,p[a+28>>2]),13),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),13);break a}c=14;if(v(d,14)>>>0>=e>>>0){f=a,g=Qa(v(b,p[a+28>>2]),14),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),14);break a}b=v(b,p[a+28>>2]);c=15;if(v(d,15)>>>0>=e>>>0){f=a,g=Qa(b,15),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),15);break a}c=16;f=a,g=Qa(b,16),p[f+64>>2]=g;b=Qa(v(p[a+380>>2],p[a+32>>2]),16)}p[a+284>>2]=c;p[a+280>>2]=c;p[a+68>>2]=b}function cc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0,J=0;h=a;while(1){d=p[(r<<2)+b>>2]+c|0;i=q[d+9|0];k=q[d+6|0];f=i+k|0;n=q[d+14|0];j=q[d+1|0];g=n+j|0;e=f+g|0;m=q[d+13|0];o=q[d+2|0];l=m+o|0;t=q[d+10|0];u=q[d+5|0];s=t+u|0;w=l+s|0;x=q[d+8|0];y=q[d+7|0];z=x+y|0;A=q[d+15|0];B=q[d|0];C=A+B|0;D=z+C|0;E=q[d+11|0];F=q[d+4|0];G=E+F|0;H=q[d+12|0];I=q[d+3|0];d=H+I|0;J=G+d|0;p[h+16>>2]=(v(e-w|0,4433)+v(D-J|0,10703)|0)+1024>>11;p[h>>2]=((e+(w+J|0)|0)+D<<2)+ -8192;e=C-z|0;l=l-s|0;s=d-G|0;f=g-f|0;d=(v(e-l|0,11363)+v(s-f|0,2260)|0)+1024|0;p[h+24>>2]=(d+v(s,-8697)|0)+v(e,-1730)>>11;p[h+8>>2]=(d+v(l,17799)|0)+v(f,11893)>>11;d=u-t|0;f=F-E|0;g=I-H|0;e=o-m|0;m=(v(d-f|0,3363)+v(g+e|0,-11086)|0)+1024|0;i=k-i|0;k=j-n|0;n=v(i+f|0,-10217)+v(k+g|0,-5461)|0;o=n+((m+v(g,8728)|0)+v(f,17760)|0)|0;j=f;f=y-x|0;l=g;g=B-A|0;j=v(j-f|0,7350)+v(l+g|0,8956)|0;p[h+28>>2]=o+j>>11;l=(m+v(e,-9222)|0)+v(d,10055)|0;m=v(i-d|0,11529)+v(e+k|0,1136)|0;d=v(d+f|0,5461)+v(e+g|0,10217)|0;p[h+20>>2]=(l+m|0)+d>>11;e=v(i-f|0,3363)+v(g+k|0,11086)|0;p[h+12>>2]=(e+(m+((n+v(k,589)|0)+v(i,-13631)|0)|0)|0)+1024>>11;p[h+4>>2]=(d+(j+((e+v(g,-18730)|0)+v(f,6387)|0)|0)|0)+1024>>11;h=h+32|0;r=r+1|0;if((r|0)!=8){continue}break}b=7;while(1){h=p[a+128>>2];d=p[a+96>>2];c=h+d|0;f=p[a+224>>2];g=p[a>>2];e=f+g|0;i=c+e|0;k=p[a+160>>2];r=p[a+64>>2];m=k+r|0;n=p[a+192>>2];j=p[a+32>>2];o=n+j|0;l=m+o|0;p[a+128>>2]=(i-l|0)+4>>3;p[a>>2]=(i+l|0)+4>>3;e=e-c|0;i=o-m|0;c=v(e+i|0,4433)+32768|0;p[a+192>>2]=c+v(i,-15137)>>16;p[a+64>>2]=c+v(e,6270)>>16;c=d-h|0;h=g-f|0;d=v(c+h|0,-7373)+32768|0;f=j-n|0;i=f+c|0;g=r-k|0;k=g+h|0;e=v(i+k|0,9633);j=d+v(c,2446)|0;c=e+v(i,-16069)|0;p[a+224>>2]=j+c>>16;e=e+v(k,-3196)|0;j=v(g,16819);g=v(f+g|0,-20995)+32768|0;p[a+160>>2]=e+(j+g|0)>>16;p[a+96>>2]=c+(g+v(f,25172)|0)>>16;p[a+32>>2]=e+(d+v(h,12299)|0)>>16;c=b;b=c+ -1|0;a=a+4|0;if(c){continue}break}}function Td(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,o=0,q=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0;t=p[a+484>>2];p[a+136>>2]=p[t+16>>2];f=p[t+20>>2];h=m[p[p[a+4>>2]>>2]](a,1,f<<5)|0;p[h+16>>2]=0;p[h+20>>2]=31;p[h+8>>2]=0;p[h+12>>2]=63;p[h>>2]=0;p[h+4>>2]=31;Vd(a,h);i=1;a:{b:{if((f|0)<2){break b}while(1){c=0;j=0;k=0;g=0;l=0;b=h;d=b;c:{if(i<<1<=(f|0)){while(1){e=p[b+28>>2];if((e|0)>(j|0)){d=p[b+24>>2]>0;c=d?b:c;j=d?e:j}b=b+32|0;k=k+1|0;if((k|0)!=(i|0)){continue}break c}}while(1){b=p[d+24>>2];e=(b|0)>(g|0);c=e?d:c;g=e?b:g;d=d+32|0;l=l+1|0;if((l|0)!=(i|0)){continue}break}}if(!c){break b}b=(i<<5)+h|0;p[b+4>>2]=p[c+4>>2];p[b+12>>2]=p[c+12>>2];p[b+20>>2]=p[c+20>>2];p[b>>2]=p[c>>2];p[b+8>>2]=p[c+8>>2];p[b+16>>2]=p[c+16>>2];d:{e:{f:{g:{h:{g=p[c+4>>2];j=p[c>>2];e=g-j<<4;k=p[c+12>>2];l=p[c+8>>2];d=v(k-l|0,12);q=p[c+20>>2];o=p[c+16>>2];switch((q-o<<3>(((e|0)>(d|0)?e:d)|0)?2:(e|0)<=(d|0))|0){case 2:break f;case 1:break g;case 0:break h;default:break d}}d=(g+j|0)/2|0;p[c+4>>2]=d;e=b;break e}d=(k+l|0)/2|0;p[c+12>>2]=d;e=b+8|0;break e}d=(o+q|0)/2|0;p[c+20>>2]=d;e=b+16|0}p[e>>2]=d+1}Vd(a,c);Vd(a,b);i=i+1|0;if((i|0)!=(f|0)){continue}break}i=f;if((f|0)<1){break a}}while(1){g=0;j=0;k=0;l=0;b=(s<<5)+h|0;q=p[b>>2];u=p[b+4>>2];if((q|0)<=(u|0)){w=p[b+20>>2];e=p[b+16>>2];x=p[b+12>>2];d=p[b+8>>2];y=p[p[a+484>>2]+24>>2];while(1){if((d|0)<=(x|0)){z=q<<3|4;A=p[(q<<2)+y>>2];f=d;while(1){if((e|0)<=(w|0)){c=((f<<6)+A|0)+(e<<1)|0;B=f<<2|2;b=e;while(1){o=r[c>>1];if(o){k=v(o,B)+k|0;j=v(o,z)+j|0;l=v(o,b<<3|4)+l|0;g=g+o|0}c=c+2|0;o=(b|0)!=(w|0);b=b+1|0;if(o){continue}break}}b=(f|0)!=(x|0);f=f+1|0;if(b){continue}break}}b=(q|0)!=(u|0);q=q+1|0;if(b){continue}break}}b=g>>1;n[p[p[a+136>>2]>>2]+s|0]=(b+j|0)/(g|0);n[p[p[a+136>>2]+4>>2]+s|0]=(b+k|0)/(g|0);n[p[p[a+136>>2]+8>>2]+s|0]=(b+l|0)/(g|0);s=s+1|0;if((s|0)!=(i|0)){continue}break}f=i}p[a+132>>2]=f;b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=98;m[p[p[a>>2]+4>>2]](a,1);p[t+28>>2]=1}function Zb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0;k=Z-128|0;d=a;while(1){a:{e=d;d=p[(i<<2)+b>>2]+c|0;h=q[d+11|0];l=q[d|0];g=h+l|0;o=q[d+6|0];r=q[d+5|0];m=o+r|0;s=g-m|0;t=q[d+10|0];u=q[d+1|0];j=t+u|0;w=q[d+7|0];x=q[d+4|0];f=w+x|0;y=q[d+9|0];z=q[d+2|0];n=y+z|0;A=q[d+8|0];B=q[d+3|0];C=A+B|0;d=n-C|0;p[e+24>>2]=s-((j-f|0)+d|0);g=g+m|0;n=n+C|0;p[e>>2]=g+(f+(n+(j|-1536)|0)|0);p[e+16>>2]=v(g-n|0,10033)+4096>>13;p[e+8>>2]=((j-(d+f|0)|0)+v(d+s|0,11190)|0)+4096>>13;f=x-w|0;m=u-t|0;g=v(f+m|0,4433);d=l-h|0;j=B-A|0;l=g+v(f,-15137)|0;f=r-o|0;h=z-y|0;p[e+12>>2]=((v(d-j|0,10703)+l|0)+v(f+h|0,-4433)|0)+4096>>13;o=v(d+j|0,7053);n=o+v(j,5946)|0;j=v(h+j|0,-1512);g=g+v(m,6270)|0;p[e+28>>2]=(((n+j|0)-g|0)+v(f,-9191)|0)+4096>>13;m=v(h,-19165);h=v(d+h|0,9191)+4096|0;p[e+20>>2]=((j+(m+h|0)|0)-l|0)+v(f,7053)>>13;p[e+4>>2]=(g+(o+(h+v(d,-4758)|0)|0)|0)+v(f,1512)>>13;f=i+ -7|0;i=i+1|0;j=7;d=k;b:{switch(f|0){case 0:continue;case 4:break a;default:break b}}d=e+32|0;continue}break}while(1){b=p[d+64>>2];c=p[a+128>>2];k=p[a+192>>2];f=p[a+160>>2];e=k+f|0;h=p[d+96>>2];g=p[a>>2];i=h+g|0;l=e+i|0;o=p[d>>2];r=p[a+96>>2];m=o+r|0;s=p[d+32>>2];t=p[a+64>>2];u=s+t|0;w=m+u|0;p[a+128>>2]=v(l-w|0,8918)- -8192>>14;i=i-e|0;x=p[a+32>>2];y=x+b|0;z=p[a+224>>2];n=z+c|0;A=y-n|0;e=u-m|0;p[a+192>>2]=v(i-(A+e|0)|0,7282)- -8192>>14;p[a+64>>2]=(v(A-e|0,7282)+v(e+i|0,9947)|0)- -8192>>14;p[a>>2]=v(l+(n+(w+y|0)|0)|0,7282)- -8192>>14;e=c-z|0;l=x-b|0;i=v(e+l|0,3941);b=g-h|0;c=r-o|0;h=i+v(e,-13455)|0;e=f-k|0;k=t-s|0;p[a+96>>2]=((v(b-c|0,9514)+h|0)+v(e+k|0,-3941)|0)- -8192>>14;f=v(b+c|0,6269);g=f+v(c,5285)|0;c=v(c+k|0,-1344);i=i+v(l,5573)|0;p[a+224>>2]=(((g+c|0)-i|0)+v(e,-8170)|0)- -8192>>14;g=v(k,-17036);k=v(b+k|0,8170)- -8192|0;p[a+160>>2]=((c+(g+k|0)|0)-h|0)+v(e,6269)>>14;p[a+32>>2]=(i+(f+(k+v(b,-4229)|0)|0)|0)+v(e,1344)>>14;b=j;j=j+ -1|0;d=d+4|0;a=a+4|0;if(b){continue}break}}function hc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0;a=uh(a,0,256);d=p[b>>2]+c|0;e=q[d|0];f=q[d+5|0];h=e-f|0;j=q[d+1|0];i=q[d+4|0];g=j-i|0;k=q[d+2|0];l=q[d+3|0];d=k-l|0;p[a+12>>2]=(h-g|0)-d<<3;e=e+f|0;f=k+l|0;p[a+8>>2]=v(e-f|0,10033)+512>>10;e=e+f|0;f=i+j|0;p[a>>2]=(e+f<<3)+ -6144;p[a+16>>2]=v(e-(f<<1)|0,5793)+512>>10;e=d-g<<3;d=v(d+h|0,2998)+512>>10;p[a+20>>2]=e+d;p[a+4>>2]=d+(g+h<<3);d=p[b+4>>2]+c|0;e=q[d|0];f=q[d+5|0];h=e-f|0;j=q[d+1|0];i=q[d+4|0];g=j-i|0;k=q[d+2|0];l=q[d+3|0];d=k-l|0;p[a+44>>2]=(h-g|0)-d<<3;e=e+f|0;f=k+l|0;p[a+40>>2]=v(e-f|0,10033)+512>>10;f=e+f|0;j=i+j|0;e=(f+j<<3)+ -6144|0;p[a+32>>2]=e;p[a+48>>2]=v(f-(j<<1)|0,5793)+512>>10;f=d-g<<3;d=v(d+h|0,2998)+512>>10;p[a+52>>2]=f+d;d=d+(g+h<<3)|0;p[a+36>>2]=d;b=p[b+8>>2]+c|0;f=q[b+2|0];j=q[b+3|0];c=f-j|0;i=q[b|0];k=q[b+5|0];h=i-k|0;g=v(c+h|0,2998)+512>>10;l=q[b+1|0];m=q[b+4|0];b=l-m|0;p[a+84>>2]=g+(c-b<<3);f=f+j|0;j=i+k|0;i=f+j|0;k=l+m|0;p[a+80>>2]=v(i-(k<<1)|0,5793)+512>>10;l=p[a>>2];i=(i+k<<3)+ -6144|0;p[a+32>>2]=v(l-i|0,17837)+16384>>15;i=i+l|0;p[a+64>>2]=v(i-(e<<1)|0,10298)+16384>>15;p[a>>2]=v(e+i|0,14564)+16384>>15;e=p[a+4>>2];g=g+(b+h<<3)|0;p[a+36>>2]=v(e-g|0,17837)+16384>>15;g=e+g|0;p[a+68>>2]=v(g-(d<<1)|0,10298)+16384>>15;p[a+4>>2]=v(d+g|0,14564)+16384>>15;d=p[a+40>>2];g=p[a+8>>2];e=v(j-f|0,10033)+512>>10;p[a+40>>2]=v(g-e|0,17837)+16384>>15;g=e+g|0;p[a+72>>2]=v(g-(d<<1)|0,10298)+16384>>15;p[a+8>>2]=v(d+g|0,14564)+16384>>15;b=(h-b|0)-c<<3;c=p[a+12>>2];d=b+c|0;h=p[a+44>>2];p[a+76>>2]=v(d-(h<<1)|0,10298)+16384>>15;p[a+12>>2]=v(d+h|0,14564)+16384>>15;p[a+44>>2]=v(c-b|0,17837)+16384>>15;b=p[a+80>>2];c=p[a+16>>2];d=b+c|0;h=p[a+48>>2];p[a+80>>2]=v(d-(h<<1)|0,10298)+16384>>15;p[a+16>>2]=v(d+h|0,14564)+16384>>15;p[a+48>>2]=v(c-b|0,17837)+16384>>15;b=p[a+84>>2];c=p[a+20>>2];d=b+c|0;h=p[a+52>>2];p[a+84>>2]=v(d-(h<<1)|0,10298)+16384>>15;p[a+20>>2]=v(d+h|0,14564)+16384>>15;p[a+52>>2]=v(c-b|0,17837)+16384>>15}function Ed(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,o=0,q=0,r=0,s=0,t=0;b=m[p[p[a+4>>2]>>2]](a,1,88)|0;p[a+484>>2]=b;p[b+68>>2]=0;p[b+12>>2]=123;p[b+8>>2]=124;p[b>>2]=125;p[b+52>>2]=0;if(p[a+120>>2]>=5){b=p[a>>2];p[b+20>>2]=57;p[b+24>>2]=4;m[p[p[a>>2]>>2]](a)}d=p[a+96>>2];if((d|0)>=257){b=p[a>>2];p[b+20>>2]=59;p[b+24>>2]=256;m[p[p[a>>2]>>2]](a);d=p[a+96>>2]}h=p[a+484>>2];i=p[a+120>>2];g=(i|0)<2;b=1;while(1){e=b;b=b+1|0;c=b;f=1;if(!g){while(1){c=v(b,c);f=f+1|0;if((i|0)!=(f|0)){continue}break}}if((c|0)<=(d|0)){continue}break}g=1;if(e>>>0<=1){b=p[a>>2];p[b+24>>2]=c;p[b+20>>2]=58;m[p[p[a>>2]>>2]](a)}c=0;if((i|0)>0){while(1){p[((c<<2)+h|0)+32>>2]=e;g=v(e,g);c=c+1|0;if((i|0)!=(c|0)){continue}break}}l=(i|0)<1;b=g;while(1){a:{if(l){b=g;break a}q=p[a+44>>2];c=0;j=1;while(1){e=c;f=b;k=h;if((q|0)==2){e=p[(c<<2)+9104>>2]}o=((e<<2)+k|0)+32|0;e=p[o>>2];k=e+1|0;e=v(k,(f|0)/(e|0)|0);if((e|0)<=(d|0)){p[o>>2]=k;j=0;b=e;c=c+1|0;if((i|0)!=(c|0)){continue}}break}if(!(j&1)){continue}}break}d=p[a>>2];b:{if(p[a+120>>2]==3){p[d+24>>2]=b;p[d+28>>2]=p[h+32>>2];p[d+32>>2]=p[h+36>>2];g=p[h+40>>2];p[d+20>>2]=96;p[d+36>>2]=g;m[p[d+4>>2]](a,1);break b}p[d+24>>2]=b;p[d+20>>2]=97;m[p[p[a>>2]+4>>2]](a,1)}k=m[p[p[a+4>>2]+8>>2]](a,1,b,p[a+120>>2])|0;c=p[a+120>>2];if((c|0)>=1){d=b;while(1){f=r<<2;e=p[(f+h|0)+32>>2];g=(d|0)/(e|0)|0;if((e|0)>=1){i=f+k|0;l=e+ -1|0;q=(l|0)/2|0;j=0;while(1){f=v(g,j);if((f|0)<(b|0)){o=(q+v(j,255)|0)/(l|0)|0;while(1){c=0;if((g|0)>=1){while(1){n[p[i>>2]+(c+f|0)|0]=o;c=c+1|0;if((g|0)!=(c|0)){continue}break}}f=d+f|0;if((f|0)<(b|0)){continue}break}}j=j+1|0;if((e|0)!=(j|0)){continue}break}c=p[a+120>>2]}d=g;r=r+1|0;if((r|0)<(c|0)){continue}break}}p[h+20>>2]=b;p[h+16>>2]=k;Hd(a);if(!(p[a+88>>2]!=2|p[a+120>>2]<1)){b=(p[a+112>>2]<<1)+4|0;d=p[a+484>>2];c=0;while(1){s=d+(c<<2)|0,t=m[p[p[a+4>>2]+4>>2]](a,1,b)|0,p[s+68>>2]=t;c=c+1|0;if((c|0)<p[a+120>>2]){continue}break}}}function Fc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,s=0,t=0,u=0;i=p[a+424>>2];if(p[a+236>>2]){c=p[i+68>>2];if(!c){Gc(a,p[i+72>>2]);c=p[a+236>>2];p[i+68>>2]=c;p[i+72>>2]=p[i+72>>2]+1&7}p[i+68>>2]=c+ -1}if(p[a+320>>2]>=1){s=p[a+384>>2];u=i+204|0;while(1){f=t<<2;d=p[(f+a|0)+324>>2]<<2;k=p[(d+a|0)+296>>2];m=p[k+20>>2];l=((m<<2)+i|0)+76|0;c=d+i|0;g=c+52|0;d=p[l>>2]+p[g>>2]|0;n=p[b+f>>2];f=o[n>>1];c=c+36|0;e=f-p[c>>2]|0;a:{if(!e){Hc(a,d,0);p[g>>2]=0;break a}p[c>>2]=f;Hc(a,d,1);c=0;b:{if((e|0)>0){h=0;j=4;f=2;break b}e=0-e|0;h=1;j=8;f=3}Hc(a,d+1|0,h);p[g>>2]=j;d=d+f|0;h=e+ -1|0;c:{if(!h){break c}c=1;Hc(a,d,1);d=p[l>>2]+20|0;e=h>>>1|0;if(!e){break c}while(1){Hc(a,d,1);d=d+1|0;c=c<<1;e=e>>1;if(e){continue}break}}Hc(a,d,0);f=g;e=a+m|0;d:{if((c|0)>=1<<q[e+152|0]>>1){if((c|0)<=1<<q[e+168|0]>>1){break d}g=p[g>>2]+8|0}else{g=0}p[f>>2]=g}c=c>>1;if(!c){break a}d=d+14|0;while(1){Hc(a,d,(c&h)!=0);c=c>>1;if(c){continue}break}}c=p[a+388>>2];e:{if(!c){break e}j=p[k+24>>2];h=c;f:{g:{while(1){if(r[(p[(h<<2)+s>>2]<<1)+n>>1]){break g}h=h+ -1|0;if(h){continue}break}g=0;break f}if((h|0)<1){g=0;break f}m=(a+j|0)+184|0;k=((j<<2)+i|0)+140|0;g=0;while(1){c=p[k>>2]+v(g,3)|0;Hc(a,c,0);f=g;d=g+1|0;e=r[(p[(d<<2)+s>>2]<<1)+n>>1];if(!e){while(1){Hc(a,c+1|0,0);c=c+3|0;f=d;d=d+1|0;e=r[(p[(d<<2)+s>>2]<<1)+n>>1];if(!e){continue}break}}g=d;Hc(a,c+1|0,1);e=e<<16;l=e>>16;Hc(a,u,(l|0)<1);d=c+2|0;c=e>>31;e=(c+l^c)+ -1|0;h:{if(!e){c=0;break h}c=1;Hc(a,d,1);if((e|0)==1){break h}Hc(a,d,1);c=2;d=p[k>>2]+((f|0)<q[m|0]?189:217)|0;f=e>>2;if(!f){break h}while(1){Hc(a,d,1);d=d+1|0;c=c<<1;f=f>>1;if(f){continue}break}}Hc(a,d,0);c=c>>1;if(c){d=d+14|0;while(1){Hc(a,d,(c&e)!=0);c=c>>1;if(c){continue}break}}if((g|0)<(h|0)){continue}break}c=p[a+388>>2]}if((g|0)>=(c|0)){break e}Hc(a,p[((j<<2)+i|0)+140>>2]+v(g,3)|0,1)}t=t+1|0;if((t|0)<p[a+320>>2]){continue}break}}return 1}function Ie(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0;A=Z-320|0;Z=A;t=p[a+336>>2];a=p[b+84>>2];b=A;while(1){i=p[a+192>>2];m=o[c+96>>1];f=p[a+64>>2];l=o[c+32>>1];h=v(o[c>>1],p[a>>2])<<13|1024;k=v(p[a+128>>2],o[c+64>>1]);u=h+v(k,-11586)>>11;j=v(p[a+32>>2],o[c+16>>1]);r=v(p[a+160>>2],o[c+80>>1]);w=v(p[a+96>>2],o[c+48>>1]);s=v(p[a+224>>2],o[c+112>>1]);g=w-s|0;x=(j-r|0)-g<<2;p[b+224>>2]=u-x;p[b+64>>2]=u+x;m=v(i,m);f=v(f,l);i=v(m+f|0,6810);f=i+v(f,4209)|0;l=h+v(k,9373)|0;u=f+l|0;x=v(g,2531);r=r<<13;z=x+r|0;w=s+w|0;s=v(w,7791);y=z+(s+v(j,11443)|0)|0;p[b+288>>2]=u-y>>11;p[b>>2]=u+y>>11;f=l-f|0;l=z+(v(j,1812)-s|0)|0;p[b+160>>2]=f-l>>11;p[b+128>>2]=f+l>>11;i=i+v(m,-17828)|0;k=h+v(k,-3580)|0;h=i+k|0;m=v(w,4815);g=(r-x|0)-(g<<12)|0;f=(v(j,10323)-m|0)-g|0;p[b+256>>2]=h-f>>11;p[b+32>>2]=f+h>>11;k=k-i|0;j=g+(v(j,5260)-m|0)|0;p[b+192>>2]=k-j>>11;p[b+96>>2]=j+k>>11;b=b+4|0;a=a+4|0;c=c+2|0;B=B+1|0;if((B|0)!=8){continue}break}a=t+ -384|0;k=0;c=A;while(1){f=p[c+24>>2];t=p[c+8>>2];h=v(f+t|0,6810);b=p[(k<<2)+d>>2]+e|0;g=p[c+28>>2];i=p[c+12>>2];l=g+i|0;u=v(l,7791);j=p[c+4>>2];g=i-g|0;r=v(g,2531);i=p[c+20>>2]<<13;w=r+i|0;s=(u+v(j,11443)|0)+w|0;x=h+v(t,4209)|0;m=(p[c>>2]<<13)+134348800|0;t=p[c+16>>2];z=m+v(t,9373)|0;y=x+z|0;n[b|0]=q[a+(s+y>>>18&1023)|0];n[b+9|0]=q[a+(y-s>>>18&1023)|0];l=v(l,4815);r=(i-r|0)-(g<<12)|0;s=(v(j,10323)-l|0)-r|0;h=h+v(f,-17828)|0;f=m+v(t,-3580)|0;y=h+f|0;n[b+1|0]=q[a+(s+y>>>18&1023)|0];n[b+8|0]=q[a+(y-s>>>18&1023)|0];g=(j-g<<13)-i|0;i=m+v(t,-11586)|0;n[b+2|0]=q[a+(g+i>>>18&1023)|0];n[b+7|0]=q[a+(i-g>>>18&1023)|0];g=r+(v(j,5260)-l|0)|0;h=f-h|0;n[b+3|0]=q[a+(g+h>>>18&1023)|0];n[b+6|0]=q[a+(h-g>>>18&1023)|0];j=w+(v(j,1812)-u|0)|0;h=z-x|0;n[b+4|0]=q[a+(j+h>>>18&1023)|0];n[b+5|0]=q[a+(h-j>>>18&1023)|0];c=c+32|0;k=k+1|0;if((k|0)!=10){continue}break}Z=A+320|0}function Bg(a,b,c){var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0;e=Z-48|0;Z=e;a:{if(c>>>0<=2){f=b+4|0;c=c<<2;j=p[c+11004>>2];k=p[c+10992>>2];while(1){c=p[b+4>>2];b:{if(c>>>0<s[b+104>>2]){p[f>>2]=c+1;c=q[c|0];break b}c=yg(b)}if(vg(c)){continue}break}g=1;c:{d:{switch(c+ -43|0){case 0:case 2:break d;default:break c}}g=(c|0)==45?-1:1;c=p[b+4>>2];if(c>>>0<s[b+104>>2]){p[f>>2]=c+1;c=q[c|0];break c}c=yg(b)}e:{f:{while(1){if(n[d+10916|0]==(c|32)){g:{if(d>>>0>6){break g}c=p[b+4>>2];if(c>>>0<s[b+104>>2]){p[f>>2]=c+1;c=q[c|0];break g}c=yg(b)}d=d+1|0;if((d|0)!=8){continue}break f}break}if((d|0)!=3){if((d|0)==8){break f}break e}if(p[b+104>>2]){p[f>>2]=p[f>>2]+ -1}}Zg(e,w(w(g|0)*w(G)));d=p[e+8>>2];g=p[e+12>>2];h=p[e>>2];i=p[e+4>>2];break a}h:{i:{j:{if(d){break j}d=0;while(1){if(n[d+10925|0]!=(c|32)){break j}k:{if(d>>>0>1){break k}c=p[b+4>>2];if(c>>>0<s[b+104>>2]){p[f>>2]=c+1;c=q[c|0];break k}c=yg(b)}d=d+1|0;if((d|0)!=3){continue}break}break i}l:{switch(d|0){case 0:m:{if((c|0)!=48){break m}d=p[b+4>>2];n:{if(d>>>0<s[b+104>>2]){p[f>>2]=d+1;d=q[d|0];break n}d=yg(b)}if((d&-33)==88){Cg(e+16|0,b,k,j,g);d=p[e+24>>2];g=p[e+28>>2];h=p[e+16>>2];i=p[e+20>>2];break a}if(!p[b+104>>2]){break m}p[f>>2]=p[f>>2]+ -1}Dg(e+32|0,b,c,k,j,g);d=p[e+40>>2];g=p[e+44>>2];h=p[e+32>>2];i=p[e+36>>2];break a;case 3:break i;default:break l}}break h}o:{c=p[b+4>>2];p:{if(c>>>0<s[b+104>>2]){p[f>>2]=c+1;c=q[c|0];break p}c=yg(b)}if((c|0)==40){d=1;break o}d=0;g=2147450880;if(!p[b+104>>2]){break a}p[f>>2]=p[f>>2]+ -1;break a}while(1){q:{c=p[b+4>>2];r:{if(c>>>0<s[b+104>>2]){p[f>>2]=c+1;c=q[c|0];break r}c=yg(b)}if(!(c+ -48>>>0<10|c+ -65>>>0<26|(c|0)==95)){if(c+ -97>>>0>=26){break q}}d=d+1|0;continue}break}d=0;g=2147450880;if((c|0)==41){break a}}if(p[b+104>>2]){p[f>>2]=p[f>>2]+ -1}p[3103]=28;xg(b,0,0)}d=0;g=0}p[a>>2]=h;p[a+4>>2]=i;p[a+8>>2]=d;p[a+12>>2]=g;Z=e+48|0}function lc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0;x=Z-192|0;Z=x;f=uh(a,0,256);while(1){a:{i=f;d=p[(j<<2)+b>>2]+c|0;l=q[d+5|0];m=q[d+1|0];g=l+m|0;h=q[d+3|0];n=q[d+4|0];o=q[d+2|0];e=n+o|0;r=q[d+6|0];t=q[d|0];d=r+t|0;s=e+d|0;p[f>>2]=((g+h|0)+s<<2)+ -3584;s=v(s-(h<<2)|0,2896);u=v(d-g|0,7223)+1024|0;d=v(d-e|0,7542);p[f+24>>2]=s+(u-d|0)>>11;e=v(g-e|0,2578);p[f+16>>2]=(e+u|0)+v(g-(h<<1)|0,-5793)>>11;p[f+8>>2]=(s+(d+e|0)|0)+1024>>11;d=o-n|0;g=t-r|0;h=v(d+g|0,5027)+1024|0;w=h+v(d,15326)|0;k=d;d=m-l|0;e=v(k+d|0,-11295);p[f+20>>2]=w+e>>11;k=e;e=v(g-d|0,1395);d=v(d+g|0,7663);p[f+12>>2]=((k+e|0)+d|0)+1024>>11;p[f+4>>2]=d+(h-e|0)>>11;d=j+ -7|0;j=j+1|0;f=x;b:{switch(d|0){case 0:continue;case 6:break a;default:break b}}f=i+32|0;continue}break}while(1){c=p[f+32>>2];g=p[a+128>>2];h=c+g|0;i=p[f+96>>2];d=p[a+64>>2];e=i+d|0;j=h+e|0;l=p[f+64>>2];m=p[a+96>>2];n=l+m|0;b=n<<1;o=p[a+32>>2];r=p[f+128>>2];t=o+r|0;s=p[f>>2];u=p[a+160>>2];y=s+u|0;z=t+y|0;A=p[a+224>>2];B=p[a+192>>2];C=A+B|0;D=p[f+160>>2];E=p[a>>2];w=D+E|0;k=C+w|0;p[a+128>>2]=((v(j-b|0,-4717)+v(z-b|0,1684)|0)+v(k-b|0,6817)|0)+16384>>15;p[a>>2]=v(((j+n|0)+z|0)+k|0,5350)+16384>>15;b=E-D|0;l=m-l|0;i=d-i|0;d=o-r|0;m=i+d|0;j=u-s|0;g=g-c|0;n=j-g|0;c=B-A|0;p[a+224>>2]=v((b+l-(m+n)|0)-c|0,5350)+16384>>15;h=e-h|0;e=w-C|0;o=t-y|0;r=v(e+o|0,5915)+16384|0;p[a+192>>2]=(v(h,-7376)+r|0)+v(o,-9198)>>15;p[a+64>>2]=(r+v(h,3283)|0)+v(e,1461)>>15;h=v(l,5350);e=((v(n,7518)-h|0)+v(m,-847)|0)+16384|0;k=(e+v(i,-12700)|0)+v(g,5992)|0;i=v(c+g|0,4025)+v(b+i|0,6406)|0;p[a+160>>2]=k+i>>15;k=(e+v(d,-2269)|0)+v(j,-16423)|0;d=v(j-c|0,2499)+v(b+d|0,7141)|0;p[a+96>>2]=k+d>>15;p[a+32>>2]=(i+((h+(d+v(b,-6029)|0)|0)+v(c,-679)|0)|0)+16384>>15;f=f+4|0;a=a+4|0;F=F+1|0;if((F|0)!=7){continue}break}Z=x+192|0}function bb(a,b,c){var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,o=0,r=0,s=0,t=0,u=0,v=0,w=0,x=0,y=0,z=0;e=c?b+16|0:b;b=(b<<2)+a|0;b=p[(c?b+136|0:b+120|0)>>2];if(!b){c=p[a>>2];p[c+24>>2]=e;p[c+20>>2]=52;m[p[p[a>>2]>>2]](a)}if(!p[b+276>>2]){c=p[a+24>>2];f=p[c>>2];p[c>>2]=f+1;n[f|0]=255;f=p[c+4>>2]+ -1|0;p[c+4>>2]=f;a:{if(f){break a}if(m[p[c+12>>2]](a)|0){break a}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}c=p[a+24>>2];f=p[c>>2];p[c>>2]=f+1;n[f|0]=196;f=p[c+4>>2]+ -1|0;p[c+4>>2]=f;b:{if(f){break b}if(m[p[c+12>>2]](a)|0){break b}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}d=q[b+16|0];g=q[b+15|0];h=q[b+14|0];i=q[b+13|0];j=q[b+12|0];k=q[b+11|0];l=q[b+10|0];o=q[b+9|0];r=q[b+8|0];s=q[b+7|0];t=q[b+6|0];u=q[b+5|0];v=q[b+4|0];w=q[b+3|0];x=q[b+2|0];y=q[b+1|0];c=p[a+24>>2];f=p[c>>2];p[c>>2]=f+1;z=f;f=d+(g+(h+((((((((((((x+y|0)+w|0)+v|0)+u|0)+t|0)+s|0)+r|0)+o|0)+l|0)+k|0)+j|0)+i|0)|0)|0)|0;g=f+19|0;n[z|0]=g>>>8;d=p[c+4>>2]+ -1|0;p[c+4>>2]=d;c:{if(d){break c}if(m[p[c+12>>2]](a)|0){break c}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=g;d=p[c+4>>2]+ -1|0;p[c+4>>2]=d;d:{if(d){break d}if(m[p[c+12>>2]](a)|0){break d}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=e;e=p[c+4>>2]+ -1|0;p[c+4>>2]=e;e:{if(e){break e}if(m[p[c+12>>2]](a)|0){break e}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}c=1;while(1){g=q[b+c|0];e=p[a+24>>2];d=p[e>>2];p[e>>2]=d+1;n[d|0]=g;d=p[e+4>>2]+ -1|0;p[e+4>>2]=d;f:{if(d){break f}if(m[p[e+12>>2]](a)|0){break f}e=p[a>>2];p[e+20>>2]=25;m[p[e>>2]](a)}c=c+1|0;if((c|0)!=17){continue}break}if(f){c=0;while(1){g=q[(b+c|0)+17|0];e=p[a+24>>2];d=p[e>>2];p[e>>2]=d+1;n[d|0]=g;d=p[e+4>>2]+ -1|0;p[e+4>>2]=d;g:{if(d){break g}if(m[p[e+12>>2]](a)|0){break g}e=p[a>>2];p[e+20>>2]=25;m[p[e>>2]](a)}c=c+1|0;if((f|0)!=(c|0)){continue}break}}p[b+276>>2]=1}}function Ha(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0;j=c+d|0;if(!(p[b>>2]?!(s[b+12>>2]<d>>>0|j>>>0>s[b+4>>2]):0)){d=p[a>>2];p[d+20>>2]=23;m[p[d>>2]](a)}d=p[b+24>>2];a:{if(j>>>0<=d+p[b+16>>2]>>>0?d>>>0<=c>>>0:0){break a}if(!p[b+40>>2]){d=p[a>>2];p[d+20>>2]=71;m[p[d>>2]](a)}if(p[b+36>>2]){d=p[b+16>>2];b:{if((d|0)<1){break b}g=p[b+20>>2];g=(g|0)<(d|0)?g:d;d=p[b+24>>2];f=p[b+28>>2]-d|0;g=(g|0)<(f|0)?g:f;f=p[b+4>>2]-d|0;f=(g|0)<(f|0)?g:f;if((f|0)<1){break b}l=b+48|0;k=p[b+8>>2]<<7;g=v(k,d);d=0;while(1){h=v(f,k);m[p[b+52>>2]](a,l,p[p[b>>2]+(d<<2)>>2],g,h);i=p[b+16>>2];f=p[b+20>>2];d=f+d|0;if((i|0)<=(d|0)){break b}g=g+h|0;h=i-d|0;f=(f|0)<(h|0)?f:h;h=p[b+24>>2]+d|0;i=p[b+28>>2]-h|0;f=(f|0)<(i|0)?f:i;h=p[b+4>>2]-h|0;f=(f|0)<(h|0)?f:h;if((f|0)>0){continue}break}}p[b+36>>2]=0}d=p[b+16>>2];g=j-d|0;g=s[b+24>>2]<c>>>0?c:(g|0)>0?g:0;p[b+24>>2]=g;if((d|0)<1){break a}f=p[b+20>>2];d=(f|0)<(d|0)?f:d;f=p[b+28>>2]-g|0;d=(d|0)<(f|0)?d:f;f=p[b+4>>2]-g|0;f=(d|0)<(f|0)?d:f;if((f|0)<1){break a}l=b+48|0;k=p[b+8>>2]<<7;g=v(k,g);d=0;while(1){h=v(f,k);m[p[b+48>>2]](a,l,p[p[b>>2]+(d<<2)>>2],g,h);i=p[b+16>>2];f=p[b+20>>2];d=f+d|0;if((i|0)<=(d|0)){break a}g=g+h|0;h=i-d|0;f=(f|0)<(h|0)?f:h;h=p[b+24>>2]+d|0;i=p[b+28>>2]-h|0;f=(f|0)<(i|0)?f:i;h=p[b+4>>2]-h|0;f=(f|0)<(h|0)?f:h;if((f|0)>0){continue}break}}d=p[b+28>>2];c:{d:{e:{if(d>>>0>=j>>>0){break e}f:{g:{h:{if(d>>>0<c>>>0){d=c;if(!e){break h}d=p[a>>2];p[d+20>>2]=23;m[p[d>>2]](a);d=c;break g}if(e){break g}}if(p[b+32>>2]){break f}d=p[a>>2];p[d+20>>2]=23;m[p[d>>2]](a);break c}p[b+28>>2]=j;if(!p[b+32>>2]){break d}}a=p[b+24>>2];d=d-a|0;a=j-a|0;if(d>>>0>=a>>>0){break e}g=p[b+8>>2]<<7;while(1){uh(p[p[b>>2]+(d<<2)>>2],0,g);d=d+1|0;if((a|0)!=(d|0)){continue}break}}if(!e){break c}}p[b+36>>2]=1}return p[b>>2]+(c-p[b+24>>2]<<2)|0}function Ia(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0;j=c+d|0;if(!(p[b>>2]?!(s[b+12>>2]<d>>>0|j>>>0>s[b+4>>2]):0)){d=p[a>>2];p[d+20>>2]=23;m[p[d>>2]](a)}d=p[b+24>>2];a:{if(j>>>0<=d+p[b+16>>2]>>>0?d>>>0<=c>>>0:0){break a}if(!p[b+40>>2]){d=p[a>>2];p[d+20>>2]=71;m[p[d>>2]](a)}if(p[b+36>>2]){d=p[b+16>>2];b:{if((d|0)<1){break b}g=p[b+20>>2];g=(g|0)<(d|0)?g:d;d=p[b+24>>2];f=p[b+28>>2]-d|0;g=(g|0)<(f|0)?g:f;f=p[b+4>>2]-d|0;f=(g|0)<(f|0)?g:f;if((f|0)<1){break b}l=b+48|0;k=p[b+8>>2];g=v(k,d);d=0;while(1){h=v(f,k);m[p[b+52>>2]](a,l,p[p[b>>2]+(d<<2)>>2],g,h);i=p[b+16>>2];f=p[b+20>>2];d=f+d|0;if((i|0)<=(d|0)){break b}g=g+h|0;h=i-d|0;f=(f|0)<(h|0)?f:h;h=p[b+24>>2]+d|0;i=p[b+28>>2]-h|0;f=(f|0)<(i|0)?f:i;h=p[b+4>>2]-h|0;f=(f|0)<(h|0)?f:h;if((f|0)>0){continue}break}}p[b+36>>2]=0}d=p[b+16>>2];g=j-d|0;g=s[b+24>>2]<c>>>0?c:(g|0)>0?g:0;p[b+24>>2]=g;if((d|0)<1){break a}f=p[b+20>>2];d=(f|0)<(d|0)?f:d;f=p[b+28>>2]-g|0;d=(d|0)<(f|0)?d:f;f=p[b+4>>2]-g|0;f=(d|0)<(f|0)?d:f;if((f|0)<1){break a}l=b+48|0;k=p[b+8>>2];g=v(k,g);d=0;while(1){h=v(f,k);m[p[b+48>>2]](a,l,p[p[b>>2]+(d<<2)>>2],g,h);i=p[b+16>>2];f=p[b+20>>2];d=f+d|0;if((i|0)<=(d|0)){break a}g=g+h|0;h=i-d|0;f=(f|0)<(h|0)?f:h;h=p[b+24>>2]+d|0;i=p[b+28>>2]-h|0;f=(f|0)<(i|0)?f:i;h=p[b+4>>2]-h|0;f=(f|0)<(h|0)?f:h;if((f|0)>0){continue}break}}d=p[b+28>>2];c:{d:{e:{if(d>>>0>=j>>>0){break e}f:{g:{h:{if(d>>>0<c>>>0){d=c;if(!e){break h}d=p[a>>2];p[d+20>>2]=23;m[p[d>>2]](a);d=c;break g}if(e){break g}}if(p[b+32>>2]){break f}d=p[a>>2];p[d+20>>2]=23;m[p[d>>2]](a);break c}p[b+28>>2]=j;if(!p[b+32>>2]){break d}}a=p[b+24>>2];d=d-a|0;a=j-a|0;if(d>>>0>=a>>>0){break e}g=p[b+8>>2];while(1){uh(p[p[b>>2]+(d<<2)>>2],0,g);d=d+1|0;if((a|0)!=(d|0)){continue}break}}if(!e){break c}}p[b+36>>2]=1}return p[b>>2]+(c-p[b+24>>2]<<2)|0}function rd(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0;b=p[a+428>>2];d=v(b,p[a+48>>2]);e=p[a+52>>2];a:{if(d>>>0<=e>>>0){g=a,h=Qa(p[a+28>>2],b),p[g+112>>2]=h;c=1;b=p[a+32>>2];break a}if(d>>>0<=e<<1>>>0){g=a,h=Qa(p[a+28>>2]<<1,b),p[g+112>>2]=h;c=2;b=p[a+32>>2]<<1;break a}c=3;if(d>>>0<=v(e,3)>>>0){g=a,h=Qa(v(p[a+28>>2],3),b),p[g+112>>2]=h;b=v(p[a+32>>2],3);break a}if(d>>>0<=e<<2>>>0){g=a,h=Qa(p[a+28>>2]<<2,b),p[g+112>>2]=h;c=4;b=p[a+32>>2]<<2;break a}c=5;if(d>>>0<=v(e,5)>>>0){g=a,h=Qa(v(p[a+28>>2],5),b),p[g+112>>2]=h;b=v(p[a+32>>2],5);break a}c=6;if(d>>>0<=v(e,6)>>>0){g=a,h=Qa(v(p[a+28>>2],6),b),p[g+112>>2]=h;b=v(p[a+32>>2],6);break a}c=7;if(d>>>0<=v(e,7)>>>0){g=a,h=Qa(v(p[a+28>>2],7),b),p[g+112>>2]=h;b=v(p[a+32>>2],7);break a}if(d>>>0<=e<<3>>>0){g=a,h=Qa(p[a+28>>2]<<3,b),p[g+112>>2]=h;c=8;b=p[a+32>>2]<<3;break a}c=9;if(d>>>0<=v(e,9)>>>0){g=a,h=Qa(v(p[a+28>>2],9),b),p[g+112>>2]=h;b=v(p[a+32>>2],9);break a}c=10;if(d>>>0<=v(e,10)>>>0){g=a,h=Qa(v(p[a+28>>2],10),b),p[g+112>>2]=h;b=v(p[a+32>>2],10);break a}c=11;if(d>>>0<=v(e,11)>>>0){g=a,h=Qa(v(p[a+28>>2],11),b),p[g+112>>2]=h;b=v(p[a+32>>2],11);break a}c=12;if(d>>>0<=v(e,12)>>>0){g=a,h=Qa(v(p[a+28>>2],12),b),p[g+112>>2]=h;b=v(p[a+32>>2],12);break a}c=13;if(d>>>0<=v(e,13)>>>0){g=a,h=Qa(v(p[a+28>>2],13),b),p[g+112>>2]=h;b=v(p[a+32>>2],13);break a}c=14;if(d>>>0<=v(e,14)>>>0){g=a,h=Qa(v(p[a+28>>2],14),b),p[g+112>>2]=h;b=v(p[a+32>>2],14);break a}c=15;f=p[a+28>>2];if(d>>>0<=v(e,15)>>>0){g=a,h=Qa(v(f,15),b),p[g+112>>2]=h;b=v(p[a+32>>2],15);break a}g=a,h=Qa(f<<4,b),p[g+112>>2]=h;c=16;b=p[a+32>>2]<<4}b=Qa(b,p[a+428>>2]);p[a+328>>2]=c;p[a+324>>2]=c;p[a+116>>2]=b;d=p[a+36>>2];if((d|0)>=1){a=p[a+216>>2];b=0;while(1){p[a+40>>2]=c;p[a+36>>2]=c;a=a+88|0;b=b+1|0;if((d|0)!=(b|0)){continue}break}}}function Ue(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0;j=p[a+336>>2];g=o[c+16>>1];b=p[b+84>>2];h=p[b+32>>2];a=Z-80|0;f=v(o[c>>1],p[b>>2])<<13|1024;i=v(v(o[c+32>>1],p[b+64>>2]),5793);p[a+24>>2]=f-(i<<1)>>11;f=f+i|0;g=v(v(g,h),10033);p[a+48>>2]=f-g>>11;p[a>>2]=g+f>>11;g=p[b+36>>2];h=o[c+18>>1];f=v(o[c+2>>1],p[b+4>>2])<<13|1024;i=v(v(o[c+34>>1],p[b+68>>2]),5793);p[a+28>>2]=f-(i<<1)>>11;f=f+i|0;g=v(v(g,h),10033);p[a+52>>2]=f-g>>11;p[a+4>>2]=g+f>>11;g=p[b+40>>2];h=o[c+20>>1];f=v(o[c+4>>1],p[b+8>>2])<<13|1024;i=v(v(o[c+36>>1],p[b+72>>2]),5793);p[a+32>>2]=f-(i<<1)>>11;f=f+i|0;g=v(v(g,h),10033);p[a+56>>2]=f-g>>11;p[a+8>>2]=g+f>>11;g=p[b+44>>2];h=o[c+22>>1];f=v(o[c+6>>1],p[b+12>>2])<<13|1024;i=v(v(o[c+38>>1],p[b+76>>2]),5793);p[a+36>>2]=f-(i<<1)>>11;f=f+i|0;g=v(v(g,h),10033);p[a+60>>2]=f-g>>11;p[a+12>>2]=g+f>>11;g=p[b+48>>2];h=o[c+24>>1];f=v(o[c+8>>1],p[b+16>>2])<<13|1024;i=v(v(o[c+40>>1],p[b+80>>2]),5793);p[a+40>>2]=f-(i<<1)>>11;f=f+i|0;g=v(v(g,h),10033);p[a+64>>2]=f-g>>11;p[a+16>>2]=g+f>>11;g=p[b+52>>2];h=o[c+26>>1];f=v(o[c+10>>1],p[b+20>>2])<<13|1024;b=v(v(o[c+42>>1],p[b+84>>2]),5793);p[a+44>>2]=f-(b<<1)>>11;b=b+f|0;c=v(v(g,h),10033);p[a+68>>2]=b-c>>11;p[a+20>>2]=b+c>>11;b=j+ -384|0;j=0;c=a;while(1){a=p[(j<<2)+d>>2]+e|0;g=p[c+20>>2];h=p[c+4>>2];k=v(g+h|0,2998);f=p[c+12>>2];l=k+(f+h<<13)|0;m=(p[c>>2]<<13)+134348800|0;i=v(p[c+16>>2],5793);r=m+i|0;s=v(p[c+8>>2],10033);t=r+s|0;n[a|0]=q[b+(l+t>>>18&1023)|0];n[a+5|0]=q[b+(t-l>>>18&1023)|0];h=(h-f|0)-g<<13;i=(m-i|0)-i|0;n[a+1|0]=q[b+(h+i>>>18&1023)|0];n[a+4|0]=q[b+(i-h>>>18&1023)|0];g=(g-f<<13)+k|0;h=r-s|0;n[a+2|0]=q[b+(g+h>>>18&1023)|0];n[a+3|0]=q[b+(h-g>>>18&1023)|0];c=c+24|0;j=j+1|0;if((j|0)!=3){continue}break}}function He(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0;A=Z-288|0;Z=A;s=p[a+336>>2];a=p[b+84>>2];b=A;while(1){f=v(v(o[c+96>>1],p[a+192>>2]),5793);m=v(o[c>>1],p[a>>2])<<13|1024;r=f+m|0;g=v(p[a+128>>2],o[c+64>>1]);h=v(p[a+64>>2],o[c+32>>1]);t=v(g+h|0,10887);u=v(g,2012);w=r+(t-u|0)|0;i=v(p[a+160>>2],o[c+80>>1]);j=v(p[a+32>>2],o[c+16>>1]);x=v(i+j|0,7447);k=v(v(o[c+48>>1],p[a+96>>2]),-10033);l=v(p[a+224>>2],o[c+112>>1]);y=v(l+j|0,3962);z=(x-k|0)+y|0;p[b+256>>2]=w-z>>11;p[b>>2]=w+z>>11;f=(m-f|0)-f|0;g=h-g|0;p[b+128>>2]=f+v(g,-11586)>>11;g=f+v(g,5793)|0;f=v((j-i|0)-l|0,10033);p[b+224>>2]=g-f>>11;p[b+32>>2]=f+g>>11;g=v(h,8875);h=g+(r-t|0)|0;f=v(i-l|0,11409);i=x+(k-f|0)|0;p[b+192>>2]=h-i>>11;p[b+64>>2]=h+i>>11;g=u+(r-g|0)|0;h=y+(f+k|0)|0;p[b+160>>2]=g-h>>11;p[b+96>>2]=g+h>>11;b=b+4|0;a=a+4|0;c=c+2|0;B=B+1|0;if((B|0)!=8){continue}break}a=s+ -384|0;g=0;b=A;while(1){c=p[(g<<2)+d>>2]+e|0;h=p[b+20>>2];f=p[b+4>>2];t=v(h+f|0,7447);r=v(p[b+12>>2],-10033);i=p[b+28>>2];u=v(i+f|0,3962);m=(t-r|0)+u|0;l=v(p[b+24>>2],5793);y=(p[b>>2]<<13)+134348800|0;s=l+y|0;j=p[b+16>>2];k=p[b+8>>2];w=v(j+k|0,10887);x=v(j,2012);z=s+(w-x|0)|0;n[c|0]=q[a+(m+z>>>18&1023)|0];n[c+8|0]=q[a+(z-m>>>18&1023)|0];f=v((f-h|0)-i|0,10033);l=(y-l|0)-l|0;j=k-j|0;m=l+v(j,5793)|0;n[c+1|0]=q[a+(f+m>>>18&1023)|0];n[c+7|0]=q[a+(m-f>>>18&1023)|0];h=v(h-i|0,11409);f=t+(r-h|0)|0;i=v(k,8875);k=i+(s-w|0)|0;n[c+2|0]=q[a+(f+k>>>18&1023)|0];n[c+6|0]=q[a+(k-f>>>18&1023)|0];h=u+(h+r|0)|0;f=x+(s-i|0)|0;n[c+3|0]=q[a+(h+f>>>18&1023)|0];n[c+5|0]=q[a+(f-h>>>18&1023)|0];n[c+4|0]=q[a+(l+v(j,-11586)>>>18&1023)|0];b=b+32|0;g=g+1|0;if((g|0)!=9){continue}break}Z=A+288|0}function Ac(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0;d=p[a+424>>2];if(b){b=p[a>>2];p[b+20>>2]=49;m[p[b>>2]](a)}a:{if(p[a+268>>2]){b=p[a+364>>2];if(!p[a+372>>2]){if(!b){p[d+4>>2]=89;break a}p[d+4>>2]=90;break a}if(!b){p[d+4>>2]=91;break a}p[d+4>>2]=92;break a}p[d+4>>2]=93}if(p[a+292>>2]>=1){b=0;while(1){f=b<<2;g=p[(f+a|0)+296>>2];if(!(p[a+364>>2]|p[a+372>>2])){e=p[g+20>>2];if(e>>>0>=16){c=p[a>>2];p[c+24>>2]=e;p[c+20>>2]=50;m[p[p[a>>2]>>2]](a)}e=((e<<2)+d|0)+76|0;c=p[e>>2];if(!c){c=m[p[p[a+4>>2]>>2]](a,1,64)|0;p[e>>2]=c}n[c|0]=0;n[c+1|0]=0;n[c+2|0]=0;n[c+3|0]=0;n[c+4|0]=0;n[c+5|0]=0;n[c+6|0]=0;n[c+7|0]=0;n[c+56|0]=0;n[c+57|0]=0;n[c+58|0]=0;n[c+59|0]=0;n[c+60|0]=0;n[c+61|0]=0;n[c+62|0]=0;n[c+63|0]=0;n[c+48|0]=0;n[c+49|0]=0;n[c+50|0]=0;n[c+51|0]=0;n[c+52|0]=0;n[c+53|0]=0;n[c+54|0]=0;n[c+55|0]=0;n[c+40|0]=0;n[c+41|0]=0;n[c+42|0]=0;n[c+43|0]=0;n[c+44|0]=0;n[c+45|0]=0;n[c+46|0]=0;n[c+47|0]=0;n[c+32|0]=0;n[c+33|0]=0;n[c+34|0]=0;n[c+35|0]=0;n[c+36|0]=0;n[c+37|0]=0;n[c+38|0]=0;n[c+39|0]=0;n[c+24|0]=0;n[c+25|0]=0;n[c+26|0]=0;n[c+27|0]=0;n[c+28|0]=0;n[c+29|0]=0;n[c+30|0]=0;n[c+31|0]=0;n[c+16|0]=0;n[c+17|0]=0;n[c+18|0]=0;n[c+19|0]=0;n[c+20|0]=0;n[c+21|0]=0;n[c+22|0]=0;n[c+23|0]=0;n[c+8|0]=0;n[c+9|0]=0;n[c+10|0]=0;n[c+11|0]=0;n[c+12|0]=0;n[c+13|0]=0;n[c+14|0]=0;n[c+15|0]=0;c=d+f|0;p[c+52>>2]=0;p[c+36>>2]=0}if(p[a+368>>2]){e=p[g+24>>2];if(e>>>0>=16){c=p[a>>2];p[c+24>>2]=e;p[c+20>>2]=50;m[p[p[a>>2]>>2]](a)}c=((e<<2)+d|0)+140|0;e=p[c>>2];if(!e){e=m[p[p[a+4>>2]>>2]](a,1,256)|0;p[c>>2]=e}uh(e,0,256)}b=b+1|0;if((b|0)<p[a+292>>2]){continue}break}}p[d+28>>2]=11;p[d+32>>2]=-1;p[d+20>>2]=0;p[d+24>>2]=0;p[d+12>>2]=0;p[d+16>>2]=65536;a=p[a+236>>2];p[d+72>>2]=0;p[d+68>>2]=a}function nh(a,b){var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0;g=p[a+4>>2];c=g&3;d=g&-8;f=d+a|0;a:{if(!c){c=0;if(b>>>0<256){break a}if(d>>>0>=b+4>>>0){c=a;if(d-b>>>0<=p[3247]<<1>>>0){break a}}return 0}b:{if(d>>>0>=b>>>0){c=d-b|0;if(c>>>0<16){break b}p[a+4>>2]=g&1|b|2;b=a+b|0;p[b+4>>2]=c|3;p[f+4>>2]=p[f+4>>2]|1;oh(b,c);break b}c=0;if((f|0)==p[3133]){d=d+p[3130]|0;if(d>>>0<=b>>>0){break a}p[a+4>>2]=g&1|b|2;c=a+b|0;b=d-b|0;p[c+4>>2]=b|1;p[3130]=b;p[3133]=c;break b}if((f|0)==p[3132]){d=d+p[3129]|0;if(d>>>0<b>>>0){break a}c=d-b|0;c:{if(c>>>0>=16){p[a+4>>2]=g&1|b|2;b=a+b|0;p[b+4>>2]=c|1;d=a+d|0;p[d>>2]=c;p[d+4>>2]=p[d+4>>2]&-2;break c}p[a+4>>2]=d|g&1|2;b=a+d|0;p[b+4>>2]=p[b+4>>2]|1;c=0;b=0}p[3132]=b;p[3129]=c;break b}e=p[f+4>>2];if(e&2){break a}h=d+(e&-8)|0;if(h>>>0<b>>>0){break a}j=h-b|0;d:{if(e>>>0<=255){c=p[f+8>>2];e=e>>>3|0;d=p[f+12>>2];if((c|0)==(d|0)){l=12508,m=p[3127]&Hh(e),p[l>>2]=m;break d}p[c+12>>2]=d;p[d+8>>2]=c;break d}i=p[f+24>>2];d=p[f+12>>2];e:{if((f|0)!=(d|0)){c=p[f+8>>2];p[c+12>>2]=d;p[d+8>>2]=c;break e}f:{c=f+20|0;e=p[c>>2];if(e){break f}c=f+16|0;e=p[c>>2];if(e){break f}d=0;break e}while(1){k=c;d=e;c=d+20|0;e=p[c>>2];if(e){continue}c=d+16|0;e=p[d+16>>2];if(e){continue}break}p[k>>2]=0}if(!i){break d}c=p[f+28>>2];e=(c<<2)+12812|0;g:{if((f|0)==p[e>>2]){p[e>>2]=d;if(d){break g}l=12512,m=p[3128]&Hh(c),p[l>>2]=m;break d}p[((f|0)==p[i+16>>2]?16:20)+i>>2]=d;if(!d){break d}}p[d+24>>2]=i;c=p[f+16>>2];if(c){p[d+16>>2]=c;p[c+24>>2]=d}c=p[f+20>>2];if(!c){break d}p[d+20>>2]=c;p[c+24>>2]=d}if(j>>>0<=15){p[a+4>>2]=g&1|h|2;b=a+h|0;p[b+4>>2]=p[b+4>>2]|1;break b}p[a+4>>2]=g&1|b|2;b=a+b|0;p[b+4>>2]=j|3;c=a+h|0;p[c+4>>2]=p[c+4>>2]|1;oh(b,j)}c=a}return c}function Mf(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,o=0,q=0,r=0;a:{e=p[a+448>>2];if(!p[e+56>>2]){if(!(m[p[p[a+452>>2]+12>>2]](a,p[((p[e+68>>2]<<2)+e|0)+60>>2])|0)){break a}p[e+56>>2]=1;p[e+76>>2]=p[e+76>>2]+1}b:{switch(p[e+72>>2]){case 2:m[p[p[a+456>>2]+4>>2]](a,p[((p[e+68>>2]<<2)+e|0)+60>>2],e+48|0,p[e+52>>2],b,c,d);if(s[e+48>>2]<s[e+52>>2]){break a}p[e+72>>2]=0;if(s[c>>2]>=d>>>0){break a};case 0:p[e+48>>2]=0;n=p[a+328>>2];p[e+52>>2]=n+ -1;c:{if(p[e+76>>2]!=p[a+332>>2]){break c}o=p[a+36>>2];if((o|0)<1){break c}l=p[a+448>>2];q=((p[l+68>>2]<<2)+l|0)+60|0;h=p[a+216>>2];while(1){f=v(p[h+40>>2],p[h+12>>2]);g=s[h+48>>2]%(f>>>0)|0;g=g?g:f;f=(f|0)/(n|0)|0;if(!j){p[l+52>>2]=((g+ -1|0)/(f|0)|0)+1}if((f|0)>=1){f=f<<1;r=(f|0)>1?f:1;i=p[p[q>>2]+(j<<2)>>2];k=(i+(g<<2)|0)+ -4|0;f=0;while(1){p[i+(f+g<<2)>>2]=p[k>>2];f=f+1|0;if((r|0)!=(f|0)){continue}break}}h=h+88|0;j=j+1|0;if((o|0)!=(j|0)){continue}break}}p[e+72>>2]=1;break;case 1:break b;default:break a}}m[p[p[a+456>>2]+4>>2]](a,p[((p[e+68>>2]<<2)+e|0)+60>>2],e+48|0,p[e+52>>2],b,c,d);if(s[e+48>>2]<s[e+52>>2]){break a}d:{if(p[e+76>>2]!=1){b=p[a+328>>2];break d}b=p[a+328>>2];l=p[a+36>>2];if((l|0)<1){break d}j=p[a+448>>2];n=b+2|0;o=b+1|0;a=p[a+216>>2];g=0;while(1){c=(v(p[a+40>>2],p[a+12>>2])|0)/(b|0)|0;if((c|0)>=1){f=g<<2;d=p[f+p[j+64>>2]>>2];h=p[f+p[j+60>>2]>>2];q=v(c,n);r=v(c,o);f=0;while(1){i=f-c<<2;k=f+r<<2;p[i+h>>2]=p[k+h>>2];p[d+i>>2]=p[d+k>>2];i=f+q<<2;k=f<<2;p[i+h>>2]=p[k+h>>2];p[d+i>>2]=p[d+k>>2];f=f+1|0;if((c|0)!=(f|0)){continue}break}}a=a+88|0;g=g+1|0;if((l|0)!=(g|0)){continue}break}}p[e+56>>2]=0;p[e+72>>2]=2;p[e+52>>2]=b+2;p[e+48>>2]=b+1;p[e+68>>2]=p[e+68>>2]^1}}function Xb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0;m=Z+ -64|0;d=a;while(1){a:{e=d;d=p[(h<<2)+b>>2]+c|0;f=q[d+4|0];j=q[d+5|0];t=f-j|0;n=q[d|0];u=q[d+9|0];g=n-u|0;w=t+g|0;o=q[d+1|0];r=q[d+8|0];i=o-r|0;s=q[d+3|0];x=q[d+6|0];k=s-x|0;l=i-k|0;y=q[d+2|0];d=q[d+7|0];z=y-d|0;p[e+20>>2]=w-(l+z|0)<<1;f=f+j|0;j=n+u|0;n=f+j|0;s=s+x|0;o=o+r|0;r=s+o|0;d=d+y|0;p[e>>2]=(n+(r+d|0)<<1)+ -2560;d=d<<1;p[e+16>>2]=(v(r-d|0,-3580)+v(n-d|0,9373)|0)+2048>>12;f=j-f|0;j=o-s|0;d=v(f+j|0,6810)+2048|0;p[e+24>>2]=d+v(j,-17828)>>12;p[e+8>>2]=d+v(f,4209)>>12;d=(v(g-t|0,7791)+v(i+k|0,-4815)|0)+2048|0;f=z<<13;l=((l<<12)-f|0)+v(l+w|0,2531)|0;p[e+28>>2]=d-l>>12;p[e+12>>2]=d+l>>12;p[e+4>>2]=(((f+(v(g,11443)+v(i,10323)|0)|0)+v(k,5260)|0)+v(t,1812)|0)+2048>>12;g=h+ -7|0;h=h+1|0;t=7;d=m;b:{switch(g|0){case 0:continue;case 2:break a;default:break b}}d=e+32|0;continue}break}while(1){m=p[a+192>>2];h=p[a+96>>2];b=m+h|0;e=p[d>>2];g=p[a+32>>2];c=e+g|0;i=b+c|0;k=p[a+224>>2];l=p[a+64>>2];f=k+l|0;j=f<<1;n=p[a+160>>2];u=p[a+128>>2];w=n+u|0;o=p[d+32>>2];r=p[a>>2];s=o+r|0;x=w+s|0;p[a+128>>2]=(v(i-j|0,-4582)+v(x-j|0,11997)|0)+16384>>15;p[a>>2]=v(x+(f+i|0)|0,10486)+16384>>15;i=s-w|0;c=c-b|0;b=v(i+c|0,8716)+16384|0;p[a+192>>2]=b+v(c,-22820)>>15;p[a+64>>2]=b+v(i,5387)>>15;b=u-n|0;c=r-o|0;i=b+c|0;e=g-e|0;m=h-m|0;h=e-m|0;g=l-k|0;p[a+160>>2]=v(i-(h+g|0)|0,10486)+16384>>15;k=(v(c-b|0,9973)+v(e+m|0,-6163)|0)+16384|0;g=v(g,10486);h=(v(h,5243)-g|0)+v(h+i|0,3240)|0;p[a+224>>2]=k-h>>15;p[a+96>>2]=h+k>>15;p[a+32>>2]=(((g+(v(c,14647)+v(e,13213)|0)|0)+v(m,6732)|0)+v(b,2320)|0)+16384>>15;b=t;t=b+ -1|0;d=d+4|0;a=a+4|0;if(b){continue}break}}function Sb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0;a=uh(a,0,256);d=p[b>>2]+c|0;f=q[d+3|0];g=q[d|0];e=f+g|0;h=q[d+2|0];d=q[d+1|0];i=h+d|0;p[a+8>>2]=e-i<<4;p[a>>2]=(e+i<<4)+ -8192;e=d-h|0;f=g-f|0;d=v(e+f|0,4433)+256|0;p[a+12>>2]=d+v(e,-15137)>>9;p[a+4>>2]=d+v(f,6270)>>9;d=p[b+4>>2]+c|0;f=q[d+3|0];g=q[d|0];e=f+g|0;h=q[d+2|0];d=q[d+1|0];i=h+d|0;p[a+40>>2]=e-i<<4;p[a+32>>2]=(e+i<<4)+ -8192;e=d-h|0;f=g-f|0;d=v(e+f|0,4433)+256|0;p[a+44>>2]=d+v(e,-15137)>>9;p[a+36>>2]=d+v(f,6270)>>9;d=p[b+8>>2]+c|0;f=q[d+3|0];g=q[d|0];e=f+g|0;h=q[d+2|0];i=q[d+1|0];d=h+i|0;p[a+72>>2]=e-d<<4;d=(d+e<<4)+ -8192|0;p[a+64>>2]=d;e=i-h|0;g=g-f|0;f=v(e+g|0,4433)+256|0;p[a+76>>2]=f+v(e,-15137)>>9;f=f+v(g,6270)>>9;p[a+68>>2]=f;b=p[b+12>>2]+c|0;c=q[b+1|0];g=q[b+2|0];e=c-g|0;h=q[b|0];i=q[b+3|0];j=h-i|0;k=v(e+j|0,4433)+256|0;b=k+v(e,-15137)>>9;p[a+108>>2]=b;e=p[a>>2];g=c+g|0;h=h+i|0;c=(g+h<<4)+ -8192|0;i=(e+c|0)+2|0;l=p[a+32>>2];m=d+l|0;p[a+64>>2]=i-m>>2;p[a>>2]=i+m>>2;d=l-d|0;e=e-c|0;c=v(d+e|0,4433)+16384|0;p[a+96>>2]=c+v(d,-15137)>>15;p[a+32>>2]=c+v(e,6270)>>15;c=p[a+4>>2];d=v(j,6270)+k>>9;e=(c+d|0)+2|0;i=p[a+36>>2];j=i+f|0;p[a+68>>2]=e-j>>2;p[a+4>>2]=e+j>>2;f=i-f|0;d=c-d|0;c=v(f+d|0,4433)+16384|0;p[a+100>>2]=c+v(f,-15137)>>15;p[a+36>>2]=c+v(d,6270)>>15;c=p[a+8>>2];d=h-g<<4;f=(c+d|0)+2|0;g=p[a+72>>2];e=p[a+40>>2];h=g+e|0;p[a+72>>2]=f-h>>2;p[a+8>>2]=f+h>>2;f=e-g|0;d=c-d|0;c=v(f+d|0,4433)+16384|0;p[a+104>>2]=c+v(f,-15137)>>15;p[a+40>>2]=c+v(d,6270)>>15;c=p[a+12>>2];d=(c+b|0)+2|0;f=p[a+76>>2];g=p[a+44>>2];e=f+g|0;p[a+76>>2]=d-e>>2;p[a+12>>2]=d+e>>2;d=g-f|0;c=c-b|0;b=v(d+c|0,4433)+16384|0;p[a+108>>2]=b+v(d,-15137)>>15;p[a+44>>2]=b+v(c,6270)>>15}function Re(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0;z=Z-192|0;Z=z;h=p[a+336>>2];b=p[b+84>>2];a=z;while(1){k=p[b+64>>2];i=o[c+32>>1];j=v(o[c>>1],p[b>>2])<<13|1024;g=v(v(o[c+64>>1],p[b+128>>2]),5793);m=j-(g<<1)>>11;f=v(p[b+32>>2],o[c+16>>1]);r=v(p[b+96>>2],o[c+48>>1]);l=v(p[b+160>>2],o[c+80>>1]);u=(f-r|0)-l<<2;p[a+128>>2]=m-u;p[a+32>>2]=m+u;k=v(v(i,k),10033);i=g+j|0;j=k+i|0;g=f+r<<13;f=v(f+l|0,2998);g=g+f|0;p[a+160>>2]=j-g>>11;p[a>>2]=g+j>>11;k=i-k|0;f=f+(l-r<<13)|0;p[a+96>>2]=k-f>>11;p[a+64>>2]=f+k>>11;a=a+4|0;b=b+4|0;c=c+2|0;s=s+1|0;if((s|0)!=8){continue}break}b=h+ -384|0;r=0;a=z;while(1){l=p[a+4>>2];h=p[a+20>>2];i=l+h|0;f=p[a+28>>2];k=v(i+f|0,7053);c=p[(r<<2)+d>>2]+e|0;s=k+v(i,2139)|0;j=p[a+12>>2];u=v(j,10703);w=s+(u+v(l,2295)|0)|0;m=p[a+24>>2]<<13;g=p[a+8>>2];A=m+v(g,11190)|0;x=v(p[a+16>>2],10033);i=(p[a>>2]<<13)+134348800|0;B=x+i|0;t=A+B|0;n[c|0]=q[b+(w+t>>>18&1023)|0];n[c+11|0]=q[b+(t-w>>>18&1023)|0];w=(g<<13)-m|0;t=i+w|0;y=l-f|0;C=j-h|0;D=v(y+C|0,4433);y=D+v(y,6270)|0;n[c+1|0]=q[b+(t+y>>>18&1023)|0];n[c+10|0]=q[b+(t-y>>>18&1023)|0];j=v(j,-4433);t=j+v(h,-12112)|0;h=v(f+h|0,-8565);s=s+(t+h|0)|0;g=v(g,2998)-m|0;m=i-x|0;x=g+m|0;n[c+2|0]=q[b+(s+x>>>18&1023)|0];n[c+9|0]=q[b+(x-s>>>18&1023)|0];h=h+(k+(v(f,12998)-u|0)|0)|0;g=m-g|0;n[c+3|0]=q[b+(h+g>>>18&1023)|0];n[c+8|0]=q[b+(g-h>>>18&1023)|0];h=v(C,-15137)+D|0;i=i-w|0;n[c+4|0]=q[b+(h+i>>>18&1023)|0];n[c+7|0]=q[b+(i-h>>>18&1023)|0];f=k+((j+v(l,-5540)|0)+v(f,-16244)|0)|0;l=B-A|0;n[c+5|0]=q[b+(f+l>>>18&1023)|0];n[c+6|0]=q[b+(l-f>>>18&1023)|0];a=a+32|0;r=r+1|0;if((r|0)!=6){continue}break}Z=z+192|0}function xf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,r=0,s=0;e=Z-48|0;Z=e;s=p[a+424>>2];f=p[a+468>>2];c=p[a+280>>2];a:{b:{if(!c){c=0;break b}if(p[f+44>>2]){break b}c=p[a+464>>2];d=f+16|0;p[c+24>>2]=p[c+24>>2]+(p[d>>2]/8|0);p[d>>2]=0;if(!(m[p[c+8>>2]](a)|0)){break a}if(p[a+340>>2]>=1){c=0;while(1){p[((c<<2)+f|0)+24>>2]=0;c=c+1|0;if((c|0)<p[a+340>>2]){continue}break}}p[f+20>>2]=0;c=p[a+280>>2];p[f+44>>2]=c;if(p[a+440>>2]){break b}p[f+40>>2]=0}if(!p[f+40>>2]){p[e+40>>2]=a;d=p[a+24>>2];j=p[d>>2];p[e+24>>2]=j;g=p[d+4>>2];p[e+28>>2]=g;c=p[f+16>>2];i=p[f+12>>2];n=e+16|0;p[n>>2]=p[f+36>>2];k=p[f+32>>2];l=e+8|0;h=l;p[h>>2]=p[f+28>>2];p[h+4>>2]=k;h=p[f+24>>2];p[e>>2]=p[f+20>>2];p[e+4>>2]=h;if(p[a+368>>2]>=1){j=0;while(1){d=j<<2;k=p[d+b>>2];r=p[(a+d|0)+372>>2]<<2;d=p[((p[p[(r+a|0)+344>>2]+20>>2]<<2)+f|0)+48>>2];c:{d:{e:{if((c|0)<=7){g=0;if(!Bf(e+24|0,i,c,0)){break a}i=p[e+32>>2];c=p[e+36>>2];h=1;if((c|0)<8){break e}}g=i>>c+ -8&255;h=p[(d+(g<<2)|0)+144>>2];if(h){break d}h=9}g=0;d=Cf(e+24|0,i,c,d,h);if((d|0)<0){break a}i=p[e+32>>2];c=p[e+36>>2];break c}d=q[(d+g|0)+1168|0];c=c-h|0}if(d){if((c|0)<(d|0)){if(!Bf(e+24|0,i,c,d)){g=0;break a}i=p[e+32>>2];c=p[e+36>>2]}c=c-d|0;d=(d<<2)+10160|0;g=p[d>>2];h=i>>c&g;d=h-((h|0)>p[d+ -4>>2]?0:g)|0}else{d=0}g=(e+r|0)+4|0;d=d+p[g>>2]|0;p[g>>2]=d;o[k>>1]=d<<s;j=j+1|0;if((j|0)<p[a+368>>2]){continue}break}g=p[e+28>>2];j=p[e+24>>2];d=p[a+24>>2]}p[d+4>>2]=g;p[d>>2]=j;p[f+16>>2]=c;p[f+12>>2]=i;b=f+20|0;p[b+16>>2]=p[n>>2];c=p[l+4>>2];p[b+8>>2]=p[l>>2];p[b+12>>2]=c;c=p[e+4>>2];p[b>>2]=p[e>>2];p[b+4>>2]=c;c=p[a+280>>2]}g=1;if(!c){break a}p[f+44>>2]=p[f+44>>2]+ -1}Z=e+48|0;return g|0}function $a(a,b){var c=0,d=0,e=0,f=0,g=0,h=0;f=p[((b<<2)+a|0)+88>>2];if(!f){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=54;m[p[p[a>>2]>>2]](a)}d=p[a+388>>2];if((d|0)>=0){e=p[a+384>>2];c=0;while(1){g=r[(p[e+(c<<2)>>2]<<1)+f>>1]>255?1:g;h=(c|0)!=(d|0);c=c+1|0;if(h){continue}break}}if(!p[f+128>>2]){c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=255;d=p[c+4>>2]+ -1|0;p[c+4>>2]=d;a:{if(d){break a}if(m[p[c+12>>2]](a)|0){break a}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=219;d=p[c+4>>2]+ -1|0;p[c+4>>2]=d;b:{if(d){break b}if(m[p[c+12>>2]](a)|0){break b}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}d=p[a+388>>2];c=p[a+24>>2];e=p[c>>2];p[c>>2]=e+1;h=e;e=g?(d<<1)+5|0:d+4|0;n[h|0]=e>>>8;d=p[c+4>>2]+ -1|0;p[c+4>>2]=d;c:{if(d){break c}if(m[p[c+12>>2]](a)|0){break c}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=e;d=p[c+4>>2]+ -1|0;p[c+4>>2]=d;d:{if(d){break d}if(m[p[c+12>>2]](a)|0){break d}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=(g<<4)+b;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;e:{if(b){break e}if(m[p[c+12>>2]](a)|0){break e}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}c=0;if(p[a+388>>2]>=0){while(1){b=c;d=r[(p[p[a+384>>2]+(c<<2)>>2]<<1)+f>>1];f:{if(!g){break f}c=p[a+24>>2];e=p[c>>2];p[c>>2]=e+1;n[e|0]=d>>>8;e=p[c+4>>2]+ -1|0;p[c+4>>2]=e;if(e){break f}if(m[p[c+12>>2]](a)|0){break f}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}c=p[a+24>>2];e=p[c>>2];p[c>>2]=e+1;n[e|0]=d;d=p[c+4>>2]+ -1|0;p[c+4>>2]=d;g:{if(d){break g}if(m[p[c+12>>2]](a)|0){break g}c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}c=b+1|0;if((b|0)<p[a+388>>2]){continue}break}}p[f+128>>2]=1}return g}function Ze(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0;y=Z-288|0;Z=y;z=p[a+336>>2];a=p[b+84>>2];b=y;while(1){t=p[a+128>>2];m=o[c+64>>1];i=v(p[a+32>>2],o[c+16>>1]);j=v(p[a+224>>2],o[c+112>>1]);f=i-j|0;k=v(p[a+96>>2],o[c+48>>1]);g=v(p[a+160>>2],o[c+80>>1]);u=k-g|0;h=v(f+u|0,4433);r=v(p[a+64>>2],o[c+32>>1]);s=v(o[c+96>>1],p[a+192>>2])<<13;w=(r<<13)-s|0;l=v(o[c>>1],p[a>>2])<<13|1024;x=w+l|0;f=h+v(f,6270)|0;p[b+240>>2]=x-f>>11;p[b+24>>2]=f+x>>11;f=l-w|0;h=h+v(u,-15137)|0;p[b+168>>2]=f-h>>11;p[b+96>>2]=h+f>>11;t=v(v(m,t),10033);m=t+l|0;f=s+v(r,11190)|0;u=m-f|0;x=g+i|0;h=v(x+j|0,7053);w=v(k,-4433);A=h+((w+v(i,-5540)|0)+v(j,-16244)|0)|0;p[b+144>>2]=u-A>>11;p[b+120>>2]=u+A>>11;m=f+m|0;f=v(i,2295);i=v(k,10703);k=h+v(x,2139)|0;f=(f+i|0)+k|0;p[b+264>>2]=m-f>>11;p[b>>2]=f+m>>11;r=v(r,2998)-s|0;l=l-t|0;s=r+l|0;f=w+v(g,-12112)|0;g=v(g+j|0,-8565);k=k+(f+g|0)|0;p[b+216>>2]=s-k>>11;p[b+48>>2]=k+s>>11;l=l-r|0;j=g+(h+(v(j,12998)-i|0)|0)|0;p[b+192>>2]=l-j>>11;p[b+72>>2]=j+l>>11;b=b+4|0;a=a+4|0;c=c+2|0;B=B+1|0;if((B|0)!=6){continue}break}a=z+ -384|0;j=0;b=y;while(1){i=p[b+20>>2];g=p[b+4>>2];l=v(i+g|0,2998);c=p[(j<<2)+d>>2]+e|0;k=p[b+12>>2];r=l+(k+g<<13)|0;s=(p[b>>2]<<13)+134348800|0;h=v(p[b+16>>2],5793);z=s+h|0;t=v(p[b+8>>2],10033);m=z+t|0;n[c|0]=q[a+(r+m>>>18&1023)|0];n[c+5|0]=q[a+(m-r>>>18&1023)|0];g=(g-k|0)-i<<13;h=(s-h|0)-h|0;n[c+1|0]=q[a+(g+h>>>18&1023)|0];n[c+4|0]=q[a+(h-g>>>18&1023)|0];i=l+(i-k<<13)|0;g=z-t|0;n[c+2|0]=q[a+(i+g>>>18&1023)|0];n[c+3|0]=q[a+(g-i>>>18&1023)|0];b=b+24|0;j=j+1|0;if((j|0)!=12){continue}break}Z=y+288|0}function of(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,r=0,s=0,t=0,u=0;g=p[a+468>>2];if(p[a+280>>2]){e=g;c=p[e+56>>2];if(!c){pf(a);c=p[g+56>>2]}p[e+56>>2]=c+ -1}a:{if(!(p[g+20>>2]==-1|p[a+368>>2]<1)){t=p[a+432>>2];u=g+188|0;while(1){c=n<<2;r=p[c+b>>2];c=p[(a+c|0)+372>>2]<<2;l=p[(c+a|0)+344>>2];i=p[l+20>>2];s=((i<<2)+g|0)+60|0;h=c+g|0;j=h+40|0;e=p[s>>2]+p[j>>2]|0;b:{if(!qf(a,e)){p[j>>2]=0;c=p[h+24>>2];break b}f=0;c=0;k=qf(a,e+1|0);e=(e+k|0)+2|0;d=qf(a,e);c:{if(!d){break c}c=d;e=p[s>>2]+20|0;if(!qf(a,e)){break c}while(1){c=c<<1;if((c|0)==32768){break a}e=e+1|0;if(qf(a,e)){continue}break}}i=a+i|0;d:{if((c|0)<1<<q[i+232|0]>>1){break d}d=k<<2;if((c|0)>1<<q[i+248|0]>>1){f=d+12|0;break d}f=d+4|0}p[j>>2]=f;d=c>>1;if(d){e=e+14|0;while(1){c=(qf(a,e)?d:0)|c;d=d>>1;if(d){continue}break}}e=h+24|0;c=p[e>>2]+(k?c^-1:c+1|0)|0;p[e>>2]=c}o[r>>1]=c;e:{if(!p[a+436>>2]){break e}c=p[l+24>>2];j=(c+a|0)+264|0;h=((c<<2)+g|0)+124|0;c=0;while(1){e=c;d=p[h>>2]+v(c,3)|0;if(qf(a,d)){break e}f:{while(1){c=e+1|0;if(qf(a,d+1|0)){break f}d=d+3|0;e=c;if((c|0)<p[a+436>>2]){continue}break}break a}k=qf(a,u);f=d+2|0;d=qf(a,f);g:{if(!d){d=0;break g}h:{if(!qf(a,f)){break h}d=d<<1;f=p[h>>2]+((e|0)<q[j|0]?189:217)|0;if(!qf(a,f)){break h}while(1){d=d<<1;if((d|0)==32768){break a}f=f+1|0;if(qf(a,f)){continue}break}}e=d>>1;if(!e){break g}f=f+14|0;while(1){d=(qf(a,f)?e:0)|d;l=e>>1;e=l;if(e){continue}break}}o[(p[(c<<2)+t>>2]<<1)+r>>1]=k?d^-1:d+1|0;if((c|0)<p[a+436>>2]){continue}break}}n=n+1|0;if((n|0)<p[a+368>>2]){continue}break}}return 1}b=p[a>>2];p[b+20>>2]=117;m[p[b+4>>2]](a,-1);p[g+20>>2]=-1;return 1}function zd(a){var b=0,c=0,d=0,e=0,f=0;b=1;a:{b:{c:{d:{e:{c=p[a+20>>2];switch(c+ -200|0){case 2:break a;case 3:case 4:case 5:case 6:case 7:case 8:case 10:break c;case 1:break d;case 0:break e;default:break b}}m[p[p[a+460>>2]+4>>2]](a);m[p[p[a+24>>2]+8>>2]](a);p[a+20>>2]=201}b=m[p[p[a+460>>2]>>2]](a)|0;if((b|0)!=1){break a}b=p[a+36>>2];e=b;f:{g:{switch(b+ -1|0){case 2:b=p[a+216>>2];c=p[b+176>>2];d=p[b+88>>2];e=2;f=p[b>>2];b=(f|0)!=1;if(!(b|(d|0)!=2|(c|0)!=3)){b=3;break f}if(!((d|0)!=34|b)){b=7;if((c|0)==35){break f}}if(!((f|0)!=82|(d|0)!=71|(c|0)!=66)){b=2;break f}if(!((f|0)!=114|(d|0)!=103)){b=6;if((c|0)==98){break f}}if(p[a+284>>2]){b=3;break f}if(p[a+296>>2]){b=2;h:{i:{c=q[a+300|0];switch(c|0){case 1:break i;case 0:break f;default:break h}}b=3;break f}b=p[a>>2];p[b+24>>2]=c;p[b+20>>2]=116;m[p[p[a>>2]+4>>2]](a,-1);b=3;break f}b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=113;p[b+32>>2]=c;p[b+28>>2]=d;m[p[b+4>>2]](a,1);b=3;break f;case 3:e=4;if(!p[a+296>>2]){b=4;break f}b=4;j:{k:{c=q[a+300|0];switch(c|0){case 2:break k;case 0:break f;default:break j}}b=5;break f}b=p[a>>2];p[b+24>>2]=c;p[b+20>>2]=116;m[p[p[a>>2]+4>>2]](a,-1);b=5;break f;case 0:break f;default:break g}}b=0;e=0}p[a+44>>2]=e;p[a+40>>2]=b;p[a+136>>2]=0;p[a+96>>2]=256;p[a+88>>2]=2;p[a+92>>2]=1;p[a+80>>2]=1;p[a+84>>2]=0;p[a+72>>2]=0;p[a+76>>2]=1;p[a+64>>2]=0;p[a+68>>2]=0;p[a+56>>2]=0;p[a+60>>2]=1072693248;p[a+108>>2]=0;p[a+100>>2]=0;p[a+104>>2]=0;p[a+20>>2]=202;b=p[a+428>>2];p[a+52>>2]=b;p[a+48>>2]=b;return 1}return m[p[p[a+460>>2]>>2]](a)|0}b=p[a>>2];p[b+24>>2]=c;p[b+20>>2]=21;m[p[p[a>>2]>>2]](a);b=0}return b}function wf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,r=0;d=Z-32|0;Z=d;g=p[a+468>>2];c=p[a+280>>2];a:{b:{if(!c){c=0;break b}if(p[g+44>>2]){break b}c=p[a+464>>2];e=g+16|0;p[c+24>>2]=p[c+24>>2]+(p[e>>2]/8|0);p[e>>2]=0;if(!(m[p[c+8>>2]](a)|0)){break a}if(p[a+340>>2]>=1){c=0;while(1){p[((c<<2)+g|0)+24>>2]=0;c=c+1|0;if((c|0)<p[a+340>>2]){continue}break}}p[g+20>>2]=0;c=p[a+280>>2];p[g+44>>2]=c;if(p[a+440>>2]){break b}p[g+40>>2]=0}if(!p[g+40>>2]){e=p[g+20>>2];c:{if(e){f=e+ -1|0;break c}p[d+24>>2]=a;c=p[a+24>>2];p[d+8>>2]=p[c>>2];p[d+12>>2]=p[c+4>>2];c=p[g+16>>2];e=p[g+12>>2];i=p[a+412>>2];k=p[a+416>>2];d:{if((i|0)>(k|0)){break d}j=p[g+64>>2];l=p[b>>2];n=p[a+432>>2];r=p[a+424>>2];while(1){e:{f:{g:{if((c|0)<=7){h=0;if(!Bf(d+8|0,e,c,0)){break a}e=p[d+16>>2];c=p[d+20>>2];b=1;if((c|0)<8){break g}}b=e>>c+ -8&255;f=p[((b<<2)+j|0)+144>>2];if(f){break f}b=9}h=0;b=Cf(d+8|0,e,c,j,b);if((b|0)<0){break a}e=p[d+16>>2];c=p[d+20>>2];break e}b=q[(b+j|0)+1168|0];c=c-f|0}f=b>>>4|0;h=b&15;h:{if(h){if((c|0)<(h|0)){if(!Bf(d+8|0,e,c,h)){h=0;break a}e=p[d+16>>2];c=p[d+20>>2]}b=f+i|0;c=c-h|0;f=(h<<2)+10160|0;h=p[f>>2];i=e>>c&h;o[(p[(b<<2)+n>>2]<<1)+l>>1]=i-((i|0)>p[f+ -4>>2]?0:h)<<r;break h}if((f|0)!=15){if(!f){break d}if((c|0)<(f|0)){if(!Bf(d+8|0,e,c,f)){h=0;break a}e=p[d+16>>2];c=p[d+20>>2]}c=c-f|0;f=(p[(f<<2)+10160>>2]&e>>c)+(-1<<f^-1)|0;break d}b=i+15|0}i=b+1|0;if((b|0)<(k|0)){continue}break}f=0}b=p[a+24>>2];p[b>>2]=p[d+8>>2];p[b+4>>2]=p[d+12>>2];p[g+16>>2]=c;p[g+12>>2]=e;c=p[a+280>>2]}p[g+20>>2]=f}h=1;if(!c){break a}p[g+44>>2]=p[g+44>>2]+ -1}Z=d+32|0;return h|0}function Ae(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0;y=Z-208|0;Z=y;u=p[a+336>>2];b=p[b+84>>2];a=y;while(1){i=p[b+160>>2];h=o[c+80>>1];s=p[b+32>>2];m=o[c+16>>1];w=p[b+96>>2];r=o[c+48>>1];j=v(o[c>>1],p[b>>2])<<13|1024;k=v(p[b+128>>2],o[c+64>>1]);f=v(p[b+192>>2],o[c+96>>1]);g=v(p[b+64>>2],o[c+32>>1]);t=f+g|0;p[a+84>>2]=j+v(k-t|0,11585)>>11;i=v(h,i);h=v(s,m);s=v(i+h|0,5027);t=j+v(t,10438)|0;m=v(k-f|0,7223);l=t+(m+v(f,-637)|0)|0;f=v(r,w);w=v(f+h|0,7663);h=v(h-f|0,1395);r=s+(w-h|0)|0;p[a+168>>2]=l-r>>11;p[a>>2]=r+l>>11;l=v(g,-20239);g=v(g-k|0,2578);r=t+(l+g|0)|0;f=v(f+i|0,-11295);i=f+(s+v(i,15326)|0)|0;p[a+112>>2]=r-i>>11;p[a+56>>2]=i+r>>11;k=m+(g+(j+v(k,-15083)|0)|0)|0;f=f+(h+w|0)|0;p[a+140>>2]=k-f>>11;p[a+28>>2]=f+k>>11;a=a+4|0;b=b+4|0;c=c+2|0;x=x+1|0;if((x|0)!=7){continue}break}a=u+ -384|0;k=0;c=y;while(1){f=p[c+16>>2];g=p[c+24>>2];j=v(f-g|0,7223);b=p[(k<<2)+d>>2]+e|0;i=p[c+12>>2];h=p[c+4>>2];u=v(i+h|0,7663);m=v(h-i|0,1395);l=h;h=p[c+20>>2];w=v(l+h|0,5027);r=(u-m|0)+w|0;x=j+v(g,-637)|0;s=(p[c>>2]<<13)+134348800|0;l=g;g=p[c+8>>2];t=l+g|0;l=s+v(t,10438)|0;x=x+l|0;n[b|0]=q[a+(r+x>>>18&1023)|0];n[b+6|0]=q[a+(x-r>>>18&1023)|0];i=v(h+i|0,-11295);u=i+(m+u|0)|0;m=v(g-f|0,2578);j=j+(m+(s+v(f,-15083)|0)|0)|0;n[b+1|0]=q[a+(u+j>>>18&1023)|0];n[b+5|0]=q[a+(j-u>>>18&1023)|0];j=i+(w+v(h,15326)|0)|0;g=l+(m+v(g,-20239)|0)|0;n[b+2|0]=q[a+(j+g>>>18&1023)|0];n[b+4|0]=q[a+(g-j>>>18&1023)|0];n[b+3|0]=q[a+(s+v(f-t|0,11585)>>>18&1023)|0];c=c+28|0;k=k+1|0;if((k|0)!=7){continue}break}Z=y+208|0}function $e(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0;C=p[a+336>>2];a=p[b+84>>2];l=Z-128|0;b=l;m=4;while(1){a:{b:{f=r[c+32>>1];g=o[c+16>>1];if((f|g)&65535){break b}f=0;if(r[c+48>>1]|r[c+64>>1]|(r[c+80>>1]|r[c+96>>1])){break b}if(r[c+112>>1]){break b}f=v(o[c>>1],p[a>>2])<<2;p[b+96>>2]=f;p[b+80>>2]=f;p[b+64>>2]=f;p[b+48>>2]=f;p[b+32>>2]=f;p[b+16>>2]=f;p[b>>2]=f;i=28;break a}h=v(p[a+192>>2],o[c+96>>1]);j=v(p[a+64>>2],f<<16>>16);f=v(h+j|0,4433);x=f+v(j,6270)|0;s=v(o[c+64>>1],p[a+128>>2])<<13;t=v(o[c>>1],p[a>>2])<<13|1024;y=s+t|0;u=x+y|0;g=v(g,p[a+32>>2]);j=v(p[a+224>>2],o[c+112>>1]);z=v(g+j|0,-7373);D=z+v(g,12299)|0;k=v(p[a+96>>2],o[c+48>>1]);A=k+j|0;i=g;g=v(p[a+160>>2],o[c+80>>1]);w=i+g|0;B=v(A+w|0,9633);w=B+v(w,-3196)|0;i=D+w|0;p[b+112>>2]=u-i>>11;p[b>>2]=u+i>>11;f=f+v(h,-15137)|0;h=t-s|0;s=f+h|0;t=v(A,-16069)+B|0;i=v(k,25172);k=v(g+k|0,-20995);u=t+(i+k|0)|0;p[b+96>>2]=s-u>>11;p[b+16>>2]=s+u>>11;f=h-f|0;g=w+(k+v(g,16819)|0)|0;p[b+80>>2]=f-g>>11;p[b+32>>2]=f+g>>11;f=t+(v(j,2446)+z|0)|0;g=y-x|0;p[b+48>>2]=f+g>>11;f=g-f>>11;i=16}p[(i<<2)+b>>2]=f;c=c+2|0;a=a+4|0;b=b+4|0;h=m>>>0>1;m=m+ -1|0;if(h){continue}break}a=C+ -384|0;m=0;c=l;while(1){h=p[c+12>>2];f=p[c+4>>2];l=v(h+f|0,4433);b=p[(m<<2)+d>>2]+e|0;f=l+v(f,6270)|0;g=p[c>>2]+16400|0;j=p[c+8>>2];k=g+j<<13;n[b|0]=q[a+(f+k>>>18&1023)|0];n[b+3|0]=q[a+(k-f>>>18&1023)|0];l=l+v(h,-15137)|0;h=g-j<<13;n[b+1|0]=q[a+(l+h>>>18&1023)|0];n[b+2|0]=q[a+(h-l>>>18&1023)|0];c=c+16|0;m=m+1|0;if((m|0)!=8){continue}break}}function Wb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0;j=Z-32|0;i=a;while(1){a:{d=p[(g<<2)+b>>2]+c|0;e=q[d+6|0];h=i;n=q[d+1|0];o=q[d+7|0];m=n+o|0;s=q[d+4|0];r=m+s|0;k=q[d+2|0];i=k+e|0;l=q[d+8|0];t=q[d|0];f=l+t|0;u=q[d+5|0];w=q[d+3|0];d=u+w|0;x=(i+f|0)+d|0;p[h>>2]=(r+x<<1)+ -2304;l=t-l|0;e=k-e|0;k=w-u|0;p[h+12>>2]=v((l-e|0)-k|0,10033)+2048>>12;p[h+24>>2]=v(x-(r<<1)|0,5793)+2048>>12;r=v(d-f|0,2012);f=v(f-i|0,10887)+2048|0;m=v(m-(s<<1)|0,5793);p[h+16>>2]=(r+f|0)-m>>12;p[h+8>>2]=m+(f+v(i-d|0,8875)|0)>>12;f=v(e-k|0,11409);d=v(k+l|0,3962);i=v(n-o|0,10033);p[h+28>>2]=(f+(d-i|0)|0)+2048>>12;e=v(e+l|0,7447);p[h+20>>2]=(e-(i+f|0)|0)+2048>>12;p[h+4>>2]=(d+(e+i|0)|0)+2048>>12;e=g+ -7|0;g=g+1|0;d=7;i=j;b:{switch(e|0){case 0:continue;case 1:break a;default:break b}}i=h+32|0;continue}break}while(1){g=p[a>>2];e=p[i>>2];b=g-e|0;j=p[a+64>>2];f=p[a+192>>2];c=j-f|0;l=p[a+96>>2];k=p[a+160>>2];h=l-k|0;p[a+96>>2]=v((b-c|0)-h|0,15855)+16384>>15;j=f+j|0;g=e+g|0;e=k+l|0;f=(j+g|0)+e|0;l=p[a+128>>2];k=p[a+224>>2];n=p[a+32>>2];o=k+n|0;m=l+o|0;p[a+192>>2]=v(f-(m<<1)|0,9154)+16384>>15;p[a>>2]=v(f+m|0,12945)+16384>>15;m=v(e-g|0,3179);g=v(g-j|0,17203)+16384|0;f=v(o-(l<<1)|0,9154);p[a+128>>2]=(m+g|0)-f>>15;p[a+64>>2]=f+(g+v(j-e|0,14024)|0)>>15;g=v(b+h|0,6262);j=v(n-k|0,15855);h=v(c-h|0,18029);p[a+224>>2]=((g-j|0)+h|0)+16384>>15;b=v(b+c|0,11768);p[a+160>>2]=(b-(h+j|0)|0)+16384>>15;p[a+32>>2]=(g+(b+j|0)|0)+16384>>15;b=d;d=d+ -1|0;i=i+4|0;a=a+4|0;if(b){continue}break}}function mc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0;r=Z-128|0;Z=r;e=uh(a,0,256);while(1){a:{h=e;d=p[(k<<2)+b>>2]+c|0;o=q[d|0];f=q[d+5|0];m=o-f|0;g=q[d+1|0];j=q[d+4|0];i=g-j|0;l=q[d+2|0];d=q[d+3|0];n=l-d|0;p[e+12>>2]=(m-i|0)-n<<2;f=f+o|0;d=d+l|0;p[e+8>>2]=v(f-d|0,10033)+1024>>11;f=d+f|0;d=g+j|0;p[e>>2]=(f+d<<2)+ -3072;p[e+16>>2]=v(f-(d<<1)|0,5793)+1024>>11;d=v(m+n|0,2998)+1024>>11;p[e+20>>2]=d+(n-i<<2);p[e+4>>2]=d+(i+m<<2);d=k+ -7|0;k=k+1|0;e=r;b:{switch(d|0){case 0:continue;case 4:break a;default:break b}}e=h+32|0;continue}break}while(1){s=p[e+64>>2];t=p[a+128>>2];u=p[a+192>>2];w=p[a+160>>2];c=u+w|0;x=p[e+96>>2];y=p[a>>2];b=x+y|0;z=c+b|0;k=p[e+32>>2];m=p[a+64>>2];i=k+m|0;n=p[e>>2];o=p[a+96>>2];g=n+o|0;j=i+g|0;p[a+128>>2]=v(z-j|0,8918)+16384>>15;l=b-c|0;f=p[a+32>>2];d=s+f|0;h=p[a+224>>2];c=t+h|0;b=d-c|0;g=i-g|0;p[a+192>>2]=v(l-(b+g|0)|0,7282)+16384>>15;p[a+64>>2]=(v(b-g|0,7282)+v(g+l|0,9947)|0)+16384>>15;p[a>>2]=v(z+((d+j|0)+c|0)|0,7282)+16384>>15;c=t-h|0;b=f-s|0;l=v(c+b|0,3941);f=l+v(c,-13455)|0;i=y-x|0;h=o-n|0;g=w-u|0;j=m-k|0;p[a+96>>2]=((f+v(i-h|0,9514)|0)+v(g+j|0,-3941)|0)+16384>>15;d=v(h+i|0,6269);k=d+v(h,5285)|0;h=v(h+j|0,-1344);c=l+v(b,5573)|0;p[a+224>>2]=(((k+h|0)-c|0)+v(g,-8170)|0)+16384>>15;b=v(i+j|0,8170)+16384|0;p[a+160>>2]=((h+(b+v(j,-17036)|0)|0)-f|0)+v(g,6269)>>15;p[a+32>>2]=(c+(d+(b+v(i,-4229)|0)|0)|0)+v(g,1344)>>15;e=e+4|0;a=a+4|0;A=A+1|0;if((A|0)!=6){continue}break}Z=r+128|0}function Gc(a,b){var c=0,d=0,e=0,f=0;f=p[a+424>>2];zc(a);d=p[a+24>>2];e=p[d>>2];p[d>>2]=e+1;n[e|0]=255;e=p[d+4>>2]+ -1|0;p[d+4>>2]=e;a:{if(e){break a}if(m[p[d+12>>2]](a)|0){break a}e=p[a>>2];p[e+20>>2]=25;m[p[e>>2]](a)}d=p[a+24>>2];e=p[d>>2];p[d>>2]=e+1;n[e|0]=b+ -48;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;b:{if(b){break b}if(m[p[d+12>>2]](a)|0){break b}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if(p[a+292>>2]>=1){d=0;while(1){b=d<<2;e=p[(b+a|0)+296>>2];if(!(p[a+364>>2]|p[a+372>>2])){c=p[((p[e+20>>2]<<2)+f|0)+76>>2];n[c|0]=0;n[c+1|0]=0;n[c+2|0]=0;n[c+3|0]=0;n[c+4|0]=0;n[c+5|0]=0;n[c+6|0]=0;n[c+7|0]=0;n[c+56|0]=0;n[c+57|0]=0;n[c+58|0]=0;n[c+59|0]=0;n[c+60|0]=0;n[c+61|0]=0;n[c+62|0]=0;n[c+63|0]=0;n[c+48|0]=0;n[c+49|0]=0;n[c+50|0]=0;n[c+51|0]=0;n[c+52|0]=0;n[c+53|0]=0;n[c+54|0]=0;n[c+55|0]=0;n[c+40|0]=0;n[c+41|0]=0;n[c+42|0]=0;n[c+43|0]=0;n[c+44|0]=0;n[c+45|0]=0;n[c+46|0]=0;n[c+47|0]=0;n[c+32|0]=0;n[c+33|0]=0;n[c+34|0]=0;n[c+35|0]=0;n[c+36|0]=0;n[c+37|0]=0;n[c+38|0]=0;n[c+39|0]=0;n[c+24|0]=0;n[c+25|0]=0;n[c+26|0]=0;n[c+27|0]=0;n[c+28|0]=0;n[c+29|0]=0;n[c+30|0]=0;n[c+31|0]=0;n[c+16|0]=0;n[c+17|0]=0;n[c+18|0]=0;n[c+19|0]=0;n[c+20|0]=0;n[c+21|0]=0;n[c+22|0]=0;n[c+23|0]=0;n[c+8|0]=0;n[c+9|0]=0;n[c+10|0]=0;n[c+11|0]=0;n[c+12|0]=0;n[c+13|0]=0;n[c+14|0]=0;n[c+15|0]=0;b=b+f|0;p[b+52>>2]=0;p[b+36>>2]=0}if(p[a+368>>2]){uh(p[((p[e+24>>2]<<2)+f|0)+140>>2],0,256)}d=d+1|0;if((d|0)<p[a+292>>2]){continue}break}}p[f+28>>2]=11;p[f+32>>2]=-1;p[f+20>>2]=0;p[f+24>>2]=0;p[f+12>>2]=0;p[f+16>>2]=65536}function Se(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0;x=Z-160|0;Z=x;r=p[a+336>>2];b=p[b+84>>2];a=x;while(1){g=p[b+96>>2];h=o[c+48>>1];f=p[b+32>>2];i=o[c+16>>1];l=v(o[c>>1],p[b>>2])<<13|1024;j=v(p[b+64>>2],o[c+32>>1]);k=v(p[b+128>>2],o[c+64>>1]);m=j-k|0;p[a+64>>2]=l+v(m,-11584)>>11;h=v(g,h);f=v(f,i);g=v(h+f|0,6810);i=l+v(m,2896)|0;j=v(j+k|0,6476);k=i+j|0;f=g+v(f,4209)|0;p[a+128>>2]=k-f>>11;p[a>>2]=f+k>>11;f=i-j|0;g=g+v(h,-17828)|0;p[a+96>>2]=f-g>>11;p[a+32>>2]=f+g>>11;a=a+4|0;b=b+4|0;c=c+2|0;s=s+1|0;if((s|0)!=8){continue}break}a=r+ -384|0;r=0;b=x;while(1){m=p[b+24>>2];j=p[b+8>>2];h=v(m+j|0,6810);c=p[(r<<2)+d>>2]+e|0;f=p[b+28>>2];i=p[b+12>>2];l=f+i|0;s=v(l,7791);g=p[b+4>>2];f=i-f|0;t=v(f,2531);i=p[b+20>>2]<<13;y=t+i|0;u=(s+v(g,11443)|0)+y|0;z=h+v(j,4209)|0;k=(p[b>>2]<<13)+134348800|0;j=p[b+16>>2];A=k+v(j,9373)|0;w=z+A|0;n[c|0]=q[a+(u+w>>>18&1023)|0];n[c+9|0]=q[a+(w-u>>>18&1023)|0];l=v(l,4815);t=(i-t|0)-(f<<12)|0;u=(v(g,10323)-l|0)-t|0;h=h+v(m,-17828)|0;m=k+v(j,-3580)|0;w=h+m|0;n[c+1|0]=q[a+(u+w>>>18&1023)|0];n[c+8|0]=q[a+(w-u>>>18&1023)|0];f=(g-f<<13)-i|0;i=k+v(j,-11586)|0;n[c+2|0]=q[a+(f+i>>>18&1023)|0];n[c+7|0]=q[a+(i-f>>>18&1023)|0];f=t+(v(g,5260)-l|0)|0;h=m-h|0;n[c+3|0]=q[a+(f+h>>>18&1023)|0];n[c+6|0]=q[a+(h-f>>>18&1023)|0];g=y+(v(g,1812)-s|0)|0;h=A-z|0;n[c+4|0]=q[a+(g+h>>>18&1023)|0];n[c+5|0]=q[a+(h-g>>>18&1023)|0];b=b+32|0;r=r+1|0;if((r|0)!=5){continue}break}Z=x+160|0}function _e(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0;y=Z-208|0;Z=y;r=p[a+336>>2];a=p[b+84>>2];b=y;while(1){h=p[a+192>>2];l=o[c+96>>1];f=p[a+64>>2];m=o[c+32>>1];j=v(o[c>>1],p[a>>2])<<13|1024;g=v(p[a+128>>2],o[c+64>>1]);s=j+v(g,-11586)>>11;i=v(p[a+32>>2],o[c+16>>1]);t=v(p[a+160>>2],o[c+80>>1]);u=v(p[a+96>>2],o[c+48>>1]);w=v(p[a+224>>2],o[c+112>>1]);k=u-w|0;x=(i-t|0)-k<<2;p[b+140>>2]=s-x;p[b+40>>2]=s+x;l=v(h,l);f=v(f,m);h=v(l+f|0,6810);f=h+v(f,4209)|0;m=j+v(g,9373)|0;s=f+m|0;x=v(k,2531);t=t<<13;z=x+t|0;u=u+w|0;w=v(u,7791);A=z+(w+v(i,11443)|0)|0;p[b+180>>2]=s-A>>11;p[b>>2]=s+A>>11;f=m-f|0;m=(v(i,1812)-w|0)+z|0;p[b+100>>2]=f-m>>11;p[b+80>>2]=f+m>>11;h=h+v(l,-17828)|0;g=j+v(g,-3580)|0;j=h+g|0;l=v(u,4815);k=(t-x|0)-(k<<12)|0;f=(v(i,10323)-l|0)-k|0;p[b+160>>2]=j-f>>11;p[b+20>>2]=f+j>>11;g=g-h|0;i=k+(v(i,5260)-l|0)|0;p[b+120>>2]=g-i>>11;p[b+60>>2]=g+i>>11;b=b+4|0;a=a+4|0;c=c+2|0;B=B+1|0;if((B|0)!=5){continue}break}a=r+ -384|0;i=0;b=y;while(1){j=p[b+12>>2];k=p[b+4>>2];g=v(j+k|0,6810);c=p[(i<<2)+d>>2]+e|0;k=g+v(k,4209)|0;f=(p[b>>2]<<13)+134348800|0;h=p[b+8>>2];r=p[b+16>>2];l=h-r|0;m=f+v(l,2896)|0;h=v(h+r|0,6476);r=m+h|0;n[c|0]=q[a+(k+r>>>18&1023)|0];n[c+4|0]=q[a+(r-k>>>18&1023)|0];g=g+v(j,-17828)|0;j=m-h|0;n[c+1|0]=q[a+(g+j>>>18&1023)|0];n[c+3|0]=q[a+(j-g>>>18&1023)|0];n[c+2|0]=q[a+(f+v(l,-11584)>>>18&1023)|0];b=b+20|0;i=i+1|0;if((i|0)!=10){continue}break}Z=y+208|0}function Zc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,q=0,t=0,u=0,w=0,x=0,y=0;d=p[a+404>>2];f=d;i=p[d+16>>2];c=p[d+20>>2];if((i|0)<(c|0)){u=p[a+288>>2]+ -1|0;q=p[a+312>>2]+ -1|0;w=d+24|0;h=p[d+12>>2];while(1){if(h>>>0<=q>>>0){while(1){c=p[a+292>>2];if((c|0)>=1){f=0;k=0;while(1){e=p[((k<<2)+a|0)+296>>2];if(p[e+60>>2]>=1){j=p[(h>>>0<q>>>0?56:72)+e>>2];x=v(p[e+68>>2],h);y=p[(p[a+420>>2]+(p[e+4>>2]<<2)|0)+4>>2];t=v(p[e+40>>2],i);l=0;while(1){a:{if(!((i+l|0)>=p[e+76>>2]?s[d+8>>2]>=u>>>0:0)){m[y|0](a,e,p[(p[e+4>>2]<<2)+b>>2],p[((f<<2)+d|0)+24>>2],t,x,j);g=p[e+56>>2];if((g|0)<=(j|0)){break a}uh(p[((f+j<<2)+d|0)+24>>2],0,g-j<<7);c=j;g=p[e+56>>2];if((c|0)>=(g|0)){break a}while(1){n=(c+f<<2)+d|0;o[p[n+24>>2]>>1]=r[p[n+20>>2]>>1];c=c+1|0;if((c|0)<(g|0)){continue}break}break a}c=(f<<2)+d|0;uh(p[c+24>>2],0,p[e+56>>2]<<7);g=p[e+56>>2];if((g|0)<1){break a}n=p[c+20>>2];c=0;while(1){o[p[((c+f<<2)+d|0)+24>>2]>>1]=r[n>>1];c=c+1|0;if((g|0)!=(c|0)){continue}break}}f=f+g|0;t=p[e+40>>2]+t|0;l=l+1|0;if((l|0)<p[e+60>>2]){continue}break}c=p[a+292>>2]}k=k+1|0;if((k|0)<(c|0)){continue}break}}if(!(m[p[p[a+424>>2]+4>>2]](a,w)|0)){p[d+12>>2]=h;p[d+16>>2]=i;return 0}h=h+1|0;if(h>>>0<=q>>>0){continue}break}c=p[d+20>>2]}h=0;p[d+12>>2]=0;i=i+1|0;if((i|0)<(c|0)){continue}break}f=p[a+404>>2]}p[d+8>>2]=p[d+8>>2]+1;c=1;c=p[a+292>>2]<=1?p[p[a+296>>2]+(s[f+8>>2]<p[a+288>>2]+ -1>>>0?12:76)>>2]:c;p[f+12>>2]=0;p[f+16>>2]=0;p[f+20>>2]=c;return 1}function De(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0;l=p[a+336>>2];b=p[b+84>>2];g=v(p[b+64>>2],o[c+32>>1]);f=v(p[b+96>>2],o[c+48>>1]);i=v(p[b+32>>2],o[c+16>>1]);h=v(f+i|0,4433)+1024|0;a=Z+ -64|0;j=v(p[b>>2],o[c>>1]);k=j+g<<2;i=h+v(i,6270)>>11;p[a+48>>2]=k-i;p[a>>2]=i+k;g=j-g<<2;h=h+v(f,-15137)>>11;p[a+32>>2]=g-h;p[a+16>>2]=g+h;h=v(p[b+100>>2],o[c+50>>1]);f=v(p[b+36>>2],o[c+18>>1]);g=v(h+f|0,4433)+1024|0;i=v(p[b+68>>2],o[c+34>>1]);j=v(p[b+4>>2],o[c+2>>1]);k=i+j<<2;f=g+v(f,6270)>>11;p[a+52>>2]=k-f;p[a+4>>2]=f+k;f=j-i<<2;g=g+v(h,-15137)>>11;p[a+36>>2]=f-g;p[a+20>>2]=g+f;h=v(p[b+104>>2],o[c+52>>1]);f=v(p[b+40>>2],o[c+20>>1]);g=v(h+f|0,4433)+1024|0;i=v(p[b+72>>2],o[c+36>>1]);j=v(p[b+8>>2],o[c+4>>1]);k=i+j<<2;f=g+v(f,6270)>>11;p[a+56>>2]=k-f;p[a+8>>2]=f+k;f=j-i<<2;g=g+v(h,-15137)>>11;p[a+40>>2]=f-g;p[a+24>>2]=g+f;h=v(p[b+108>>2],o[c+54>>1]);f=v(p[b+44>>2],o[c+22>>1]);g=v(h+f|0,4433)+1024|0;i=v(p[b+76>>2],o[c+38>>1]);b=v(p[b+12>>2],o[c+6>>1]);c=i+b<<2;f=g+v(f,6270)>>11;p[a+60>>2]=c-f;p[a+12>>2]=c+f;b=b-i<<2;c=g+v(h,-15137)>>11;p[a+44>>2]=b-c;p[a+28>>2]=b+c;b=l+ -384|0;g=0;c=a;while(1){l=p[c+12>>2];f=p[c+4>>2];h=v(l+f|0,4433);a=p[(g<<2)+d>>2]+e|0;f=h+v(f,6270)|0;i=p[c>>2]+16400|0;j=p[c+8>>2];k=i+j<<13;n[a|0]=q[b+(f+k>>>18&1023)|0];n[a+3|0]=q[b+(k-f>>>18&1023)|0];h=h+v(l,-15137)|0;l=i-j<<13;n[a+1|0]=q[b+(h+l>>>18&1023)|0];n[a+2|0]=q[b+(l-h>>>18&1023)|0];c=c+16|0;g=g+1|0;if((g|0)!=4){continue}break}}function ud(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0;d=1;b=p[a+340>>2];a:{b:{if((b|0)==1){b=p[a+344>>2];p[a+360>>2]=p[b+28>>2];c=p[b+32>>2];p[a+364>>2]=c;p[b+64>>2]=1;p[b+56>>2]=1;p[b+60>>2]=1;p[b+72>>2]=1;p[b+68>>2]=p[b+36>>2];f=b;b=p[b+12>>2];c=(c>>>0)%(b>>>0)|0;p[f+76>>2]=c?c:b;p[a+368>>2]=1;p[a+372>>2]=0;break b}if(b+ -1>>>0>=4){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=27;p[p[a>>2]+28>>2]=4;m[p[p[a>>2]>>2]](a)}i=a,j=Qa(p[a+28>>2],v(p[a+428>>2],p[a+316>>2])),p[i+360>>2]=j;b=Qa(p[a+32>>2],v(p[a+428>>2],p[a+320>>2]));p[a+368>>2]=0;p[a+364>>2]=b;if(p[a+340>>2]<1){break a}while(1){b=p[((e<<2)+a|0)+344>>2];d=p[b+8>>2];p[b+56>>2]=d;g=p[b+12>>2];p[b+60>>2]=g;c=v(d,g);p[b+64>>2]=c;p[b+68>>2]=v(d,p[b+36>>2]);f=s[b+28>>2]%(d>>>0)|0;p[b+72>>2]=f?f:d;f=b;b=s[b+32>>2]%(g>>>0)|0;p[f+76>>2]=b?b:g;if((c+h|0)>=11){b=p[a>>2];p[b+20>>2]=14;m[p[b>>2]](a)}if((c|0)>=1){while(1){b=p[a+368>>2];p[a+368>>2]=b+1;p[((b<<2)+a|0)+372>>2]=e;b=(c|0)>1;c=c+ -1|0;if(b){continue}break}}e=e+1|0;d=p[a+340>>2];if((e|0)<(d|0)){h=p[a+368>>2];continue}break}if((d|0)<1){break a}}c=0;while(1){e=p[((c<<2)+a|0)+344>>2];if(!p[e+80>>2]){b=p[e+16>>2];if(!(p[((b<<2)+a|0)+164>>2]?b>>>0<=3:0)){d=p[a>>2];p[d+24>>2]=b;p[d+20>>2]=54;m[p[p[a>>2]>>2]](a)}i=e,j=th(m[p[p[a+4>>2]>>2]](a,1,132)|0,p[((b<<2)+a|0)+164>>2],132),p[i+80>>2]=j;d=p[a+340>>2]}c=c+1|0;if((c|0)<(d|0)){continue}break}}m[p[p[a+468>>2]>>2]](a);m[p[p[a+452>>2]>>2]](a);p[p[a+460>>2]>>2]=p[p[a+452>>2]+4>>2]}function yf(a,b,c,d){var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,o=0,r=0,s=0,t=0;g=Z-1312|0;Z=g;if(c>>>0>=4){e=p[a>>2];p[e+24>>2]=c;p[e+20>>2]=52;m[p[p[a>>2]>>2]](a)}e=(c<<2)+a|0;j=p[(b?e+180|0:e+196|0)>>2];if(!j){j=ua(a,b,c)}h=p[d>>2];if(!h){h=m[p[p[a+4>>2]>>2]](a,1,1424)|0;p[d>>2]=h}p[h+140>>2]=j;d=1;while(1){c=q[d+j|0];if((k+c|0)>=257){e=p[a>>2];p[e+20>>2]=9;m[p[e>>2]](a)}if(c){uh((g+1040|0)+k|0,d,c);while(1){k=k+1|0;c=c+ -1|0;if(c){continue}break}}d=d+1|0;if((d|0)!=17){continue}break}c=0;n[(g+1040|0)+k|0]=0;f=q[g+1040|0];if(f){e=f<<24>>24;d=0;while(1){if(f<<24>>24==(e|0)){while(1){p[(d<<2)+g>>2]=c;c=c+1|0;d=d+1|0;f=n[d+(g+1040|0)|0];if((f|0)==(e|0)){continue}break}}if((c|0)>=1<<e){i=p[a>>2];p[i+20>>2]=9;m[p[i>>2]](a)}e=e+1|0;c=c<<1;if(f&255){continue}break}}d=0;c=1;while(1){f=(c<<2)+h|0;i=c+j|0;e=-1;a:{if(!q[i|0]){break a}p[((c<<2)+h|0)+72>>2]=d-p[(d<<2)+g>>2];d=q[i|0]+d|0;e=p[((d<<2)+g|0)+ -4>>2]}p[f>>2]=e;c=c+1|0;if((c|0)!=17){continue}break}p[h+68>>2]=1048575;uh(h+144|0,0,1024);f=1;while(1){o=f+j|0;if(q[o|0]){i=1;r=8-f|0;e=1<<r;while(1){s=(j+l|0)+17|0;c=p[(l<<2)+g>>2]<<r;d=e;while(1){p[((c<<2)+h|0)+144>>2]=f;n[(c+h|0)+1168|0]=q[s|0];c=c+1|0;t=(d|0)>1;d=d+ -1|0;if(t){continue}break}l=l+1|0;c=i>>>0<q[o|0];i=i+1|0;if(c){continue}break}}f=f+1|0;if((f|0)!=9){continue}break}if(!(!b|(k|0)<1)){c=0;while(1){if(q[(c+j|0)+17|0]>=16){b=p[a>>2];p[b+20>>2]=9;m[p[b>>2]](a)}c=c+1|0;if((k|0)!=(c|0)){continue}break}}Z=g+1312|0}function Rf(a){var b=0,c=0,d=0,e=0,f=0;c=m[p[p[a+4>>2]>>2]](a,1,28)|0;p[a+444>>2]=c;p[c+8>>2]=0;p[c+4>>2]=225;p[c>>2]=226;d=p[a+212>>2];if((d|0)!=8){e=p[a>>2];p[e+24>>2]=d;p[e+20>>2]=16;m[p[p[a>>2]>>2]](a)}Pf(a);d=uh(m[p[p[a+4>>2]>>2]](a,1,1280)|0,0,512);e=d+512|0;p[a+336>>2]=e;while(1){n[b+e|0]=b;b=b+1|0;if((b|0)!=256){continue}break}uh(d+768|0,255,512);if(!(p[a+120>>2]>0?!(!p[a+116>>2]|!p[a+112>>2]):0)){b=p[a>>2];p[b+20>>2]=33;m[p[b>>2]](a)}p[c+12>>2]=0;b=Qf(a);p[c+20>>2]=0;p[c+24>>2]=0;p[c+16>>2]=b;a:{if(!p[a+84>>2]){p[a+108>>2]=0;p[a+100>>2]=0;p[a+104>>2]=0;break a}if(!p[a+64>>2]){p[a+108>>2]=0;p[a+100>>2]=0;p[a+104>>2]=0}if(p[a+68>>2]){b=p[a>>2];p[b+20>>2]=48;m[p[b>>2]](a)}b:{if(p[a+120>>2]!=3){p[a+136>>2]=0;p[a+108>>2]=0;p[a+100>>2]=1;p[a+104>>2]=0;break b}if(p[a+136>>2]){p[a+104>>2]=1;break b}if(p[a+92>>2]){p[a+108>>2]=1;break b}p[a+100>>2]=1}if(p[a+100>>2]){Ed(a);p[c+20>>2]=p[a+484>>2]}if(p[a+104>>2]?0:!p[a+108>>2]){break a}Nd(a);p[c+24>>2]=p[a+484>>2]}if(!p[a+68>>2]){c:{if(p[c+16>>2]){Xd(a);break c}be(a);me(a)}ue(a,p[a+108>>2])}ff(a);d:{if(p[a+228>>2]){hf(a);break d}rf(a)}Df(a,p[p[a+460>>2]+16>>2]?1:p[a+64>>2]!=0);if(!p[a+68>>2]){Kf(a)}m[p[p[a+4>>2]+24>>2]](a);m[p[p[a+460>>2]+8>>2]](a);b=p[a+8>>2];if(!(!p[p[a+460>>2]+16>>2]|(p[a+64>>2]|!b))){e=p[a+224>>2];d=p[a+36>>2];p[b+4>>2]=0;f=p[a+332>>2];p[b+12>>2]=0;p[b+8>>2]=v(e?v(d,3)+2|0:d,f);p[b+16>>2]=p[a+108>>2]?3:2;p[c+12>>2]=p[c+12>>2]+1}}function If(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,o=0,q=0,r=0,t=0,u=0,w=0;c=p[a+332>>2];a:{f=p[a+452>>2];h=p[f+24>>2];e=p[f+28>>2];if((h|0)<(e|0)){u=c+ -1|0;r=p[a+360>>2]+ -1|0;t=f+32|0;g=p[f+20>>2];while(1){if(g>>>0<=r>>>0){while(1){if(p[a+436>>2]){uh(p[t>>2],0,p[a+368>>2]<<7)}if(!(m[p[p[a+468>>2]+4>>2]](a,t)|0)){break a}c=p[a+340>>2];if((c|0)>=1){j=0;o=0;while(1){d=p[((o<<2)+a|0)+344>>2];b:{if(!p[d+52>>2]){j=p[d+64>>2]+j|0;break b}e=p[d+60>>2];if((e|0)<1){break b}k=v(p[d+68>>2],g);c=p[d+4>>2]<<2;w=p[(c+p[a+472>>2]|0)+4>>2];l=p[b+c>>2];c=p[d+40>>2];l=l+(v(h,c)<<2)|0;i=p[d+(g>>>0<r>>>0?56:72)>>2];n=(i|0)>1?i:1;i=(i|0)<1;q=0;while(1){c:{d:{if(s[a+148>>2]>=u>>>0){if(!((h+q|0)>=p[d+76>>2]|i)){break d}break c}if(i){break c}}e=0;c=k;while(1){m[w|0](a,d,p[((e+j<<2)+f|0)+32>>2],l,c);c=p[d+36>>2]+c|0;e=e+1|0;if((n|0)!=(e|0)){continue}break}e=p[d+60>>2];c=p[d+40>>2]}l=(c<<2)+l|0;j=p[d+56>>2]+j|0;q=q+1|0;if((q|0)<(e|0)){continue}break}c=p[a+340>>2]}o=o+1|0;if((o|0)<(c|0)){continue}break}}g=g+1|0;if(g>>>0<=r>>>0){continue}break}e=p[f+28>>2]}g=0;p[f+20>>2]=0;h=h+1|0;if((h|0)<(e|0)){continue}break}c=p[a+332>>2]}k=1;p[a+156>>2]=p[a+156>>2]+1;b=p[a+148>>2]+1|0;p[a+148>>2]=b;if(b>>>0<c>>>0){n=p[a+452>>2];k=p[a+340>>2]<=1?p[p[a+344>>2]+(b>>>0<c+ -1>>>0?12:76)>>2]:k;p[n+20>>2]=0;p[n+24>>2]=0;p[n+28>>2]=k;return 3}m[p[p[a+460>>2]+12>>2]](a);return 4}p[f+20>>2]=g;p[f+24>>2]=h;return 0}function qd(a,b,c,d){var e=0,f=0,g=0,h=0,i=0;e=c+d|0;a:{b:{c:{d:{if(c>>>0>=14){if(q[b|0]!=74){break c}if(q[b+1|0]!=70|q[b+2|0]!=73|(q[b+4|0]|q[b+3|0]!=70)){break d}p[a+284>>2]=1;d=q[b+5|0];n[a+288|0]=d;f=q[b+6|0];n[a+289|0]=f;g=q[b+7|0];n[a+290|0]=g;c=q[b+8|0]|q[b+9|0]<<8;h=(c<<24|c<<8&16711680)>>>16|0;o[a+292>>1]=h;c=q[b+10|0]|q[b+11|0]<<8;i=(c<<24|c<<8&16711680)>>>16|0;o[a+294>>1]=i;if((d+ -1&255)>>>0>1){c=p[a>>2];p[c+24>>2]=d;p[c+20>>2]=122;p[p[a>>2]+28>>2]=q[a+289|0];m[p[p[a>>2]+4>>2]](a,-1);g=q[a+290|0];i=r[a+294>>1];h=r[a+292>>1];f=q[a+289|0];d=q[a+288|0]}c=p[a>>2];p[c+24>>2]=d;p[c+20>>2]=89;p[c+40>>2]=g;p[c+36>>2]=i;p[c+32>>2]=h;p[c+28>>2]=f;m[p[c+4>>2]](a,1);c=q[b+13|0];d=q[b+12|0];if(c|d){c=p[a>>2];p[c+20>>2]=92;p[c+24>>2]=q[b+12|0];p[p[a>>2]+28>>2]=q[b+13|0];m[p[p[a>>2]+4>>2]](a,1);d=q[b+12|0];c=q[b+13|0]}b=e+ -14|0;if((b|0)==(v(v(c&255,d),3)|0)){break b}c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=90;break a}if(q[b|0]!=74|c>>>0<6){break c}}if(q[b+1|0]!=70|q[b+2|0]!=88|(q[b+4|0]|q[b+3|0]!=88)){break c}e:{switch(q[b+5|0]+ -16|0){case 0:b=p[a>>2];p[b+24>>2]=e;p[b+20>>2]=110;break a;case 1:b=p[a>>2];p[b+24>>2]=e;p[b+20>>2]=111;break a;case 3:b=p[a>>2];p[b+24>>2]=e;p[b+20>>2]=112;break a;default:break e}}c=p[a>>2];p[c+20>>2]=91;p[c+24>>2]=q[b+5|0];p[p[a>>2]+28>>2]=e;break a}b=p[a>>2];p[b+24>>2]=e;p[b+20>>2]=79;m[p[p[a>>2]+4>>2]](a,1)}return}m[p[p[a>>2]+4>>2]](a,1)}function tc(a,b,c){a=a|0;b=b|0;c=c|0;var d=w(0),e=w(0),f=w(0),g=w(0),h=0,i=0,j=w(0),k=w(0),l=w(0),m=0,n=0,o=0,r=0,s=0,u=0,v=0,x=0,y=w(0),z=w(0),A=w(0),B=w(0),C=w(0),D=w(0),E=w(0);h=a;while(1){i=p[(m<<2)+b>>2]+c|0;n=q[i+7|0];o=q[i|0];d=w(n+o|0);r=q[i+4|0];s=q[i+3|0];e=w(r+s|0);g=w(d+e);u=q[i+6|0];v=q[i+1|0];f=w(u+v|0);x=q[i+5|0];i=q[i+2|0];j=w(x+i|0);k=w(f+j);t[h+16>>2]=g-k;t[h>>2]=w(k+g)+w(-1024);d=w(d-e);e=w(w(d+w(f-j))*w(.7071067690849304));t[h+24>>2]=d-e;t[h+8>>2]=d+e;d=w(o-n|0);g=w(v-u|0);f=w(i-x|0);j=w(w(g+f)*w(.7071067690849304));e=w(d-j);f=w(f+w(s-r|0));k=w(d+g);g=w(w(f-k)*w(.3826834261417389));f=w(w(f*w(.5411961078643799))+g);t[h+20>>2]=e+f;t[h+12>>2]=e-f;d=w(j+d);e=w(w(k*w(1.3065630197525024))+g);t[h+28>>2]=d-e;t[h+4>>2]=d+e;h=h+32|0;m=m+1|0;if((m|0)!=8){continue}break}h=7;while(1){g=t[a>>2];f=t[a+224>>2];d=w(g+f);j=t[a+96>>2];k=t[a+128>>2];e=w(j+k);l=w(d+e);y=t[a+32>>2];z=t[a+192>>2];A=w(y+z);B=t[a+64>>2];C=t[a+160>>2];D=w(B+C);E=w(A+D);t[a+128>>2]=l-E;t[a>>2]=E+l;d=w(d-e);e=w(w(d+w(A-D))*w(.7071067690849304));t[a+192>>2]=d-e;t[a+64>>2]=d+e;d=w(g-f);g=w(y-z);f=w(B-C);l=w(w(g+f)*w(.7071067690849304));e=w(d-l);f=w(f+w(j-k));j=w(d+g);g=w(w(f-j)*w(.3826834261417389));f=w(w(f*w(.5411961078643799))+g);t[a+160>>2]=e+f;t[a+96>>2]=e-f;d=w(d+l);e=w(w(j*w(1.3065630197525024))+g);t[a+224>>2]=d-e;t[a+32>>2]=d+e;b=h;h=h+ -1|0;a=a+4|0;if(b){continue}break}}function Ob(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0;f=a;while(1){d=p[(l<<2)+b>>2]+c|0;h=q[d+4|0];g=q[d+3|0];e=h+g|0;i=q[d+7|0];j=q[d|0];k=i+j|0;m=e+k|0;n=q[d+5|0];o=q[d+2|0];r=n+o|0;s=q[d+6|0];t=q[d+1|0];d=s+t|0;u=r+d|0;p[f+16>>2]=m-u<<2;p[f>>2]=(m+u<<2)+ -4096;e=k-e|0;k=d-r|0;d=v(e+k|0,4433)+1024|0;p[f+24>>2]=d+v(k,-15137)>>11;p[f+8>>2]=d+v(e,6270)>>11;d=g-h|0;h=j-i|0;g=v(d+h|0,-7373);e=t-s|0;k=e+d|0;i=o-n|0;m=i+h|0;j=v(k+m|0,9633)+1024|0;n=g+v(d,2446)|0;d=j+v(k,-16069)|0;p[f+28>>2]=n+d>>11;j=j+v(m,-3196)|0;k=v(i,16819);i=v(e+i|0,-20995);p[f+20>>2]=j+(k+i|0)>>11;p[f+12>>2]=d+(i+v(e,25172)|0)>>11;p[f+4>>2]=j+(g+v(h,12299)|0)>>11;f=f+32|0;l=l+1|0;if((l|0)!=8){continue}break}b=7;while(1){f=p[a+224>>2];d=p[a>>2];c=f+d|0;l=p[a+128>>2];h=p[a+96>>2];g=l+h|0;e=(c+g|0)+2|0;i=p[a+160>>2];j=p[a+64>>2];k=i+j|0;m=p[a+192>>2];n=p[a+32>>2];o=m+n|0;r=k+o|0;p[a+128>>2]=e-r>>2;p[a>>2]=e+r>>2;g=c-g|0;e=o-k|0;c=v(g+e|0,4433)+16384|0;p[a+192>>2]=c+v(e,-15137)>>15;p[a+64>>2]=c+v(g,6270)>>15;c=h-l|0;f=d-f|0;d=v(c+f|0,-7373);l=n-m|0;e=l+c|0;h=j-i|0;i=h+f|0;g=v(e+i|0,9633)+16384|0;j=d+v(c,2446)|0;c=g+v(e,-16069)|0;p[a+224>>2]=j+c>>15;g=g+v(i,-3196)|0;e=v(h,16819);h=v(h+l|0,-20995);p[a+160>>2]=g+(e+h|0)>>15;p[a+96>>2]=c+(h+v(l,25172)|0)>>15;p[a+32>>2]=g+(d+v(f,12299)|0)>>15;c=b;b=c+ -1|0;a=a+4|0;if(c){continue}break}}function nc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0;n=Z+ -64|0;Z=n;d=uh(a,0,256);while(1){a:{h=d;d=p[(i<<2)+b>>2]+c|0;e=q[d+3|0];f=q[d+1|0];g=e+f|0;j=q[d+4|0];k=q[d|0];l=j+k|0;m=g+l|0;d=q[d+2|0];p[h>>2]=(m+d<<2)+ -2560;g=v(l-g|0,6476)+1024|0;d=v(m-(d<<2)|0,2896);p[h+16>>2]=g-d>>11;p[h+8>>2]=d+g>>11;e=f-e|0;f=k-j|0;d=v(e+f|0,6810)+1024|0;p[h+12>>2]=d+v(e,-17828)>>11;p[h+4>>2]=d+v(f,4209)>>11;e=i+ -7|0;i=i+1|0;d=n;b:{switch(e|0){case 0:continue;case 2:break a;default:break b}}d=h+32|0;continue}break}while(1){i=p[a+192>>2];e=p[a+96>>2];b=i+e|0;h=p[d>>2];f=p[a+32>>2];c=h+f|0;g=b+c|0;j=p[a+224>>2];k=p[a+64>>2];l=j+k|0;m=l<<1;o=p[a+160>>2];r=p[a+128>>2];s=o+r|0;t=p[d+32>>2];u=p[a>>2];w=t+u|0;x=s+w|0;p[a+128>>2]=(v(g-m|0,-4582)+v(x-m|0,11997)|0)+16384>>15;p[a>>2]=v((g+l|0)+x|0,10486)+16384>>15;g=w-s|0;c=c-b|0;b=v(g+c|0,8716)+16384|0;p[a+192>>2]=b+v(c,-22820)>>15;p[a+64>>2]=b+v(g,5387)>>15;b=r-o|0;c=u-t|0;g=b+c|0;h=f-h|0;i=e-i|0;e=h-i|0;f=k-j|0;p[a+160>>2]=v(g-(e+f|0)|0,10486)+16384>>15;j=(v(c-b|0,9973)+v(h+i|0,-6163)|0)+16384|0;f=v(f,10486);e=(v(e,5243)-f|0)+v(e+g|0,3240)|0;p[a+224>>2]=j-e>>15;p[a+96>>2]=e+j>>15;p[a+32>>2]=(((f+(v(c,14647)+v(h,13213)|0)|0)+v(i,6732)|0)+v(b,2320)|0)+16384>>15;d=d+4|0;a=a+4|0;y=y+1|0;if((y|0)!=5){continue}break}Z=n- -64|0}function Hb(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0;g=v(p[b+36>>2],p[b+28>>2]);b=p[a+276>>2];a:{if((b|0)<-1){break a}l=p[a+28>>2];f=(g<<1)-l|0;if((f|0)<1){break a}e=c+ -4|0;h=b+1|0;b=0;while(1){i=l+p[e+(b<<2)>>2]|0;uh(i,q[i+ -1|0],f);i=(b|0)!=(h|0);b=b+1|0;if(i){continue}break}b=p[a+276>>2]}if((b|0)>=1){b=p[a+228>>2];o=b<<4;r=v(b,-80)+16384|0;l=g+ -2|0;i=0;while(1){b=i<<2;g=p[(b|4)+c>>2];e=b+c|0;b=p[e>>2];h=q[g|0]+q[b|0]|0;j=p[(s<<2)+d>>2];i=i+2|0;f=p[(i<<2)+c>>2];k=q[f|0];e=p[e+ -4>>2];m=q[e|0];n[j|0]=(v(q[g+1|0]+(h+q[b+1|0]|0)|0,r)+v((((k+m|0)+q[e+2|0]|0)+q[f+2|0]|0)+(q[g+2|0]+(q[b+2|0]+(q[f+1|0]+(k+(q[e+1|0]+(h+m|0)|0)|0)|0)|0)<<1)|0,o)|0)+32768>>>16;j=j+1|0;b=b+2|0;f=f+2|0;e=e+2|0;h=g+2|0;g=l;if(g){while(1){n[j|0]=(v(q[h+1|0]+(q[h|0]+(q[b+1|0]+q[b|0]|0)|0)|0,r)+v(q[f+2|0]+(q[f+ -1|0]+((q[e+2|0]+q[e+ -1|0]|0)+(q[h+2|0]+(q[h+ -1|0]+(q[b+2|0]+(q[b+ -1|0]+(q[f+1|0]+(q[f|0]+(q[e+1|0]+q[e|0]|0)|0)|0)|0)|0)|0)<<1)|0)|0)|0,o)|0)+32768>>>16;j=j+1|0;f=f+2|0;e=e+2|0;h=h+2|0;b=b+2|0;g=g+ -1|0;if(g){continue}break}}m=j;g=q[h+1|0]+q[b+1|0]|0;j=q[f+1|0];k=q[e+1|0];n[m|0]=(v(q[h|0]+(g+q[b|0]|0)|0,r)+v((q[f+ -1|0]+(q[e+ -1|0]+(j+k|0)|0)|0)+(q[h+ -1|0]+(q[b+ -1|0]+(j+(q[f|0]+(k+(g+q[e|0]|0)|0)|0)|0)|0)<<1)|0,o)|0)+32768>>>16;s=s+1|0;if((i|0)<p[a+276>>2]){continue}break}}}function Mb(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;var h=0,i=0,j=0,k=0,l=0,n=0,o=0,q=0,r=0,t=0;a:{if(s[f>>2]>=g>>>0){break a}q=v(p[a+276>>2],3);j=p[a+400>>2];r=j+8|0;while(1){b:{c:{d:{h=p[c>>2];if(h>>>0<d>>>0){i=p[j+52>>2];l=p[j+60>>2]-i|0;k=d-h|0;l=l>>>0<k>>>0?l:k;m[p[p[a+412>>2]+4>>2]](a,(h<<2)+b|0,r,i,l);e:{if(p[j+48>>2]!=p[a+32>>2]){break e}i=p[a+76>>2];if((i|0)<1){break e}h=p[a+276>>2];k=0;while(1){if((h|0)>=1){n=((k<<2)+j|0)+8|0;i=1;while(1){h=p[n>>2];Sa(h,0,h,0-i|0,1,p[a+28>>2]);h=p[a+276>>2];o=(i|0)<(h|0);i=i+1|0;if(o){continue}break}i=p[a+76>>2]}k=k+1|0;if((k|0)<(i|0)){continue}break}}p[c>>2]=l+p[c>>2];i=l+p[j+52>>2]|0;p[j+52>>2]=i;p[j+48>>2]=p[j+48>>2]-l;h=p[j+60>>2];break d}if(p[j+48>>2]){break a}i=p[j+52>>2];h=p[j+60>>2];if((i|0)>=(h|0)){break d}k=0;l=j;n=p[a+76>>2];if((n|0)>=1){while(1){if((i|0)<(h|0)){n=p[((k<<2)+j|0)+8>>2];o=p[a+28>>2];t=i+ -1|0;while(1){Sa(n,t,n,i,1,o);i=i+1|0;if((h|0)!=(i|0)){continue}break}n=p[a+76>>2]}k=k+1|0;if((k|0)<(n|0)){h=p[j+60>>2];i=p[j+52>>2];continue}break}h=p[j+60>>2]}p[l+52>>2]=h;break c}if((i|0)!=(h|0)){break b}}m[p[p[a+416>>2]+4>>2]](a,r,p[j+56>>2],e,p[f>>2]);p[f>>2]=p[f>>2]+1;i=p[a+276>>2];h=i+p[j+56>>2]|0;p[j+56>>2]=(h|0)<(q|0)?h:0;l=j;h=p[j+52>>2];if((h|0)>=(q|0)){p[j+52>>2]=0;h=0}p[l+60>>2]=i+h}if(s[f>>2]<g>>>0){continue}break}}}function ib(a){a=a|0;var b=0,c=0,d=0,e=0;b=p[a+20>>2];if((b|0)!=100){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}if(!p[a+84>>2]){d=a,e=m[p[p[a+4>>2]>>2]](a,0,880)|0,p[d+84>>2]=e}p[a+72>>2]=8;p[a+56>>2]=1;p[a+60>>2]=1;gb(a,50,1);if(p[a+120>>2]){ua(a,1,0)}if(p[a+136>>2]){ua(a,0,0)}if(p[a+124>>2]){ua(a,1,1)}if(p[a+140>>2]){ua(a,0,1)}p[a+208>>2]=0;p[a+200>>2]=0;p[a+204>>2]=0;p[a+228>>2]=0;p[a+232>>2]=0;p[a+224>>2]=1;p[a+216>>2]=0;p[a+220>>2]=0;o[a+248>>1]=257;p[a+252>>2]=65537;p[a+260>>2]=0;n[a+250|0]=0;n[a+160|0]=0;n[a+161|0]=0;n[a+162|0]=0;n[a+163|0]=0;n[a+164|0]=0;n[a+165|0]=0;n[a+166|0]=0;n[a+167|0]=0;n[a+152|0]=0;n[a+153|0]=0;n[a+154|0]=0;n[a+155|0]=0;n[a+156|0]=0;n[a+157|0]=0;n[a+158|0]=0;n[a+159|0]=0;n[a+168|0]=16843009;n[a+169|0]=65793;n[a+170|0]=257;n[a+171|0]=1;n[a+172|0]=16843009;n[a+173|0]=65793;n[a+174|0]=257;n[a+175|0]=1;n[a+176|0]=16843009;n[a+177|0]=65793;n[a+178|0]=257;n[a+179|0]=1;n[a+180|0]=16843009;n[a+181|0]=65793;n[a+182|0]=257;n[a+183|0]=1;n[a+184|0]=84215045;n[a+185|0]=328965;n[a+186|0]=1285;n[a+187|0]=5;n[a+188|0]=84215045;n[a+189|0]=328965;n[a+190|0]=1285;n[a+191|0]=5;n[a+192|0]=84215045;n[a+193|0]=328965;n[a+194|0]=1285;n[a+195|0]=5;n[a+196|0]=84215045;n[a+197|0]=328965;n[a+198|0]=1285;n[a+199|0]=5;p[a+236>>2]=0;p[a+240>>2]=0;p[a+212>>2]=p[a+72>>2]>8;jb(a)}function Pd(a,b){a=a|0;b=b|0;var c=0,d=0,e=0;d=p[a+484>>2];c=p[d+24>>2];a:{b:{e=d;c:{if(!p[a+88>>2]){if(b){break b}b=133;break c}p[a+88>>2]=2;if(b){break b}b=134}p[e+4>>2]=b;p[d+8>>2]=135;b=p[a+132>>2];d:{if((b|0)<=0){b=p[a>>2];p[b+20>>2]=58;p[b+24>>2]=1;m[p[p[a>>2]>>2]](a);break d}if((b|0)<257){break d}b=p[a>>2];p[b+20>>2]=59;p[b+24>>2]=256;m[p[p[a>>2]>>2]](a)}if(p[a+88>>2]!=2){break a}b=v(p[a+112>>2],6)+12|0;e=p[d+32>>2];if(!e){e=m[p[p[a+4>>2]+4>>2]](a,1,b)|0;p[d+32>>2]=e}uh(e,0,b);if(!p[d+40>>2]){Qd(a)}p[d+36>>2]=0;break a}p[d+28>>2]=1;p[d+8>>2]=136;p[d+4>>2]=137}if(p[d+28>>2]){uh(p[c>>2],0,4096);uh(p[c+4>>2],0,4096);uh(p[c+8>>2],0,4096);uh(p[c+12>>2],0,4096);uh(p[c+16>>2],0,4096);uh(p[c+20>>2],0,4096);uh(p[c+24>>2],0,4096);uh(p[c+28>>2],0,4096);uh(p[c+32>>2],0,4096);uh(p[c+36>>2],0,4096);uh(p[c+40>>2],0,4096);uh(p[c+44>>2],0,4096);uh(p[c+48>>2],0,4096);uh(p[c+52>>2],0,4096);uh(p[c+56>>2],0,4096);uh(p[c+60>>2],0,4096);uh(p[c+64>>2],0,4096);uh(p[c+68>>2],0,4096);uh(p[c+72>>2],0,4096);uh(p[c+76>>2],0,4096);uh(p[c+80>>2],0,4096);uh(p[c+84>>2],0,4096);uh(p[c+88>>2],0,4096);uh(p[c+92>>2],0,4096);uh(p[c+96>>2],0,4096);uh(p[c+100>>2],0,4096);uh(p[c+104>>2],0,4096);uh(p[c+108>>2],0,4096);uh(p[c+112>>2],0,4096);uh(p[c+116>>2],0,4096);uh(p[c+120>>2],0,4096);uh(p[c+124>>2],0,4096);p[d+28>>2]=0}}function Pb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0;f=uh(a,0,256);while(1){d=p[(j<<2)+b>>2]+c|0;k=q[d+5|0];l=q[d+1|0];h=k+l|0;i=q[d+3|0];g=q[d+4|0];m=q[d+2|0];e=g+m|0;o=q[d+6|0];r=q[d|0];d=o+r|0;n=e+d|0;p[f>>2]=((h+i|0)+n<<2)+ -3584;n=v(n-(i<<2)|0,2896);s=v(d-h|0,7223)+1024|0;d=v(d-e|0,7542);p[f+24>>2]=n+(s-d|0)>>11;e=v(h-e|0,2578);p[f+16>>2]=(e+s|0)+v(h-(i<<1)|0,-5793)>>11;p[f+8>>2]=(n+(d+e|0)|0)+1024>>11;d=m-g|0;h=r-o|0;i=v(d+h|0,5027)+1024|0;g=i+v(d,15326)|0;e=d;d=l-k|0;e=v(e+d|0,-11295);p[f+20>>2]=g+e>>11;g=e;e=v(h-d|0,1395);d=v(d+h|0,7663);p[f+12>>2]=((g+e|0)+d|0)+1024>>11;p[f+4>>2]=d+(i-e|0)>>11;f=f+32|0;j=j+1|0;if((j|0)!=7){continue}break}while(1){i=p[a+128>>2];e=p[a+64>>2];f=i+e|0;k=p[a+192>>2];l=p[a>>2];d=k+l|0;g=f+d|0;c=p[a+96>>2];h=p[a+160>>2];j=p[a+32>>2];b=h+j|0;p[a>>2]=v(g+(c+b|0)|0,10700)+16384>>15;g=v(g-(c<<2)|0,3783);m=v(d-b|0,9434)+16384|0;d=v(d-f|0,9850);p[a+192>>2]=g+(m-d|0)>>15;f=v(b-f|0,3367);p[a+128>>2]=(f+m|0)+v(b-(c<<1)|0,-7566)>>15;p[a+64>>2]=(g+(d+f|0)|0)+16384>>15;b=e-i|0;c=l-k|0;f=v(b+c|0,6565)+16384|0;e=f+v(b,20017)|0;d=b;b=j-h|0;d=v(d+b|0,-14752);p[a+160>>2]=e+d>>15;e=d;d=v(c-b|0,1822);b=v(b+c|0,10009);p[a+96>>2]=((e+d|0)+b|0)+16384>>15;p[a+32>>2]=b+(f-d|0)>>15;a=a+4|0;t=t+1|0;if((t|0)!=7){continue}break}}function pf(a){var b=0,c=0,d=0,e=0,f=0;c=p[a+468>>2];if(!(m[p[p[a+464>>2]+8>>2]](a)|0)){b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if(p[a+340>>2]>=1){while(1){e=d<<2;f=p[(e+a|0)+344>>2];a:{b:{if(p[a+224>>2]){if(p[a+412>>2]){break b}if(p[a+420>>2]){break a}}b=p[((p[f+20>>2]<<2)+c|0)+60>>2];n[b|0]=0;n[b+1|0]=0;n[b+2|0]=0;n[b+3|0]=0;n[b+4|0]=0;n[b+5|0]=0;n[b+6|0]=0;n[b+7|0]=0;n[b+56|0]=0;n[b+57|0]=0;n[b+58|0]=0;n[b+59|0]=0;n[b+60|0]=0;n[b+61|0]=0;n[b+62|0]=0;n[b+63|0]=0;n[b+48|0]=0;n[b+49|0]=0;n[b+50|0]=0;n[b+51|0]=0;n[b+52|0]=0;n[b+53|0]=0;n[b+54|0]=0;n[b+55|0]=0;n[b+40|0]=0;n[b+41|0]=0;n[b+42|0]=0;n[b+43|0]=0;n[b+44|0]=0;n[b+45|0]=0;n[b+46|0]=0;n[b+47|0]=0;n[b+32|0]=0;n[b+33|0]=0;n[b+34|0]=0;n[b+35|0]=0;n[b+36|0]=0;n[b+37|0]=0;n[b+38|0]=0;n[b+39|0]=0;n[b+24|0]=0;n[b+25|0]=0;n[b+26|0]=0;n[b+27|0]=0;n[b+28|0]=0;n[b+29|0]=0;n[b+30|0]=0;n[b+31|0]=0;n[b+16|0]=0;n[b+17|0]=0;n[b+18|0]=0;n[b+19|0]=0;n[b+20|0]=0;n[b+21|0]=0;n[b+22|0]=0;n[b+23|0]=0;n[b+8|0]=0;n[b+9|0]=0;n[b+10|0]=0;n[b+11|0]=0;n[b+12|0]=0;n[b+13|0]=0;n[b+14|0]=0;n[b+15|0]=0;b=c+e|0;p[b+40>>2]=0;p[b+24>>2]=0;if(!p[a+224>>2]){if(p[a+436>>2]){break b}break a}if(!p[a+412>>2]){break a}}uh(p[((p[f+24>>2]<<2)+c|0)+124>>2],0,256)}d=d+1|0;if((d|0)<p[a+340>>2]){continue}break}}p[c+20>>2]=-16;p[c+12>>2]=0;p[c+16>>2]=0;p[c+56>>2]=p[a+280>>2]}function Gd(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0;b=p[a+484>>2];p[a+136>>2]=p[b+16>>2];p[a+132>>2]=p[b+20>>2];a:{b:{switch(p[a+88>>2]){case 0:if(p[a+120>>2]==3){p[b+4>>2]=126;return}p[b+4>>2]=127;return;case 1:c=p[a+120>>2];p[b+48>>2]=0;p[b+4>>2]=(c|0)==3?128:129;if(!p[b+28>>2]){Hd(a)}if(p[b+52>>2]){break a}b=p[a+120>>2];if((b|0)<1){break a}g=p[a+484>>2];while(1){h=(e<<2)+g|0;f=p[h+32>>2];c=0;c:{d:{if(!e){break d}while(1){d=(c<<2)+g|0;if((f|0)!=p[d+32>>2]){c=c+1|0;if((e|0)!=(c|0)){continue}break d}break}d=p[d+52>>2];if(d){break c}}f=(f<<9)+ -512|0;b=0;d=m[p[p[a+4>>2]>>2]](a,1,1024)|0;while(1){c=0;while(1){p[((b<<6)+d|0)+(c<<2)>>2]=(v(q[((b<<4)+8848|0)+c|0],-510)+65025|0)/(f|0);c=c+1|0;if((c|0)!=16){continue}break}b=b+1|0;if((b|0)!=16){continue}break}b=p[a+120>>2]}p[h+52>>2]=d;e=e+1|0;if((e|0)<(b|0)){continue}break}break a;case 2:p[b+84>>2]=0;p[b+4>>2]=130;e:{if(p[b+68>>2]){d=p[a+120>>2];break e}if(p[a+120>>2]<1){break a}e=(p[a+112>>2]<<1)+4|0;while(1){i=b+(c<<2)|0,j=m[p[p[a+4>>2]+4>>2]](a,1,e)|0,p[i+68>>2]=j;c=c+1|0;d=p[a+120>>2];if((c|0)<(d|0)){continue}break}}if((d|0)<1){break a}d=(p[a+112>>2]<<1)+4|0;c=0;while(1){uh(p[(b+(c<<2)|0)+68>>2],0,d);c=c+1|0;if((c|0)<p[a+120>>2]){continue}break}break a;default:break b}}b=p[a>>2];p[b+20>>2]=49;m[p[b>>2]](a)}}function Nb(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;var h=0,i=0,j=0,k=0,l=0,n=0,o=0,q=0,r=0;a:{h=p[c>>2];if(h>>>0>=d>>>0){break a}k=p[a+400>>2];o=k+8|0;while(1){if(s[f>>2]>=g>>>0){break a}l=p[k+52>>2];i=p[a+276>>2]-l|0;j=d-h|0;i=i>>>0<j>>>0?i:j;m[p[p[a+412>>2]+4>>2]](a,(h<<2)+b|0,o,l,i);p[c>>2]=i+p[c>>2];h=i+p[k+52>>2]|0;p[k+52>>2]=h;l=p[k+48>>2]-i|0;p[k+48>>2]=l;i=p[a+276>>2];b:{c:{if(!((h|0)>=(i|0)|l)){j=0;l=k;n=p[a+76>>2];if((n|0)>=1){while(1){if((h|0)<(i|0)){n=p[(k+(j<<2)|0)+8>>2];q=p[a+28>>2];r=h+ -1|0;while(1){Sa(n,r,n,h,1,q);h=h+1|0;if((i|0)!=(h|0)){continue}break}n=p[a+76>>2]}j=j+1|0;if((j|0)<(n|0)){i=p[a+276>>2];h=p[k+52>>2];continue}break}i=p[a+276>>2]}p[l+52>>2]=i;break c}if((h|0)!=(i|0)){break b}}m[p[p[a+416>>2]+4>>2]](a,o,0,e,p[f>>2]);p[k+52>>2]=0;p[f>>2]=p[f>>2]+1}d:{if(p[k+48>>2]){break d}h=p[f>>2];if(h>>>0>=g>>>0){break d}e:{c=p[a+76>>2];if((c|0)<1){break e}j=p[a+84>>2];b=0;while(1){d=(v(p[j+40>>2],p[j+12>>2])|0)/p[a+284>>2]|0;h=v(d,h);d=v(d,g);if((h|0)<(d|0)){k=v(p[j+36>>2],p[j+28>>2]);c=p[(b<<2)+e>>2];i=h+ -1|0;while(1){Sa(c,i,c,h,1,k);h=h+1|0;if((d|0)!=(h|0)){continue}break}c=p[a+76>>2]}b=b+1|0;if((b|0)>=(c|0)){break e}j=j+88|0;h=p[f>>2];continue}}p[f>>2]=g;return}h=p[c>>2];if(h>>>0<d>>>0){continue}break}}}function Sd(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0,I=0,J=0,K=0,L=0,M=0,N=0,O=0,P=0,Q=0,R=0,S=0,T=0;if((d|0)>=1){A=p[a+336>>2];e=p[a+136>>2];L=p[e+8>>2];M=p[e+4>>2];N=p[e>>2];k=p[a+484>>2];B=p[k+40>>2];O=p[k+24>>2];u=p[a+112>>2];P=u+ -1|0;e=v(u,3);Q=e+ -3|0;R=e+3<<1;while(1){e=C<<2;l=p[e+c>>2];i=p[b+e>>2];a:{if(p[k+36>>2]){l=l+P|0;i=i+Q|0;m=-3;E=-1;f=0;e=p[k+32>>2]+R|0;break a}m=3;f=1;E=1;e=p[k+32>>2]}p[k+36>>2]=f;b:{if(!u){w=0;x=0;y=0;break b}S=m+2|0;T=m+1|0;s=0;j=0;t=0;F=0;G=0;H=0;y=0;x=0;w=0;D=u;f=e;while(1){h=l;e=(m<<1)+f|0;s=q[(p[((o[e>>1]+s|0)+8>>4<<2)+B>>2]+q[i|0]|0)+A|0];z=s>>>3|0;j=q[(p[((o[(T<<1)+f>>1]+j|0)+8>>4<<2)+B>>2]+q[i+1|0]|0)+A|0];I=j>>>2|0;t=q[(p[((o[(S<<1)+f>>1]+t|0)+8>>4<<2)+B>>2]+q[i+2|0]|0)+A|0];J=t>>>3|0;K=(p[(z<<2)+O>>2]+(I<<6)|0)+(J<<1)|0;g=r[K>>1];if(!g){Wd(a,z,I,J);g=r[K>>1]}g=(g&65535)+ -1|0;n[h|0]=g;z=q[g+N|0];h=q[g+M|0];g=t-q[g+L|0]|0;o[f+4>>1]=v(g,3)+w;h=j-h|0;o[f+2>>1]=v(h,3)+x;j=f;f=s-z|0;o[j>>1]=v(f,3)+y;l=l+E|0;i=i+m|0;t=v(g,7);j=v(h,7);s=v(f,7);w=v(g,5)+H|0;x=v(h,5)+G|0;y=v(f,5)+F|0;F=f;G=h;H=g;f=e;D=D+ -1|0;if(D){continue}break}}o[e+4>>1]=w;o[e+2>>1]=x;o[e>>1]=y;C=C+1|0;if((C|0)!=(d|0)){continue}break}}}function Hf(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,o=0,q=0,r=0,s=0,t=0;h=Z-16|0;Z=h;c=p[a+452>>2];if(p[a+340>>2]>=1){while(1){e=b<<2;f=p[(e+a|0)+344>>2];d=p[f+12>>2];s=e+h|0,t=m[p[p[a+4>>2]+32>>2]](a,p[((p[f+4>>2]<<2)+c|0)+72>>2],v(d,p[a+148>>2]),d,1)|0,p[s>>2]=t;b=b+1|0;if((b|0)<p[a+340>>2]){continue}break}}f=p[c+24>>2];d=p[c+28>>2];a:{if((f|0)<(d|0)){o=c+32|0;b=p[a+360>>2];e=p[c+20>>2];while(1){if(e>>>0<b>>>0){while(1){i=0;d=0;l=p[a+340>>2];if((l|0)>=1){while(1){b=i<<2;g=p[(b+a|0)+344>>2];n=p[g+60>>2];if((n|0)>=1){j=p[g+56>>2];q=v(j,e);r=p[b+h>>2];g=0;while(1){if((j|0)>=1){b=p[(f+g<<2)+r>>2]+(q<<7)|0;k=0;while(1){p[((d<<2)+c|0)+32>>2]=b;d=d+1|0;b=b+128|0;k=k+1|0;if((j|0)!=(k|0)){continue}break}}g=g+1|0;if((n|0)!=(g|0)){continue}break}}i=i+1|0;if((l|0)!=(i|0)){continue}break}}if(!(m[p[p[a+468>>2]+4>>2]](a,o)|0)){p[c+20>>2]=e;p[c+24>>2]=f;a=0;break a}e=e+1|0;b=p[a+360>>2];if(e>>>0<b>>>0){continue}break}d=p[c+28>>2]}e=0;p[c+20>>2]=0;f=f+1|0;if((f|0)<(d|0)){continue}break}}d=1;b=p[a+148>>2]+1|0;p[a+148>>2]=b;e=p[a+332>>2];if(b>>>0<e>>>0){c=p[a+452>>2];d=p[a+340>>2]<=1?p[p[a+344>>2]+(b>>>0<e+ -1>>>0?12:76)>>2]:d;p[c+20>>2]=0;p[c+24>>2]=0;p[c+28>>2]=d;a=3;break a}m[p[p[a+460>>2]+12>>2]](a);a=4}Z=h+16|0;return a|0}function ua(a,b,c){var d=0,e=0,f=0,g=0,h=0;a:{if(p[a+16>>2]){d=a+180|0;if(b){break a}d=a+196|0;break a}d=a+120|0;if(b){break a}d=a+136|0}b:{c:{d:{switch(c|0){case 0:if(!b){break c}f=1073;b=1024;break b;case 1:if(b){f=1073;b=1056;break b}f=1328;b=1296;break b;default:break d}}b=p[a>>2];p[b+24>>2]=c;p[b+20>>2]=52;m[p[p[a>>2]>>2]](a);return 0}f=1120;b=1088}d=d+(c<<2)|0;c=p[d>>2];if(!c){c=m[p[p[a+4>>2]>>2]](a,0,280)|0;p[c+276>>2]=0;p[d>>2]=c}d=q[b+4|0]|q[b+5|0]<<8|(q[b+6|0]<<16|q[b+7|0]<<24);e=q[b|0]|q[b+1|0]<<8|(q[b+2|0]<<16|q[b+3|0]<<24);n[c|0]=e;n[c+1|0]=e>>>8;n[c+2|0]=e>>>16;n[c+3|0]=e>>>24;n[c+4|0]=d;n[c+5|0]=d>>>8;n[c+6|0]=d>>>16;n[c+7|0]=d>>>24;h=q[b+16|0];n[c+16|0]=h;e=b+8|0;d=q[e+4|0]|q[e+5|0]<<8|(q[e+6|0]<<16|q[e+7|0]<<24);g=q[e|0]|q[e+1|0]<<8|(q[e+2|0]<<16|q[e+3|0]<<24);n[c+8|0]=g;n[c+9|0]=g>>>8;n[c+10|0]=g>>>16;n[c+11|0]=g>>>24;n[c+12|0]=d;n[c+13|0]=d>>>8;n[c+14|0]=d>>>16;n[c+15|0]=d>>>24;b=h+(q[b+15|0]+(q[b+14|0]+(q[b+13|0]+(q[b+12|0]+(q[b+11|0]+(q[b+10|0]+(q[b+9|0]+(q[e|0]+(q[b+7|0]+(q[b+6|0]+(q[b+5|0]+(q[b+4|0]+(q[b+3|0]+(q[b+1|0]+q[b+2|0]|0)|0)|0)|0)|0)|0)|0)|0)|0)|0)|0)|0)|0)|0)|0;e:{f:{if(b>>>0>=257){d=p[a>>2];p[d+20>>2]=9;m[p[d>>2]](a);break f}if(!b){break e}}th(c+17|0,f,b)}p[c+276>>2]=0;return c}function Te(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0;u=p[a+336>>2];b=p[b+84>>2];f=Z-128|0;a=f;while(1){j=v(p[b+96>>2],o[c+48>>1]);g=v(p[b+32>>2],o[c+16>>1]);i=v(j+g|0,4433)+1024|0;k=v(p[b+64>>2],o[c+32>>1]);l=v(p[b>>2],o[c>>1]);h=k+l<<2;g=i+v(g,6270)>>11;p[a+96>>2]=h-g;p[a>>2]=g+h;g=l-k<<2;i=i+v(j,-15137)>>11;p[a+64>>2]=g-i;p[a+32>>2]=g+i;a=a+4|0;b=b+4|0;c=c+2|0;m=m+1|0;if((m|0)!=8){continue}break}a=u+ -384|0;m=0;c=f;while(1){f=p[c+4>>2];i=p[c+28>>2];u=v(f+i|0,-7373);j=p[c+20>>2];h=j+f|0;g=p[c+12>>2];r=g+i|0;k=v(h+r|0,9633);s=p[c+24>>2];t=p[c+8>>2];l=v(s+t|0,4433);b=p[(m<<2)+d>>2]+e|0;w=p[c>>2]+16400|0;x=p[c+16>>2];y=w+x<<13;t=l+v(t,6270)|0;z=y+t|0;A=u+v(f,12299)|0;f=k+v(h,-3196)|0;h=A+f|0;n[b|0]=q[a+(z+h>>>18&1023)|0];n[b+7|0]=q[a+(z-h>>>18&1023)|0];k=k+v(r,-16069)|0;h=v(g,25172);g=v(g+j|0,-20995);h=k+(h+g|0)|0;l=l+v(s,-15137)|0;r=w-x<<13;s=l+r|0;n[b+1|0]=q[a+(h+s>>>18&1023)|0];n[b+6|0]=q[a+(s-h>>>18&1023)|0];f=f+(g+v(j,16819)|0)|0;j=r-l|0;n[b+2|0]=q[a+(f+j>>>18&1023)|0];n[b+5|0]=q[a+(j-f>>>18&1023)|0];f=k+(u+v(i,2446)|0)|0;i=y-t|0;n[b+3|0]=q[a+(f+i>>>18&1023)|0];n[b+4|0]=q[a+(i-f>>>18&1023)|0];c=c+32|0;m=m+1|0;if((m|0)!=4){continue}break}}function Ee(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0;k=p[a+336>>2];g=o[c+16>>1];b=p[b+84>>2];h=p[b+32>>2];a=Z-48|0;f=v(o[c>>1],p[b>>2])<<13|1024;i=v(v(o[c+32>>1],p[b+64>>2]),5793);p[a+12>>2]=f-(i<<1)>>11;f=f+i|0;g=v(v(g,h),10033);p[a+24>>2]=f-g>>11;i=f+g>>11;p[a>>2]=i;g=v(v(o[c+34>>1],p[b+68>>2]),5793);h=v(o[c+2>>1],p[b+4>>2])<<13|1024;f=g+h|0;j=v(v(o[c+18>>1],p[b+36>>2]),10033);p[a+28>>2]=f-j>>11;l=h-(g<<1)>>11;p[a+16>>2]=l;j=f+j>>11;p[a+4>>2]=j;g=v(v(o[c+20>>1],p[b+40>>2]),10033);h=v(v(o[c+36>>1],p[b+72>>2]),5793);b=v(o[c+4>>1],p[b+8>>2])<<13|1024;f=h+b|0;c=g+f>>11;p[a+8>>2]=c;g=f-g>>11;p[a+32>>2]=g;h=b-(h<<1)>>11;p[a+20>>2]=h;f=p[d>>2]+e|0;b=k+ -384|0;i=(i<<13)+134348800|0;k=i+v(c,5793)|0;j=v(j,10033);n[f|0]=q[b+(k+j>>>18&1023)|0];n[f+2|0]=q[b+(k-j>>>18&1023)|0];n[f+1|0]=q[b+(i+v(c,-11586)>>>18&1023)|0];c=p[d+4>>2]+e|0;f=(p[a+12>>2]<<13)+134348800|0;k=f+v(h,5793)|0;i=v(l,10033);n[c|0]=q[b+(k+i>>>18&1023)|0];n[c+2|0]=q[b+(k-i>>>18&1023)|0];n[c+1|0]=q[b+(f+v(h,-11586)>>>18&1023)|0];c=p[d+8>>2]+e|0;d=(p[a+24>>2]<<13)+134348800|0;e=d+v(g,5793)|0;a=v(p[a+28>>2],10033);n[c|0]=q[b+(e+a>>>18&1023)|0];n[c+2|0]=q[b+(e-a>>>18&1023)|0];n[c+1|0]=q[b+(d+v(g,-11586)>>>18&1023)|0]}function $c(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,o=0,q=0,r=0,t=0,u=0;h=Z-16|0;Z=h;c=p[a+404>>2];f=p[a+292>>2];if((f|0)>=1){b=0;while(1){d=b<<2;e=p[(d+a|0)+296>>2];f=p[e+12>>2];t=d+h|0,u=m[p[p[a+4>>2]+32>>2]](a,p[((p[e+4>>2]<<2)+c|0)- -64>>2],v(f,p[c+8>>2]),f,0)|0,p[t>>2]=u;b=b+1|0;f=p[a+292>>2];if((b|0)<(f|0)){continue}break}}g=p[c+16>>2];e=p[c+20>>2];a:{if((g|0)<(e|0)){o=c+24|0;b=p[a+312>>2];d=p[c+12>>2];while(1){if(d>>>0<b>>>0){while(1){i=0;f=0;l=p[a+292>>2];if((l|0)>=1){while(1){b=i<<2;e=p[(b+a|0)+296>>2];n=p[e+60>>2];if((n|0)>=1){k=p[e+56>>2];q=v(k,d);r=p[b+h>>2];j=0;while(1){if((k|0)>=1){b=p[(g+j<<2)+r>>2]+(q<<7)|0;e=0;while(1){p[((f<<2)+c|0)+24>>2]=b;f=f+1|0;b=b+128|0;e=e+1|0;if((k|0)!=(e|0)){continue}break}}j=j+1|0;if((n|0)!=(j|0)){continue}break}}i=i+1|0;if((l|0)!=(i|0)){continue}break}}if(!(m[p[p[a+424>>2]+4>>2]](a,o)|0)){p[c+12>>2]=d;p[c+16>>2]=g;b=0;break a}d=d+1|0;b=p[a+312>>2];if(d>>>0<b>>>0){continue}break}e=p[c+20>>2]}d=0;p[c+12>>2]=0;g=g+1|0;if((g|0)<(e|0)){continue}break}f=p[a+292>>2]}b=1;p[c+8>>2]=p[c+8>>2]+1;c=p[a+404>>2];d=1;d=(f|0)<=1?p[p[a+296>>2]+(s[c+8>>2]<p[a+288>>2]+ -1>>>0?12:76)>>2]:d;p[c+12>>2]=0;p[c+16>>2]=0;p[c+20>>2]=d}Z=h+16|0;return b|0}function Cc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,r=0;e=p[a+424>>2];if(p[a+236>>2]){c=p[e+68>>2];if(!c){Gc(a,p[e+72>>2]);c=p[a+236>>2];p[e+68>>2]=c;p[e+72>>2]=p[e+72>>2]+1&7}p[e+68>>2]=c+ -1}k=p[b>>2];l=p[a+384>>2];j=p[p[a+296>>2]+24>>2];f=p[a+368>>2];i=f;a:{while(1){b=o[(p[(i<<2)+l>>2]<<1)+k>>1];b:{if((b|0)>=0){if(!(b>>p[a+376>>2])){break b}break a}if(0-b>>p[a+376>>2]){break a}}i=i+ -1|0;if(i){continue}break}i=0}b=p[a+364>>2];c=b+ -1|0;if((b|0)<=(i|0)){n=e+204|0;r=(a+j|0)+184|0;m=((j<<2)+e|0)+140|0;while(1){b=p[m>>2]+v(c,3)|0;Hc(a,b,0);while(1){c:{d:{g=c;c=c+1|0;d=o[(p[(c<<2)+l>>2]<<1)+k>>1];e:{if((d|0)>=0){f=d>>p[a+376>>2];if(!f){break d}d=0;break e}f=0-d>>p[a+376>>2];if(!f){break d}d=1}Hc(a,b+1|0,1);Hc(a,n,d);h=b+2|0;d=f+ -1|0;f:{if(!d){b=0;break f}b=1;Hc(a,h,1);if((d|0)==1){break f}Hc(a,h,1);b=2;h=p[m>>2]+((g|0)<q[r|0]?189:217)|0;g=d>>2;if(!g){break f}while(1){Hc(a,h,1);h=h+1|0;b=b<<1;g=g>>1;if(g){continue}break}}Hc(a,h,0);b=b>>1;if(!b){break c}g=h+14|0;while(1){Hc(a,g,(b&d)!=0);b=b>>1;if(b){continue}break}break c}Hc(a,b+1|0,0);b=b+3|0;continue}break}if((c|0)<(i|0)){continue}break}f=p[a+368>>2]}if((c|0)<(f|0)){Hc(a,p[((j<<2)+e|0)+140>>2]+v(c,3)|0,1)}return 1}function fc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0;uh(a+160|0,0,96);e=a;while(1){d=p[(k<<2)+b>>2]+c|0;f=q[d+4|0];g=q[d+5|0];l=f-g|0;j=q[d|0];n=q[d+9|0];h=j-n|0;u=l+h|0;o=q[d+2|0];w=q[d+7|0];x=o-w|0;r=q[d+1|0];s=q[d+8|0];m=r-s|0;t=q[d+3|0];y=q[d+6|0];d=t-y|0;i=m-d|0;p[e+20>>2]=u-(x+i|0)<<2;f=f+g|0;g=j+n|0;j=f+g|0;t=t+y|0;r=r+s|0;s=t+r|0;o=o+w|0;p[e>>2]=(j+(s+o|0)<<2)+ -5120;n=o<<1;p[e+16>>2]=(v(s-n|0,-3580)+v(j-n|0,9373)|0)+1024>>11;g=g-f|0;j=r-t|0;f=v(g+j|0,6810)+1024|0;p[e+24>>2]=f+v(j,-17828)>>11;p[e+8>>2]=f+v(g,4209)>>11;f=(v(h-l|0,7791)+v(d+m|0,-4815)|0)+1024|0;g=x<<13;i=((i<<12)-g|0)+v(i+u|0,2531)|0;p[e+28>>2]=f-i>>11;p[e+12>>2]=f+i>>11;p[e+4>>2]=(((g+(v(h,11443)+v(m,10323)|0)|0)+v(d,5260)|0)+v(l,1812)|0)+1024>>11;e=e+32|0;k=k+1|0;if((k|0)!=5){continue}break}e=7;while(1){b=p[a+128>>2];c=p[a>>2];d=b+c|0;k=p[a+96>>2];l=p[a+32>>2];h=k+l|0;m=v(d-h|0,8290)+16384|0;d=d+h|0;h=p[a+64>>2];i=v(d-(h<<2)|0,3707);p[a+128>>2]=m-i>>15;p[a+64>>2]=i+m>>15;p[a>>2]=v(d+h|0,10486)+16384>>15;d=l-k|0;c=c-b|0;b=v(d+c|0,8716)+16384|0;p[a+96>>2]=b+v(d,-22820)>>15;p[a+32>>2]=b+v(c,5387)>>15;b=e;e=e+ -1|0;a=a+4|0;if(b){continue}break}}function Ec(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;g=p[a+424>>2];if(p[a+236>>2]){c=p[g+68>>2];if(!c){Gc(a,p[g+72>>2]);c=p[a+236>>2];p[g+68>>2]=c;p[g+72>>2]=p[g+72>>2]+1&7}p[g+68>>2]=c+ -1}i=p[b>>2];j=p[a+384>>2];k=p[p[a+296>>2]+24>>2];b=p[a+368>>2];f=b;a:{b:{c:{while(1){d=o[(p[(f<<2)+j>>2]<<1)+i>>1];d:{if((d|0)>=0){if(!(d>>p[a+376>>2])){break d}break c}if(0-d>>p[a+376>>2]){break c}}f=f+ -1|0;if(f){continue}break}f=0;break b}if((f|0)<1){d=f;break a}d=f;while(1){c=o[(p[(d<<2)+j>>2]<<1)+i>>1];e:{if((c|0)>=0){if(!(c>>p[a+372>>2])){break e}break a}if(0-c>>p[a+372>>2]){break a}}c=(d|0)>1;d=d+ -1|0;if(c){continue}break}}d=0}h=p[a+364>>2];c=h+ -1|0;if((h|0)<=(f|0)){h=g+204|0;l=((k<<2)+g|0)+140|0;while(1){b=p[l>>2]+v(c,3)|0;if((c|0)>=(d|0)){Hc(a,b,0)}f:{while(1){g:{h:{c=c+1|0;e=o[(p[(c<<2)+j>>2]<<1)+i>>1];if((e|0)>=0){e=e>>p[a+376>>2];if(!e){break h}if((e|0)==1){break g}Hc(a,b+2|0,e&1);break f}e=0-e>>p[a+376>>2];if(!e){break h}if((e|0)!=1){Hc(a,b+2|0,e&1);break f}Hc(a,b+1|0,1);Hc(a,h,1);break f}Hc(a,b+1|0,0);b=b+3|0;continue}break}Hc(a,b+1|0,1);Hc(a,h,0)}if((c|0)<(f|0)){continue}break}b=p[a+368>>2]}if((c|0)<(b|0)){Hc(a,p[((k<<2)+g|0)+140>>2]+v(c,3)|0,1)}return 1}function Jc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0;d=p[a+424>>2];a:{b:{c:{if(!b){p[d+8>>2]=95;if(p[a+268>>2]){break c}p[d+4>>2]=96;break a}p[d+8>>2]=97;if(!p[a+268>>2]){break b}}p[d+108>>2]=b;p[d+120>>2]=a;c=p[a+364>>2];d:{if(!p[a+372>>2]){if(!c){p[d+4>>2]=98;break d}p[d+4>>2]=99;break d}if(!c){p[d+4>>2]=100;break d}p[d+4>>2]=101;if(p[d+136>>2]){break d}i=d,j=m[p[p[a+4>>2]>>2]](a,1,1e3)|0,p[i+136>>2]=j}c=p[p[a+296>>2]+24>>2];p[d+128>>2]=0;p[d+132>>2]=0;p[d+124>>2]=c;break a}p[d+4>>2]=102}if(p[a+292>>2]>=1){while(1){h=g<<2;e=p[(h+a|0)+296>>2];if(!(p[a+364>>2]|p[a+372>>2])){c=p[e+20>>2];e:{if(b){if(c>>>0>=4){f=p[a>>2];p[f+24>>2]=c;p[f+20>>2]=52;m[p[p[a>>2]>>2]](a)}f=((c<<2)+d|0)+76|0;c=p[f>>2];if(!c){c=m[p[p[a+4>>2]>>2]](a,1,1028)|0;p[f>>2]=c}uh(c,0,1028);break e}Sc(a,1,c,((c<<2)+d|0)+44|0)}p[(d+h|0)+20>>2]=0}f:{if(!p[a+368>>2]){break f}c=p[e+24>>2];if(b){if(c>>>0>=4){e=p[a>>2];p[e+24>>2]=c;p[e+20>>2]=52;m[p[p[a>>2]>>2]](a)}e=((c<<2)+d|0)+92|0;c=p[e>>2];if(!c){c=m[p[p[a+4>>2]>>2]](a,1,1028)|0;p[e>>2]=c}uh(c,0,1028);break f}Sc(a,0,c,((c<<2)+d|0)+60|0)}g=g+1|0;if((g|0)<p[a+292>>2]){continue}break}}p[d+12>>2]=0;p[d+16>>2]=0;a=p[a+236>>2];p[d+40>>2]=0;p[d+36>>2]=a}function od(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,o=0,r=0;d=Z-16|0;Z=d;e=p[a+24>>2];c=p[e+4>>2];a:{if(!c){if(!(m[p[e+12>>2]](a)|0)){c=0;break a}c=p[e+4>>2]}g=p[e>>2];f=q[g|0];c=c+ -1|0;b=g+1|0;b:{if(c){break b}if(!(m[p[e+12>>2]](a)|0)){c=0;break a}c=p[e+4>>2];b=p[e>>2]}g=b+1|0;c=c+ -1|0;b=q[b|0]|f<<8;f=b+ -2|0;b=b>>>0>15?14:f>>>0>b>>>0?0:f;if(b){while(1){if(!c){if(!(m[p[e+12>>2]](a)|0)){c=0;break a}g=p[e>>2];c=p[e+4>>2]}n[(d+2|0)+h|0]=q[g|0];g=g+1|0;c=c+ -1|0;h=h+1|0;if((b|0)!=(h|0)){continue}break}}h=f-b|0;c:{d:{e:{i=p[a+440>>2];j=i+ -224|0;if(j){if((j|0)==14){break e}else{break d}}qd(a,d+2|0,b,h);break c}f:{if(q[d+2|0]!=65|b>>>0<12|(q[d+3|0]!=100|q[d+4|0]!=111)){break f}if(q[d+5|0]!=98|q[d+6|0]!=101){break f}i=q[d+8|0];j=q[d+7|0];k=q[d+10|0];l=q[d+9|0];o=q[d+12|0];r=q[d+11|0];f=q[d+13|0];b=p[a>>2];p[b+20>>2]=78;p[b+36>>2]=f;p[b+32>>2]=r<<8|o;p[b+28>>2]=l<<8|k;p[b+24>>2]=i|j<<8;m[p[b+4>>2]](a,1);n[a+300|0]=f;p[a+296>>2]=1;break c}b=p[a>>2];p[b+24>>2]=f;p[b+20>>2]=80;m[p[p[a>>2]+4>>2]](a,1);break c}b=p[a>>2];p[b+24>>2]=i;p[b+20>>2]=70;m[p[p[a>>2]>>2]](a)}p[e+4>>2]=c;p[e>>2]=g;c=1;if((h|0)<1){break a}m[p[p[a+24>>2]+16>>2]](a,h)}Z=d+16|0;return c|0}function Rc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,q=0;g=p[a+424>>2];c=p[a+236>>2];if(c){h=g;d=p[g+36>>2];if(d){c=d}else{if(p[a+292>>2]>=1){c=0;while(1){p[((c<<2)+g|0)+20>>2]=0;c=c+1|0;if((c|0)<p[a+292>>2]){continue}break}c=p[a+236>>2]}p[g+36>>2]=c}p[h+36>>2]=c+ -1}if(p[a+320>>2]>=1){while(1){d=i<<2;e=p[(d+a|0)+324>>2]<<2;c=p[(e+a|0)+296>>2];h=p[((p[c+24>>2]<<2)+g|0)+92>>2];f=p[((p[c+20>>2]<<2)+g|0)+76>>2];q=p[a+384>>2];j=p[a+388>>2];c=0;k=b+d|0;l=p[k>>2];n=(e+g|0)+20|0;e=o[l>>1]-p[n>>2]|0;d=e>>31;d=d^d+e;a:{if(!d){break a}c=32-y(d)|0;if(d>>>0<2048){break a}d=p[a>>2];p[d+20>>2]=6;m[p[d>>2]](a)}c=f+(c<<2)|0;p[c>>2]=p[c>>2]+1;b:{if((j|0)<1){break b}c=0;d=1;while(1){c:{e=o[(p[(d<<2)+q>>2]<<1)+l>>1];d:{if(e){if((c|0)>=16){f=(c-((c|0)<31?c:31)|0)+15|0;p[h+960>>2]=(p[h+960>>2]+(f>>>4|0)|0)+1;c=(c-(f&-16)|0)+ -16|0}f=e;e=e>>31;e=f+e^e;f=33-y(e>>>1|0)|0;if(e>>>0>=1024){e=p[a>>2];p[e+20>>2]=6;m[p[e>>2]](a)}c=(f+(c<<4)<<2)+h|0;p[c>>2]=p[c>>2]+1;c=0;if((d|0)!=(j|0)){break d}break b}if((d|0)==(j|0)){break c}c=c+1|0}d=d+1|0;continue}break}if((c|0)<0){break b}p[h>>2]=p[h>>2]+1}p[n>>2]=o[p[k>>2]>>1];i=i+1|0;if((i|0)<p[a+320>>2]){continue}break}}return 1}function _c(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,q=0,t=0,u=0,w=0,x=0;if(p[a+76>>2]>=1){w=p[a+288>>2]+ -1|0;l=p[a+404>>2];f=p[a+84>>2];while(1){h=n<<2;e=p[f+12>>2];x=m[p[p[a+4>>2]+32>>2]](a,p[(h+l|0)- -64>>2],v(e,p[l+8>>2]),e,1)|0;d=p[l+8>>2];e=p[f+12>>2];a:{if(d>>>0<w>>>0){break a}e=p[f+12>>2];g=s[f+32>>2]%(e>>>0)|0;e=g?g:e}i=p[f+28>>2];g=p[f+8>>2];c=(i>>>0)%(g>>>0)|0;j=(c|0)>0?g-c|0:c;if((e|0)>=1){q=p[(h+p[a+420>>2]|0)+4>>2];t=j<<7;h=b+h|0;d=0;while(1){k=p[(d<<2)+x>>2];m[q|0](a,f,p[h>>2],k,v(p[f+40>>2],d),0,i);if((j|0)>=1){c=0;k=uh(k+(i<<7)|0,0,t);u=r[k+ -128>>1];while(1){o[k+(c<<7)>>1]=u;c=c+1|0;if((j|0)!=(c|0)){continue}break}}d=d+1|0;if((e|0)!=(d|0)){continue}break}d=p[l+8>>2]}if(!((d|0)!=(w|0)|(e|0)>=p[f+12>>2])){h=j+i|0;d=(h>>>0)/(g>>>0)|0;q=d>>>0>1?d:1;t=g+ -1|0;k=h<<7;while(1){c=(e<<2)+x|0;j=p[c+ -4>>2];d=0;i=p[c>>2];uh(i,0,k);if(g>>>0<=h>>>0){while(1){if((g|0)>=1){u=r[(t<<7)+j>>1];c=0;while(1){o[(c<<7)+i>>1]=u;c=c+1|0;if((g|0)!=(c|0)){continue}break}}c=g<<7;j=c+j|0;i=c+i|0;d=d+1|0;if((q|0)!=(d|0)){continue}break}}e=e+1|0;if((e|0)<p[f+12>>2]){continue}break}}f=f+88|0;n=n+1|0;if((n|0)<p[a+76>>2]){continue}break}}return $c(a,b)|0}function qf(a,b){var c=0,d=0,e=0,f=0,g=0,h=0,i=0;e=p[a+468>>2];c=p[e+16>>2];a:{if((c|0)>=32768){d=p[e+20>>2];break a}d=p[e+20>>2];while(1){c=d+ -1|0;p[e+20>>2]=c;b:{if((d|0)>0){d=c;break b}f=0;if(!p[a+440>>2]){c=p[a+24>>2];c:{if(p[c+4>>2]){break c}if(m[p[c+12>>2]](a)|0){break c}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}p[c+4>>2]=p[c+4>>2]+ -1;d=c;c=p[c>>2];p[d>>2]=c+1;f=q[c|0];d:{if((f|0)!=255){break d}while(1){c=p[a+24>>2];e:{if(p[c+4>>2]){break e}if(m[p[c+12>>2]](a)|0){break e}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}p[c+4>>2]=p[c+4>>2]+ -1;d=c;c=p[c>>2];p[d>>2]=c+1;f=255;c=q[c|0];if((c|0)==255){continue}break}if(!c){break d}p[a+440>>2]=c;f=0}c=p[e+20>>2]}d=c+8|0;p[e+20>>2]=d;p[e+12>>2]=p[e+12>>2]<<8|f;if((c|0)>-9){break b}d=c+9|0;p[e+20>>2]=d;if(d){break b}p[e+16>>2]=32768;d=0}c=p[e+16>>2]<<1;p[e+16>>2]=c;if((c|0)<32768){continue}break}}a=q[b|0];f=p[((a&127)<<2)+8224>>2];g=f>>16;c=c-g|0;p[e+16>>2]=c;h=f>>8;i=p[e+12>>2];d=c<<d;f:{if((i|0)>=(d|0)){p[e+16>>2]=g;p[e+12>>2]=i-d;d=a&128;if((c|0)<(g|0)){n[b|0]=d^h;break f}n[b|0]=d^f;a=a^128;break f}if((c|0)>32767){break f}d=a&128;if((c|0)<(g|0)){n[b|0]=d^f;a=a^128;break f}n[b|0]=d^h}return a>>>7|0}function Pc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0;c=p[a+424>>2];d=p[a+24>>2];p[c+112>>2]=p[d>>2];p[c+116>>2]=p[d+4>>2];if(!(p[c+36>>2]|!p[a+236>>2])){Wc(c,p[c+40>>2])}f=p[a+320>>2];if((f|0)>=1){j=p[a+376>>2];while(1){if(!p[c+108>>2]){e=p[c+16>>2];g=p[c+12>>2]|(o[p[(i<<2)+b>>2]>>1]>>>j&1)<<23-e;d=e+1|0;if((e|0)>=7){while(1){f=d;d=p[c+112>>2];p[c+112>>2]=d+1;n[d|0]=g>>>16;d=p[c+116>>2]+ -1|0;p[c+116>>2]=d;if(!d){e=p[c+120>>2];d=p[e+24>>2];if(!(m[p[d+12>>2]](e)|0)){e=p[c+120>>2];h=p[e>>2];p[h+20>>2]=25;m[p[h>>2]](e)}p[c+112>>2]=p[d>>2];p[c+116>>2]=p[d+4>>2]}a:{if((g&16711680)!=16711680){break a}d=p[c+112>>2];p[c+112>>2]=d+1;n[d|0]=0;d=p[c+116>>2]+ -1|0;p[c+116>>2]=d;if(d){break a}e=p[c+120>>2];d=p[e+24>>2];if(!(m[p[d+12>>2]](e)|0)){e=p[c+120>>2];h=p[e>>2];p[h+20>>2]=25;m[p[h>>2]](e)}p[c+112>>2]=p[d>>2];p[c+116>>2]=p[d+4>>2]}d=f+ -8|0;g=g<<8;if((f|0)>15){continue}break}f=p[a+320>>2]}p[c+16>>2]=d;p[c+12>>2]=g}i=i+1|0;if((i|0)<(f|0)){continue}break}}b=p[a+24>>2];p[b>>2]=p[c+112>>2];p[b+4>>2]=p[c+116>>2];a=p[a+236>>2];if(a){b=c;d=p[c+36>>2];if(d){a=d}else{p[c+36>>2]=a;p[c+40>>2]=p[c+40>>2]+1&7}p[b+36>>2]=a+ -1}return 1}function Pf(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0;b=p[a+20>>2];if((b|0)!=202){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}rd(a);b=p[a+36>>2];if((b|0)>=1){d=p[a+216>>2];while(1){e=p[a+324>>2];a:{if(!p[a+68>>2]){b=1;c=1;g=p[a+76>>2]?8:4;b:{if((e|0)>(g|0)){break b}h=p[d+8>>2];i=p[a+316>>2];while(1){f=c<<1;if((i|0)%(v(f,h)|0)|0){break b}c=f;if((v(c,e)|0)<=(g|0)){continue}break}}e=v(c,e);p[d+36>>2]=e;f=d+36|0;h=p[a+328>>2];if((h|0)>(g|0)){break a}i=p[d+12>>2];k=p[a+320>>2];while(1){c=b<<1;if((k|0)%(v(c,i)|0)|0){break a}b=c;if((v(b,h)|0)<=(g|0)){continue}break}break a}p[d+36>>2]=e;f=d+36|0;b=1}b=v(p[a+328>>2],b);p[d+40>>2]=b;c=b<<1;c:{if((e|0)>(c|0)){p[f>>2]=c;break c}c=b;b=e<<1;if((c|0)<=(b|0)){break c}p[d+40>>2]=b}l=d,n=Qa(v(p[d+36>>2],v(p[d+8>>2],p[a+28>>2])),v(p[a+428>>2],p[a+316>>2])),p[l+44>>2]=n;l=d,n=Qa(v(p[d+40>>2],v(p[d+12>>2],p[a+32>>2])),v(p[a+428>>2],p[a+320>>2])),p[l+48>>2]=n;d=d+88|0;j=j+1|0;b=p[a+36>>2];if((j|0)<(b|0)){continue}break}}c=p[a+44>>2]+ -1|0;if(c>>>0<=6){b=p[(c<<2)+10224>>2]}p[a+120>>2]=b;p[a+124>>2]=p[a+84>>2]?1:b;c=a;if(Qf(a)){a=p[a+320>>2]}else{a=1}p[c+128>>2]=a}function fh(a,b,c,d){var e=0,h=0,i=0,j=0,k=0,l=0,m=0;i=Z-32|0;Z=i;e=d&2147483647;k=e;e=e+ -1006698496|0;j=c;h=c;if(c>>>0<0){e=e+1|0}l=h;h=e;e=k+ -1140785152|0;m=j;if(j>>>0<0){e=e+1|0}a:{if((e|0)==(h|0)&l>>>0<m>>>0|h>>>0<e>>>0){e=d<<4|c>>>28;c=c<<4|b>>>28;b=b&268435455;j=b;if((b|0)==134217728&a>>>0>=1|b>>>0>134217728){e=e+1073741824|0;a=c+1|0;if(a>>>0<1){e=e+1|0}h=a;break a}h=c;e=e-((c>>>0<0)+ -1073741824|0)|0;if(a|j^134217728){break a}a=h+(h&1)|0;if(a>>>0<h>>>0){e=e+1|0}h=a;break a}if(!(!j&(k|0)==2147418112?!(a|b):(k|0)==2147418112&j>>>0<0|k>>>0<2147418112)){e=d<<4|c>>>28;h=c<<4|b>>>28;e=e&524287|2146959360;break a}h=0;e=2146435072;if(k>>>0>1140785151){break a}e=0;j=k>>>16|0;if(j>>>0<15249){break a}e=d&65535|65536;Xg(i+16|0,a,b,c,e,j+ -15233|0);_g(i,a,b,c,e,15361-j|0);c=p[i+4>>2];a=p[i+8>>2];e=p[i+12>>2]<<4|a>>>28;h=a<<4|c>>>28;a=c&268435455;c=a;b=p[i>>2]|((p[i+16>>2]|p[i+24>>2])!=0|(p[i+20>>2]|p[i+28>>2])!=0);if((a|0)==134217728&b>>>0>=1|a>>>0>134217728){a=h+1|0;if(a>>>0<1){e=e+1|0}h=a;break a}if(b|c^134217728){break a}a=h+(h&1)|0;if(a>>>0<h>>>0){e=e+1|0}h=a}Z=i+32|0;f(0,h|0);f(1,d&-2147483648|e);return+g()}function Eg(a){var b=0,c=0,d=0,e=0,f=0;a:{b:{c:{d:{b=p[a+4>>2];e:{if(b>>>0<s[a+104>>2]){p[a+4>>2]=b+1;b=q[b|0];break e}b=yg(a)}switch(b+ -43|0){case 0:case 2:break c;default:break d}}e=b+ -48|0;break b}f=(b|0)==45;b=p[a+4>>2];f:{if(b>>>0<s[a+104>>2]){p[a+4>>2]=b+1;b=q[b|0];break f}b=yg(a)}e=b+ -48|0}if(e>>>0<10){while(1){d=v(c,10)+b|0;b=p[a+4>>2];g:{if(b>>>0<s[a+104>>2]){p[a+4>>2]=b+1;b=q[b|0];break g}b=yg(a)}e=b+ -48|0;c=d+ -48|0;if((c|0)<214748364?e>>>0<=9:0){continue}break}d=c;c=c>>31;h:{if(e>>>0>=10){break h}while(1){c=Fh(d,c,10,0);d=c+b|0;b=$;b=d>>>0<c>>>0?b+1|0:b;d=d+ -48|0;c=b+ -1|0;c=d>>>0<4294967248?c+1|0:c;b=p[a+4>>2];i:{if(b>>>0<s[a+104>>2]){p[a+4>>2]=b+1;b=q[b|0];break i}b=yg(a)}e=b+ -48|0;if(e>>>0>9){break h}if((c|0)<21474836?1:(c|0)<=21474836?d>>>0<2061584302:0){continue}break}}if(e>>>0<10){while(1){b=p[a+4>>2];j:{if(b>>>0<s[a+104>>2]){p[a+4>>2]=b+1;b=q[b|0];break j}b=yg(a)}if(b+ -48>>>0<10){continue}break}}if(p[a+104>>2]){p[a+4>>2]=p[a+4>>2]+ -1}a=d;d=f?0-a|0:a;c=f?0-(c+(0<a>>>0)|0)|0:c;break a}c=-2147483648;if(!p[a+104>>2]){break a}p[a+4>>2]=p[a+4>>2]+ -1;$=-2147483648;return 0}$=c;return d}function Be(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0;t=Z-144|0;Z=t;u=p[a+336>>2];b=p[b+84>>2];a=t;while(1){h=p[b+64>>2];i=o[c+32>>1];l=v(o[c>>1],p[b>>2])<<13|1024;j=v(v(o[c+64>>1],p[b+128>>2]),5793);m=l-(j<<1)>>11;f=v(p[b+32>>2],o[c+16>>1]);k=v(p[b+96>>2],o[c+48>>1]);g=v(p[b+160>>2],o[c+80>>1]);r=(f-k|0)-g<<2;p[a+96>>2]=m-r;p[a+24>>2]=m+r;h=v(v(h,i),10033);i=l+j|0;l=h+i|0;j=f+k<<13;f=v(f+g|0,2998);j=j+f|0;p[a+120>>2]=l-j>>11;p[a>>2]=l+j>>11;h=i-h|0;f=f+(g-k<<13)|0;p[a+72>>2]=h-f>>11;p[a+48>>2]=f+h>>11;a=a+4|0;b=b+4|0;c=c+2|0;s=s+1|0;if((s|0)!=6){continue}break}a=u+ -384|0;f=0;c=t;while(1){k=p[c+20>>2];g=p[c+4>>2];u=v(k+g|0,2998);b=p[(f<<2)+d>>2]+e|0;h=p[c+12>>2];l=u+(h+g<<13)|0;j=(p[c>>2]<<13)+134348800|0;i=v(p[c+16>>2],5793);m=j+i|0;r=v(p[c+8>>2],10033);s=m+r|0;n[b|0]=q[a+(l+s>>>18&1023)|0];n[b+5|0]=q[a+(s-l>>>18&1023)|0];g=(g-h|0)-k<<13;i=(j-i|0)-i|0;n[b+1|0]=q[a+(g+i>>>18&1023)|0];n[b+4|0]=q[a+(i-g>>>18&1023)|0];k=u+(k-h<<13)|0;g=m-r|0;n[b+2|0]=q[a+(k+g>>>18&1023)|0];n[b+3|0]=q[a+(g-k>>>18&1023)|0];c=c+24|0;f=f+1|0;if((f|0)!=6){continue}break}Z=t+144|0}function sc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0;e=a;while(1){d=p[(i<<2)+b>>2]+c|0;g=q[d+4|0];h=q[d+3|0];f=g+h|0;j=q[d+7|0];k=q[d|0];l=j+k|0;m=f+l|0;n=q[d+6|0];o=q[d+1|0];r=n+o|0;s=q[d+5|0];t=q[d+2|0];d=s+t|0;u=r+d|0;p[e+16>>2]=m-u;p[e>>2]=m+(u|-1024);m=r-d|0;d=l-f|0;f=v(m+d|0,181)>>8;p[e+24>>2]=d-f;p[e+8>>2]=d+f;d=h-g|0;g=t-s|0;h=d+g|0;l=o-n|0;d=k-j|0;j=l+d|0;f=v(h-j|0,98)>>8;h=f+(v(h,139)>>8)|0;g=v(g+l|0,181)>>8;k=d-g|0;p[e+20>>2]=h+k;p[e+12>>2]=k-h;d=d+g|0;f=f+(v(j,334)>>8)|0;p[e+28>>2]=d-f;p[e+4>>2]=d+f;e=e+32|0;i=i+1|0;if((i|0)!=8){continue}break}b=7;while(1){d=p[a+128>>2];i=p[a+96>>2];c=d+i|0;f=p[a+224>>2];g=p[a>>2];e=f+g|0;h=c+e|0;j=p[a+160>>2];k=p[a+64>>2];l=j+k|0;m=p[a+192>>2];n=p[a+32>>2];o=m+n|0;r=l+o|0;p[a+128>>2]=h-r;p[a>>2]=h+r;c=e-c|0;e=v(c+(o-l|0)|0,181)>>8;p[a+192>>2]=c-e;p[a+64>>2]=c+e;c=i-d|0;d=k-j|0;i=c+d|0;h=n-m|0;c=g-f|0;f=h+c|0;e=v(i-f|0,98)>>8;i=e+(v(i,139)>>8)|0;d=v(d+h|0,181)>>8;g=c-d|0;p[a+160>>2]=i+g;p[a+96>>2]=g-i;c=c+d|0;e=e+(v(f,334)>>8)|0;p[a+224>>2]=c-e;p[a+32>>2]=c+e;c=b;b=c+ -1|0;a=a+4|0;if(c){continue}break}}function th(a,b,c){var d=0,e=0,f=0;if(c>>>0>=512){X(a|0,b|0,c|0)|0;return a}e=a+c|0;a:{if(!((a^b)&3)){b:{if((c|0)<1){c=a;break b}if(!(a&3)){c=a;break b}c=a;while(1){n[c|0]=q[b|0];b=b+1|0;c=c+1|0;if(c>>>0>=e>>>0){break b}if(c&3){continue}break}}d=e&-4;c:{if(d>>>0<64){break c}f=d+ -64|0;if(c>>>0>f>>>0){break c}while(1){p[c>>2]=p[b>>2];p[c+4>>2]=p[b+4>>2];p[c+8>>2]=p[b+8>>2];p[c+12>>2]=p[b+12>>2];p[c+16>>2]=p[b+16>>2];p[c+20>>2]=p[b+20>>2];p[c+24>>2]=p[b+24>>2];p[c+28>>2]=p[b+28>>2];p[c+32>>2]=p[b+32>>2];p[c+36>>2]=p[b+36>>2];p[c+40>>2]=p[b+40>>2];p[c+44>>2]=p[b+44>>2];p[c+48>>2]=p[b+48>>2];p[c+52>>2]=p[b+52>>2];p[c+56>>2]=p[b+56>>2];p[c+60>>2]=p[b+60>>2];b=b- -64|0;c=c- -64|0;if(c>>>0<=f>>>0){continue}break}}if(c>>>0>=d>>>0){break a}while(1){p[c>>2]=p[b>>2];b=b+4|0;c=c+4|0;if(c>>>0<d>>>0){continue}break}break a}if(e>>>0<4){c=a;break a}d=e+ -4|0;if(d>>>0<a>>>0){c=a;break a}c=a;while(1){n[c|0]=q[b|0];n[c+1|0]=q[b+1|0];n[c+2|0]=q[b+2|0];n[c+3|0]=q[b+3|0];b=b+4|0;c=c+4|0;if(c>>>0<=d>>>0){continue}break}}if(c>>>0<e>>>0){while(1){n[c|0]=q[b|0];b=b+1|0;c=c+1|0;if((e|0)!=(c|0)){continue}break}}return a}function sb(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0;a:{b=p[a+292>>2];if((b|0)==1){b=p[a+296>>2];p[a+312>>2]=p[b+28>>2];c=p[b+32>>2];p[a+316>>2]=c;p[b+64>>2]=1;p[b+56>>2]=1;p[b+60>>2]=1;p[b+72>>2]=1;p[b+68>>2]=p[b+36>>2];d=b;b=p[b+12>>2];c=(c>>>0)%(b>>>0)|0;p[d+76>>2]=c?c:b;p[a+320>>2]=1;p[a+324>>2]=0;break a}if(b+ -1>>>0>=4){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=27;p[p[a>>2]+28>>2]=4;m[p[p[a>>2]>>2]](a)}i=a,j=Qa(p[a+64>>2],v(p[a+380>>2],p[a+272>>2])),p[i+312>>2]=j;b=Qa(p[a+68>>2],v(p[a+380>>2],p[a+276>>2]));p[a+320>>2]=0;p[a+316>>2]=b;if(p[a+292>>2]<1){break a}while(1){b=p[((f<<2)+a|0)+296>>2];c=p[b+8>>2];p[b+56>>2]=c;g=p[b+12>>2];p[b+60>>2]=g;e=v(c,g);p[b+64>>2]=e;p[b+68>>2]=v(c,p[b+36>>2]);d=s[b+28>>2]%(c>>>0)|0;p[b+72>>2]=d?d:c;d=b;b=s[b+32>>2]%(g>>>0)|0;p[d+76>>2]=b?b:g;if((e+h|0)>=11){b=p[a>>2];p[b+20>>2]=14;m[p[b>>2]](a)}if((e|0)>=1){while(1){b=p[a+320>>2];p[a+320>>2]=b+1;p[((b<<2)+a|0)+324>>2]=f;b=(e|0)>1;e=e+ -1|0;if(b){continue}break}}f=f+1|0;if((f|0)>=p[a+292>>2]){break a}h=p[a+320>>2];continue}}b=p[a+240>>2];if((b|0)>=1){d=a;a=v(b,p[a+312>>2]);p[d+236>>2]=(a|0)<65535?a:65535}}function Zd(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0,t=0,u=0;f=c<<2;k=p[f+p[b+8>>2]>>2];l=p[f+p[b+4>>2]>>2];f=p[b>>2];b=c<<3;i=p[f+b>>2];j=p[f+(b|4)>>2];c=p[d+4>>2];d=p[d>>2];e=p[a+336>>2];b=p[a+476>>2];r=p[b+28>>2];s=p[b+24>>2];t=p[b+20>>2];u=p[b+16>>2];b=p[a+112>>2];h=b>>>1|0;if(h){while(1){b=q[l|0]<<2;m=p[b+t>>2];g=q[k|0]<<2;f=p[g+s>>2];b=p[b+r>>2];o=p[g+u>>2];g=q[i|0];n[d|0]=q[e+(o+g|0)|0];f=b+f>>16;n[d+1|0]=q[e+(f+g|0)|0];n[d+2|0]=q[e+(g+m|0)|0];b=q[i+1|0];n[d+3|0]=q[e+(b+o|0)|0];n[d+4|0]=q[e+(b+f|0)|0];n[d+5|0]=q[e+(b+m|0)|0];b=q[j|0];n[c|0]=q[e+(b+o|0)|0];n[c+1|0]=q[e+(b+f|0)|0];n[c+2|0]=q[e+(b+m|0)|0];b=q[j+1|0];n[c+3|0]=q[e+(b+o|0)|0];n[c+4|0]=q[e+(b+f|0)|0];n[c+5|0]=q[e+(b+m|0)|0];c=c+6|0;j=j+2|0;d=d+6|0;i=i+2|0;k=k+1|0;l=l+1|0;h=h+ -1|0;if(h){continue}break}b=p[a+112>>2]}if(b&1){a=q[l|0]<<2;h=p[a+t>>2];b=q[k|0]<<2;f=p[b+s>>2];a=p[a+r>>2];b=p[b+u>>2];g=q[i|0];n[d|0]=q[e+(b+g|0)|0];a=a+f>>16;n[d+1|0]=q[e+(a+g|0)|0];n[d+2|0]=q[e+(g+h|0)|0];d=b;b=q[j|0];n[c|0]=q[e+(d+b|0)|0];n[c+1|0]=q[e+(a+b|0)|0];n[c+2|0]=q[e+(b+h|0)|0]}}function bf(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0;l=p[a+336>>2];b=p[b+84>>2];h=v(p[b+64>>2],o[c+32>>1]);f=v(p[b+96>>2],o[c+48>>1]);i=v(p[b+32>>2],o[c+16>>1]);g=v(f+i|0,4433);a=Z-32|0;k=v(p[b>>2],o[c>>1]);j=k+h<<13;i=g+v(i,6270)|0;p[a+24>>2]=j-i;h=k-h<<13;g=g+v(f,-15137)|0;k=h-g|0;p[a+16>>2]=k;m=g+h|0;p[a+8>>2]=m;i=i+j|0;p[a>>2]=i;f=v(p[b+100>>2],o[c+50>>1]);g=v(p[b+36>>2],o[c+18>>1]);h=v(f+g|0,4433);j=v(p[b+68>>2],o[c+34>>1]);b=v(p[b+4>>2],o[c+2>>1]);r=j+b<<13;g=h+v(g,6270)|0;c=r+g|0;p[a+4>>2]=c;g=r-g|0;p[a+28>>2]=g;b=b-j<<13;f=h+v(f,-15137)|0;h=b-f|0;p[a+20>>2]=h;f=b+f|0;p[a+12>>2]=f;j=p[d>>2]+e|0;b=l+ -384|0;i=i+33587200|0;n[j|0]=q[b+(i+c>>>16&1023)|0];n[j+1|0]=q[b+(i-c>>>16&1023)|0];c=p[d+4>>2]+e|0;l=m+33587200|0;n[c|0]=q[b+(l+f>>>16&1023)|0];n[c+1|0]=q[b+(l-f>>>16&1023)|0];c=p[d+8>>2]+e|0;f=k+33587200|0;n[c|0]=q[b+(f+h>>>16&1023)|0];n[c+1|0]=q[b+(f-h>>>16&1023)|0];c=p[d+12>>2]+e|0;a=p[a+24>>2]+33587200|0;n[c|0]=q[b+(a+g>>>16&1023)|0];n[c+1|0]=q[b+(a-g>>>16&1023)|0]}function Ce(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0;l=p[a+336>>2];b=p[b+84>>2];i=Z-112|0;a=i;while(1){g=p[b+96>>2];h=o[c+48>>1];f=p[b+32>>2];m=o[c+16>>1];s=v(o[c>>1],p[b>>2])<<13|1024;j=v(p[b+64>>2],o[c+32>>1]);k=v(p[b+128>>2],o[c+64>>1]);t=j-k|0;p[a+40>>2]=s+v(t,-11584)>>11;h=v(g,h);f=v(f,m);g=v(h+f|0,6810);m=s+v(t,2896)|0;j=v(j+k|0,6476);k=m+j|0;f=g+v(f,4209)|0;p[a+80>>2]=k-f>>11;p[a>>2]=f+k>>11;f=m-j|0;g=g+v(h,-17828)|0;p[a+60>>2]=f-g>>11;p[a+20>>2]=f+g>>11;a=a+4|0;b=b+4|0;c=c+2|0;r=r+1|0;if((r|0)!=5){continue}break}a=l+ -384|0;r=0;c=i;while(1){g=p[c+12>>2];l=p[c+4>>2];i=v(g+l|0,6810);b=p[(r<<2)+d>>2]+e|0;l=i+v(l,4209)|0;j=(p[c>>2]<<13)+134348800|0;h=p[c+8>>2];f=p[c+16>>2];m=h-f|0;k=j+v(m,2896)|0;h=v(f+h|0,6476);f=k+h|0;n[b|0]=q[a+(l+f>>>18&1023)|0];n[b+4|0]=q[a+(f-l>>>18&1023)|0];i=i+v(g,-17828)|0;g=k-h|0;n[b+1|0]=q[a+(i+g>>>18&1023)|0];n[b+3|0]=q[a+(g-i>>>18&1023)|0];n[b+2|0]=q[a+(j+v(m,-11584)>>>18&1023)|0];c=c+20|0;r=r+1|0;if((r|0)!=5){continue}break}}function Cb(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,o=0,q=0,r=0,s=0;c=m[p[p[a+4>>2]>>2]](a,1,112)|0;p[a+416>>2]=c;p[c+8>>2]=0;p[c+4>>2]=39;p[c>>2]=40;if(p[a+220>>2]){d=p[a>>2];p[d+20>>2]=26;m[p[d>>2]](a)}a:{if(p[a+76>>2]<1){break a}q=c+102|0;r=c+92|0;k=c+12|0;s=c+52|0;d=p[a+84>>2];o=1;while(1){b=p[a+276>>2];e=p[a+272>>2];f=p[a+280>>2];l=p[d+36>>2];h=p[d+8>>2];j=i<<2;g=(v(p[d+40>>2],p[d+12>>2])|0)/p[a+284>>2]|0;p[s+j>>2]=g;f=(v(l,h)|0)/(f|0)|0;b:{if(!((f|0)!=(e|0)|(b|0)!=(g|0))){b=k+j|0;if(p[a+228>>2]){p[b>>2]=41;p[c+8>>2]=1;break b}p[b>>2]=42;break b}l=(e|0)!=f<<1;if(!(l|(b|0)!=(g|0))){p[k+j>>2]=43;o=0;break b}if(!(g<<1!=(b|0)|l)){b=k+j|0;if(p[a+228>>2]){p[b>>2]=44;p[c+8>>2]=1;break b}p[b>>2]=45;break b}c:{h=e;e=(e|0)/(f|0)|0;if(h-v(e,f)|0){break c}h=b;b=(b|0)/(g|0)|0;if(h-v(b,g)|0){break c}p[k+j>>2]=46;n[i+r|0]=e;n[i+q|0]=b;o=0;break b}b=p[a>>2];p[b+20>>2]=39;m[p[b>>2]](a)}d=d+88|0;i=i+1|0;if((i|0)<p[a+76>>2]){continue}break}if(!p[a+228>>2]|o){break a}c=p[a>>2];p[c+20>>2]=101;m[p[c+4>>2]](a,0)}}function Wa(a){a=a|0;var b=0,c=0;b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=255;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;a:{if(c){break a}if(m[p[b+12>>2]](a)|0){break a}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=216;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;b:{if(c){break b}if(m[p[b+12>>2]](a)|0){break b}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}if(p[a+88>>2]){$a(a,0)}if(p[a+92>>2]){$a(a,1)}if(p[a+96>>2]){$a(a,2)}if(p[a+100>>2]){$a(a,3)}c:{if(p[a+212>>2]){break c}if(p[a+120>>2]){bb(a,0,0)}if(p[a+136>>2]){bb(a,0,1)}if(p[a+124>>2]){bb(a,1,0)}if(p[a+140>>2]){bb(a,1,1)}if(p[a+128>>2]){bb(a,2,0)}if(p[a+144>>2]){bb(a,2,1)}if(p[a+132>>2]){bb(a,3,0)}if(!p[a+148>>2]){break c}bb(a,3,1)}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=255;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;d:{if(c){break d}if(m[p[b+12>>2]](a)|0){break d}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=217;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;e:{if(c){break e}if(m[p[b+12>>2]](a)|0){break e}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}}function $g(a,b,c,d){var e=0,g=0,h=0,i=0,k=0,l=0,m=0;i=Z-32|0;Z=i;g=d&2147483647;h=g;e=g+ -1065418752|0;g=c;k=g;if(g>>>0<0){e=e+1|0}m=k;l=h+ -1082064896|0;k=g;if(g>>>0<0){l=l+1|0}a:{if((e|0)==(l|0)&m>>>0<k>>>0|e>>>0<l>>>0){h=(d&33554431)<<7|c>>>25;g=0;l=g;k=c&33554431;if(!(!g&(k|0)==16777216?!(a|b):!g&k>>>0<16777216|g>>>0<0)){e=h+1073741825|0;break a}e=h+1073741824|0;if(k^16777216|a|(b|l)){break a}e=(e&1)+e|0;break a}if(!(!g&(h|0)==2147418112?!(a|b):(h|0)==2147418112&g>>>0<0|h>>>0<2147418112)){e=((d&33554431)<<7|c>>>25)&4194303|2143289344;break a}e=2139095040;if(h>>>0>1082064895){break a}e=0;h=h>>>16|0;if(h>>>0<16145){break a}e=d&65535|65536;Xg(i+16|0,a,b,c,e,h+ -16129|0);_g(i,a,b,g,e,16257-h|0);b=p[i+8>>2];e=(p[i+12>>2]&33554431)<<7|b>>>25;g=p[i+4>>2];h=g;a=0;k=a;l=p[i>>2]|((p[i+16>>2]|p[i+24>>2])!=0|(p[i+20>>2]|p[i+28>>2])!=0);b=b&33554431;if(!(!a&(b|0)==16777216?!(g|l):!a&b>>>0<16777216|a>>>0<0)){e=e+1|0;break a}if(b^16777216|l|(h|k)){break a}e=(e&1)+e|0}Z=i+32|0;return f(2,d&-2147483648|e),j()}function gc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0,s=0,t=0,u=0;uh(a+128|0,0,128);e=a;while(1){d=p[(l<<2)+b>>2]+c|0;g=q[d+4|0];j=q[d+3|0];h=g+j|0;i=q[d+7|0];k=q[d|0];f=i+k|0;m=h+f|0;n=q[d+5|0];o=q[d+2|0];r=n+o|0;s=q[d+6|0];t=q[d+1|0];d=s+t|0;u=r+d|0;p[e+16>>2]=m-u<<3;p[e>>2]=(m+u<<3)+ -8192;h=f-h|0;f=d-r|0;d=v(h+f|0,4433)+512|0;p[e+24>>2]=d+v(f,-15137)>>10;p[e+8>>2]=d+v(h,6270)>>10;d=j-g|0;g=k-i|0;j=v(d+g|0,-7373);h=t-s|0;f=h+d|0;i=o-n|0;m=i+g|0;k=v(f+m|0,9633)+512|0;n=j+v(d,2446)|0;d=k+v(f,-16069)|0;p[e+28>>2]=n+d>>10;k=k+v(m,-3196)|0;f=v(i,16819);i=v(h+i|0,-20995);p[e+20>>2]=k+(f+i|0)>>10;p[e+12>>2]=d+(i+v(h,25172)|0)>>10;p[e+4>>2]=k+(j+v(g,12299)|0)>>10;e=e+32|0;l=l+1|0;if((l|0)!=4){continue}break}e=7;while(1){b=p[a>>2];c=p[a+96>>2];d=(b+c|0)+2|0;l=p[a+64>>2];g=p[a+32>>2];j=l+g|0;p[a+64>>2]=d-j>>2;p[a>>2]=d+j>>2;d=g-l|0;c=b-c|0;b=v(d+c|0,4433)+16384|0;p[a+96>>2]=b+v(d,-15137)>>15;p[a+32>>2]=b+v(c,6270)>>15;b=e;e=e+ -1|0;a=a+4|0;if(b){continue}break}}function oc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0,r=0;h=uh(a,0,256);while(1){d=p[(f<<2)+b>>2]+c|0;e=q[d+3|0];g=q[d|0];i=e+g|0;j=q[d+2|0];d=q[d+1|0];k=j+d|0;p[h+8>>2]=i-k<<3;p[h>>2]=(i+k<<3)+ -4096;i=d-j|0;e=g-e|0;d=v(i+e|0,4433)+512|0;p[h+12>>2]=d+v(i,-15137)>>10;p[h+4>>2]=d+v(e,6270)>>10;h=h+32|0;f=f+1|0;if((f|0)!=8){continue}break}while(1){c=p[a+224>>2];h=p[a>>2];b=c+h|0;d=p[a+128>>2];f=p[a+96>>2];e=d+f|0;g=(b+e|0)+2|0;i=p[a+192>>2];j=p[a+32>>2];k=i+j|0;l=p[a+160>>2];m=p[a+64>>2];n=l+m|0;o=k+n|0;p[a+128>>2]=g-o>>2;p[a>>2]=g+o>>2;e=b-e|0;g=k-n|0;b=v(e+g|0,4433)+16384|0;p[a+192>>2]=b+v(g,-15137)>>15;p[a+64>>2]=b+v(e,6270)>>15;b=f-d|0;c=h-c|0;h=v(b+c|0,-7373);d=j-i|0;g=d+b|0;f=m-l|0;i=f+c|0;e=v(g+i|0,9633)+16384|0;j=h+v(b,2446)|0;b=e+v(g,-16069)|0;p[a+224>>2]=j+b>>15;e=e+v(i,-3196)|0;g=v(f,16819);f=v(d+f|0,-20995);p[a+160>>2]=e+(g+f|0)>>15;p[a+96>>2]=b+(f+v(d,25172)|0)>>15;p[a+32>>2]=e+(h+v(c,12299)|0)>>15;a=a+4|0;r=r+1|0;if((r|0)!=4){continue}break}}function Sc(a,b,c,d){var e=0,f=0,g=0,h=0,i=0,j=0,k=0;g=Z-1312|0;Z=g;if(c>>>0>=4){e=p[a>>2];p[e+24>>2]=c;p[e+20>>2]=52;m[p[p[a>>2]>>2]](a)}e=(c<<2)+a|0;j=p[(b?e+120|0:e+136|0)>>2];if(!j){j=ua(a,b,c)}h=p[d>>2];if(!h){h=m[p[p[a+4>>2]>>2]](a,1,1280)|0;p[d>>2]=h}d=0;e=1;while(1){c=q[e+j|0];if((d+c|0)>=257){f=p[a>>2];p[f+20>>2]=9;m[p[f>>2]](a)}if(c){uh((g+1040|0)+d|0,e,c);while(1){d=d+1|0;c=c+ -1|0;if(c){continue}break}}e=e+1|0;if((e|0)!=17){continue}break}c=0;n[(g+1040|0)+d|0]=0;i=q[g+1040|0];if(i){f=i<<24>>24;e=0;while(1){if(i<<24>>24==(f|0)){while(1){p[(e<<2)+g>>2]=c;c=c+1|0;e=e+1|0;i=n[e+(g+1040|0)|0];if((i|0)==(f|0)){continue}break}}if((c|0)>=1<<f){k=p[a>>2];p[k+20>>2]=9;m[p[k>>2]](a)}f=f+1|0;c=c<<1;if(i&255){continue}break}}c=0;uh(h+1024|0,0,256);if((d|0)>=1){e=b?15:255;while(1){b=q[(c+j|0)+17|0];if(!(q[(b+h|0)+1024|0]?0:e>>>0>=b>>>0)){f=p[a>>2];p[f+20>>2]=9;m[p[f>>2]](a)}p[(b<<2)+h>>2]=p[(c<<2)+g>>2];n[(b+h|0)+1024|0]=q[(g+1040|0)+c|0];c=c+1|0;if((d|0)!=(c|0)){continue}break}}Z=g+1312|0}function Kc(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;f=Z-16|0;Z=f;c=p[a+424>>2];b=p[a+24>>2];d=p[b>>2];a:{if(p[a+268>>2]){p[c+112>>2]=d;p[c+116>>2]=p[b+4>>2];Tc(c);Vc(c);a=p[a+24>>2];p[a>>2]=p[c+112>>2];p[a+4>>2]=p[c+116>>2];break a}h=p[c+16>>2];k=p[c+12>>2];e=p[b+4>>2];g=p[c+32>>2];l=f+8|0;b=l;p[b>>2]=p[c+28>>2];p[b+4>>2]=g;i=c+20|0;b=i;g=p[b+4>>2];p[f>>2]=p[b>>2];p[f+4>>2]=g;b:{c:{if((h|0)<1){break c}b=h+7|0;j=127<<17-h|k;while(1){d:{g=b;n[d|0]=j>>>16;d=d+1|0;e=e+ -1|0;if(!e){b=p[a+24>>2];if(!(m[p[b+12>>2]](a)|0)){break d}e=p[b+4>>2];d=p[b>>2]}b=d;e:{if((j&16711680)!=16711680){break e}n[d|0]=0;d=d+1|0;e=e+ -1|0;b=d;if(e){break e}b=p[a+24>>2];if(!(m[p[b+12>>2]](a)|0)){break d}e=p[b+4>>2];b=p[b>>2]}d=b;b=g+ -8|0;j=j<<8;if((g|0)>15){continue}break c}break}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a);e=0;break b}k=0;h=0}a=p[a+24>>2];p[a+4>>2]=e;p[a>>2]=d;p[c+16>>2]=h;p[c+12>>2]=k;a=p[l+4>>2];p[i+8>>2]=p[l>>2];p[i+12>>2]=a;a=p[f+4>>2];p[i>>2]=p[f>>2];p[i+4>>2]=a}Z=f+16|0}function me(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,o=0,q=0,r=0,s=0,t=0;b=m[p[p[a+4>>2]>>2]](a,1,160)|0;p[a+476>>2]=b;p[b+8>>2]=0;p[b+4>>2]=153;p[b>>2]=154;if(p[a+308>>2]){d=p[a>>2];p[d+20>>2]=26;m[p[d>>2]](a)}if(p[a+36>>2]>=1){k=b+12|0;l=b+150|0;o=b+140|0;i=b+52|0;q=b+100|0;b=p[a+216>>2];while(1){c=p[a+320>>2];f=p[a+316>>2];g=p[a+324>>2];e=p[b+36>>2];r=p[b+8>>2];d=j<<2;h=(v(p[b+40>>2],p[b+12>>2])|0)/p[a+328>>2]|0;p[q+d>>2]=h;g=(v(e,r)|0)/(g|0)|0;a:{if(!p[b+52>>2]){p[d+i>>2]=155;break a}if(!((f|0)!=(g|0)|(c|0)!=(h|0))){p[d+i>>2]=156;break a}e=(f|0)!=g<<1;b:{if(!(e|(c|0)!=(h|0))){p[d+i>>2]=157;break b}if(!(h<<1!=(c|0)|e)){p[d+i>>2]=158;break b}c:{e=f;f=(f|0)/(g|0)|0;if(e-v(f,g)|0){break c}e=c;c=(c|0)/(h|0)|0;if(e-v(c,h)|0){break c}p[d+i>>2]=159;n[j+o|0]=f;n[j+l|0]=c;break b}c=p[a>>2];p[c+20>>2]=39;m[p[c>>2]](a)}c=p[p[a+4>>2]+8>>2];s=d+k|0,t=m[c|0](a,1,Ra(p[a+112>>2],p[a+316>>2]),p[a+320>>2])|0,p[s>>2]=t}b=b+88|0;j=j+1|0;if((j|0)<p[a+36>>2]){continue}break}}}function Bc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0;h=p[a+424>>2];if(p[a+236>>2]){c=p[h+68>>2];if(!c){Gc(a,p[h+72>>2]);c=p[a+236>>2];p[h+68>>2]=c;p[h+72>>2]=p[h+72>>2]+1&7}p[h+68>>2]=c+ -1}if(p[a+320>>2]>=1){while(1){d=j<<2;e=p[(d+a|0)+324>>2]<<2;k=p[p[(e+a|0)+296>>2]+20>>2];l=((k<<2)+h|0)+76|0;c=h+e|0;e=c+52|0;f=p[l>>2]+p[e>>2]|0;g=o[p[b+d>>2]>>1]>>p[a+376>>2];c=c+36|0;d=g-p[c>>2]|0;a:{if(!d){Hc(a,f,0);p[e>>2]=0;break a}p[c>>2]=g;Hc(a,f,1);c=0;b:{if((d|0)>0){i=0;m=4;g=2;break b}d=0-d|0;i=1;m=8;g=3}Hc(a,f+1|0,i);p[e>>2]=m;f=f+g|0;g=d+ -1|0;c:{if(!g){break c}c=1;Hc(a,f,1);f=p[l>>2]+20|0;d=g>>>1|0;if(!d){break c}while(1){Hc(a,f,1);f=f+1|0;c=c<<1;d=d>>1;if(d){continue}break}}Hc(a,f,0);d=e;i=a+k|0;d:{if((c|0)>=1<<q[i+152|0]>>1){if((c|0)<=1<<q[i+168|0]>>1){break d}e=p[e>>2]+8|0}else{e=0}p[d>>2]=e}c=c>>1;if(!c){break a}e=f+14|0;while(1){Hc(a,e,(c&g)!=0);c=c>>1;if(c){continue}break}}j=j+1|0;if((j|0)<p[a+320>>2]){continue}break}}return 1}function Ve(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0;m=p[a+336>>2];a=Z-32|0;b=p[b+84>>2];g=v(p[b>>2],o[c>>1]);f=v(p[b+32>>2],o[c+16>>1]);p[a+16>>2]=g-f;l=f+g|0;p[a>>2]=l;f=v(p[b+4>>2],o[c+2>>1]);h=v(p[b+36>>2],o[c+18>>1]);g=f-h|0;p[a+20>>2]=g;f=f+h|0;p[a+4>>2]=f;i=v(p[b+40>>2],o[c+20>>1]);j=v(p[b+8>>2],o[c+4>>1]);h=i+j|0;p[a+8>>2]=h;i=j-i|0;p[a+24>>2]=i;k=v(p[b+44>>2],o[c+22>>1]);b=v(p[b+12>>2],o[c+6>>1]);j=k+b|0;p[a+12>>2]=j;k=b-k|0;p[a+28>>2]=k;c=p[d>>2]+e|0;b=m+ -384|0;l=l+4100|0;m=l+h<<13;r=v(f,6270);f=v(f+j|0,4433);r=r+f|0;n[c|0]=q[b+(m+r>>>16&1023)|0];n[c+3|0]=q[b+(m-r>>>16&1023)|0];f=f+v(j,-15137)|0;h=l-h<<13;n[c+1|0]=q[b+(f+h>>>16&1023)|0];n[c+2|0]=q[b+(h-f>>>16&1023)|0];c=p[d+4>>2]+e|0;d=v(g+k|0,4433);e=d+v(g,6270)|0;a=p[a+16>>2]+4100|0;g=a+i<<13;n[c|0]=q[b+(e+g>>>16&1023)|0];n[c+3|0]=q[b+(g-e>>>16&1023)|0];d=d+v(k,-15137)|0;a=a-i<<13;n[c+1|0]=q[b+(d+a>>>16&1023)|0];n[c+2|0]=q[b+(a-d>>>16&1023)|0]}function Lf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,o=0,q=0,r=0,s=0;c=p[a+448>>2];a:{b:{switch(b|0){case 0:if(!p[p[a+476>>2]+8>>2]){break a}p[c+4>>2]=222;n=p[a+36>>2];if((n|0)>=1){e=p[a+328>>2];r=e+ -2|0;s=e+2|0;f=p[a+216>>2];while(1){a=i<<2;j=p[a+p[c+64>>2]>>2];k=p[a+p[c+60>>2]>>2];l=p[(a+c|0)+8>>2];a=0;b=(v(p[f+40>>2],p[f+12>>2])|0)/(e|0)|0;g=v(s,b);if((g|0)>0){while(1){d=a<<2;h=p[d+l>>2];p[d+j>>2]=h;p[d+k>>2]=h;a=a+1|0;if((g|0)!=(a|0)){continue}break}}if((b|0)>=1){a=b<<1;d=(a|0)>1?a:1;h=v(b,r);g=v(b,e);a=0;while(1){o=a+h<<2;q=a+g<<2;p[o+j>>2]=p[q+l>>2];p[j+q>>2]=p[l+o>>2];a=a+1|0;if((d|0)!=(a|0)){continue}break}a=0;while(1){p[(a-b<<2)+k>>2]=p[k>>2];a=a+1|0;if((b|0)!=(a|0)){continue}break}}f=f+88|0;i=i+1|0;if((n|0)!=(i|0)){continue}break}}p[c+76>>2]=0;p[c+68>>2]=0;p[c+72>>2]=0;p[c+56>>2]=0;return;default:b=p[a>>2];p[b+20>>2]=3;m[p[b>>2]](a);return;case 2:break b}}p[c+4>>2]=223;return}p[c+4>>2]=224;p[c+48>>2]=p[c+52>>2]}function kf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,r=0;g=p[a+468>>2];if(p[a+280>>2]){d=g;c=p[d+56>>2];if(!c){pf(a);c=p[g+56>>2]}p[d+56>>2]=c+ -1}if(!(p[g+20>>2]==-1|p[a+368>>2]<1)){while(1){c=h<<2;r=p[c+b>>2];c=p[(a+c|0)+372>>2]<<2;n=p[p[(c+a|0)+344>>2]+20>>2];e=((n<<2)+g|0)+60|0;i=c+g|0;j=i+40|0;c=p[e>>2]+p[j>>2]|0;a:{if(!qf(a,c)){p[j>>2]=0;d=p[i+24>>2];break a}k=0;d=0;l=qf(a,c+1|0);f=(c+l|0)+2|0;c=qf(a,f);b:{if(!c){break b}d=c;f=p[e>>2]+20|0;if(!qf(a,f)){break b}while(1){d=d<<1;if((d|0)==32768){b=p[a>>2];p[b+20>>2]=117;m[p[b+4>>2]](a,-1);p[g+20>>2]=-1;return 1}f=f+1|0;if(qf(a,f)){continue}break}}c=a+n|0;c:{if((d|0)<1<<q[c+232|0]>>1){break c}e=l<<2;if((d|0)>1<<q[c+248|0]>>1){k=e+12|0;break c}k=e+4|0}p[j>>2]=k;e=d>>1;if(e){c=f+14|0;while(1){d=(qf(a,c)?e:0)|d;e=e>>1;if(e){continue}break}}c=i+24|0;d=p[c>>2]+(l?d^-1:d+1|0)|0;p[c>>2]=d}o[r>>1]=d<<p[a+424>>2];h=h+1|0;if((h|0)<p[a+368>>2]){continue}break}}return 1}function Xd(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0;b=m[p[p[a+4>>2]>>2]](a,1,48)|0;p[a+476>>2]=b;p[b+8>>2]=0;p[b>>2]=138;c=v(p[a+120>>2],p[a+112>>2]);p[b+40>>2]=c;a:{if(p[a+320>>2]==2){p[b+12>>2]=139;p[b+4>>2]=140;d=m[p[p[a+4>>2]+4>>2]](a,1,c)|0;break a}p[b+12>>2]=141;p[b+4>>2]=142}p[b+32>>2]=d;c=p[a+40>>2];b=p[a+476>>2];h=b,i=m[p[p[a+4>>2]>>2]](a,1,1024)|0,p[h+16>>2]=i;h=b,i=m[p[p[a+4>>2]>>2]](a,1,1024)|0,p[h+20>>2]=i;h=b,i=m[p[p[a+4>>2]>>2]](a,1,1024)|0,p[h+24>>2]=i;d=m[p[p[a+4>>2]>>2]](a,1,1024)|0;p[b+28>>2]=d;e=p[b+24>>2];f=p[b+20>>2];g=p[b+16>>2];b=0;a=-128;b:{if((c|0)==7){while(1){c=b<<2;p[c+g>>2]=v(a,183763)+32768>>16;p[c+f>>2]=v(a,232260)+32768>>16;p[c+e>>2]=v(a,-93603);p[c+d>>2]=v(a,-45107)+32768;a=a+1|0;b=b+1|0;if((b|0)!=256){continue}break b}}while(1){c=b<<2;p[c+g>>2]=v(a,91881)+32768>>16;p[c+f>>2]=v(a,116130)+32768>>16;p[c+e>>2]=v(a,-46802);p[c+d>>2]=v(a,-22553)+32768;a=a+1|0;b=b+1|0;if((b|0)!=256){continue}break}}}function vf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0;f=Z-32|0;Z=f;e=p[a+468>>2];g=p[a+280>>2];a:{b:{if(!g){g=0;break b}if(p[e+44>>2]){break b}c=p[a+464>>2];d=e+16|0;p[c+24>>2]=p[c+24>>2]+(p[d>>2]/8|0);p[d>>2]=0;if(!(m[p[c+8>>2]](a)|0)){break a}if(p[a+340>>2]>=1){c=0;while(1){p[((c<<2)+e|0)+24>>2]=0;c=c+1|0;if((c|0)<p[a+340>>2]){continue}break}}p[e+20>>2]=0;g=p[a+280>>2];p[e+44>>2]=g;if(p[a+440>>2]){break b}p[e+40>>2]=0}p[f+24>>2]=a;d=p[a+24>>2];h=p[d>>2];p[f+8>>2]=h;j=p[d+4>>2];p[f+12>>2]=j;k=1;c=p[e+16>>2];i=p[e+12>>2];if(p[a+368>>2]>=1){g=65536<<p[a+424>>2]>>>16|0;d=0;while(1){if((c|0)<=0){if(!Bf(f+8|0,i,c,1)){k=0;break a}i=p[f+16>>2];c=p[f+20>>2]}c=c+ -1|0;if(i>>>c&1){h=p[(d<<2)+b>>2];o[h>>1]=g|r[h>>1]}d=d+1|0;if((d|0)<p[a+368>>2]){continue}break}g=p[a+280>>2];j=p[f+12>>2];h=p[f+8>>2];d=p[a+24>>2]}p[d+4>>2]=j;p[d>>2]=h;p[e+16>>2]=c;p[e+12>>2]=i;if(!g){break a}p[e+44>>2]=p[e+44>>2]+ -1}Z=f+32|0;return k|0}function lf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;f=p[a+468>>2];if(p[a+280>>2]){c=f;e=p[c+56>>2];if(!e){pf(a);e=p[f+56>>2]}p[c+56>>2]=e+ -1}a:{b:{if(p[f+20>>2]==-1){break b}h=f+188|0;e=p[a+412>>2]+ -1|0;c=p[p[a+344>>2]+24>>2];i=(c+a|0)+264|0;g=((c<<2)+f|0)+124|0;j=p[b>>2];k=p[a+432>>2];while(1){c=e;b=p[g>>2]+v(c,3)|0;if(qf(a,b)){break b}c:{while(1){e=c+1|0;if(qf(a,b+1|0)){break c}b=b+3|0;c=e;if((c|0)<p[a+416>>2]){continue}break}break a}l=qf(a,h);d=b+2|0;b=qf(a,d);d:{if(!b){b=0;break d}e:{if(!qf(a,d)){break e}b=b<<1;d=p[g>>2]+((c|0)<q[i|0]?189:217)|0;if(!qf(a,d)){break e}while(1){b=b<<1;if((b|0)==32768){break a}d=d+1|0;if(qf(a,d)){continue}break}}c=b>>1;if(!c){break d}d=d+14|0;while(1){b=(qf(a,d)?c:0)|b;c=c>>1;if(c){continue}break}}o[(p[(e<<2)+k>>2]<<1)+j>>1]=(l?b^-1:b+1|0)<<p[a+424>>2];if((e|0)<p[a+416>>2]){continue}break}}return 1}b=p[a>>2];p[b+20>>2]=117;m[p[b+4>>2]](a,-1);p[f+20>>2]=-1;return 1}function Eb(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0;g=v(p[b+36>>2],p[b+28>>2]);b=p[a+276>>2];a:{if((b|0)<-1){break a}f=p[a+28>>2];l=g-f|0;if((l|0)<1){break a}h=c+ -4|0;i=b+1|0;b=0;while(1){e=f+p[h+(b<<2)>>2]|0;uh(e,q[e+ -1|0],l);e=(b|0)!=(i|0);b=b+1|0;if(e){continue}break}b=p[a+276>>2]}if((b|0)>=1){b=p[a+228>>2];o=b<<6;r=65536-(b<<9)|0;l=g+ -2|0;while(1){b=m<<2;j=p[b+d>>2];b=b+c|0;k=p[b>>2];e=q[k|0];m=m+1|0;g=p[(m<<2)+c>>2];h=p[b+ -4>>2];b=q[g|0]+q[h|0]|0;i=e+b|0;f=q[k+1|0]+(q[g+1|0]+q[h+1|0]|0)|0;n[j|0]=(v(e,r)+v(f+(b+i|0)|0,o)|0)+32768>>>16;j=j+1|0;b=k+1|0;b:{if(!l){e=i;break b}k=g+1|0;g=h+1|0;h=l;while(1){e=f;f=q[b|0];i=(i+e|0)-f|0;s=v(f,r);f=q[b+1|0]+(q[k+1|0]+q[g+1|0]|0)|0;n[j|0]=(s+v(i+f|0,o)|0)+32768>>>16;j=j+1|0;k=k+1|0;g=g+1|0;b=b+1|0;i=e;h=h+ -1|0;if(h){continue}break}}b=q[b|0];n[j|0]=(v(b,r)+v(((f<<1)+e|0)-b|0,o)|0)+32768>>>16;if((m|0)<p[a+276>>2]){continue}break}}}function Gf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,o=0,q=0;l=p[a+332>>2]+ -1|0;n=p[a+452>>2];a:{while(1){f=p[a+144>>2];c=p[a+152>>2];if((c|0)!=(f|0)|s[a+148>>2]>s[a+156>>2]?(f|0)>=(c|0):0){break a}if(m[p[p[a+460>>2]>>2]](a)|0){continue}break}return 0}if(p[a+36>>2]>=1){d=p[a+216>>2];while(1){b:{if(!p[d+52>>2]){break b}e=h<<2;c=p[d+12>>2];o=m[p[p[a+4>>2]+32>>2]](a,p[(e+n|0)+72>>2],v(c,p[a+156>>2]),c,0)|0;if(s[a+156>>2]<l>>>0){c=p[d+12>>2]}else{f=p[d+12>>2];c=s[d+32>>2]%(f>>>0)|0;c=c?c:f}if((c|0)<1){break b}q=p[(e+p[a+472>>2]|0)+4>>2];i=p[b+e>>2];e=p[d+28>>2];g=0;while(1){f=0;if(e){e=p[(g<<2)+o>>2];j=0;k=0;while(1){m[q|0](a,d,e,i,j);e=e+128|0;j=p[d+36>>2]+j|0;k=k+1|0;f=p[d+28>>2];if(k>>>0<f>>>0){continue}break}}i=(p[d+40>>2]<<2)+i|0;e=f;g=g+1|0;if((c|0)!=(g|0)){continue}break}}d=d+88|0;h=h+1|0;if((h|0)<p[a+36>>2]){continue}break}}b=p[a+156>>2]+1|0;p[a+156>>2]=b;return(b>>>0<s[a+332>>2]?3:4)|0}function Qb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0;e=uh(a,0,256);while(1){d=p[(i<<2)+b>>2]+c|0;f=q[d|0];h=q[d+5|0];g=f-h|0;k=q[d+1|0];l=q[d+4|0];j=k-l|0;m=q[d+2|0];n=q[d+3|0];d=m-n|0;p[e+12>>2]=(g-j|0)-d<<2;f=f+h|0;h=m+n|0;p[e+8>>2]=v(f-h|0,10033)+1024>>11;f=f+h|0;h=k+l|0;p[e>>2]=(f+h<<2)+ -3072;p[e+16>>2]=v(f-(h<<1)|0,5793)+1024>>11;f=d-j<<2;d=v(d+g|0,2998)+1024>>11;p[e+20>>2]=f+d;p[e+4>>2]=d+(g+j<<2);e=e+32|0;i=i+1|0;if((i|0)!=6){continue}break}while(1){c=p[a+160>>2];e=p[a>>2];b=c+e|0;d=p[a+96>>2];i=p[a+64>>2];g=d+i|0;p[a+64>>2]=v(b-g|0,17837)+16384>>15;b=b+g|0;g=p[a+128>>2];j=p[a+32>>2];f=g+j|0;p[a+128>>2]=v(b-(f<<1)|0,10298)+16384>>15;p[a>>2]=v(b+f|0,14564)+16384>>15;b=i-d|0;c=e-c|0;e=v(b+c|0,5331)+16384|0;d=j-g|0;p[a+160>>2]=e+v(b-d|0,14564)>>15;p[a+96>>2]=v((c-d|0)-b|0,14564)+16384>>15;p[a+32>>2]=e+v(c+d|0,14564)>>15;a=a+4|0;o=o+1|0;if((o|0)!=6){continue}break}}function Tb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0;a=uh(a,0,256);d=p[b>>2]+c|0;h=q[d+2|0];e=q[d|0];f=h+e|0;g=q[d+1|0];d=(f+g<<4)+ -6144|0;p[a>>2]=d;h=v(e-h|0,10033)+256>>9;p[a+4>>2]=h;p[a+8>>2]=v(f-(g<<1)|0,5793)+256>>9;e=p[b+4>>2]+c|0;f=q[e+2|0];g=q[e|0];i=f+g|0;j=q[e+1|0];e=(i+j<<4)+ -6144|0;p[a+32>>2]=e;f=v(g-f|0,10033)+256>>9;p[a+36>>2]=f;g=v(i-(j<<1)|0,5793)+256>>9;p[a+40>>2]=g;b=p[b+8>>2]+c|0;c=q[b+2|0];i=q[b|0];j=c+i|0;b=q[b+1|0];k=(j+b<<4)+ -6144|0;p[a+32>>2]=v(d-k|0,17837)+16384>>15;c=v(i-c|0,10033)+256>>9;p[a+36>>2]=v(h-c|0,17837)+16384>>15;d=d+k|0;p[a+64>>2]=v(d-(e<<1)|0,10298)+16384>>15;p[a>>2]=v(d+e|0,14564)+16384>>15;c=c+h|0;p[a+68>>2]=v(c-(f<<1)|0,10298)+16384>>15;p[a+4>>2]=v(c+f|0,14564)+16384>>15;c=p[a+8>>2];b=v(j-(b<<1)|0,5793)+256>>9;p[a+40>>2]=v(c-b|0,17837)+16384>>15;b=b+c|0;p[a+72>>2]=v(b-(g<<1)|0,10298)+16384>>15;p[a+8>>2]=v(b+g|0,14564)+16384>>15}function Kb(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,n=0,o=0,q=0,r=0,s=0;e=m[p[p[a+4>>2]>>2]](a,1,64)|0;p[a+400>>2]=e;p[e>>2]=47;a:{if(p[p[a+416>>2]+8>>2]){p[e+4>>2]=48;c=p[a+276>>2];d=m[p[p[a+4>>2]>>2]](a,1,v(v(c,p[a+76>>2]),20))|0;if(p[a+76>>2]<1){break a}i=c<<2;k=c<<1;l=v(c,12);n=v(c,3);f=p[a+84>>2];o=v(c,5)<<2;while(1){g=m[p[p[a+4>>2]+8>>2]](a,1,(v(p[a+272>>2],v(p[a+280>>2],p[f+28>>2]))|0)/p[f+8>>2]|0,n)|0;q=th(d+i|0,g,l);b=0;if((c|0)>=1){while(1){j=b<<2;p[j+d>>2]=p[g+(b+k<<2)>>2];p[(b+i<<2)+d>>2]=p[g+j>>2];b=b+1|0;if((c|0)!=(b|0)){continue}break}}p[((h<<2)+e|0)+8>>2]=q;f=f+88|0;d=d+o|0;h=h+1|0;if((h|0)<p[a+76>>2]){continue}break}break a}p[e+4>>2]=49;if(p[a+76>>2]<1){break a}c=e+8|0;b=p[a+84>>2];while(1){r=c+(d<<2)|0,s=m[p[p[a+4>>2]+8>>2]](a,1,(v(p[a+272>>2],v(p[a+280>>2],p[b+28>>2]))|0)/p[b+8>>2]|0,p[a+276>>2])|0,p[r>>2]=s;b=b+88|0;d=d+1|0;if((d|0)<p[a+76>>2]){continue}break}}}function qb(a){a=a|0;var b=0,c=0,d=0;a:{b:{c:{d:{e:{b=p[a+392>>2];switch(p[b+20>>2]){case 2:break c;case 1:break d;case 0:break e;default:break b}}rb(a);sb(a);if(!p[a+208>>2]){m[p[p[a+412>>2]>>2]](a);m[p[p[a+416>>2]>>2]](a);m[p[p[a+400>>2]>>2]](a,0)}m[p[p[a+420>>2]>>2]](a);m[p[p[a+424>>2]>>2]](a,p[a+216>>2]);m[p[p[a+404>>2]>>2]](a,p[b+28>>2]>1?3:0);m[p[p[a+396>>2]>>2]](a,0);if(p[a+216>>2]){p[b+12>>2]=0;break a}p[b+12>>2]=1;break a}rb(a);sb(a);if(!(p[a+372>>2]?!p[a+364>>2]:0)){m[p[p[a+424>>2]>>2]](a,1);m[p[p[a+404>>2]>>2]](a,2);p[b+12>>2]=0;break a}p[b+20>>2]=2;p[b+24>>2]=p[b+24>>2]+1}if(!p[a+216>>2]){rb(a);sb(a)}m[p[p[a+424>>2]>>2]](a,0);m[p[p[a+404>>2]>>2]](a,2);if(!p[b+32>>2]){m[p[p[a+408>>2]+4>>2]](a)}m[p[p[a+408>>2]+8>>2]](a);p[b+12>>2]=0;break a}c=p[a>>2];p[c+20>>2]=49;m[p[c>>2]](a)}d=b;c=p[b+28>>2];b=p[b+24>>2];p[d+16>>2]=(c+ -1|0)==(b|0);a=p[a+8>>2];if(a){p[a+16>>2]=c;p[a+12>>2]=b}}function Kf(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0;g=m[p[p[a+4>>2]>>2]](a,1,80)|0;p[a+448>>2]=g;p[g>>2]=221;b=p[a+328>>2];a:{if(p[p[a+476>>2]+8>>2]){if((b|0)<=1){e=p[a>>2];p[e+20>>2]=48;m[p[e>>2]](a);b=p[a+328>>2]}e=p[a+448>>2];c=m[p[p[a+4>>2]>>2]](a,1,p[a+36>>2]<<3)|0;p[e+60>>2]=c;d=p[a+36>>2];p[e- -64>>2]=c+(d<<2);if((d|0)>=1){i=b+4|0;c=p[a+216>>2];while(1){b=(v(p[c+40>>2],p[c+12>>2])|0)/p[a+328>>2]|0;d=v(b,i);b=(m[p[p[a+4>>2]>>2]](a,1,d<<3)|0)+(b<<2)|0;h=f<<2;p[h+p[e+60>>2]>>2]=b;p[p[e+64>>2]+h>>2]=b+(d<<2);c=c+88|0;f=f+1|0;d=p[a+36>>2];if((f|0)<(d|0)){continue}break}}b=p[a+328>>2];e=b+2|0;break a}p[g+52>>2]=b;d=p[a+36>>2];e=b}b:{if((d|0)<1){break b}d=g+8|0;c=p[a+216>>2];f=0;while(1){j=d+(f<<2)|0,k=m[p[p[a+4>>2]+8>>2]](a,1,v(p[c+36>>2],p[c+28>>2]),v(e,(v(p[c+40>>2],p[c+12>>2])|0)/(b|0)|0))|0,p[j>>2]=k;f=f+1|0;if((f|0)>=p[a+36>>2]){break b}c=c+88|0;b=p[a+328>>2];continue}}}function Eh(a,b,c){var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;a:{b:{c:{d:{e:{f:{g:{h:{i:{e=b;if(b){d=c;if(!d){break i}break h}a=(a>>>0)/(c>>>0)|0;$=0;return a}if(!a){break g}break f}if(!(d+ -1&d)){break e}i=(y(d)+33|0)-y(e)|0;g=0-i|0;break c}a=(e>>>0)/0|0;$=0;return a}d=32-y(e)|0;if(d>>>0<31){break d}break b}if((d|0)==1){break a}if(d){d=31-y(d+ -1^d)|0}else{d=32}c=d&31;if(32<=(d&63)>>>0){e=0;a=b>>>c|0}else{e=b>>>c|0;a=((1<<c)-1&b)<<32-c|a>>>c}$=e;return a}i=d+1|0;g=63-d|0}d=b;e=i&63;f=e&31;if(32<=e>>>0){e=0;f=d>>>f|0}else{e=d>>>f|0;f=((1<<f)-1&d)<<32-f|a>>>f}g=g&63;d=g&31;if(32<=g>>>0){b=a<<d;a=0}else{b=(1<<d)-1&a>>>32-d|b<<d;a=a<<d}if(i){d=-1;g=c+ -1|0;if((g|0)!=-1){d=0}while(1){h=f<<1|b>>>31;j=h;e=e<<1|f>>>31;h=d-(e+(g>>>0<h>>>0)|0)>>31;k=c&h;f=j-k|0;e=e-(j>>>0<k>>>0)|0;b=b<<1|a>>>31;a=l|a<<1;h=h&1;l=h;i=i+ -1|0;if(i){continue}break}}$=b<<1|a>>>31;return h|a<<1}a=0;b=0}$=b;return a}function af(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0;m=p[a+336>>2];b=p[b+84>>2];i=Z-80|0;a=i;while(1){g=p[b+64>>2];r=o[c+32>>1];l=v(o[c>>1],p[b>>2])<<13|1024;h=v(v(o[c+64>>1],p[b+128>>2]),5793);s=l-(h<<1)>>11;f=v(p[b+32>>2],o[c+16>>1]);j=v(p[b+96>>2],o[c+48>>1]);k=v(p[b+160>>2],o[c+80>>1]);t=(f-j|0)-k<<2;p[a+48>>2]=s-t;p[a+12>>2]=s+t;g=v(v(g,r),10033);r=l+h|0;l=g+r|0;h=f+j<<13;f=v(f+k|0,2998);h=h+f|0;p[a+60>>2]=l-h>>11;p[a>>2]=l+h>>11;g=r-g|0;f=f+(k-j<<13)|0;p[a+36>>2]=g-f>>11;p[a+24>>2]=f+g>>11;a=a+4|0;b=b+4|0;c=c+2|0;u=u+1|0;if((u|0)!=3){continue}break}b=m+ -384|0;a=0;c=i;while(1){i=p[(a<<2)+d>>2]+e|0;j=(p[c>>2]<<13)+134348800|0;f=p[c+8>>2];k=j+v(f,5793)|0;m=v(p[c+4>>2],10033);n[i|0]=q[b+(k+m>>>18&1023)|0];n[i+2|0]=q[b+(k-m>>>18&1023)|0];n[i+1|0]=q[b+(j+v(f,-11586)>>>18&1023)|0];c=c+12|0;a=a+1|0;if((a|0)!=6){continue}break}}function Md(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,r=0,s=0,t=0,u=0,w=0,x=0,y=0,z=0,A=0,B=0,C=0,D=0,E=0,F=0,G=0,H=0;if((d|0)>=1){A=p[a+336>>2];f=p[a+484>>2];i=p[a+120>>2];B=0-i|0;j=p[a+112>>2];u=j+ -1|0;C=v(u,i);D=j+1<<1;while(1){a=r<<2;w=a+c|0;uh(p[w>>2],0,j);if((i|0)>=1){E=a+b|0;g=0;while(1){k=p[E>>2]+g|0;a=p[w>>2];a:{if(p[f+84>>2]){a=a+u|0;k=k+C|0;s=-1;x=B;e=p[((g<<2)+f|0)+68>>2]+D|0;break a}s=1;x=i;e=p[((g<<2)+f|0)+68>>2]}l=0;b:{if(!j){h=e;m=0;break b}h=g<<2;F=p[h+p[f+16>>2]>>2];G=p[h+p[f+24>>2]>>2];y=0;t=j;m=0;while(1){h=(s<<1)+e|0;z=q[(q[k|0]+((o[h>>1]+l|0)+8>>4)|0)+A|0];l=q[z+G|0];n[a|0]=l+q[a|0];H=e;e=z-q[l+F|0]|0;o[H>>1]=v(e,3)+m;l=v(e,7);m=v(e,5)+y|0;a=a+s|0;k=k+x|0;y=e;e=h;t=t+ -1|0;if(t){continue}break}}o[h>>1]=m;g=g+1|0;if((i|0)!=(g|0)){continue}break}}p[f+84>>2]=!p[f+84>>2];r=r+1|0;if((r|0)!=(d|0)){continue}break}}}function nf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;e=p[a+468>>2];if(p[a+280>>2]){c=e;d=p[c+56>>2];if(!d){pf(a);d=p[e+56>>2]}p[c+56>>2]=d+ -1}a:{if(p[e+20>>2]==-1){break a}f=1<<p[a+424>>2];j=0-f|0;d=p[a+416>>2];h=p[b>>2];i=p[a+432>>2];c=p[p[a+344>>2]+24>>2];b:{while(1){if(r[(p[(d<<2)+i>>2]<<1)+h>>1]){break b}d=d+ -1|0;if(d){continue}break}d=0}k=e+188|0;b=p[a+412>>2]+ -1|0;l=((c<<2)+e|0)+124|0;while(1){c=p[l>>2]+v(b,3)|0;if((b|0)>=(d|0)){if(qf(a,c)){break a}}c:{d:{e:{while(1){b=b+1|0;g=(p[(b<<2)+i>>2]<<1)+h|0;if(r[g>>1]){if(!qf(a,c+2|0)){break c}c=o[g>>1];if((c|0)>-1){break e}c=c-f|0;break d}if(qf(a,c+1|0)){c=qf(a,k)?j:f;break d}c=c+3|0;if((b|0)<p[a+416>>2]){continue}break}b=p[a>>2];p[b+20>>2]=117;m[p[b+4>>2]](a,-1);p[e+20>>2]=-1;return 1}c=c+f|0}o[g>>1]=c}if((b|0)<p[a+416>>2]){continue}break}}return 1}function Rb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0;e=uh(a,0,256);while(1){d=p[(h<<2)+b>>2]+c|0;f=q[d+3|0];g=q[d+4|0];i=q[d|0];j=g+i|0;k=q[d+1|0];l=k+f|0;m=j+l|0;d=q[d+2|0];p[e>>2]=(m+d<<3)+ -5120;j=v(j-l|0,6476)+512|0;d=v(m-(d<<2)|0,2896);p[e+16>>2]=j-d>>10;p[e+8>>2]=d+j>>10;f=k-f|0;g=i-g|0;d=v(f+g|0,6810)+512|0;p[e+12>>2]=d+v(f,-17828)>>10;p[e+4>>2]=d+v(g,4209)>>10;e=e+32|0;h=h+1|0;if((h|0)!=5){continue}break}while(1){b=p[a+128>>2];c=p[a>>2];e=b+c|0;d=p[a+96>>2];h=p[a+32>>2];f=d+h|0;g=v(e-f|0,8290)+16384|0;e=e+f|0;f=p[a+64>>2];i=v(e-(f<<2)|0,3707);p[a+128>>2]=g-i>>15;p[a+64>>2]=g+i>>15;p[a>>2]=v(e+f|0,10486)+16384>>15;e=h-d|0;c=c-b|0;b=v(e+c|0,8716)+16384|0;p[a+96>>2]=b+v(e,-22820)>>15;p[a+32>>2]=b+v(c,5387)>>15;a=a+4|0;n=n+1|0;if((n|0)!=5){continue}break}}function Qd(a){var b=0,c=0,d=0,e=0;b=p[a+484>>2];a=m[p[p[a+4>>2]>>2]](a,1,2044)|0;c=a+1020|0;p[b+40>>2]=c;p[a+1016>>2]=-1;p[a+1020>>2]=0;p[a+1024>>2]=1;p[a+1028>>2]=2;p[a+1032>>2]=3;p[a+1036>>2]=4;p[a+1008>>2]=-3;p[a+1012>>2]=-2;p[a+1040>>2]=5;p[a+1044>>2]=6;p[a+1e3>>2]=-5;p[a+1004>>2]=-4;p[a+1048>>2]=7;p[a+1052>>2]=8;p[a+992>>2]=-7;p[a+996>>2]=-6;p[a+1056>>2]=9;p[a+1060>>2]=10;p[a+984>>2]=-9;p[a+988>>2]=-8;p[a+1064>>2]=11;p[a+1068>>2]=12;p[a+976>>2]=-11;p[a+980>>2]=-10;p[a+1072>>2]=13;p[a+1076>>2]=14;p[a+968>>2]=-13;p[a+972>>2]=-12;p[a+1080>>2]=15;p[a+960>>2]=-15;p[a+964>>2]=-14;a=16;b=16;while(1){d=b<<2;p[d+c>>2]=a;p[c-d>>2]=0-a;b=b+1|0;a=((b^-1)&1)+a|0;if((b|0)!=48){continue}break}d=0-a|0;b=48;while(1){e=b<<2;p[e+c>>2]=a;p[c-e>>2]=d;b=b+1|0;if((b|0)!=256){continue}break}}function $d(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0;c=c<<2;f=p[c+p[b+8>>2]>>2];i=p[c+p[b+4>>2]>>2];g=p[c+p[b>>2]>>2];b=p[d>>2];e=p[a+336>>2];c=p[a+476>>2];l=p[c+28>>2];m=p[c+24>>2];o=p[c+20>>2];r=p[c+16>>2];c=p[a+112>>2];j=c>>>1|0;if(j){while(1){c=q[i|0]<<2;s=p[c+o>>2];d=q[f|0]<<2;h=p[d+m>>2];c=p[c+l>>2];d=p[d+r>>2];k=q[g|0];n[b|0]=q[e+(d+k|0)|0];c=c+h>>16;n[b+1|0]=q[e+(c+k|0)|0];n[b+2|0]=q[e+(s+k|0)|0];h=d;d=q[g+1|0];n[b+3|0]=q[e+(h+d|0)|0];n[b+4|0]=q[e+(c+d|0)|0];n[b+5|0]=q[e+(d+s|0)|0];b=b+6|0;g=g+2|0;f=f+1|0;i=i+1|0;j=j+ -1|0;if(j){continue}break}c=p[a+112>>2]}if(c&1){a=q[i|0]<<2;h=p[a+o>>2];d=q[f|0]<<2;c=p[d+m>>2];a=p[a+l>>2];f=p[d+r>>2];d=q[g|0];n[b|0]=q[e+(f+d|0)|0];n[b+1|0]=q[e+(d+(a+c>>16)|0)|0];n[b+2|0]=q[e+(d+h|0)|0]}}function Tf(a){a=a|0;var b=0,c=0,d=0;b=p[a+444>>2];a:{if(p[b+8>>2]){p[b+8>>2]=0;m[p[p[a+484>>2]>>2]](a,0);m[p[p[a+456>>2]>>2]](a,2);m[p[p[a+448>>2]>>2]](a,2);break a}b:{if(p[a+136>>2]|!p[a+84>>2]){break b}if(!(!p[a+92>>2]|!p[a+108>>2])){p[a+484>>2]=p[b+24>>2];p[b+8>>2]=1;break b}if(p[a+100>>2]){p[a+484>>2]=p[b+20>>2];break b}c=p[a>>2];p[c+20>>2]=47;m[p[c>>2]](a)}m[p[p[a+472>>2]>>2]](a);m[p[p[a+452>>2]+8>>2]](a);if(p[a+68>>2]){break a}if(!p[b+16>>2]){m[p[p[a+480>>2]>>2]](a)}m[p[p[a+476>>2]>>2]](a);if(p[a+84>>2]){m[p[p[a+484>>2]>>2]](a,p[b+8>>2])}m[p[p[a+456>>2]>>2]](a,p[b+8>>2]?3:0);m[p[p[a+448>>2]>>2]](a,0)}c=p[a+8>>2];c:{if(!c){break c}d=p[b+12>>2];p[c+12>>2]=d;b=(p[b+8>>2]?2:1)+d|0;p[c+16>>2]=b;if(p[p[a+460>>2]+20>>2]|!p[a+64>>2]){break c}p[c+16>>2]=b+(p[a+108>>2]?2:1)}}function id(a){var b=0,c=0,d=0,e=0,f=0,g=0;b=p[a+24>>2];c=p[b+4>>2];e=p[b>>2];while(1){if(!c){if(!(m[p[b+12>>2]](a)|0)){return 0}e=p[b>>2];c=p[b+4>>2]}d=e+1|0;c=c+ -1|0;if(q[e|0]!=255){while(1){e=p[a+464>>2];p[e+24>>2]=p[e+24>>2]+1;p[b+4>>2]=c;p[b>>2]=d;if(!c){if(!(m[p[b+12>>2]](a)|0)){return 0}d=p[b>>2];c=p[b+4>>2]}c=c+ -1|0;e=q[d|0];d=d+1|0;if((e|0)!=255){continue}break}}while(1){if(!c){if(!(m[p[b+12>>2]](a)|0)){return 0}d=p[b>>2];c=p[b+4>>2]}c=c+ -1|0;f=q[d|0];e=d+1|0;d=e;if((f|0)==255){continue}break}if(!f){d=p[a+464>>2];p[d+24>>2]=p[d+24>>2]+2;p[b+4>>2]=c;p[b>>2]=e;continue}break}d=p[p[a+464>>2]+24>>2];if(d){g=p[a>>2];p[g+24>>2]=d;p[g+20>>2]=119;p[p[a>>2]+28>>2]=f;m[p[p[a>>2]+4>>2]](a,-1);p[p[a+464>>2]+24>>2]=0}p[a+440>>2]=f;p[b+4>>2]=c;p[b>>2]=e;return 1}function Pa(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0;h=p[a+4>>2];if(c>>>0>=999999985){d=p[a>>2];p[d+20>>2]=56;p[d+24>>2]=1;m[p[p[a>>2]>>2]](a)}d=c&7;d=d?8-d|0:0;if(b>>>0>=2){e=p[a>>2];p[e+24>>2]=b;p[e+20>>2]=15;m[p[p[a>>2]>>2]](a)}d=c+d|0;i=((b<<2)+h|0)+52|0;c=p[i>>2];a:{if(c){while(1){f=c;if(s[c+8>>2]>=d>>>0){b=f;break a}c=p[f>>2];if(c){continue}break}}c=999999984-d|0;b=p[(b<<2)+(f?6216:6208)>>2];c=b>>>0>c>>>0?c:b;e=d+c|0;g=e+16|0;b=kh(g);if(!b){while(1){b=c>>>1|0;if(c>>>0<=99){c=p[a>>2];p[c+20>>2]=56;p[c+24>>2]=2;m[p[p[a>>2]>>2]](a)}c=b;e=b+d|0;g=e+16|0;b=kh(g);if(!b){continue}break}}p[h+76>>2]=p[h+76>>2]+g;p[b+8>>2]=e;p[b>>2]=0;p[b+4>>2]=0;if(!f){p[i>>2]=b;break a}p[f>>2]=b}a=p[b+4>>2];p[b+4>>2]=a+d;p[b+8>>2]=p[b+8>>2]-d;return(a+b|0)+16|0}function Va(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0;if(c>>>0>=65534){d=p[a>>2];p[d+20>>2]=12;m[p[d>>2]](a)}d=p[a+24>>2];e=p[d>>2];p[d>>2]=e+1;n[e|0]=255;e=p[d+4>>2]+ -1|0;p[d+4>>2]=e;a:{if(e){break a}if(m[p[d+12>>2]](a)|0){break a}d=p[a>>2];p[d+20>>2]=25;m[p[d>>2]](a)}d=p[a+24>>2];e=p[d>>2];p[d>>2]=e+1;n[e|0]=b;b=p[d+4>>2]+ -1|0;p[d+4>>2]=b;b:{if(b){break b}if(m[p[d+12>>2]](a)|0){break b}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+24>>2];d=p[b>>2];p[b>>2]=d+1;e=d;d=c+2|0;n[e|0]=d>>>8;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;c:{if(c){break c}if(m[p[b+12>>2]](a)|0){break c}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=d;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;d:{if(c){break d}if(m[p[b+12>>2]](a)|0){break d}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}}function Jb(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0,t=0;l=v(p[b+36>>2],p[b+28>>2]);b=p[a+416>>2]+p[b+4>>2]|0;i=q[b+92|0];j=q[b+102|0];b=p[a+276>>2];a:{if((b|0)<1){break a}f=p[a+28>>2];g=v(i,l)-f|0;if((g|0)<1){break a}while(1){h=f+p[(e<<2)+c>>2]|0;uh(h,q[h+ -1|0],g);e=e+1|0;if((e|0)!=(b|0)){continue}break}b=p[a+276>>2]}if((b|0)>=1){r=v(i,j);t=r>>>1|0;while(1){if(l){f=p[(s<<2)+d>>2];g=0;m=0;while(1){h=0;k=0;if(j){while(1){if(i){b=p[(k+o<<2)+c>>2]+g|0;e=0;while(1){h=q[b|0]+h|0;b=b+1|0;e=e+1|0;if((i|0)!=(e|0)){continue}break}}k=k+1|0;if((j|0)!=(k|0)){continue}break}}n[f|0]=(h+t|0)/(r|0);g=i+g|0;f=f+1|0;m=m+1|0;if((m|0)!=(l|0)){continue}break}b=p[a+276>>2]}s=s+1|0;o=j+o|0;if((o|0)<(b|0)){continue}break}}}function Ef(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0;b=p[a+452>>2];if(p[b+16>>2]){g=b;a:{b:{if(!p[a+160>>2]|(!p[a+80>>2]|!p[a+224>>2])){break b}c=p[b+112>>2];if(!c){c=m[p[p[a+4>>2]>>2]](a,1,v(p[a+36>>2],24))|0;p[b+112>>2]=c}if(p[a+36>>2]<1){break b}d=p[a+216>>2];while(1){b=p[d+80>>2];if(!b|!r[b>>1]|(!r[b+2>>1]|!r[b+16>>1])){break b}if(!r[b+4>>1]|(!r[b+32>>1]|!r[b+18>>1])){break b}b=p[a+160>>2]+(e<<8)|0;if(p[b>>2]<0){break b}p[c+4>>2]=p[b+4>>2];h=p[b+4>>2];p[c+8>>2]=p[b+8>>2];i=p[b+8>>2];p[c+12>>2]=p[b+12>>2];j=p[b+12>>2];p[c+16>>2]=p[b+16>>2];k=p[b+16>>2];p[c+20>>2]=p[b+20>>2];f=p[b+20>>2]|(h|i|j|k)?1:f;d=d+88|0;c=c+24|0;e=e+1|0;if((e|0)<p[a+36>>2]){continue}break}if(!f){break b}b=220;break a}b=216}p[g+12>>2]=b}p[a+156>>2]=0}function Bf(a,b,c,d){var e=0,f=0,g=0,h=0,i=0,j=0;h=p[a+4>>2];g=p[a>>2];f=p[a+16>>2];e=g;a:{b:{if(p[f+440>>2]){break b}if((c|0)>24){i=c;e=g;break a}while(1){if(!h){if(!(m[p[p[f+24>>2]+12>>2]](f)|0)){return 0}e=p[f+24>>2];h=p[e+4>>2];g=p[e>>2]}e=g+1|0;h=h+ -1|0;c:{i=q[g|0];if((i|0)==255){while(1){if(!h){if(!(m[p[p[f+24>>2]+12>>2]](f)|0)){return 0}e=p[f+24>>2];h=p[e+4>>2];e=p[e>>2]}h=h+ -1|0;j=q[e|0];i=255;g=e+1|0;e=g;if((j|0)==255){continue}break}if(j){break c}e=g}b=b<<8|i;j=(c|0)<17;g=e;i=c+8|0;c=i;if(j){continue}break a}break}p[f+440>>2]=j;e=g}if((c|0)>=(d|0)){i=c;break a}if(!p[p[f+468>>2]+40>>2]){d=p[f>>2];p[d+20>>2]=120;m[p[d+4>>2]](f,-1);p[p[f+468>>2]+40>>2]=1}i=25;b=b<<25-c}p[a+12>>2]=i;p[a+8>>2]=b;p[a+4>>2]=h;p[a>>2]=e;return 1}function Nd(a){var b=0,c=0,d=0,e=0,f=0;b=m[p[p[a+4>>2]>>2]](a,1,44)|0;p[a+484>>2]=b;p[b+40>>2]=0;p[b+32>>2]=0;p[b+12>>2]=131;p[b>>2]=132;if(p[a+120>>2]!=3){c=p[a>>2];p[c+20>>2]=48;m[p[c>>2]](a)}e=b,f=m[p[p[a+4>>2]>>2]](a,1,128)|0,p[e+24>>2]=f;while(1){c=m[p[p[a+4>>2]+4>>2]](a,1,4096)|0;p[p[b+24>>2]+(d<<2)>>2]=c;d=d+1|0;if((d|0)!=32){continue}break}p[b+28>>2]=1;a:{if(p[a+108>>2]){d=p[a+96>>2];b:{if((d|0)<=7){c=p[a>>2];p[c+20>>2]=58;p[c+24>>2]=8;m[p[p[a>>2]>>2]](a);break b}if((d|0)<257){break b}c=p[a>>2];p[c+20>>2]=59;p[c+24>>2]=256;m[p[p[a>>2]>>2]](a)}c=m[p[p[a+4>>2]+8>>2]](a,1,d,3)|0;p[b+20>>2]=d;p[b+16>>2]=c;break a}p[b+16>>2]=0}if(p[a+88>>2]){p[a+88>>2]=2;e=b,f=m[p[p[a+4>>2]+4>>2]](a,1,v(p[a+112>>2],6)+12|0)|0,p[e+32>>2]=f;Qd(a)}}function Wc(a,b){var c=0,d=0,e=0;Tc(a);a:{if(p[a+108>>2]){break a}Vc(a);c=p[a+112>>2];p[a+112>>2]=c+1;n[c|0]=255;c=p[a+116>>2]+ -1|0;p[a+116>>2]=c;b:{if(c){c=p[a+112>>2];break b}c=p[a+120>>2];d=p[c+24>>2];if(!(m[p[d+12>>2]](c)|0)){c=p[a+120>>2];e=p[c>>2];p[e+20>>2]=25;m[p[e>>2]](c)}c=p[d>>2];p[a+112>>2]=c;p[a+116>>2]=p[d+4>>2]}p[a+112>>2]=c+1;n[c|0]=b+ -48;b=p[a+116>>2]+ -1|0;p[a+116>>2]=b;if(b){break a}c=p[a+120>>2];b=p[c+24>>2];if(!(m[p[b+12>>2]](c)|0)){c=p[a+120>>2];d=p[c>>2];p[d+20>>2]=25;m[p[d>>2]](c)}p[a+112>>2]=p[b>>2];p[a+116>>2]=p[b+4>>2]}c=p[a+120>>2];c:{if(!p[c+364>>2]){if(p[c+292>>2]<1){break c}b=0;while(1){p[((b<<2)+a|0)+20>>2]=0;b=b+1|0;if((b|0)<p[c+292>>2]){continue}break}break c}p[a+128>>2]=0;p[a+132>>2]=0}}function Vc(a){var b=0,c=0,d=0,e=0,f=0;if(!p[a+108>>2]){d=p[a+16>>2];b=d+7|0;e=p[a+12>>2]|127<<17-d;if((d|0)>=1){while(1){d=b;b=p[a+112>>2];p[a+112>>2]=b+1;n[b|0]=e>>>16;b=p[a+116>>2]+ -1|0;p[a+116>>2]=b;if(!b){c=p[a+120>>2];b=p[c+24>>2];if(!(m[p[b+12>>2]](c)|0)){c=p[a+120>>2];f=p[c>>2];p[f+20>>2]=25;m[p[f>>2]](c)}p[a+112>>2]=p[b>>2];p[a+116>>2]=p[b+4>>2]}a:{if((e&16711680)!=16711680){break a}b=p[a+112>>2];p[a+112>>2]=b+1;n[b|0]=0;b=p[a+116>>2]+ -1|0;p[a+116>>2]=b;if(b){break a}c=p[a+120>>2];b=p[c+24>>2];if(!(m[p[b+12>>2]](c)|0)){c=p[a+120>>2];f=p[c>>2];p[f+20>>2]=25;m[p[f>>2]](c)}p[a+112>>2]=p[b>>2];p[a+116>>2]=p[b+4>>2]}b=d+ -8|0;e=e<<8;if((d|0)>15){continue}break}}p[a+16>>2]=b;p[a+12>>2]=e}p[a+12>>2]=0;p[a+16>>2]=0}function Og(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0;d=Z-32|0;Z=d;e=p[a+28>>2];p[d+16>>2]=e;f=p[a+20>>2];p[d+28>>2]=c;p[d+24>>2]=b;b=f-e|0;p[d+20>>2]=b;e=b+c|0;j=2;b=d+16|0;a:{b:{c:{if(!Tg(T(p[a+60>>2],d+16|0,2,d+12|0)|0)){while(1){f=p[d+12>>2];if((f|0)==(e|0)){break c}if((f|0)<=-1){break b}g=p[b+4>>2];h=f>>>0>g>>>0;i=(h<<3)+b|0;g=f-(h?g:0)|0;p[i>>2]=g+p[i>>2];i=(h?12:4)+b|0;p[i>>2]=p[i>>2]-g;e=e-f|0;b=h?b+8|0:b;j=j-h|0;if(!Tg(T(p[a+60>>2],b|0,j|0,d+12|0)|0)){continue}break}}p[d+12>>2]=-1;if((e|0)!=-1){break b}}b=p[a+44>>2];p[a+28>>2]=b;p[a+20>>2]=b;p[a+16>>2]=b+p[a+48>>2];a=c;break a}p[a+28>>2]=0;p[a+16>>2]=0;p[a+20>>2]=0;p[a>>2]=p[a>>2]|32;a=0;if((j|0)==2){break a}a=c-p[b+4>>2]|0}Z=d+32|0;return a|0}function Df(a,b){var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0;c=m[p[p[a+4>>2]>>2]](a,1,116)|0;p[a+452>>2]=c;p[c+112>>2]=0;p[c+8>>2]=214;p[c>>2]=215;if(b){if(p[a+36>>2]>=1){f=c+72|0;b=p[a+216>>2];while(1){e=p[b+12>>2];g=p[a+224>>2];h=p[p[a+4>>2]+20>>2];i=(d<<2)+f|0,j=m[h|0](a,1,1,Ra(p[b+28>>2],p[b+8>>2]),Ra(p[b+32>>2],p[b+12>>2]),g?v(e,3):e)|0,p[i>>2]=j;b=b+88|0;d=d+1|0;if((d|0)<p[a+36>>2]){continue}break}}p[c+16>>2]=c+72;p[c+12>>2]=216;p[c+4>>2]=217;return}b=m[p[p[a+4>>2]+4>>2]](a,1,1280)|0;p[c+32>>2]=b;p[c+68>>2]=b+1152;p[c+64>>2]=b+1024;p[c+60>>2]=b+896;p[c+56>>2]=b+768;p[c+52>>2]=b+640;p[c+48>>2]=b+512;p[c+44>>2]=b+384;p[c+40>>2]=b+256;p[c+36>>2]=b+128;if(!p[a+436>>2]){uh(b,0,1280)}p[c+16>>2]=0;p[c+12>>2]=218;p[c+4>>2]=219}function uh(a,b,c){var d=0,e=0,f=0,g=0;a:{if(!c){break a}d=a+c|0;n[d+ -1|0]=b;n[a|0]=b;if(c>>>0<3){break a}n[d+ -2|0]=b;n[a+1|0]=b;n[d+ -3|0]=b;n[a+2|0]=b;if(c>>>0<7){break a}n[d+ -4|0]=b;n[a+3|0]=b;if(c>>>0<9){break a}d=0-a&3;e=d+a|0;b=v(b&255,16843009);p[e>>2]=b;c=c-d&-4;d=c+e|0;p[d+ -4>>2]=b;if(c>>>0<9){break a}p[e+8>>2]=b;p[e+4>>2]=b;p[d+ -8>>2]=b;p[d+ -12>>2]=b;if(c>>>0<25){break a}p[e+24>>2]=b;p[e+20>>2]=b;p[e+16>>2]=b;p[e+12>>2]=b;p[d+ -16>>2]=b;p[d+ -20>>2]=b;p[d+ -24>>2]=b;p[d+ -28>>2]=b;g=e&4|24;c=c-g|0;if(c>>>0<32){break a}d=b;f=b;b=e+g|0;while(1){p[b+24>>2]=f;p[b+28>>2]=d;p[b+16>>2]=f;p[b+20>>2]=d;p[b+8>>2]=f;p[b+12>>2]=d;p[b>>2]=f;p[b+4>>2]=d;b=b+32|0;c=c+ -32|0;if(c>>>0>31){continue}break}}return a}function rb(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0;c=p[a+204>>2];a:{if(c){e=p[p[a+392>>2]+32>>2];f=v(e,36)+c|0;d=p[f>>2];p[a+292>>2]=d;if((d|0)>=1){h=p[a+84>>2];while(1){g=b<<2;p[(g+a|0)+296>>2]=v(p[(f+g|0)+4>>2],88)+h;b=b+1|0;if((d|0)!=(b|0)){continue}break}}if(!p[a+268>>2]){break a}b=v(e,36)+c|0;p[a+364>>2]=p[b+20>>2];p[a+368>>2]=p[b+24>>2];p[a+372>>2]=p[b+28>>2];p[a+376>>2]=p[b+32>>2];return}c=p[a+76>>2];if((c|0)>=5){b=p[a>>2];p[b+24>>2]=c;p[b+20>>2]=27;p[p[a>>2]+28>>2]=4;m[p[p[a>>2]>>2]](a);c=p[a+76>>2]}p[a+292>>2]=c;if((c|0)<1){break a}d=p[a+84>>2];b=0;while(1){p[((b<<2)+a|0)+296>>2]=d+v(b,88);b=b+1|0;if((c|0)!=(b|0)){continue}break}}p[a+364>>2]=0;p[a+372>>2]=0;b=p[a+380>>2];p[a+368>>2]=v(b,b)+ -1;p[a+376>>2]=0}function Ag(a,b,c,d,e,f){var g=0;g=Z-80|0;Z=g;a:{if((f|0)>=16384){bh(g+32|0,b,c,d,e,0,0,0,2147352576);d=p[g+40>>2];e=p[g+44>>2];b=p[g+32>>2];c=p[g+36>>2];if((f|0)<32767){f=f+ -16383|0;break a}bh(g+16|0,b,c,d,e,0,0,0,2147352576);f=((f|0)<49149?f:49149)+ -32766|0;d=p[g+24>>2];e=p[g+28>>2];b=p[g+16>>2];c=p[g+20>>2];break a}if((f|0)>-16383){break a}bh(g- -64|0,b,c,d,e,0,0,0,65536);d=p[g+72>>2];e=p[g+76>>2];b=p[g+64>>2];c=p[g+68>>2];if((f|0)>-32765){f=f+16382|0;break a}bh(g+48|0,b,c,d,e,0,0,0,65536);f=((f|0)>-49146?f:-49146)+32764|0;d=p[g+56>>2];e=p[g+60>>2];b=p[g+48>>2];c=p[g+52>>2]}bh(g,b,c,d,e,0,0,0,f+16383<<16);b=p[g+12>>2];p[a+8>>2]=p[g+8>>2];p[a+12>>2]=b;b=p[g+4>>2];p[a>>2]=p[g>>2];p[a+4>>2]=b;Z=g+80|0}function Ga(a,b){a=a|0;b=b|0;var c=0,d=0,e=0;d=p[a+4>>2];a:{if(b>>>0>=2){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=15;m[p[p[a>>2]>>2]](a);break a}if((b|0)!=1){break a}c=p[d+68>>2];if(c){while(1){if(p[c+40>>2]){p[c+40>>2]=0;m[p[c+56>>2]](a,c+48|0)}c=p[c+44>>2];if(c){continue}break}}p[d+68>>2]=0;c=p[d+72>>2];if(c){while(1){if(p[c+40>>2]){p[c+40>>2]=0;m[p[c+56>>2]](a,c+48|0)}c=p[c+44>>2];if(c){continue}break}}p[d+72>>2]=0}b=(b<<2)+d|0;a=b+60|0;c=p[a>>2];p[a>>2]=0;if(c){while(1){a=p[c>>2];e=(p[c+4>>2]+p[c+8>>2]|0)+16|0;lh(c);p[d+76>>2]=p[d+76>>2]-e;c=a;if(c){continue}break}}a=b+52|0;c=p[a>>2];p[a>>2]=0;if(c){while(1){a=p[c>>2];b=(p[c+4>>2]+p[c+8>>2]|0)+16|0;lh(c);p[d+76>>2]=p[d+76>>2]-b;c=a;if(c){continue}break}}}function jd(a){var b=0;b=m[p[p[a+4>>2]>>2]](a,0,172)|0;p[a+464>>2]=b;p[b+96>>2]=0;p[b+100>>2]=0;p[b+28>>2]=109;p[b+8>>2]=110;p[b+4>>2]=111;p[b>>2]=112;p[b+104>>2]=0;p[b+36>>2]=109;p[b+40>>2]=109;p[b+108>>2]=0;p[b+112>>2]=0;p[b+44>>2]=109;p[b+48>>2]=109;p[b+116>>2]=0;p[b+120>>2]=0;p[b+52>>2]=109;p[b+56>>2]=109;p[b+124>>2]=0;p[b+128>>2]=0;p[b+60>>2]=109;p[b+132>>2]=0;p[b+64>>2]=109;p[b+136>>2]=0;p[b+140>>2]=0;p[b+68>>2]=109;p[b+72>>2]=109;p[b+76>>2]=109;p[b+80>>2]=109;p[b+144>>2]=0;p[b+148>>2]=0;p[b+84>>2]=109;p[b+152>>2]=0;p[b+156>>2]=0;p[b+160>>2]=0;p[b+92>>2]=109;p[b+32>>2]=113;p[b+88>>2]=113;p[a+440>>2]=0;p[a+144>>2]=0;p[a+216>>2]=0;a=p[a+464>>2];p[a+164>>2]=0;p[a+24>>2]=0;p[a+12>>2]=0;p[a+16>>2]=0}function xa(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;f=Z-48|0;Z=f;c=p[a>>2];d=p[c+20>>2];a:{b:{c:{if(!((d|0)<1|(d|0)>p[c+116>>2])){a=p[c+112>>2]+(d<<2)|0;break c}e=p[c+120>>2];if(!e){break b}a=p[c+124>>2];if((d|0)<(a|0)|(d|0)>p[c+128>>2]){break b}a=e+(d-a<<2)|0}e=p[a>>2];if(e){break a}}p[c+24>>2]=d;e=p[p[c+112>>2]>>2]}a=e;d:{e:{while(1){d=q[a|0];if(!d){break e}a=a+1|0;if((d|0)!=37){continue}break}if(q[a|0]!=115){break e}p[f+32>>2]=c+24;cg(b,e,f+32|0);break d}g=p[c+32>>2];h=p[c+36>>2];i=p[c+40>>2];j=p[c+44>>2];k=p[c+24>>2];l=p[c+28>>2];d=p[c+52>>2];a=f;p[a+24>>2]=p[c+48>>2];p[a+28>>2]=d;p[a+16>>2]=i;p[a+20>>2]=j;p[a+8>>2]=g;p[a+12>>2]=h;p[a>>2]=k;p[a+4>>2]=l;cg(b,e,a)}Z=f+48|0}function cb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0;p[a+4>>2]=0;if((b|0)!=90){d=p[a>>2];p[d+20>>2]=13;p[d+24>>2]=90;p[p[a>>2]+28>>2]=b;m[p[p[a>>2]>>2]](a)}if((c|0)!=440){b=p[a>>2];p[b+20>>2]=22;p[b+24>>2]=440;p[p[a>>2]+28>>2]=c;m[p[p[a>>2]>>2]](a)}b=p[a>>2];c=p[a+12>>2];uh(a+4|0,0,436);p[a+16>>2]=0;p[a+12>>2]=c;p[a>>2]=b;Ea(a);p[a+84>>2]=0;p[a+88>>2]=0;p[a+8>>2]=0;p[a+92>>2]=0;p[a+96>>2]=0;p[a+100>>2]=0;p[a+120>>2]=0;p[a+124>>2]=0;p[a+112>>2]=100;p[a+116>>2]=100;p[a+104>>2]=100;p[a+108>>2]=100;p[a+128>>2]=0;p[a+132>>2]=0;p[a+136>>2]=0;p[a+140>>2]=0;p[a+144>>2]=0;p[a+148>>2]=0;p[a+428>>2]=0;p[a+388>>2]=63;p[a+384>>2]=6224;p[a+380>>2]=8;p[a+48>>2]=0;p[a+52>>2]=1072693248;p[a+20>>2]=100;p[a+24>>2]=0}function Hd(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,o=0;e=p[a+484>>2];b=p[a+88>>2];c=(b|0)==1;p[e+28>>2]=c;l=e,o=m[p[p[a+4>>2]+8>>2]](a,1,c?766:256,p[a+120>>2])|0,p[l+24>>2]=o;if(p[a+120>>2]>=1){f=p[e+20>>2];i=(b|0)!=1;while(1){b=g<<2;c=p[(b+e|0)+32>>2];f=(f|0)/(c|0)|0;if(!i){d=b+p[e+24>>2]|0;p[d>>2]=p[d>>2]+255}j=c+ -1|0;k=j<<1;h=(c+254|0)/(k|0)|0;c=p[b+p[e+24>>2]>>2];b=0;d=0;while(1){if((d|0)>(h|0)){while(1){b=b+1|0;h=(v(b<<1|1,255)+j|0)/(k|0)|0;if((d|0)>(h|0)){continue}break}}n[c+d|0]=v(b,f);d=d+1|0;if((d|0)!=256){continue}break}if(!i){b=1;while(1){n[c-b|0]=q[c|0];n[(b+c|0)+255|0]=q[c+255|0];b=b+1|0;if((b|0)!=256){continue}break}}g=g+1|0;if((g|0)<p[a+120>>2]){continue}break}}}function qc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0;a=uh(a,0,256);d=p[b>>2]+c|0;g=q[d|0];e=q[d+1|0];d=g-e|0;p[a+4>>2]=d;g=e+(g|-256)|0;p[a>>2]=g;e=p[b+4>>2]+c|0;h=q[e|0];f=q[e+1|0];e=h-f|0;p[a+36>>2]=e;h=f+(h|-256)|0;p[a+32>>2]=h;f=p[b+8>>2]+c|0;i=q[f|0];j=q[f+1|0];f=i-j|0;p[a+68>>2]=f;i=j+(i|-256)|0;p[a+64>>2]=i;b=p[b+12>>2]+c|0;c=q[b|0];b=q[b+1|0];j=c-b|0;k=j+d|0;l=e+f|0;p[a+68>>2]=k-l<<3;p[a+4>>2]=k+l<<3;c=b+(c|-256)|0;b=c+g|0;k=h+i|0;p[a+64>>2]=b-k<<3;p[a>>2]=b+k<<3;e=e-f|0;d=d-j|0;b=v(e+d|0,4433)+512|0;p[a+100>>2]=b+v(e,-15137)>>10;p[a+36>>2]=b+v(d,6270)>>10;d=h-i|0;c=g-c|0;b=v(d+c|0,4433)+512|0;p[a+96>>2]=b+v(d,-15137)>>10;p[a+32>>2]=b+v(c,6270)>>10}function fb(a){a=a|0;var b=0,c=0,d=0;a:{b:{c:{b=p[a+20>>2];switch(b+ -101|0){case 2:break a;case 0:case 1:break c;default:break b}}if(s[a+264>>2]<s[a+32>>2]){b=p[a>>2];p[b+20>>2]=69;m[p[b>>2]](a)}m[p[p[a+392>>2]+8>>2]](a);break a}c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}b=p[a+392>>2];if(!p[b+16>>2]){while(1){m[p[b>>2]](a);b=0;d=p[a+288>>2];if(d){while(1){c=p[a+8>>2];if(c){p[c+8>>2]=d;p[c+4>>2]=b;m[p[c>>2]](a)}if(!(m[p[p[a+404>>2]+4>>2]](a,0)|0)){c=p[a>>2];p[c+20>>2]=25;m[p[c>>2]](a)}b=b+1|0;d=p[a+288>>2];if(b>>>0<d>>>0){continue}break}}m[p[p[a+392>>2]+8>>2]](a);b=p[a+392>>2];if(!p[b+16>>2]){continue}break}}m[p[p[a+408>>2]+12>>2]](a);m[p[p[a+24>>2]+16>>2]](a);qa(a)}function yg(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0;c=p[a+116>>2];d=c;a:{f=p[a+112>>2];b:{if(c|f){c=p[a+124>>2];if((c|0)>(d|0)?1:(c|0)>=(d|0)?s[a+120>>2]>=f>>>0:0){break b}}f=wg(a);if((f|0)>-1){break a}}p[a+104>>2]=0;return-1}c=p[a+8>>2];d=p[a+116>>2];e=d;c:{d:{b=p[a+112>>2];if(!(d|b)){break d}d=(p[a+124>>2]^-1)+e|0;e=p[a+120>>2]^-1;b=e+b|0;if(b>>>0<e>>>0){d=d+1|0}e=b;b=p[a+4>>2];g=c-b|0;h=e>>>0>=g>>>0;g=g>>31;if((d|0)>(g|0)?1:(d|0)>=(g|0)?h:0){break d}p[a+104>>2]=e+b;break c}p[a+104>>2]=c}e:{if(!c){c=p[a+4>>2];break e}d=a;b=c;c=p[a+4>>2];b=(b-c|0)+1|0;e=b+p[a+120>>2]|0;a=p[a+124>>2]+(b>>31)|0;p[d+120>>2]=e;p[d+124>>2]=e>>>0<b>>>0?a+1|0:a}a=c+ -1|0;if(q[a|0]!=(f|0)){n[a|0]=f}return f}function Bb(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0;if((e|0)>=1){k=p[a+28>>2];f=p[p[a+412>>2]+8>>2];while(1){a=e;if(k){e=d<<2;l=p[e+p[c+12>>2]>>2];m=p[e+p[c+8>>2]>>2];o=p[e+p[c+4>>2]>>2];r=p[e+p[c>>2]>>2];e=p[b>>2];g=0;while(1){h=q[e+2|0];i=q[e+1|0];j=q[e|0];n[g+l|0]=q[e+3|0];h=(h^255)<<2;i=(i^255)<<2;j=(j^255)<<2;n[g+r|0]=p[f+(h|2048)>>2]+(p[f+(i|1024)>>2]+p[j+f>>2]|0)>>>16;n[g+o|0]=p[f+(h|5120)>>2]+(p[f+(i|4096)>>2]+p[f+(j|3072)>>2]|0)>>>16;n[g+m|0]=p[f+(h|7168)>>2]+(p[f+(i|6144)>>2]+p[f+(j|5120)>>2]|0)>>>16;e=e+4|0;g=g+1|0;if((k|0)!=(g|0)){continue}break}}d=d+1|0;b=b+4|0;e=a+ -1|0;if((a|0)>=2){continue}break}}}function Ug(a,b,c,d,e,f,g,h){var i=0,j=0,k=0,l=0,m=0,n=0;j=1;i=d&2147483647;m=i;k=c;a:{if(!c&(i|0)==2147418112?a|b:(i|0)==2147418112&c>>>0>0|i>>>0>2147418112){break a}l=h&2147483647;n=l;i=g;if(!g&(l|0)==2147418112?e|f:(l|0)==2147418112&g>>>0>0|l>>>0>2147418112){break a}if(!(a|e|(i|k)|(b|f|(m|n)))){return 0}k=d&h;if((k|0)>0?1:(k|0)>=0?(c&g)>>>0>=0:0){j=-1;if((c|0)==(g|0)&(d|0)==(h|0)?(b|0)==(f|0)&a>>>0<e>>>0|b>>>0<f>>>0:(d|0)<(h|0)?1:(d|0)<=(h|0)?c>>>0<g>>>0:0){break a}return(a^e|c^g)!=0|(b^f|d^h)!=0}j=-1;if((c|0)==(g|0)&(d|0)==(h|0)?(b|0)==(f|0)&a>>>0>e>>>0|b>>>0>f>>>0:(d|0)>(h|0)?1:(d|0)>=(h|0)?c>>>0>g>>>0:0){break a}j=(a^e|c^g)!=0|(b^f|d^h)!=0}return j}function mg(a,b,c){a:{b:{if(b>>>0>20){break b}c:{switch(b+ -9|0){case 0:b=p[c>>2];p[c>>2]=b+4;p[a>>2]=p[b>>2];return;case 1:b=p[c>>2];p[c>>2]=b+4;b=p[b>>2];p[a>>2]=b;p[a+4>>2]=b>>31;return;case 2:b=p[c>>2];p[c>>2]=b+4;p[a>>2]=p[b>>2];p[a+4>>2]=0;return;case 4:b=p[c>>2];p[c>>2]=b+4;b=o[b>>1];p[a>>2]=b;p[a+4>>2]=b>>31;return;case 5:b=p[c>>2];p[c>>2]=b+4;p[a>>2]=r[b>>1];p[a+4>>2]=0;return;case 6:b=p[c>>2];p[c>>2]=b+4;b=n[b|0];p[a>>2]=b;p[a+4>>2]=b>>31;return;case 7:b=p[c>>2];p[c>>2]=b+4;p[a>>2]=q[b|0];p[a+4>>2]=0;return;case 3:case 8:break a;case 9:break c;default:break b}}m[0](a,c)}return}b=p[c>>2]+7&-8;p[c>>2]=b+8;c=p[b+4>>2];p[a>>2]=p[b>>2];p[a+4>>2]=c}function Mc(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0;b=Z-32|0;Z=b;g=p[a+424>>2];if(p[a+268>>2]){Tc(g)}p[b+24>>2]=0;p[b+28>>2]=0;p[b+16>>2]=0;p[b+20>>2]=0;p[b>>2]=0;p[b+4>>2]=0;p[b+8>>2]=0;p[b+12>>2]=0;if(p[a+292>>2]>=1){while(1){e=p[((h<<2)+a|0)+296>>2];a:{if(p[a+364>>2]|p[a+372>>2]){break a}c=p[e+20>>2]<<2;f=c+(b+16|0)|0;if(p[f>>2]){break a}i=(a+c|0)+120|0;d=p[i>>2];if(!d){d=ta(a);p[i>>2]=d}Uc(a,d,p[(c+g|0)+76>>2]);p[f>>2]=1}b:{if(!p[a+368>>2]){break b}e=p[e+24>>2]<<2;d=e+b|0;if(p[d>>2]){break b}f=(a+e|0)+136|0;c=p[f>>2];if(!c){c=ta(a);p[f>>2]=c}Uc(a,c,p[(e+g|0)+92>>2]);p[d>>2]=1}h=h+1|0;if((h|0)<p[a+292>>2]){continue}break}}Z=b+32|0}function gb(a,b,c){var d=0,e=0,f=0;d=p[a+20>>2];if((d|0)!=100){e=p[a>>2];p[e+24>>2]=d;p[e+20>>2]=21;m[p[p[a>>2]>>2]](a)}e=p[a+88>>2];if(!e){e=sa(a);p[a+88>>2]=e}d=0;while(1){f=(v(p[(d<<2)+7520>>2],b)+50|0)/100|0;f=(f|0)>1?f:1;f=(f|0)<32767?f:32767;o[(d<<1)+e>>1]=c?(f|0)>255?255:f:f;d=d+1|0;if((d|0)!=64){continue}break}p[e+128>>2]=0;d=p[a+20>>2];if((d|0)!=100){e=p[a>>2];p[e+24>>2]=d;p[e+20>>2]=21;m[p[p[a>>2]>>2]](a)}e=p[a+92>>2];if(!e){e=sa(a);p[a+92>>2]=e}d=0;while(1){a=(v(p[(d<<2)+7776>>2],b)+50|0)/100|0;a=(a|0)>1?a:1;a=(a|0)<32767?a:32767;o[(d<<1)+e>>1]=c?(a|0)>255?255:a:a;d=d+1|0;if((d|0)!=64){continue}break}p[e+128>>2]=0}function ke(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0,t=0,u=0,v=0;if((e|0)>=1){g=p[a+336>>2];i=p[a+112>>2];a=p[a+480>>2];l=p[a+20>>2];m=p[a+16>>2];o=p[a+12>>2];r=p[a+8>>2];while(1){j=e;if(i){a=c<<2;s=p[a+p[b+12>>2]>>2];t=p[a+p[b+8>>2]>>2];u=p[a+p[b+4>>2]>>2];v=p[a+p[b>>2]>>2];e=p[d>>2];a=0;while(1){f=q[a+u|0];h=q[a+v|0]^255;k=q[a+t|0]<<2;n[e|0]=q[(h-p[k+r>>2]|0)+g|0];f=f<<2;n[e+1|0]=q[(h-(p[m+k>>2]+p[f+l>>2]>>16)|0)+g|0];n[e+2|0]=q[(h-p[f+o>>2]|0)+g|0];n[e+3|0]=q[a+s|0];e=e+4|0;a=a+1|0;if((i|0)!=(a|0)){continue}break}}d=d+4|0;c=c+1|0;e=j+ -1|0;if((j|0)>=2){continue}break}}}function Uf(a){a=a|0;var b=0,c=0,d=0;a:{b:{c:{d:{e:{c=p[a+20>>2];switch(c+ -202|0){case 2:break b;case 1:break d;case 0:break e;default:break c}}Rf(a);if(p[a+64>>2]){p[a+20>>2]=207;return 1}p[a+20>>2]=203}f:{if(!p[p[a+460>>2]+16>>2]){break f}c=p[a+8>>2];while(1){if(c){m[p[c>>2]](a)}g:{b=m[p[p[a+460>>2]>>2]](a)|0;switch(b|0){case 0:break a;case 2:break f;default:break g}}c=p[a+8>>2];if(!c|(b&-3)!=1){continue}b=p[c+4>>2]+1|0;p[c+4>>2]=b;d=b;b=p[c+8>>2];if((d|0)<(b|0)){continue}p[c+8>>2]=b+p[a+332>>2];continue}}p[a+152>>2]=p[a+144>>2];break b}b=p[a>>2];p[b+24>>2]=c;p[b+20>>2]=21;m[p[p[a>>2]>>2]](a)}b=Vf(a)}return b|0}function Ea(a){var b=0,c=0,d=0;c=Z-16|0;Z=c;p[a+4>>2]=0;p[c+12>>2]=0;b=kh(84);if(!b){d=p[a>>2];p[d+20>>2]=56;p[d+24>>2]=0;m[p[p[a>>2]>>2]](a)}p[b+48>>2]=1e9;p[b+44>>2]=0;p[b+76>>2]=84;p[b+68>>2]=0;p[b+72>>2]=0;p[b+60>>2]=0;p[b+64>>2]=0;p[b+52>>2]=0;p[b+56>>2]=0;p[b+40>>2]=6;p[b+36>>2]=7;p[b+32>>2]=8;p[b+28>>2]=9;p[b+24>>2]=10;p[b+20>>2]=11;p[b+16>>2]=12;p[b+12>>2]=13;p[b+8>>2]=14;p[b+4>>2]=15;p[b>>2]=16;p[a+4>>2]=b;a=Sg();a:{if(!a){break a}n[c+11|0]=120;p[c>>2]=c+12;p[c+4>>2]=c+11;if((Ng(a,c)|0)<1){break a}b:{if((q[c+11|0]|32)!=109){a=p[c+12>>2];break b}a=v(p[c+12>>2],1e3);p[c+12>>2]=a}p[b+44>>2]=v(a,1e3)}Z=c+16|0}function ah(a,b){var c=0,d=0,f=0,g=0,i=0,j=0,k=0,l=0;g=Z-16|0;Z=g;h(+b);j=e(1)|0;i=e(0)|0;f=j&2147483647;c=f;f=c+ -1048576|0;d=i;if(d>>>0<0){f=f+1|0}a:{if((f|0)==2145386495|f>>>0<2145386495){k=d<<28;f=(c&15)<<28|d>>>4;c=(c>>>4|0)+1006632960|0;d=f;c=d>>>0<0?c+1|0:c;break a}if((c|0)==2146435072&d>>>0>=0|c>>>0>2146435072){k=i<<28;f=i;c=j;i=c>>>4|0;d=(c&15)<<28|f>>>4;c=i|2147418112;break a}if(!(c|d)){d=0;c=0;break a}f=c;c=(c|0)==1&d>>>0<0|c>>>0<1?y(i)+32|0:y(c);Xg(g,d,f,0,0,c+49|0);l=p[g>>2];k=p[g+4>>2];d=p[g+8>>2];c=p[g+12>>2]^65536|15372-c<<16}p[a>>2]=l;p[a+4>>2]=k;p[a+8>>2]=d;p[a+12>>2]=j&-2147483648|c;Z=g+16|0}function Gg(a,b,c){var d=0,e=0,f=0,g=0,h=0,i=0;g=Z-16|0;Z=g;e=c?c:12488;c=p[e>>2];a:{b:{c:{if(!b){if(c){break c}break a}d=-2;h=a?a:g+12|0;d:{if(c){a=1;break d}a=q[b|0];c=a<<24>>24;if((c|0)>=0){p[h>>2]=a;d=(c|0)!=0;break a}a=n[b|0];if(!p[p[3051]>>2]){p[h>>2]=a&57343;d=1;break a}a=(a&255)+ -194|0;if(a>>>0>50){break c}c=p[(a<<2)+11296>>2];break b}f=q[b|0];i=f>>>3|0;if((i+ -16|(c>>26)+i)>>>0>7){break c}while(1){a=a+ -1|0;c=f+ -128|c<<6;if((c|0)>=0){p[e>>2]=0;p[h>>2]=c;d=1-a|0;break a}if(!a){break b}b=b+1|0;f=q[b|0];if((f&192)==128){continue}break}}p[e>>2]=0;p[3103]=25;d=-1;break a}p[e>>2]=c}Z=g+16|0;return d}function ne(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;var h=0,i=0,j=0,k=0;h=p[a+476>>2];i=p[h+92>>2];d=p[a+320>>2];if((i|0)>=(d|0)){if(p[a+36>>2]>=1){d=p[a+216>>2];i=0;while(1){k=i<<2;j=k+h|0;m[p[j+52>>2]](a,d,p[b+k>>2]+(v(p[j+100>>2],p[c>>2])<<2)|0,j+12|0);d=d+88|0;i=i+1|0;if((i|0)<p[a+36>>2]){continue}break}d=p[a+320>>2]}p[h+92>>2]=0;i=0}b=g;g=p[f>>2];b=b-g|0;j=p[h+96>>2];d=d-i|0;d=d>>>0>j>>>0?j:d;b=d>>>0>b>>>0?b:d;m[p[p[a+480>>2]+4>>2]](a,h+12|0,i,(g<<2)+e|0,b);p[f>>2]=b+p[f>>2];p[h+96>>2]=p[h+96>>2]-b;b=b+p[h+92>>2]|0;p[h+92>>2]=b;if((b|0)>=p[a+320>>2]){p[c>>2]=p[c>>2]+1}}function zb(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0;if((e|0)>=1){k=p[a+28>>2];f=p[p[a+412>>2]+8>>2];while(1){a=e;if(k){e=d<<2;l=p[e+p[c+8>>2]>>2];m=p[e+p[c+4>>2]>>2];o=p[e+p[c>>2]>>2];e=p[b>>2];g=0;while(1){h=q[e+2|0]<<2;i=q[e+1|0]<<2;j=q[e|0]<<2;n[g+o|0]=p[f+(h|2048)>>2]+(p[f+(i|1024)>>2]+p[f+j>>2]|0)>>>16;n[g+m|0]=p[f+(h|5120)>>2]+(p[f+(i|4096)>>2]+p[f+(j|3072)>>2]|0)>>>16;n[g+l|0]=p[f+(h|7168)>>2]+(p[f+(i|6144)>>2]+p[f+(j|5120)>>2]|0)>>>16;e=e+3|0;g=g+1|0;if((k|0)!=(g|0)){continue}break}}d=d+1|0;b=b+4|0;e=a+ -1|0;if((a|0)>=2){continue}break}}}function hd(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0,g=0,h=0,i=0,j=0;e=p[a>>2];c=p[a+440>>2];p[e+24>>2]=c;p[e+20>>2]=124;p[p[a>>2]+28>>2]=b;m[p[p[a>>2]+4>>2]](a,-1);e=b+6&7|208;g=b+ -1&7|208;h=b+2&7|208;b=b+1&7|208;a:{while(1){i=(b|0)==(c|0)|(c&-8)!=208|(c|0)==(h|0);j=(c|0)==(e|0)?2:1;b:{while(1){c:{d=p[a>>2];p[d+24>>2]=c;p[d+20>>2]=99;d=(c|0)<192;f=d?2:3;d=d?f:i?f:(c|0)==(g|0)?2:j;p[p[a>>2]+28>>2]=d;m[p[p[a>>2]+4>>2]](a,4);switch(d+ -1|0){case 2:break a;case 0:break b;case 1:break c;default:continue}}break}if(!id(a)){return 0}c=p[a+440>>2];continue}break}p[a+440>>2]=0}return 1}function ge(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0,t=0,u=0;if((e|0)>=1){g=p[a+336>>2];i=p[a+112>>2];a=p[a+480>>2];l=p[a+20>>2];m=p[a+16>>2];o=p[a+12>>2];r=p[a+8>>2];while(1){j=e;if(i){a=c<<2;s=p[a+p[b+8>>2]>>2];t=p[a+p[b+4>>2]>>2];u=p[a+p[b>>2]>>2];e=p[d>>2];a=0;while(1){f=q[a+t|0];h=q[a+u|0];k=q[a+s|0]<<2;n[e|0]=q[(h+p[k+r>>2]|0)+g|0];f=f<<2;n[e+1|0]=q[((p[m+k>>2]+p[f+l>>2]>>16)+h|0)+g|0];n[e+2|0]=q[(p[f+o>>2]+h|0)+g|0];e=e+3|0;a=a+1|0;if((i|0)!=(a|0)){continue}break}}d=d+4|0;c=c+1|0;e=j+ -1|0;if((j|0)>=2){continue}break}}}function Ib(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0;i=v(p[b+36>>2],p[b+28>>2]);b=p[a+276>>2];a:{if((b|0)<1){break a}f=p[a+28>>2];g=(i<<1)-f|0;if((g|0)<1){break a}while(1){h=f+p[(e<<2)+c>>2]|0;uh(h,q[h+ -1|0],g);e=e+1|0;if((e|0)!=(b|0)){continue}break}b=p[a+276>>2]}if((b|0)>=1){while(1){if(i){f=p[(k<<2)+d>>2];e=j<<2;b=p[e+c>>2];e=p[(e|4)+c>>2];h=0;g=1;while(1){n[f|0]=q[e+1|0]+(q[e|0]+(q[b+1|0]+(q[b|0]+g|0)|0)|0)>>>2;e=e+2|0;b=b+2|0;g=g^3;f=f+1|0;h=h+1|0;if((i|0)!=(h|0)){continue}break}b=p[a+276>>2]}k=k+1|0;j=j+2|0;if((j|0)<(b|0)){continue}break}}}function Xc(a,b){var c=0,d=0,e=0,f=0,g=0;c=m[p[p[a+4>>2]>>2]](a,1,104)|0;p[a+404>>2]=c;p[c>>2]=103;a:{if(b){if(p[a+76>>2]<1){break a}d=c- -64|0;c=p[a+84>>2];b=0;while(1){e=p[p[a+4>>2]+20>>2];f=(b<<2)+d|0,g=m[e|0](a,1,0,Ra(p[c+28>>2],p[c+8>>2]),Ra(p[c+32>>2],p[c+12>>2]),p[c+12>>2])|0,p[f>>2]=g;c=c+88|0;b=b+1|0;if((b|0)<p[a+76>>2]){continue}break}break a}a=m[p[p[a+4>>2]+4>>2]](a,1,1280)|0;p[c+64>>2]=0;p[c+24>>2]=a;p[c+60>>2]=a+1152;p[c+56>>2]=a+1024;p[c+52>>2]=a+896;p[c+48>>2]=a+768;p[c+44>>2]=a+640;p[c+40>>2]=a+512;p[c+36>>2]=a+384;p[c+32>>2]=a+256;p[c+28>>2]=a+128}}function ic(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,n=0,o=0;a=uh(a,0,256);d=p[b>>2]+c|0;f=q[d+2|0];g=q[d+1|0];e=f+g|0;h=q[d+3|0];d=q[d|0];i=h+d|0;j=e+i|0;b=p[b+4>>2]+c|0;c=q[b+2|0];k=q[b+1|0];l=c+k|0;m=q[b+3|0];n=q[b|0];b=m+n|0;o=l+b|0;p[a+32>>2]=j-o<<3;e=i-e|0;b=b-l|0;p[a+40>>2]=e-b<<3;p[a+8>>2]=b+e<<3;p[a>>2]=(j+o<<3)+ -8192;f=g-f|0;d=d-h|0;b=v(f+d|0,4433)+512|0;g=k-c|0;e=n-m|0;c=v(g+e|0,4433);d=b+v(d,6270)|0;e=c+v(e,6270)|0;p[a+36>>2]=d-e>>10;p[a+4>>2]=d+e>>10;b=b+v(f,-15137)|0;c=c+v(g,-15137)|0;p[a+44>>2]=b-c>>10;p[a+12>>2]=b+c>>10}function Kd(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0,t=0,u=0,v=0;if((d|0)>=1){m=p[a+112>>2];e=p[a+484>>2];a=p[e+24>>2];o=p[a+8>>2];r=p[a+4>>2];s=p[a>>2];g=p[e+48>>2];while(1){if(m){t=p[e+60>>2];u=p[e+56>>2];v=p[e+52>>2];f=h<<2;a=p[f+b>>2];i=p[c+f>>2];j=0;f=m;while(1){k=j<<2;l=g<<6;n[i|0]=(q[(p[k+(u+l|0)>>2]+q[a+1|0]|0)+r|0]+q[(p[(l+v|0)+k>>2]+q[a|0]|0)+s|0]|0)+q[(p[(l+t|0)+k>>2]+q[a+2|0]|0)+o|0];i=i+1|0;a=a+3|0;j=j+1&15;f=f+ -1|0;if(f){continue}break}}g=g+1&15;p[e+48>>2]=g;h=h+1|0;if((h|0)!=(d|0)){continue}break}}}function Ld(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,r=0,s=0,t=0,u=0;if((d|0)>=1){g=p[a+112>>2];f=p[a+484>>2];h=p[a+120>>2];r=(h|0)<1;while(1){a=i<<2;m=a+c|0;uh(p[m>>2],0,g);o=p[f+48>>2];if(!r){s=a+b|0;e=0;while(1){if(g){a=e<<2;t=p[a+p[f+24>>2]>>2];u=p[(a+f|0)+52>>2];j=p[s>>2]+e|0;a=p[m>>2];k=0;l=g;while(1){n[a|0]=q[a|0]+q[(p[((o<<6)+u|0)+(k<<2)>>2]+q[j|0]|0)+t|0];a=a+1|0;j=j+h|0;k=k+1&15;l=l+ -1|0;if(l){continue}break}}e=e+1|0;if((h|0)!=(e|0)){continue}break}}p[f+48>>2]=o+1&15;i=i+1|0;if((i|0)!=(d|0)){continue}break}}}function xd(a,b,c){a=a|0;b=b|0;c=c|0;var d=0;p[a+4>>2]=0;if((b|0)!=90){d=p[a>>2];p[d+20>>2]=13;p[d+24>>2]=90;p[p[a>>2]+28>>2]=b;m[p[p[a>>2]>>2]](a)}if((c|0)!=488){b=p[a>>2];p[b+20>>2]=22;p[b+24>>2]=488;p[p[a>>2]+28>>2]=c;m[p[p[a>>2]>>2]](a)}b=p[a>>2];c=p[a+12>>2];uh(a+4|0,0,484);p[a+16>>2]=1;p[a+12>>2]=c;p[a>>2]=b;Ea(a);p[a+312>>2]=0;p[a+24>>2]=0;p[a+8>>2]=0;p[a+164>>2]=0;p[a+168>>2]=0;p[a+172>>2]=0;p[a+176>>2]=0;p[a+180>>2]=0;p[a+184>>2]=0;p[a+188>>2]=0;p[a+192>>2]=0;p[a+196>>2]=0;p[a+200>>2]=0;p[a+204>>2]=0;p[a+208>>2]=0;jd(a);sd(a);p[a+20>>2]=200}function _d(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;var h=0,i=0,j=0;h=Z-16|0;Z=h;d=p[a+476>>2];a:{b:{if(p[d+36>>2]){Sa(d+32|0,0,(p[f>>2]<<2)+e|0,0,1,p[d+40>>2]);p[d+36>>2]=0;p[f>>2]=p[f>>2]+1;p[d+44>>2]=p[d+44>>2]+ -1;break b}j=p[d+44>>2];i=e;e=p[f>>2];i=i+(e<<2)|0;p[h+8>>2]=p[i>>2];e=g-e|0;g=j>>>0<2?j:2;e=g>>>0>e>>>0?e:g;c:{if(e>>>0>=2){p[h+12>>2]=p[i+4>>2];break c}p[h+12>>2]=p[d+32>>2];p[d+36>>2]=1}m[p[d+12>>2]](a,b,p[c>>2],h+8|0);a=p[d+36>>2];p[f>>2]=e+p[f>>2];p[d+44>>2]=p[d+44>>2]-e;if(a){break a}}p[c>>2]=p[c>>2]+1}Z=h+16|0}function ig(a,b,c){var d=0,e=0,f=0;d=Z-208|0;Z=d;p[d+204>>2]=c;c=0;uh(d+160|0,0,40);p[d+200>>2]=p[d+204>>2];a:{if((jg(0,b,d+200|0,d+80|0,d+160|0)|0)<0){break a}c=p[a+76>>2]>=0?1:c;e=p[a>>2];if(n[a+74|0]<=0){p[a>>2]=e&-33}f=e&32;b:{if(p[a+48>>2]){jg(a,b,d+200|0,d+80|0,d+160|0);break b}p[a+48>>2]=80;p[a+16>>2]=d+80;p[a+28>>2]=d;p[a+20>>2]=d;e=p[a+44>>2];p[a+44>>2]=d;jg(a,b,d+200|0,d+80|0,d+160|0);if(!e){break b}m[p[a+36>>2]](a,0,0)|0;p[a+48>>2]=0;p[a+44>>2]=e;p[a+28>>2]=0;p[a+16>>2]=0;p[a+20>>2]=0}p[a>>2]=f|p[a>>2];if(!c){break a}}Z=d+208|0}function wc(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;var h=0,i=0,j=0,k=0,l=0,n=0,q=0;i=Z-256|0;Z=i;if(g){k=(e<<2)+c|0;l=p[(p[a+420>>2]+(p[b+4>>2]<<2)|0)+44>>2];n=p[b+84>>2];while(1){m[l|0](i,k,f);a=0;while(1){e=a<<2;c=p[e+n>>2];h=c>>1;q=((j<<7)+d|0)+(a<<1)|0;e=p[e+i>>2];a:{if((e|0)<=-1){e=h-e|0;if((e|0)>=(c|0)){c=(e|0)/(c|0)|0}else{c=0}e=0-c|0;break a}h=e+h|0;e=0;if((h|0)<(c|0)){break a}e=(h|0)/(c|0)|0}o[q>>1]=e;a=a+1|0;if((a|0)!=64){continue}break}f=p[b+36>>2]+f|0;j=j+1|0;if((j|0)!=(g|0)){continue}break}}Z=i+256|0}function Vf(a){var b=0,c=0,d=0,e=0,f=0;if(p[a+20>>2]!=204){m[p[p[a+444>>2]>>2]](a);p[a+20>>2]=204;p[a+140>>2]=0}a:{if(p[p[a+444>>2]+8>>2]){f=a+140|0;b=p[a+140>>2];while(1){d=p[a+116>>2];if(b>>>0<d>>>0){c=p[a+8>>2];e=b;b:{if(!c){break b}p[c+8>>2]=d;p[c+4>>2]=b;m[p[c>>2]](a);e=p[a+140>>2]}c=e;d=0;m[p[p[a+448>>2]+4>>2]](a,0,f,0);b=p[a+140>>2];if((c|0)!=(b|0)){continue}break a}m[p[p[a+444>>2]+4>>2]](a);m[p[p[a+444>>2]>>2]](a);b=0;p[a+140>>2]=0;if(p[p[a+444>>2]+8>>2]){continue}break}}p[a+20>>2]=p[a+68>>2]?206:205;d=1}return d}function gd(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0;e=Z-16|0;Z=e;d=p[a+20>>2];if((d|0)!=101){f=p[a>>2];p[f+24>>2]=d;p[f+20>>2]=21;m[p[p[a>>2]>>2]](a)}if(s[a+264>>2]>=s[a+32>>2]){d=p[a>>2];p[d+20>>2]=126;m[p[d+4>>2]](a,-1)}d=p[a+8>>2];if(d){p[d+4>>2]=p[a+264>>2];p[d+8>>2]=p[a+32>>2];m[p[d>>2]](a)}d=p[a+392>>2];if(p[d+12>>2]){m[p[d+4>>2]](a)}d=p[a+264>>2];f=p[a+32>>2];p[e+12>>2]=0;g=b;b=f-d|0;m[p[p[a+396>>2]+4>>2]](a,g,e+12|0,b>>>0<c>>>0?b:c);b=a;c=p[a+264>>2];a=p[e+12>>2];p[b+264>>2]=c+a;Z=e+16|0;return a|0}function Gb(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0;i=v(p[b+36>>2],p[b+28>>2]);b=p[a+276>>2];a:{if((b|0)<1){break a}e=p[a+28>>2];g=(i<<1)-e|0;if((g|0)<1){break a}while(1){h=e+p[(f<<2)+c>>2]|0;uh(h,q[h+ -1|0],g);f=f+1|0;if((f|0)!=(b|0)){continue}break}b=p[a+276>>2]}if((b|0)>=1){e=0;while(1){if(i){b=e<<2;f=p[b+d>>2];b=p[b+c>>2];g=0;h=0;while(1){n[f|0]=q[b+1|0]+(q[b|0]+g|0)>>>1;b=b+2|0;g=g^1;f=f+1|0;h=h+1|0;if((i|0)!=(h|0)){continue}break}b=p[a+276>>2]}e=e+1|0;if((e|0)<(b|0)){continue}break}}}function _g(a,b,c,d,e,f){var g=0,h=0,i=0,j=0;a:{if(f&64){c=f+ -64|0;b=c&31;if(32<=(c&63)>>>0){c=0;b=e>>>b|0}else{c=e>>>b|0;b=((1<<b)-1&e)<<32-b|d>>>b}d=0;e=0;break a}if(!f){break a}h=e;i=d;j=64-f|0;g=j&31;if(32<=(j&63)>>>0){h=i<<g;j=0}else{h=(1<<g)-1&i>>>32-g|h<<g;j=i<<g}i=b;g=f;b=g&31;if(32<=(g&63)>>>0){g=0;b=c>>>b|0}else{g=c>>>b|0;b=((1<<b)-1&c)<<32-b|i>>>b}b=j|b;c=g|h;g=d;d=f&31;if(32<=(f&63)>>>0){h=0;d=e>>>d|0}else{h=e>>>d|0;d=((1<<d)-1&e)<<32-d|g>>>d}e=h}p[a>>2]=b;p[a+4>>2]=c;p[a+8>>2]=d;p[a+12>>2]=e}function Vg(a,b,c,d,e){var f=0,g=0,h=0,i=0,j=0;h=-1;f=d&2147483647;i=f;g=c;a:{if(!c&(f|0)==2147418112?a|b:(f|0)==2147418112&c>>>0>0|f>>>0>2147418112){break a}f=e&2147483647;j=f;if((f|0)==2147418112?0:f>>>0>2147418112){break a}if(!(a|g|(i|j|b))){return 0}g=d&e;if((g|0)>0?1:(g|0)>=0){if(!c&(d|0)==(e|0)?!b&a>>>0<0|b>>>0<0:(d|0)<(e|0)?1:(d|0)<=(e|0)?c>>>0<0:0){break a}return(a|c)!=0|(d^e|b)!=0}if(!c&(d|0)==(e|0)?!b&a>>>0>0|b>>>0>0:(d|0)>(e|0)?1:(d|0)>=(e|0)?c>>>0>0:0){break a}h=(a|c)!=0|(d^e|b)!=0}return h}function cd(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0;a:{e=p[a+396>>2];if(s[e+8>>2]>=s[a+288>>2]){break a}h=e+24|0;i=e+12|0;g=p[e+12>>2];while(1){f=p[a+284>>2];if(g>>>0<f>>>0){m[p[p[a+400>>2]+4>>2]](a,b,c,d,h,i,f);f=p[a+284>>2];g=p[i>>2]}if((g|0)!=(f|0)){break a}f=m[p[p[a+404>>2]+4>>2]](a,h)|0;g=p[e+16>>2];if(!f){if(g){break a}p[c>>2]=p[c>>2]+ -1;p[e+16>>2]=1;return}if(g){p[c>>2]=p[c>>2]+1;p[e+16>>2]=0}g=0;p[e+12>>2]=0;f=p[e+8>>2]+1|0;p[e+8>>2]=f;if(f>>>0<s[a+288>>2]){continue}break}}}function Qf(a){var b=0,c=0;a:{if(p[a+308>>2]){break a}b:{switch(p[a+40>>2]+ -3|0){case 0:case 4:break b;default:break a}}if(p[a+36>>2]!=3|p[a+44>>2]!=2|(p[a+304>>2]|p[a+120>>2]!=3)){break a}b=p[a+216>>2];if(p[b+8>>2]!=2|p[b+96>>2]!=1|(p[b+184>>2]!=1|p[b+12>>2]>2)){break a}if(p[b+100>>2]!=1|p[b+188>>2]!=1){break a}c=p[b+36>>2];if((c|0)!=p[a+324>>2]|(c|0)!=p[b+124>>2]|(c|0)!=p[b+212>>2]){break a}c=p[a+328>>2];a=p[b+40>>2];if((c|0)!=(a|0)|(a|0)!=p[b+128>>2]){break a}return(a|0)==p[b+216>>2]}return 0}function ye(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;var h=0,i=0,j=0;b=p[a+456>>2];c=p[b+24>>2];a:{if(c){d=p[b+12>>2];break a}d=m[p[p[a+4>>2]+28>>2]](a,p[b+8>>2],p[b+20>>2],p[b+16>>2],0)|0;p[b+12>>2]=d;c=p[b+24>>2]}h=p[a+116>>2]-p[b+20>>2]|0;i=p[f>>2];g=g-i|0;j=p[b+16>>2]-c|0;g=j>>>0>g>>>0?g:j;g=g>>>0>h>>>0?h:g;m[p[p[a+484>>2]+4>>2]](a,(c<<2)+d|0,(i<<2)+e|0,g);p[f>>2]=g+p[f>>2];a=g+p[b+24>>2]|0;p[b+24>>2]=a;c=a;a=p[b+16>>2];if(c>>>0>=a>>>0){p[b+24>>2]=0;p[b+20>>2]=a+p[b+20>>2]}}function Xg(a,b,c,d,e,f){var g=0,h=0,i=0,j=0;a:{if(f&64){d=b;e=f+ -64|0;b=e&31;if(32<=(e&63)>>>0){e=d<<b;d=0}else{e=(1<<b)-1&d>>>32-b|c<<b;d=d<<b}b=0;c=0;break a}if(!f){break a}g=d;i=f;d=f&31;if(32<=(f&63)>>>0){h=g<<d;j=0}else{h=(1<<d)-1&g>>>32-d|e<<d;j=g<<d}d=c;g=b;f=64-f|0;e=f&31;if(32<=(f&63)>>>0){f=0;d=d>>>e|0}else{f=d>>>e|0;d=((1<<e)-1&d)<<32-e|g>>>e}d=j|d;e=f|h;f=b;b=i&31;if(32<=(i&63)>>>0){h=f<<b;b=0}else{h=(1<<b)-1&f>>>32-b|c<<b;b=f<<b}c=h}p[a>>2]=b;p[a+4>>2]=c;p[a+8>>2]=d;p[a+12>>2]=e}function ve(a,b){a=a|0;b=b|0;var c=0,d=0,e=0;c=p[a+456>>2];a:{b:{switch(b|0){case 0:if(p[a+84>>2]){p[c+4>>2]=161;if(p[c+12>>2]){break a}d=c,e=m[p[p[a+4>>2]+28>>2]](a,p[c+8>>2],0,p[c+16>>2],1)|0,p[d+12>>2]=e;break a}p[c+4>>2]=p[p[a+476>>2]+4>>2];break a;case 3:if(!p[c+8>>2]){b=p[a>>2];p[b+20>>2]=3;m[p[b>>2]](a)}p[c+4>>2]=162;break a;case 2:if(!p[c+8>>2]){b=p[a>>2];p[b+20>>2]=3;m[p[b>>2]](a)}p[c+4>>2]=163;break a;default:break b}}b=p[a>>2];p[b+20>>2]=3;m[p[b>>2]](a)}p[c+20>>2]=0;p[c+24>>2]=0}function te(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0;if(p[a+320>>2]>=1){b=p[a+476>>2]+p[b+4>>2]|0;f=q[b+140|0];g=p[d>>2];h=q[b+150|0];k=h+ -1|0;while(1){d=p[a+112>>2];if((d|0)>=1){b=p[(e<<2)+g>>2];l=d+b|0;i=p[(j<<2)+c>>2];while(1){if(f){uh(b,q[i|0],f);d=f;while(1){b=b+1|0;m=(d|0)>1;d=d+ -1|0;if(m){continue}break}}i=i+1|0;if(b>>>0<l>>>0){continue}break}}if(h>>>0>=2){Sa(g,e,g,e+1|0,k,p[a+112>>2])}j=j+1|0;e=e+h|0;if((e|0)<p[a+320>>2]){continue}break}}}function he(a){var b=0,c=0,d=0,e=0,f=0,g=0,h=0,i=0;b=p[a+480>>2];h=b,i=m[p[p[a+4>>2]>>2]](a,1,1024)|0,p[h+8>>2]=i;h=b,i=m[p[p[a+4>>2]>>2]](a,1,1024)|0,p[h+12>>2]=i;h=b,i=m[p[p[a+4>>2]>>2]](a,1,1024)|0,p[h+16>>2]=i;d=m[p[p[a+4>>2]>>2]](a,1,1024)|0;p[b+20>>2]=d;e=p[b+16>>2];f=p[b+12>>2];g=p[b+8>>2];a=-128;while(1){b=c<<2;p[b+g>>2]=v(a,91881)+32768>>16;p[b+f>>2]=v(a,116130)+32768>>16;p[b+e>>2]=v(a,-46802);p[b+d>>2]=v(a,-22553)+32768;a=a+1|0;c=c+1|0;if((c|0)!=256){continue}break}}function Yc(a,b){a=a|0;b=b|0;var c=0,d=0;c=p[a+404>>2];p[c+8>>2]=0;d=1;d=p[a+292>>2]<=1?p[p[a+296>>2]+(p[a+288>>2]==1?76:12)>>2]:d;p[c+12>>2]=0;p[c+16>>2]=0;p[c+20>>2]=d;a:{switch(b|0){case 0:if(p[c+64>>2]){b=p[a>>2];p[b+20>>2]=3;m[p[b>>2]](a)}p[c+4>>2]=104;return;case 3:if(!p[c+64>>2]){b=p[a>>2];p[b+20>>2]=3;m[p[b>>2]](a)}p[c+4>>2]=105;return;case 2:if(!p[c+64>>2]){b=p[a>>2];p[b+20>>2]=3;m[p[b>>2]](a)}p[c+4>>2]=106;return;default:break a}}b=p[a>>2];p[b+20>>2]=3;m[p[b>>2]](a)}function xc(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;var h=0,i=w(0),j=0,k=0,l=0,n=0;h=Z-256|0;Z=h;if(g){j=(e<<2)+c|0;k=p[(p[a+420>>2]+(p[b+4>>2]<<2)|0)+84>>2];l=p[b+84>>2];c=0;while(1){m[k|0](h,j,f);a=0;while(1){n=((c<<7)+d|0)+(a<<1)|0;e=a<<2;i=w(w(t[e+h>>2]*t[e+l>>2])+w(16384.5));a:{if(w(x(i))<w(2147483648)){e=~~i;break a}e=-2147483648}o[n>>1]=e+ -16384;a=a+1|0;if((a|0)!=64){continue}break}f=p[b+36>>2]+f|0;c=c+1|0;if((g|0)!=(c|0)){continue}break}}Z=h+256|0}function Ad(a){a=a|0;var b=0,c=0;b=p[a+20>>2];a:{if(!(p[a+64>>2]|b+ -205>>>0>1)){if(s[a+140>>2]<s[a+116>>2]){b=p[a>>2];p[b+20>>2]=69;m[p[b>>2]](a)}m[p[p[a+444>>2]+4>>2]](a);p[a+20>>2]=210;break a}b:{switch(b+ -207|0){case 0:p[a+20>>2]=210;break a;case 3:break a;default:break b}}c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=21;m[p[p[a>>2]>>2]](a)}c:{while(1){b=p[a+460>>2];if(p[b+20>>2]){break c}if(m[p[b>>2]](a)|0){continue}break}return 0}m[p[p[a+24>>2]+24>>2]](a);qa(a);return 1}function xe(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;var h=0,i=0;e=p[a+456>>2];i=e+24|0;g=p[e+24>>2];a:{if(g){h=p[e+12>>2];break a}h=m[p[p[a+4>>2]+28>>2]](a,p[e+8>>2],p[e+20>>2],p[e+16>>2],1)|0;p[e+12>>2]=h;g=p[e+24>>2]}m[p[p[a+476>>2]+4>>2]](a,b,c,d,h,i,p[e+16>>2]);b=p[e+24>>2];if(b>>>0>g>>>0){b=b-g|0;m[p[p[a+484>>2]+4>>2]](a,p[e+12>>2]+(g<<2)|0,0,b);p[f>>2]=b+p[f>>2];b=p[e+24>>2]}a=p[e+16>>2];if(b>>>0>=a>>>0){p[e+24>>2]=0;p[e+20>>2]=a+p[e+20>>2]}}function kb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0;if(!(c?b:0)){d=p[a>>2];p[d+20>>2]=24;m[p[d>>2]](a)}d=p[a+24>>2];if(!d){d=m[p[p[a+4>>2]>>2]](a,0,40)|0;p[a+24>>2]=d}p[d+28>>2]=0;p[d+24>>2]=c;p[d+20>>2]=b;p[d+16>>2]=24;p[d+12>>2]=25;p[d+8>>2]=26;e=p[b>>2];a:{if(e){f=p[c>>2];if(f){break a}}f=4096;e=kh(4096);p[b>>2]=e;p[d+28>>2]=e;if(!e){e=p[a>>2];p[e+20>>2]=56;p[e+24>>2]=10;m[p[p[a>>2]>>2]](a)}p[c>>2]=4096;e=p[b>>2]}p[d+36>>2]=f;p[d>>2]=e;p[d+32>>2]=e;p[d+4>>2]=f}function Cf(a,b,c,d,e){var f=0,g=0;if((c|0)<(e|0)){if(!Bf(a,b,c,e)){return-1}c=p[a+12>>2];b=p[a+8>>2]}g=e<<2;c=c-e|0;f=p[g+10160>>2]&b>>c;if((f|0)>p[d+g>>2]){while(1){if((c|0)<=0){if(!Bf(a,b,c,1)){return-1}c=p[a+12>>2];b=p[a+8>>2]}c=c+ -1|0;f=b>>>c&1|f<<1;e=e+1|0;if((f|0)>p[(e<<2)+d>>2]){continue}break}}p[a+12>>2]=c;p[a+8>>2]=b;if((e|0)>=17){a=p[a+16>>2];b=p[a>>2];p[b+20>>2]=121;m[p[b+4>>2]](a,-1);return 0}return q[(p[d+140>>2]+(p[((e<<2)+d|0)+72>>2]+f|0)|0)+17|0]}function ee(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0;if((e|0)>=1){g=p[a+112>>2];f=p[p[a+480>>2]+24>>2];while(1){a=e;if(g){e=c<<2;j=p[e+p[b+8>>2]>>2];k=p[e+p[b+4>>2]>>2];l=p[e+p[b>>2]>>2];m=p[d>>2];e=0;while(1){h=q[e+k|0];i=h+128|0;n[e+m|0]=p[f+((i+q[e+j|0]&255)<<2|2048)>>2]+(p[f+(h<<2|1024)>>2]+p[f+((i+q[e+l|0]&255)<<2)>>2]|0)>>>16;e=e+1|0;if((g|0)!=(e|0)){continue}break}}d=d+4|0;c=c+1|0;e=a+ -1|0;if((a|0)>=2){continue}break}}}function Zg(a,b){var c=0,d=0,f=0,g=0,h=0,j=0,k=0;f=Z-16|0;Z=f;g=(i(b),e(2));c=g&2147483647;a:{if(c+ -8388608>>>0<=2130706431){d=c;c=c>>>7|0;d=d<<25;c=c+1065353216|0;h=d;c=d>>>0<0?c+1|0:c;break a}if(c>>>0>=2139095040){c=g;d=c>>>7|0;h=c<<25;c=d|2147418112;break a}if(!c){c=0;break a}d=c;c=y(c);Xg(f,d,0,0,0,c+81|0);j=p[f>>2];k=p[f+4>>2];h=p[f+8>>2];c=p[f+12>>2]^65536|16265-c<<16}p[a>>2]=j;p[a+4>>2]=k;p[a+8>>2]=h;p[a+12>>2]=g&-2147483648|c;Z=f+16|0}function gg(a,b){a:{if(a){if(b>>>0<=127){break a}b:{if(!p[p[3051]>>2]){if((b&-128)==57216){break a}break b}if(b>>>0<=2047){n[a+1|0]=b&63|128;n[a|0]=b>>>6|192;return 2}if(!((b&-8192)!=57344?b>>>0>=55296:0)){n[a+2|0]=b&63|128;n[a|0]=b>>>12|224;n[a+1|0]=b>>>6&63|128;return 3}if(b+ -65536>>>0<=1048575){n[a+3|0]=b&63|128;n[a|0]=b>>>18|240;n[a+2|0]=b>>>6&63|128;n[a+1|0]=b>>>12&63|128;return 4}}p[3103]=25;a=-1}else{a=1}return a}n[a|0]=b;return 1}function Oa(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0;e=p[a+4>>2];if(c>>>0>=999999985){d=p[a>>2];p[d+20>>2]=56;p[d+24>>2]=3;m[p[p[a>>2]>>2]](a)}d=c;c=c&7;d=d+(c?8-c|0:0)|0;if(b>>>0>=2){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=15;m[p[p[a>>2]>>2]](a)}f=d+16|0;c=kh(f);if(!c){g=p[a>>2];p[g+20>>2]=56;p[g+24>>2]=4;m[p[p[a>>2]>>2]](a)}p[e+76>>2]=p[e+76>>2]+f;a=(e+(b<<2)|0)+60|0;b=p[a>>2];p[c+8>>2]=0;p[c+4>>2]=d;p[c>>2]=b;p[a>>2]=c;return c+16|0}function kd(a){a=a|0;var b=0,c=0,d=0,e=0,f=0,g=0;b=p[a+24>>2];c=p[b+4>>2];if(!c){if(!(m[p[b+12>>2]](a)|0)){return 0}c=p[b+4>>2]}d=p[b>>2];e=q[d|0];c=c+ -1|0;d=d+1|0;a:{if(c){break a}if(!(m[p[b+12>>2]](a)|0)){return 0}c=p[b+4>>2];d=p[b>>2]}f=q[d|0];g=p[a>>2];p[g+20>>2]=93;p[g+24>>2]=p[a+440>>2];e=f|e<<8;f=e+ -2|0;p[p[a>>2]+28>>2]=f;m[p[p[a>>2]+4>>2]](a,1);p[b+4>>2]=c+ -1;p[b>>2]=d+1;if(e>>>0>=3){m[p[p[a+24>>2]+16>>2]](a,f)}return 1}function rf(a){var b=0,c=0,d=0;b=m[p[p[a+4>>2]>>2]](a,1,220)|0;p[a+468>>2]=b;p[b+8>>2]=206;p[b>>2]=207;if(!p[a+224>>2]){p[b+68>>2]=0;p[b+72>>2]=0;p[b+92>>2]=0;p[b+96>>2]=0;p[b+76>>2]=0;p[b+80>>2]=0;p[b+84>>2]=0;p[b+88>>2]=0;return}c=m[p[p[a+4>>2]>>2]](a,1,p[a+36>>2]<<8)|0;p[a+160>>2]=c;if(p[a+36>>2]>=1){while(1){c=uh(c,255,256)+256|0;d=d+1|0;if((d|0)<p[a+36>>2]){continue}break}}p[b+48>>2]=0;p[b+52>>2]=0;p[b+56>>2]=0;p[b+60>>2]=0}function eb(a){var b=0;b=p[a+88>>2];if(b){p[b+128>>2]=0}b=p[a+92>>2];if(b){p[b+128>>2]=0}b=p[a+96>>2];if(b){p[b+128>>2]=0}b=p[a+100>>2];if(b){p[b+128>>2]=0}b=p[a+120>>2];if(b){p[b+276>>2]=0}b=p[a+136>>2];if(b){p[b+276>>2]=0}b=p[a+124>>2];if(b){p[b+276>>2]=0}b=p[a+140>>2];if(b){p[b+276>>2]=0}b=p[a+128>>2];if(b){p[b+276>>2]=0}b=p[a+144>>2];if(b){p[b+276>>2]=0}b=p[a+132>>2];if(b){p[b+276>>2]=0}a=p[a+148>>2];if(a){p[a+276>>2]=0}}function de(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0;if((e|0)>=1){g=p[a+112>>2];f=p[p[a+480>>2]+24>>2];while(1){a=e;if(g){e=c<<2;h=p[e+p[b+8>>2]>>2];i=p[e+p[b+4>>2]>>2];j=p[e+p[b>>2]>>2];k=p[d>>2];e=0;while(1){n[e+k|0]=p[f+(q[e+h|0]<<2|2048)>>2]+(p[f+(q[e+i|0]<<2|1024)>>2]+p[f+(q[e+j|0]<<2)>>2]|0)>>>16;e=e+1|0;if((g|0)!=(e|0)){continue}break}}d=d+4|0;c=c+1|0;e=a+ -1|0;if((a|0)>=2){continue}break}}}function Rd(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0,o=0,s=0;if((d|0)>=1){j=p[a+112>>2];s=p[p[a+484>>2]+24>>2];while(1){if(j){e=g<<2;f=p[e+b>>2];h=p[c+e>>2];e=j;while(1){k=q[f|0]>>>3|0;l=q[f+1|0]>>>2|0;m=q[f+2|0]>>>3|0;o=(p[(k<<2)+s>>2]+(l<<6)|0)+(m<<1)|0;i=r[o>>1];if(!i){Wd(a,k,l,m);i=q[o|0]}f=f+3|0;n[h|0]=i+ -1;h=h+1|0;e=e+ -1|0;if(e){continue}break}}g=g+1|0;if((g|0)!=(d|0)){continue}break}}}function Wf(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0;e=Z-16|0;Z=e;d=p[a+20>>2];if((d|0)!=205){f=p[a>>2];p[f+24>>2]=d;p[f+20>>2]=21;m[p[p[a>>2]>>2]](a)}f=p[a+140>>2];g=p[a+116>>2];a:{if(f>>>0>=g>>>0){b=p[a>>2];p[b+20>>2]=126;m[p[b+4>>2]](a,-1);b=0;break a}d=p[a+8>>2];if(d){p[d+8>>2]=g;p[d+4>>2]=f;m[p[d>>2]](a)}p[e+12>>2]=0;m[p[p[a+448>>2]+4>>2]](a,b,e+12|0,c);b=p[e+12>>2];p[a+140>>2]=b+p[a+140>>2]}Z=e+16|0;return b|0}function Jd(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0;if((d|0)>=1){e=p[a+120>>2];l=p[a+112>>2];m=p[p[a+484>>2]+24>>2];while(1){if(l){a=f<<2;g=p[a+b>>2];h=p[a+c>>2];i=l;while(1){j=0;a=0;k=g;if((e|0)>=1){while(1){j=q[p[(a<<2)+m>>2]+q[k|0]|0]+j|0;k=k+1|0;a=a+1|0;if((e|0)!=(a|0)){continue}break}g=g+e|0}n[h|0]=j;h=h+1|0;i=i+ -1|0;if(i){continue}break}}f=f+1|0;if((f|0)!=(d|0)){continue}break}}}function Ma(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0;i=c<<7;g=999999984/(i>>>0)|0;e=p[a+4>>2];if(i>>>0>=999999985){f=p[a>>2];p[f+20>>2]=72;m[p[f>>2]](a)}f=e;e=(g|0)<(d|0)?g:d;p[f+80>>2]=e;j=Pa(a,b,d<<2);if(d){g=c<<7;while(1){c=d-h|0;e=e>>>0<c>>>0?e:c;c=Oa(a,b,v(i,e));if(e){f=e;while(1){p[j+(h<<2)>>2]=c;h=h+1|0;c=c+g|0;f=f+ -1|0;if(f){continue}break}}if(h>>>0<d>>>0){continue}break}}return j|0}function fg(a,b){var c=0;c=(b|0)!=0;a:{b:{c:{if(!b|!(a&3)){break c}while(1){if(!q[a|0]){break b}a=a+1|0;b=b+ -1|0;c=(b|0)!=0;if(!b){break c}if(a&3){continue}break}}if(!c){break a}}d:{if(!q[a|0]|b>>>0<4){break d}while(1){c=p[a>>2];if((c^-1)&c+ -16843009&-2139062144){break d}a=a+4|0;b=b+ -4|0;if(b>>>0>3){continue}break}}if(!b){break a}while(1){if(!q[a|0]){return a}a=a+1|0;b=b+ -1|0;if(b){continue}break}}return 0}function je(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0;if((e|0)>=1){g=p[a+112>>2];while(1){h=e;if(g){a=c<<2;i=p[a+p[b+8>>2]>>2];j=p[a+p[b+4>>2]>>2];k=p[a+p[b>>2]>>2];e=p[d>>2];a=0;while(1){l=q[a+k|0];m=q[a+i|0];f=q[a+j|0];n[e+1|0]=f;n[e+2|0]=f+m^128;n[e|0]=f+l^128;e=e+3|0;a=a+1|0;if((g|0)!=(a|0)){continue}break}}d=d+4|0;c=c+1|0;e=h+ -1|0;if((h|0)>=2){continue}break}}}function Fe(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0;f=p[d>>2]+e|0;a=p[a+336>>2]+ -384|0;b=p[b+84>>2];g=v(p[b+36>>2],r[c+18>>1]);h=v(p[b+4>>2],r[c+2>>1]);i=g+h|0;j=v(p[b+32>>2],r[c+16>>1]);b=v(p[b>>2],r[c>>1])+4100|0;c=j+b|0;n[f|0]=q[a+(i+c>>>3&1023)|0];n[f+1|0]=q[a+(c-i>>>3&1023)|0];c=p[d+4>>2]+e|0;d=h-g|0;b=b-j|0;n[c|0]=q[a+(d+b>>>3&1023)|0];n[c+1|0]=q[a+(b-d>>>3&1023)|0]}function Qg(){var a=0,b=0,c=0;b=6191;a:{while(1){a=q[b|0];if(!a|(a|0)==61){break a}b=b+1|0;if(b&3){continue}break}a=p[b>>2];b:{if((a^-1)&a+ -16843009&-2139062144){break b}while(1){a=a^1027423549;if((a^-1)&a+ -16843009&-2139062144){break b}a=p[b+4>>2];b=b+4|0;if(!(a+ -16843009&(a^-1)&-2139062144)){continue}break}}while(1){a=b;c=q[a|0];if(c){b=a+1|0;if((c|0)!=61){continue}}break}return a}return b}function Na(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0;g=999999984/(c>>>0)|0;f=p[a+4>>2];if(c>>>0>=999999985){e=p[a>>2];p[e+20>>2]=72;m[p[e>>2]](a)}e=f;f=(g|0)<(d|0)?g:d;p[e+80>>2]=f;g=Pa(a,b,d<<2);if(d){while(1){e=d-h|0;f=f>>>0<e>>>0?f:e;i=Oa(a,b,v(f,c));e=f;if(f){while(1){p[(h<<2)+g>>2]=i;i=c+i|0;h=h+1|0;e=e+ -1|0;if(e){continue}break}}if(h>>>0<d>>>0){continue}break}}return g|0}function yb(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0,l=0;if((e|0)>=1){g=p[a+28>>2];while(1){h=e;if(g){a=d<<2;i=p[a+p[c+8>>2]>>2];j=p[a+p[c+4>>2]>>2];k=p[a+p[c>>2]>>2];e=p[b>>2];a=0;while(1){l=q[e+2|0];f=q[e+1|0];n[a+k|0]=q[e|0]-f^128;n[a+j|0]=f;n[a+i|0]=l-f^128;e=e+3|0;a=a+1|0;if((g|0)!=(a|0)){continue}break}}d=d+1|0;b=b+4|0;e=h+ -1|0;if((h|0)>=2){continue}break}}}function ed(a){var b=0,c=0;b=p[a+72>>2];if((b|0)!=8){c=p[a>>2];p[c+24>>2]=b;p[c+20>>2]=16;m[p[p[a>>2]>>2]](a)}if(!(p[a+36>>2]>0?!(!p[a+32>>2]|!p[a+28>>2]):0)){b=p[a>>2];p[b+20>>2]=33;m[p[b>>2]](a)}dd(a);nb(a);if(!p[a+208>>2]){tb(a);Cb(a);Kb(a)}uc(a);a:{if(p[a+212>>2]){yc(a);break a}Ic(a)}Xc(a,p[a+200>>2]<=1?p[a+216>>2]!=0:1);ad(a);Ta(a);m[p[p[a+4>>2]+24>>2]](a);m[p[p[a+408>>2]>>2]](a)}function le(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0;if((e|0)>=1){j=p[a+112>>2];g=p[a+36>>2];k=(g|0)<1;while(1){f=0;if(!k){while(1){if(j){a=p[p[(f<<2)+b>>2]+(c<<2)>>2];h=p[d>>2]+f|0;i=j;while(1){n[h|0]=q[a|0];h=h+g|0;a=a+1|0;i=i+ -1|0;if(i){continue}break}}f=f+1|0;if((g|0)!=(f|0)){continue}break}}d=d+4|0;c=c+1|0;a=(e|0)>1;e=e+ -1|0;if(a){continue}break}}}function Ab(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0,k=0;if((e|0)>=1){j=p[a+28>>2];g=p[a+76>>2];k=(g|0)<1;while(1){f=0;if(!k){while(1){if(j){a=p[p[(f<<2)+c>>2]+(d<<2)>>2];h=p[b>>2]+f|0;i=j;while(1){n[a|0]=q[h|0];h=h+g|0;a=a+1|0;i=i+ -1|0;if(i){continue}break}}f=f+1|0;if((g|0)!=(f|0)){continue}break}}d=d+1|0;b=b+4|0;a=(e|0)>1;e=e+ -1|0;if(a){continue}break}}}function vb(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0;if((e|0)>=1){g=p[a+28>>2];f=p[p[a+412>>2]+8>>2];while(1){h=e;if(g){i=p[p[c>>2]+(d<<2)>>2];e=p[b>>2];a=0;while(1){n[a+i|0]=p[(q[e+2|0]<<2|2048)+f>>2]+(p[(q[e+1|0]<<2|1024)+f>>2]+p[(q[e|0]<<2)+f>>2]|0)>>>16;e=e+3|0;a=a+1|0;if((g|0)!=(a|0)){continue}break}}d=d+1|0;b=b+4|0;e=h+ -1|0;if((h|0)>=2){continue}break}}}function se(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0;if(p[a+320>>2]>=1){f=p[d>>2];while(1){i=f;j=e;k=f;l=e|1;b=p[a+112>>2];if((b|0)>=1){d=p[(e<<2)+f>>2];m=b+d|0;b=p[(g<<2)+c>>2];while(1){h=q[b|0];n[d+1|0]=h;n[d|0]=h;b=b+1|0;d=d+2|0;if(d>>>0<m>>>0){continue}break}b=p[a+112>>2]}Sa(i,j,k,l,1,b);g=g+1|0;e=e+2|0;if((e|0)<p[a+320>>2]){continue}break}}}function ie(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0;if((e|0)>=1){f=p[a+112>>2];while(1){g=e;if(f){a=c<<2;h=p[a+p[b+8>>2]>>2];i=p[a+p[b+4>>2]>>2];j=p[a+p[b>>2]>>2];e=p[d>>2];a=0;while(1){n[e|0]=q[a+j|0];n[e+1|0]=q[a+i|0];n[e+2|0]=q[a+h|0];e=e+3|0;a=a+1|0;if((f|0)!=(a|0)){continue}break}}d=d+4|0;c=c+1|0;e=g+ -1|0;if((g|0)>=2){continue}break}}}function xb(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0;if((e|0)>=1){f=p[a+28>>2];while(1){g=e;if(f){a=d<<2;h=p[a+p[c+8>>2]>>2];i=p[a+p[c+4>>2]>>2];j=p[a+p[c>>2]>>2];e=p[b>>2];a=0;while(1){n[a+j|0]=q[e|0];n[a+i|0]=q[e+1|0];n[a+h|0]=q[e+2|0];e=e+3|0;a=a+1|0;if((f|0)!=(a|0)){continue}break}}d=d+1|0;b=b+4|0;e=g+ -1|0;if((g|0)>=2){continue}break}}}function Ud(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0;if((d|0)>=1){c=p[a+112>>2];j=p[p[a+484>>2]+24>>2];while(1){if(c){a=p[(e<<2)+b>>2];f=c;while(1){h=(p[(q[a|0]>>>1&124)+j>>2]+(q[a+1|0]<<4&4032)|0)+(q[a+2|0]>>>2&62)|0;i=r[h>>1];g=i+1|0;o[h>>1]=(g|0)!=(g&65535)?i:g;a=a+3|0;f=f+ -1|0;if(f){continue}break}}e=e+1|0;if((e|0)!=(d|0)){continue}break}}}function Id(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0,j=0,k=0;if((d|0)>=1){h=p[a+112>>2];a=p[p[a+484>>2]+24>>2];i=p[a+8>>2];j=p[a+4>>2];k=p[a>>2];while(1){if(h){e=f<<2;a=p[e+b>>2];g=p[c+e>>2];e=h;while(1){n[g|0]=q[q[a+2|0]+i|0]+(q[q[a+1|0]+j|0]+q[q[a|0]+k|0]|0);g=g+1|0;a=a+3|0;e=e+ -1|0;if(e){continue}break}}f=f+1|0;if((f|0)!=(d|0)){continue}break}}}function Wg(a,b,c,d,e){var f=0,g=0,h=0,i=0,j=0,k=0,l=0,m=0;j=e;e=0;k=e;h=c;c=0;g=Fh(j,e,h,c);e=$;l=g;g=g>>>0<0?e+1|0:e;f=d;e=0;i=b;d=Fh(f,e,b,0);b=$;f=Fh(f,e,h,c);c=b+f|0;b=$;b=c>>>0<f>>>0?b+1|0:b;h=b;f=b+l|0;b=g;b=f>>>0<h>>>0?b+1|0:b;g=b;b=Fh(i,m,j,k)+c|0;e=$;e=b>>>0<c>>>0?e+1|0:e;i=e;f=e+f|0;e=g;p[a+8>>2]=f;p[a+12>>2]=f>>>0<i>>>0?e+1|0:e;p[a>>2]=d;p[a+4>>2]=b}function ue(a,b){var c=0,d=0,e=0,f=0,g=0;c=m[p[p[a+4>>2]>>2]](a,1,28)|0;p[a+456>>2]=c;p[c+8>>2]=0;p[c+12>>2]=0;p[c>>2]=160;if(p[a+84>>2]){d=p[a+320>>2];p[c+16>>2]=d;e=p[a+4>>2];if(b){b=p[e+16>>2];f=c,g=m[b|0](a,1,0,v(p[a+120>>2],p[a+112>>2]),Ra(p[a+116>>2],d),p[c+16>>2])|0,p[f+8>>2]=g;return}f=c,g=m[p[e+8>>2]](a,1,v(p[a+120>>2],p[a+112>>2]),d)|0,p[f+12>>2]=g}}function wh(a,b,c){var d=0,e=0,f=0;a:{d=p[c+16>>2];if(!d){if(vh(c)){break a}d=p[c+16>>2]}f=p[c+20>>2];if(d-f>>>0<b>>>0){m[p[c+36>>2]](c,a,b)|0;return}b:{if(n[c+75|0]<0){break b}d=b;while(1){e=d;if(!e){break b}d=e+ -1|0;if(q[d+a|0]!=10){continue}break}if(m[p[c+36>>2]](c,a,e)>>>0<e>>>0){break a}a=a+e|0;b=b-e|0;f=p[c+20>>2]}th(f,a,b);p[c+20>>2]=p[c+20>>2]+b}}function Xa(a){a=a|0;var b=0,c=0;b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=255;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;a:{if(c){break a}if(m[p[b+12>>2]](a)|0){break a}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}b=p[a+24>>2];c=p[b>>2];p[b>>2]=c+1;n[c|0]=217;c=p[b+4>>2]+ -1|0;p[b+4>>2]=c;b:{if(c){break b}if(m[p[b+12>>2]](a)|0){break b}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}}function wb(a){a=a|0;var b=0,c=0;b=p[a+412>>2];c=m[p[p[a+4>>2]>>2]](a,1,8192)|0;p[b+8>>2]=c;a=0;while(1){b=(a<<2)+c|0;p[b>>2]=v(a,19595);p[b+7168>>2]=v(a,-5329);p[b+6144>>2]=v(a,-27439);p[b+5120>>2]=(a<<15)+8421375;p[b+4096>>2]=v(a,-21710);p[b+3072>>2]=v(a,-11058);p[b+2048>>2]=v(a,7471)+32768;p[b+1024>>2]=v(a,38470);a=a+1|0;if((a|0)!=256){continue}break}}function we(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;var h=0,i=0,j=0,k=0,l=0;h=Z-16|0;Z=h;i=p[a+456>>2];j=p[i+16>>2];k=p[f>>2];p[h+12>>2]=0;l=b;b=g-k|0;m[p[p[a+476>>2]+4>>2]](a,l,c,d,p[i+12>>2],h+12|0,b>>>0>j>>>0?j:b);m[p[p[a+484>>2]+4>>2]](a,p[i+12>>2],(p[f>>2]<<2)+e|0,p[h+12>>2]);p[f>>2]=p[f>>2]+p[h+12>>2];Z=h+16|0}function xh(a){var b=0,c=0,d=0;a:{b:{b=a;if(!(b&3)){break b}if(!q[a|0]){return 0}while(1){b=b+1|0;if(!(b&3)){break b}if(q[b|0]){continue}break}break a}while(1){c=b;b=b+4|0;d=p[c>>2];if(!((d^-1)&d+ -16843009&-2139062144)){continue}break}if(!(d&255)){return c-a|0}while(1){d=q[c+1|0];b=c+1|0;c=b;if(d){continue}break}}return b-a|0}function Ic(a){var b=0,c=0;c=m[p[p[a+4>>2]>>2]](a,1,140)|0;p[a+424>>2]=c;b=c;p[b+52>>2]=0;p[b+56>>2]=0;p[b+44>>2]=0;p[b+48>>2]=0;p[b+76>>2]=0;p[b+80>>2]=0;p[b+92>>2]=0;p[b+96>>2]=0;p[b>>2]=94;p[b+60>>2]=0;p[b+64>>2]=0;p[b+100>>2]=0;p[b+104>>2]=0;p[b+68>>2]=0;p[b+72>>2]=0;p[b+84>>2]=0;p[b+88>>2]=0;if(p[a+268>>2]){p[c+136>>2]=0}}function Dc(a,b){a=a|0;b=b|0;var c=0,d=0,e=0;c=p[a+424>>2];if(p[a+236>>2]){d=p[c+68>>2];if(!d){Gc(a,p[c+72>>2]);d=p[a+236>>2];p[c+68>>2]=d;p[c+72>>2]=p[c+72>>2]+1&7}p[c+68>>2]=d+ -1}if(p[a+320>>2]>=1){d=c+204|0;e=p[a+376>>2];c=0;while(1){Hc(a,d,o[p[(c<<2)+b>>2]>>1]>>>e&1);c=c+1|0;if((c|0)<p[a+320>>2]){continue}break}}return 1}function ld(a){a=a|0;var b=0,c=0;a:{b=p[a+440>>2];b:{if(!b){if(!id(a)){break b}b=p[a+440>>2]}c=p[p[a+464>>2]+20>>2];if((c+208|0)==(b|0)){b=p[a>>2];p[b+24>>2]=c;p[b+20>>2]=100;m[p[p[a>>2]+4>>2]](a,3);p[a+440>>2]=0;break a}if(m[p[p[a+24>>2]+20>>2]](a,c)|0){break a}}return 0}a=p[a+464>>2];p[a+20>>2]=p[a+20>>2]+1&7;return 1}
+
+
+
+function re(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0;b=p[a+320>>2];if((b|0)>=1){g=p[d>>2];while(1){d=p[a+112>>2];if((d|0)>=1){e=f<<2;b=p[e+g>>2];h=d+b|0;d=p[c+e>>2];while(1){e=q[d|0];n[b+1|0]=e;n[b|0]=e;d=d+1|0;b=b+2|0;if(b>>>0<h>>>0){continue}break}b=p[a+320>>2]}f=f+1|0;if((f|0)<(b|0)){continue}break}}}function hf(a){var b=0,c=0;b=m[p[p[a+4>>2]>>2]](a,1,192)|0;p[a+468>>2]=b;p[b+8>>2]=199;p[b>>2]=200;uh(b+60|0,0,128);n[b+188|0]=113;a:{if(!p[a+224>>2]){break a}b=m[p[p[a+4>>2]>>2]](a,1,p[a+36>>2]<<8)|0;p[a+160>>2]=b;if(p[a+36>>2]<1){break a}while(1){b=uh(b,255,256)+256|0;c=c+1|0;if((c|0)<p[a+36>>2]){continue}break}}}function ad(a){var b=0,c=0,d=0,e=0,f=0;b=m[p[p[a+4>>2]>>2]](a,1,64)|0;p[a+396>>2]=b;p[b>>2]=107;if(!(p[a+208>>2]|p[a+76>>2]<1)){d=b+24|0;b=p[a+84>>2];while(1){e=(c<<2)+d|0,f=m[p[p[a+4>>2]+8>>2]](a,1,v(p[b+36>>2],p[b+28>>2]),v(p[b+40>>2],p[b+12>>2]))|0,p[e>>2]=f;b=b+88|0;c=c+1|0;if((c|0)<p[a+76>>2]){continue}break}}}function fe(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0;if((e|0)>=1){g=p[a+112>>2];while(1){h=e;if(g){i=p[p[b>>2]+(c<<2)>>2];e=p[d>>2];a=0;while(1){f=q[a+i|0];n[e+1|0]=f;n[e+2|0]=f;n[e|0]=f;e=e+3|0;a=a+1|0;if((g|0)!=(a|0)){continue}break}}d=d+4|0;c=c+1|0;e=h+ -1|0;if((h|0)>=2){continue}break}}}function mf(a,b){a=a|0;b=b|0;var c=0,d=0,e=0,f=0;c=p[a+468>>2];if(p[a+280>>2]){e=c;d=p[c+56>>2];if(!d){pf(a);d=p[c+56>>2]}p[e+56>>2]=d+ -1}if(p[a+368>>2]>=1){d=c+188|0;e=65536<<p[a+424>>2]>>>16|0;c=0;while(1){if(qf(a,d)){f=p[(c<<2)+b>>2];o[f>>1]=r[f>>1]|e}c=c+1|0;if((c|0)<p[a+368>>2]){continue}break}}return 1}function ob(a){a=a|0;var b=0;b=p[a+392>>2];m[p[p[a+424>>2]+8>>2]](a);a:{b:{switch(p[b+20>>2]){case 0:p[b+20>>2]=2;if(p[a+216>>2]){break a}p[b+32>>2]=p[b+32>>2]+1;break a;case 1:p[b+20>>2]=2;break a;case 2:break b;default:break a}}if(p[a+216>>2]){p[b+20>>2]=1}p[b+32>>2]=p[b+32>>2]+1}p[b+24>>2]=p[b+24>>2]+1}function ih(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0;f=p[3126]+1|0;p[3126]=f;p[a>>2]=f;a:{if(d){while(1){g=(e<<3)+c|0;if(!p[g>>2]){break a}e=e+1|0;if((e|0)!=(d|0)){continue}break}}e=a;a=d<<1;b=ih(e,b,mh(c,d<<4|8),a);K(a|0);return b|0}p[g>>2]=f;a=(e<<3)+c|0;p[a+4>>2]=b;p[a+8>>2]=0;K(d|0);return c|0}function rh(a){var b=0;b=1;a:{if((a|0)>=1024){b=8.98846567431158e+307;if((a|0)<2047){a=a+ -1023|0;break a}b=G;a=((a|0)<3069?a:3069)+ -2046|0;break a}if((a|0)>-1023){break a}b=2.2250738585072014e-308;if((a|0)>-2045){a=a+1022|0;break a}b=0;a=((a|0)>-3066?a:-3066)+2044|0}f(0,0);f(1,a+1023<<20);return b*+g()}function dh(a,b){var c=0,d=0,e=0,f=0,g=0,h=0;d=Z-16|0;Z=d;g=a;h=a;a:{if(!b){b=0;break a}c=b>>31;e=c+b^c;c=y(e);Xg(d,e,0,0,0,c+81|0);c=(p[d+12>>2]^65536)+(16414-c<<16)|0;e=0+p[d+8>>2]|0;if(e>>>0<f>>>0){c=c+1|0}f=b&-2147483648|c;c=p[d+4>>2];b=p[d>>2]}p[h>>2]=b;p[g+4>>2]=c;p[a+8>>2]=e;p[a+12>>2]=f;Z=d+16|0}function Sg(){var a=0,b=0,c=0,d=0;d=xh(6191);a:{if(!p[3123]|!q[6191]){break a}a=Qg();if(q[a|0]==61?a:0){break a}a=p[p[3123]>>2];if(!a){break a}b:{while(1){c=Rg(a,d);a=p[3123];if(!c){c=p[a+(b<<2)>>2]+d|0;if(q[c|0]==61){break b}}b=b+1|0;a=p[a+(b<<2)>>2];if(a){continue}break}return 0}b=c+1|0}return b}function ub(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0;if((e|0)>=1){g=p[a+28>>2];i=p[a+36>>2];while(1){h=e;if(g){e=p[p[c>>2]+(d<<2)>>2];a=p[b>>2];f=g;while(1){n[e|0]=q[a|0];a=a+i|0;e=e+1|0;f=f+ -1|0;if(f){continue}break}}d=d+1|0;b=b+4|0;e=h+ -1|0;if((h|0)>=2){continue}break}}}function pg(a,b,c){var d=0,e=0,f=0;a:{if((b|0)==1&a>>>0<0|b>>>0<1){d=a;break a}while(1){d=Gh(a,b,10);e=$;f=e;e=Fh(d,e,10,0);c=c+ -1|0;n[c|0]=a-e|48;e=b>>>0>9;a=d;b=f;if(e){continue}break}}if(d){while(1){c=c+ -1|0;a=(d>>>0)/10|0;n[c|0]=d-v(a,10)|48;b=d>>>0>9;d=a;if(b){continue}break}}return c}function gh(a,b){var c=0,d=0,e=0,f=0,g=0,h=0;c=Z-16|0;Z=c;g=a;h=a;a:{if(!b){b=0;e=0;break a}d=b;b=y(b)^31;Xg(c,d,0,0,0,112-b|0);b=(p[c+12>>2]^65536)+(b+16383<<16)|0;d=0+p[c+8>>2]|0;if(d>>>0<f>>>0){b=b+1|0}f=d;d=b;b=p[c+4>>2];e=p[c>>2]}p[h>>2]=e;p[g+4>>2]=b;p[a+8>>2]=f;p[a+12>>2]=d;Z=c+16|0}function La(a,b,c,d,e,f){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;var g=0,h=0;g=p[a+4>>2];if((b|0)!=1){h=p[a>>2];p[h+24>>2]=b;p[h+20>>2]=15;m[p[p[a>>2]>>2]](a)}a=Pa(a,b,128);p[a+40>>2]=0;p[a+32>>2]=c;p[a+12>>2]=f;p[a+8>>2]=d;p[a+4>>2]=e;p[a>>2]=0;p[a+44>>2]=p[g+68>>2];p[g+68>>2]=a;return a|0}function Ka(a,b,c,d,e,f){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;var g=0,h=0;g=p[a+4>>2];if((b|0)!=1){h=p[a>>2];p[h+24>>2]=b;p[h+20>>2]=15;m[p[p[a>>2]>>2]](a)}a=Pa(a,b,128);p[a+40>>2]=0;p[a+32>>2]=c;p[a+12>>2]=f;p[a+8>>2]=d;p[a+4>>2]=e;p[a>>2]=0;p[a+44>>2]=p[g+72>>2];p[g+72>>2]=a;return a|0}function Fb(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0;Sa(c,0,d,0,p[a+276>>2],p[a+28>>2]);c=p[a+276>>2];a:{if((c|0)<1){break a}a=p[a+28>>2];b=v(p[b+36>>2],p[b+28>>2])-a|0;if((b|0)<1){break a}while(1){f=a+p[(e<<2)+d>>2]|0;uh(f,q[f+ -1|0],b);e=e+1|0;if((c|0)!=(e|0)){continue}break}}}function mb(a){a=a|0;var b=0,c=0,d=0,e=0;b=p[a+24>>2];d=p[b+36>>2]<<1;c=kh(d);if(!c){e=p[a>>2];p[e+20>>2]=56;p[e+24>>2]=11;m[p[p[a>>2]>>2]](a)}a=th(c,p[b+32>>2],p[b+36>>2]);c=p[b+28>>2];if(c){lh(c)}p[b+28>>2]=a;p[b+32>>2]=a;c=p[b+36>>2];p[b+36>>2]=d;p[b+4>>2]=c;p[b>>2]=a+c;return 1}function Db(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0,g=0,h=0,i=0,j=0;if(p[a+76>>2]>=1){i=p[a+416>>2];f=p[a+84>>2];j=c<<2;while(1){c=g<<2;h=c+i|0;m[p[h+12>>2]](a,f,p[b+c>>2]+j|0,p[c+d>>2]+(v(p[h+52>>2],e)<<2)|0);f=f+88|0;g=g+1|0;if((g|0)<p[a+76>>2]){continue}break}}}function ff(a){var b=0,c=0,d=0,e=0;b=m[p[p[a+4>>2]>>2]](a,1,84)|0;p[a+472>>2]=b;p[b>>2]=164;if(p[a+36>>2]>=1){e=b+44|0;b=p[a+216>>2];while(1){d=m[p[p[a+4>>2]>>2]](a,1,256)|0;p[b+84>>2]=d;uh(d,0,256);p[(c<<2)+e>>2]=-1;b=b+88|0;c=c+1|0;if((c|0)<p[a+36>>2]){continue}break}}}function Pg(){var a=0,b=0,c=0;a=Z-16|0;Z=a;a:{if(U(a+12|0,a+8|0)|0){break a}b=kh((p[a+12>>2]<<2)+4|0);p[3123]=b;if(!b){break a}b:{b=kh(p[a+8>>2]);if(b){c=p[3123];if(c){break b}}p[3123]=0;break a}p[(p[a+12>>2]<<2)+c>>2]=0;if(!(V(p[3123],b|0)|0)){break a}p[3123]=0}Z=a+16|0}function fd(a,b){a=a|0;b=b|0;var c=0,d=0;c=p[a+20>>2];if((c|0)!=100){d=p[a>>2];p[d+24>>2]=c;p[d+20>>2]=21;m[p[p[a>>2]>>2]](a)}if(b){eb(a)}m[p[p[a>>2]+16>>2]](a);m[p[p[a+24>>2]+8>>2]](a);ed(a);m[p[p[a+392>>2]>>2]](a);p[a+264>>2]=0;p[a+20>>2]=p[a+208>>2]?102:101}function mh(a,b){a=a|0;b=b|0;var c=0,d=0;if(!a){return kh(b)|0}if(b>>>0>=4294967232){p[3103]=48;return 0}c=nh(a+ -8|0,b>>>0<11?16:b+11&-8);if(c){return c+8|0}c=kh(b);if(!c){return 0}d=p[a+ -4>>2];d=(d&3?-4:-8)+(d&-8)|0;th(c,a,d>>>0<b>>>0?d:b);lh(a);return c|0}function Of(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0,f=0,g=0,h=0,i=0;a:{e=p[a+448>>2];f=p[e+52>>2];g=a;h=e+8|0;i=e+48|0;if(s[e+48>>2]>=f>>>0){if(!(m[p[p[a+452>>2]+12>>2]](a,e+8|0)|0)){break a}p[e+48>>2]=0;f=p[e+52>>2]}m[p[p[a+456>>2]+4>>2]](g,h,i,f,b,c,d)}}function Cd(a,b,c){a=a|0;b=b|0;c=c|0;var d=0;if(!(c?b:0)){d=p[a>>2];p[d+20>>2]=43;m[p[d>>2]](a)}d=p[a+24>>2];if(!d){d=m[p[p[a+4>>2]>>2]](a,0,28)|0;p[a+24>>2]=d}p[d+20>>2]=118;p[d+4>>2]=c;p[d>>2]=b;p[d+24>>2]=119;p[d+16>>2]=120;p[d+12>>2]=121;p[d+8>>2]=122}function dg(a){var b=0,c=0;b=q[a+74|0];n[a+74|0]=b+ -1|b;if(s[a+20>>2]>s[a+28>>2]){m[p[a+36>>2]](a,0,0)|0}p[a+28>>2]=0;p[a+16>>2]=0;p[a+20>>2]=0;b=p[a>>2];if(b&4){p[a>>2]=b|32;return-1}c=p[a+44>>2]+p[a+48>>2]|0;p[a+8>>2]=c;p[a+4>>2]=c;return b<<27>>31}function bg(a,b,c){var d=0,e=0;d=Z-160|0;Z=d;th(d+8|0,10256,144);p[d+52>>2]=a;p[d+28>>2]=a;e=-2-a|0;e=2147483647>e>>>0?e:2147483647;p[d+56>>2]=e;a=a+e|0;p[d+36>>2]=a;p[d+24>>2]=a;rg(d+8|0,b,c);if(e){a=p[d+28>>2];n[a-((a|0)==p[d+24>>2])|0]=0}Z=d+160|0}function Ub(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0,f=0,g=0;a=uh(a,0,256);d=p[b>>2]+c|0;e=q[d+1|0];d=q[d|0];f=e+d|0;b=p[b+4>>2]+c|0;c=q[b+1|0];b=q[b|0];g=c+b|0;p[a+32>>2]=f-g<<4;d=d-e|0;b=b-c|0;p[a+36>>2]=d-b<<4;p[a+4>>2]=b+d<<4;p[a>>2]=(f+g<<4)+ -8192}function Rg(a,b){var c=0,d=0,e=0,f=0;d=6191;if(!b){return 0}c=q[6191];a:{if(!c){break a}while(1){b:{e=q[a|0];if((e|0)!=(c|0)){break b}b=b+ -1|0;if(!b|!e){break b}a=a+1|0;c=q[d+1|0];d=d+1|0;if(c){continue}break a}break}f=c}return(f&255)-q[a|0]|0}function uc(a){var b=0,c=0,d=0,e=0;b=m[p[p[a+4>>2]>>2]](a,1,124)|0;p[a+420>>2]=b;p[b>>2]=50;if(p[a+76>>2]>=1){b=p[a+84>>2];while(1){d=b,e=m[p[p[a+4>>2]>>2]](a,1,256)|0,p[d+84>>2]=e;b=b+88|0;c=c+1|0;if((c|0)<p[a+76>>2]){continue}break}}}function xg(a,b,c){var d=0,e=0,f=0,g=0;p[a+112>>2]=b;p[a+116>>2]=c;f=p[a+8>>2];g=p[a+4>>2];d=f-g|0;e=d>>31;p[a+120>>2]=d;p[a+124>>2]=e;if(!(!(b|c)|((e|0)<(c|0)?1:(e|0)<=(c|0)?d>>>0<=b>>>0:0))){p[a+104>>2]=b+g;return}p[a+104>>2]=f}
+
+
+
+function cf(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;var f=0;a=p[a+336>>2]+ -384|0;b=p[b+84>>2];f=v(p[b+32>>2],r[c+16>>1]);b=v(p[b>>2],r[c>>1])+4100|0;n[p[d>>2]+e|0]=q[a+(f+b>>>3&1023)|0];n[p[d+4>>2]+e|0]=q[a+(b-f>>>3&1023)|0]}function Dh(a,b,c,d){var e=0,f=0,g=0,h=0,i=0,j=0;e=c>>>16|0;f=a>>>16|0;j=v(e,f);g=c&65535;h=a&65535;i=v(g,h);f=(i>>>16|0)+v(f,g)|0;e=(f&65535)+v(e,h)|0;a=(v(b,c)+j|0)+v(a,d)+(f>>>16)+(e>>>16)|0;b=i&65535|e<<16;$=a;return b}function We(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;d=p[d>>2]+e|0;a=p[a+336>>2]+ -384|0;b=p[b+84>>2];e=v(p[b+4>>2],r[c+2>>1]);b=v(p[b>>2],r[c>>1])+4100|0;n[d|0]=q[a+(e+b>>>3&1023)|0];n[d+1|0]=q[a+(b-e>>>3&1023)|0]}function yd(a,b){a=a|0;b=b|0;var c=0,d=0;c=p[a+20>>2];if((c&-2)!=200){d=p[a>>2];p[d+24>>2]=c;p[d+20>>2]=21;m[p[p[a>>2]>>2]](a)}c=zd(a);if((c|0)==2){if(b){b=p[a>>2];p[b+20>>2]=53;m[p[b>>2]](a)}qa(a)}return c|0}function va(a){a=a|0;p[a+104>>2]=0;p[a+108>>2]=0;p[a+124>>2]=0;p[a+128>>2]=0;p[a+116>>2]=126;p[a+120>>2]=0;p[a+20>>2]=0;p[a+16>>2]=1;p[a+12>>2]=2;p[a+8>>2]=3;p[a+4>>2]=4;p[a>>2]=5;p[a+112>>2]=11504;return a|0}function ug(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;var e=0;e=Z-16|0;Z=e;a:{if(!Tg(Y(p[a+60>>2],b|0,c|0,d&255,e+8|0)|0)){b=p[e+12>>2];a=p[e+8>>2];break a}p[e+8>>2]=-1;p[e+12>>2]=-1;b=-1;a=-1}Z=e+16|0;$=b;return a|0}function Bd(a,b){a=a|0;b=b|0;var c=0,d=0;if((b|0)>=1){c=p[a+24>>2];d=p[c+4>>2];if(d>>>0<b>>>0){while(1){m[p[c+12>>2]](a)|0;b=b-d|0;d=p[c+4>>2];if(b>>>0>d>>>0){continue}break}}p[c+4>>2]=d-b;p[c>>2]=p[c>>2]+b}}function qg(a,b,c,d,e){var f=0;f=Z-256|0;Z=f;if(!(e&73728|(c|0)<=(d|0))){c=c-d|0;d=c>>>0<256;uh(f,b&255,d?c:256);if(!d){while(1){kg(a,f,256);c=c+ -256|0;if(c>>>0>255){continue}break}}kg(a,f,c)}Z=f+256|0}function jh(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0;a:{if(!c){break a}while(1){e=p[(d<<3)+b>>2];if(!e){break a}if((a|0)==(e|0)){return p[((d<<3)+b|0)+4>>2]}d=d+1|0;if((d|0)!=(c|0)){continue}break}}return 0}function Ua(a,b){a=a|0;b=b|0;var c=0,d=0;c=p[a+24>>2];d=p[c>>2];p[c>>2]=d+1;n[d|0]=b;b=p[c+4>>2]+ -1|0;p[c+4>>2]=b;a:{if(b){break a}if(m[p[c+12>>2]](a)|0){break a}b=p[a>>2];p[b+20>>2]=25;m[p[b>>2]](a)}}function za(a,b){a=a|0;b=b|0;var c=0,d=0;c=p[a>>2];if((b|0)<=-1){d=c;b=p[c+108>>2];if(!(p[c+104>>2]<3?b:0)){m[p[c+8>>2]](a);b=p[c+108>>2]}p[d+108>>2]=b+1;return}if(p[c+104>>2]>=(b|0)){m[p[c+8>>2]](a)}}function vh(a){var b=0;b=q[a+74|0];n[a+74|0]=b+ -1|b;b=p[a>>2];if(b&8){p[a>>2]=b|32;return-1}p[a+4>>2]=0;p[a+8>>2]=0;b=p[a+44>>2];p[a+28>>2]=b;p[a+20>>2]=b;p[a+16>>2]=b+p[a+48>>2];return 0}function Jg(a,b,c,d){a:{if(!a){break a}b:{switch(b+2|0){case 0:n[a|0]=c;return;case 1:o[a>>1]=c;return;case 2:case 3:p[a>>2]=c;return;case 5:break b;default:break a}}p[a>>2]=c;p[a+4>>2]=d}}function bd(a,b){a=a|0;b=b|0;var c=0;if(!p[a+208>>2]){c=p[a+396>>2];p[c+20>>2]=b;p[c+16>>2]=0;p[c+8>>2]=0;p[c+12>>2]=0;if(!b){p[c+4>>2]=108;return}b=p[a>>2];p[b+20>>2]=3;m[p[b>>2]](a)}}function ch(a,b,c,d,e,f,g,h,i){var j=0;j=Z-16|0;Z=j;Yg(j,b,c,d,e,f,g,h,i^-2147483648);b=p[j+4>>2];p[a>>2]=p[j>>2];p[a+4>>2]=b;b=p[j+12>>2];p[a+8>>2]=p[j+8>>2];p[a+12>>2]=b;Z=j+16|0}function ph(a){var b=0,c=0;b=p[3102];c=a+3&-4;a=b+c|0;a:{if(a>>>0<=b>>>0?(c|0)>=1:0){break a}if(a>>>0>aa()<<16>>>0){if(!(W(a|0)|0)){break a}}p[3102]=a;return b}p[3103]=48;return-1}function Ta(a){var b=0;b=a;a=m[p[p[a+4>>2]>>2]](a,1,32)|0;p[b+408>>2]=a;p[a+28>>2]=0;p[a+24>>2]=17;p[a+20>>2]=18;p[a+16>>2]=19;p[a+12>>2]=20;p[a+8>>2]=21;p[a+4>>2]=22;p[a>>2]=23}function Lb(a,b){a=a|0;b=b|0;var c=0;c=p[a+400>>2];if(b){b=p[a>>2];p[b+20>>2]=3;m[p[b>>2]](a)}b=p[a+32>>2];p[c+52>>2]=0;p[c+56>>2]=0;p[c+48>>2]=b;p[c+60>>2]=p[a+276>>2]<<1}function sd(a){var b=0;b=a;a=m[p[p[a+4>>2]>>2]](a,0,28)|0;p[b+460>>2]=a;p[a+24>>2]=1;p[a+16>>2]=0;p[a+20>>2]=0;p[a+12>>2]=114;p[a+8>>2]=115;p[a+4>>2]=116;p[a>>2]=117}function Kg(a,b,c){var d=0,e=0,f=0;e=p[a+84>>2];d=c+256|0;f=fg(e,d);d=f?f-e|0:d;c=d>>>0<c>>>0?d:c;th(b,e,c);b=e+d|0;p[a+84>>2]=b;p[a+8>>2]=b;p[a+4>>2]=c+e;return c}function Ff(a){a=a|0;var b=0,c=0;p[a+148>>2]=0;b=1;c=p[a+452>>2];b=p[a+340>>2]<=1?p[p[a+344>>2]+(p[a+332>>2]==1?76:12)>>2]:b;p[c+20>>2]=0;p[c+24>>2]=0;p[c+28>>2]=b}function ae(a,b,c,d,e,f,g){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;f=f|0;g=g|0;m[p[p[a+476>>2]+12>>2]](a,b,p[c>>2],(p[f>>2]<<2)+e|0);p[f>>2]=p[f>>2]+1;p[c>>2]=p[c>>2]+1}function vd(a){a=a|0;var b=0;b=p[a+460>>2];p[b+24>>2]=1;p[b+16>>2]=0;p[b+20>>2]=0;p[b>>2]=117;m[p[p[a>>2]+16>>2]](a);m[p[p[a+464>>2]>>2]](a);p[a+160>>2]=0}function lg(a){var b=0,c=0,d=0;if(eg(n[p[a>>2]])){while(1){b=p[a>>2];d=n[b|0];p[a>>2]=b+1;c=(v(c,10)+d|0)+ -48|0;if(eg(n[b+1|0])){continue}break}}return c}function Sa(a,b,c,d,e,f){if((e|0)>=1){a=(b<<2)+a|0;b=(d<<2)+c|0;while(1){th(p[b>>2],p[a>>2],f);b=b+4|0;a=a+4|0;c=(e|0)>1;e=e+ -1|0;if(c){continue}break}}}function ag(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0;e=p[a+20>>2];d=p[a+16>>2]-e|0;d=d>>>0>c>>>0?c:d;th(e,b,d);p[a+20>>2]=d+p[a+20>>2];return c|0}function wg(a){var b=0,c=0;b=Z-16|0;Z=b;c=-1;a:{if(dg(a)){break a}if((m[p[a+32>>2]](a,b+15|0,1)|0)!=1){break a}c=q[b+15|0]}Z=b+16|0;return c}function sh(a,b,c,d){var e=0,f=0;f=d&65535;d=d>>>16&32767;a:{if((d|0)!=32767){e=4;if(d){break a}return a|c|(b|f)?3:2}e=!(a|c|(b|f))}return e}function Ge(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;n[p[d>>2]+e|0]=q[(p[a+336>>2]+(v(p[p[b+84>>2]>>2],r[c>>1])+4100>>>3&1023)|0)+ -384|0]}function rc(a,b,c){a=a|0;b=b|0;c=c|0;var d=0;a=uh(a,0,256);d=q[p[b>>2]+c|0];b=q[p[b+4>>2]+c|0];p[a+32>>2]=d-b<<5;p[a>>2]=(b+d<<5)+ -8192}function ng(a,b,c,d){if(a|b){while(1){c=c+ -1|0;n[c|0]=q[(a&15)+10896|0]|d;a=(b&15)<<28|a>>>4;b=b>>>4|0;if(a|b){continue}break}}return c}function Lg(a,b){var c=0;c=Z-144|0;Z=c;c=uh(c,0,144);p[c+76>>2]=-1;p[c+44>>2]=a;p[c+32>>2]=249;p[c+84>>2]=a;a=Hg(c,b);Z=c+144|0;return a}function Ig(a,b){var c=0;c=Z-16|0;p[c+12>>2]=a;p[c+8>>2]=a;if(b>>>0>=2){a=((b<<2)+a|0)+ -4|0;p[c+8>>2]=a}p[c+8>>2]=a+4;return p[a>>2]}function hb(a,b,c){a=a|0;b=b|0;c=c|0;b=(b|0)>1?b:1;b=(b|0)<100?b:100;if((b|0)<=49){gb(a,5e3/(b>>>0)|0,c);return}gb(a,200-(b<<1)|0,c)}function nd(a){a=a|0;p[a+216>>2]=0;p[a+440>>2]=0;p[a+144>>2]=0;a=p[a+464>>2];p[a+164>>2]=0;p[a+24>>2]=0;p[a+12>>2]=0;p[a+16>>2]=0}function yc(a){var b=0;b=a;a=m[p[p[a+4>>2]>>2]](a,1,208)|0;p[b+424>>2]=a;p[a+8>>2]=87;p[a>>2]=88;uh(a+76|0,0,128);n[a+204|0]=113}function qa(a){var b=0;b=p[a+4>>2];if(b){m[p[b+36>>2]](a,1);if(p[a+16>>2]){p[a+312>>2]=0;p[a+20>>2]=200;return}p[a+20>>2]=100}}function jc(a,b,c){a=a|0;b=b|0;c=c|0;a=uh(a,0,256);b=p[b>>2]+c|0;c=q[b|0];b=q[b+1|0];p[a+4>>2]=c-b<<5;p[a>>2]=(b+c<<5)+ -8192}function og(a,b,c){if(a|b){while(1){c=c+ -1|0;n[c|0]=a&7|48;a=(b&7)<<29|a>>>3;b=b>>>3|0;if(a|b){continue}break}}return c}function Dd(a){a=a|0;var b=0;b=p[a>>2];p[b+20>>2]=123;m[p[b+4>>2]](a,-1);a=p[a+24>>2];p[a+4>>2]=2;p[a>>2]=8842;return 1}function zg(a,b,c,d,e,f,g,h,i){p[a>>2]=b;p[a+4>>2]=c;p[a+8>>2]=d;p[a+12>>2]=e&65535|(i>>>16&32768|e>>>16&32767)<<16}function ya(a){a=a|0;var b=0;b=Z-224|0;Z=b;m[p[p[a>>2]+12>>2]](a,b+16|0);p[b>>2]=b+16;sg(p[2728],b);Z=b+224|0}function sf(a){a=a|0;var b=0;b=p[a+464>>2];a=p[a+468>>2]+16|0;p[b+24>>2]=p[b+24>>2]+(p[a>>2]/8|0);p[a>>2]=0}function Sf(a){a=a|0;var b=0;b=p[a+444>>2];if(p[a+84>>2]){m[p[p[a+484>>2]+8>>2]](a)}p[b+12>>2]=p[b+12>>2]+1}function Vb(a,b,c){a=a|0;b=b|0;c=c|0;var d=0,e=0;d=uh(a,0,256),e=(q[p[b>>2]+c|0]<<6)+ -8192|0,p[d>>2]=e}function lb(a){a=a|0;a=p[a+24>>2];p[p[a+20>>2]>>2]=p[a+32>>2];p[p[a+24>>2]>>2]=p[a+36>>2]-p[a+4>>2]}function pb(a){a=a|0;p[p[a+392>>2]+12>>2]=0;m[p[p[a+408>>2]+4>>2]](a);m[p[p[a+408>>2]+8>>2]](a)}function Bh(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;a=m[a|0](b,c,d,e)|0;K($|0);return a|0}function oe(a){a=a|0;var b=0;b=p[a+476>>2];p[b+92>>2]=p[a+320>>2];p[b+96>>2]=p[a+116>>2]}function _f(a){a=a|0;var b=0,c=0;b=xh(a)+1|0;c=kh(b);if(!c){return 0}return th(c,a,b)|0}function ce(a,b,c,d,e){a=a|0;b=b|0;c=c|0;d=d|0;e=e|0;Sa(p[b>>2],c,d,0,e,p[a+112>>2])}function Xf(a){a=a|0;var b=0;b=a;a=p[a>>2];m[p[a+12>>2]](b,a+132|0);H(a+332|0,1);E()}function ra(a){var b=0;b=p[a+4>>2];if(b){m[p[b+40>>2]](a)}p[a+20>>2]=0;p[a+4>>2]=0}function Nf(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;m[p[p[a+456>>2]+4>>2]](a,0,0,0,b,c,d)}function Yd(a){a=a|0;var b=0;b=p[a+476>>2];p[b+36>>2]=0;p[b+44>>2]=p[a+116>>2]}function Ng(a,b){var c=0;c=Z-16|0;Z=c;p[c+12>>2]=b;a=Lg(a,b);Z=c+16|0;return a}function Hh(a){var b=0;b=a&31;a=0-a&31;return(-1>>>b&-2)<<b|(-1<<a&-2)>>>a}
+
+
+
+function sg(a,b){var c=0;c=Z-16|0;Z=c;p[c+12>>2]=b;rg(a,6187,b);Z=c+16|0}function cg(a,b,c){var d=0;d=Z-16|0;Z=d;p[d+12>>2]=c;bg(a,b,c);Z=d+16|0}function ta(a){a=m[p[p[a+4>>2]>>2]](a,0,280)|0;p[a+276>>2]=0;return a}function sa(a){a=m[p[p[a+4>>2]>>2]](a,0,132)|0;p[a+128>>2]=0;return a}function td(a){a=a|0;m[p[p[a+468>>2]+8>>2]](a);p[p[a+460>>2]>>2]=117}function Fd(a){a=a|0;var b=0;b=p[a>>2];p[b+20>>2]=47;m[p[b>>2]](a)}function hh(a,b){a=a|0;b=b|0;if(!p[3124]){p[3125]=b;p[3124]=a}}function Fa(a){a=a|0;Ga(a,1);Ga(a,0);lh(p[a+4>>2]);p[a+4>>2]=0}function Ba(a){var b=0;b=p[a>>2];p[b+20>>2]=51;m[p[b>>2]](a)}function Ra(a,b){a=(a+b|0)+ -1|0;return a-((a|0)%(b|0)|0)|0}function wa(a){a=a|0;a=p[a>>2];p[a+20>>2]=0;p[a+108>>2]=0}function Aa(a){a=a|0;m[p[p[a>>2]+8>>2]](a);ra(a);I(1);E()}function Mg(a,b,c){a=a|0;b=b|0;c=c|0;return Kg(a,b,c)|0}function qe(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;p[d>>2]=c}function pe(a,b,c,d){a=a|0;b=b|0;c=c|0;d=d|0;p[d>>2]=0}function Tg(a){if(!a){return 0}p[3103]=a;return-1}function hg(a,b){if(!a){return 0}return gg(a,b)}function kg(a,b,c){if(!(q[a|0]&32)){wh(b,c,a)}}function Qa(a,b){return((a+b|0)+ -1|0)/(b|0)|0}function Ah(a){a=a|0;a=Z-a&-16;Z=a;return a|0}function tg(a){a=a|0;return S(p[a+60>>2])|0}function Od(a){a=a|0;p[p[a+484>>2]+28>>2]=1}function Fh(a,b,c,d){a=Dh(a,b,c,d);return a}function vg(a){return(a|0)==32|a+ -9>>>0<5}function Ch(a){a=a|0;return ba(a|0)|0}function eg(a){return a+ -48>>>0<10}function Gh(a,b,c){return Eh(a,b,c)}function Ca(a){a=a|0;return 0}function rg(a,b,c){ig(a,b,c)}function db(a){a=a|0;ra(a)}function $f(){return 12412}function zh(a){a=a|0;Z=a}function yh(){return Z|0}function Da(a){a=a|0}function pa(){Pg()}
+// EMSCRIPTEN_END_FUNCS
+m[1]=wa;m[2]=xa;m[3]=ya;m[4]=za;m[5]=Aa;m[6]=Fa;m[7]=Ga;m[8]=Ha;m[9]=Ia;m[10]=Ja;m[11]=Ka;m[12]=La;m[13]=Ma;m[14]=Na;m[15]=Oa;m[16]=Pa;m[17]=Ua;m[18]=Va;m[19]=Wa;m[20]=Xa;m[21]=Ya;m[22]=Za;m[23]=_a;m[24]=lb;m[25]=mb;m[26]=Da;m[27]=ob;m[28]=pb;m[29]=qb;m[30]=Da;m[31]=ub;m[32]=vb;m[33]=wb;m[34]=xb;m[35]=yb;m[36]=zb;m[37]=Ab;m[38]=Bb;m[39]=Db;m[40]=Da;m[41]=Eb;m[42]=Fb;m[43]=Gb;m[44]=Hb;m[45]=Ib;m[46]=Jb;m[47]=Lb;m[48]=Mb;m[49]=Nb;m[50]=vc;m[51]=Vb;m[52]=Ub;m[53]=Tb;m[54]=Sb;m[55]=Rb;m[56]=Qb;m[57]=Pb;m[58]=Xb;m[59]=Yb;m[60]=Zb;m[61]=_b;m[62]=$b;m[63]=ac;m[64]=bc;m[65]=cc;m[66]=dc;m[67]=ec;m[68]=fc;m[69]=gc;m[70]=hc;m[71]=ic;m[72]=jc;m[73]=kc;m[74]=lc;m[75]=mc;m[76]=nc;m[77]=oc;m[78]=pc;m[79]=qc;m[80]=rc;m[81]=Ob;m[82]=sc;m[83]=tc;m[84]=Wb;m[85]=wc;m[86]=xc;m[87]=zc;m[88]=Ac;m[89]=Bc;m[90]=Cc;m[91]=Dc;m[92]=Ec;m[93]=Fc;m[94]=Jc;m[95]=Kc;m[96]=Lc;m[97]=Mc;m[98]=Nc;m[99]=Oc;m[100]=Pc;m[101]=Qc;m[102]=Rc;m[103]=Yc;m[104]=Zc;m[105]=_c;m[106]=$c;m[107]=bd;m[108]=cd;m[109]=kd;m[110]=ld;m[111]=md;m[112]=nd;m[113]=od;m[114]=td;m[115]=ud;m[116]=vd;m[117]=wd;m[118]=hd;m[119]=Da;m[120]=Bd;m[121]=Dd;m[122]=Da;m[123]=Fd;m[124]=Da;m[125]=Gd;m[126]=Id;m[127]=Jd;m[128]=Kd;m[129]=Ld;m[130]=Md;m[131]=Od;m[132]=Pd;m[133]=Rd;m[134]=Sd;m[135]=Da;m[136]=Td;m[137]=Ud;m[138]=Yd;m[139]=Zd;m[140]=_d;m[141]=$d;m[142]=ae;m[143]=Da;m[144]=ce;m[145]=de;m[146]=ee;m[147]=fe;m[148]=ge;m[149]=ie;m[150]=je;m[151]=ke;m[152]=le;m[153]=ne;m[154]=oe;m[155]=pe;m[156]=qe;m[157]=re;m[158]=se;m[159]=te;m[160]=ve;m[161]=we;m[162]=xe;m[163]=ye;m[164]=gf;m[165]=Ge;m[166]=Fe;m[167]=Ee;m[168]=De;m[169]=Ce;m[170]=Be;m[171]=Ae;m[172]=Ie;m[173]=Je;m[174]=Ke;m[175]=Le;m[176]=Me;m[177]=Ne;m[178]=Oe;m[179]=Pe;m[180]=Qe;m[181]=Re;m[182]=Se;m[183]=Te;m[184]=Ue;m[185]=Ve;m[186]=We;m[187]=Xe;m[188]=Ye;m[189]=Ze;m[190]=_e;m[191]=$e;m[192]=af;m[193]=bf;m[194]=cf;m[195]=He;m[196]=ze;m[197]=df;m[198]=ef;m[199]=Da;m[200]=jf;m[201]=kf;m[202]=lf;m[203]=mf;m[204]=nf;m[205]=of;m[206]=sf;m[207]=tf;m[208]=uf;m[209]=vf;m[210]=wf;m[211]=xf;m[212]=zf;m[213]=Af;m[214]=Ef;m[215]=Ff;m[216]=Gf;m[217]=Hf;m[218]=If;m[219]=Ca;m[220]=Jf;m[221]=Lf;m[222]=Mf;m[223]=Nf;m[224]=Of;m[225]=Sf;m[226]=Tf;m[227]=va;m[228]=Xf;m[229]=_f;m[230]=cb;m[231]=ib;m[232]=hb;m[233]=kb;m[234]=fd;m[235]=gd;m[236]=fb;m[237]=db;m[238]=xd;m[239]=Cd;m[240]=yd;m[241]=Uf;m[242]=Wf;m[243]=Ad;m[244]=db;m[245]=ag;m[246]=tg;m[247]=Og;m[248]=ug;m[249]=Mg;function aa(){return buffer.byteLength/65536|0}function ba(pagesToAdd){pagesToAdd=pagesToAdd|0;var ca=aa()|0;var da=ca+pagesToAdd|0;if(ca<da&&da<65536){var ea=new ArrayBuffer(v(da,65536));var fa=new global.Int8Array(ea);fa.set(n);n=fa;n=new global.Int8Array(ea);o=new global.Int16Array(ea);p=new global.Int32Array(ea);q=new global.Uint8Array(ea);r=new global.Uint16Array(ea);s=new global.Uint32Array(ea);t=new global.Float32Array(ea);u=new global.Float64Array(ea);buffer=ea;l.buffer=ea}return ca}return{"__wasm_call_ctors":pa,"encode_jpeg":Yf,"malloc":kh,"testSetjmp":jh,"saveSetjmp":ih,"free":lh,"decode_jpeg":Zf,"__errno_location":$f,"realloc":mh,"setThrew":hh,"stackSave":yh,"stackRestore":zh,"stackAlloc":Ah,"dynCall_jiji":Bh,"__growWasmMemory":Ch}}var ga=new Uint8Array(wasmMemory.buffer);for(var ha=new Uint8Array(123),ia=25;ia>=0;--ia){ha[48+ia]=52+ia;ha[65+ia]=ia;ha[97+ia]=26+ia}ha[43]=62;ha[47]=63;function ja(uint8Array,offset,b64){var ka,la,ia=0,ma=offset,na=b64.length,oa=offset+(na*3>>2)-(b64[na-2]=="=")-(b64[na-1]=="=");for(;ia<na;ia+=4){ka=ha[b64.charCodeAt(ia+1)];la=ha[b64.charCodeAt(ia+2)];uint8Array[ma++]=ha[b64.charCodeAt(ia)]<<2|ka>>4;if(ma<oa)uint8Array[ma++]=ka<<4|la>>2;if(ma<oa)uint8Array[ma++]=la<<6|ha[b64.charCodeAt(ia+3)]}}ja(ga,1026,"AQUBAQEBAQE=");ja(ga,1058,"AwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoLAAAAAAACAQMDAgQDBQUEBAAAAX0=");ja(ga,1120,"AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6");ja(ga,1298,"AgECBAQDBAcFBAQAAQJ3");ja(ga,1329,"AQIDEQQFITEGEkFRB2FxEyIygQgUQpGhscEJIzNS8BVictEKFiQ04SXxFxgZGiYnKCkqNTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqCg4SFhoeIiYqSk5SVlpeYmZqio6Slpqeoqaqys7S1tre4ubrCw8TFxsfIycrS09TV1tfY2dri4+Tl5ufo6ery8/T19vf4+fpCb2d1cyBtZXNzYWdlIGNvZGUgJWQAQUxJR05fVFlQRSBpcyB3cm9uZywgcGxlYXNlIGZpeABNQVhfQUxMT0NfQ0hVTksgaXMgd3JvbmcsIHBsZWFzZSBmaXgAQm9ndXMgYnVmZmVyIGNvbnRyb2wgbW9kZQBJbnZhbGlkIGNvbXBvbmVudCBJRCAlZCBpbiBTT1MASW52YWxpZCBjcm9wIHJlcXVlc3QARENUIGNvZWZmaWNpZW50IG91dCBvZiByYW5nZQBEQ1Qgc2NhbGVkIGJsb2NrIHNpemUgJWR4JWQgbm90IHN1cHBvcnRlZABDb21wb25lbnQgaW5kZXggJWQ6IG1pc21hdGNoaW5nIHNhbXBsaW5nIHJhdGlvICVkOiVkLCAlZDolZCwgJWMAQm9ndXMgSHVmZm1hbiB0YWJsZSBkZWZpbml0aW9uAEJvZ3VzIGlucHV0IGNvbG9yc3BhY2UAQm9ndXMgSlBFRyBjb2xvcnNwYWNlAEJvZ3VzIG1hcmtlciBsZW5ndGgAV3JvbmcgSlBFRyBsaWJyYXJ5IHZlcnNpb246IGxpYnJhcnkgaXMgJWQsIGNhbGxlciBleHBlY3RzICVkAFNhbXBsaW5nIGZhY3RvcnMgdG9vIGxhcmdlIGZvciBpbnRlcmxlYXZlZCBzY2FuAEludmFsaWQgbWVtb3J5IHBvb2wgY29kZSAlZABVbnN1cHBvcnRlZCBKUEVHIGRhdGEgcHJlY2lzaW9uICVkAEludmFsaWQgcHJvZ3Jlc3NpdmUgcGFyYW1ldGVycyBTcz0lZCBTZT0lZCBBaD0lZCBBbD0lZABJbnZhbGlkIHByb2dyZXNzaXZlIHBhcmFtZXRlcnMgYXQgc2NhbiBzY3JpcHQgZW50cnkgJWQAQm9ndXMgc2FtcGxpbmcgZmFjdG9ycwBJbnZhbGlkIHNjYW4gc2NyaXB0IGF0IGVudHJ5ICVkAEltcHJvcGVyIGNhbGwgdG8gSlBFRyBsaWJyYXJ5IGluIHN0YXRlICVkAEpQRUcgcGFyYW1ldGVyIHN0cnVjdCBtaXNtYXRjaDogbGlicmFyeSB0aGlua3Mgc2l6ZSBpcyAldSwgY2FsbGVyIGV4cGVjdHMgJXUAQm9ndXMgdmlydHVhbCBhcnJheSBhY2Nlc3MAQnVmZmVyIHBhc3NlZCB0byBKUEVHIGxpYnJhcnkgaXMgdG9vIHNtYWxsAFN1c3BlbnNpb24gbm90IGFsbG93ZWQgaGVyZQBDQ0lSNjAxIHNhbXBsaW5nIG5vdCBpbXBsZW1lbnRlZCB5ZXQAVG9vIG1hbnkgY29sb3IgY29tcG9uZW50czogJWQsIG1heCAlZABVbnN1cHBvcnRlZCBjb2xvciBjb252ZXJzaW9uIHJlcXVlc3QAQm9ndXMgREFDIGluZGV4ICVkAEJvZ3VzIERBQyB2YWx1ZSAweCV4AEJvZ3VzIERIVCBpbmRleCAlZABCb2d1cyBEUVQgaW5kZXggJWQARW1wdHkgSlBFRyBpbWFnZSAoRE5MIG5vdCBzdXBwb3J0ZWQpAFJlYWQgZnJvbSBFTVMgZmFpbGVkAFdyaXRlIHRvIEVNUyBmYWlsZWQARGlkbid0IGV4cGVjdCBtb3JlIHRoYW4gb25lIHNjYW4ASW5wdXQgZmlsZSByZWFkIGVycm9yAE91dHB1dCBmaWxlIHdyaXRlIGVycm9yIC0tLSBvdXQgb2YgZGlzayBzcGFjZT8ARnJhY3Rpb25hbCBzYW1wbGluZyBub3QgaW1wbGVtZW50ZWQgeWV0AEh1ZmZtYW4gY29kZSBzaXplIHRhYmxlIG91dCBvZiBib3VuZHMATWlzc2luZyBIdWZmbWFuIGNvZGUgdGFibGUgZW50cnkATWF4aW11bSBzdXBwb3J0ZWQgaW1hZ2UgZGltZW5zaW9uIGlzICV1IHBpeGVscwBFbXB0eSBpbnB1dCBmaWxlAFByZW1hdHVyZSBlbmQgb2YgaW5wdXQgZmlsZQBDYW5ub3QgdHJhbnNjb2RlIGR1ZSB0byBtdWx0aXBsZSB1c2Ugb2YgcXVhbnRpemF0aW9uIHRhYmxlICVkAFNjYW4gc2NyaXB0IGRvZXMgbm90IHRyYW5zbWl0IGFsbCBkYXRhAEludmFsaWQgY29sb3IgcXVhbnRpemF0aW9uIG1vZGUgY2hhbmdlAE5vdCBpbXBsZW1lbnRlZCB5ZXQAUmVxdWVzdGVkIGZlYXR1cmUgd2FzIG9taXR0ZWQgYXQgY29tcGlsZSB0aW1lAEFyaXRobWV0aWMgdGFibGUgMHglMDJ4IHdhcyBub3QgZGVmaW5lZABCYWNraW5nIHN0b3JlIG5vdCBzdXBwb3J0ZWQASHVmZm1hbiB0YWJsZSAweCUwMnggd2FzIG5vdCBkZWZpbmVkAEpQRUcgZGF0YXN0cmVhbSBjb250YWlucyBubyBpbWFnZQBRdWFudGl6YXRpb24gdGFibGUgMHglMDJ4IHdhcyBub3QgZGVmaW5lZABOb3QgYSBKUEVHIGZpbGU6IHN0YXJ0cyB3aXRoIDB4JTAyeCAweCUwMngASW5zdWZmaWNpZW50IG1lbW9yeSAoY2FzZSAlZCkAQ2Fubm90IHF1YW50aXplIG1vcmUgdGhhbiAlZCBjb2xvciBjb21wb25lbnRzAENhbm5vdCBxdWFudGl6ZSB0byBmZXdlciB0aGFuICVkIGNvbG9ycwBDYW5ub3QgcXVhbnRpemUgdG8gbW9yZSB0aGFuICVkIGNvbG9ycwBJbnZhbGlkIEpQRUcgZmlsZSBzdHJ1Y3R1cmU6ICVzIGJlZm9yZSBTT0YASW52YWxpZCBKUEVHIGZpbGUgc3RydWN0dXJlOiB0d28gU09GIG1hcmtlcnMASW52YWxpZCBKUEVHIGZpbGUgc3RydWN0dXJlOiBtaXNzaW5nIFNPUyBtYXJrZXIAVW5zdXBwb3J0ZWQgSlBFRyBwcm9jZXNzOiBTT0YgdHlwZSAweCUwMngASW52YWxpZCBKUEVHIGZpbGUgc3RydWN0dXJlOiB0d28gU09JIG1hcmtlcnMARmFpbGVkIHRvIGNyZWF0ZSB0ZW1wb3JhcnkgZmlsZSAlcwBSZWFkIGZhaWxlZCBvbiB0ZW1wb3JhcnkgZmlsZQBTZWVrIGZhaWxlZCBvbiB0ZW1wb3JhcnkgZmlsZQBXcml0ZSBmYWlsZWQgb24gdGVtcG9yYXJ5IGZpbGUgLS0tIG91dCBvZiBkaXNrIHNwYWNlPwBBcHBsaWNhdGlvbiB0cmFuc2ZlcnJlZCB0b28gZmV3IHNjYW5saW5lcwBVbnN1cHBvcnRlZCBtYXJrZXIgdHlwZSAweCUwMngAVmlydHVhbCBhcnJheSBjb250cm9sbGVyIG1lc3NlZCB1cABJbWFnZSB0b28gd2lkZSBmb3IgdGhpcyBpbXBsZW1lbnRhdGlvbgBSZWFkIGZyb20gWE1TIGZhaWxlZABXcml0ZSB0byBYTVMgZmFpbGVkAENvcHlyaWdodCAoQykgMjAyMCwgVGhvbWFzIEcuIExhbmUsIEd1aWRvIFZvbGxiZWRpbmcAOWQgIDEyLUphbi0yMDIwAENhdXRpb246IHF1YW50aXphdGlvbiB0YWJsZXMgYXJlIHRvbyBjb2Fyc2UgZm9yIGJhc2VsaW5lIEpQRUcAQWRvYmUgQVBQMTQgbWFya2VyOiB2ZXJzaW9uICVkLCBmbGFncyAweCUwNHggMHglMDR4LCB0cmFuc2Zvcm0gJWQAVW5rbm93biBBUFAwIG1hcmtlciAobm90IEpGSUYpLCBsZW5ndGggJXUAVW5rbm93biBBUFAxNCBtYXJrZXIgKG5vdCBBZG9iZSksIGxlbmd0aCAldQBEZWZpbmUgQXJpdGhtZXRpYyBUYWJsZSAweCUwMng6IDB4JTAyeABEZWZpbmUgSHVmZm1hbiBUYWJsZSAweCUwMngARGVmaW5lIFF1YW50aXphdGlvbiBUYWJsZSAlZCAgcHJlY2lzaW9uICVkAERlZmluZSBSZXN0YXJ0IEludGVydmFsICV1AEZyZWVkIEVNUyBoYW5kbGUgJXUAT2J0YWluZWQgRU1TIGhhbmRsZSAldQBFbmQgT2YgSW1hZ2UAICAgICAgICAlM2QgJTNkICUzZCAlM2QgJTNkICUzZCAlM2QgJTNkAEpGSUYgQVBQMCBtYXJrZXI6IHZlcnNpb24gJWQuJTAyZCwgZGVuc2l0eSAlZHglZCAgJWQAV2FybmluZzogdGh1bWJuYWlsIGltYWdlIHNpemUgZG9lcyBub3QgbWF0Y2ggZGF0YSBsZW5ndGggJXUASkZJRiBleHRlbnNpb24gbWFya2VyOiB0eXBlIDB4JTAyeCwgbGVuZ3RoICV1ACAgICB3aXRoICVkIHggJWQgdGh1bWJuYWlsIGltYWdlAE1pc2NlbGxhbmVvdXMgbWFya2VyIDB4JTAyeCwgbGVuZ3RoICV1AFVuZXhwZWN0ZWQgbWFya2VyIDB4JTAyeAAgICAgICAgICU0dSAlNHUgJTR1ICU0dSAlNHUgJTR1ICU0dSAlNHUAUXVhbnRpemluZyB0byAlZCA9ICVkKiVkKiVkIGNvbG9ycwBRdWFudGl6aW5nIHRvICVkIGNvbG9ycwBTZWxlY3RlZCAlZCBjb2xvcnMgZm9yIHF1YW50aXphdGlvbgBBdCBtYXJrZXIgMHglMDJ4LCByZWNvdmVyeSBhY3Rpb24gJWQAUlNUJWQAU21vb3RoaW5nIG5vdCBzdXBwb3J0ZWQgd2l0aCBub25zdGFuZGFyZCBzYW1wbGluZyByYXRpb3MAU3RhcnQgT2YgRnJhbWUgMHglMDJ4OiB3aWR0aD0ldSwgaGVpZ2h0PSV1LCBjb21wb25lbnRzPSVkACAgICBDb21wb25lbnQgJWQ6ICVkaHglZHYgcT0lZABTdGFydCBvZiBJbWFnZQBTdGFydCBPZiBTY2FuOiAlZCBjb21wb25lbnRzACAgICBDb21wb25lbnQgJWQ6IGRjPSVkIGFjPSVkACAgU3M9JWQsIFNlPSVkLCBBaD0lZCwgQWw9JWQAQ2xvc2VkIHRlbXBvcmFyeSBmaWxlICVzAE9wZW5lZCB0ZW1wb3JhcnkgZmlsZSAlcwBKRklGIGV4dGVuc2lvbiBtYXJrZXI6IEpQRUctY29tcHJlc3NlZCB0aHVtYm5haWwgaW1hZ2UsIGxlbmd0aCAldQBKRklGIGV4dGVuc2lvbiBtYXJrZXI6IHBhbGV0dGUgdGh1bWJuYWlsIGltYWdlLCBsZW5ndGggJXUASkZJRiBleHRlbnNpb24gbWFya2VyOiBSR0IgdGh1bWJuYWlsIGltYWdlLCBsZW5ndGggJXUAVW5yZWNvZ25pemVkIGNvbXBvbmVudCBJRHMgJWQgJWQgJWQsIGFzc3VtaW5nIFlDYkNyAEZyZWVkIFhNUyBoYW5kbGUgJXUAT2J0YWluZWQgWE1TIGhhbmRsZSAldQBVbmtub3duIEFkb2JlIGNvbG9yIHRyYW5zZm9ybSBjb2RlICVkAENvcnJ1cHQgSlBFRyBkYXRhOiBiYWQgYXJpdGhtZXRpYyBjb2RlAEluY29uc2lzdGVudCBwcm9ncmVzc2lvbiBzZXF1ZW5jZSBmb3IgY29tcG9uZW50ICVkIGNvZWZmaWNpZW50ICVkAENvcnJ1cHQgSlBFRyBkYXRhOiAldSBleHRyYW5lb3VzIGJ5dGVzIGJlZm9yZSBtYXJrZXIgMHglMDJ4AENvcnJ1cHQgSlBFRyBkYXRhOiBwcmVtYXR1cmUgZW5kIG9mIGRhdGEgc2VnbWVudABDb3JydXB0IEpQRUcgZGF0YTogYmFkIEh1ZmZtYW4gY29kZQBXYXJuaW5nOiB1bmtub3duIEpGSUYgcmV2aXNpb24gbnVtYmVyICVkLiUwMmQAUHJlbWF0dXJlIGVuZCBvZiBKUEVHIGZpbGUAQ29ycnVwdCBKUEVHIGRhdGE6IGZvdW5kIG1hcmtlciAweCUwMnggaW5zdGVhZCBvZiBSU1QlZABJbnZhbGlkIFNPUyBwYXJhbWV0ZXJzIGZvciBzZXF1ZW50aWFsIEpQRUcAQXBwbGljYXRpb24gdHJhbnNmZXJyZWQgdG9vIG1hbnkgc2NhbmxpbmVzACVzCgBKUEVHTUVNACVsZCVjAAAAAEAGAACAPgAAAAAAAIgTAAAAAAAAAQAAAAgAAAAQAAAACQAAAAIAAAADAAAACgAAABEAAAAYAAAAIAAAABkAAAASAAAACwAAAAQAAAAFAAAADAAAABMAAAAaAAAAIQAAACgAAAAwAAAAKQAAACIAAAAbAAAAFAAAAA0AAAAGAAAABwAAAA4AAAAVAAAAHAAAACMAAAAqAAAAMQAAADgAAAA5AAAAMgAAACsAAAAkAAAAHQAAABYAAAAPAAAAFwAAAB4AAAAlAAAALAAAADMAAAA6AAAAOwAAADQAAAAtAAAAJgAAAB8AAAAnAAAALgAAADUAAAA8AAAAPQAAADYAAAAvAAAANwAAAD4AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAAAAAAABAAAACAAAABAAAAAJAAAAAgAAAAMAAAAKAAAAEQAAABgAAAAgAAAAGQAAABIAAAALAAAABAAAAAUAAAAMAAAAEwAAABoAAAAhAAAAKAAAADAAAAApAAAAIgAAABsAAAAUAAAADQAAAAYAAAAOAAAAFQAAABwAAAAjAAAAKgAAADEAAAAyAAAAKwAAACQAAAAdAAAAFgAAAB4AAAAlAAAALAAAADMAAAA0AAAALQAAACYAAAAuAAAANQAAADYAAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/");ja(ga,6820,"AQAAAAgAAAAQAAAACQAAAAIAAAADAAAACgAAABEAAAAYAAAAIAAAABkAAAASAAAACwAAAAQAAAAFAAAADAAAABMAAAAaAAAAIQAAACgAAAApAAAAIgAAABsAAAAUAAAADQAAABUAAAAcAAAAIwAAACoAAAArAAAAJAAAAB0AAAAlAAAALAAAAC0AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAAAAAAAEAAAAIAAAAEAAAAAkAAAACAAAAAwAAAAoAAAARAAAAGAAAACAAAAAZAAAAEgAAAAsAAAAEAAAADAAAABMAAAAaAAAAIQAAACIAAAAbAAAAFAAAABwAAAAjAAAAJAAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8=");ja(ga,7204,"AQAAAAgAAAAQAAAACQAAAAIAAAADAAAACgAAABEAAAAYAAAAGQAAABIAAAALAAAAEwAAABoAAAAbAAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAAAAAAABAAAACAAAABAAAAAJAAAAAgAAAAoAAAARAAAAEgAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8=");ja(ga,7444,"AQAAAAgAAAAJAAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAAD8AAAA/AAAAPwAAABAAAAALAAAACgAAABAAAAAYAAAAKAAAADMAAAA9AAAADAAAAAwAAAAOAAAAEwAAABoAAAA6AAAAPAAAADcAAAAOAAAADQAAABAAAAAYAAAAKAAAADkAAABFAAAAOAAAAA4AAAARAAAAFgAAAB0AAAAzAAAAVwAAAFAAAAA+AAAAEgAAABYAAAAlAAAAOAAAAEQAAABtAAAAZwAAAE0AAAAYAAAAIwAAADcAAABAAAAAUQAAAGgAAABxAAAAXAAAADEAAABAAAAATgAAAFcAAABnAAAAeQAAAHgAAABlAAAASAAAAFwAAABfAAAAYgAAAHAAAABkAAAAZwAAAGMAAAARAAAAEgAAABgAAAAvAAAAYwAAAGMAAABjAAAAYwAAABIAAAAVAAAAGgAAAEIAAABjAAAAYwAAAGMAAABjAAAAGAAAABoAAAA4AAAAYwAAAGMAAABjAAAAYwAAAGMAAAAvAAAAQgAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAYwAAAGMAAABjAAAAAEDFWJ9TQksAQEkyoyKoEcVYIXv8c2JoxVi/RQswfhifU/xzQW1UYp9Ts0FBLRIXQktiaFRiflhCSyE7uijDFABAxVifU0JLAEBJMqMiqBFJMr9Fs0EhO0kygic3G+ANoyILMEEtuiijIjcbvxKOCagRfhgSF8MUqBHgDY4J3wQAAAAAAADwP+9hSLFQMfY/ym9Nka7n9D+qEWzvYtDyPwAAAAAAAPA/O7+nwGkk6T+7IMd7elHhP12rct5VqNE/gQEdWg4ChiUQAxQREgQLCBQF2AMXBtoBGQflABwIbwAeCTYAIQoaACMLDQAJDAYACg0DAAwNAQCPD39aJBAlPyYR8iwnEnwgKBO5FyoUghErFe8MLRahCS4XLwcwGFwFMRkGBDMaAwM0G0ACNhyxATgdRAE5HvUAOx+3ADwgigA+IWgAPyJOACAjOwAhCSwApSXhWkAmTEhBJw06QyjxLkQpHyZFKjMfRiuoGUgsGBVJLXcRSi50Dksv+wtNMPgJTjFhCE8yBgcwM80FMjTeBDI1DwQzNmMDNDfUAjU4XAI2OfgBNzqkATg7YAE5PCUBOj32ADs+ywA9P6sAPSCPAMFBEltQQgRNUUMsQVJE2DdTRegvVEY8KVZHeSNXSN8eV0mpGkhKThdISyQUSkycEUpNaw9LTlENTU+2C00wQArQUTJYWFIcTVlTjkNaVN07W1XuNFxWri5dV5opVkcWJdhZcFVfWqlMYFvZRGFcIj5jXSQ4Y160Ml1WFy7fYKhWZWFGT2Zi5UdnY89BaGQ9PGNdXjdpZjFSamcPTGtoOUZnY15B6WonVmxr51BtZ4VLbm2XVW9rT1DubxBacG0iVfBv61lxcR1aU09T");ja(ga,8761,"TFNF");ja(ga,8842,"/9kAAAAAAMAw8AzMPPwDwzPzD88//4BAsHCMTLx8g0Ozc49Pv38g4BDQLOwc3CPjE9Mv7x/foGCQUKxsnFyjY5NTr2+fXwjIOPgExDT0C8s7+wfHN/eISLh4hES0dItLu3uHR7d3KOgY2CTkFNQr6xvbJ+cX16homFikZJRUq2ubW6dnl1cCwjLyDs4+/gHBMfENzT39gkKyco5Ovn6BQbFxjU29fSLiEtIu7h7eIeER0S3tHd2iYpJSrm6eXqFhkVGtbZ1dCso6+gbGNvYJyTn5BcU19YpKunqGRrZ2iUm5eYVFtXUq6hraJuYW1inpGdkl5RXVqmqaWqZmllapaZlZpWWVVQEAAAAAAAAAAgAAAAAAAAAAQMVYn1NCSwBASTKjIqgRxVghe/xzYmjFWL9FCzB+GJ9T/HNBbVRin1OzQUEtEhdCS2JoVGJ+WEJLITu6KMMUAEDFWJ9TQksAQEkyoyKoEUkyv0WzQSE7STKCJzcb4A2jIgswQS26KKMiNxu/Eo4JqBF+GBIXwxSoEeANjgnfBAAAAAAAAPA/72FIsVAx9j/Kb02Rruf0P6oRbO9i0PI/AAAAAAAA8D87v6fAaSTpP7sgx3t6UeE/Xaty3lWo0T8AAAAAAQAAAAIAAAADAAAAAAAAAAEAAAAFAAAAAgAAAAQAAAAGAAAAAwAAAAcAAAAI");ja(ga,9380,"AQAAAAUAAAAGAAAAAgAAAAQAAAAHAAAADAAAAAMAAAAIAAAACwAAAA0AAAAJAAAACgAAAA4AAAAPAAAAAAAAAAEAAAAFAAAABgAAAA4AAAACAAAABAAAAAcAAAANAAAADwAAAAMAAAAIAAAADAAAABAAAAAVAAAACQAAAAsAAAARAAAAFAAAABYAAAAKAAAAEgAAABMAAAAXAAAAGA==");ja(ga,9556,"AQAAAAUAAAAGAAAADgAAAA8AAAACAAAABAAAAAcAAAANAAAAEAAAABkAAAADAAAACAAAAAwAAAARAAAAGAAAABoAAAAJAAAACwAAABIAAAAXAAAAGwAAACAAAAAKAAAAEwAAABYAAAAcAAAAHwAAACEAAAAUAAAAFQAAAB0AAAAeAAAAIgAAACMAAAAAAAAAAQAAAAUAAAAGAAAADgAAAA8AAAAbAAAAAgAAAAQAAAAHAAAADQAAABAAAAAaAAAAHAAAAAMAAAAIAAAADAAAABEAAAAZAAAAHQAAACYAAAAJAAAACwAAABIAAAAYAAAAHgAAACUAAAAnAAAACgAAABMAAAAXAAAAHwAAACQAAAAoAAAALQAAABQAAAAWAAAAIAAAACMAAAApAAAALAAAAC4AAAAVAAAAIQAAACIAAAAqAAAAKwAAAC8AAAAw");ja(ga,9908,"AQAAAAUAAAAGAAAADgAAAA8AAAAbAAAAHAAAAAIAAAAEAAAABwAAAA0AAAAQAAAAGgAAAB0AAAAqAAAAAwAAAAgAAAAMAAAAEQAAABkAAAAeAAAAKQAAACsAAAAJAAAACwAAABIAAAAYAAAAHwAAACgAAAAsAAAANQAAAAoAAAATAAAAFwAAACAAAAAnAAAALQAAADQAAAA2AAAAFAAAABYAAAAhAAAAJgAAAC4AAAAzAAAANwAAADwAAAAVAAAAIgAAACUAAAAvAAAAMgAAADgAAAA7AAAAPQAAACMAAAAkAAAAMAAAADEAAAA5AAAAOgAAAD4AAAA/AAAAAAAAAAEAAAADAAAABwAAAA8AAAAfAAAAPwAAAH8AAAD/AAAA/wEAAP8DAAD/BwAA/w8AAP8fAAD/PwAA/38AAAEAAAADAAAAAwAAAAQAAAAEAAAAAwAAAAM=");ja(ga,10292,"9Q==");ja(ga,10331,"//////8=");ja(ga,10400,"LSsgICAwWDB4AChudWxsKQ==");ja(ga,10432,"EQAKABEREQAAAAAFAAAAAAAACQAAAAALAAAAAAAAAAARAA8KERERAwoHAAEACQsLAAAJBgsAAAsABhEAAAARERE=");ja(ga,10513,"CwAAAAAAAAAAEQAKChEREQAKAAACAAkLAAAACQALAAAL");ja(ga,10571,"DA==");ja(ga,10583,"DAAAAAAMAAAAAAkMAAAAAAAMAAAM");ja(ga,10629,"Dg==");ja(ga,10641,"DQAAAAQNAAAAAAkOAAAAAAAOAAAO");ja(ga,10687,"EA==");ja(ga,10699,"DwAAAAAPAAAAAAkQAAAAAAAQAAAQAAASAAAAEhIS");ja(ga,10754,"EgAAABISEgAAAAAAAAk=");ja(ga,10803,"Cw==");ja(ga,10815,"CgAAAAAKAAAAAAkLAAAAAAALAAAL");ja(ga,10861,"DA==");ja(ga,10873,"DAAAAAAMAAAAAAkMAAAAAAAMAAAMAAAwMTIzNDU2Nzg5QUJDREVG6C8AAGluZmluaXR5AG5hbg==");ja(ga,10944,"0XSeAFedvSqAcFIP//8+JwoAAABkAAAA6AMAABAnAACghgEAQEIPAICWmAAA4fUFGAAAADUAAABxAAAAa////877//+Sv///AAAAAAAAAAD/////////////////////////////////////////////////////////////////AAECAwQFBgcICf////////8KCwwNDg8QERITFBUWFxgZGhscHR4fICEiI////////woLDA0ODxAREhMUFRYXGBkaGxwdHh8gISIj/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wABAgQHAwYFAAAAAAAAAAIAAMADAADABAAAwAUAAMAGAADABwAAwAgAAMAJAADACgAAwAsAAMAMAADADQAAwA4AAMAPAADAEAAAwBEAAMASAADAEwAAwBQAAMAVAADAFgAAwBcAAMAYAADAGQAAwBoAAMAbAADAHAAAwB0AAMAeAADAHwAAwAAAALMBAADDAgAAwwMAAMMEAADDBQAAwwYAAMMHAADDCAAAwwkAAMMKAADDCwAAwwwAAMMNAADTDgAAww8AAMMAAAy7AQAMwwIADMMDAAzDBAAM0w==");ja(ga,11504,"0gUAAOgFAAAIBgAALQYAAEcGAABmBgAAewYAAJgGAADCBgAAAgcAACEHAAA4BwAATgcAAGIHAACfBwAAzwcAAOsHAAAOCAAARQgAAHwIAACTCAAAswgAAN0IAAAqCQAARQkAAHAJAACMCQAAsQkAANcJAAD8CQAADwoAACQKAAA3CgAASgoAAG8KAACECgAAmAoAALkKAADPCgAA/goAACYLAABMCwAAbQsAAJwLAACtCwAAyQsAAAcMAAAuDAAAVQwAAGkMAACXDAAAvwwAANsMAAAADQAAIg0AAEwNAAB3DQAAlQ0AAMMNAADrDQAAEg4AAD0OAABqDgAAmg4AAMQOAADxDgAAFA8AADIPAABQDwAAhg8AALAPAADPDwAA8g8AABkQAAAuEAAAQhAAAHcQAACHEAAAxRAAAAcRAAAxEQAAXREAAIQRAACgEQAAyxEAAOYRAAD6EQAAERIAAB4SAABGEgAAexIAALcSAADlEgAABhMAAC0TAABGEwAAbhMAAJETAACpEwAAzRMAAPITAAD4EwAAMRQAAGsUAACKFAAAmRQAALYUAADUFAAA8RQAAAoVAAAjFQAAZRUAAJ8VAADVFQAACRYAAB0WAAA0FgAAWhYAAIEWAADDFgAA/xYAADAXAABUFwAAghcAAJ0XAADVFwAAABgAAAAAAADEAAAAxQAAAMY=");ja(ga,12204,"qDA=");ja(ga,12264,"BQ==");ja(ga,12276,"9g==");ja(ga,12300,"9wAAAPgAAADIMA==");ja(ga,12324,"Ag==");ja(ga,12339,"//////8=");ja(ga,12408,"0DJQ");return k({"Int8Array":Int8Array,"Int16Array":Int16Array,"Int32Array":Int32Array,"Uint8Array":Uint8Array,"Uint16Array":Uint16Array,"Uint32Array":Uint32Array,"Float32Array":Float32Array,"Float64Array":Float64Array,"NaN":NaN,"Infinity":Infinity,"Math":Math},asmLibraryArg,wasmMemory.buffer)}
+
+
+// EMSCRIPTEN_END_ASM
+
+
+
+
+)(asmLibraryArg,wasmMemory,wasmTable)},instantiate:function(binary,info){return{then:function(ok){var module=new WebAssembly.Module(binary);ok({"instance":new WebAssembly.Instance(module)})}}},RuntimeError:Error};wasmBinary=[];if(typeof WebAssembly!=="object"){abort("no native wasm support detected")}function setValue(ptr,value,type,noSafe){type=type||"i8";if(type.charAt(type.length-1)==="*")type="i32";switch(type){case"i1":HEAP8[ptr>>0]=value;break;case"i8":HEAP8[ptr>>0]=value;break;case"i16":HEAP16[ptr>>1]=value;break;case"i32":HEAP32[ptr>>2]=value;break;case"i64":tempI64=[value>>>0,(tempDouble=value,+Math_abs(tempDouble)>=1?tempDouble>0?(Math_min(+Math_floor(tempDouble/4294967296),4294967295)|0)>>>0:~~+Math_ceil((tempDouble-+(~~tempDouble>>>0))/4294967296)>>>0:0)],HEAP32[ptr>>2]=tempI64[0],HEAP32[ptr+4>>2]=tempI64[1];break;case"float":HEAPF32[ptr>>2]=value;break;case"double":HEAPF64[ptr>>3]=value;break;default:abort("invalid type for setValue: "+type)}}function getValue(ptr,type,noSafe){type=type||"i8";if(type.charAt(type.length-1)==="*")type="i32";switch(type){case"i1":return HEAP8[ptr>>0];case"i8":return HEAP8[ptr>>0];case"i16":return HEAP16[ptr>>1];case"i32":return HEAP32[ptr>>2];case"i64":return HEAP32[ptr>>2];case"float":return HEAPF32[ptr>>2];case"double":return HEAPF64[ptr>>3];default:abort("invalid type for getValue: "+type)}return null}var wasmMemory;var wasmTable=new WebAssembly.Table({"initial":250,"maximum":250,"element":"anyfunc"});var ABORT=false;var EXITSTATUS=0;function assert(condition,text){if(!condition){abort("Assertion failed: "+text)}}function getCFunc(ident){var func=Module["_"+ident];assert(func,"Cannot call unknown function "+ident+", make sure it is exported");return func}function ccall(ident,returnType,argTypes,args,opts){var toC={"string":function(str){var ret=0;if(str!==null&&str!==undefined&&str!==0){var len=(str.length<<2)+1;ret=stackAlloc(len);stringToUTF8(str,ret,len)}return ret},"array":function(arr){var ret=stackAlloc(arr.length);writeArrayToMemory(arr,ret);return ret}};function convertReturnValue(ret){if(returnType==="string")return UTF8ToString(ret);if(returnType==="boolean")return Boolean(ret);return ret}var func=getCFunc(ident);var cArgs=[];var stack=0;if(args){for(var i=0;i<args.length;i++){var converter=toC[argTypes[i]];if(converter){if(stack===0)stack=stackSave();cArgs[i]=converter(args[i])}else{cArgs[i]=args[i]}}}var ret=func.apply(null,cArgs);ret=convertReturnValue(ret);if(stack!==0)stackRestore(stack);return ret}function cwrap(ident,returnType,argTypes,opts){argTypes=argTypes||[];var numericArgs=argTypes.every(function(type){return type==="number"});var numericRet=returnType!=="string";if(numericRet&&numericArgs&&!opts){return getCFunc(ident)}return function(){return ccall(ident,returnType,argTypes,arguments,opts)}}var ALLOC_NONE=2;var UTF8Decoder=typeof TextDecoder!=="undefined"?new TextDecoder("utf8"):undefined;function UTF8ArrayToString(heap,idx,maxBytesToRead){var endIdx=idx+maxBytesToRead;var endPtr=idx;while(heap[endPtr]&&!(endPtr>=endIdx))++endPtr;if(endPtr-idx>16&&heap.subarray&&UTF8Decoder){return UTF8Decoder.decode(heap.subarray(idx,endPtr))}else{var str="";while(idx<endPtr){var u0=heap[idx++];if(!(u0&128)){str+=String.fromCharCode(u0);continue}var u1=heap[idx++]&63;if((u0&224)==192){str+=String.fromCharCode((u0&31)<<6|u1);continue}var u2=heap[idx++]&63;if((u0&240)==224){u0=(u0&15)<<12|u1<<6|u2}else{u0=(u0&7)<<18|u1<<12|u2<<6|heap[idx++]&63}if(u0<65536){str+=String.fromCharCode(u0)}else{var ch=u0-65536;str+=String.fromCharCode(55296|ch>>10,56320|ch&1023)}}}return str}function UTF8ToString(ptr,maxBytesToRead){return ptr?UTF8ArrayToString(HEAPU8,ptr,maxBytesToRead):""}function stringToUTF8Array(str,heap,outIdx,maxBytesToWrite){if(!(maxBytesToWrite>0))return 0;var startIdx=outIdx;var endIdx=outIdx+maxBytesToWrite-1;for(var i=0;i<str.length;++i){var u=str.charCodeAt(i);if(u>=55296&&u<=57343){var u1=str.charCodeAt(++i);u=65536+((u&1023)<<10)|u1&1023}if(u<=127){if(outIdx>=endIdx)break;heap[outIdx++]=u}else if(u<=2047){if(outIdx+1>=endIdx)break;heap[outIdx++]=192|u>>6;heap[outIdx++]=128|u&63}else if(u<=65535){if(outIdx+2>=endIdx)break;heap[outIdx++]=224|u>>12;heap[outIdx++]=128|u>>6&63;heap[outIdx++]=128|u&63}else{if(outIdx+3>=endIdx)break;heap[outIdx++]=240|u>>18;heap[outIdx++]=128|u>>12&63;heap[outIdx++]=128|u>>6&63;heap[outIdx++]=128|u&63}}heap[outIdx]=0;return outIdx-startIdx}function stringToUTF8(str,outPtr,maxBytesToWrite){return stringToUTF8Array(str,HEAPU8,outPtr,maxBytesToWrite)}function lengthBytesUTF8(str){var len=0;for(var i=0;i<str.length;++i){var u=str.charCodeAt(i);if(u>=55296&&u<=57343)u=65536+((u&1023)<<10)|str.charCodeAt(++i)&1023;if(u<=127)++len;else if(u<=2047)len+=2;else if(u<=65535)len+=3;else len+=4}return len}var UTF16Decoder=typeof TextDecoder!=="undefined"?new TextDecoder("utf-16le"):undefined;function writeArrayToMemory(array,buffer){HEAP8.set(array,buffer)}function writeAsciiToMemory(str,buffer,dontAddNull){for(var i=0;i<str.length;++i){HEAP8[buffer++>>0]=str.charCodeAt(i)}if(!dontAddNull)HEAP8[buffer>>0]=0}var WASM_PAGE_SIZE=65536;function alignUp(x,multiple){if(x%multiple>0){x+=multiple-x%multiple}return x}var buffer,HEAP8,HEAPU8,HEAP16,HEAPU16,HEAP32,HEAPU32,HEAPF32,HEAPF64;function updateGlobalBufferAndViews(buf){buffer=buf;Module["HEAP8"]=HEAP8=new Int8Array(buf);Module["HEAP16"]=HEAP16=new Int16Array(buf);Module["HEAP32"]=HEAP32=new Int32Array(buf);Module["HEAPU8"]=HEAPU8=new Uint8Array(buf);Module["HEAPU16"]=HEAPU16=new Uint16Array(buf);Module["HEAPU32"]=HEAPU32=new Uint32Array(buf);Module["HEAPF32"]=HEAPF32=new Float32Array(buf);Module["HEAPF64"]=HEAPF64=new Float64Array(buf)}var STACK_BASE=5255888;var INITIAL_INITIAL_MEMORY=Module["INITIAL_MEMORY"]||16777216;if(Module["wasmMemory"]){wasmMemory=Module["wasmMemory"]}else{wasmMemory=new WebAssembly.Memory({"initial":INITIAL_INITIAL_MEMORY/WASM_PAGE_SIZE,"maximum":2147483648/WASM_PAGE_SIZE})}if(wasmMemory){buffer=wasmMemory.buffer}INITIAL_INITIAL_MEMORY=buffer.byteLength;updateGlobalBufferAndViews(buffer);var __ATPRERUN__=[];var __ATINIT__=[];var __ATMAIN__=[];var __ATPOSTRUN__=[];var runtimeInitialized=false;var runtimeExited=false;function preRun(){if(Module["preRun"]){if(typeof Module["preRun"]=="function")Module["preRun"]=[Module["preRun"]];while(Module["preRun"].length){addOnPreRun(Module["preRun"].shift())}}callRuntimeCallbacks(__ATPRERUN__)}function initRuntime(){runtimeInitialized=true;callRuntimeCallbacks(__ATINIT__)}function preMain(){callRuntimeCallbacks(__ATMAIN__)}function exitRuntime(){runtimeExited=true}function postRun(){if(Module["postRun"]){if(typeof Module["postRun"]=="function")Module["postRun"]=[Module["postRun"]];while(Module["postRun"].length){addOnPostRun(Module["postRun"].shift())}}callRuntimeCallbacks(__ATPOSTRUN__)}function addOnPreRun(cb){__ATPRERUN__.unshift(cb)}function addOnPostRun(cb){__ATPOSTRUN__.unshift(cb)}var Math_abs=Math.abs;var Math_ceil=Math.ceil;var Math_floor=Math.floor;var Math_min=Math.min;var runDependencies=0;var runDependencyWatcher=null;var dependenciesFulfilled=null;function addRunDependency(id){runDependencies++;if(Module["monitorRunDependencies"]){Module["monitorRunDependencies"](runDependencies)}}function removeRunDependency(id){runDependencies--;if(Module["monitorRunDependencies"]){Module["monitorRunDependencies"](runDependencies)}if(runDependencies==0){if(runDependencyWatcher!==null){clearInterval(runDependencyWatcher);runDependencyWatcher=null}if(dependenciesFulfilled){var callback=dependenciesFulfilled;dependenciesFulfilled=null;callback()}}}Module["preloadedImages"]={};Module["preloadedAudios"]={};function abort(what){if(Module["onAbort"]){Module["onAbort"](what)}what+="";err(what);ABORT=true;EXITSTATUS=1;what="abort("+what+"). Build with -s ASSERTIONS=1 for more info.";var e=new WebAssembly.RuntimeError(what);throw e}function hasPrefix(str,prefix){return String.prototype.startsWith?str.startsWith(prefix):str.indexOf(prefix)===0}var dataURIPrefix="data:application/octet-stream;base64,";function isDataURI(filename){return hasPrefix(filename,dataURIPrefix)}var fileURIPrefix="file://";function isFileURI(filename){return hasPrefix(filename,fileURIPrefix)}var wasmBinaryFile="libjpegasm.wasm";if(!isDataURI(wasmBinaryFile)){wasmBinaryFile=locateFile(wasmBinaryFile)}function getBinary(){try{if(wasmBinary){return new Uint8Array(wasmBinary)}var binary=tryParseAsDataURI(wasmBinaryFile);if(binary){return binary}if(readBinary){return readBinary(wasmBinaryFile)}else{throw"both async and sync fetching of the wasm failed"}}catch(err){abort(err)}}function getBinaryPromise(){if(!wasmBinary&&(ENVIRONMENT_IS_WEB||ENVIRONMENT_IS_WORKER)&&typeof fetch==="function"&&!isFileURI(wasmBinaryFile)){return fetch(wasmBinaryFile,{credentials:"same-origin"}).then(function(response){if(!response["ok"]){throw"failed to load wasm binary file at '"+wasmBinaryFile+"'"}return response["arrayBuffer"]()}).catch(function(){return getBinary()})}return Promise.resolve().then(getBinary)}function createWasm(){var info={"env":asmLibraryArg,"wasi_snapshot_preview1":asmLibraryArg};function receiveInstance(instance,module){var exports=instance.exports;Module["asm"]=exports;removeRunDependency("wasm-instantiate")}addRunDependency("wasm-instantiate");function receiveInstantiatedSource(output){receiveInstance(output["instance"])}function instantiateArrayBuffer(receiver){return getBinaryPromise().then(function(binary){return WebAssembly.instantiate(binary,info)}).then(receiver,function(reason){err("failed to asynchronously prepare wasm: "+reason);abort(reason)})}function instantiateAsync(){if(!wasmBinary&&typeof WebAssembly.instantiateStreaming==="function"&&!isDataURI(wasmBinaryFile)&&!isFileURI(wasmBinaryFile)&&typeof fetch==="function"){fetch(wasmBinaryFile,{credentials:"same-origin"}).then(function(response){var result=WebAssembly.instantiateStreaming(response,info);return result.then(receiveInstantiatedSource,function(reason){err("wasm streaming compile failed: "+reason);err("falling back to ArrayBuffer instantiation");return instantiateArrayBuffer(receiveInstantiatedSource)})})}else{return instantiateArrayBuffer(receiveInstantiatedSource)}}if(Module["instantiateWasm"]){try{var exports=Module["instantiateWasm"](info,receiveInstance);return exports}catch(e){err("Module.instantiateWasm callback failed with error: "+e);return false}}instantiateAsync();return{}}var tempDouble;var tempI64;function callRuntimeCallbacks(callbacks){while(callbacks.length>0){var callback=callbacks.shift();if(typeof callback=="function"){callback(Module);continue}var func=callback.func;if(typeof func==="number"){if(callback.arg===undefined){wasmTable.get(func)()}else{wasmTable.get(func)(callback.arg)}}else{func(callback.arg===undefined?null:callback.arg)}}}function demangle(func){return func}function demangleAll(text){var regex=/\b_Z[\w\d_]+/g;return text.replace(regex,function(x){var y=demangle(x);return x===y?x:y+" ["+x+"]"})}function dynCallLegacy(sig,ptr,args){if(args&&args.length){return Module["dynCall_"+sig].apply(null,[ptr].concat(args))}return Module["dynCall_"+sig].call(null,ptr)}function jsStackTrace(){var error=new Error;if(!error.stack){try{throw new Error}catch(e){error=e}if(!error.stack){return"(no stack trace available)"}}return error.stack.toString()}function _longjmp(env,value){_setThrew(env,value||1);throw"longjmp"}function _emscripten_longjmp(a0,a1){return _longjmp(a0,a1)}function _emscripten_longjmp_jmpbuf(a0,a1){return _longjmp(a0,a1)}function _emscripten_memcpy_big(dest,src,num){HEAPU8.copyWithin(dest,src,src+num)}function _emscripten_get_heap_size(){return HEAPU8.length}function emscripten_realloc_buffer(size){try{wasmMemory.grow(size-buffer.byteLength+65535>>>16);updateGlobalBufferAndViews(wasmMemory.buffer);return 1}catch(e){}}function _emscripten_resize_heap(requestedSize){requestedSize=requestedSize>>>0;var oldSize=_emscripten_get_heap_size();var maxHeapSize=2147483648;if(requestedSize>maxHeapSize){return false}var minHeapSize=16777216;for(var cutDown=1;cutDown<=4;cutDown*=2){var overGrownHeapSize=oldSize*(1+.2/cutDown);overGrownHeapSize=Math.min(overGrownHeapSize,requestedSize+100663296);var newSize=Math.min(maxHeapSize,alignUp(Math.max(minHeapSize,requestedSize,overGrownHeapSize),65536));var replacement=emscripten_realloc_buffer(newSize);if(replacement){return true}}return false}var ENV={};function getExecutableName(){return thisProgram||"./this.program"}function getEnvStrings(){if(!getEnvStrings.strings){var lang=(typeof navigator==="object"&&navigator.languages&&navigator.languages[0]||"C").replace("-","_")+".UTF-8";var env={"USER":"web_user","LOGNAME":"web_user","PATH":"/","PWD":"/","HOME":"/home/web_user","LANG":lang,"_":getExecutableName()};for(var x in ENV){env[x]=ENV[x]}var strings=[];for(var x in env){strings.push(x+"="+env[x])}getEnvStrings.strings=strings}return getEnvStrings.strings}function _environ_get(__environ,environ_buf){var bufSize=0;getEnvStrings().forEach(function(string,i){var ptr=environ_buf+bufSize;HEAP32[__environ+i*4>>2]=ptr;writeAsciiToMemory(string,ptr);bufSize+=string.length+1});return 0}function _environ_sizes_get(penviron_count,penviron_buf_size){var strings=getEnvStrings();HEAP32[penviron_count>>2]=strings.length;var bufSize=0;strings.forEach(function(string){bufSize+=string.length+1});HEAP32[penviron_buf_size>>2]=bufSize;return 0}function _exit(status){exit(status)}var PATH={splitPath:function(filename){var splitPathRe=/^(\/?|)([\s\S]*?)((?:\.{1,2}|[^\/]+?|)(\.[^.\/]*|))(?:[\/]*)$/;return splitPathRe.exec(filename).slice(1)},normalizeArray:function(parts,allowAboveRoot){var up=0;for(var i=parts.length-1;i>=0;i--){var last=parts[i];if(last==="."){parts.splice(i,1)}else if(last===".."){parts.splice(i,1);up++}else if(up){parts.splice(i,1);up--}}if(allowAboveRoot){for(;up;up--){parts.unshift("..")}}return parts},normalize:function(path){var isAbsolute=path.charAt(0)==="/",trailingSlash=path.substr(-1)==="/";path=PATH.normalizeArray(path.split("/").filter(function(p){return!!p}),!isAbsolute).join("/");if(!path&&!isAbsolute){path="."}if(path&&trailingSlash){path+="/"}return(isAbsolute?"/":"")+path},dirname:function(path){var result=PATH.splitPath(path),root=result[0],dir=result[1];if(!root&&!dir){return"."}if(dir){dir=dir.substr(0,dir.length-1)}return root+dir},basename:function(path){if(path==="/")return"/";path=PATH.normalize(path);path=path.replace(/\/$/,"");var lastSlash=path.lastIndexOf("/");if(lastSlash===-1)return path;return path.substr(lastSlash+1)},extname:function(path){return PATH.splitPath(path)[3]},join:function(){var paths=Array.prototype.slice.call(arguments,0);return PATH.normalize(paths.join("/"))},join2:function(l,r){return PATH.normalize(l+"/"+r)}};var SYSCALLS={mappings:{},buffers:[null,[],[]],printChar:function(stream,curr){var buffer=SYSCALLS.buffers[stream];if(curr===0||curr===10){(stream===1?out:err)(UTF8ArrayToString(buffer,0));buffer.length=0}else{buffer.push(curr)}},varargs:undefined,get:function(){SYSCALLS.varargs+=4;var ret=HEAP32[SYSCALLS.varargs-4>>2];return ret},getStr:function(ptr){var ret=UTF8ToString(ptr);return ret},get64:function(low,high){return low}};function _fd_close(fd){return 0}function _fd_seek(fd,offset_low,offset_high,whence,newOffset){}function _fd_write(fd,iov,iovcnt,pnum){var num=0;for(var i=0;i<iovcnt;i++){var ptr=HEAP32[iov+i*8>>2];var len=HEAP32[iov+(i*8+4)>>2];for(var j=0;j<len;j++){SYSCALLS.printChar(fd,HEAPU8[ptr+j])}num+=len}HEAP32[pnum>>2]=num;return 0}var ASSERTIONS=false;function intArrayToString(array){var ret=[];for(var i=0;i<array.length;i++){var chr=array[i];if(chr>255){if(ASSERTIONS){assert(false,"Character code "+chr+" ("+String.fromCharCode(chr)+")  at offset "+i+" not in 0x00-0xFF.")}chr&=255}ret.push(String.fromCharCode(chr))}return ret.join("")}var decodeBase64=typeof atob==="function"?atob:function(input){var keyStr="ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=";var output="";var chr1,chr2,chr3;var enc1,enc2,enc3,enc4;var i=0;input=input.replace(/[^A-Za-z0-9\+\/\=]/g,"");do{enc1=keyStr.indexOf(input.charAt(i++));enc2=keyStr.indexOf(input.charAt(i++));enc3=keyStr.indexOf(input.charAt(i++));enc4=keyStr.indexOf(input.charAt(i++));chr1=enc1<<2|enc2>>4;chr2=(enc2&15)<<4|enc3>>2;chr3=(enc3&3)<<6|enc4;output=output+String.fromCharCode(chr1);if(enc3!==64){output=output+String.fromCharCode(chr2)}if(enc4!==64){output=output+String.fromCharCode(chr3)}}while(i<input.length);return output};function intArrayFromBase64(s){if(typeof ENVIRONMENT_IS_NODE==="boolean"&&ENVIRONMENT_IS_NODE){var buf;try{buf=Buffer.from(s,"base64")}catch(_){buf=new Buffer(s,"base64")}return new Uint8Array(buf["buffer"],buf["byteOffset"],buf["byteLength"])}try{var decoded=decodeBase64(s);var bytes=new Uint8Array(decoded.length);for(var i=0;i<decoded.length;++i){bytes[i]=decoded.charCodeAt(i)}return bytes}catch(_){throw new Error("Converting base64 string to bytes failed.")}}function tryParseAsDataURI(filename){if(!isDataURI(filename)){return}return intArrayFromBase64(filename.slice(dataURIPrefix.length))}__ATINIT__.push({func:function(){___wasm_call_ctors()}});var asmLibraryArg={"__indirect_function_table":wasmTable,"emscripten_longjmp":_emscripten_longjmp,"emscripten_longjmp_jmpbuf":_emscripten_longjmp_jmpbuf,"emscripten_memcpy_big":_emscripten_memcpy_big,"emscripten_resize_heap":_emscripten_resize_heap,"environ_get":_environ_get,"environ_sizes_get":_environ_sizes_get,"exit":_exit,"fd_close":_fd_close,"fd_seek":_fd_seek,"fd_write":_fd_write,"getTempRet0":getTempRet0,"invoke_ii":invoke_ii,"invoke_iii":invoke_iii,"invoke_iiii":invoke_iiii,"invoke_iiiii":invoke_iiiii,"invoke_vi":invoke_vi,"invoke_vii":invoke_vii,"invoke_viii":invoke_viii,"memory":wasmMemory,"setTempRet0":setTempRet0};var asm=createWasm();var ___wasm_call_ctors=Module["___wasm_call_ctors"]=function(){return(___wasm_call_ctors=Module["___wasm_call_ctors"]=Module["asm"]["__wasm_call_ctors"]).apply(null,arguments)};var _encode_jpeg=Module["_encode_jpeg"]=function(){return(_encode_jpeg=Module["_encode_jpeg"]=Module["asm"]["encode_jpeg"]).apply(null,arguments)};var _malloc=Module["_malloc"]=function(){return(_malloc=Module["_malloc"]=Module["asm"]["malloc"]).apply(null,arguments)};var _testSetjmp=Module["_testSetjmp"]=function(){return(_testSetjmp=Module["_testSetjmp"]=Module["asm"]["testSetjmp"]).apply(null,arguments)};var _saveSetjmp=Module["_saveSetjmp"]=function(){return(_saveSetjmp=Module["_saveSetjmp"]=Module["asm"]["saveSetjmp"]).apply(null,arguments)};var _free=Module["_free"]=function(){return(_free=Module["_free"]=Module["asm"]["free"]).apply(null,arguments)};var _decode_jpeg=Module["_decode_jpeg"]=function(){return(_decode_jpeg=Module["_decode_jpeg"]=Module["asm"]["decode_jpeg"]).apply(null,arguments)};var ___errno_location=Module["___errno_location"]=function(){return(___errno_location=Module["___errno_location"]=Module["asm"]["__errno_location"]).apply(null,arguments)};var _realloc=Module["_realloc"]=function(){return(_realloc=Module["_realloc"]=Module["asm"]["realloc"]).apply(null,arguments)};var _setThrew=Module["_setThrew"]=function(){return(_setThrew=Module["_setThrew"]=Module["asm"]["setThrew"]).apply(null,arguments)};var stackSave=Module["stackSave"]=function(){return(stackSave=Module["stackSave"]=Module["asm"]["stackSave"]).apply(null,arguments)};var stackRestore=Module["stackRestore"]=function(){return(stackRestore=Module["stackRestore"]=Module["asm"]["stackRestore"]).apply(null,arguments)};var stackAlloc=Module["stackAlloc"]=function(){return(stackAlloc=Module["stackAlloc"]=Module["asm"]["stackAlloc"]).apply(null,arguments)};var dynCall_jiji=Module["dynCall_jiji"]=function(){return(dynCall_jiji=Module["dynCall_jiji"]=Module["asm"]["dynCall_jiji"]).apply(null,arguments)};var __growWasmMemory=Module["__growWasmMemory"]=function(){return(__growWasmMemory=Module["__growWasmMemory"]=Module["asm"]["__growWasmMemory"]).apply(null,arguments)};function invoke_ii(index,a1){var sp=stackSave();try{return wasmTable.get(index)(a1)}catch(e){stackRestore(sp);if(e!==e+0&&e!=="longjmp")throw e;_setThrew(1,0)}}function invoke_viii(index,a1,a2,a3){var sp=stackSave();try{wasmTable.get(index)(a1,a2,a3)}catch(e){stackRestore(sp);if(e!==e+0&&e!=="longjmp")throw e;_setThrew(1,0)}}function invoke_vi(index,a1){var sp=stackSave();try{wasmTable.get(index)(a1)}catch(e){stackRestore(sp);if(e!==e+0&&e!=="longjmp")throw e;_setThrew(1,0)}}function invoke_vii(index,a1,a2){var sp=stackSave();try{wasmTable.get(index)(a1,a2)}catch(e){stackRestore(sp);if(e!==e+0&&e!=="longjmp")throw e;_setThrew(1,0)}}function invoke_iiii(index,a1,a2,a3){var sp=stackSave();try{return wasmTable.get(index)(a1,a2,a3)}catch(e){stackRestore(sp);if(e!==e+0&&e!=="longjmp")throw e;_setThrew(1,0)}}function invoke_iii(index,a1,a2){var sp=stackSave();try{return wasmTable.get(index)(a1,a2)}catch(e){stackRestore(sp);if(e!==e+0&&e!=="longjmp")throw e;_setThrew(1,0)}}function invoke_iiiii(index,a1,a2,a3,a4){var sp=stackSave();try{return wasmTable.get(index)(a1,a2,a3,a4)}catch(e){stackRestore(sp);if(e!==e+0&&e!=="longjmp")throw e;_setThrew(1,0)}}Module["ccall"]=ccall;Module["cwrap"]=cwrap;Module["setValue"]=setValue;Module["getValue"]=getValue;Module["UTF8ToString"]=UTF8ToString;var calledRun;function ExitStatus(status){this.name="ExitStatus";this.message="Program terminated with exit("+status+")";this.status=status}dependenciesFulfilled=function runCaller(){if(!calledRun)run();if(!calledRun)dependenciesFulfilled=runCaller};function run(args){args=args||arguments_;if(runDependencies>0){return}preRun();if(runDependencies>0)return;function doRun(){if(calledRun)return;calledRun=true;Module["calledRun"]=true;if(ABORT)return;initRuntime();preMain();if(Module["onRuntimeInitialized"])Module["onRuntimeInitialized"]();postRun()}if(Module["setStatus"]){Module["setStatus"]("Running...");setTimeout(function(){setTimeout(function(){Module["setStatus"]("")},1);doRun()},1)}else{doRun()}}Module["run"]=run;function exit(status,implicit){if(implicit&&noExitRuntime&&status===0){return}if(noExitRuntime){}else{EXITSTATUS=status;exitRuntime();if(Module["onExit"])Module["onExit"](status);ABORT=true}quit_(status,new ExitStatus(status))}if(Module["preInit"]){if(typeof Module["preInit"]=="function")Module["preInit"]=[Module["preInit"]];while(Module["preInit"].length>0){Module["preInit"].pop()()}}noExitRuntime=true;run();
+
+
+/***/ }),
+
+/***/ 7016:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var api = __webpack_require__(6064);
+
+module.exports = api;
+
+
+/***/ }),
+
+/***/ 6064:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var Module = __webpack_require__(1010);
+var Runtime = Module;
+
+var doneF = new Promise(function(resolve, reject) {
+  /**
+   * Called asynchronously when the runtime is initialized.
+   * It is safe to run 'encode' and 'decode' only after this call.
+   */
+  Module['onRuntimeInitialized'] = function () {
+    try {
+      resolve('RuntimeInitialized');
+    } catch (err) {
+      reject(err);
+    }
+  }
+});
+
+module.exports.encode = encodeJpeg;
+module.exports.decode = decodeJpeg;
+
+/* see 'api.h' for declarations */
+var encode_jpeg = Module.cwrap('encode_jpeg', 'number', ['number', 'number', 'number', 'number', 'number', 'number', 'number']);
+var decode_jpeg = Module.cwrap('decode_jpeg', 'number', ['number', 'number', 'number', 'number', 'number', 'number']);
+
+var SIZE_OF_POINTER = 4;
+
+var DEFAULT_QUALITY = 90;
+
+/**
+ * Encodes RGB data as JPEG.
+ *
+ * @param {ArrayBuffer} buf An array or RGB tripvars.
+ * @param {object} options Params { width: number, height: number, quality: number }
+ *                  Width of RGB image, pixels.
+ *                  Height of RGB image, pixels.
+ *                  Quality, [0 - 100].
+ * @param {function} cb Callback to invoke on compvarion.
+ *
+ * @callback { width: number, height: number, data: Uint8Array }
+ */
+function encodeJpeg(buf, options, cb) {
+  if(typeof options === 'function') {
+    cb = options;
+    options = {};
+  }
+
+  if(!options.hasOwnProperty('width') || !options.hasOwnProperty('height')) {
+    return cb(new Error('Width & height of the buffer is not provided.'));
+  }
+
+  var width = options.width;
+  var height = options.height;
+  var quality = options.quality || DEFAULT_QUALITY;
+
+  doneF.then(function() {
+    var stack = Runtime.stackSave();
+
+    var rgbBufferPtr = Module._malloc(buf.byteLength);
+    Module.HEAPU8.set(new Uint8Array(buf), rgbBufferPtr);
+
+    var outBufferPtrPtr = Runtime.stackAlloc(SIZE_OF_POINTER);
+    var outBufferSizePtr = Runtime.stackAlloc(SIZE_OF_POINTER);
+    var outMsgPtrPtr = Runtime.stackAlloc(SIZE_OF_POINTER);
+
+    Module.setValue(outBufferPtrPtr, 0, 'i32');
+    Module.setValue(outBufferSizePtr, 0, 'i32');
+    Module.setValue(outMsgPtrPtr, 0, 'i32');
+
+    // invoke
+    var result = encode_jpeg(rgbBufferPtr, width, height, quality, outBufferPtrPtr, outBufferSizePtr, outMsgPtrPtr);
+
+    var outBufferPtr = Module.getValue(outBufferPtrPtr, 'i32');
+    var outBufferSize = Module.getValue(outBufferSizePtr, 'i32');
+    var outMsgPtr = Module.getValue(outMsgPtrPtr, 'i32');
+
+    var err;
+    var encoded;
+
+    if (!result) {
+      var jpegBuffer = new Uint8Array(Module.HEAPU8.buffer, outBufferPtr, outBufferSize);
+      encoded = new ArrayBuffer(outBufferSize);
+      new Uint8Array(encoded).set(jpegBuffer);
+    } else {
+      err = new Error(Module.Pointer_stringify(outMsgPtr));
+    }
+
+    Module._free(rgbBufferPtr);
+    Module._free(outBufferPtr);
+    Module._free(outMsgPtr);
+
+    Runtime.stackRestore(stack);
+
+    if (err) {
+      return cb(err);
+    } else {
+      return cb(null, encoded);
+    }
+  })
+    .catch(cb)
+}
+
+/**
+ * Decodes JPEG
+ * @param buf An ArrayBuffer with JPEG data.
+ * @param cb Callback to invoke on compvarion.
+ *
+ * @callback { buffer: ArrayBuffer, width: number, height: number }.
+ */
+function decodeJpeg(buf, cb) {
+  doneF.then(function() {
+    var stack = Runtime.stackSave();
+
+    var jpegBufferPtr = Module._malloc(buf.byteLength);
+    Module.HEAPU8.set(new Uint8Array(buf), jpegBufferPtr);
+
+    var outBufferPtrPtr = Runtime.stackAlloc(SIZE_OF_POINTER);
+    var outBufferWidthPtr = Runtime.stackAlloc(SIZE_OF_POINTER);
+    var outBufferHeightPtr = Runtime.stackAlloc(SIZE_OF_POINTER);
+    var outMsgPtrPtr = Runtime.stackAlloc(SIZE_OF_POINTER);
+
+    Module.setValue(outBufferPtrPtr, 0, 'i32');
+    Module.setValue(outBufferWidthPtr, 0, 'i32');
+    Module.setValue(outBufferHeightPtr, 0, 'i32');
+    Module.setValue(outMsgPtrPtr, 0, 'i32');
+
+    var result = decode_jpeg(jpegBufferPtr, buf.byteLength, outBufferPtrPtr, outBufferWidthPtr, outBufferHeightPtr, outMsgPtrPtr);
+
+    var outBufferPtr = Module.getValue(outBufferPtrPtr, 'i32');
+    var outBufferWidth = Module.getValue(outBufferWidthPtr, 'i32');
+    var outBufferHeight = Module.getValue(outBufferHeightPtr, 'i32');
+    var outMsgPtr = Module.getValue(outMsgPtrPtr, 'i32');
+
+    var err;
+    var decoded;
+
+    if (!result) {
+      var outBufferSize = outBufferWidth * outBufferHeight * 3;
+      var rgbBuffer = new Uint8Array(Module.HEAPU8.buffer, outBufferPtr, outBufferSize);
+      decoded = new ArrayBuffer(outBufferSize);
+      new Uint8Array(decoded).set(rgbBuffer);
+    } else {
+      err = new Error(Module.Pointer_stringify(outMsgPtr));
+    }
+
+    Module._free(jpegBufferPtr);
+    Module._free(outBufferPtr);
+    Module._free(outMsgPtr);
+
+    Runtime.stackRestore(stack);
+
+    if (err) {
+      return cb(err);
+    } else {
+      return cb(null, {
+        buffer: decoded,
+        width: outBufferWidth,
+        height: outBufferHeight
+      });
+    }
+  })
+    .catch(cb)
+}
+
+
+/***/ }),
+
+/***/ 3720:
 /***/ ((module) => {
 
 module.exports = Long;
@@ -2538,19 +8250,1150 @@ Long.fromBytesBE = function fromBytesBE(bytes, unsigned) {
 
 /***/ }),
 
-/***/ 100:
+/***/ 4244:
+/***/ ((module) => {
+
+"use strict";
+
+
+var numberIsNaN = function (value) {
+	return value !== value;
+};
+
+module.exports = function is(a, b) {
+	if (a === 0 && b === 0) {
+		return 1 / a === 1 / b;
+	}
+	if (a === b) {
+		return true;
+	}
+	if (numberIsNaN(a) && numberIsNaN(b)) {
+		return true;
+	}
+	return false;
+};
+
+
+
+/***/ }),
+
+/***/ 609:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var define = __webpack_require__(4289);
+var callBind = __webpack_require__(5559);
+
+var implementation = __webpack_require__(4244);
+var getPolyfill = __webpack_require__(5624);
+var shim = __webpack_require__(2281);
+
+var polyfill = callBind(getPolyfill(), Object);
+
+define(polyfill, {
+	getPolyfill: getPolyfill,
+	implementation: implementation,
+	shim: shim
+});
+
+module.exports = polyfill;
+
+
+/***/ }),
+
+/***/ 5624:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var implementation = __webpack_require__(4244);
+
+module.exports = function getPolyfill() {
+	return typeof Object.is === 'function' ? Object.is : implementation;
+};
+
+
+/***/ }),
+
+/***/ 2281:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var getPolyfill = __webpack_require__(5624);
+var define = __webpack_require__(4289);
+
+module.exports = function shimObjectIs() {
+	var polyfill = getPolyfill();
+	define(Object, { is: polyfill }, {
+		is: function testObjectIs() {
+			return Object.is !== polyfill;
+		}
+	});
+	return polyfill;
+};
+
+
+/***/ }),
+
+/***/ 8987:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var keysShim;
+if (!Object.keys) {
+	// modified from https://github.com/es-shims/es5-shim
+	var has = Object.prototype.hasOwnProperty;
+	var toStr = Object.prototype.toString;
+	var isArgs = __webpack_require__(1414); // eslint-disable-line global-require
+	var isEnumerable = Object.prototype.propertyIsEnumerable;
+	var hasDontEnumBug = !isEnumerable.call({ toString: null }, 'toString');
+	var hasProtoEnumBug = isEnumerable.call(function () {}, 'prototype');
+	var dontEnums = [
+		'toString',
+		'toLocaleString',
+		'valueOf',
+		'hasOwnProperty',
+		'isPrototypeOf',
+		'propertyIsEnumerable',
+		'constructor'
+	];
+	var equalsConstructorPrototype = function (o) {
+		var ctor = o.constructor;
+		return ctor && ctor.prototype === o;
+	};
+	var excludedKeys = {
+		$applicationCache: true,
+		$console: true,
+		$external: true,
+		$frame: true,
+		$frameElement: true,
+		$frames: true,
+		$innerHeight: true,
+		$innerWidth: true,
+		$onmozfullscreenchange: true,
+		$onmozfullscreenerror: true,
+		$outerHeight: true,
+		$outerWidth: true,
+		$pageXOffset: true,
+		$pageYOffset: true,
+		$parent: true,
+		$scrollLeft: true,
+		$scrollTop: true,
+		$scrollX: true,
+		$scrollY: true,
+		$self: true,
+		$webkitIndexedDB: true,
+		$webkitStorageInfo: true,
+		$window: true
+	};
+	var hasAutomationEqualityBug = (function () {
+		/* global window */
+		if (typeof window === 'undefined') { return false; }
+		for (var k in window) {
+			try {
+				if (!excludedKeys['$' + k] && has.call(window, k) && window[k] !== null && typeof window[k] === 'object') {
+					try {
+						equalsConstructorPrototype(window[k]);
+					} catch (e) {
+						return true;
+					}
+				}
+			} catch (e) {
+				return true;
+			}
+		}
+		return false;
+	}());
+	var equalsConstructorPrototypeIfNotBuggy = function (o) {
+		/* global window */
+		if (typeof window === 'undefined' || !hasAutomationEqualityBug) {
+			return equalsConstructorPrototype(o);
+		}
+		try {
+			return equalsConstructorPrototype(o);
+		} catch (e) {
+			return false;
+		}
+	};
+
+	keysShim = function keys(object) {
+		var isObject = object !== null && typeof object === 'object';
+		var isFunction = toStr.call(object) === '[object Function]';
+		var isArguments = isArgs(object);
+		var isString = isObject && toStr.call(object) === '[object String]';
+		var theKeys = [];
+
+		if (!isObject && !isFunction && !isArguments) {
+			throw new TypeError('Object.keys called on a non-object');
+		}
+
+		var skipProto = hasProtoEnumBug && isFunction;
+		if (isString && object.length > 0 && !has.call(object, 0)) {
+			for (var i = 0; i < object.length; ++i) {
+				theKeys.push(String(i));
+			}
+		}
+
+		if (isArguments && object.length > 0) {
+			for (var j = 0; j < object.length; ++j) {
+				theKeys.push(String(j));
+			}
+		} else {
+			for (var name in object) {
+				if (!(skipProto && name === 'prototype') && has.call(object, name)) {
+					theKeys.push(String(name));
+				}
+			}
+		}
+
+		if (hasDontEnumBug) {
+			var skipConstructor = equalsConstructorPrototypeIfNotBuggy(object);
+
+			for (var k = 0; k < dontEnums.length; ++k) {
+				if (!(skipConstructor && dontEnums[k] === 'constructor') && has.call(object, dontEnums[k])) {
+					theKeys.push(dontEnums[k]);
+				}
+			}
+		}
+		return theKeys;
+	};
+}
+module.exports = keysShim;
+
+
+/***/ }),
+
+/***/ 2215:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var slice = Array.prototype.slice;
+var isArgs = __webpack_require__(1414);
+
+var origKeys = Object.keys;
+var keysShim = origKeys ? function keys(o) { return origKeys(o); } : __webpack_require__(8987);
+
+var originalKeys = Object.keys;
+
+keysShim.shim = function shimObjectKeys() {
+	if (Object.keys) {
+		var keysWorksWithArguments = (function () {
+			// Safari 5.0 bug
+			var args = Object.keys(arguments);
+			return args && args.length === arguments.length;
+		}(1, 2));
+		if (!keysWorksWithArguments) {
+			Object.keys = function keys(object) { // eslint-disable-line func-name-matching
+				if (isArgs(object)) {
+					return originalKeys(slice.call(object));
+				}
+				return originalKeys(object);
+			};
+		}
+	} else {
+		Object.keys = keysShim;
+	}
+	return Object.keys || keysShim;
+};
+
+module.exports = keysShim;
+
+
+/***/ }),
+
+/***/ 1414:
+/***/ ((module) => {
+
+"use strict";
+
+
+var toStr = Object.prototype.toString;
+
+module.exports = function isArguments(value) {
+	var str = toStr.call(value);
+	var isArgs = str === '[object Arguments]';
+	if (!isArgs) {
+		isArgs = str !== '[object Array]' &&
+			value !== null &&
+			typeof value === 'object' &&
+			typeof value.length === 'number' &&
+			value.length >= 0 &&
+			toStr.call(value.callee) === '[object Function]';
+	}
+	return isArgs;
+};
+
+
+/***/ }),
+
+/***/ 2837:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+// modified from https://github.com/es-shims/es6-shim
+var objectKeys = __webpack_require__(2215);
+var hasSymbols = __webpack_require__(5419)();
+var callBound = __webpack_require__(1924);
+var toObject = Object;
+var $push = callBound('Array.prototype.push');
+var $propIsEnumerable = callBound('Object.prototype.propertyIsEnumerable');
+var originalGetSymbols = hasSymbols ? Object.getOwnPropertySymbols : null;
+
+// eslint-disable-next-line no-unused-vars
+module.exports = function assign(target, source1) {
+	if (target == null) { throw new TypeError('target must be an object'); }
+	var to = toObject(target); // step 1
+	if (arguments.length === 1) {
+		return to; // step 2
+	}
+	for (var s = 1; s < arguments.length; ++s) {
+		var from = toObject(arguments[s]); // step 3.a.i
+
+		// step 3.a.ii:
+		var keys = objectKeys(from);
+		var getSymbols = hasSymbols && (Object.getOwnPropertySymbols || originalGetSymbols);
+		if (getSymbols) {
+			var syms = getSymbols(from);
+			for (var j = 0; j < syms.length; ++j) {
+				var key = syms[j];
+				if ($propIsEnumerable(from, key)) {
+					$push(keys, key);
+				}
+			}
+		}
+
+		// step 3.a.iii:
+		for (var i = 0; i < keys.length; ++i) {
+			var nextKey = keys[i];
+			if ($propIsEnumerable(from, nextKey)) { // step 3.a.iii.2
+				var propValue = from[nextKey]; // step 3.a.iii.2.a
+				to[nextKey] = propValue; // step 3.a.iii.2.b
+			}
+		}
+	}
+
+	return to; // step 4
+};
+
+
+/***/ }),
+
+/***/ 8162:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var implementation = __webpack_require__(2837);
+
+var lacksProperEnumerationOrder = function () {
+	if (!Object.assign) {
+		return false;
+	}
+	/*
+	 * v8, specifically in node 4.x, has a bug with incorrect property enumeration order
+	 * note: this does not detect the bug unless there's 20 characters
+	 */
+	var str = 'abcdefghijklmnopqrst';
+	var letters = str.split('');
+	var map = {};
+	for (var i = 0; i < letters.length; ++i) {
+		map[letters[i]] = letters[i];
+	}
+	var obj = Object.assign({}, map);
+	var actual = '';
+	for (var k in obj) {
+		actual += k;
+	}
+	return str !== actual;
+};
+
+var assignHasPendingExceptions = function () {
+	if (!Object.assign || !Object.preventExtensions) {
+		return false;
+	}
+	/*
+	 * Firefox 37 still has "pending exception" logic in its Object.assign implementation,
+	 * which is 72% slower than our shim, and Firefox 40's native implementation.
+	 */
+	var thrower = Object.preventExtensions({ 1: 2 });
+	try {
+		Object.assign(thrower, 'xy');
+	} catch (e) {
+		return thrower[1] === 'y';
+	}
+	return false;
+};
+
+module.exports = function getPolyfill() {
+	if (!Object.assign) {
+		return implementation;
+	}
+	if (lacksProperEnumerationOrder()) {
+		return implementation;
+	}
+	if (assignHasPendingExceptions()) {
+		return implementation;
+	}
+	return Object.assign;
+};
+
+
+/***/ }),
+
+/***/ 6470:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+/* provided dependency */ var process = __webpack_require__(4155);
+// 'path' module extracted from Node.js v8.11.1 (only the posix part)
+// transplited with Babel
+
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+
+
+function assertPath(path) {
+  if (typeof path !== 'string') {
+    throw new TypeError('Path must be a string. Received ' + JSON.stringify(path));
+  }
+}
+
+// Resolves . and .. elements in a path with directory names
+function normalizeStringPosix(path, allowAboveRoot) {
+  var res = '';
+  var lastSegmentLength = 0;
+  var lastSlash = -1;
+  var dots = 0;
+  var code;
+  for (var i = 0; i <= path.length; ++i) {
+    if (i < path.length)
+      code = path.charCodeAt(i);
+    else if (code === 47 /*/*/)
+      break;
+    else
+      code = 47 /*/*/;
+    if (code === 47 /*/*/) {
+      if (lastSlash === i - 1 || dots === 1) {
+        // NOOP
+      } else if (lastSlash !== i - 1 && dots === 2) {
+        if (res.length < 2 || lastSegmentLength !== 2 || res.charCodeAt(res.length - 1) !== 46 /*.*/ || res.charCodeAt(res.length - 2) !== 46 /*.*/) {
+          if (res.length > 2) {
+            var lastSlashIndex = res.lastIndexOf('/');
+            if (lastSlashIndex !== res.length - 1) {
+              if (lastSlashIndex === -1) {
+                res = '';
+                lastSegmentLength = 0;
+              } else {
+                res = res.slice(0, lastSlashIndex);
+                lastSegmentLength = res.length - 1 - res.lastIndexOf('/');
+              }
+              lastSlash = i;
+              dots = 0;
+              continue;
+            }
+          } else if (res.length === 2 || res.length === 1) {
+            res = '';
+            lastSegmentLength = 0;
+            lastSlash = i;
+            dots = 0;
+            continue;
+          }
+        }
+        if (allowAboveRoot) {
+          if (res.length > 0)
+            res += '/..';
+          else
+            res = '..';
+          lastSegmentLength = 2;
+        }
+      } else {
+        if (res.length > 0)
+          res += '/' + path.slice(lastSlash + 1, i);
+        else
+          res = path.slice(lastSlash + 1, i);
+        lastSegmentLength = i - lastSlash - 1;
+      }
+      lastSlash = i;
+      dots = 0;
+    } else if (code === 46 /*.*/ && dots !== -1) {
+      ++dots;
+    } else {
+      dots = -1;
+    }
+  }
+  return res;
+}
+
+function _format(sep, pathObject) {
+  var dir = pathObject.dir || pathObject.root;
+  var base = pathObject.base || (pathObject.name || '') + (pathObject.ext || '');
+  if (!dir) {
+    return base;
+  }
+  if (dir === pathObject.root) {
+    return dir + base;
+  }
+  return dir + sep + base;
+}
+
+var posix = {
+  // path.resolve([from ...], to)
+  resolve: function resolve() {
+    var resolvedPath = '';
+    var resolvedAbsolute = false;
+    var cwd;
+
+    for (var i = arguments.length - 1; i >= -1 && !resolvedAbsolute; i--) {
+      var path;
+      if (i >= 0)
+        path = arguments[i];
+      else {
+        if (cwd === undefined)
+          cwd = process.cwd();
+        path = cwd;
+      }
+
+      assertPath(path);
+
+      // Skip empty entries
+      if (path.length === 0) {
+        continue;
+      }
+
+      resolvedPath = path + '/' + resolvedPath;
+      resolvedAbsolute = path.charCodeAt(0) === 47 /*/*/;
+    }
+
+    // At this point the path should be resolved to a full absolute path, but
+    // handle relative paths to be safe (might happen when process.cwd() fails)
+
+    // Normalize the path
+    resolvedPath = normalizeStringPosix(resolvedPath, !resolvedAbsolute);
+
+    if (resolvedAbsolute) {
+      if (resolvedPath.length > 0)
+        return '/' + resolvedPath;
+      else
+        return '/';
+    } else if (resolvedPath.length > 0) {
+      return resolvedPath;
+    } else {
+      return '.';
+    }
+  },
+
+  normalize: function normalize(path) {
+    assertPath(path);
+
+    if (path.length === 0) return '.';
+
+    var isAbsolute = path.charCodeAt(0) === 47 /*/*/;
+    var trailingSeparator = path.charCodeAt(path.length - 1) === 47 /*/*/;
+
+    // Normalize the path
+    path = normalizeStringPosix(path, !isAbsolute);
+
+    if (path.length === 0 && !isAbsolute) path = '.';
+    if (path.length > 0 && trailingSeparator) path += '/';
+
+    if (isAbsolute) return '/' + path;
+    return path;
+  },
+
+  isAbsolute: function isAbsolute(path) {
+    assertPath(path);
+    return path.length > 0 && path.charCodeAt(0) === 47 /*/*/;
+  },
+
+  join: function join() {
+    if (arguments.length === 0)
+      return '.';
+    var joined;
+    for (var i = 0; i < arguments.length; ++i) {
+      var arg = arguments[i];
+      assertPath(arg);
+      if (arg.length > 0) {
+        if (joined === undefined)
+          joined = arg;
+        else
+          joined += '/' + arg;
+      }
+    }
+    if (joined === undefined)
+      return '.';
+    return posix.normalize(joined);
+  },
+
+  relative: function relative(from, to) {
+    assertPath(from);
+    assertPath(to);
+
+    if (from === to) return '';
+
+    from = posix.resolve(from);
+    to = posix.resolve(to);
+
+    if (from === to) return '';
+
+    // Trim any leading backslashes
+    var fromStart = 1;
+    for (; fromStart < from.length; ++fromStart) {
+      if (from.charCodeAt(fromStart) !== 47 /*/*/)
+        break;
+    }
+    var fromEnd = from.length;
+    var fromLen = fromEnd - fromStart;
+
+    // Trim any leading backslashes
+    var toStart = 1;
+    for (; toStart < to.length; ++toStart) {
+      if (to.charCodeAt(toStart) !== 47 /*/*/)
+        break;
+    }
+    var toEnd = to.length;
+    var toLen = toEnd - toStart;
+
+    // Compare paths to find the longest common path from root
+    var length = fromLen < toLen ? fromLen : toLen;
+    var lastCommonSep = -1;
+    var i = 0;
+    for (; i <= length; ++i) {
+      if (i === length) {
+        if (toLen > length) {
+          if (to.charCodeAt(toStart + i) === 47 /*/*/) {
+            // We get here if `from` is the exact base path for `to`.
+            // For example: from='/foo/bar'; to='/foo/bar/baz'
+            return to.slice(toStart + i + 1);
+          } else if (i === 0) {
+            // We get here if `from` is the root
+            // For example: from='/'; to='/foo'
+            return to.slice(toStart + i);
+          }
+        } else if (fromLen > length) {
+          if (from.charCodeAt(fromStart + i) === 47 /*/*/) {
+            // We get here if `to` is the exact base path for `from`.
+            // For example: from='/foo/bar/baz'; to='/foo/bar'
+            lastCommonSep = i;
+          } else if (i === 0) {
+            // We get here if `to` is the root.
+            // For example: from='/foo'; to='/'
+            lastCommonSep = 0;
+          }
+        }
+        break;
+      }
+      var fromCode = from.charCodeAt(fromStart + i);
+      var toCode = to.charCodeAt(toStart + i);
+      if (fromCode !== toCode)
+        break;
+      else if (fromCode === 47 /*/*/)
+        lastCommonSep = i;
+    }
+
+    var out = '';
+    // Generate the relative path based on the path difference between `to`
+    // and `from`
+    for (i = fromStart + lastCommonSep + 1; i <= fromEnd; ++i) {
+      if (i === fromEnd || from.charCodeAt(i) === 47 /*/*/) {
+        if (out.length === 0)
+          out += '..';
+        else
+          out += '/..';
+      }
+    }
+
+    // Lastly, append the rest of the destination (`to`) path that comes after
+    // the common path parts
+    if (out.length > 0)
+      return out + to.slice(toStart + lastCommonSep);
+    else {
+      toStart += lastCommonSep;
+      if (to.charCodeAt(toStart) === 47 /*/*/)
+        ++toStart;
+      return to.slice(toStart);
+    }
+  },
+
+  _makeLong: function _makeLong(path) {
+    return path;
+  },
+
+  dirname: function dirname(path) {
+    assertPath(path);
+    if (path.length === 0) return '.';
+    var code = path.charCodeAt(0);
+    var hasRoot = code === 47 /*/*/;
+    var end = -1;
+    var matchedSlash = true;
+    for (var i = path.length - 1; i >= 1; --i) {
+      code = path.charCodeAt(i);
+      if (code === 47 /*/*/) {
+          if (!matchedSlash) {
+            end = i;
+            break;
+          }
+        } else {
+        // We saw the first non-path separator
+        matchedSlash = false;
+      }
+    }
+
+    if (end === -1) return hasRoot ? '/' : '.';
+    if (hasRoot && end === 1) return '//';
+    return path.slice(0, end);
+  },
+
+  basename: function basename(path, ext) {
+    if (ext !== undefined && typeof ext !== 'string') throw new TypeError('"ext" argument must be a string');
+    assertPath(path);
+
+    var start = 0;
+    var end = -1;
+    var matchedSlash = true;
+    var i;
+
+    if (ext !== undefined && ext.length > 0 && ext.length <= path.length) {
+      if (ext.length === path.length && ext === path) return '';
+      var extIdx = ext.length - 1;
+      var firstNonSlashEnd = -1;
+      for (i = path.length - 1; i >= 0; --i) {
+        var code = path.charCodeAt(i);
+        if (code === 47 /*/*/) {
+            // If we reached a path separator that was not part of a set of path
+            // separators at the end of the string, stop now
+            if (!matchedSlash) {
+              start = i + 1;
+              break;
+            }
+          } else {
+          if (firstNonSlashEnd === -1) {
+            // We saw the first non-path separator, remember this index in case
+            // we need it if the extension ends up not matching
+            matchedSlash = false;
+            firstNonSlashEnd = i + 1;
+          }
+          if (extIdx >= 0) {
+            // Try to match the explicit extension
+            if (code === ext.charCodeAt(extIdx)) {
+              if (--extIdx === -1) {
+                // We matched the extension, so mark this as the end of our path
+                // component
+                end = i;
+              }
+            } else {
+              // Extension does not match, so our result is the entire path
+              // component
+              extIdx = -1;
+              end = firstNonSlashEnd;
+            }
+          }
+        }
+      }
+
+      if (start === end) end = firstNonSlashEnd;else if (end === -1) end = path.length;
+      return path.slice(start, end);
+    } else {
+      for (i = path.length - 1; i >= 0; --i) {
+        if (path.charCodeAt(i) === 47 /*/*/) {
+            // If we reached a path separator that was not part of a set of path
+            // separators at the end of the string, stop now
+            if (!matchedSlash) {
+              start = i + 1;
+              break;
+            }
+          } else if (end === -1) {
+          // We saw the first non-path separator, mark this as the end of our
+          // path component
+          matchedSlash = false;
+          end = i + 1;
+        }
+      }
+
+      if (end === -1) return '';
+      return path.slice(start, end);
+    }
+  },
+
+  extname: function extname(path) {
+    assertPath(path);
+    var startDot = -1;
+    var startPart = 0;
+    var end = -1;
+    var matchedSlash = true;
+    // Track the state of characters (if any) we see before our first dot and
+    // after any path separator we find
+    var preDotState = 0;
+    for (var i = path.length - 1; i >= 0; --i) {
+      var code = path.charCodeAt(i);
+      if (code === 47 /*/*/) {
+          // If we reached a path separator that was not part of a set of path
+          // separators at the end of the string, stop now
+          if (!matchedSlash) {
+            startPart = i + 1;
+            break;
+          }
+          continue;
+        }
+      if (end === -1) {
+        // We saw the first non-path separator, mark this as the end of our
+        // extension
+        matchedSlash = false;
+        end = i + 1;
+      }
+      if (code === 46 /*.*/) {
+          // If this is our first dot, mark it as the start of our extension
+          if (startDot === -1)
+            startDot = i;
+          else if (preDotState !== 1)
+            preDotState = 1;
+      } else if (startDot !== -1) {
+        // We saw a non-dot and non-path separator before our dot, so we should
+        // have a good chance at having a non-empty extension
+        preDotState = -1;
+      }
+    }
+
+    if (startDot === -1 || end === -1 ||
+        // We saw a non-dot character immediately before the dot
+        preDotState === 0 ||
+        // The (right-most) trimmed path component is exactly '..'
+        preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
+      return '';
+    }
+    return path.slice(startDot, end);
+  },
+
+  format: function format(pathObject) {
+    if (pathObject === null || typeof pathObject !== 'object') {
+      throw new TypeError('The "pathObject" argument must be of type Object. Received type ' + typeof pathObject);
+    }
+    return _format('/', pathObject);
+  },
+
+  parse: function parse(path) {
+    assertPath(path);
+
+    var ret = { root: '', dir: '', base: '', ext: '', name: '' };
+    if (path.length === 0) return ret;
+    var code = path.charCodeAt(0);
+    var isAbsolute = code === 47 /*/*/;
+    var start;
+    if (isAbsolute) {
+      ret.root = '/';
+      start = 1;
+    } else {
+      start = 0;
+    }
+    var startDot = -1;
+    var startPart = 0;
+    var end = -1;
+    var matchedSlash = true;
+    var i = path.length - 1;
+
+    // Track the state of characters (if any) we see before our first dot and
+    // after any path separator we find
+    var preDotState = 0;
+
+    // Get non-dir info
+    for (; i >= start; --i) {
+      code = path.charCodeAt(i);
+      if (code === 47 /*/*/) {
+          // If we reached a path separator that was not part of a set of path
+          // separators at the end of the string, stop now
+          if (!matchedSlash) {
+            startPart = i + 1;
+            break;
+          }
+          continue;
+        }
+      if (end === -1) {
+        // We saw the first non-path separator, mark this as the end of our
+        // extension
+        matchedSlash = false;
+        end = i + 1;
+      }
+      if (code === 46 /*.*/) {
+          // If this is our first dot, mark it as the start of our extension
+          if (startDot === -1) startDot = i;else if (preDotState !== 1) preDotState = 1;
+        } else if (startDot !== -1) {
+        // We saw a non-dot and non-path separator before our dot, so we should
+        // have a good chance at having a non-empty extension
+        preDotState = -1;
+      }
+    }
+
+    if (startDot === -1 || end === -1 ||
+    // We saw a non-dot character immediately before the dot
+    preDotState === 0 ||
+    // The (right-most) trimmed path component is exactly '..'
+    preDotState === 1 && startDot === end - 1 && startDot === startPart + 1) {
+      if (end !== -1) {
+        if (startPart === 0 && isAbsolute) ret.base = ret.name = path.slice(1, end);else ret.base = ret.name = path.slice(startPart, end);
+      }
+    } else {
+      if (startPart === 0 && isAbsolute) {
+        ret.name = path.slice(1, startDot);
+        ret.base = path.slice(1, end);
+      } else {
+        ret.name = path.slice(startPart, startDot);
+        ret.base = path.slice(startPart, end);
+      }
+      ret.ext = path.slice(startDot, end);
+    }
+
+    if (startPart > 0) ret.dir = path.slice(0, startPart - 1);else if (isAbsolute) ret.dir = '/';
+
+    return ret;
+  },
+
+  sep: '/',
+  delimiter: ':',
+  win32: null,
+  posix: null
+};
+
+posix.posix = posix;
+
+module.exports = posix;
+
+
+/***/ }),
+
+/***/ 4155:
+/***/ ((module) => {
+
+// shim for using process in browser
+var process = module.exports = {};
+
+// cached from whatever global is present so that test runners that stub it
+// don't break things.  But we need to wrap it in a try catch in case it is
+// wrapped in strict mode code which doesn't define any globals.  It's inside a
+// function because try/catches deoptimize in certain engines.
+
+var cachedSetTimeout;
+var cachedClearTimeout;
+
+function defaultSetTimout() {
+    throw new Error('setTimeout has not been defined');
+}
+function defaultClearTimeout () {
+    throw new Error('clearTimeout has not been defined');
+}
+(function () {
+    try {
+        if (typeof setTimeout === 'function') {
+            cachedSetTimeout = setTimeout;
+        } else {
+            cachedSetTimeout = defaultSetTimout;
+        }
+    } catch (e) {
+        cachedSetTimeout = defaultSetTimout;
+    }
+    try {
+        if (typeof clearTimeout === 'function') {
+            cachedClearTimeout = clearTimeout;
+        } else {
+            cachedClearTimeout = defaultClearTimeout;
+        }
+    } catch (e) {
+        cachedClearTimeout = defaultClearTimeout;
+    }
+} ())
+function runTimeout(fun) {
+    if (cachedSetTimeout === setTimeout) {
+        //normal enviroments in sane situations
+        return setTimeout(fun, 0);
+    }
+    // if setTimeout wasn't available but was latter defined
+    if ((cachedSetTimeout === defaultSetTimout || !cachedSetTimeout) && setTimeout) {
+        cachedSetTimeout = setTimeout;
+        return setTimeout(fun, 0);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedSetTimeout(fun, 0);
+    } catch(e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't trust the global object when called normally
+            return cachedSetTimeout.call(null, fun, 0);
+        } catch(e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error
+            return cachedSetTimeout.call(this, fun, 0);
+        }
+    }
+
+
+}
+function runClearTimeout(marker) {
+    if (cachedClearTimeout === clearTimeout) {
+        //normal enviroments in sane situations
+        return clearTimeout(marker);
+    }
+    // if clearTimeout wasn't available but was latter defined
+    if ((cachedClearTimeout === defaultClearTimeout || !cachedClearTimeout) && clearTimeout) {
+        cachedClearTimeout = clearTimeout;
+        return clearTimeout(marker);
+    }
+    try {
+        // when when somebody has screwed with setTimeout but no I.E. maddness
+        return cachedClearTimeout(marker);
+    } catch (e){
+        try {
+            // When we are in I.E. but the script has been evaled so I.E. doesn't  trust the global object when called normally
+            return cachedClearTimeout.call(null, marker);
+        } catch (e){
+            // same as above but when it's a version of I.E. that must have the global object for 'this', hopfully our context correct otherwise it will throw a global error.
+            // Some versions of I.E. have different rules for clearTimeout vs setTimeout
+            return cachedClearTimeout.call(this, marker);
+        }
+    }
+
+
+
+}
+var queue = [];
+var draining = false;
+var currentQueue;
+var queueIndex = -1;
+
+function cleanUpNextTick() {
+    if (!draining || !currentQueue) {
+        return;
+    }
+    draining = false;
+    if (currentQueue.length) {
+        queue = currentQueue.concat(queue);
+    } else {
+        queueIndex = -1;
+    }
+    if (queue.length) {
+        drainQueue();
+    }
+}
+
+function drainQueue() {
+    if (draining) {
+        return;
+    }
+    var timeout = runTimeout(cleanUpNextTick);
+    draining = true;
+
+    var len = queue.length;
+    while(len) {
+        currentQueue = queue;
+        queue = [];
+        while (++queueIndex < len) {
+            if (currentQueue) {
+                currentQueue[queueIndex].run();
+            }
+        }
+        queueIndex = -1;
+        len = queue.length;
+    }
+    currentQueue = null;
+    draining = false;
+    runClearTimeout(timeout);
+}
+
+process.nextTick = function (fun) {
+    var args = new Array(arguments.length - 1);
+    if (arguments.length > 1) {
+        for (var i = 1; i < arguments.length; i++) {
+            args[i - 1] = arguments[i];
+        }
+    }
+    queue.push(new Item(fun, args));
+    if (queue.length === 1 && !draining) {
+        runTimeout(drainQueue);
+    }
+};
+
+// v8 likes predictible objects
+function Item(fun, array) {
+    this.fun = fun;
+    this.array = array;
+}
+Item.prototype.run = function () {
+    this.fun.apply(null, this.array);
+};
+process.title = 'browser';
+process.browser = true;
+process.env = {};
+process.argv = [];
+process.version = ''; // empty string to avoid regexp issues
+process.versions = {};
+
+function noop() {}
+
+process.on = noop;
+process.addListener = noop;
+process.once = noop;
+process.off = noop;
+process.removeListener = noop;
+process.removeAllListeners = noop;
+process.emit = noop;
+process.prependListener = noop;
+process.prependOnceListener = noop;
+
+process.listeners = function (name) { return [] }
+
+process.binding = function (name) {
+    throw new Error('process.binding is not supported');
+};
+
+process.cwd = function () { return '/' };
+process.chdir = function (dir) {
+    throw new Error('process.chdir is not supported');
+};
+process.umask = function() { return 0; };
+
+
+/***/ }),
+
+/***/ 2100:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 // minimal library entry point.
 
 
-module.exports = __webpack_require__(482);
+module.exports = __webpack_require__(9482);
 
 
 /***/ }),
 
-/***/ 482:
+/***/ 9482:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -2566,15 +9409,15 @@ var protobuf = exports;
 protobuf.build = "minimal";
 
 // Serialization
-protobuf.Writer       = __webpack_require__(173);
-protobuf.BufferWriter = __webpack_require__(155);
-protobuf.Reader       = __webpack_require__(408);
+protobuf.Writer       = __webpack_require__(1173);
+protobuf.BufferWriter = __webpack_require__(3155);
+protobuf.Reader       = __webpack_require__(1408);
 protobuf.BufferReader = __webpack_require__(593);
 
 // Utility
-protobuf.util         = __webpack_require__(693);
-protobuf.rpc          = __webpack_require__(994);
-protobuf.roots        = __webpack_require__(54);
+protobuf.util         = __webpack_require__(9693);
+protobuf.rpc          = __webpack_require__(5994);
+protobuf.roots        = __webpack_require__(5054);
 protobuf.configure    = configure;
 
 /* istanbul ignore next */
@@ -2594,14 +9437,14 @@ configure();
 
 /***/ }),
 
-/***/ 408:
+/***/ 1408:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 module.exports = Reader;
 
-var util      = __webpack_require__(693);
+var util      = __webpack_require__(9693);
 
 var BufferReader; // cyclic
 
@@ -3021,10 +9864,10 @@ Reader._configure = function(BufferReader_) {
 module.exports = BufferReader;
 
 // extends Reader
-var Reader = __webpack_require__(408);
+var Reader = __webpack_require__(1408);
 (BufferReader.prototype = Object.create(Reader.prototype)).constructor = BufferReader;
 
-var util = __webpack_require__(693);
+var util = __webpack_require__(9693);
 
 /**
  * Constructs a new buffer reader instance.
@@ -3072,7 +9915,7 @@ BufferReader._configure();
 
 /***/ }),
 
-/***/ 54:
+/***/ 5054:
 /***/ ((module) => {
 
 "use strict";
@@ -3098,7 +9941,7 @@ module.exports = {};
 
 /***/ }),
 
-/***/ 994:
+/***/ 5994:
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 "use strict";
@@ -3137,19 +9980,19 @@ var rpc = exports;
  * @returns {undefined}
  */
 
-rpc.Service = __webpack_require__(948);
+rpc.Service = __webpack_require__(7948);
 
 
 /***/ }),
 
-/***/ 948:
+/***/ 7948:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 module.exports = Service;
 
-var util = __webpack_require__(693);
+var util = __webpack_require__(9693);
 
 // Extends EventEmitter
 (Service.prototype = Object.create(util.EventEmitter.prototype)).constructor = Service;
@@ -3292,14 +10135,14 @@ Service.prototype.end = function end(endedByRPC) {
 
 /***/ }),
 
-/***/ 630:
+/***/ 1945:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 module.exports = LongBits;
 
-var util = __webpack_require__(693);
+var util = __webpack_require__(9693);
 
 /**
  * Constructs new long bits.
@@ -3500,7 +10343,7 @@ LongBits.prototype.length = function length() {
 
 /***/ }),
 
-/***/ 693:
+/***/ 9693:
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 "use strict";
@@ -3508,28 +10351,28 @@ LongBits.prototype.length = function length() {
 var util = exports;
 
 // used to return a Promise where callback is omitted
-util.asPromise = __webpack_require__(537);
+util.asPromise = __webpack_require__(4537);
 
 // converts to / from base64 encoded strings
-util.base64 = __webpack_require__(419);
+util.base64 = __webpack_require__(7419);
 
 // base class of rpc.Service
-util.EventEmitter = __webpack_require__(211);
+util.EventEmitter = __webpack_require__(9211);
 
 // float handling accross browsers
 util.float = __webpack_require__(945);
 
 // requires modules optionally and hides the call from bundlers
-util.inquire = __webpack_require__(199);
+util.inquire = __webpack_require__(7199);
 
 // converts to / from utf8 encoded strings
-util.utf8 = __webpack_require__(997);
+util.utf8 = __webpack_require__(4997);
 
 // provides a node-like buffer pool in the browser
-util.pool = __webpack_require__(662);
+util.pool = __webpack_require__(6662);
 
 // utility to work with the low and high bits of a 64 bit value
-util.LongBits = __webpack_require__(630);
+util.LongBits = __webpack_require__(1945);
 
 /**
  * Whether running within node or not.
@@ -3929,14 +10772,14 @@ util._configure = function() {
 
 /***/ }),
 
-/***/ 173:
+/***/ 1173:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
 
 module.exports = Writer;
 
-var util      = __webpack_require__(693);
+var util      = __webpack_require__(9693);
 
 var BufferWriter; // cyclic
 
@@ -4402,7 +11245,7 @@ Writer._configure = function(BufferWriter_) {
 
 /***/ }),
 
-/***/ 155:
+/***/ 3155:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
 "use strict";
@@ -4410,10 +11253,10 @@ Writer._configure = function(BufferWriter_) {
 module.exports = BufferWriter;
 
 // extends Writer
-var Writer = __webpack_require__(173);
+var Writer = __webpack_require__(1173);
 (BufferWriter.prototype = Object.create(Writer.prototype)).constructor = BufferWriter;
 
-var util = __webpack_require__(693);
+var util = __webpack_require__(9693);
 
 /**
  * Constructs a new buffer writer instance.
@@ -4495,9 +11338,10 @@ BufferWriter._configure();
 
 /***/ }),
 
-/***/ 660:
+/***/ 8660:
 /***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
 
+/* provided dependency */ var process = __webpack_require__(4155);
 /*! *****************************************************************************
 Copyright (C) Microsoft. All rights reserved.
 Licensed under the Apache License, Version 2.0 (the "License"); you may not use
@@ -5631,6 +12475,1223 @@ var Reflect;
 })(Reflect || (Reflect = {}));
 
 
+/***/ }),
+
+/***/ 384:
+/***/ ((module) => {
+
+module.exports = function isBuffer(arg) {
+  return arg && typeof arg === 'object'
+    && typeof arg.copy === 'function'
+    && typeof arg.fill === 'function'
+    && typeof arg.readUInt8 === 'function';
+}
+
+/***/ }),
+
+/***/ 5955:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+"use strict";
+// Currently in sync with Node.js lib/internal/util/types.js
+// https://github.com/nodejs/node/commit/112cc7c27551254aa2b17098fb774867f05ed0d9
+
+
+
+var isArgumentsObject = __webpack_require__(2584);
+var isGeneratorFunction = __webpack_require__(8662);
+var whichTypedArray = __webpack_require__(6430);
+var isTypedArray = __webpack_require__(5692);
+
+function uncurryThis(f) {
+  return f.call.bind(f);
+}
+
+var BigIntSupported = typeof BigInt !== 'undefined';
+var SymbolSupported = typeof Symbol !== 'undefined';
+
+var ObjectToString = uncurryThis(Object.prototype.toString);
+
+var numberValue = uncurryThis(Number.prototype.valueOf);
+var stringValue = uncurryThis(String.prototype.valueOf);
+var booleanValue = uncurryThis(Boolean.prototype.valueOf);
+
+if (BigIntSupported) {
+  var bigIntValue = uncurryThis(BigInt.prototype.valueOf);
+}
+
+if (SymbolSupported) {
+  var symbolValue = uncurryThis(Symbol.prototype.valueOf);
+}
+
+function checkBoxedPrimitive(value, prototypeValueOf) {
+  if (typeof value !== 'object') {
+    return false;
+  }
+  try {
+    prototypeValueOf(value);
+    return true;
+  } catch(e) {
+    return false;
+  }
+}
+
+exports.isArgumentsObject = isArgumentsObject;
+exports.isGeneratorFunction = isGeneratorFunction;
+exports.isTypedArray = isTypedArray;
+
+// Taken from here and modified for better browser support
+// https://github.com/sindresorhus/p-is-promise/blob/cda35a513bda03f977ad5cde3a079d237e82d7ef/index.js
+function isPromise(input) {
+	return (
+		(
+			typeof Promise !== 'undefined' &&
+			input instanceof Promise
+		) ||
+		(
+			input !== null &&
+			typeof input === 'object' &&
+			typeof input.then === 'function' &&
+			typeof input.catch === 'function'
+		)
+	);
+}
+exports.isPromise = isPromise;
+
+function isArrayBufferView(value) {
+  if (typeof ArrayBuffer !== 'undefined' && ArrayBuffer.isView) {
+    return ArrayBuffer.isView(value);
+  }
+
+  return (
+    isTypedArray(value) ||
+    isDataView(value)
+  );
+}
+exports.isArrayBufferView = isArrayBufferView;
+
+
+function isUint8Array(value) {
+  return whichTypedArray(value) === 'Uint8Array';
+}
+exports.isUint8Array = isUint8Array;
+
+function isUint8ClampedArray(value) {
+  return whichTypedArray(value) === 'Uint8ClampedArray';
+}
+exports.isUint8ClampedArray = isUint8ClampedArray;
+
+function isUint16Array(value) {
+  return whichTypedArray(value) === 'Uint16Array';
+}
+exports.isUint16Array = isUint16Array;
+
+function isUint32Array(value) {
+  return whichTypedArray(value) === 'Uint32Array';
+}
+exports.isUint32Array = isUint32Array;
+
+function isInt8Array(value) {
+  return whichTypedArray(value) === 'Int8Array';
+}
+exports.isInt8Array = isInt8Array;
+
+function isInt16Array(value) {
+  return whichTypedArray(value) === 'Int16Array';
+}
+exports.isInt16Array = isInt16Array;
+
+function isInt32Array(value) {
+  return whichTypedArray(value) === 'Int32Array';
+}
+exports.isInt32Array = isInt32Array;
+
+function isFloat32Array(value) {
+  return whichTypedArray(value) === 'Float32Array';
+}
+exports.isFloat32Array = isFloat32Array;
+
+function isFloat64Array(value) {
+  return whichTypedArray(value) === 'Float64Array';
+}
+exports.isFloat64Array = isFloat64Array;
+
+function isBigInt64Array(value) {
+  return whichTypedArray(value) === 'BigInt64Array';
+}
+exports.isBigInt64Array = isBigInt64Array;
+
+function isBigUint64Array(value) {
+  return whichTypedArray(value) === 'BigUint64Array';
+}
+exports.isBigUint64Array = isBigUint64Array;
+
+function isMapToString(value) {
+  return ObjectToString(value) === '[object Map]';
+}
+isMapToString.working = (
+  typeof Map !== 'undefined' &&
+  isMapToString(new Map())
+);
+
+function isMap(value) {
+  if (typeof Map === 'undefined') {
+    return false;
+  }
+
+  return isMapToString.working
+    ? isMapToString(value)
+    : value instanceof Map;
+}
+exports.isMap = isMap;
+
+function isSetToString(value) {
+  return ObjectToString(value) === '[object Set]';
+}
+isSetToString.working = (
+  typeof Set !== 'undefined' &&
+  isSetToString(new Set())
+);
+function isSet(value) {
+  if (typeof Set === 'undefined') {
+    return false;
+  }
+
+  return isSetToString.working
+    ? isSetToString(value)
+    : value instanceof Set;
+}
+exports.isSet = isSet;
+
+function isWeakMapToString(value) {
+  return ObjectToString(value) === '[object WeakMap]';
+}
+isWeakMapToString.working = (
+  typeof WeakMap !== 'undefined' &&
+  isWeakMapToString(new WeakMap())
+);
+function isWeakMap(value) {
+  if (typeof WeakMap === 'undefined') {
+    return false;
+  }
+
+  return isWeakMapToString.working
+    ? isWeakMapToString(value)
+    : value instanceof WeakMap;
+}
+exports.isWeakMap = isWeakMap;
+
+function isWeakSetToString(value) {
+  return ObjectToString(value) === '[object WeakSet]';
+}
+isWeakSetToString.working = (
+  typeof WeakSet !== 'undefined' &&
+  isWeakSetToString(new WeakSet())
+);
+function isWeakSet(value) {
+  return isWeakSetToString(value);
+}
+exports.isWeakSet = isWeakSet;
+
+function isArrayBufferToString(value) {
+  return ObjectToString(value) === '[object ArrayBuffer]';
+}
+isArrayBufferToString.working = (
+  typeof ArrayBuffer !== 'undefined' &&
+  isArrayBufferToString(new ArrayBuffer())
+);
+function isArrayBuffer(value) {
+  if (typeof ArrayBuffer === 'undefined') {
+    return false;
+  }
+
+  return isArrayBufferToString.working
+    ? isArrayBufferToString(value)
+    : value instanceof ArrayBuffer;
+}
+exports.isArrayBuffer = isArrayBuffer;
+
+function isDataViewToString(value) {
+  return ObjectToString(value) === '[object DataView]';
+}
+isDataViewToString.working = (
+  typeof ArrayBuffer !== 'undefined' &&
+  typeof DataView !== 'undefined' &&
+  isDataViewToString(new DataView(new ArrayBuffer(1), 0, 1))
+);
+function isDataView(value) {
+  if (typeof DataView === 'undefined') {
+    return false;
+  }
+
+  return isDataViewToString.working
+    ? isDataViewToString(value)
+    : value instanceof DataView;
+}
+exports.isDataView = isDataView;
+
+// Store a copy of SharedArrayBuffer in case it's deleted elsewhere
+var SharedArrayBufferCopy = typeof SharedArrayBuffer !== 'undefined' ? SharedArrayBuffer : undefined;
+function isSharedArrayBufferToString(value) {
+  return ObjectToString(value) === '[object SharedArrayBuffer]';
+}
+function isSharedArrayBuffer(value) {
+  if (typeof SharedArrayBufferCopy === 'undefined') {
+    return false;
+  }
+
+  if (typeof isSharedArrayBufferToString.working === 'undefined') {
+    isSharedArrayBufferToString.working = isSharedArrayBufferToString(new SharedArrayBufferCopy());
+  }
+
+  return isSharedArrayBufferToString.working
+    ? isSharedArrayBufferToString(value)
+    : value instanceof SharedArrayBufferCopy;
+}
+exports.isSharedArrayBuffer = isSharedArrayBuffer;
+
+function isAsyncFunction(value) {
+  return ObjectToString(value) === '[object AsyncFunction]';
+}
+exports.isAsyncFunction = isAsyncFunction;
+
+function isMapIterator(value) {
+  return ObjectToString(value) === '[object Map Iterator]';
+}
+exports.isMapIterator = isMapIterator;
+
+function isSetIterator(value) {
+  return ObjectToString(value) === '[object Set Iterator]';
+}
+exports.isSetIterator = isSetIterator;
+
+function isGeneratorObject(value) {
+  return ObjectToString(value) === '[object Generator]';
+}
+exports.isGeneratorObject = isGeneratorObject;
+
+function isWebAssemblyCompiledModule(value) {
+  return ObjectToString(value) === '[object WebAssembly.Module]';
+}
+exports.isWebAssemblyCompiledModule = isWebAssemblyCompiledModule;
+
+function isNumberObject(value) {
+  return checkBoxedPrimitive(value, numberValue);
+}
+exports.isNumberObject = isNumberObject;
+
+function isStringObject(value) {
+  return checkBoxedPrimitive(value, stringValue);
+}
+exports.isStringObject = isStringObject;
+
+function isBooleanObject(value) {
+  return checkBoxedPrimitive(value, booleanValue);
+}
+exports.isBooleanObject = isBooleanObject;
+
+function isBigIntObject(value) {
+  return BigIntSupported && checkBoxedPrimitive(value, bigIntValue);
+}
+exports.isBigIntObject = isBigIntObject;
+
+function isSymbolObject(value) {
+  return SymbolSupported && checkBoxedPrimitive(value, symbolValue);
+}
+exports.isSymbolObject = isSymbolObject;
+
+function isBoxedPrimitive(value) {
+  return (
+    isNumberObject(value) ||
+    isStringObject(value) ||
+    isBooleanObject(value) ||
+    isBigIntObject(value) ||
+    isSymbolObject(value)
+  );
+}
+exports.isBoxedPrimitive = isBoxedPrimitive;
+
+function isAnyArrayBuffer(value) {
+  return typeof Uint8Array !== 'undefined' && (
+    isArrayBuffer(value) ||
+    isSharedArrayBuffer(value)
+  );
+}
+exports.isAnyArrayBuffer = isAnyArrayBuffer;
+
+['isProxy', 'isExternal', 'isModuleNamespaceObject'].forEach(function(method) {
+  Object.defineProperty(exports, method, {
+    enumerable: false,
+    value: function() {
+      throw new Error(method + ' is not supported in userland');
+    }
+  });
+});
+
+
+/***/ }),
+
+/***/ 9539:
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+/* provided dependency */ var process = __webpack_require__(4155);
+/* provided dependency */ var console = __webpack_require__(5108);
+// Copyright Joyent, Inc. and other Node contributors.
+//
+// Permission is hereby granted, free of charge, to any person obtaining a
+// copy of this software and associated documentation files (the
+// "Software"), to deal in the Software without restriction, including
+// without limitation the rights to use, copy, modify, merge, publish,
+// distribute, sublicense, and/or sell copies of the Software, and to permit
+// persons to whom the Software is furnished to do so, subject to the
+// following conditions:
+//
+// The above copyright notice and this permission notice shall be included
+// in all copies or substantial portions of the Software.
+//
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS
+// OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+// MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
+// NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+// DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
+// OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
+// USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+var getOwnPropertyDescriptors = Object.getOwnPropertyDescriptors ||
+  function getOwnPropertyDescriptors(obj) {
+    var keys = Object.keys(obj);
+    var descriptors = {};
+    for (var i = 0; i < keys.length; i++) {
+      descriptors[keys[i]] = Object.getOwnPropertyDescriptor(obj, keys[i]);
+    }
+    return descriptors;
+  };
+
+var formatRegExp = /%[sdj%]/g;
+exports.format = function(f) {
+  if (!isString(f)) {
+    var objects = [];
+    for (var i = 0; i < arguments.length; i++) {
+      objects.push(inspect(arguments[i]));
+    }
+    return objects.join(' ');
+  }
+
+  var i = 1;
+  var args = arguments;
+  var len = args.length;
+  var str = String(f).replace(formatRegExp, function(x) {
+    if (x === '%%') return '%';
+    if (i >= len) return x;
+    switch (x) {
+      case '%s': return String(args[i++]);
+      case '%d': return Number(args[i++]);
+      case '%j':
+        try {
+          return JSON.stringify(args[i++]);
+        } catch (_) {
+          return '[Circular]';
+        }
+      default:
+        return x;
+    }
+  });
+  for (var x = args[i]; i < len; x = args[++i]) {
+    if (isNull(x) || !isObject(x)) {
+      str += ' ' + x;
+    } else {
+      str += ' ' + inspect(x);
+    }
+  }
+  return str;
+};
+
+
+// Mark that a method should not be used.
+// Returns a modified function which warns once by default.
+// If --no-deprecation is set, then it is a no-op.
+exports.deprecate = function(fn, msg) {
+  if (typeof process !== 'undefined' && process.noDeprecation === true) {
+    return fn;
+  }
+
+  // Allow for deprecating things in the process of starting up.
+  if (typeof process === 'undefined') {
+    return function() {
+      return exports.deprecate(fn, msg).apply(this, arguments);
+    };
+  }
+
+  var warned = false;
+  function deprecated() {
+    if (!warned) {
+      if (process.throwDeprecation) {
+        throw new Error(msg);
+      } else if (process.traceDeprecation) {
+        console.trace(msg);
+      } else {
+        console.error(msg);
+      }
+      warned = true;
+    }
+    return fn.apply(this, arguments);
+  }
+
+  return deprecated;
+};
+
+
+var debugs = {};
+var debugEnvRegex = /^$/;
+
+if (process.env.NODE_DEBUG) {
+  var debugEnv = process.env.NODE_DEBUG;
+  debugEnv = debugEnv.replace(/[|\\{}()[\]^$+?.]/g, '\\$&')
+    .replace(/\*/g, '.*')
+    .replace(/,/g, '$|^')
+    .toUpperCase();
+  debugEnvRegex = new RegExp('^' + debugEnv + '$', 'i');
+}
+exports.debuglog = function(set) {
+  set = set.toUpperCase();
+  if (!debugs[set]) {
+    if (debugEnvRegex.test(set)) {
+      var pid = process.pid;
+      debugs[set] = function() {
+        var msg = exports.format.apply(exports, arguments);
+        console.error('%s %d: %s', set, pid, msg);
+      };
+    } else {
+      debugs[set] = function() {};
+    }
+  }
+  return debugs[set];
+};
+
+
+/**
+ * Echos the value of a value. Trys to print the value out
+ * in the best way possible given the different types.
+ *
+ * @param {Object} obj The object to print out.
+ * @param {Object} opts Optional options object that alters the output.
+ */
+/* legacy: obj, showHidden, depth, colors*/
+function inspect(obj, opts) {
+  // default options
+  var ctx = {
+    seen: [],
+    stylize: stylizeNoColor
+  };
+  // legacy...
+  if (arguments.length >= 3) ctx.depth = arguments[2];
+  if (arguments.length >= 4) ctx.colors = arguments[3];
+  if (isBoolean(opts)) {
+    // legacy...
+    ctx.showHidden = opts;
+  } else if (opts) {
+    // got an "options" object
+    exports._extend(ctx, opts);
+  }
+  // set default options
+  if (isUndefined(ctx.showHidden)) ctx.showHidden = false;
+  if (isUndefined(ctx.depth)) ctx.depth = 2;
+  if (isUndefined(ctx.colors)) ctx.colors = false;
+  if (isUndefined(ctx.customInspect)) ctx.customInspect = true;
+  if (ctx.colors) ctx.stylize = stylizeWithColor;
+  return formatValue(ctx, obj, ctx.depth);
+}
+exports.inspect = inspect;
+
+
+// http://en.wikipedia.org/wiki/ANSI_escape_code#graphics
+inspect.colors = {
+  'bold' : [1, 22],
+  'italic' : [3, 23],
+  'underline' : [4, 24],
+  'inverse' : [7, 27],
+  'white' : [37, 39],
+  'grey' : [90, 39],
+  'black' : [30, 39],
+  'blue' : [34, 39],
+  'cyan' : [36, 39],
+  'green' : [32, 39],
+  'magenta' : [35, 39],
+  'red' : [31, 39],
+  'yellow' : [33, 39]
+};
+
+// Don't use 'blue' not visible on cmd.exe
+inspect.styles = {
+  'special': 'cyan',
+  'number': 'yellow',
+  'boolean': 'yellow',
+  'undefined': 'grey',
+  'null': 'bold',
+  'string': 'green',
+  'date': 'magenta',
+  // "name": intentionally not styling
+  'regexp': 'red'
+};
+
+
+function stylizeWithColor(str, styleType) {
+  var style = inspect.styles[styleType];
+
+  if (style) {
+    return '\u001b[' + inspect.colors[style][0] + 'm' + str +
+           '\u001b[' + inspect.colors[style][1] + 'm';
+  } else {
+    return str;
+  }
+}
+
+
+function stylizeNoColor(str, styleType) {
+  return str;
+}
+
+
+function arrayToHash(array) {
+  var hash = {};
+
+  array.forEach(function(val, idx) {
+    hash[val] = true;
+  });
+
+  return hash;
+}
+
+
+function formatValue(ctx, value, recurseTimes) {
+  // Provide a hook for user-specified inspect functions.
+  // Check that value is an object with an inspect function on it
+  if (ctx.customInspect &&
+      value &&
+      isFunction(value.inspect) &&
+      // Filter out the util module, it's inspect function is special
+      value.inspect !== exports.inspect &&
+      // Also filter out any prototype objects using the circular check.
+      !(value.constructor && value.constructor.prototype === value)) {
+    var ret = value.inspect(recurseTimes, ctx);
+    if (!isString(ret)) {
+      ret = formatValue(ctx, ret, recurseTimes);
+    }
+    return ret;
+  }
+
+  // Primitive types cannot have properties
+  var primitive = formatPrimitive(ctx, value);
+  if (primitive) {
+    return primitive;
+  }
+
+  // Look up the keys of the object.
+  var keys = Object.keys(value);
+  var visibleKeys = arrayToHash(keys);
+
+  if (ctx.showHidden) {
+    keys = Object.getOwnPropertyNames(value);
+  }
+
+  // IE doesn't make error fields non-enumerable
+  // http://msdn.microsoft.com/en-us/library/ie/dww52sbt(v=vs.94).aspx
+  if (isError(value)
+      && (keys.indexOf('message') >= 0 || keys.indexOf('description') >= 0)) {
+    return formatError(value);
+  }
+
+  // Some type of object without properties can be shortcutted.
+  if (keys.length === 0) {
+    if (isFunction(value)) {
+      var name = value.name ? ': ' + value.name : '';
+      return ctx.stylize('[Function' + name + ']', 'special');
+    }
+    if (isRegExp(value)) {
+      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+    }
+    if (isDate(value)) {
+      return ctx.stylize(Date.prototype.toString.call(value), 'date');
+    }
+    if (isError(value)) {
+      return formatError(value);
+    }
+  }
+
+  var base = '', array = false, braces = ['{', '}'];
+
+  // Make Array say that they are Array
+  if (isArray(value)) {
+    array = true;
+    braces = ['[', ']'];
+  }
+
+  // Make functions say that they are functions
+  if (isFunction(value)) {
+    var n = value.name ? ': ' + value.name : '';
+    base = ' [Function' + n + ']';
+  }
+
+  // Make RegExps say that they are RegExps
+  if (isRegExp(value)) {
+    base = ' ' + RegExp.prototype.toString.call(value);
+  }
+
+  // Make dates with properties first say the date
+  if (isDate(value)) {
+    base = ' ' + Date.prototype.toUTCString.call(value);
+  }
+
+  // Make error with message first say the error
+  if (isError(value)) {
+    base = ' ' + formatError(value);
+  }
+
+  if (keys.length === 0 && (!array || value.length == 0)) {
+    return braces[0] + base + braces[1];
+  }
+
+  if (recurseTimes < 0) {
+    if (isRegExp(value)) {
+      return ctx.stylize(RegExp.prototype.toString.call(value), 'regexp');
+    } else {
+      return ctx.stylize('[Object]', 'special');
+    }
+  }
+
+  ctx.seen.push(value);
+
+  var output;
+  if (array) {
+    output = formatArray(ctx, value, recurseTimes, visibleKeys, keys);
+  } else {
+    output = keys.map(function(key) {
+      return formatProperty(ctx, value, recurseTimes, visibleKeys, key, array);
+    });
+  }
+
+  ctx.seen.pop();
+
+  return reduceToSingleString(output, base, braces);
+}
+
+
+function formatPrimitive(ctx, value) {
+  if (isUndefined(value))
+    return ctx.stylize('undefined', 'undefined');
+  if (isString(value)) {
+    var simple = '\'' + JSON.stringify(value).replace(/^"|"$/g, '')
+                                             .replace(/'/g, "\\'")
+                                             .replace(/\\"/g, '"') + '\'';
+    return ctx.stylize(simple, 'string');
+  }
+  if (isNumber(value))
+    return ctx.stylize('' + value, 'number');
+  if (isBoolean(value))
+    return ctx.stylize('' + value, 'boolean');
+  // For some reason typeof null is "object", so special case here.
+  if (isNull(value))
+    return ctx.stylize('null', 'null');
+}
+
+
+function formatError(value) {
+  return '[' + Error.prototype.toString.call(value) + ']';
+}
+
+
+function formatArray(ctx, value, recurseTimes, visibleKeys, keys) {
+  var output = [];
+  for (var i = 0, l = value.length; i < l; ++i) {
+    if (hasOwnProperty(value, String(i))) {
+      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+          String(i), true));
+    } else {
+      output.push('');
+    }
+  }
+  keys.forEach(function(key) {
+    if (!key.match(/^\d+$/)) {
+      output.push(formatProperty(ctx, value, recurseTimes, visibleKeys,
+          key, true));
+    }
+  });
+  return output;
+}
+
+
+function formatProperty(ctx, value, recurseTimes, visibleKeys, key, array) {
+  var name, str, desc;
+  desc = Object.getOwnPropertyDescriptor(value, key) || { value: value[key] };
+  if (desc.get) {
+    if (desc.set) {
+      str = ctx.stylize('[Getter/Setter]', 'special');
+    } else {
+      str = ctx.stylize('[Getter]', 'special');
+    }
+  } else {
+    if (desc.set) {
+      str = ctx.stylize('[Setter]', 'special');
+    }
+  }
+  if (!hasOwnProperty(visibleKeys, key)) {
+    name = '[' + key + ']';
+  }
+  if (!str) {
+    if (ctx.seen.indexOf(desc.value) < 0) {
+      if (isNull(recurseTimes)) {
+        str = formatValue(ctx, desc.value, null);
+      } else {
+        str = formatValue(ctx, desc.value, recurseTimes - 1);
+      }
+      if (str.indexOf('\n') > -1) {
+        if (array) {
+          str = str.split('\n').map(function(line) {
+            return '  ' + line;
+          }).join('\n').slice(2);
+        } else {
+          str = '\n' + str.split('\n').map(function(line) {
+            return '   ' + line;
+          }).join('\n');
+        }
+      }
+    } else {
+      str = ctx.stylize('[Circular]', 'special');
+    }
+  }
+  if (isUndefined(name)) {
+    if (array && key.match(/^\d+$/)) {
+      return str;
+    }
+    name = JSON.stringify('' + key);
+    if (name.match(/^"([a-zA-Z_][a-zA-Z_0-9]*)"$/)) {
+      name = name.slice(1, -1);
+      name = ctx.stylize(name, 'name');
+    } else {
+      name = name.replace(/'/g, "\\'")
+                 .replace(/\\"/g, '"')
+                 .replace(/(^"|"$)/g, "'");
+      name = ctx.stylize(name, 'string');
+    }
+  }
+
+  return name + ': ' + str;
+}
+
+
+function reduceToSingleString(output, base, braces) {
+  var numLinesEst = 0;
+  var length = output.reduce(function(prev, cur) {
+    numLinesEst++;
+    if (cur.indexOf('\n') >= 0) numLinesEst++;
+    return prev + cur.replace(/\u001b\[\d\d?m/g, '').length + 1;
+  }, 0);
+
+  if (length > 60) {
+    return braces[0] +
+           (base === '' ? '' : base + '\n ') +
+           ' ' +
+           output.join(',\n  ') +
+           ' ' +
+           braces[1];
+  }
+
+  return braces[0] + base + ' ' + output.join(', ') + ' ' + braces[1];
+}
+
+
+// NOTE: These type checking functions intentionally don't use `instanceof`
+// because it is fragile and can be easily faked with `Object.create()`.
+exports.types = __webpack_require__(5955);
+
+function isArray(ar) {
+  return Array.isArray(ar);
+}
+exports.isArray = isArray;
+
+function isBoolean(arg) {
+  return typeof arg === 'boolean';
+}
+exports.isBoolean = isBoolean;
+
+function isNull(arg) {
+  return arg === null;
+}
+exports.isNull = isNull;
+
+function isNullOrUndefined(arg) {
+  return arg == null;
+}
+exports.isNullOrUndefined = isNullOrUndefined;
+
+function isNumber(arg) {
+  return typeof arg === 'number';
+}
+exports.isNumber = isNumber;
+
+function isString(arg) {
+  return typeof arg === 'string';
+}
+exports.isString = isString;
+
+function isSymbol(arg) {
+  return typeof arg === 'symbol';
+}
+exports.isSymbol = isSymbol;
+
+function isUndefined(arg) {
+  return arg === void 0;
+}
+exports.isUndefined = isUndefined;
+
+function isRegExp(re) {
+  return isObject(re) && objectToString(re) === '[object RegExp]';
+}
+exports.isRegExp = isRegExp;
+exports.types.isRegExp = isRegExp;
+
+function isObject(arg) {
+  return typeof arg === 'object' && arg !== null;
+}
+exports.isObject = isObject;
+
+function isDate(d) {
+  return isObject(d) && objectToString(d) === '[object Date]';
+}
+exports.isDate = isDate;
+exports.types.isDate = isDate;
+
+function isError(e) {
+  return isObject(e) &&
+      (objectToString(e) === '[object Error]' || e instanceof Error);
+}
+exports.isError = isError;
+exports.types.isNativeError = isError;
+
+function isFunction(arg) {
+  return typeof arg === 'function';
+}
+exports.isFunction = isFunction;
+
+function isPrimitive(arg) {
+  return arg === null ||
+         typeof arg === 'boolean' ||
+         typeof arg === 'number' ||
+         typeof arg === 'string' ||
+         typeof arg === 'symbol' ||  // ES6 symbol
+         typeof arg === 'undefined';
+}
+exports.isPrimitive = isPrimitive;
+
+exports.isBuffer = __webpack_require__(384);
+
+function objectToString(o) {
+  return Object.prototype.toString.call(o);
+}
+
+
+function pad(n) {
+  return n < 10 ? '0' + n.toString(10) : n.toString(10);
+}
+
+
+var months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep',
+              'Oct', 'Nov', 'Dec'];
+
+// 26 Feb 16:19:34
+function timestamp() {
+  var d = new Date();
+  var time = [pad(d.getHours()),
+              pad(d.getMinutes()),
+              pad(d.getSeconds())].join(':');
+  return [d.getDate(), months[d.getMonth()], time].join(' ');
+}
+
+
+// log is just a thin wrapper to console.log that prepends a timestamp
+exports.log = function() {
+  console.log('%s - %s', timestamp(), exports.format.apply(exports, arguments));
+};
+
+
+/**
+ * Inherit the prototype methods from one constructor into another.
+ *
+ * The Function.prototype.inherits from lang.js rewritten as a standalone
+ * function (not on Function.prototype). NOTE: If this file is to be loaded
+ * during bootstrapping this function needs to be rewritten using some native
+ * functions as prototype setup using normal JavaScript does not work as
+ * expected during bootstrapping (see mirror.js in r114903).
+ *
+ * @param {function} ctor Constructor function which needs to inherit the
+ *     prototype.
+ * @param {function} superCtor Constructor function to inherit prototype from.
+ */
+exports.inherits = __webpack_require__(5717);
+
+exports._extend = function(origin, add) {
+  // Don't do anything if add isn't an object
+  if (!add || !isObject(add)) return origin;
+
+  var keys = Object.keys(add);
+  var i = keys.length;
+  while (i--) {
+    origin[keys[i]] = add[keys[i]];
+  }
+  return origin;
+};
+
+function hasOwnProperty(obj, prop) {
+  return Object.prototype.hasOwnProperty.call(obj, prop);
+}
+
+var kCustomPromisifiedSymbol = typeof Symbol !== 'undefined' ? Symbol('util.promisify.custom') : undefined;
+
+exports.promisify = function promisify(original) {
+  if (typeof original !== 'function')
+    throw new TypeError('The "original" argument must be of type Function');
+
+  if (kCustomPromisifiedSymbol && original[kCustomPromisifiedSymbol]) {
+    var fn = original[kCustomPromisifiedSymbol];
+    if (typeof fn !== 'function') {
+      throw new TypeError('The "util.promisify.custom" argument must be of type Function');
+    }
+    Object.defineProperty(fn, kCustomPromisifiedSymbol, {
+      value: fn, enumerable: false, writable: false, configurable: true
+    });
+    return fn;
+  }
+
+  function fn() {
+    var promiseResolve, promiseReject;
+    var promise = new Promise(function (resolve, reject) {
+      promiseResolve = resolve;
+      promiseReject = reject;
+    });
+
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) {
+      args.push(arguments[i]);
+    }
+    args.push(function (err, value) {
+      if (err) {
+        promiseReject(err);
+      } else {
+        promiseResolve(value);
+      }
+    });
+
+    try {
+      original.apply(this, args);
+    } catch (err) {
+      promiseReject(err);
+    }
+
+    return promise;
+  }
+
+  Object.setPrototypeOf(fn, Object.getPrototypeOf(original));
+
+  if (kCustomPromisifiedSymbol) Object.defineProperty(fn, kCustomPromisifiedSymbol, {
+    value: fn, enumerable: false, writable: false, configurable: true
+  });
+  return Object.defineProperties(
+    fn,
+    getOwnPropertyDescriptors(original)
+  );
+}
+
+exports.promisify.custom = kCustomPromisifiedSymbol
+
+function callbackifyOnRejected(reason, cb) {
+  // `!reason` guard inspired by bluebird (Ref: https://goo.gl/t5IS6M).
+  // Because `null` is a special error value in callbacks which means "no error
+  // occurred", we error-wrap so the callback consumer can distinguish between
+  // "the promise rejected with null" or "the promise fulfilled with undefined".
+  if (!reason) {
+    var newReason = new Error('Promise was rejected with a falsy value');
+    newReason.reason = reason;
+    reason = newReason;
+  }
+  return cb(reason);
+}
+
+function callbackify(original) {
+  if (typeof original !== 'function') {
+    throw new TypeError('The "original" argument must be of type Function');
+  }
+
+  // We DO NOT return the promise as it gives the user a false sense that
+  // the promise is actually somehow related to the callback's execution
+  // and that the callback throwing will reject the promise.
+  function callbackified() {
+    var args = [];
+    for (var i = 0; i < arguments.length; i++) {
+      args.push(arguments[i]);
+    }
+
+    var maybeCb = args.pop();
+    if (typeof maybeCb !== 'function') {
+      throw new TypeError('The last argument must be of type Function');
+    }
+    var self = this;
+    var cb = function() {
+      return maybeCb.apply(self, arguments);
+    };
+    // In true node style we process the callback on `nextTick` with all the
+    // implications (stack, `uncaughtException`, `async_hooks`)
+    original.apply(this, args)
+      .then(function(ret) { process.nextTick(cb.bind(null, null, ret)) },
+            function(rej) { process.nextTick(callbackifyOnRejected.bind(null, rej, cb)) });
+  }
+
+  Object.setPrototypeOf(callbackified, Object.getPrototypeOf(original));
+  Object.defineProperties(callbackified,
+                          getOwnPropertyDescriptors(original));
+  return callbackified;
+}
+exports.callbackify = callbackify;
+
+
+/***/ }),
+
+/***/ 6430:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var forEach = __webpack_require__(4029);
+var availableTypedArrays = __webpack_require__(3083);
+var callBind = __webpack_require__(5559);
+var callBound = __webpack_require__(1924);
+var gOPD = __webpack_require__(7296);
+
+var $toString = callBound('Object.prototype.toString');
+var hasToStringTag = __webpack_require__(6410)();
+
+var g = typeof globalThis === 'undefined' ? __webpack_require__.g : globalThis;
+var typedArrays = availableTypedArrays();
+
+var $slice = callBound('String.prototype.slice');
+var getPrototypeOf = Object.getPrototypeOf; // require('getprototypeof');
+
+var $indexOf = callBound('Array.prototype.indexOf', true) || function indexOf(array, value) {
+	for (var i = 0; i < array.length; i += 1) {
+		if (array[i] === value) {
+			return i;
+		}
+	}
+	return -1;
+};
+var cache = { __proto__: null };
+if (hasToStringTag && gOPD && getPrototypeOf) {
+	forEach(typedArrays, function (typedArray) {
+		var arr = new g[typedArray]();
+		if (Symbol.toStringTag in arr) {
+			var proto = getPrototypeOf(arr);
+			var descriptor = gOPD(proto, Symbol.toStringTag);
+			if (!descriptor) {
+				var superProto = getPrototypeOf(proto);
+				descriptor = gOPD(superProto, Symbol.toStringTag);
+			}
+			cache['$' + typedArray] = callBind(descriptor.get);
+		}
+	});
+} else {
+	forEach(typedArrays, function (typedArray) {
+		var arr = new g[typedArray]();
+		cache['$' + typedArray] = callBind(arr.slice);
+	});
+}
+
+var tryTypedArrays = function tryAllTypedArrays(value) {
+	var found = false;
+	forEach(cache, function (getter, typedArray) {
+		if (!found) {
+			try {
+				if ('$' + getter(value) === typedArray) {
+					found = $slice(typedArray, 1);
+				}
+			} catch (e) { /**/ }
+		}
+	});
+	return found;
+};
+
+var trySlices = function tryAllSlices(value) {
+	var found = false;
+	forEach(cache, function (getter, name) {
+		if (!found) {
+			try {
+				getter(value);
+				found = $slice(name, 1);
+			} catch (e) { /**/ }
+		}
+	});
+	return found;
+};
+
+module.exports = function whichTypedArray(value) {
+	if (!value || typeof value !== 'object') { return false; }
+	if (!hasToStringTag) {
+		var tag = $slice($toString(value), 8, -1);
+		if ($indexOf(typedArrays, tag) > -1) {
+			return tag;
+		}
+		if (tag !== 'Object') {
+			return false;
+		}
+		// node < 0.6 hits here on real Typed Arrays
+		return trySlices(value);
+	}
+	if (!gOPD) { return null; } // unknown engine
+	return tryTypedArrays(value);
+};
+
+
+/***/ }),
+
+/***/ 9716:
+/***/ (() => {
+
+/* (ignored) */
+
+/***/ }),
+
+/***/ 3083:
+/***/ ((module, __unused_webpack_exports, __webpack_require__) => {
+
+"use strict";
+
+
+var possibleNames = [
+	'BigInt64Array',
+	'BigUint64Array',
+	'Float32Array',
+	'Float64Array',
+	'Int16Array',
+	'Int32Array',
+	'Int8Array',
+	'Uint16Array',
+	'Uint32Array',
+	'Uint8Array',
+	'Uint8ClampedArray'
+];
+
+var g = typeof globalThis === 'undefined' ? __webpack_require__.g : globalThis;
+
+module.exports = function availableTypedArrays() {
+	var out = [];
+	for (var i = 0; i < possibleNames.length; i++) {
+		if (typeof g[possibleNames[i]] === 'function') {
+			out[out.length] = possibleNames[i];
+		}
+	}
+	return out;
+};
+
+
 /***/ })
 
 /******/ 	});
@@ -5708,9 +13769,9 @@ var __webpack_exports__ = {};
 "use strict";
 
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/environment.json
-const environment_namespaceObject = JSON.parse('{"l":"0.13.1-alpha.1"}');
+const environment_namespaceObject = JSON.parse('{"l":"0.12.0-alpha.1"}');
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/lensCoreWasmVersions.json
-const lensCoreWasmVersions_namespaceObject = JSON.parse('{"i8":"231","c$":"111","FH":"https://cf-st.sc-cdn.net/d/Cqf3dzYV6Dvo2mhyCozDq?go=IgsKCTIBBEgBUFxgAQ%3D%3D&uc=92"}');
+const lensCoreWasmVersions_namespaceObject = JSON.parse('{"i8":"225","c$":"64","FH":"https://cf-st.sc-cdn.net/d/JigrWXPgfeH1cbTxyo1FM?go=IgsKCTIBBEgBUFxgAQ%3D%3D&uc=92"}');
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/copyDefinedProperties.js
 /**
  * Copy only those properties of an object which are not undefined.
@@ -5790,6 +13851,7 @@ function Injectable(token, dependenciesOrFn, maybeFn) {
 }
 //# sourceMappingURL=Injectable.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/configuration.js
+/* provided dependency */ var console = __webpack_require__(5108);
 
 
 
@@ -8306,24 +16368,11 @@ const defaultFetchHandlerFactory = Injectable("defaultFetchHandler", () => {
     // elsewhere (e.g. so that callers can omit the second argument instead of being forced to pass undefined).
     new HandlerChainBuilder(fetch)
         .map(createDebugHandler())
-        // The 20-second per-request timeout is pretty arbitrary, it's just set to be longer than our API gateway
-        // timeout (15s) and lower than the browsers own timeout (variable, Chrome's is 5m).
-        .map(createTimeoutHandler({ timeout: 20 * 1000 }))
         .map(createNoCorsRetryingFetchHandler())
-        .map(createRetryingHandler({
-        maxRetries: 3,
-        retryPredicate: (responseOrError) => {
-            // Don't retry successful Responses or Responses with a 4xx HTTP status code (indicating a
-            // client error). Do retry all 5xx HTTP status codes.
-            if (responseOrError instanceof Response) {
-                if (responseOrError.ok)
-                    return false;
-                if (responseOrError.status % 400 < 100)
-                    return false;
-            }
-            return true;
-        },
-    })).handler);
+        .map(createRetryingHandler())
+        // TODO: completely arbitrary timeout -- this should be configurable by consumers, and we should think
+        // about a sane default timeout UX... it's probably less than 10 seconds.
+        .map(createTimeoutHandler({ timeout: 10 * 1000 })).handler);
 });
 //# sourceMappingURL=defaultFetchHandler.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/locale.js
@@ -8524,7 +16573,7 @@ function parseApplicationOrigin() {
     return origin;
 }
 function getCameraKitUserAgent() {
-    var _a, _b;
+    var _a;
     const userAgent = (_a = navigator.userAgent) !== null && _a !== void 0 ? _a : "";
     // [NavigatorUAData](https://developer.mozilla.org/en-US/docs/Web/API/NavigatorUAData) is currently only
     // available on Chromium-based browsers – it's nice because it gives us clear, well-documented information. But
@@ -8567,7 +16616,6 @@ function getCameraKitUserAgent() {
         browser,
         origin,
         userAgent: cameraKitUserAgent,
-        connectionType: (_b = navigator.connection) === null || _b === void 0 ? void 0 : _b.type,
     };
 }
 /** @internal */
@@ -9022,7 +17070,7 @@ function estimateLensPerformance() {
 }
 //# sourceMappingURL=estimateLensPerformanceCluster.js.map
 // EXTERNAL MODULE: ./node_modules/reflect-metadata/Reflect.js
-var reflect_metadata_Reflect = __webpack_require__(660);
+var reflect_metadata_Reflect = __webpack_require__(8660);
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/validate.js
 
 const predicateMetadataKey = Symbol("validate");
@@ -9215,13 +17263,9 @@ class LensSources {
         var _a, _b;
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             if ((_a = this.source) === null || _a === void 0 ? void 0 : _a.isGroupOwner(groupId)) {
-                if (isUndefined(lensId)) {
-                    if (this.source.getLensGroup)
-                        return this.source.getLensGroup(groupId);
-                }
-                else if (this.source.getLens) {
-                    return this.source.getLens(lensId, groupId).then((envelope) => [envelope]);
-                }
+                return isUndefined(lensId)
+                    ? this.source.getLensGroup(groupId)
+                    : this.source.getLens(lensId, groupId).then((envelope) => [envelope]);
             }
             return (_b = this.fallbackSources) === null || _b === void 0 ? void 0 : _b.retrieveLenses({ groupId, lensId });
         });
@@ -9238,7 +17282,7 @@ const lensSourcesFactory = Injectable("lensSources", () => LensSources.empty());
 function stringifyError(error) {
     var _a;
     const outer = (_a = error.stack) !== null && _a !== void 0 ? _a : "";
-    return error.cause ? `${outer}\nCaused by:\n\t${stringifyError(errorHelpers_ensureError(error.cause))}` : outer;
+    return error.cause ? `${outer}\nCaused By: ${stringifyError(errorHelpers_ensureError(error.cause))}` : outer;
 }
 /**
  * If given a value of type Error, return it – otherwise wrap the value in an Error.
@@ -9256,7 +17300,6 @@ function errorHelpers_ensureError(error) {
 //# sourceMappingURL=errorHelpers.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/time.js
 const getTimeMs = () => performance.now();
-const convertDaysToSeconds = (days) => days * 24 * 60 * 60;
 //# sourceMappingURL=time.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/events/TypedCustomEvent.js
 /**
@@ -9396,10 +17439,10 @@ const createArrayBufferParsingHandler = () => (next) => (req, metadata) => tslib
 });
 //# sourceMappingURL=arrayBufferParsingHandler.js.map
 // EXTERNAL MODULE: ./node_modules/long/src/long.js
-var src_long = __webpack_require__(720);
+var src_long = __webpack_require__(3720);
 var long_default = /*#__PURE__*/__webpack_require__.n(src_long);
 // EXTERNAL MODULE: ./node_modules/protobufjs/minimal.js
-var minimal = __webpack_require__(100);
+var minimal = __webpack_require__(2100);
 var minimal_default = /*#__PURE__*/__webpack_require__.n(minimal);
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/generated-proto/pb_schema/google/protobuf/any.js
 
@@ -10340,103 +18383,10 @@ function toPublicLens({ id, name, content, vendorData, cameraFacingPreference, l
     };
 }
 //# sourceMappingURL=Lens.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/generated-proto/pb_schema/camera_kit/v3/features/remote_api_info.js
-/* eslint-disable */
-
-
-const remote_api_info_protobufPackage = "com.snap.camerakit.v3.features";
-function createBaseRemoteApiInfo() {
-    return { apiSpecIds: [] };
-}
-const RemoteApiInfo = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        for (const v of message.apiSpecIds) {
-            writer.uint32(10).string(v);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseRemoteApiInfo();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.apiSpecIds.push(reader.string());
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a;
-        const message = createBaseRemoteApiInfo();
-        message.apiSpecIds = ((_a = object.apiSpecIds) === null || _a === void 0 ? void 0 : _a.map((e) => e)) || [];
-        return message;
-    },
-};
-if ((minimal_default()).util.Long !== (long_default())) {
-    (minimal_default()).util.Long = (long_default());
-    minimal_default().configure();
-}
-//# sourceMappingURL=remote_api_info.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/any.js
-
-// There is a discrepancy in how the CameraKit backend and ts-proto serialize a protobuf message into JSON.
-// The backend serialization follows the spec outlined here:
-// https://protobuf.dev/reference/protobuf/google.protobuf/#json
-// According to this specification, the actual message is represented as JSON
-// with an additional @type discriminator field.
-// However, this approach is not consistent with what the client-side expects for Any.
-// It requires it to be in the format { typeUrl: string, value: UInt8Array }.
-// Therefore, we need to map the JSON representation of Any to the actual Any message.
-// This issue only applies to JSON-serialized protos returned by our backend.
-// The JSON serialization of the ts-proto package that we use
-// does not appear to be following the spec regarding Any.
-// Even if it does, the deserialization part has to be handled manually.
-// This issue does not apply to cases where the Lens object is deserialized from a binary proto message.
-// Ideally, to fix this issue, we want to switch to gRPC web for our backend communication,
-// similar to how we do it for COF. Ticket: https://jira.sc-corp.net/browse/CAMKIT-4668
-const knownAnyTypes = {
-    remoteApiInfo: "type.googleapis.com/com.snap.camerakit.v3.features.RemoteApiInfo",
-};
-/**
- * Gets JSON-serialized any message and maps it to JS representation of Any type.
- * @param jsonAny JSON-serialized any message according to spec:
- * https://protobuf.dev/reference/protobuf/google.protobuf/#json
- * @returns JS representation of Any proto message.
- */
-function encodeKnownAnyJson(jsonAny) {
-    const typeUrl = jsonAny["@type"];
-    if (typeUrl === knownAnyTypes.remoteApiInfo) {
-        return {
-            typeUrl,
-            // Safety: we know that spec ensures all message fields to exists
-            value: RemoteApiInfo.encode(jsonAny).finish(),
-        };
-    }
-}
-//# sourceMappingURL=any.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/lens/lensHttpUtil.js
 
 
-
 const relativePath = "/com.snap.camerakit.v3.Lenses";
-function fixAny(lens) {
-    // The Lens is serialized into JSON by the CameraKit backend, which is vulnerable
-    // to serialization discrepancies between the backend and ts-proto generated serializers.
-    // See packages/web-sdk/src/common/any.ts
-    const featureMetadata = lens.featureMetadata.reduce((fixedAnys, anyToFix) => {
-        // Safety: anyToFix is actually AnyJson, due to how our backend serializes it
-        const fixedAny = encodeKnownAnyJson(anyToFix);
-        return fixedAny ? [...fixedAnys, fixedAny] : fixedAnys;
-    }, []);
-    return Object.assign(Object.assign({}, lens), { featureMetadata });
-}
 function getRequestId(res) {
     return res.headers.get("x-request-id");
 }
@@ -10446,15 +18396,10 @@ function retrieveCameraKitLens(httpClient, lensId, groupId, apiHostname) {
         const response = yield httpClient(url, { credentials: "include" });
         const body = yield response.json();
         const lens = body.lens;
-        if (!response.ok) {
-            throw new Error(`Cannot load lens ${lensId} in group ${groupId}. GetGroupLens responded with status ` +
-                `${response.status} and body:\n\t${JSON.stringify(body)} for requestId ${getRequestId(response)}`);
-        }
         if (!isLensProto(lens)) {
-            throw new Error(`Cannot load lens ${lensId} in group ${groupId}. The response was not a Lens:` +
-                `\n\t${JSON.stringify(body)} for requestId ${getRequestId(response)}`);
+            throw new Error(`Expected request to ${url} to return a Lens. Got:\n\n${JSON.stringify(body)} with request-id of "${getRequestId(response)}"`);
         }
-        return fixAny(lens);
+        return lens;
     });
 }
 function retrieveCameraKitLensGroup(httpClient, groupId, apiHostname) {
@@ -10462,15 +18407,10 @@ function retrieveCameraKitLensGroup(httpClient, groupId, apiHostname) {
         const url = `https://${apiHostname}${relativePath}/groups/${groupId}`;
         const response = yield httpClient(url, { credentials: "include" });
         const body = yield response.json();
-        if (!response.ok) {
-            throw new Error(`Cannot load lens group ${groupId}. GetGroup responded with status ` +
-                `${response.status} and body:\n\t${JSON.stringify(body)} for requestId ${getRequestId(response)}`);
-        }
         if (!isGetGroupResponse(body)) {
-            throw new Error(`Cannot load lens group ${groupId}. The response was not a LensGroup:` +
-                `\n\t${JSON.stringify(body)} for requestId ${getRequestId(response)}`);
+            throw new Error(`Expected request to ${url} to return a LensGroup. Got:\n\n${JSON.stringify(body)} with request-id of "${getRequestId(response)}"`);
         }
-        return body.lenses.map(fixAny);
+        return body.lenses;
     });
 }
 //# sourceMappingURL=lensHttpUtil.js.map
@@ -11177,7 +19117,6 @@ var Namespace;
     Namespace[Namespace["DEFAULT"] = 0] = "DEFAULT";
     Namespace[Namespace["LENS_CORE"] = 64] = "LENS_CORE";
     Namespace[Namespace["CAMERA_KIT_CORE"] = 65] = "CAMERA_KIT_CORE";
-    Namespace[Namespace["LENS_CORE_CONFIG"] = 143] = "LENS_CORE_CONFIG";
     Namespace[Namespace["UNRECOGNIZED"] = -1] = "UNRECOGNIZED";
 })(Namespace || (Namespace = {}));
 if ((minimal_default()).util.Long !== (long_default())) {
@@ -11190,9 +19129,9 @@ if ((minimal_default()).util.Long !== (long_default())) {
 
 //# sourceMappingURL=index.js.map
 // EXTERNAL MODULE: ./node_modules/browser-headers/dist/browser-headers.umd.js
-var browser_headers_umd = __webpack_require__(84);
+var browser_headers_umd = __webpack_require__(2084);
 // EXTERNAL MODULE: ./node_modules/@improbable-eng/grpc-web/dist/grpc-web-client.umd.js
-var grpc_web_client_umd = __webpack_require__(37);
+var grpc_web_client_umd = __webpack_require__(3037);
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/generated-proto/pb_schema/google/protobuf/timestamp.js
 
 
@@ -15040,9 +22979,6 @@ class ExpiringPersistence {
     constructor(expiration, persistence) {
         this.expiration = expiration;
         this.persistence = persistence;
-        this.removeExpired().catch(() => {
-            ExpiringPersistence_logger.warn("Failed to cleanup expired entries on startup.");
-        });
     }
     get size() {
         return this.persistence.size;
@@ -15065,7 +23001,7 @@ class ExpiringPersistence {
     retrieveAll() {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             const now = Date.now();
-            return (yield this.persistence.retrieveAll()).filter(([, [expiry]]) => expiry >= now).map(([, v]) => v);
+            return (yield this.persistence.retrieveAll()).filter(([expiry]) => expiry >= now).map(([, v]) => v);
         });
     }
     remove(key) {
@@ -15075,17 +23011,6 @@ class ExpiringPersistence {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
             const results = yield this.persistence.removeAll();
             return results.map(([, v]) => v);
-        });
-    }
-    removeExpired() {
-        return tslib_es6_awaiter(this, void 0, void 0, function* () {
-            for (const [key, [expiry]] of yield this.persistence.retrieveAll()) {
-                if (Date.now() >= expiry) {
-                    yield this.persistence
-                        .remove(key)
-                        .catch((error) => ExpiringPersistence_logger.warn(`Failed to remove expired key ${key}.`, error));
-                }
-            }
         });
     }
     store(keyOrValue, maybeValue) {
@@ -15181,17 +23106,7 @@ class IndexedDBPersistence {
         return this.simpleTransaction("readonly", (store) => store.get(key));
     }
     retrieveAll() {
-        return tslib_es6_awaiter(this, void 0, void 0, function* () {
-            const results = [];
-            const { store, done } = yield this.transaction("readonly");
-            let request = yield wrapCursorRequest(store.openCursor());
-            while (request.cursor) {
-                results.push([request.cursor.primaryKey, request.cursor.value]);
-                request = yield request.continue();
-            }
-            yield done;
-            return results;
-        });
+        return this.simpleTransaction("readonly", (store) => store.getAll());
     }
     remove(key) {
         return tslib_es6_awaiter(this, void 0, void 0, function* () {
@@ -17352,31 +25267,13 @@ const operationalMetricReporterFactory = Injectable("operationalMetricsReporter"
         });
     }, pageVisibility))
         .map(createBatchingHandler({
-        // The batching logic here is very simple – it could be improved by e.g.
-        // computing statistics to reduce overall data sent, etc. Right now this is
+        // The batching logic here is very simple – it could be improved by e.g. combining counts with
+        // the same name, computing statistics to reduce overall data sent, etc. Right now this is
         // premature optimization, but could become a good idea in the future.
         batchReduce: (previousBundle, metric) => {
-            var _a, _b;
-            let metrics = [...((_a = previousBundle === null || previousBundle === void 0 ? void 0 : previousBundle.metrics) !== null && _a !== void 0 ? _a : [])];
-            // For "count" metrics, it's straightforward to merge them into
-            // a single metric with the same name.
-            const existingCountIndex = ((_b = metric.metric) === null || _b === void 0 ? void 0 : _b.$case) === "count"
-                ? metrics.findIndex((m) => { var _a; return metric.name === m.name && ((_a = m.metric) === null || _a === void 0 ? void 0 : _a.$case) === "count"; })
-                : -1;
-            if (existingCountIndex >= 0) {
-                // Safety: Given the condition above, we can be sure that both the existing and new metrics
-                // are of the "count" type.
-                const existingValue = metrics[existingCountIndex].metric;
-                const newValue = metric.metric;
-                metrics.splice(existingCountIndex, 1, Object.assign(Object.assign({}, metric), { metric: {
-                        $case: "count",
-                        count: existingValue.count + newValue.count,
-                    } }));
-            }
-            else {
-                metrics.push(metric);
-            }
-            return { metrics };
+            const bundle = previousBundle !== null && previousBundle !== void 0 ? previousBundle : { metrics: [] };
+            bundle.metrics.push(metric);
+            return bundle;
         },
         isBatchComplete: (bundle) => bundle.metrics.length >= METRIC_BATCH_MAX_SIZE,
         maxBatchAge: METRIC_BATCH_MAX_AGE_MS,
@@ -17496,7 +25393,7 @@ const cofHandlerFactory = Injectable("cofHandler", [configurationToken, requestS
 
 
 const defaultTargetingRequest = {
-    namespaces: [Namespace.LENS_CORE, Namespace.CAMERA_KIT_CORE, Namespace.LENS_CORE_CONFIG],
+    namespaces: [Namespace.LENS_CORE, Namespace.CAMERA_KIT_CORE],
 };
 const initializeConfigRelativePath = "/com.snap.camerakit.v3.Metrics/metrics/initialization_config";
 class RemoteConfiguration {
@@ -17539,16 +25436,8 @@ class RemoteConfiguration {
     /**
      * Configuration that is provided by Camera Kit backend.
      */
-    getInitializationConfig() {
+    getIntializationConfig() {
         return this.initializationConfig;
-    }
-    getNamespace(namespace) {
-        return this.configById.pipe(map((configs) => {
-            const namespaceConfigs = Array.from(configs.values())
-                .filter((values) => values.some((c) => c.namespace === namespace))
-                .flatMap((results) => results);
-            return namespaceConfigs;
-        }));
     }
 }
 const remoteConfigurationFactory = Injectable("remoteConfiguration", [configurationToken, cofHandlerFactory.token, cameraKitServiceFetchHandlerFactory.token], (config, cofHandler, fetchHandler) => {
@@ -18880,7 +26769,7 @@ Transform2D_Transform2D.Identity = new Transform2D_Transform2D([1.0, 0.0, 0.0, 0
 
 
 const defaultDeviceInfo = {
-    cameraType: "user",
+    cameraType: "front",
     fpsLimit: Number.POSITIVE_INFINITY,
 };
 const createNotAttachedError = (message) => new Error(`${message}. This CameraKitSource is not attached to a CameraKitSession.`);
@@ -18924,7 +26813,7 @@ class CameraKitSource_CameraKitSource {
                     pauseExistingMedia: false,
                     replayTrackingData: this.sourceInfo.replayTrackingData,
                     requestWebcam: false,
-                    startOnFrontCamera: ["user", "front"].includes(this.deviceInfo.cameraType),
+                    startOnFrontCamera: this.deviceInfo.cameraType === "front",
                     useManualFrameProcessing: this.sourceInfo.useManualFrameProcessing,
                     onSuccess,
                     onFailure,
@@ -18939,6 +26828,12 @@ class CameraKitSource_CameraKitSource {
                 yield this.subscriber.onAttach(this, lensCore, reportError);
         });
     }
+    /**
+     * Make a copy of the source, sharing the same {@link CameraKitSourceSubscriber}.
+     *
+     * @param deviceInfo Optionally provide new device info for the copy (e.g. to change the camera type).
+     * @returns The new {@link CameraKitSource}
+     */
     copy(deviceInfo = {}) {
         return new CameraKitSource_CameraKitSource(this.sourceInfo, this.subscriber, Object.assign(Object.assign({}, this.deviceInfo), deviceInfo));
     }
@@ -19021,7 +26916,6 @@ const MediaStreamSource_defaultOptions = {
 function closeWorklet(worklet) {
     if (!worklet)
         return;
-    worklet.port.close();
     worklet.port.onmessage = null;
     worklet.disconnect();
 }
@@ -19068,7 +26962,7 @@ function createUserMediaSource(constraints = { video: true }, options = {}) {
  * @param options.transform We apply no transformation by default.
  * @param options.disableSourceAudio By default we pass audio to lens. Settings this to true will disable sending audio
  * to the lens.
- * @param options.cameraType By default we set this to 'user', which is the camera type most Lenses expect.
+ * @param options.cameraType By default we set this to 'front', which is the camera type most Lenses expect.
  * @param options.fpsLimit By default we set no limit on FPS – if the MediaStream has a known FPS setting this limit
  * may prevent CameraKit from using more compute resources than strictly necessary.
  *
@@ -19204,7 +27098,7 @@ const VideoSource_defaultOptions = {
  * @param options
  * @param options.trackingData If pre-computed tracking data exists for this video, it may be provided in order to boost
  * rendering performance (it is not typical or expected for this to be provided).
- * @param options.cameraType By default we set this to 'user', which is the camera type most Lenses expect.
+ * @param options.cameraType By default we set this to 'front', which is the camera type most Lenses expect.
  * @param options.fpsLimit By default we set no limit on FPS – if the video has a known FPS setting this limit
  * may prevent CameraKit from using more compute resources than strictly necessary.
  *
@@ -22524,7 +30418,7 @@ const legalStateFactory = Injectable("legalState", [remoteConfigurationFactory.t
             legalState_logger.error(error);
             return of(defaultLegalPrompt);
         })),
-        initConfig: remoteConfig.getInitializationConfig().pipe(catchError((error) => {
+        initConfig: remoteConfig.getIntializationConfig().pipe(catchError((error) => {
             legalState_logger.error(error);
             return of(defaultInitConfig);
         })),
@@ -22982,10 +30876,10 @@ const lensStateFactory = Injectable("lensState", [
 
 
 const createSessionState = () => {
-    const actions = defineActions(defineAction("suspend")(), defineAction("resume")(), defineAction("destroy")());
-    const states = defineStates(defineState("inactive")(), defineState("active")(), defineState("destroyed")());
+    const actions = defineActions(defineAction("suspend")(), defineAction("resume")());
+    const states = defineStates(defineState("inactive")(), defineState("active")());
     return new StateMachine(actions, states, defineState("inactive")()(), (events) => {
-        return merge(events.pipe(forActions("resume"), map(([a]) => states.active(a.data))), events.pipe(forActions("suspend"), map(() => states.inactive())), events.pipe(forActions("destroy"), map(() => states.destroyed())));
+        return merge(events.pipe(forActions("resume"), map(([a]) => states.active(a.data))), events.pipe(forActions("suspend"), map(() => states.inactive())));
     });
 };
 const sessionStateFactory = Injectable("sessionState", () => createSessionState());
@@ -23454,7 +31348,6 @@ class CameraKitSession {
                 this.lensCore.teardown({ onSuccess: resolve, onFailure: reject });
             });
             this.removePageVisibilityHandlers();
-            this.sessionState.dispatch("destroy", undefined);
         });
     }
     renderTargetToCanvasType(target) {
@@ -23607,1491 +31500,21 @@ const registerLensAssetsProvider = Injectable("registerLensAssetsProvider", [len
     }));
 });
 //# sourceMappingURL=LensAssetsProvider.js.map
-;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/scheduler/Action.js
-
-
-var Action = (function (_super) {
-    __extends(Action, _super);
-    function Action(scheduler, work) {
-        return _super.call(this) || this;
-    }
-    Action.prototype.schedule = function (state, delay) {
-        if (delay === void 0) { delay = 0; }
-        return this;
-    };
-    return Action;
-}(Subscription));
-
-//# sourceMappingURL=Action.js.map
-;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/scheduler/intervalProvider.js
-
-var intervalProvider = {
-    setInterval: function (handler, timeout) {
-        var args = [];
-        for (var _i = 2; _i < arguments.length; _i++) {
-            args[_i - 2] = arguments[_i];
-        }
-        var delegate = intervalProvider.delegate;
-        if (delegate === null || delegate === void 0 ? void 0 : delegate.setInterval) {
-            return delegate.setInterval.apply(delegate, __spreadArray([handler, timeout], __read(args)));
-        }
-        return setInterval.apply(void 0, __spreadArray([handler, timeout], __read(args)));
-    },
-    clearInterval: function (handle) {
-        var delegate = intervalProvider.delegate;
-        return ((delegate === null || delegate === void 0 ? void 0 : delegate.clearInterval) || clearInterval)(handle);
-    },
-    delegate: undefined,
-};
-//# sourceMappingURL=intervalProvider.js.map
-;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/scheduler/AsyncAction.js
-
-
-
-
-var AsyncAction = (function (_super) {
-    __extends(AsyncAction, _super);
-    function AsyncAction(scheduler, work) {
-        var _this = _super.call(this, scheduler, work) || this;
-        _this.scheduler = scheduler;
-        _this.work = work;
-        _this.pending = false;
-        return _this;
-    }
-    AsyncAction.prototype.schedule = function (state, delay) {
-        var _a;
-        if (delay === void 0) { delay = 0; }
-        if (this.closed) {
-            return this;
-        }
-        this.state = state;
-        var id = this.id;
-        var scheduler = this.scheduler;
-        if (id != null) {
-            this.id = this.recycleAsyncId(scheduler, id, delay);
-        }
-        this.pending = true;
-        this.delay = delay;
-        this.id = (_a = this.id) !== null && _a !== void 0 ? _a : this.requestAsyncId(scheduler, this.id, delay);
-        return this;
-    };
-    AsyncAction.prototype.requestAsyncId = function (scheduler, _id, delay) {
-        if (delay === void 0) { delay = 0; }
-        return intervalProvider.setInterval(scheduler.flush.bind(scheduler, this), delay);
-    };
-    AsyncAction.prototype.recycleAsyncId = function (_scheduler, id, delay) {
-        if (delay === void 0) { delay = 0; }
-        if (delay != null && this.delay === delay && this.pending === false) {
-            return id;
-        }
-        if (id != null) {
-            intervalProvider.clearInterval(id);
-        }
-        return undefined;
-    };
-    AsyncAction.prototype.execute = function (state, delay) {
-        if (this.closed) {
-            return new Error('executing a cancelled action');
-        }
-        this.pending = false;
-        var error = this._execute(state, delay);
-        if (error) {
-            return error;
-        }
-        else if (this.pending === false && this.id != null) {
-            this.id = this.recycleAsyncId(this.scheduler, this.id, null);
-        }
-    };
-    AsyncAction.prototype._execute = function (state, _delay) {
-        var errored = false;
-        var errorValue;
-        try {
-            this.work(state);
-        }
-        catch (e) {
-            errored = true;
-            errorValue = e ? e : new Error('Scheduled action threw falsy error');
-        }
-        if (errored) {
-            this.unsubscribe();
-            return errorValue;
-        }
-    };
-    AsyncAction.prototype.unsubscribe = function () {
-        if (!this.closed) {
-            var _a = this, id = _a.id, scheduler = _a.scheduler;
-            var actions = scheduler.actions;
-            this.work = this.state = this.scheduler = null;
-            this.pending = false;
-            arrRemove(actions, this);
-            if (id != null) {
-                this.id = this.recycleAsyncId(scheduler, id, null);
-            }
-            this.delay = null;
-            _super.prototype.unsubscribe.call(this);
-        }
-    };
-    return AsyncAction;
-}(Action));
-
-//# sourceMappingURL=AsyncAction.js.map
-;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/Scheduler.js
-
-var Scheduler = (function () {
-    function Scheduler(schedulerActionCtor, now) {
-        if (now === void 0) { now = Scheduler.now; }
-        this.schedulerActionCtor = schedulerActionCtor;
-        this.now = now;
-    }
-    Scheduler.prototype.schedule = function (work, delay, state) {
-        if (delay === void 0) { delay = 0; }
-        return new this.schedulerActionCtor(this, work).schedule(state, delay);
-    };
-    Scheduler.now = dateTimestampProvider.now;
-    return Scheduler;
-}());
-
-//# sourceMappingURL=Scheduler.js.map
-;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/scheduler/AsyncScheduler.js
-
-
-var AsyncScheduler = (function (_super) {
-    __extends(AsyncScheduler, _super);
-    function AsyncScheduler(SchedulerAction, now) {
-        if (now === void 0) { now = Scheduler.now; }
-        var _this = _super.call(this, SchedulerAction, now) || this;
-        _this.actions = [];
-        _this._active = false;
-        return _this;
-    }
-    AsyncScheduler.prototype.flush = function (action) {
-        var actions = this.actions;
-        if (this._active) {
-            actions.push(action);
-            return;
-        }
-        var error;
-        this._active = true;
-        do {
-            if ((error = action.execute(action.state, action.delay))) {
-                break;
-            }
-        } while ((action = actions.shift()));
-        this._active = false;
-        if (error) {
-            while ((action = actions.shift())) {
-                action.unsubscribe();
-            }
-            throw error;
-        }
-    };
-    return AsyncScheduler;
-}(Scheduler));
-
-//# sourceMappingURL=AsyncScheduler.js.map
-;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/scheduler/async.js
-
-
-var asyncScheduler = new AsyncScheduler(AsyncAction);
-var async_async = asyncScheduler;
-//# sourceMappingURL=async.js.map
-;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/util/isDate.js
-function isValidDate(value) {
-    return value instanceof Date && !isNaN(value);
-}
-//# sourceMappingURL=isDate.js.map
-;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/observable/timer.js
-
-
-
-
-function timer(dueTime, intervalOrScheduler, scheduler) {
-    if (dueTime === void 0) { dueTime = 0; }
-    if (scheduler === void 0) { scheduler = async_async; }
-    var intervalDuration = -1;
-    if (intervalOrScheduler != null) {
-        if (isScheduler(intervalOrScheduler)) {
-            scheduler = intervalOrScheduler;
-        }
-        else {
-            intervalDuration = intervalOrScheduler;
-        }
-    }
-    return new Observable_Observable(function (subscriber) {
-        var due = isValidDate(dueTime) ? +dueTime - scheduler.now() : dueTime;
-        if (due < 0) {
-            due = 0;
-        }
-        var n = 0;
-        return scheduler.schedule(function () {
-            if (!subscriber.closed) {
-                subscriber.next(n++);
-                if (0 <= intervalDuration) {
-                    this.schedule(undefined, intervalDuration);
-                }
-                else {
-                    subscriber.complete();
-                }
-            }
-        }, due);
-    });
-}
-//# sourceMappingURL=timer.js.map
-;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/operators/retry.js
-
-
-
-
-
-function retry(configOrCount) {
-    if (configOrCount === void 0) { configOrCount = Infinity; }
-    var config;
-    if (configOrCount && typeof configOrCount === 'object') {
-        config = configOrCount;
-    }
-    else {
-        config = {
-            count: configOrCount,
-        };
-    }
-    var _a = config.count, count = _a === void 0 ? Infinity : _a, delay = config.delay, _b = config.resetOnSuccess, resetOnSuccess = _b === void 0 ? false : _b;
-    return count <= 0
-        ? identity_identity
-        : operate(function (source, subscriber) {
-            var soFar = 0;
-            var innerSub;
-            var subscribeForRetry = function () {
-                var syncUnsub = false;
-                innerSub = source.subscribe(createOperatorSubscriber(subscriber, function (value) {
-                    if (resetOnSuccess) {
-                        soFar = 0;
-                    }
-                    subscriber.next(value);
-                }, undefined, function (err) {
-                    if (soFar++ < count) {
-                        var resub_1 = function () {
-                            if (innerSub) {
-                                innerSub.unsubscribe();
-                                innerSub = null;
-                                subscribeForRetry();
-                            }
-                            else {
-                                syncUnsub = true;
-                            }
-                        };
-                        if (delay != null) {
-                            var notifier = typeof delay === 'number' ? timer(delay) : innerFrom_innerFrom(delay(err, soFar));
-                            var notifierSubscriber_1 = createOperatorSubscriber(subscriber, function () {
-                                notifierSubscriber_1.unsubscribe();
-                                resub_1();
-                            }, function () {
-                                subscriber.complete();
-                            });
-                            notifier.subscribe(notifierSubscriber_1);
-                        }
-                        else {
-                            resub_1();
-                        }
-                    }
-                    else {
-                        subscriber.error(err);
-                    }
-                }));
-                if (syncUnsub) {
-                    innerSub.unsubscribe();
-                    innerSub = null;
-                    subscribeForRetry();
-                }
-            };
-            subscribeForRetry();
-        });
-}
-//# sourceMappingURL=retry.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/generated-proto/pb_schema/lenses/remote_api/remote_api_service.js
-
-
-const remote_api_service_protobufPackage = "snapchat.lenses";
-var HttpRequestMethod;
-(function (HttpRequestMethod) {
-    HttpRequestMethod["HTTP_METHOD_UNSET"] = "HTTP_METHOD_UNSET";
-    HttpRequestMethod["HTTP_METHOD_GET"] = "HTTP_METHOD_GET";
-    HttpRequestMethod["HTTP_METHOD_POST"] = "HTTP_METHOD_POST";
-    HttpRequestMethod["HTTP_METHOD_PUT"] = "HTTP_METHOD_PUT";
-    HttpRequestMethod["HTTP_METHOD_DELETE"] = "HTTP_METHOD_DELETE";
-    HttpRequestMethod["HTTP_METHOD_PATCH"] = "HTTP_METHOD_PATCH";
-    HttpRequestMethod["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(HttpRequestMethod || (HttpRequestMethod = {}));
-function httpRequestMethodFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "HTTP_METHOD_UNSET":
-            return HttpRequestMethod.HTTP_METHOD_UNSET;
-        case 1:
-        case "HTTP_METHOD_GET":
-            return HttpRequestMethod.HTTP_METHOD_GET;
-        case 2:
-        case "HTTP_METHOD_POST":
-            return HttpRequestMethod.HTTP_METHOD_POST;
-        case 3:
-        case "HTTP_METHOD_PUT":
-            return HttpRequestMethod.HTTP_METHOD_PUT;
-        case 4:
-        case "HTTP_METHOD_DELETE":
-            return HttpRequestMethod.HTTP_METHOD_DELETE;
-        case 5:
-        case "HTTP_METHOD_PATCH":
-            return HttpRequestMethod.HTTP_METHOD_PATCH;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return HttpRequestMethod.UNRECOGNIZED;
-    }
-}
-function httpRequestMethodToNumber(object) {
-    switch (object) {
-        case HttpRequestMethod.HTTP_METHOD_UNSET:
-            return 0;
-        case HttpRequestMethod.HTTP_METHOD_GET:
-            return 1;
-        case HttpRequestMethod.HTTP_METHOD_POST:
-            return 2;
-        case HttpRequestMethod.HTTP_METHOD_PUT:
-            return 3;
-        case HttpRequestMethod.HTTP_METHOD_DELETE:
-            return 4;
-        case HttpRequestMethod.HTTP_METHOD_PATCH:
-            return 5;
-        default:
-            return 0;
-    }
-}
-var ResponseCode;
-(function (ResponseCode) {
-    ResponseCode["RESPONSE_CODE_UNSET"] = "RESPONSE_CODE_UNSET";
-    ResponseCode["SUCCESS"] = "SUCCESS";
-    ResponseCode["REDIRECTED"] = "REDIRECTED";
-    ResponseCode["BAD_REQUEST"] = "BAD_REQUEST";
-    ResponseCode["ACCESS_DENIED"] = "ACCESS_DENIED";
-    ResponseCode["NOT_FOUND"] = "NOT_FOUND";
-    ResponseCode["TIMEOUT"] = "TIMEOUT";
-    ResponseCode["REQUEST_TOO_LARGE"] = "REQUEST_TOO_LARGE";
-    ResponseCode["SERVER_ERROR"] = "SERVER_ERROR";
-    ResponseCode["CANCELLED"] = "CANCELLED";
-    ResponseCode["PROXY_ERROR"] = "PROXY_ERROR";
-    ResponseCode["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(ResponseCode || (ResponseCode = {}));
-function responseCodeFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "RESPONSE_CODE_UNSET":
-            return ResponseCode.RESPONSE_CODE_UNSET;
-        case 1:
-        case "SUCCESS":
-            return ResponseCode.SUCCESS;
-        case 2:
-        case "REDIRECTED":
-            return ResponseCode.REDIRECTED;
-        case 3:
-        case "BAD_REQUEST":
-            return ResponseCode.BAD_REQUEST;
-        case 4:
-        case "ACCESS_DENIED":
-            return ResponseCode.ACCESS_DENIED;
-        case 5:
-        case "NOT_FOUND":
-            return ResponseCode.NOT_FOUND;
-        case 6:
-        case "TIMEOUT":
-            return ResponseCode.TIMEOUT;
-        case 7:
-        case "REQUEST_TOO_LARGE":
-            return ResponseCode.REQUEST_TOO_LARGE;
-        case 8:
-        case "SERVER_ERROR":
-            return ResponseCode.SERVER_ERROR;
-        case 9:
-        case "CANCELLED":
-            return ResponseCode.CANCELLED;
-        case 10:
-        case "PROXY_ERROR":
-            return ResponseCode.PROXY_ERROR;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return ResponseCode.UNRECOGNIZED;
-    }
-}
-function responseCodeToNumber(object) {
-    switch (object) {
-        case ResponseCode.RESPONSE_CODE_UNSET:
-            return 0;
-        case ResponseCode.SUCCESS:
-            return 1;
-        case ResponseCode.REDIRECTED:
-            return 2;
-        case ResponseCode.BAD_REQUEST:
-            return 3;
-        case ResponseCode.ACCESS_DENIED:
-            return 4;
-        case ResponseCode.NOT_FOUND:
-            return 5;
-        case ResponseCode.TIMEOUT:
-            return 6;
-        case ResponseCode.REQUEST_TOO_LARGE:
-            return 7;
-        case ResponseCode.SERVER_ERROR:
-            return 8;
-        case ResponseCode.CANCELLED:
-            return 9;
-        case ResponseCode.PROXY_ERROR:
-            return 10;
-        default:
-            return 0;
-    }
-}
-var GetOAuth2InfoResponse_GrantType;
-(function (GetOAuth2InfoResponse_GrantType) {
-    GetOAuth2InfoResponse_GrantType["GRANT_TYPE_UNSET"] = "GRANT_TYPE_UNSET";
-    GetOAuth2InfoResponse_GrantType["AUTHORIZATION_CODE"] = "AUTHORIZATION_CODE";
-    GetOAuth2InfoResponse_GrantType["AUTHORIZATION_CODE_WITH_PKCE"] = "AUTHORIZATION_CODE_WITH_PKCE";
-    GetOAuth2InfoResponse_GrantType["IMPLICIT"] = "IMPLICIT";
-    GetOAuth2InfoResponse_GrantType["CLIENT_CREDENTIALS"] = "CLIENT_CREDENTIALS";
-    GetOAuth2InfoResponse_GrantType["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(GetOAuth2InfoResponse_GrantType || (GetOAuth2InfoResponse_GrantType = {}));
-function getOAuth2InfoResponse_GrantTypeFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "GRANT_TYPE_UNSET":
-            return GetOAuth2InfoResponse_GrantType.GRANT_TYPE_UNSET;
-        case 1:
-        case "AUTHORIZATION_CODE":
-            return GetOAuth2InfoResponse_GrantType.AUTHORIZATION_CODE;
-        case 2:
-        case "AUTHORIZATION_CODE_WITH_PKCE":
-            return GetOAuth2InfoResponse_GrantType.AUTHORIZATION_CODE_WITH_PKCE;
-        case 3:
-        case "IMPLICIT":
-            return GetOAuth2InfoResponse_GrantType.IMPLICIT;
-        case 4:
-        case "CLIENT_CREDENTIALS":
-            return GetOAuth2InfoResponse_GrantType.CLIENT_CREDENTIALS;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return GetOAuth2InfoResponse_GrantType.UNRECOGNIZED;
-    }
-}
-function getOAuth2InfoResponse_GrantTypeToNumber(object) {
-    switch (object) {
-        case GetOAuth2InfoResponse_GrantType.GRANT_TYPE_UNSET:
-            return 0;
-        case GetOAuth2InfoResponse_GrantType.AUTHORIZATION_CODE:
-            return 1;
-        case GetOAuth2InfoResponse_GrantType.AUTHORIZATION_CODE_WITH_PKCE:
-            return 2;
-        case GetOAuth2InfoResponse_GrantType.IMPLICIT:
-            return 3;
-        case GetOAuth2InfoResponse_GrantType.CLIENT_CREDENTIALS:
-            return 4;
-        default:
-            return 0;
-    }
-}
-var TokenExchangeError_TokenExchangeErrorType;
-(function (TokenExchangeError_TokenExchangeErrorType) {
-    TokenExchangeError_TokenExchangeErrorType["ERROR_TYPE_UNSET"] = "ERROR_TYPE_UNSET";
-    TokenExchangeError_TokenExchangeErrorType["INVALID_REQUEST"] = "INVALID_REQUEST";
-    TokenExchangeError_TokenExchangeErrorType["INVALID_CLIENT"] = "INVALID_CLIENT";
-    TokenExchangeError_TokenExchangeErrorType["INVALID_GRANT"] = "INVALID_GRANT";
-    TokenExchangeError_TokenExchangeErrorType["UNAUTHORIZED_CLIENT"] = "UNAUTHORIZED_CLIENT";
-    TokenExchangeError_TokenExchangeErrorType["UNSUPPORTED_GRANT_TYPE"] = "UNSUPPORTED_GRANT_TYPE";
-    TokenExchangeError_TokenExchangeErrorType["INVALID_SCOPE"] = "INVALID_SCOPE";
-    TokenExchangeError_TokenExchangeErrorType["UNRECOGNIZED"] = "UNRECOGNIZED";
-})(TokenExchangeError_TokenExchangeErrorType || (TokenExchangeError_TokenExchangeErrorType = {}));
-function tokenExchangeError_TokenExchangeErrorTypeFromJSON(object) {
-    switch (object) {
-        case 0:
-        case "ERROR_TYPE_UNSET":
-            return TokenExchangeError_TokenExchangeErrorType.ERROR_TYPE_UNSET;
-        case 1:
-        case "INVALID_REQUEST":
-            return TokenExchangeError_TokenExchangeErrorType.INVALID_REQUEST;
-        case 2:
-        case "INVALID_CLIENT":
-            return TokenExchangeError_TokenExchangeErrorType.INVALID_CLIENT;
-        case 3:
-        case "INVALID_GRANT":
-            return TokenExchangeError_TokenExchangeErrorType.INVALID_GRANT;
-        case 4:
-        case "UNAUTHORIZED_CLIENT":
-            return TokenExchangeError_TokenExchangeErrorType.UNAUTHORIZED_CLIENT;
-        case 5:
-        case "UNSUPPORTED_GRANT_TYPE":
-            return TokenExchangeError_TokenExchangeErrorType.UNSUPPORTED_GRANT_TYPE;
-        case 6:
-        case "INVALID_SCOPE":
-            return TokenExchangeError_TokenExchangeErrorType.INVALID_SCOPE;
-        case -1:
-        case "UNRECOGNIZED":
-        default:
-            return TokenExchangeError_TokenExchangeErrorType.UNRECOGNIZED;
-    }
-}
-function tokenExchangeError_TokenExchangeErrorTypeToNumber(object) {
-    switch (object) {
-        case TokenExchangeError_TokenExchangeErrorType.ERROR_TYPE_UNSET:
-            return 0;
-        case TokenExchangeError_TokenExchangeErrorType.INVALID_REQUEST:
-            return 1;
-        case TokenExchangeError_TokenExchangeErrorType.INVALID_CLIENT:
-            return 2;
-        case TokenExchangeError_TokenExchangeErrorType.INVALID_GRANT:
-            return 3;
-        case TokenExchangeError_TokenExchangeErrorType.UNAUTHORIZED_CLIENT:
-            return 4;
-        case TokenExchangeError_TokenExchangeErrorType.UNSUPPORTED_GRANT_TYPE:
-            return 5;
-        case TokenExchangeError_TokenExchangeErrorType.INVALID_SCOPE:
-            return 6;
-        default:
-            return 0;
-    }
-}
-function createBasePerformHttpCallRequest() {
-    return {
-        url: "",
-        method: HttpRequestMethod.HTTP_METHOD_UNSET,
-        headers: {},
-        body: new Uint8Array(),
-        apiSpecId: "",
-        isStudioDev: false,
-    };
-}
-const PerformHttpCallRequest = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.url !== "") {
-            writer.uint32(10).string(message.url);
-        }
-        if (message.method !== HttpRequestMethod.HTTP_METHOD_UNSET) {
-            writer.uint32(16).int32(httpRequestMethodToNumber(message.method));
-        }
-        Object.entries(message.headers).forEach(([key, value]) => {
-            PerformHttpCallRequest_HeadersEntry.encode({ key: key, value }, writer.uint32(26).fork()).ldelim();
-        });
-        if (message.body.length !== 0) {
-            writer.uint32(34).bytes(message.body);
-        }
-        if (message.apiSpecId !== "") {
-            writer.uint32(42).string(message.apiSpecId);
-        }
-        if (message.isStudioDev === true) {
-            writer.uint32(48).bool(message.isStudioDev);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePerformHttpCallRequest();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.url = reader.string();
-                    break;
-                case 2:
-                    message.method = httpRequestMethodFromJSON(reader.int32());
-                    break;
-                case 3:
-                    const entry3 = PerformHttpCallRequest_HeadersEntry.decode(reader, reader.uint32());
-                    if (entry3.value !== undefined) {
-                        message.headers[entry3.key] = entry3.value;
-                    }
-                    break;
-                case 4:
-                    message.body = reader.bytes();
-                    break;
-                case 5:
-                    message.apiSpecId = reader.string();
-                    break;
-                case 6:
-                    message.isStudioDev = reader.bool();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b, _c, _d, _e, _f;
-        const message = createBasePerformHttpCallRequest();
-        message.url = (_a = object.url) !== null && _a !== void 0 ? _a : "";
-        message.method = (_b = object.method) !== null && _b !== void 0 ? _b : HttpRequestMethod.HTTP_METHOD_UNSET;
-        message.headers = Object.entries((_c = object.headers) !== null && _c !== void 0 ? _c : {}).reduce((acc, [key, value]) => {
-            if (value !== undefined) {
-                acc[key] = String(value);
-            }
-            return acc;
-        }, {});
-        message.body = (_d = object.body) !== null && _d !== void 0 ? _d : new Uint8Array();
-        message.apiSpecId = (_e = object.apiSpecId) !== null && _e !== void 0 ? _e : "";
-        message.isStudioDev = (_f = object.isStudioDev) !== null && _f !== void 0 ? _f : false;
-        return message;
-    },
-};
-function createBasePerformHttpCallRequest_HeadersEntry() {
-    return { key: "", value: "" };
-}
-const PerformHttpCallRequest_HeadersEntry = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.key !== "") {
-            writer.uint32(10).string(message.key);
-        }
-        if (message.value !== "") {
-            writer.uint32(18).string(message.value);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePerformHttpCallRequest_HeadersEntry();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.key = reader.string();
-                    break;
-                case 2:
-                    message.value = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b;
-        const message = createBasePerformHttpCallRequest_HeadersEntry();
-        message.key = (_a = object.key) !== null && _a !== void 0 ? _a : "";
-        message.value = (_b = object.value) !== null && _b !== void 0 ? _b : "";
-        return message;
-    },
-};
-function createBasePerformHttpCallResponse() {
-    return { code: 0, headers: {}, body: new Uint8Array() };
-}
-const PerformHttpCallResponse = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.code !== 0) {
-            writer.uint32(8).int32(message.code);
-        }
-        Object.entries(message.headers).forEach(([key, value]) => {
-            PerformHttpCallResponse_HeadersEntry.encode({ key: key, value }, writer.uint32(18).fork()).ldelim();
-        });
-        if (message.body.length !== 0) {
-            writer.uint32(26).bytes(message.body);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePerformHttpCallResponse();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.code = reader.int32();
-                    break;
-                case 2:
-                    const entry2 = PerformHttpCallResponse_HeadersEntry.decode(reader, reader.uint32());
-                    if (entry2.value !== undefined) {
-                        message.headers[entry2.key] = entry2.value;
-                    }
-                    break;
-                case 3:
-                    message.body = reader.bytes();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b, _c;
-        const message = createBasePerformHttpCallResponse();
-        message.code = (_a = object.code) !== null && _a !== void 0 ? _a : 0;
-        message.headers = Object.entries((_b = object.headers) !== null && _b !== void 0 ? _b : {}).reduce((acc, [key, value]) => {
-            if (value !== undefined) {
-                acc[key] = String(value);
-            }
-            return acc;
-        }, {});
-        message.body = (_c = object.body) !== null && _c !== void 0 ? _c : new Uint8Array();
-        return message;
-    },
-};
-function createBasePerformHttpCallResponse_HeadersEntry() {
-    return { key: "", value: "" };
-}
-const PerformHttpCallResponse_HeadersEntry = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.key !== "") {
-            writer.uint32(10).string(message.key);
-        }
-        if (message.value !== "") {
-            writer.uint32(18).string(message.value);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePerformHttpCallResponse_HeadersEntry();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.key = reader.string();
-                    break;
-                case 2:
-                    message.value = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b;
-        const message = createBasePerformHttpCallResponse_HeadersEntry();
-        message.key = (_a = object.key) !== null && _a !== void 0 ? _a : "";
-        message.value = (_b = object.value) !== null && _b !== void 0 ? _b : "";
-        return message;
-    },
-};
-function createBaseGetOAuth2InfoRequest() {
-    return { apiSpecId: "" };
-}
-const GetOAuth2InfoRequest = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.apiSpecId !== "") {
-            writer.uint32(10).string(message.apiSpecId);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseGetOAuth2InfoRequest();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.apiSpecId = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a;
-        const message = createBaseGetOAuth2InfoRequest();
-        message.apiSpecId = (_a = object.apiSpecId) !== null && _a !== void 0 ? _a : "";
-        return message;
-    },
-};
-function createBaseGetOAuth2InfoResponse() {
-    return { clientId: "", grantType: GetOAuth2InfoResponse_GrantType.GRANT_TYPE_UNSET, authorizationUrl: "", scope: "" };
-}
-const GetOAuth2InfoResponse = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.clientId !== "") {
-            writer.uint32(10).string(message.clientId);
-        }
-        if (message.grantType !== GetOAuth2InfoResponse_GrantType.GRANT_TYPE_UNSET) {
-            writer.uint32(16).int32(getOAuth2InfoResponse_GrantTypeToNumber(message.grantType));
-        }
-        if (message.authorizationUrl !== "") {
-            writer.uint32(26).string(message.authorizationUrl);
-        }
-        if (message.scope !== "") {
-            writer.uint32(34).string(message.scope);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseGetOAuth2InfoResponse();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.clientId = reader.string();
-                    break;
-                case 2:
-                    message.grantType = getOAuth2InfoResponse_GrantTypeFromJSON(reader.int32());
-                    break;
-                case 3:
-                    message.authorizationUrl = reader.string();
-                    break;
-                case 4:
-                    message.scope = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b, _c, _d;
-        const message = createBaseGetOAuth2InfoResponse();
-        message.clientId = (_a = object.clientId) !== null && _a !== void 0 ? _a : "";
-        message.grantType = (_b = object.grantType) !== null && _b !== void 0 ? _b : GetOAuth2InfoResponse_GrantType.GRANT_TYPE_UNSET;
-        message.authorizationUrl = (_c = object.authorizationUrl) !== null && _c !== void 0 ? _c : "";
-        message.scope = (_d = object.scope) !== null && _d !== void 0 ? _d : "";
-        return message;
-    },
-};
-function createBaseTokenExchangeError() {
-    return { error: TokenExchangeError_TokenExchangeErrorType.ERROR_TYPE_UNSET, errorDescription: "" };
-}
-const TokenExchangeError = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.error !== TokenExchangeError_TokenExchangeErrorType.ERROR_TYPE_UNSET) {
-            writer.uint32(8).int32(tokenExchangeError_TokenExchangeErrorTypeToNumber(message.error));
-        }
-        if (message.errorDescription !== "") {
-            writer.uint32(18).string(message.errorDescription);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseTokenExchangeError();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.error = tokenExchangeError_TokenExchangeErrorTypeFromJSON(reader.int32());
-                    break;
-                case 2:
-                    message.errorDescription = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b;
-        const message = createBaseTokenExchangeError();
-        message.error = (_a = object.error) !== null && _a !== void 0 ? _a : TokenExchangeError_TokenExchangeErrorType.ERROR_TYPE_UNSET;
-        message.errorDescription = (_b = object.errorDescription) !== null && _b !== void 0 ? _b : "";
-        return message;
-    },
-};
-function createBaseTokenDetails() {
-    return { accessToken: "", tokenType: "", expiresInSeconds: 0, refreshToken: "", scope: "" };
-}
-const TokenDetails = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.accessToken !== "") {
-            writer.uint32(10).string(message.accessToken);
-        }
-        if (message.tokenType !== "") {
-            writer.uint32(18).string(message.tokenType);
-        }
-        if (message.expiresInSeconds !== 0) {
-            writer.uint32(24).int64(message.expiresInSeconds);
-        }
-        if (message.refreshToken !== "") {
-            writer.uint32(34).string(message.refreshToken);
-        }
-        if (message.scope !== "") {
-            writer.uint32(42).string(message.scope);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseTokenDetails();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.accessToken = reader.string();
-                    break;
-                case 2:
-                    message.tokenType = reader.string();
-                    break;
-                case 3:
-                    message.expiresInSeconds = remote_api_service_longToNumber(reader.int64());
-                    break;
-                case 4:
-                    message.refreshToken = reader.string();
-                    break;
-                case 5:
-                    message.scope = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b, _c, _d, _e;
-        const message = createBaseTokenDetails();
-        message.accessToken = (_a = object.accessToken) !== null && _a !== void 0 ? _a : "";
-        message.tokenType = (_b = object.tokenType) !== null && _b !== void 0 ? _b : "";
-        message.expiresInSeconds = (_c = object.expiresInSeconds) !== null && _c !== void 0 ? _c : 0;
-        message.refreshToken = (_d = object.refreshToken) !== null && _d !== void 0 ? _d : "";
-        message.scope = (_e = object.scope) !== null && _e !== void 0 ? _e : "";
-        return message;
-    },
-};
-function createBasePerformTokenExchangeRequest() {
-    return { apiSpecId: "", authorizationCode: "", codeVerifier: "" };
-}
-const PerformTokenExchangeRequest = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.apiSpecId !== "") {
-            writer.uint32(10).string(message.apiSpecId);
-        }
-        if (message.authorizationCode !== "") {
-            writer.uint32(18).string(message.authorizationCode);
-        }
-        if (message.codeVerifier !== "") {
-            writer.uint32(26).string(message.codeVerifier);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePerformTokenExchangeRequest();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.apiSpecId = reader.string();
-                    break;
-                case 2:
-                    message.authorizationCode = reader.string();
-                    break;
-                case 3:
-                    message.codeVerifier = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b, _c;
-        const message = createBasePerformTokenExchangeRequest();
-        message.apiSpecId = (_a = object.apiSpecId) !== null && _a !== void 0 ? _a : "";
-        message.authorizationCode = (_b = object.authorizationCode) !== null && _b !== void 0 ? _b : "";
-        message.codeVerifier = (_c = object.codeVerifier) !== null && _c !== void 0 ? _c : "";
-        return message;
-    },
-};
-function createBasePerformTokenExchangeResponse() {
-    return { response: undefined };
-}
-const PerformTokenExchangeResponse = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        var _a, _b;
-        if (((_a = message.response) === null || _a === void 0 ? void 0 : _a.$case) === "tokenDetails") {
-            TokenDetails.encode(message.response.tokenDetails, writer.uint32(10).fork()).ldelim();
-        }
-        if (((_b = message.response) === null || _b === void 0 ? void 0 : _b.$case) === "error") {
-            TokenExchangeError.encode(message.response.error, writer.uint32(18).fork()).ldelim();
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePerformTokenExchangeResponse();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.response = { $case: "tokenDetails", tokenDetails: TokenDetails.decode(reader, reader.uint32()) };
-                    break;
-                case 2:
-                    message.response = { $case: "error", error: TokenExchangeError.decode(reader, reader.uint32()) };
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b, _c, _d, _e, _f;
-        const message = createBasePerformTokenExchangeResponse();
-        if (((_a = object.response) === null || _a === void 0 ? void 0 : _a.$case) === "tokenDetails" &&
-            ((_b = object.response) === null || _b === void 0 ? void 0 : _b.tokenDetails) !== undefined &&
-            ((_c = object.response) === null || _c === void 0 ? void 0 : _c.tokenDetails) !== null) {
-            message.response = {
-                $case: "tokenDetails",
-                tokenDetails: TokenDetails.fromPartial(object.response.tokenDetails),
-            };
-        }
-        if (((_d = object.response) === null || _d === void 0 ? void 0 : _d.$case) === "error" && ((_e = object.response) === null || _e === void 0 ? void 0 : _e.error) !== undefined && ((_f = object.response) === null || _f === void 0 ? void 0 : _f.error) !== null) {
-            message.response = { $case: "error", error: TokenExchangeError.fromPartial(object.response.error) };
-        }
-        return message;
-    },
-};
-function createBaseRefreshTokenRequest() {
-    return { apiSpecId: "", refreshToken: "" };
-}
-const RefreshTokenRequest = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.apiSpecId !== "") {
-            writer.uint32(10).string(message.apiSpecId);
-        }
-        if (message.refreshToken !== "") {
-            writer.uint32(18).string(message.refreshToken);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseRefreshTokenRequest();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.apiSpecId = reader.string();
-                    break;
-                case 2:
-                    message.refreshToken = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b;
-        const message = createBaseRefreshTokenRequest();
-        message.apiSpecId = (_a = object.apiSpecId) !== null && _a !== void 0 ? _a : "";
-        message.refreshToken = (_b = object.refreshToken) !== null && _b !== void 0 ? _b : "";
-        return message;
-    },
-};
-function createBaseRefreshTokenResponse() {
-    return { response: undefined };
-}
-const RefreshTokenResponse = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        var _a, _b;
-        if (((_a = message.response) === null || _a === void 0 ? void 0 : _a.$case) === "tokenDetails") {
-            TokenDetails.encode(message.response.tokenDetails, writer.uint32(10).fork()).ldelim();
-        }
-        if (((_b = message.response) === null || _b === void 0 ? void 0 : _b.$case) === "error") {
-            TokenExchangeError.encode(message.response.error, writer.uint32(18).fork()).ldelim();
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseRefreshTokenResponse();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.response = { $case: "tokenDetails", tokenDetails: TokenDetails.decode(reader, reader.uint32()) };
-                    break;
-                case 2:
-                    message.response = { $case: "error", error: TokenExchangeError.decode(reader, reader.uint32()) };
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b, _c, _d, _e, _f;
-        const message = createBaseRefreshTokenResponse();
-        if (((_a = object.response) === null || _a === void 0 ? void 0 : _a.$case) === "tokenDetails" &&
-            ((_b = object.response) === null || _b === void 0 ? void 0 : _b.tokenDetails) !== undefined &&
-            ((_c = object.response) === null || _c === void 0 ? void 0 : _c.tokenDetails) !== null) {
-            message.response = {
-                $case: "tokenDetails",
-                tokenDetails: TokenDetails.fromPartial(object.response.tokenDetails),
-            };
-        }
-        if (((_d = object.response) === null || _d === void 0 ? void 0 : _d.$case) === "error" && ((_e = object.response) === null || _e === void 0 ? void 0 : _e.error) !== undefined && ((_f = object.response) === null || _f === void 0 ? void 0 : _f.error) !== null) {
-            message.response = { $case: "error", error: TokenExchangeError.fromPartial(object.response.error) };
-        }
-        return message;
-    },
-};
-function createBasePerformApiCallRequest() {
-    return {
-        apiSpecSetId: "",
-        endpointRefId: "",
-        parameters: {},
-        body: new Uint8Array(),
-        lensId: "",
-        isStudioDev: false,
-        cacheTtlSec: 0,
-        linkedResources: [],
-    };
-}
-const PerformApiCallRequest = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.apiSpecSetId !== "") {
-            writer.uint32(10).string(message.apiSpecSetId);
-        }
-        if (message.endpointRefId !== "") {
-            writer.uint32(18).string(message.endpointRefId);
-        }
-        Object.entries(message.parameters).forEach(([key, value]) => {
-            PerformApiCallRequest_ParametersEntry.encode({ key: key, value }, writer.uint32(26).fork()).ldelim();
-        });
-        if (message.body.length !== 0) {
-            writer.uint32(34).bytes(message.body);
-        }
-        if (message.lensId !== "") {
-            writer.uint32(42).string(message.lensId);
-        }
-        if (message.isStudioDev === true) {
-            writer.uint32(48).bool(message.isStudioDev);
-        }
-        if (message.cacheTtlSec !== 0) {
-            writer.uint32(56).int32(message.cacheTtlSec);
-        }
-        for (const v of message.linkedResources) {
-            LinkedResource.encode(v, writer.uint32(66).fork()).ldelim();
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePerformApiCallRequest();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.apiSpecSetId = reader.string();
-                    break;
-                case 2:
-                    message.endpointRefId = reader.string();
-                    break;
-                case 3:
-                    const entry3 = PerformApiCallRequest_ParametersEntry.decode(reader, reader.uint32());
-                    if (entry3.value !== undefined) {
-                        message.parameters[entry3.key] = entry3.value;
-                    }
-                    break;
-                case 4:
-                    message.body = reader.bytes();
-                    break;
-                case 5:
-                    message.lensId = reader.string();
-                    break;
-                case 6:
-                    message.isStudioDev = reader.bool();
-                    break;
-                case 7:
-                    message.cacheTtlSec = reader.int32();
-                    break;
-                case 8:
-                    message.linkedResources.push(LinkedResource.decode(reader, reader.uint32()));
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b, _c, _d, _e, _f, _g, _h;
-        const message = createBasePerformApiCallRequest();
-        message.apiSpecSetId = (_a = object.apiSpecSetId) !== null && _a !== void 0 ? _a : "";
-        message.endpointRefId = (_b = object.endpointRefId) !== null && _b !== void 0 ? _b : "";
-        message.parameters = Object.entries((_c = object.parameters) !== null && _c !== void 0 ? _c : {}).reduce((acc, [key, value]) => {
-            if (value !== undefined) {
-                acc[key] = String(value);
-            }
-            return acc;
-        }, {});
-        message.body = (_d = object.body) !== null && _d !== void 0 ? _d : new Uint8Array();
-        message.lensId = (_e = object.lensId) !== null && _e !== void 0 ? _e : "";
-        message.isStudioDev = (_f = object.isStudioDev) !== null && _f !== void 0 ? _f : false;
-        message.cacheTtlSec = (_g = object.cacheTtlSec) !== null && _g !== void 0 ? _g : 0;
-        message.linkedResources = ((_h = object.linkedResources) === null || _h === void 0 ? void 0 : _h.map((e) => LinkedResource.fromPartial(e))) || [];
-        return message;
-    },
-};
-function createBasePerformApiCallRequest_ParametersEntry() {
-    return { key: "", value: "" };
-}
-const PerformApiCallRequest_ParametersEntry = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.key !== "") {
-            writer.uint32(10).string(message.key);
-        }
-        if (message.value !== "") {
-            writer.uint32(18).string(message.value);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePerformApiCallRequest_ParametersEntry();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.key = reader.string();
-                    break;
-                case 2:
-                    message.value = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b;
-        const message = createBasePerformApiCallRequest_ParametersEntry();
-        message.key = (_a = object.key) !== null && _a !== void 0 ? _a : "";
-        message.value = (_b = object.value) !== null && _b !== void 0 ? _b : "";
-        return message;
-    },
-};
-function createBasePerformApiCallResponse() {
-    return {
-        responseCode: ResponseCode.RESPONSE_CODE_UNSET,
-        metadata: {},
-        body: new Uint8Array(),
-        userLocationUsed: false,
-        linkedResources: [],
-    };
-}
-const PerformApiCallResponse = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.responseCode !== ResponseCode.RESPONSE_CODE_UNSET) {
-            writer.uint32(8).int32(responseCodeToNumber(message.responseCode));
-        }
-        Object.entries(message.metadata).forEach(([key, value]) => {
-            PerformApiCallResponse_MetadataEntry.encode({ key: key, value }, writer.uint32(18).fork()).ldelim();
-        });
-        if (message.body.length !== 0) {
-            writer.uint32(26).bytes(message.body);
-        }
-        if (message.userLocationUsed === true) {
-            writer.uint32(32).bool(message.userLocationUsed);
-        }
-        for (const v of message.linkedResources) {
-            LinkedResource.encode(v, writer.uint32(42).fork()).ldelim();
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePerformApiCallResponse();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.responseCode = responseCodeFromJSON(reader.int32());
-                    break;
-                case 2:
-                    const entry2 = PerformApiCallResponse_MetadataEntry.decode(reader, reader.uint32());
-                    if (entry2.value !== undefined) {
-                        message.metadata[entry2.key] = entry2.value;
-                    }
-                    break;
-                case 3:
-                    message.body = reader.bytes();
-                    break;
-                case 4:
-                    message.userLocationUsed = reader.bool();
-                    break;
-                case 5:
-                    message.linkedResources.push(LinkedResource.decode(reader, reader.uint32()));
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b, _c, _d, _e;
-        const message = createBasePerformApiCallResponse();
-        message.responseCode = (_a = object.responseCode) !== null && _a !== void 0 ? _a : ResponseCode.RESPONSE_CODE_UNSET;
-        message.metadata = Object.entries((_b = object.metadata) !== null && _b !== void 0 ? _b : {}).reduce((acc, [key, value]) => {
-            if (value !== undefined) {
-                acc[key] = String(value);
-            }
-            return acc;
-        }, {});
-        message.body = (_c = object.body) !== null && _c !== void 0 ? _c : new Uint8Array();
-        message.userLocationUsed = (_d = object.userLocationUsed) !== null && _d !== void 0 ? _d : false;
-        message.linkedResources = ((_e = object.linkedResources) === null || _e === void 0 ? void 0 : _e.map((e) => LinkedResource.fromPartial(e))) || [];
-        return message;
-    },
-};
-function createBasePerformApiCallResponse_MetadataEntry() {
-    return { key: "", value: "" };
-}
-const PerformApiCallResponse_MetadataEntry = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.key !== "") {
-            writer.uint32(10).string(message.key);
-        }
-        if (message.value !== "") {
-            writer.uint32(18).string(message.value);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBasePerformApiCallResponse_MetadataEntry();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.key = reader.string();
-                    break;
-                case 2:
-                    message.value = reader.string();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b;
-        const message = createBasePerformApiCallResponse_MetadataEntry();
-        message.key = (_a = object.key) !== null && _a !== void 0 ? _a : "";
-        message.value = (_b = object.value) !== null && _b !== void 0 ? _b : "";
-        return message;
-    },
-};
-function createBaseLinkedResource() {
-    return { url: "", encryptionKey: new Uint8Array() };
-}
-const LinkedResource = {
-    encode(message, writer = minimal_default().Writer.create()) {
-        if (message.url !== "") {
-            writer.uint32(10).string(message.url);
-        }
-        if (message.encryptionKey.length !== 0) {
-            writer.uint32(18).bytes(message.encryptionKey);
-        }
-        return writer;
-    },
-    decode(input, length) {
-        const reader = input instanceof (minimal_default()).Reader ? input : new (minimal_default()).Reader(input);
-        let end = length === undefined ? reader.len : reader.pos + length;
-        const message = createBaseLinkedResource();
-        while (reader.pos < end) {
-            const tag = reader.uint32();
-            switch (tag >>> 3) {
-                case 1:
-                    message.url = reader.string();
-                    break;
-                case 2:
-                    message.encryptionKey = reader.bytes();
-                    break;
-                default:
-                    reader.skipType(tag & 7);
-                    break;
-            }
-        }
-        return message;
-    },
-    fromPartial(object) {
-        var _a, _b;
-        const message = createBaseLinkedResource();
-        message.url = (_a = object.url) !== null && _a !== void 0 ? _a : "";
-        message.encryptionKey = (_b = object.encryptionKey) !== null && _b !== void 0 ? _b : new Uint8Array();
-        return message;
-    },
-};
-var remote_api_service_globalThis = (() => {
-    if (typeof remote_api_service_globalThis !== "undefined")
-        return remote_api_service_globalThis;
-    if (typeof self !== "undefined")
-        return self;
-    if (typeof window !== "undefined")
-        return window;
-    if (typeof __webpack_require__.g !== "undefined")
-        return __webpack_require__.g;
-    throw "Unable to locate global object";
-})();
-function remote_api_service_longToNumber(long) {
-    if (long.gt(Number.MAX_SAFE_INTEGER)) {
-        throw new remote_api_service_globalThis.Error("Value is larger than Number.MAX_SAFE_INTEGER");
-    }
-    return long.toNumber();
-}
-if ((minimal_default()).util.Long !== (long_default())) {
-    (minimal_default()).util.Long = (long_default());
-    minimal_default().configure();
-}
-//# sourceMappingURL=remote_api_service.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/extensions/UriHandlers.js
 
 
+
+
+
+
+
+const UriHandlers_logger = getLogger("UriHandlers");
 const SEPARATOR = "://";
 function extractSchemeAndRoute(uri) {
     const separatorIndex = uri.indexOf(SEPARATOR);
     const scheme = uri.slice(0, separatorIndex);
     const route = uri.slice(separatorIndex + SEPARATOR.length);
-    return { scheme, route };
+    return [scheme, route];
 }
 function isUri(value) {
     return isString(value) && value.includes(SEPARATOR);
@@ -25115,248 +31538,25 @@ function isUriResponse(value) {
 }
 /**
  * An extension point for client URI handlers.
- * @internal
  */
 const uriHandlersFactory = Injectable("UriHandlers", () => {
     const uriHandlers = [];
     return uriHandlers;
 });
-//# sourceMappingURL=UriHandlers.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/extensions/RemoteApiServices.js
-
-
-
-
-
-
-
-
-// NOTE: There's potential for overloads when reporting metrics if reporting is triggered on each frame,
-// (i.e., when the lens sends Remote API requests every frame).
-// As of now, this isn't a concern because src/metrics/operational/operationalMetricsReporter.ts aggregates
-// "count" metrics into a single metric within a batch, and the Remote API service currently
-// reports only "count" metrics. For instance, if 30 metrics with the same name are generated per second,
-// given the current bundle size of 100 operational metrics, there will be one metrics report approximately
-// every 3.3 seconds.
-// In the future, if we opt to report "histogram" or other metric types, they must be approached with caution:
-// either the operationalMetricsReporter should be enhanced to aggregate such metrics,
-// or the Remote API service should manage it directly.
-// Mobiles ticket: https://jira.sc-corp.net/browse/CAMKIT-3092
-const RemoteApiServices_logger = getLogger("RemoteApiServices");
-const uriResponseOkCode = 200;
-const apiResponseStatusHeader = ":sc_lens_api_status";
-const apiBinaryContentType = "application/octet-stream";
-const statusToResponseCodeMap = {
-    success: ResponseCode.SUCCESS,
-    redirected: ResponseCode.REDIRECTED,
-    badRequest: ResponseCode.BAD_REQUEST,
-    accessDenied: ResponseCode.ACCESS_DENIED,
-    notFound: ResponseCode.NOT_FOUND,
-    timeout: ResponseCode.TIMEOUT,
-    requestTooLarge: ResponseCode.REQUEST_TOO_LARGE,
-    serverError: ResponseCode.SERVER_ERROR,
-    cancelled: ResponseCode.CANCELLED,
-    proxyError: ResponseCode.PROXY_ERROR,
-};
-/**
- * Invokes the cancellation handler associated with the provided key and removes it from the collection of handlers.
- */
-function callCancellationHandler(cancellationHandlers, ...keys) {
-    var _a;
-    for (const key of keys) {
-        (_a = cancellationHandlers.get(key)) === null || _a === void 0 ? void 0 : _a();
-        cancellationHandlers.delete(key);
-    }
-}
-/**
- * Removes the specified lenses' metadata from the cache and invokes their cancellation callbacks.
- *
- * @param lensRequestState The state representing the lens cache.
- * @param lensIds An array of lens IDs to be removed from the cache
- * and for which the cancellation callbacks will be invoked.
- */
-function handleLensApplicationEnd(lensRequestState, ...lensIds) {
-    for (const lensId of lensIds) {
-        const state = lensRequestState.get(lensId);
-        if (state) {
-            callCancellationHandler(state.cancellationHandlers, ...state.cancellationHandlers.keys());
-            lensRequestState.delete(lensId);
-        }
-    }
-}
-const remoteApiServicesFactory = Injectable("remoteApiServices", () => {
-    const remoteApiServices = [];
-    return remoteApiServices;
-});
-/**
- * Provides a URI handler that searches for a match within the provided services to handle Remote API requests,
- * i.e., those whose URI starts with 'app://remote-api/performApiRequest'.
- */
-function getRemoteApiUriHandler(registeredServices, sessionState, lensState, lensRepository, reporter) {
-    // Groups services by spec ID for faster lookups.
-    const registeredServiceMap = new Map();
-    for (const service of registeredServices) {
-        const existingServices = registeredServiceMap.get(service.apiSpecId) || [];
-        registeredServiceMap.set(service.apiSpecId, [...existingServices, service]);
-    }
-    const uriRequests = new Subject();
-    const uriCancelRequests = new Subject();
-    const lensRequestState = new Map();
-    const lensTurnOffEvents = lensState.events.pipe(forActions("turnedOff"), tap(([action]) => handleLensApplicationEnd(lensRequestState, action.data.id)));
-    const uriRequestEvents = uriRequests.pipe(map((uriRequest) => {
-        var _a, _b;
-        const lensId = uriRequest.lens.id;
-        if (!lensRequestState.has(lensId)) {
-            lensRequestState.set(lensId, {
-                // Prepares a collection to store cancellation handlers.
-                // A specific handler will be invoked when a cancellation request is issued by the lens.
-                // All handlers will be invoked when the lens is replaced with another one or the session
-                // is destroyed.
-                cancellationHandlers: new Map(),
-                // Parse lens metadata to obtain supported Remote API specs.
-                supportedSpecIds: new Set(((_b = (_a = lensRepository.getLensMetadata(lensId)) === null || _a === void 0 ? void 0 : _a.featureMetadata) !== null && _b !== void 0 ? _b : [])
-                    .filter((feature) => feature.typeUrl === knownAnyTypes.remoteApiInfo)
-                    .flatMap((any) => RemoteApiInfo.decode(any.value).apiSpecIds)),
-            });
-        }
-        const requestState = lensRequestState.get(lensId);
-        // Extracts the spec ID and endpoint ID from the provided Remote API request URI.
-        // The given URI is expected to conform to the following specification:
-        // eslint-disable-next-line max-len
-        // https://docs.google.com/document/d/18fbGYDhD2N_aMTe4ZLY4QKeCSoMeJuklG28TutDzLZc/edit#bookmark=id.p2y39gwgbm4g
-        const { route } = extractSchemeAndRoute(uriRequest.request.uri);
-        const [specId, endpointIdWithQuery] = route.split("/").slice(2);
-        const [endpointId] = endpointIdWithQuery.split("?");
-        return { uriRequest, specId, endpointId, requestState };
-    }), 
-    // only handle requests for API spec ID that current lens supports
-    filter(({ specId, requestState }) => requestState.supportedSpecIds.has(specId)), 
-    // only handle requests if we have a registered service for it
-    filter(({ specId }) => registeredServiceMap.has(specId)), map(({ uriRequest, specId, endpointId, requestState }) => {
-        var _a;
-        const dimensions = new Map([["specId", specId]]);
-        reporter.count("lens_remote-api_requests", 1, dimensions);
-        const remoteApiRequest = {
-            apiSpecId: specId,
-            body: uriRequest.request.data,
-            endpointId,
-            parameters: uriRequest.request.metadata,
-        };
-        // Looks for the first Remote API request handler.
-        for (const service of (_a = registeredServiceMap.get(specId)) !== null && _a !== void 0 ? _a : []) {
-            let requestHandler = undefined;
-            try {
-                requestHandler = service.getRequestHandler(remoteApiRequest, uriRequest.lens);
-            }
-            catch (_b) {
-                RemoteApiServices_logger.warn("Client's Remote API request handler factory threw an error.");
-            }
-            if (requestHandler) {
-                reporter.count("lens_remote-api_handled-requests", 1, dimensions);
-                let cancellationHandler = undefined;
-                try {
-                    // Calls client's Remote API handler to process the request.
-                    cancellationHandler = requestHandler((response) => {
-                        var _a;
-                        reporter.count("lens_remote-api_responses", 1, dimensions);
-                        const responseCode = (_a = statusToResponseCodeMap[response.status]) !== null && _a !== void 0 ? _a : ResponseCode.UNRECOGNIZED;
-                        const uriResponse = {
-                            code: uriResponseOkCode,
-                            description: "",
-                            contentType: apiBinaryContentType,
-                            data: response.body,
-                            metadata: Object.assign(Object.assign({}, response.metadata), { [apiResponseStatusHeader]: responseCodeToNumber(responseCode).toString() }),
-                        };
-                        uriRequest.reply(uriResponse);
-                    });
-                }
-                catch (error) {
-                    RemoteApiServices_logger.warn("Client's Remote API request handler threw an error.");
-                }
-                if (typeof cancellationHandler === "function") {
-                    requestState.cancellationHandlers.set(uriRequest.request.identifier, () => {
-                        try {
-                            cancellationHandler();
-                        }
-                        catch (_a) {
-                            RemoteApiServices_logger.warn("Client's Remote API request cancellation handler threw an error.");
-                        }
-                    });
-                }
-                break;
-            }
-        }
-    }));
-    const uriCancelRequestEvents = uriCancelRequests.pipe(tap((uriRequest) => {
-        var _a;
-        const cancellationHandlers = (_a = lensRequestState.get(uriRequest.lens.id)) === null || _a === void 0 ? void 0 : _a.cancellationHandlers;
-        if (cancellationHandlers) {
-            callCancellationHandler(cancellationHandlers, uriRequest.request.requestId);
-        }
-    }));
-    merge(lensTurnOffEvents, uriRequestEvents, uriCancelRequestEvents)
-        .pipe(catchError((error, sourcePipe) => {
-        // The expectation is that if an error occurs, it happens in our own implementation,
-        // because app callbacks are wrapped with try..catch blocks.
-        // Therefore, we would like to report this error.
-        RemoteApiServices_logger.error(error);
-        reporter.count("lens_remote-api_errors", 1);
-        // Return the source pipe so that we can retry the pipe instead of just completing it.
-        return sourcePipe;
-    }), 
-    // When the pipe completes due to an error,
-    // we want to resubscribe to the original pipe to keep it alive.
-    retry(), takeUntil(sessionState.events.pipe(forActions("destroy"))))
-        .subscribe({
-        complete: () => handleLensApplicationEnd(lensRequestState, ...lensRequestState.keys()),
-    });
-    return {
-        uri: "app://remote-api/performApiRequest",
-        handleRequest(request, reply, lens) {
-            uriRequests.next({ request, reply, lens });
-        },
-        cancelRequest(request, lens) {
-            uriCancelRequests.next({ request, lens });
-        },
-    };
-}
-//# sourceMappingURL=RemoteApiServices.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/extensions/uriHandlersRegister.js
-
-
-
-
-
-
-
-
-
-
-
-const uriHandlersRegister_logger = getLogger("uriHandlersRegister");
 /**
  * Registers URI handlers within LensCore.
  * @internal
  */
-const registerUriHandlers = Injectable("registerUriHandlers", [
-    lensCoreFactory.token,
-    lensStateFactory.token,
-    uriHandlersFactory.token,
-    lensKeyboardFactory.token,
-    remoteApiServicesFactory.token,
-    lensRepositoryFactory.token,
-    sessionStateFactory.token,
-    operationalMetricReporterFactory.token,
-], (lensCore, lensState, userHandlers, lensKeyboard, remoteApiServices, lensRepository, sessionState, operationalMetricsReporter) => {
+const registerUriHandlers = Injectable("registerUriHandlers", [lensCoreFactory.token, lensStateFactory.token, uriHandlersFactory.token, lensKeyboardFactory.token], (lensCore, lensState, userHandlers, lensKeyboard) => {
     if (!isUriHandlers(userHandlers)) {
         throw new Error("Expected an array of UriHandler objects");
     }
     // Users may define UriHandlers using the uriHandlersFactory.token, but we need to add some internally-defined
-    // handlers (lens keyboard and Remote API) before registering handlers with LensCore.
-    const allHandlers = userHandlers.concat(lensKeyboard.uriHandler, getRemoteApiUriHandler(remoteApiServices, sessionState, lensState, lensRepository, operationalMetricsReporter));
+    // handlers (e.g. lens keyboard handler) before registering handlers with LensCore.
+    const allHandlers = userHandlers.concat(lensKeyboard.uriHandler);
     for (const { uri, handleRequest, cancelRequest } of allHandlers) {
         const uris = Array.isArray(uri) ? uri : [uri];
-        for (const { scheme, route } of uris.map(extractSchemeAndRoute)) {
+        for (const [scheme, route] of uris.map(extractSchemeAndRoute)) {
             lensCore.registerUriListener(scheme, route, {
                 handleRequest: (request) => {
                     const reply = (response) => {
@@ -25369,7 +31569,7 @@ const registerUriHandlers = Injectable("registerUriHandlers", [
                     // "lensApplied" state – we'll sanity check, though, and log a warning if we're not.
                     const state = lensState.getState();
                     if (isState(state, "noLensApplied")) {
-                        uriHandlersRegister_logger.warn(`Got a URI request for ${request.uri}, but there is no active lens. The ` +
+                        UriHandlers_logger.warn(`Got a URI request for ${request.uri}, but there is no active lens. The ` +
                             `request will not be processed.`);
                         return;
                     }
@@ -25382,7 +31582,7 @@ const registerUriHandlers = Injectable("registerUriHandlers", [
                     if (cancelRequest) {
                         const state = lensState.getState();
                         if (isState(state, "noLensApplied")) {
-                            uriHandlersRegister_logger.warn(`Got a URI cancel request for ${request.uri}, but there is no active ` +
+                            UriHandlers_logger.warn(`Got a URI cancel request for ${request.uri}, but there is no active ` +
                                 `lens. The cancel request will not be processed.`);
                             return;
                         }
@@ -25393,7 +31593,7 @@ const registerUriHandlers = Injectable("registerUriHandlers", [
         }
     }
 });
-//# sourceMappingURL=uriHandlersRegister.js.map
+//# sourceMappingURL=UriHandlers.js.map
 ;// CONCATENATED MODULE: ./node_modules/rxjs/dist/esm5/internal/operators/scanInternals.js
 
 function scanInternals(accumulator, seed, hasSeed, emitOnNext, emitBeforeComplete) {
@@ -25684,7 +31884,6 @@ const reportLensAndAssetDownload = Injectable("reportLensAndAssetDownload", [
 
 
 
-
 const getContentType = (dimensions) => {
     switch (dimensions.requestType) {
         case "lens_content":
@@ -25727,7 +31926,7 @@ const isRelevantRequest = (value) => {
 };
 const reportHttpMetrics = Injectable("reportHttpMetrics", [operationalMetricReporterFactory.token, requestStateEventTargetFactory.token], (reporter, requestStateEventTarget) => {
     scan_scan({ name: "inProgress", inProgress: new Map() })(requestStateEventTarget, ["started", "completed", "errored"], (state, event) => {
-        var _a;
+        var _a, _b;
         const { inProgress } = state;
         const { dimensions, requestId, timeMs } = event.detail;
         if (!isRelevantRequest(dimensions))
@@ -25747,7 +31946,7 @@ const reportHttpMetrics = Injectable("reportHttpMetrics", [operationalMetricRepo
                 const status = getStatus(event);
                 const operationalDimensions = new Map([
                     ["content_type", getContentType(dimensions)],
-                    ["network_type", (_a = cameraKitUserAgent.connectionType) !== null && _a !== void 0 ? _a : "unknown"],
+                    ["network_type", (_b = (_a = navigator.connection) === null || _a === void 0 ? void 0 : _a.type) !== null && _b !== void 0 ? _b : "unknown"],
                     ["status", status],
                 ]);
                 return {
@@ -26486,24 +32685,7 @@ class Histogram extends Metric {
     }
 }
 //# sourceMappingURL=Histogram.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/common/date.js
-const DEFAULT_TIMEZONE = "America/Los_Angeles";
-const dayFormatter = new Intl.DateTimeFormat("en-US", {
-    timeZone: DEFAULT_TIMEZONE,
-    year: "numeric",
-    month: "numeric",
-    day: "numeric",
-});
-const monthFormatter = new Intl.DateTimeFormat("en-US", {
-    timeZone: DEFAULT_TIMEZONE,
-    year: "numeric",
-    month: "numeric",
-});
-//# sourceMappingURL=date.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/metrics/reporters/reportLensView.js
-
-
-
 
 
 
@@ -26522,31 +32704,6 @@ const monthFormatter = new Intl.DateTimeFormat("en-US", {
 // The value is documented here:
 // https://docs.google.com/document/d/1-kSzFWCWw9Qo3D08FR1_cqeHTsUtk9p3p3uOptzWDTY/edit#heading=h.q5liip76r9lt
 const viewTimeThresholdSec = 0.1;
-function isFirstTimeWithinPeriods(lensId, persistence) {
-    return tslib_es6_awaiter(this, void 0, void 0, function* () {
-        let isLensFirstWithinDay = false;
-        let isLensFirstWithinMonth = false;
-        try {
-            const lensLastViewDate = yield persistence.retrieve(lensId);
-            const currentDate = new Date();
-            if (!lensLastViewDate) {
-                isLensFirstWithinDay = true;
-                isLensFirstWithinMonth = true;
-            }
-            else {
-                isLensFirstWithinDay = dayFormatter.format(lensLastViewDate) !== dayFormatter.format(currentDate);
-                isLensFirstWithinMonth = monthFormatter.format(lensLastViewDate) !== monthFormatter.format(currentDate);
-            }
-            yield persistence.store(lensId, currentDate);
-        }
-        catch (error) {
-            console.error(`Error handling persistence for lensId ${lensId}: ${error}`);
-            isLensFirstWithinDay = false;
-            isLensFirstWithinMonth = false;
-        }
-        return { isLensFirstWithinDay, isLensFirstWithinMonth };
-    });
-}
 /**
  * @internal
  */
@@ -26567,9 +32724,6 @@ const reportLensView = Injectable("reportLensView", [
         cluster: 0,
         webglRendererInfo: "unknown",
     };
-    const lensViewPersistence = new ExpiringPersistence(
-    // 60 days expiration
-    () => 60 * 24 * 60 * 60, new IndexedDBPersistence({ databaseName: "recentLensViews" }));
     merge(
     // Begin measuring LensCore apply time once the lens has finished downloading and we actually add the lens
     // to LensCore (LensWait measures the full download + LensCore apply time i.e. perceived UX latency).
@@ -26596,15 +32750,15 @@ const reportLensView = Injectable("reportLensView", [
             metricsMeasurement.end();
             return Object.assign({ viewTimeSec: (getTimeMs() - lensTurnedOnTime) / 1000 }, metricsMeasurement.measure());
         }))));
-        return applyDelay.pipe(combineLatestWith(viewMetrics, from_from(isFirstTimeWithinPeriods(lensId, lensViewPersistence))), 
-        // This lens should always receive the lensTurnedOff action *before* the next lens is
-        // turned on. But just in case that assumption is violated, we'll clean up
-        // (and not report) if another lens turns on before our lens is turned off.
-        takeUntil(lensState.events.pipe(forActions("turnedOn"), filter(([a]) => a.data.id !== lensId))), take(1), map(([applyDelaySec, viewMetrics, isFirstTimeResults]) => (Object.assign(Object.assign({ applyDelaySec,
-            lensId }, viewMetrics), isFirstTimeResults))));
+        return applyDelay.pipe(combineLatestWith(viewMetrics), 
+        // This lens should always receive the lensTurnedOff action *before* the next lens is turned on.
+        // But just in case that assumption is violated, we'll clean up (and not report) if another lens
+        // turns on before our lens is turned off.
+        takeUntil(lensState.events.pipe(forActions("turnedOn"), filter(([a]) => a.data.id !== lensId))), take(1), map(([applyDelaySec, viewMetrics]) => (Object.assign({ applyDelaySec,
+            lensId }, viewMetrics))));
     }))
         .subscribe({
-        next: ({ applyDelaySec, lensId, viewTimeSec, avgFps, lensFrameProcessingTimeMsAvg, lensFrameProcessingTimeMsStd, lensFrameProcessingTimeMsMedian, lensFrameProcessingN, isLensFirstWithinDay, isLensFirstWithinMonth, }) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
+        next: ({ applyDelaySec, lensId, viewTimeSec, avgFps, lensFrameProcessingTimeMsAvg, lensFrameProcessingTimeMsStd, lensFrameProcessingTimeMsMedian, lensFrameProcessingN, }) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
             if (viewTimeSec < viewTimeThresholdSec)
                 return;
             const lensView = {
@@ -26617,8 +32771,11 @@ const reportLensView = Injectable("reportLensView", [
                 // We don't support recording video, but applications may do this without our knowledge.
                 recordingTimeSec: 0,
                 viewTimeSec,
-                isLensFirstWithinDay,
-                isLensFirstWithinMonth,
+                // TODO: if we want to support these fields, we'll need some persistence to keep track of the
+                // date of last application per lens.
+                // https://jira.sc-corp.net/browse/CAMKIT-3050
+                isLensFirstWithinDay: false,
+                isLensFirstWithinMonth: false,
                 performanceCluster,
                 webglRendererInfo,
             };
@@ -26700,7 +32857,6 @@ const reportLensWait = Injectable("reportLensWait", [lensStateFactory.token, met
 
 
 
-
 /**
  * @internal
  */
@@ -26710,15 +32866,14 @@ const reportUserSession = Injectable("reportUserSession", [metricsEventTargetFac
     const db = new IndexedDBPersistence({ databaseName: "SessionHistory" });
     // We standardize all user dates to PST as per our documentation:
     // https://docs.google.com/document/d/1-kSzFWCWw9Qo3D08FR1_cqeHTsUtk9p3p3uOptzWDTY/
-    const date = new Date();
-    const formattedDate = dayFormatter.format(date);
-    const formattedDateParts = dayFormatter.formatToParts(date);
-    const { day, month, year } = formattedDateParts.reduce((acc, { type, value }) => (Object.assign(Object.assign({}, acc), { [type]: parseInt(value) })), {});
+    const date = new Date(new Date().toLocaleDateString("en-US", {
+        timeZone: "America/Los_Angeles",
+    }));
+    const currentMonth = date.getMonth();
+    const currentDay = date.getDate();
+    const currentYear = date.getFullYear();
     const userSessionInfo = yield db.retrieve(userSessionKey);
     const mostRecentSessionStartDate = userSessionInfo === null || userSessionInfo === void 0 ? void 0 : userSessionInfo.mostRecentSessionStartDate;
-    const formattedMostRecentSessionStartDate = mostRecentSessionStartDate
-        ? dayFormatter.format(mostRecentSessionStartDate)
-        : null;
     const dailySessionBucketMap = new Map([
         [1, DailySessionBucket.ONE_SESSION],
         [2, DailySessionBucket.TWO_SESSION],
@@ -26732,18 +32887,21 @@ const reportUserSession = Injectable("reportUserSession", [metricsEventTargetFac
     ]);
     let dailySessionBucket = (_a = userSessionInfo === null || userSessionInfo === void 0 ? void 0 : userSessionInfo.dailySessionBucket) !== null && _a !== void 0 ? _a : DailySessionBucket.NO_SESSION_BUCKET;
     let isFirstWithinMonth = false;
-    if (formattedMostRecentSessionStartDate === formattedDate) {
+    if (mostRecentSessionStartDate &&
+        mostRecentSessionStartDate.getMonth() === currentMonth &&
+        mostRecentSessionStartDate.getDate() === currentDay &&
+        mostRecentSessionStartDate.getFullYear() === currentYear) {
         dailySessionBucket =
             (_b = dailySessionBucketMap.get(dailySessionBucket + 1)) !== null && _b !== void 0 ? _b : DailySessionBucket.TEN_OR_MORE_SESSION;
+        yield db.remove(userSessionKey);
         yield db.store(userSessionKey, {
             mostRecentSessionStartDate: date,
             dailySessionBucket,
         });
     }
     else {
-        isFirstWithinMonth =
-            !mostRecentSessionStartDate ||
-                monthFormatter.format(mostRecentSessionStartDate) !== monthFormatter.format(date);
+        isFirstWithinMonth = !mostRecentSessionStartDate || mostRecentSessionStartDate.getMonth() !== currentMonth;
+        yield db.remove(userSessionKey);
         yield db.store(userSessionKey, {
             mostRecentSessionStartDate: date,
             dailySessionBucket: (dailySessionBucket = DailySessionBucket.ONE_SESSION),
@@ -26753,9 +32911,9 @@ const reportUserSession = Injectable("reportUserSession", [metricsEventTargetFac
         name: "session",
         dailySessionBucket,
         isFirstWithinMonth,
-        month,
-        day,
-        year,
+        month: currentMonth + 1,
+        day: currentDay,
+        year: currentYear,
     };
     metricsEventTarget.dispatchEvent(new TypedCustomEvent("session", session));
 }));
@@ -27019,24 +33177,7 @@ const registerLensClientInterfaceHandler = Injectable("registerLensClientInterfa
     }));
 });
 //# sourceMappingURL=lensClientInterface.js.map
-;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/remote-configuration/preloadConfiguration.js
-
-
-
-
-
-const setPreloadedConfiguration = Injectable("setPreloadedConfiguration", [lensCoreFactory.token, remoteConfigurationFactory.token], (lensCore, remoteConfiguration) => {
-    remoteConfiguration
-        .getNamespace(Namespace.LENS_CORE_CONFIG)
-        .pipe(take(1))
-        .subscribe((configs) => {
-        const inputs = configs.map(({ configId, value }) => ({ configId, value }));
-        lensCore.setPreloadedConfiguration(inputs);
-    });
-});
-//# sourceMappingURL=preloadConfiguration.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/CameraKit.js
-
 
 
 
@@ -27166,7 +33307,6 @@ class CameraKit {
                 .provides(cameraKitSessionFactory)
                 .run(registerLensAssetsProvider)
                 .run(registerLensClientInterfaceHandler)
-                .run(setPreloadedConfiguration)
                 // We'll run a PartialContainer containing reporters for session-scoped metrics. Running this container
                 // allows each metric reporter to initialize itself (e.g. by adding event listeners to detect when certain
                 // actions occur).
@@ -27336,12 +33476,6 @@ function v4(options, buf, offset) {
 
 
 
-
-
-
-
-
-
 const businessEventsReporter_logger = getLogger("BusinessEventsReporter");
 // CameraKit's prod metrics endpoint.
 // See: https://github.sc-corp.net/Snapchat/pb_schema/blob/2a966db/proto/camera_kit/v3/service.proto#L133
@@ -27354,37 +33488,7 @@ const businessEventsReporter_relativePath = "/com.snap.camerakit.v3.Metrics/metr
 // limit to ensure we don't lose events which are larger in size than we expect.
 const BUSINESS_EVENT_BATCH_MAX_SIZE = 10;
 const BUSINESS_EVENT_BATCH_MAX_AGE_MS = 5000;
-const connectivityTypeMapping = {
-    cellular: cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_MOBILE,
-    bluetooth: cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_BLUETOOTH,
-    wifi: cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_WIFI,
-    unknown: cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_UNKNOWN,
-    none: cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_UNREACHABLE,
-};
-const vendorUuidKey = "vendorUuid";
-const vendorUuidExpiry = convertDaysToSeconds(60);
-/**
- * Retrieves or generates a vendor UUID (Universally Unique Identifier).
- *
- * @param persistence - The persistence storage interface where UUID is stored.
- * @returns {Promise<string | undefined>} - A Promise that resolves to the vendor UUID or undefined,
- * if any failure occurs or opt-in is not enabled.
- */
-const getOrGenerateVendorUuid = (persistence) => tslib_es6_awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const storedUuid = yield persistence.retrieve(vendorUuidKey);
-        if (storedUuid) {
-            return storedUuid;
-        }
-        const newUuid = esm_browser_v4();
-        yield persistence.store(vendorUuidKey, newUuid);
-        return newUuid;
-    }
-    catch (error) {
-        throw new Error("Failed to generate vendor UUID");
-    }
-});
-function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eventHandlers, apiHostname, appVendorUuid) {
+function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eventHandlers, apiHostname) {
     const sessionId = esm_browser_v4();
     businessEventsReporter_logger.log(`Session ID: ${sessionId}`);
     // Blizzard convention is to start the sequenceId at 1.
@@ -27418,8 +33522,6 @@ function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eve
         pageVisibility,
     })).handler;
     const makeBlizzardEvent = (event) => {
-        var _a;
-        const deviceConnectivity = (_a = connectivityTypeMapping[cameraKitUserAgent.connectionType]) !== null && _a !== void 0 ? _a : cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_UNKNOWN;
         return Object.assign(Object.assign({}, event), { cameraKitEventBase: CameraKitEventBase.fromPartial({
                 kitEventBase: KitEventBase.fromPartial({
                     locale: cameraKitUserAgent.locale,
@@ -27436,9 +33538,8 @@ function listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, eve
                 // We overload appId, using the origin instead because it's nice and human-readable (our backed adds
                 // the true appId as oauth_client_id before forwarding events to Blizzard).
                 appId: cameraKitUserAgent.origin,
-                deviceConnectivity,
+                deviceConnectivity: cameraKitEvents_CameraKitConnectivityType.CAMERA_KIT_CONNECTIVITY_TYPE_WIFI,
                 sessionId: sessionId,
-                appVendorUuid,
             }) });
     };
     const sendServerEvent = (eventName, eventData) => {
@@ -27470,95 +33571,73 @@ const businessEventsReporterFactory = Injectable("businessEventsReporter", [
     metricsHandlerFactory.token,
     pageVisibilityFactory.token,
     configurationToken,
-    remoteConfigurationFactory.token,
-], (metricsEventTarget, metricsHandler, pageVisibility, configuration, remoteConfiguration) => {
-    const vendorAnalyticsPersistence = new ExpiringPersistence(() => vendorUuidExpiry, new IndexedDBPersistence({ databaseName: "SessionHistory" }));
-    remoteConfiguration
-        .getInitializationConfig()
-        .pipe(take(1), switchMap(({ appVendorUuidOptIn }) => {
-        if (appVendorUuidOptIn) {
-            return from_from(getOrGenerateVendorUuid(vendorAnalyticsPersistence));
-        }
-        return of(undefined);
-    }), catchError((error) => {
-        businessEventsReporter_logger.warn(`Failed to retrieve or generate vendor UUID.`, error);
-        return of(undefined);
-    }))
-        .subscribe({
-        next: (appVendorUuid) => {
-            /**
-             * This defines a mapping from a business event's external name (the name we document in public
-             * API docs), to its internal representation as a Blizzard ServerEvent.
-             *
-             * It is important that we do this, since the naming of these internal business events are
-             * unintuitive and will not make sense to SDK users.
-             *
-             * To specify the internal event, we must give the ServerEvent's eventName, the specific property
-             *  name which contains the event data (this is a "oneof" property on ServerEvent), and use the
-             * correct event type's `fromPartial` method (this is generated from the ServerEvent protobuf).
-             *
-             * These events are documented here:
-             * https://docs.google.com/document/d/1-kSzFWCWw9Qo3D08FR1_cqeHTsUtk9p3p3uOptzWDTY/
-             *
-             * They are defined in code here:
-             * https://github.sc-corp.net/Snapchat/snapchat/tree/master/blizzard/schema/blizzard-schema/
-             *  codeGen/src/main/java/com/snapchat/analytics/schema/events/cameraKit
-             */
-            listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, {
-                assetDownload: (event) => [
-                    "CAMERA_KIT_ASSET_DOWNLOAD",
-                    { cameraKitAssetDownload: CameraKitAssetDownload.fromPartial(event) },
-                ],
-                assetValidationFailed: (event) => [
-                    "CAMERA_KIT_ASSET_VALIDATION_FAILED",
-                    {
-                        cameraKitAssetValidationFailed: CameraKitAssetValidationFailed.fromPartial(event),
-                    },
-                ],
-                benchmarkComplete: (event) => [
-                    "CAMERA_KIT_WEB_BENCHMARK_COMPLETE",
-                    {
-                        cameraKitWebBenchmarkComplete: CameraKitWebBenchmarkComplete.fromPartial(event),
-                    },
-                ],
-                exception: (event) => [
-                    "CAMERA_KIT_EXCEPTION",
-                    { cameraKitException: CameraKitException.fromPartial(event) },
-                ],
-                legalPrompt: (event) => [
-                    "CAMERA_KIT_LEGAL_PROMPT",
-                    { cameraKitLegalPrompt: CameraKitLegalPrompt.fromPartial(event) },
-                ],
-                lensDownload: (event) => [
-                    "CAMERA_KIT_LENS_DOWNLOAD",
-                    { cameraKitLensDownload: CameraKitLensDownload.fromPartial(event) },
-                ],
-                lensView: (event) => [
-                    "CAMERA_KIT_WEB_LENS_SWIPE",
-                    { cameraKitWebLensSwipe: CameraKitWebLensSwipe.fromPartial(event) },
-                ],
-                lensWait: (event) => [
-                    "CAMERA_KIT_LENS_SPIN",
-                    { cameraKitLensSpin: CameraKitLensSpin.fromPartial(event) },
-                ],
-                lensContentValidationFailed: (event) => [
-                    "CAMERA_KIT_LENS_CONTENT_VALIDATION_FAILED",
-                    {
-                        cameraKitLensContentValidationFailed: CameraKitLensContentValidationFailed.fromPartial(event),
-                    },
-                ],
-                session: (event) => [
-                    "CAMERA_KIT_SESSION",
-                    { cameraKitSession: cameraKitEvents_CameraKitSession.fromPartial(event) },
-                ],
-            }, configuration.apiHostname, appVendorUuid);
-        },
-    });
+], (metricsEventTarget, metricsHandler, pageVisibility, configuration) => {
+    /**
+     * This defines a mapping from a business event's external name (the name we document in public API docs), to
+     * its internal representation as a Blizzard ServerEvent.
+     *
+     * It is important that we do this, since the naming of these internal business events are unintuitive and will
+     * not make sense to SDK users.
+     *
+     * To specify the internal event, we must give the ServerEvent's eventName, the specific property name which
+     * contains the event data (this is a "oneof" property on ServerEvent), and use the correct event type's
+     * `fromPartial` method (this is generated from the ServerEvent protobuf).
+     *
+     * These events are documented here:
+     * https://docs.google.com/document/d/1-kSzFWCWw9Qo3D08FR1_cqeHTsUtk9p3p3uOptzWDTY/
+     *
+     * They are defined in code here:
+     * https://github.sc-corp.net/Snapchat/snapchat/tree/master/blizzard/schema/blizzard-schema/
+     *  codeGen/src/main/java/com/snapchat/analytics/schema/events/cameraKit
+     */
+    listenAndReport(metricsEventTarget, metricsHandler, pageVisibility, {
+        assetDownload: (event) => [
+            "CAMERA_KIT_ASSET_DOWNLOAD",
+            { cameraKitAssetDownload: CameraKitAssetDownload.fromPartial(event) },
+        ],
+        assetValidationFailed: (event) => [
+            "CAMERA_KIT_ASSET_VALIDATION_FAILED",
+            { cameraKitAssetValidationFailed: CameraKitAssetValidationFailed.fromPartial(event) },
+        ],
+        benchmarkComplete: (event) => [
+            "CAMERA_KIT_WEB_BENCHMARK_COMPLETE",
+            { cameraKitWebBenchmarkComplete: CameraKitWebBenchmarkComplete.fromPartial(event) },
+        ],
+        exception: (event) => [
+            "CAMERA_KIT_EXCEPTION",
+            { cameraKitException: CameraKitException.fromPartial(event) },
+        ],
+        legalPrompt: (event) => [
+            "CAMERA_KIT_LEGAL_PROMPT",
+            { cameraKitLegalPrompt: CameraKitLegalPrompt.fromPartial(event) },
+        ],
+        lensDownload: (event) => [
+            "CAMERA_KIT_LENS_DOWNLOAD",
+            { cameraKitLensDownload: CameraKitLensDownload.fromPartial(event) },
+        ],
+        lensView: (event) => [
+            "CAMERA_KIT_WEB_LENS_SWIPE",
+            { cameraKitWebLensSwipe: CameraKitWebLensSwipe.fromPartial(event) },
+        ],
+        lensWait: (event) => [
+            "CAMERA_KIT_LENS_SPIN",
+            { cameraKitLensSpin: CameraKitLensSpin.fromPartial(event) },
+        ],
+        lensContentValidationFailed: (event) => [
+            "CAMERA_KIT_LENS_CONTENT_VALIDATION_FAILED",
+            {
+                cameraKitLensContentValidationFailed: CameraKitLensContentValidationFailed.fromPartial(event),
+            },
+        ],
+        session: (event) => [
+            "CAMERA_KIT_SESSION",
+            { cameraKitSession: cameraKitEvents_CameraKitSession.fromPartial(event) },
+        ],
+    }, configuration.apiHostname);
 });
 //# sourceMappingURL=businessEventsReporter.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/logger/registerLogEntriesSubscriber.js
-
-
+/* provided dependency */ var registerLogEntriesSubscriber_console = __webpack_require__(5108);
 
 
 
@@ -27576,24 +33655,13 @@ const registerLogEntriesSubscriber = Injectable("registerLogEntriesSubscriber", 
         .subscribe((logEntry) => {
         switch (configuration.logger) {
             case "console":
-                // Chrome doesn't print the `cause` Error property, so we need to manually construct a complete
-                // stack trace using our `stringifyError` helper.
-                const messages = cameraKitUserAgent.browser.brand === "Chrome"
-                    ? logEntry.messages.map((message) => {
-                        if (!(message instanceof Error))
-                            return message;
-                        message.stack = stringifyError(message);
-                        return message;
-                    })
-                    : logEntry.messages;
-                console[logEntry.level](`[CameraKit.${logEntry.module}]`, ...messages);
+                registerLogEntriesSubscriber_console[logEntry.level](`[CameraKit.${logEntry.module}]`, ...logEntry.messages);
                 break;
         }
     });
 });
 //# sourceMappingURL=registerLogEntriesSubscriber.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/bootstrapCameraKit.js
-
 
 
 
@@ -27699,7 +33767,6 @@ function bootstrapCameraKit(configuration, provide) {
                 .provides(defaultFetchHandlerFactory)
                 .provides(remoteMediaAssetLoaderFactory)
                 .provides(lensSourcesFactory)
-                .provides(remoteApiServicesFactory)
                 .provides(uriHandlersFactory);
             const publicContainer = provide ? provide(defaultPublicContainer) : defaultPublicContainer;
             // Now that the client's provide() function has completed and the configuration override is ready,
@@ -27717,15 +33784,6 @@ function bootstrapCameraKit(configuration, provide) {
                 .provides(metricsHandlerFactory)
                 .provides(operationalMetricReporterFactory)
                 .provides(reportGlobalException)
-                .provides(cofHandlerFactory)
-                .provides(remoteConfigurationFactory)
-                .provides(legalPromptFactory)
-                .provides(legalStateFactory)
-                // We'll run a PartialContainer containing reporters for globally-scoped metrics. Running this container
-                // allows each metric reporter to initialize itself (e.g. by adding event listeners to detect when certain
-                // actions occur). This PartialContainer also includes the service which listens to locally-reported metrics
-                // and sends them to our backend.
-                .run(reportGloballyScopedMetrics)
                 .run(businessEventsReporterFactory);
             // Run the exception logger so that it can subscribe to log events -- we can't use `Container.run()` because
             // reportGlobalException is also used as a dependency by other Services (and run does not provide Services,
@@ -27740,12 +33798,21 @@ function bootstrapCameraKit(configuration, provide) {
             const lensCore = yield telemetryContainer.provides(lensCoreFactory).get(lensCoreFactory.token);
             const container = telemetryContainer
                 .provides(Injectable(lensCoreFactory.token, () => lensCore))
+                .provides(cofHandlerFactory)
+                .provides(remoteConfigurationFactory)
                 .provides(lensPersistenceStoreFactory)
                 .provides(deviceDependentAssetLoaderFactory)
                 .provides(staticAssetLoaderFactory)
                 .provides(lensAssetRepositoryFactory)
                 .provides(lensRepositoryFactory)
-                .provides(cameraKitFactory);
+                .provides(legalPromptFactory)
+                .provides(legalStateFactory)
+                .provides(cameraKitFactory)
+                // We'll run a PartialContainer containing reporters for globally-scoped metrics. Running this container
+                // allows each metric reporter to initialize itself (e.g. by adding event listeners to detect when certain
+                // actions occur). This PartialContainer also includes the service which listens to locally-reported metrics
+                // and sends them to our backend.
+                .run(reportGloballyScopedMetrics);
             const cameraKit = container.get(cameraKitFactory.token);
             const bootstrapTimeMs = performance.now() - startTimeMs;
             const reporter = container.get(operationalMetricReporterFactory.token);
@@ -27863,7 +33930,7 @@ const getImageBitmap = (imageData, format) => __awaiter(void 0, void 0, void 0, 
  * passed a `render` function. It may call `render` and CameraKit will process the pixel data passed to `render` and
  * return a Promise of the processed pixels (along with rendering them to the normal output canvases).
  * @param options
- * @param options.cameraType By default we set this to 'user', which is the camera type most Lenses expect.
+ * @param options.cameraType By default we set this to 'front', which is the camera type most Lenses expect.
  *
  * @internal
  */
@@ -27961,7 +34028,7 @@ const createFunctionSource = (sourceFunction, options = {}) => {
  *
  * @param image Image element.
  * @param options
- * @param options.cameraType By default we set this to 'user', which is the camera type most Lenses expect.
+ * @param options.cameraType By default we set this to 'front', which is the camera type most Lenses expect.
  * @param options.fpsLimit By default we set no limit on FPS.
  *
  * @category Rendering
@@ -27983,11 +34050,11 @@ function createImageSource(image, options = {}) {
 }
 //# sourceMappingURL=ImageSource.js.map
 ;// CONCATENATED MODULE: ./node_modules/@snap/camera-kit/lib/index.js
+/* provided dependency */ var lib_console = __webpack_require__(5108);
 
 
-console.info(`SDK: ${environment_namespaceObject.l} \
+lib_console.info(`SDK: ${environment_namespaceObject.l} \
 (${lensCoreWasmVersions_namespaceObject.i8}/${lensCoreWasmVersions_namespaceObject.c$})`);
-
 
 
 
@@ -28017,38 +34084,40 @@ console.info(`SDK: ${environment_namespaceObject.l} \
 
 //# sourceMappingURL=index.js.map
 ;// CONCATENATED MODULE: ./src/main.js
+/* provided dependency */ var main_console = __webpack_require__(5108);
 
+const jpegasm = __webpack_require__(7016);
 
 
 (async function () {
 
 
-    const damsService = {
-        apiSpecId: '87e3aee3-0a82-4fbd-8d71-b4534c79704c',
-        getRequestHandler(request) {
-            if (request.endpointId !== 'prize') return;
+    // const damsService = {
+    //     apiSpecId: '87e3aee3-0a82-4fbd-8d71-b4534c79704c',
+    //     getRequestHandler(request) {
+    //         if (request.endpointId !== 'prize') return;
 
-            return async (reply) => {
-                const res = await fetch(`https://bouygues-404412.lm.r.appspot.com/prize?mail=${request.parameters.mail}`, {
-                    headers: {
-                        Accept: 'application/json',
-                    },
-                });
+    //         return async (reply) => {
+    //             const res = await fetch(`https://bouygues-404412.lm.r.appspot.com/prize?mail=${request.parameters.mail}`, {
+    //                 headers: {
+    //                     Accept: 'application/json',
+    //                 },
+    //             });
 
-                const text = await res.text();
+    //             const text = await res.text();
 
-                reply({
-                    status: 'success',
-                    metadata: {},
-                    body: new TextEncoder().encode(text)
-                });
+    //             reply({
+    //                 status: 'success',
+    //                 metadata: {},
+    //                 body: new TextEncoder().encode(text)
+    //             });
 
-                const obj = JSON.parse(text);
-                console.log('CODE : ' + obj.code);
-                carton(obj.mail, obj.code)
-            };
-        }
-    };
+    //             const obj = JSON.parse(text);
+    //             console.log('CODE : ' + obj.code);
+    //             carton(obj.mail, obj.code)
+    //         };
+    //     }
+    // };
 
 
     function carton(mail, code) {
@@ -28058,18 +34127,18 @@ console.info(`SDK: ${environment_namespaceObject.l} \
     }
 
 
-    //var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' })
+    var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' })
 
     //V2 working here
-    var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' }, (container) =>
-        container.provides(
-            Injectable(
-                remoteApiServicesFactory.token,
-                [remoteApiServicesFactory.token],
-                (existing) => [...existing, damsService]
-            )
-        )
-    );
+    // var cameraKit = await bootstrapCameraKit({ apiToken: 'eyJhbGciOiJIUzI1NiIsImtpZCI6IkNhbnZhc1MyU0hNQUNQcm9kIiwidHlwIjoiSldUIn0.eyJhdWQiOiJjYW52YXMtY2FudmFzYXBpIiwiaXNzIjoiY2FudmFzLXMyc3Rva2VuIiwibmJmIjoxNjk4NDEyNDI1LCJzdWIiOiIxMzk1NDk4MC1hYjQwLTQwMTAtYThhZi02NmI5NWYyM2RlYmR-U1RBR0lOR34xOTcxMTQ2OC1jZTY3LTQ5OTgtYmQ5ZS0xNzAwNTRkYTk5NzgifQ.WzqacKQZQIh5SUMC7V45ndhVsk8jjI3BxiwhQVetkz4' }, (container) =>
+    //     container.provides(
+    //         Injectable(
+    //             remoteApiServicesFactory.token,
+    //             [remoteApiServicesFactory.token],
+    //             (existing) => [...existing, damsService]
+    //         )
+    //     )
+    // );
 
 
 
@@ -28100,10 +34169,18 @@ console.info(`SDK: ${environment_namespaceObject.l} \
     session.play();
 
     //
-    console.log(session.output.live);
-    let ctx = session.output.live.getContext('webgl2');
-    console.log(ctx);
+    // console.log(session.output.live);
+    // let ctx = session.output.live.getContext('webgl2');
+    // console.log(ctx);
 
+    const lowQuality = canvas.toDataURL("image/jpeg", 0.1);
+    jpegasm.decode(lowQuality, (err, decoded) => {
+        // err: Error
+        // OR
+        // decoded: { buffer: ArrayBuffer, width: number, height: number }
+        main_console.log('err? '+err)
+        main_console.log('decoded?'+decoded)
+      });
 
 
 })();

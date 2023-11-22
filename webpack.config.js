@@ -1,8 +1,9 @@
 const path = require('path');
+const NodePolyfillPlugin = require("node-polyfill-webpack-plugin")
 
 module.exports = {
   entry: './src/main.js',
-  
+
   output: {
     filename: 'packed.js',
     path: path.resolve(__dirname, 'docs'),
@@ -20,4 +21,12 @@ module.exports = {
     compress: true,
     port: 9000,
   },
+  resolve: {
+    fallback: {
+      "fs": false
+    },
+  },
+  plugins: [
+    new NodePolyfillPlugin()
+  ]
 };
