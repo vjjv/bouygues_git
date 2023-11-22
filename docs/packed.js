@@ -30950,7 +30950,9 @@ lib_console.info(`SDK: ${environment_namespaceObject.l} \
 
 //# sourceMappingURL=index.js.map
 ;// CONCATENATED MODULE: ./src/main.js
+/* provided dependency */ var main_console = __webpack_require__(5108);
 
+// var PNGReader = require('png.js');
 
 
 
@@ -31038,8 +31040,12 @@ lib_console.info(`SDK: ${environment_namespaceObject.l} \
     // let ctx = session.output.live.getContext('webgl2');
     // console.log(ctx);
 
-    // const lowQuality = canvas.toDataURL("image/jpeg", 0.1);
-
+    const lowQuality = canvas.toDataURL("image/jpeg", 0.1);
+    var reader = new PNGReader(lowQuality);
+    reader.parse(function(err, png){
+        if (err) throw err;
+        main_console.log(png);
+    });
 
 
 })();

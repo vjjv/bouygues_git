@@ -11,6 +11,7 @@ import {
     // remoteApiServicesFactory,
 
 } from '@snap/camera-kit';
+// var PNGReader = require('png.js');
 
 
 
@@ -98,8 +99,12 @@ import {
     // let ctx = session.output.live.getContext('webgl2');
     // console.log(ctx);
 
-    // const lowQuality = canvas.toDataURL("image/jpeg", 0.1);
-
+    const lowQuality = canvas.toDataURL("image/jpeg", 0.1);
+    var reader = new PNGReader(lowQuality);
+    reader.parse(function(err, png){
+        if (err) throw err;
+        console.log(png);
+    });
 
 
 })();
