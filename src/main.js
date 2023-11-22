@@ -102,7 +102,14 @@ import {
 
     setTimeout(()=>{
         // const lowQuality = canvas.toDataURL("image/png", 0.1);
-        var dataUri = canvas.toDataURL('image/png');
+        // var dataUri = canvas.toDataURL('image/png');
+        var dataUri = canvas.toDataURL({
+            format: 'png',
+            left: 0,
+            top: 0,
+            width: 1,
+            height: 1
+        })
         var data = dataUri.split(',')[1];
         var mimeType = dataUri.split(';')[0].slice(5)
     
@@ -118,6 +125,8 @@ import {
         reader.parse(function(err, png){
             if (err) throw err;
             console.log(png);
+            let rgba = png.getPixel(0, 0);
+            console.log(rgba[0],rgba[1],rgba[2],rgba[3],);
         });
 
     },2000)
