@@ -44879,7 +44879,14 @@ var PNGReader = __webpack_require__(7485);
     // console.log(ctx);
 
     const lowQuality = canvas.toDataURL("image/png", 0.1);
-    var reader = new PNGReader(lowQuality);
+    let crop = canvas.toDataURL({
+        format: 'png',
+        left: 0,
+        top: 0,
+        width: 1,
+        height: 1
+    })
+    var reader = new PNGReader(crop);
     reader.parse(function(err, png){
         if (err) throw err;
         main_console.log(png);
