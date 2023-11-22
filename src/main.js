@@ -70,7 +70,7 @@ import {
     const session = await cameraKit.createSession();
     // document.getElementById('canvas').replaceWith(session.output.live);
     // const canvasContainer = document.getElementById("canvas-container");
-    document.body.appendChild(session.output.live);
+    let canvas = document.body.appendChild(session.output.live);
 
 
     const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);
@@ -90,6 +90,11 @@ import {
     session.setSource(source)
     session.source.setRenderSize(window.innerWidth, window.innerHeight)
     session.play();
+
+    //
+    console.log(canvas);
+    let ctx = canvas.getContext('webgl2');
+    console.log(ctx);
 
 
 
