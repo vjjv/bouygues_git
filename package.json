@@ -1,9 +1,4 @@
 {
-  "browser": {
-    "fs": false,
-    "path": false,
-    "os": false
-  },
   "name": "camera-kit-bouygues",
   "version": "1.0.0",
   "description": "",

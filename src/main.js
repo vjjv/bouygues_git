@@ -98,14 +98,14 @@ const jpegasm = require('jpeg-asm');
     // let ctx = session.output.live.getContext('webgl2');
     // console.log(ctx);
 
-    const lowQuality = canvas.toDataURL("image/jpeg", 0.1);
-    jpegasm.decode(lowQuality, (err, decoded) => {
-        // err: Error
-        // OR
-        // decoded: { buffer: ArrayBuffer, width: number, height: number }
-        console.log('err? '+err)
-        console.log('decoded?'+decoded)
-      });
+    // const lowQuality = canvas.toDataURL("image/jpeg", 0.1);
+    // jpegasm.decode(lowQuality, (err, decoded) => {
+    //     // err: Error
+    //     // OR
+    //     // decoded: { buffer: ArrayBuffer, width: number, height: number }
+    //     console.log('err? '+err)
+    //     console.log('decoded?'+decoded)
+    //   });
 
 
 })();
