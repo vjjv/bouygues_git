@@ -44878,19 +44878,22 @@ var PNGReader = __webpack_require__(7485);
     // let ctx = session.output.live.getContext('webgl2');
     // console.log(ctx);
 
-    const lowQuality = canvas.toDataURL("image/png", 0.1);
-    let crop = canvas.toDataURL({
-        format: 'png',
-        left: 0,
-        top: 0,
-        width: 1,
-        height: 1
-    })
-    var reader = new PNGReader(crop);
-    reader.parse(function(err, png){
-        if (err) throw err;
-        main_console.log(png);
-    });
+    setTimeout(()=>{
+        // const lowQuality = canvas.toDataURL("image/png", 0.1);
+        let crop = canvas.toDataURL({
+            format: 'png',
+            left: 0,
+            top: 0,
+            width: 10,
+            height: 10
+        })
+        var reader = new PNGReader(crop);
+        reader.parse(function(err, png){
+            if (err) throw err;
+            main_console.log(png);
+        });
+
+    },2000)
 
 
 })();
