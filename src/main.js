@@ -1,4 +1,4 @@
-var PNGReader = require('./PNG.js');
+var PNGReader = require('./PNGReader');
 import {
     bootstrapCameraKit,
     createMediaStreamSource,
