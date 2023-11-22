@@ -44880,6 +44880,11 @@ var PNGReader = __webpack_require__(7485);
 
     setTimeout(()=>{
         // const lowQuality = canvas.toDataURL("image/png", 0.1);
+        var dataUri = canvas.toDataURL('image/png');
+        var data = dataUri.split(',')[1];
+        var mimeType = dataUri.split(';')[0].slice(5)
+    
+        var bytes = window.atob(data);
         let crop = canvas.toDataURL({
             format: 'png',
             left: 0,
@@ -44887,7 +44892,7 @@ var PNGReader = __webpack_require__(7485);
             width: 10,
             height: 10
         })
-        var reader = new PNGReader(crop);
+        var reader = new PNGReader(bytes);
         reader.parse(function(err, png){
             if (err) throw err;
             main_console.log(png);
