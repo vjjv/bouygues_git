@@ -101,7 +101,7 @@ import {
     // console.log(ctx);
 
     var reader;
-    setInterval(()=>{
+    setTimeout(()=>{
         const dataUri = canvas.toDataURL("image/png");
         var data = dataUri.split(',')[1];
         var mimeType = dataUri.split(';')[0].slice(5);
