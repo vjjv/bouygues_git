@@ -244,3 +244,4 @@ self.addEventListener('install', installHandler);
 self.addEventListener('activate', activateHandler);
 self.addEventListener('fetch', fetchHandler);
 self.addEventListener('sync', syncHandler);
+
