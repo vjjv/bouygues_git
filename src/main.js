@@ -76,6 +76,7 @@ import {
     let canvas = session.output.live;
     document.body.appendChild(canvas);
 
+    
 
     const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);
     session.applyLens(lenses[0], { mail: "launch@param.com" });

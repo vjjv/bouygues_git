@@ -44854,6 +44854,7 @@ var PNGReader = __webpack_require__(7485);
     let canvas = session.output.live;
     document.body.appendChild(canvas);
 
+    
 
     const { lenses } = await cameraKit.lensRepository.loadLensGroups(['a807b90b-4b77-4def-a142-495d0636d1f5']);
     session.applyLens(lenses[0], { mail: "launch@param.com" });
@@ -44879,7 +44880,7 @@ var PNGReader = __webpack_require__(7485);
     // console.log(ctx);
 
     var reader;
-    setInterval(()=>{
+    setTimeout(()=>{
         const dataUri = canvas.toDataURL("image/png");
         var data = dataUri.split(',')[1];
         var mimeType = dataUri.split(';')[0].slice(5);
@@ -44900,7 +44901,6 @@ var PNGReader = __webpack_require__(7485);
         //     height: 1
         // }).replace("image/png", "image/octet-stream");  // here is the most important part because if you dont replace you will get a DOM 18 exception.
         // window.location.href=image; // it will save locally
-
     },2000)
 
 
