@@ -1,9 +1,9 @@
-// app.js
+// sw.js
 
-// IndexedDB setup
 const dbName = "CacheDB";
 const storeName = "CacheStore";
 
+// Open IndexedDB
 function openDatabase() {
     return new Promise((resolve, reject) => {
         const request = indexedDB.open(dbName, 1);
@@ -11,7 +11,7 @@ function openDatabase() {
         request.onupgradeneeded = (event) => {
             const db = event.target.result;
             if (!db.objectStoreNames.contains(storeName)) {
-                db.createObjectStore(storeName);
+                db.createObjectStore(storeName, { keyPath: 'id' }); // Define keyPath here
             }
         };
 
@@ -25,17 +25,16 @@ function openDatabase() {
     });
 }
 
-
-
 // Store POST response in IndexedDB
 function storeResponse(url, data) {
     openDatabase().then((db) => {
         const tx = db.transaction(storeName, "readwrite");
         const store = tx.objectStore(storeName);
-        store.put({ url: url, data: data });
+        
+        // Use URL as the unique identifier or create your own id
+        store.put({ id: url, data: data }); // Use URL as id for simplicity
     });
 }
-
 
 // Retrieve cached response from IndexedDB
 function getCachedResponse(url) {
@@ -43,7 +42,7 @@ function getCachedResponse(url) {
         openDatabase().then((db) => {
             const tx = db.transaction(storeName, "readonly");
             const store = tx.objectStore(storeName);
-            const request = store.get(url);
+            const request = store.get(url); // Use URL to get the cached response
 
             request.onsuccess = (event) => {
                 resolve(event.target.result ? event.target.result.data : null);
@@ -56,18 +55,18 @@ function getCachedResponse(url) {
     });
 }
 
-// sw.js
-
-
 // Handle fetch events in Service Worker
 self.addEventListener("fetch", (event) => {
     if (event.request.method === "POST") {
         event.respondWith(
             fetch(event.request).then((response) => {
                 const clonedResponse = response.clone();
+                
+                // Extract JSON data from response
                 clonedResponse.json().then(data => {
-                    storeResponse(event.request.url, data);
+                    storeResponse(event.request.url, data); // Store the data
                 });
+
                 return response; // Return the original response
             })
         );
@@ -86,5 +85,3 @@ self.addEventListener("fetch", (event) => {
         );
     }
 });
-
-
